@@ -17,3 +17,28 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+osint:
+  label: OSINT
+  permalink: /osint
+  description: Inteligencia de fuentes abiertas (Open Source Intelligence).
+
+investigation:
+  label: Investigacion
+  permalink: /investigation
+  description: Metodos, flujos de trabajo y verificacion para investigaciones OSINT.
+
+history:
+  label: Historia
+  permalink: /history
+  description: Origenes, evolucion y contexto historico de herramientas y metodologias.
+
+tradecraft:
+  label: Tradecraft
+  permalink: /tradecraft
+  description: Tecnicas y buenas practicas para investigar con rigor (y sin atajos).
+
+privacy:
+  label: Privacidad
+  permalink: /privacy
+  description: Consideraciones eticas, minimizacion de datos y proteccion de la privacidad.

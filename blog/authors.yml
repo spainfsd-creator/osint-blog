@@ -23,3 +23,12 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+pepetox:
+  name: PepeTox
+  title: OSINT practicante
+  url: https://github.com/spainfsd-creator
+  image_url: https://github.com/spainfsd-creator.png
+  page: true
+  socials:
+    github: spainfsd-creator
