@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Local browser automation artifacts
 .playwright-cli/
+
+# Cron logs (keep directory, ignore log files)
+logs/*.log
