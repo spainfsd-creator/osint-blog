@@ -1,30 +1,350 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * OSINT Blog Custom Styles
+ * Dark, technical design with cyber-intelligence aesthetic
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary colors - Cyber Teal */
+  --ifm-color-primary: #0d9488;
+  --ifm-color-primary-dark: #0b8278;
+  --ifm-color-primary-darker: #0a7a71;
+  --ifm-color-primary-darkest: #08655d;
+  --ifm-color-primary-light: #0fa698;
+  --ifm-color-primary-lighter: #10ae9f;
+  --ifm-color-primary-lightest: #14c4b3;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+
+  /* Spacing */
+  --ifm-global-spacing: 1.5rem;
+
+  /* Shadows */
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #2dd4bf;
+  --ifm-color-primary-dark: #20c5af;
+  --ifm-color-primary-darker: #1ebba6;
+  --ifm-color-primary-darkest: #189a89;
+  --ifm-color-primary-light: #4adccb;
+  --ifm-color-primary-lighter: #56dfd0;
+  --ifm-color-primary-lightest: #7ae8dc;
+
+  --ifm-background-color: #0c1222;
+  --ifm-background-surface-color: #131d2e;
+  --ifm-navbar-background-color: #131d2e;
+  --ifm-footer-background-color: #0c1222;
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.navbar {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 0;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(19, 29, 46, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__link:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   BLOG LIST PAGE
+   ============================================ */
+.blog-list-page article {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: var(--ifm-background-surface-color);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .blog-list-page article {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blog-list-page article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.blog-list-page article header h2 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.blog-list-page article header h2 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-list-page article header h2 a:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* ============================================
+   BLOG POST PAGE
+   ============================================ */
+.blog-post-page article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.blog-post-page article header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .blog-post-page article header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post-page article header h1 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 800;
+  font-size: 2.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Blog content typography */
+.blog-wrapper-main .markdown p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-wrapper-main .markdown h2 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.blog-wrapper-main .markdown h3 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-wrapper-main .markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(13, 148, 136, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme='dark'] .blog-wrapper-main .markdown blockquote {
+  background: rgba(45, 212, 191, 0.08);
+}
+
+/* Tables */
+.blog-wrapper-main .markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.blog-wrapper-main .markdown th {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.blog-wrapper-main .markdown td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .blog-wrapper-main .markdown td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blog-wrapper-main .markdown tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .blog-wrapper-main .markdown tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ============================================
+   TAGS
+   ============================================ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--ifm-color-primary);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+[data-theme='dark'] .tag {
+  background: rgba(45, 212, 191, 0.12);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.blog-sidebar {
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.blog-sidebar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.footer__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+.footer__link-item {
+  transition: opacity 0.2s ease;
+}
+
+.footer__link-item:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+/* Code blocks */
+pre {
+  border-radius: 12px !important;
+  padding: 1.25rem !important;
+}
+
+code {
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Images */
+.blog-wrapper-main .markdown img {
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+/* Links in content */
+.blog-wrapper-main .markdown a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(13, 148, 136, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.blog-wrapper-main .markdown a:hover {
+  text-decoration-color: var(--ifm-color-primary);
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ifm-color-primary),
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--ifm-color-primary);
+  color: white;
 }
