@@ -7,7 +7,6 @@ Actualizado: 2026-02-09T05:14:32.462Z
 
 Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
-- [ ] Google Dorks (Google Hacking)
 - [ ] The Wayback Machine (Internet Archive)
 - [ ] Shodan
 - [ ] Maltego
@@ -43,6 +42,7 @@ Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 ## Publicados
 
 - 2026-02-08: Que es OSINT: origenes, historia y estado actual
+- 2026-02-10: Google Dorks para OSINT responsable: auditoria defensiva y verificacion
 
 ## Fuente (raw)
 
