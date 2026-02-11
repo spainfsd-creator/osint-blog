@@ -348,3 +348,77 @@ html {
   background: var(--ifm-color-primary);
   color: white;
 }
+
+/* ============================================
+   VISUAL POLISH (dark-mode enhancements)
+   ============================================ */
+
+/* Subtle grid on body background */
+[data-theme='dark'] body {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(45, 212, 191, 0.02) 49px,
+      rgba(45, 212, 191, 0.02) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 49px,
+      rgba(45, 212, 191, 0.02) 49px,
+      rgba(45, 212, 191, 0.02) 50px
+    );
+}
+
+/* Teal accent border on navbar */
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(45, 212, 191, 0.15);
+}
+
+/* Teal glow on blog card hover */
+[data-theme='dark'] .blog-list-page article:hover {
+  box-shadow: 0 8px 32px rgba(45, 212, 191, 0.1), 0 0 0 1px rgba(45, 212, 191, 0.08);
+}
+
+/* Teal border on footer top */
+[data-theme='dark'] .footer {
+  border-top: 1px solid rgba(45, 212, 191, 0.15);
+}
+
+/* Subtle border on sidebar */
+[data-theme='dark'] .blog-sidebar {
+  border: 1px solid rgba(45, 212, 191, 0.08);
+}
+
+/* Tag pill borders */
+[data-theme='dark'] .tag {
+  border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+:root .tag {
+  border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+/* Monospace dates and reading time */
+.blog-list-page article time,
+.blog-post-page article time,
+.blog-list-page article .read-time,
+.blog-post-page article .read-time,
+article footer .col time {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+}
+
+/* Ultra-subtle scanlines on code blocks */
+[data-theme='dark'] pre {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(45, 212, 191, 0.015) 2px,
+    rgba(45, 212, 191, 0.015) 4px
+  );
+}

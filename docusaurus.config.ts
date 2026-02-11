@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'OSINT Blog',
   tagline: 'Investigacion, herramientas y metodologias OSINT en espanol',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
@@ -59,7 +59,8 @@ const config: Config = {
       title: 'OSINT Blog',
       logo: {
         alt: 'OSINT Blog',
-        src: 'img/logo.svg',
+        src: 'img/logo-light.svg',
+        srcDark: 'img/logo.svg',
       },
       items: [
         {to: '/', label: 'Blog', position: 'left'},
@@ -73,6 +74,13 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
+      logo: {
+        alt: 'OSINT Blog',
+        src: 'img/logo-light.svg',
+        srcDark: 'img/logo.svg',
+        width: 40,
+        height: 40,
+      },
       links: [
         {
           title: 'Contenido',
@@ -88,16 +96,33 @@ const config: Config = {
           ],
         },
         {
-          title: 'Sobre el blog',
+          title: 'Feeds',
+          items: [
+            {
+              label: 'RSS',
+              href: 'https://spainfsd-creator.github.io/osint-blog/rss.xml',
+            },
+            {
+              label: 'Atom',
+              href: 'https://spainfsd-creator.github.io/osint-blog/atom.xml',
+            },
+          ],
+        },
+        {
+          title: 'Mas',
           items: [
             {
               label: 'GitHub',
               href: 'https://github.com/spainfsd-creator/osint-blog',
             },
+            {
+              label: 'Autor',
+              href: 'https://pepetox.es',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OSINT Blog. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OSINT Blog · Inteligencia de fuentes abiertas, con metodo y responsabilidad.`,
     },
     prism: {
       theme: prismThemes.github,
