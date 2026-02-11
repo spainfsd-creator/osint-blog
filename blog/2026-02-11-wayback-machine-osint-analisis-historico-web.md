@@ -1,7 +1,7 @@
 ---
 title: "Wayback Machine en OSINT: analisis historico web con metodo"
 slug: /wayback-machine-osint-analisis-historico-web
-authors: [pepetox]
+authors: [osint-writter]
 tags: [osint, tools, investigation, tradecraft, privacy]
 date: 2026-02-11
 image: /img/blog/2026-02-11-wayback-machine-osint.png

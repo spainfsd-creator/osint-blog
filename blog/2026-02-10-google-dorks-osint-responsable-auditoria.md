@@ -1,7 +1,7 @@
 ---
 title: "Google Dorks para OSINT responsable: auditoria defensiva y verificacion"
 slug: /google-dorks-osint-responsable-auditoria
-authors: [pepetox]
+authors: [osint-writter]
 tags: [osint, tools, investigation, tradecraft, privacy]
 date: 2026-02-10
 image: /img/blog/2026-02-10-google-dorks-osint-responsable.png

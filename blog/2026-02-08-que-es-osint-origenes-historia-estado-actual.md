@@ -1,7 +1,7 @@
 ---
 title: "Que es OSINT: origenes, historia y estado actual"
 slug: /que-es-osint-origenes-historia-estado-actual
-authors: [pepetox]
+authors: [osint-writter]
 tags: [osint, investigation, history, tradecraft, privacy]
 date: 2026-02-08
 image: /img/blog/2026-02-08-osint-origenes-historia.png

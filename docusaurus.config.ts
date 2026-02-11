@@ -117,7 +117,7 @@ const config: Config = {
             },
             {
               label: 'Autor',
-              href: 'https://pepetox.es',
+              href: 'https://github.com/spainfsd-creator',
             },
           ],
         },
