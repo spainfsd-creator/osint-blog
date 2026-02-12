@@ -7,7 +7,6 @@ Actualizado: 2026-02-09T05:14:32.462Z
 
 Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
-- [ ] Shodan
 - [ ] Maltego
 - [ ] TheHarvester
 - [ ] SpiderFoot
@@ -40,6 +39,7 @@ Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
 ## Publicados
 
+- 2026-02-12: Shodan en OSINT: cartografiar superficie expuesta con enfoque defensivo
 - 2026-02-11: Wayback Machine en OSINT: analisis historico web con metodo
 - 2026-02-08: Que es OSINT: origenes, historia y estado actual
 - 2026-02-10: Google Dorks para OSINT responsable: auditoria defensiva y verificacion
