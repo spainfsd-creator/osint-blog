@@ -9,6 +9,8 @@ image: /img/blog/2026-02-08-osint-origenes-historia.png
 
 ![Ilustracion sobre OSINT](/img/blog/2026-02-08-osint-origenes-historia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/descifrar-la-verdad-con-fuentes-abiertas.m4a)
+
 OSINT (Open Source Intelligence) es inteligencia obtenida a partir de **fuentes publicas**: documentos, registros, webs, redes sociales, mapas, imagen satelital comercial, bases de datos abiertas y, en general, cualquier informacion accesible legalmente sin intrusion. La clave no es la fuente, sino el proceso: **recopilar, contrastar, contextualizar y producir conclusiones** utiles.
 
 <!-- truncate -->
