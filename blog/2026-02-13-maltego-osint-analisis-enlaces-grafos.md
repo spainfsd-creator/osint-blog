@@ -9,6 +9,9 @@ image: /img/blog/2026-02-13-maltego-osint-grafos.png
 
 ![Ilustracion sobre analisis de enlaces (grafos) en una investigacion OSINT con Maltego](/img/blog/2026-02-13-maltego-osint-grafos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/maltego-osint-analisis-enlaces-grafos.m4a)
+
+
 Cuando una investigacion OSINT crece, el problema deja de ser "encontrar algo" y pasa a ser **no perderse**: demasiados dominios, correos, organizaciones, infraestructuras, aliases y fuentes abiertas inconexas. En ese punto, herramientas de **analisis de enlaces** (link analysis) como Maltego ayudan a convertir una lista caotica de hallazgos en una estructura que se puede revisar, auditar y explicar.
 
 En esta guia vas a ver un enfoque **practico y responsable**: metodologia, buen uso de transformaciones, y como evitar falsos positivos, sesgos y recogida innecesaria de datos personales.
