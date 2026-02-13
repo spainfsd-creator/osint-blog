@@ -28,6 +28,11 @@ tools:
   permalink: /tools
   description: Software, plataformas y utilidades para recopilacion y analisis OSINT.
 
+link-analysis:
+  label: Analisis de enlaces
+  permalink: /link-analysis
+  description: Metodologias y tecnicas para modelar relaciones (grafos) y extraer senales utiles.
+
 geoint:
   label: GEOINT
   permalink: /geoint
