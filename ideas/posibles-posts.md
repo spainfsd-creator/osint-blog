@@ -7,6 +7,31 @@ Actualizado: 2026-02-09T05:14:32.462Z
 
 Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
+Regla editorial (nuevo): alternar herramientas e historias
+- Objetivo: que el blog no sea solo "catalogo de herramientas". Publicar alternando:
+  - 1 post de herramienta (lista de abajo)
+  - 1 post de historia OSINT (lista nueva mas abajo)
+- Estilo obligatorio para posts de historia: mini-relatos emocionantes y divertidos de leer (con metodo y evidencias).
+- Para ampliar contexto de las historias (fuentes y casos): ver
+  - /home/ubuntu/Documents/resources/investigaciones/2026-02-14--casos-reales-resueltos-o-impulsados-por-osint-global.md
+  - ideas/historias-osint.md
+
+## Historias (candidatas, basadas en investigacion)
+
+Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
+
+- [ ] Historia: MH17 (2014-2022) - geolocalizacion/cronologia y salto a tribunal
+- [ ] Historia: Skripal (2018) - identidades de cobertura y triangulacion OSINT
+- [ ] Historia: Navalny (2020) - patrones de viaje + confirmacion tecnica (OPAQ)
+- [ ] Historia: "Jihadi John" (2014-2015) - identificacion publica y corroboracion periodistica
+- [ ] Historia: Siria (2013-2020) - verificacion de material y atribucion formal (OPAQ)
+- [ ] Historia: Khashoggi (2018-2021) - atribucion publica + informes ONU/EE.UU.
+- [ ] Historia: Rohingya (2017) - satelite antes/despues para documentar destruccion
+- [ ] Historia: Jan 6 (2021) - un oceano de videos y como evitar errores de identificacion
+- [ ] Historia: Bucha (2022) - satelite + cronologia para fijar hechos
+- [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
+- [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
+
 - [ ] SpiderFoot
 - [ ] Amass (OWASP)
 - [ ] Recon-ng
