@@ -9,6 +9,9 @@ image: /img/blog/2026-02-14-theharvester-osint-recon.png
 
 ![Ilustracion sobre reconocimiento OSINT de un dominio con enfoque defensivo (theHarvester)](/img/blog/2026-02-14-theharvester-osint-recon.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/theharvester-osint-recon-dominio-defensivo.m4a)
+
+
 Cuando te toca hacer **inventario de exposicion publica** de una organizacion (tuya o con autorizacion), lo dificil no es "encontrar cosas": es **encontrar lo relevante sin pasarte de la raya**. En ese punto, `theHarvester` funciona como una navaja suiza para una tarea muy concreta: recolectar, desde fuentes abiertas, **correos, subdominios, hosts, URLs e IPs** asociables a un dominio y convertirlo en una primer lista para validar y corregir.
 
 Esta guia esta escrita desde un enfoque **defensivo y responsable**: como usarlo para reducir riesgo (shadow IT, fugas de correo, superficie olvidada), documentar evidencias y evitar falsos positivos, sin convertirlo en un manual de abuso.
