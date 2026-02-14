@@ -28,6 +28,16 @@ tools:
   permalink: /tools
   description: Software, plataformas y utilidades para recopilacion y analisis OSINT.
 
+recon:
+  label: Reconocimiento
+  permalink: /recon
+  description: "Reconocimiento OSINT con enfoque defensivo: inventario de activos, superficie expuesta y validacion."
+
+automation:
+  label: Automatizacion
+  permalink: /automation
+  description: "Automatizacion responsable de tareas OSINT (recoleccion, normalizacion, trazabilidad y repeticion)."
+
 link-analysis:
   label: Analisis de enlaces
   permalink: /link-analysis
