@@ -7,7 +7,6 @@ Actualizado: 2026-02-09T05:14:32.462Z
 
 Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
-- [ ] TheHarvester
 - [ ] SpiderFoot
 - [ ] Amass (OWASP)
 - [ ] Recon-ng
@@ -38,6 +37,7 @@ Regla: al publicar una idea, moverla a "Publicados" con fecha y titulo del post.
 
 ## Publicados
 
+- 2026-02-14: theHarvester en OSINT: reconocimiento de dominio y exposicion de correo con enfoque defensivo
 - 2026-02-13: Maltego en OSINT: analisis de enlaces y grafos para investigar con metodo
 - 2026-02-12: Shodan en OSINT: cartografiar superficie expuesta con enfoque defensivo
 - 2026-02-11: Wayback Machine en OSINT: analisis historico web con metodo
