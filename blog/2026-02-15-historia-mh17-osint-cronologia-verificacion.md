@@ -9,6 +9,8 @@ image: /img/blog/2026-02-15-mh17-osint-cronologia-verificacion.png
 
 ![Ilustracion editorial sobre OSINT: cronologia, geolocalizacion y verificacion de evidencias (caso MH17)](/img/blog/2026-02-15-mh17-osint-cronologia-verificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-mh17-osint-cronologia-verificacion.m4a)
+
 
 Hay investigaciones donde el reto no es encontrar una pieza, sino **demostrar que un conjunto de piezas encaja** sin forzar la historia. En el derribo del vuelo **MH17** (17 de julio de 2014), el mundo vio un alud de imagenes, declaraciones, trazas tecnicas, rumores y "evidencias" parciales. El trabajo OSINT responsable no consiste en ganar un debate en redes: consiste en **convertir informacion publica en una cronologia auditable**, con margenes de incertidumbre claros y con una disciplina feroz frente a los sesgos.
 
@@ -142,4 +144,3 @@ El objetivo no es impresionar: es **ser verificable**.
 - Resumen del veredicto (17 de noviembre de 2022) en la web del tribunal del caso: https://www.courtmh17.com/en/news/2022/summary-of-the-day-in-court-17-november-2022---judgment.html
 - Consejo Neerlandes de Seguridad (pagina sobre el accidente MH17, informes y material tecnico): https://www.onderzoeksraad.nl/en/page/3546/mh17-crash-17-juli-2014
 - Archivo de investigaciones abiertas sobre MH17 (coleccion de articulos): https://www.bellingcat.com/tag/mh17/
-
