@@ -8,6 +8,11 @@ investigation:
   permalink: /investigation
   description: Metodos, flujos de trabajo y verificacion para investigaciones OSINT.
 
+verification:
+  label: Verificacion
+  permalink: /verification
+  description: Tecnicas para validar evidencias, reducir falsos positivos y documentar incertidumbre.
+
 history:
   label: Historia
   permalink: /history

@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: MH17 (2014-2022) - geolocalizacion/cronologia y salto a tribunal
 - [ ] Historia: Skripal (2018) - identidades de cobertura y triangulacion OSINT
 - [ ] Historia: Navalny (2020) - patrones de viaje + confirmacion tecnica (OPAQ)
 - [ ] Historia: "Jihadi John" (2014-2015) - identificacion publica y corroboracion periodistica
@@ -62,6 +61,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-15: Historia OSINT: MH17 (2014-2022) y el oficio de convertir pistas en prueba verificable
 - 2026-02-14: theHarvester en OSINT: reconocimiento de dominio y exposicion de correo con enfoque defensivo
 - 2026-02-13: Maltego en OSINT: analisis de enlaces y grafos para investigar con metodo
 - 2026-02-12: Shodan en OSINT: cartografiar superficie expuesta con enfoque defensivo
