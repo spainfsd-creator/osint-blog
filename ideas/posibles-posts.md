@@ -30,7 +30,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
-- [ ] Amass (OWASP)
 - [ ] Recon-ng
 - [ ] Sherlock
 - [ ] Maigret
@@ -59,6 +58,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-18: Amass en OSINT: mapeo de superficie de ataque con enfoque defensivo
 - 2026-02-17: Historia OSINT: Skripal (2018) y la disciplina de identificar coberturas sin romper la metodologia
 - 2026-02-16: SpiderFoot en OSINT: automatizacion de reconocimiento con enfoque defensivo
 - 2026-02-15: Historia OSINT: MH17 (2014-2022) y el oficio de convertir pistas en prueba verificable
