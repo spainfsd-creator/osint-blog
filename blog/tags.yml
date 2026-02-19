@@ -57,3 +57,8 @@ socmint:
   label: SOCMINT
   permalink: /socmint
   description: Inteligencia de redes sociales y analisis de perfiles digitales.
+
+opsec:
+  label: OPSEC
+  permalink: /opsec
+  description: Seguridad operativa para investigar con minima exposicion y trazabilidad.

@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Navalny (2020) - patrones de viaje + confirmacion tecnica (OPAQ)
 - [ ] Historia: "Jihadi John" (2014-2015) - identificacion publica y corroboracion periodistica
 - [ ] Historia: Siria (2013-2020) - verificacion de material y atribucion formal (OPAQ)
 - [ ] Historia: Khashoggi (2018-2021) - atribucion publica + informes ONU/EE.UU.
@@ -58,6 +57,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-19: Historia OSINT: Navalny (2020) y el metodo para unir patrones de viaje con corroboracion tecnica
 - 2026-02-18: Amass en OSINT: mapeo de superficie de ataque con enfoque defensivo
 - 2026-02-17: Historia OSINT: Skripal (2018) y la disciplina de identificar coberturas sin romper la metodologia
 - 2026-02-16: SpiderFoot en OSINT: automatizacion de reconocimiento con enfoque defensivo
