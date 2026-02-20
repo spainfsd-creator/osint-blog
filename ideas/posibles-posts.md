@@ -29,7 +29,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
-- [ ] Recon-ng
 - [ ] Sherlock
 - [ ] Maigret
 - [ ] ADS-B Exchange & MarineTraffic
@@ -57,6 +56,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-20: Recon-ng en OSINT: flujo modular para investigar con trazabilidad defensiva
 - 2026-02-19: Historia OSINT: Navalny (2020) y el metodo para unir patrones de viaje con corroboracion tecnica
 - 2026-02-18: Amass en OSINT: mapeo de superficie de ataque con enfoque defensivo
 - 2026-02-17: Historia OSINT: Skripal (2018) y la disciplina de identificar coberturas sin romper la metodologia
