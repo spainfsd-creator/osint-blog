@@ -9,6 +9,9 @@ image: /img/blog/2026-02-20-recon-ng-osint-flujo-modular-defensivo.png
 
 ![Ilustracion editorial de analista OSINT organizando datos en un framework modular con grafo, tablas y trazabilidad defensiva](/img/blog/2026-02-20-recon-ng-osint-flujo-modular-defensivo.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/recon-ng-osint-flujo-modular-defensivo.m4a)
+
+
 En muchas investigaciones OSINT, el problema no es encontrar datos: es no perder el hilo cuando aparecen docenas de pistas, fuentes y comprobaciones cruzadas. `Recon-ng` destaca justo ahi: ofrece un marco de trabajo modular para recolectar, normalizar y revisar evidencia abierta sin convertir el proceso en una hoja de calculo inmanejable.
 
 Este contenido esta orientado a uso legitimo (auditoria defensiva, due diligence, investigacion corporativa y verificacion). No incluye tecnicas para acoso, doxxing ni dano a terceros.
