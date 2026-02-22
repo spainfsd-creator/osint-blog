@@ -28,7 +28,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
-- [ ] Sherlock
 - [ ] Maigret
 - [ ] ADS-B Exchange & MarineTraffic
 - [ ] Arkham Intelligence & DeBank
@@ -55,6 +54,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-22: Sherlock en OSINT: rastrear reutilizacion de alias con verificacion responsable
 - 2026-02-21: Historia OSINT: Jihadi John (2014-2015) y la verificacion multifuente sin triunfalismo
 - 2026-02-20: Recon-ng en OSINT: flujo modular para investigar con trazabilidad defensiva
 - 2026-02-19: Historia OSINT: Navalny (2020) y el metodo para unir patrones de viaje con corroboracion tecnica
