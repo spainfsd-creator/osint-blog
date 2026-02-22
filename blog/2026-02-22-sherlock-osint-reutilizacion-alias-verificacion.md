@@ -9,6 +9,9 @@ image: /img/blog/2026-02-22-sherlock-osint-reutilizacion-alias-verificacion.png
 
 ![Ilustracion editorial de analista OSINT revisando reutilizacion de alias en multiples perfiles con checklist de verificacion](/img/blog/2026-02-22-sherlock-osint-reutilizacion-alias-verificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sherlock-osint-reutilizacion-alias-verificacion.m4a)
+
+
 Cuando una investigacion arranca con un alias, el mayor error no es "buscar poco": es **dar por hecho que todas las coincidencias pertenecen a la misma persona**. `Sherlock` es util precisamente para la fase correcta del trabajo: detectar posibles perfiles por nombre de usuario en muchas plataformas y preparar una verificacion posterior con metodo.
 
 Este contenido esta orientado a uso legitimo (verificacion periodistica, due diligence, investigacion corporativa, proteccion de marca y seguridad defensiva). No incluye tecnicas para acoso, doxxing ni dano a terceros.
