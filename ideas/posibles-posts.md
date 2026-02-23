@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Siria (2013-2020) - verificacion de material y atribucion formal (OPAQ)
 - [ ] Historia: Khashoggi (2018-2021) - atribucion publica + informes ONU/EE.UU.
 - [ ] Historia: Rohingya (2017) - satelite antes/despues para documentar destruccion
 - [ ] Historia: Jan 6 (2021) - un oceano de videos y como evitar errores de identificacion
@@ -54,6 +53,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-23: Historia OSINT: Siria (2013-2020), de la verificacion de material a la atribucion formal (OPAQ)
 - 2026-02-22: Sherlock en OSINT: rastrear reutilizacion de alias con verificacion responsable
 - 2026-02-21: Historia OSINT: Jihadi John (2014-2015) y la verificacion multifuente sin triunfalismo
 - 2026-02-20: Recon-ng en OSINT: flujo modular para investigar con trazabilidad defensiva
