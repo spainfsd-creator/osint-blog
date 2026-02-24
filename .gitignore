@@ -22,3 +22,5 @@ yarn-error.log*
 # Local browser automation artifacts
 .playwright-cli/
 
+# Temporary local workflow artifacts (e.g. generated images before copying to static/)
+resources/
