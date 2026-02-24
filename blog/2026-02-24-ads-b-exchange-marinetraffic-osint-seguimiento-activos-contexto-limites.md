@@ -9,6 +9,9 @@ image: /img/blog/2026-02-24-ads-b-exchange-marinetraffic-osint-seguimiento-activ
 
 ![Ilustracion editorial de analista OSINT cruzando trazas de vuelo y trafico maritimo en mapas para verificar contexto operativo](/img/blog/2026-02-24-ads-b-exchange-marinetraffic-osint-seguimiento-activos-contexto-limites.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ads-b-exchange-marinetraffic-osint-seguimiento-activos-contexto-limites.m4a)
+
+
 Cuando una investigacion depende de entender **movimientos** (un avion, un buque, una ruta, una ventana temporal), el error mas comun no es "no tener datos": es leer una traza aislada como si ya explicara la historia completa. `ADS-B Exchange` y `MarineTraffic` son dos piezas muy utiles para OSINT, pero solo aportan valor real cuando se usan con contexto, cobertura, tiempos de actualizacion y verificacion cruzada.
 
 Este contenido esta orientado a usos legitimos (periodismo, analisis de riesgos, due diligence, seguridad defensiva, verificacion de incidentes y cadena logistica). No incluye instrucciones para acoso, doxxing ni dano a terceros.
