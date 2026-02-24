@@ -28,7 +28,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
 - [ ] Maigret
-- [ ] ADS-B Exchange & MarineTraffic
 - [ ] Arkham Intelligence & DeBank
 - [ ] Blackbird
 - [ ] Castrick y la Geolocalización Precisa
@@ -53,6 +52,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-24: ADS-B Exchange y MarineTraffic en OSINT: seguimiento de activos con contexto, limites y verificacion responsable
 - 2026-02-23: Historia OSINT: Siria (2013-2020), de la verificacion de material a la atribucion formal (OPAQ)
 - 2026-02-22: Sherlock en OSINT: rastrear reutilizacion de alias con verificacion responsable
 - 2026-02-21: Historia OSINT: Jihadi John (2014-2015) y la verificacion multifuente sin triunfalismo
