@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Khashoggi (2018-2021) - atribucion publica + informes ONU/EE.UU.
 - [ ] Historia: Rohingya (2017) - satelite antes/despues para documentar destruccion
 - [ ] Historia: Jan 6 (2021) - un oceano de videos y como evitar errores de identificacion
 - [ ] Historia: Bucha (2022) - satelite + cronologia para fijar hechos
@@ -52,6 +51,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-25: Historia OSINT: Khashoggi (2018-2021), de la cronologia abierta a la atribucion publica con cautela
 - 2026-02-24: ADS-B Exchange y MarineTraffic en OSINT: seguimiento de activos con contexto, limites y verificacion responsable
 - 2026-02-23: Historia OSINT: Siria (2013-2020), de la verificacion de material a la atribucion formal (OPAQ)
 - 2026-02-22: Sherlock en OSINT: rastrear reutilizacion de alias con verificacion responsable
