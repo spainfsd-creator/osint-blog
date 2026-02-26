@@ -2,11 +2,133 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-02-25T00:00:00.000Z</updated>
+    <updated>2026-02-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Maigret en OSINT: correlacion de perfiles por username con verificacion responsable]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable"/>
+        <updated>2026-02-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de un analista OSINT cruzando perfiles publicos por alias en un tablero de investigacion con metodologia responsable]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT cruzando perfiles publicos por alias en un tablero de investigacion con metodologia responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-26-maigret-osint-correlacion-perfiles-username-verificacion-responsable-6db93f2965ea421b88011037b9e43487.png" width="1600" height="900" class="img_ev3q"></p>
+<p>Cuando una investigacion arranca con un alias reutilizado en varias plataformas, el error mas comun no es "no encontrar suficientes cuentas": es <strong>dar por buena la primera coincidencia</strong>. <code>Maigret</code> es una herramienta OSINT orientada a recopilar y organizar presencia publica en servicios online a partir de identificadores (como usernames), pero su valor real aparece cuando la usas como <strong>motor de hipotesis</strong> y no como veredicto.</p>
+<p>Este post esta orientado a usos legitimos (periodismo, due diligence, seguridad defensiva, investigacion academica y verificacion) y evita instrucciones de acoso, doxxing o dano a terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es (y para que sirve)<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve)" title="Enlace directo al Que es (y para que sirve)" translate="no">​</a></h2>
+<p><code>Maigret</code> es una herramienta OSINT enfocada en buscar presencia de un identificador en multiples sitios y generar resultados estructurados. Frente a un enfoque de "abrir 40 pestanas y comparar a mano", aporta tres ventajas practicas:</p>
+<ul>
+<li class=""><strong>Cobertura y repetibilidad</strong>: ejecutas una busqueda con el mismo criterio y puedes documentar exactamente que hiciste.</li>
+<li class=""><strong>Enriquecimiento de contexto</strong>: no solo busca URLs; en muchos sitios intenta extraer datos visibles del perfil para ayudar a priorizar la revision.</li>
+<li class=""><strong>Salida de informe</strong>: permite exportar resultados para auditoria interna, trazabilidad o revision en equipo.</li>
+</ul>
+<p>No sustituye el criterio analitico. Una coincidencia de alias puede ser casual, reciclada o incluso imitacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso (legitimo) con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso (legitimo) con ejemplo ficticio" title="Enlace directo al Caso de uso (legitimo) con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina un equipo de seguridad de una pyme que investiga una fuga de credenciales publicada en un foro. Entre los datos aparece el alias <code>soporte-acme</code>. El objetivo legitimo no es "vigilar a una persona", sino evaluar si ese alias se reutiliza en plataformas donde se exponga informacion corporativa (documentacion, repositorios, perfiles tecnicos o foros especializados).</p>
+<p>Flujo de uso responsable con <code>Maigret</code>:</p>
+<ol>
+<li class="">Definir una hipotesis limitada: "buscar reutilizacion del alias <code>soporte-acme</code> en servicios publicos".</li>
+<li class="">Ejecutar una busqueda inicial y guardar el resultado.</li>
+<li class="">Revisar manualmente solo coincidencias de alto valor (perfiles tecnicos, repositorios, foros del sector).</li>
+<li class="">Corroborar con senales adicionales (fecha, biografia, enlaces, patrones lingüisticos, contexto profesional).</li>
+<li class="">Documentar incertidumbre y descartar coincidencias debiles.</li>
+</ol>
+<p>El resultado esperado no es una "identificacion" automatica, sino una lista priorizada de pistas verificables.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-pasos">Flujo recomendado (pasos)<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#flujo-recomendado-pasos" class="hash-link" aria-label="Enlace directo al Flujo recomendado (pasos)" title="Enlace directo al Flujo recomendado (pasos)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-preparar-el-objetivo-y-el-contexto">1. Preparar el objetivo y el contexto<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#1-preparar-el-objetivo-y-el-contexto" class="hash-link" aria-label="Enlace directo al 1. Preparar el objetivo y el contexto" title="Enlace directo al 1. Preparar el objetivo y el contexto" translate="no">​</a></h3>
+<p>Antes de lanzar la herramienta, define:</p>
+<ul>
+<li class="">identificador principal (alias, correo o telefono, segun el caso y la base legal de tu investigacion);</li>
+<li class="">ventana temporal (si buscas actividad reciente o historial);</li>
+<li class="">criterio de coincidencia fuerte vs debil;</li>
+<li class="">que datos <strong>no</strong> vas a recopilar aunque sean publicos (minimizacion).</li>
+</ul>
+<p>Esta preparacion evita dos problemas frecuentes: sobrerrecoger datos y perseguir ruido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-ejecutar-una-busqueda-inicial-reproducible">2. Ejecutar una busqueda inicial reproducible<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#2-ejecutar-una-busqueda-inicial-reproducible" class="hash-link" aria-label="Enlace directo al 2. Ejecutar una busqueda inicial reproducible" title="Enlace directo al 2. Ejecutar una busqueda inicial reproducible" translate="no">​</a></h3>
+<p>La documentacion oficial de <code>Maigret</code> muestra una interfaz CLI con soporte para generar reportes y revisar resultados en distintos formatos. Para un primer barrido, prioriza una ejecucion simple y guardable.</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">maigret soporte-acme --html</span><br></span></code></pre></div></div>
+<p>Si necesitas salida estructurada para revision interna o comparativas entre ejecuciones, puedes generar JSON/CSV/PDF/HTML segun el flujo del equipo. Evita automatizar acciones agresivas contra plataformas; el objetivo aqui es observacion y verificacion, no interaccion intrusiva.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-triar-coincidencias-por-calidad-no-por-cantidad">3. Triar coincidencias por calidad, no por cantidad<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#3-triar-coincidencias-por-calidad-no-por-cantidad" class="hash-link" aria-label="Enlace directo al 3. Triar coincidencias por calidad, no por cantidad" title="Enlace directo al 3. Triar coincidencias por calidad, no por cantidad" translate="no">​</a></h3>
+<p>Una lista larga de perfiles no es una conclusion. Prioriza:</p>
+<ul>
+<li class="">coincidencias con actividad publica consistente;</li>
+<li class="">perfiles con biografia/enlaces que encajen con el contexto del caso;</li>
+<li class="">plataformas tecnicas donde el alias tenga mas valor investigativo;</li>
+<li class="">fechas y huella de actividad compatibles con tu hipotesis.</li>
+</ul>
+<p>Descarta o marca como baja confianza perfiles vacios, clonicos o recien creados sin contexto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-con-evidencia-abierta-adicional">4. Corroborar con evidencia abierta adicional<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#4-corroborar-con-evidencia-abierta-adicional" class="hash-link" aria-label="Enlace directo al 4. Corroborar con evidencia abierta adicional" title="Enlace directo al 4. Corroborar con evidencia abierta adicional" translate="no">​</a></h3>
+<p><code>Maigret</code> funciona mejor como entrada a un flujo multifuente. Algunas comprobaciones seguras y legitimas:</p>
+<ul>
+<li class="">verificar si el mismo alias aparece enlazado desde un perfil profesional o repositorio publico;</li>
+<li class="">comparar avatares, descripciones o enlaces publicos (sin asumir identidad por una sola senal);</li>
+<li class="">contrastar fechas de publicacion con el evento investigado;</li>
+<li class="">revisar cambios historicos de paginas publicas (por ejemplo, con archivo web) si procede.</li>
+</ul>
+<p>La clave es separar claramente:</p>
+<ul>
+<li class="">observado (dato visible)</li>
+<li class="">corroborado (confirmado por otra fuente)</li>
+<li class="">inferido (hipotesis)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-exportar-versionar-y-cerrar-con-conclusiones-prudentes">5. Exportar, versionar y cerrar con conclusiones prudentes<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#5-exportar-versionar-y-cerrar-con-conclusiones-prudentes" class="hash-link" aria-label="Enlace directo al 5. Exportar, versionar y cerrar con conclusiones prudentes" title="Enlace directo al 5. Exportar, versionar y cerrar con conclusiones prudentes" translate="no">​</a></h3>
+<p>El cierre de un trabajo OSINT responsable exige dejar trazabilidad:</p>
+<ul>
+<li class="">comando usado;</li>
+<li class="">fecha/hora de ejecucion;</li>
+<li class="">identificador consultado;</li>
+<li class="">criterios de exclusion;</li>
+<li class="">hallazgos con nivel de confianza;</li>
+<li class="">pendientes de verificacion.</li>
+</ul>
+<p>Esto reduce errores al reabrir el caso dias despues o al pasarlo a otra persona del equipo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Maigret</code> es util, pero tiene limites operativos que conviene asumir desde el inicio:</p>
+<ul>
+<li class=""><strong>Reutilizacion casual de alias</strong>: el mismo username puede pertenecer a personas distintas.</li>
+<li class=""><strong>Cambios de UI o anti-bot</strong>: algunas plataformas cambian respuestas y pueden degradar deteccion temporalmente.</li>
+<li class=""><strong>Perfiles privados o borrados</strong>: la ausencia de hallazgo no prueba ausencia de cuenta.</li>
+<li class=""><strong>Metadatos ambiguos</strong>: nombres, fotos o bios pueden ser copiados entre cuentas.</li>
+<li class=""><strong>Cobertura variable</strong>: la calidad del resultado depende del soporte actualizado de sitios y del tipo de identificador.</li>
+</ul>
+<p>Por eso conviene usar <code>Maigret</code> como capa de descubrimiento y no como sistema de atribucion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec--etica--privacidad">Buenas practicas (OPSEC / etica / privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#buenas-practicas-opsec--etica--privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC / etica / privacidad)" title="Enlace directo al Buenas practicas (OPSEC / etica / privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con un objetivo legitimo y documentado (compliance, respuesta a incidentes, verificacion periodistica, investigacion academica).</li>
+<li class="">Minimiza la recopilacion: guarda solo lo necesario para el caso.</li>
+<li class="">Evita mezclar datos personales de terceros no relacionados.</li>
+<li class="">No contactes, no interactues y no intentes forzar accesos a servicios.</li>
+<li class="">Registra incertidumbre y revisa sesgos: un alias llamativo genera exceso de confianza muy rapido.</li>
+<li class="">Si el caso puede afectar a personas reales, revisa implicaciones legales y de privacidad antes de compartir resultados.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Maigret</code> encaja muy bien junto a otras tecnicas/herramientas, segun el objetivo:</p>
+<ul>
+<li class=""><code>Sherlock</code> / <code>WhatsMyName</code>: comprobaciones rapidas de presencia por alias.</li>
+<li class="">Busqueda web avanzada y archivo web: contexto historico y corroboracion.</li>
+<li class="">Analisis manual de repositorios/perfiles tecnicos: calidad por encima de volumen.</li>
+<li class="">Hojas de trabajo o grafos ligeros: trazabilidad de relaciones e hipotesis.</li>
+</ul>
+<p>Si empiezas con <code>Maigret</code>, el siguiente salto de calidad no es "buscar en mas sitios", sino mejorar tu <strong>criterio de verificacion</strong>: priorizacion, corroboracion y redaccion de conclusiones con niveles de confianza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-recomendadas">Fuentes oficiales recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable#fuentes-oficiales-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales recomendadas" title="Enlace directo al Fuentes oficiales recomendadas" translate="no">​</a></h2>
+<ul>
+<li class="">Documentacion oficial de Maigret (CLI, formatos y guias de uso)</li>
+<li class="">Repositorio oficial en GitHub (README, issues y cambios recientes)</li>
+<li class="">FAQ / Supported identifier types para entender limites del dato de entrada</li>
+</ul>
+<p>Proximo tema sugerido: <code>Holehe</code> o una comparativa practica <code>Maigret vs Sherlock vs WhatsMyName</code> centrada en falsos positivos y trazabilidad.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Herramientas" term="Herramientas"/>
+        <category label="SOCMINT" term="SOCMINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="OPSEC" term="OPSEC"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Historia OSINT: Khashoggi (2018-2021), de la cronologia abierta a la atribucion publica con cautela]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/historia-khashoggi-osint-cronologia-atribucion-publica-cautela</id>
