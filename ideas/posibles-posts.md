@@ -26,7 +26,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
-- [ ] Maigret
 - [ ] Arkham Intelligence & DeBank
 - [ ] Blackbird
 - [ ] Castrick y la Geolocalización Precisa
@@ -51,6 +50,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-26: Maigret en OSINT: correlacion de perfiles por username con verificacion responsable
 - 2026-02-25: Historia OSINT: Khashoggi (2018-2021), de la cronologia abierta a la atribucion publica con cautela
 - 2026-02-24: ADS-B Exchange y MarineTraffic en OSINT: seguimiento de activos con contexto, limites y verificacion responsable
 - 2026-02-23: Historia OSINT: Siria (2013-2020), de la verificacion de material a la atribucion formal (OPAQ)
