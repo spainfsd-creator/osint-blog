@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Rohingya (2017) - satelite antes/despues para documentar destruccion
 - [ ] Historia: Jan 6 (2021) - un oceano de videos y como evitar errores de identificacion
 - [ ] Historia: Bucha (2022) - satelite + cronologia para fijar hechos
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
@@ -50,6 +49,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-27: Historia OSINT: Rohingya (2017), satelite antes/despues para documentar destruccion con cautela metodologica
 - 2026-02-26: Maigret en OSINT: correlacion de perfiles por username con verificacion responsable
 - 2026-02-25: Historia OSINT: Khashoggi (2018-2021), de la cronologia abierta a la atribucion publica con cautela
 - 2026-02-24: ADS-B Exchange y MarineTraffic en OSINT: seguimiento de activos con contexto, limites y verificacion responsable
