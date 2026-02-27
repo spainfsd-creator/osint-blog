@@ -2,11 +2,112 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-02-26T00:00:00.000Z</updated>
+    <updated>2026-02-27T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Historia OSINT: Rohingya (2017), satelite antes/despues para documentar destruccion con cautela metodologica]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion"/>
+        <updated>2026-02-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de analista OSINT comparando imagenes satelitales antes y despues para verificar destruccion de aldeas con metodologia responsable]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de analista OSINT comparando imagenes satelitales antes y despues para verificar destruccion de aldeas con metodologia responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-27-historia-rohingya-osint-satelite-antes-despues-documentar-destruccion-4980e92c7d9f90e59d16ab5ddfe06fa8.png" width="1376" height="768" class="img_ev3q"></p>
+<p>En agosto de 2017, mientras miles de personas huian de Rakhine hacia Bangladesh, una parte clave de la verdad no llego primero por ruedas de prensa ni por notas oficiales: llego por <strong>comparativas satelitales antes/despues</strong>. En este caso, la leccion OSINT no es "mirar un mapa bonito", sino construir evidencia verificable cuando hay acceso fisico limitado, propaganda cruzada y riesgo de borrar huellas.</p>
+<p>Este contenido esta orientado a usos legitimos (periodismo, investigacion academica, derechos humanos, verificacion de riesgos y analisis defensivo). No incluye tacticas para dano, acoso ni vigilancia abusiva.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve-esta-leccion-osint">Que es (y para que sirve) esta leccion OSINT<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#que-es-y-para-que-sirve-esta-leccion-osint" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve) esta leccion OSINT" title="Enlace directo al Que es (y para que sirve) esta leccion OSINT" translate="no">​</a></h2>
+<p>La historia Rohingya de 2017 se convirtio en un ejemplo duro de GEOINT aplicado a derechos humanos: contrastar imagenes de alta resolucion de un mismo punto en fechas distintas para responder preguntas concretas:</p>
+<ul>
+<li class="">que habia antes;</li>
+<li class="">que hay despues;</li>
+<li class="">que patrones de dano se repiten;</li>
+<li class="">y que parte se puede afirmar con alta confianza.</li>
+</ul>
+<p>Organizaciones como Human Rights Watch y Amnesty International publicaron analisis satelitales que mostraban destruccion extensa de aldeas Rohingya en Rakhine. Paralelamente, la crisis humanitaria escalo de forma rapida: segun UNHCR, desde agosto de 2017 huyeron mas de 750.000 Rohingya a Bangladesh.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mini-relato-con-metodo-cuando-el-terreno-no-es-accesible">Mini-relato con metodo: cuando el terreno no es accesible<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#mini-relato-con-metodo-cuando-el-terreno-no-es-accesible" class="hash-link" aria-label="Enlace directo al Mini-relato con metodo: cuando el terreno no es accesible" title="Enlace directo al Mini-relato con metodo: cuando el terreno no es accesible" translate="no">​</a></h2>
+<p>Imagina que eres parte de un equipo de verificacion y no puedes entrar en la zona. Tienes testimonios de incendios y desplazamientos, pero necesitas una base comprobable para no amplificar rumores.</p>
+<p>La secuencia metodologica fue esta:</p>
+<ol>
+<li class="">fijar una linea temporal minima (fecha del evento reportado y ventanas de captura de imagen);</li>
+<li class="">conseguir imagen previa y posterior del mismo lugar;</li>
+<li class="">delimitar zonas de dano (edificaciones, vegetacion, huellas de fuego);</li>
+<li class="">contrastar con testimonios y otras capas (cronologia, comunicados, contexto local);</li>
+<li class="">documentar incertidumbre: que se sabe, que se infiere, que no se puede confirmar.</li>
+</ol>
+<p>Este orden parece obvio, pero evita un error muy comun: convertir una imagen impactante en una conclusion total sin trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-ficticio">Caso de uso legitimo (ficticio)<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#caso-de-uso-legitimo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo (ficticio)" title="Enlace directo al Caso de uso legitimo (ficticio)" translate="no">​</a></h2>
+<p>Un equipo de una ONG debe redactar una nota tecnica en 48 horas para donantes. Objetivo: estimar si hay evidencia consistente de destruccion sistematica en una zona concreta, sin sobreafirmar.</p>
+<p>Flujo recomendado:</p>
+<ul>
+<li class="">elegir 3-5 aldeas con reportes independientes;</li>
+<li class="">comparar imagenes antes/despues con misma escala y orientacion;</li>
+<li class="">clasificar hallazgos por confianza (alta/media/baja);</li>
+<li class="">incluir contraejemplos (areas no afectadas) para evitar sesgo de seleccion;</li>
+<li class="">publicar una conclusion acotada y auditable.</li>
+</ul>
+<p>Resultado esperado: una evaluacion util para decision humanitaria, no una sentencia penal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-osint-recomendado-para-analistas">Flujo OSINT recomendado para analistas<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#flujo-osint-recomendado-para-analistas" class="hash-link" aria-label="Enlace directo al Flujo OSINT recomendado para analistas" title="Enlace directo al Flujo OSINT recomendado para analistas" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-verificable">1) Define la pregunta verificable<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#1-define-la-pregunta-verificable" class="hash-link" aria-label="Enlace directo al 1) Define la pregunta verificable" title="Enlace directo al 1) Define la pregunta verificable" translate="no">​</a></h3>
+<p>Evita preguntas gigantes ("quien tiene toda la culpa") y formula preguntas observables:</p>
+<ul>
+<li class="">"Se detecta dano estructural compatible con incendio entre X y Y fecha?"</li>
+<li class="">"El dano es puntual o repetido en varias localizaciones?"</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-congela-evidencia-y-metadatos">2) Congela evidencia y metadatos<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#2-congela-evidencia-y-metadatos" class="hash-link" aria-label="Enlace directo al 2) Congela evidencia y metadatos" title="Enlace directo al 2) Congela evidencia y metadatos" translate="no">​</a></h3>
+<p>Guarda para cada imagen: proveedor, fecha/hora, resolucion, coordenadas, nivel de nubosidad y notas de calidad. Sin metadatos, no hay auditoria seria.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-corrobora-por-multifuente">3) Corrobora por multifuente<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#3-corrobora-por-multifuente" class="hash-link" aria-label="Enlace directo al 3) Corrobora por multifuente" title="Enlace directo al 3) Corrobora por multifuente" translate="no">​</a></h3>
+<p>Cruza satelite con testimonios, informes tecnicos y datos humanitarios. En el caso Rohingya, esta triangulacion fue clave para sostener el relato publico bajo escrutinio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-redacta-con-niveles-de-certeza">4) Redacta con niveles de certeza<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#4-redacta-con-niveles-de-certeza" class="hash-link" aria-label="Enlace directo al 4) Redacta con niveles de certeza" title="Enlace directo al 4) Redacta con niveles de certeza" translate="no">​</a></h3>
+<p>Separa explicitamente:</p>
+<ul>
+<li class="">hechos observados;</li>
+<li class="">inferencias razonables;</li>
+<li class="">vacios de informacion.</li>
+</ul>
+<p>Esta separacion protege tu trabajo frente a propaganda y reduce el riesgo de error narrativo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Nubosidad y resolucion</strong>: pueden ocultar o distorsionar detalles.</li>
+<li class=""><strong>Ambiguedad causal</strong>: ver dano no siempre permite atribuir autoria sin mas evidencia.</li>
+<li class=""><strong>Sesgo temporal</strong>: una captura fuera de ventana puede llevar a conclusiones equivocadas.</li>
+<li class=""><strong>Riesgo de sobrelectura</strong>: patrones visuales no sustituyen investigacion de campo cuando esta disponible.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">minimiza datos personales en informes publicos;</li>
+<li class="">evita publicar coordenadas sensibles que puedan aumentar riesgos a poblacion civil;</li>
+<li class="">conserva cadena de custodia de archivos y notas;</li>
+<li class="">usa lenguaje prudente cuando la atribucion no esta cerrada;</li>
+<li class="">recuerda que OSINT responsable busca verdad verificable, no "ganar" una narrativa.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si trabajas casos similares, combina este enfoque con:</p>
+<ul>
+<li class="">analisis de video/fotografia verificada (forense multimedia);</li>
+<li class="">cronologias de eventos con fuentes institucionales;</li>
+<li class="">monitoreo de reconstruccion del terreno para detectar posible borrado de evidencias.</li>
+</ul>
+<p>Takeaway: el valor del OSINT en crisis humanitarias esta en <strong>hacer comprobable lo discutible</strong>. En Rohingya (2017), el satelite antes/despues no resolvio todo, pero si ayudo a fijar hechos observables cuando mas hacia falta rigor.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-recomendadas">Fuentes recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion#fuentes-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes recomendadas" title="Enlace directo al Fuentes recomendadas" translate="no">​</a></h2>
+<ul>
+<li class="">Human Rights Watch (19 Sep 2017): <a href="https://www.hrw.org/news/2017/09/19/burma-satellite-imagery-shows-mass-destruction" target="_blank" rel="noopener noreferrer" class="">https://www.hrw.org/news/2017/09/19/burma-satellite-imagery-shows-mass-destruction</a></li>
+<li class="">Human Rights Watch (17 Oct 2017): <a href="https://www.hrw.org/news/2017/10/17/burma-new-satellite-images-confirm-mass-destruction" target="_blank" rel="noopener noreferrer" class="">https://www.hrw.org/news/2017/10/17/burma-new-satellite-images-confirm-mass-destruction</a></li>
+<li class="">Amnesty International (12 Mar 2018): <a href="https://www.amnesty.org/en/latest/news/2018/03/myanmar-military-land-grab-as-security-forces-build-bases-on-torched-rohingya-villages/" target="_blank" rel="noopener noreferrer" class="">https://www.amnesty.org/en/latest/news/2018/03/myanmar-military-land-grab-as-security-forces-build-bases-on-torched-rohingya-villages/</a></li>
+<li class="">UNHCR Rohingya Emergency (actualizado): <a href="https://www.unhcr.org/en-us/rohingya-emergency.html" target="_blank" rel="noopener noreferrer" class="">https://www.unhcr.org/en-us/rohingya-emergency.html</a></li>
+<li class="">UN Human Rights Council A/HRC/39/64 (Sep 2018): <a href="https://www.right-docs.org/doc/a-hrc-39-64/" target="_blank" rel="noopener noreferrer" class="">https://www.right-docs.org/doc/a-hrc-39-64/</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Historia" term="Historia"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="OPSEC" term="OPSEC"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Maigret en OSINT: correlacion de perfiles por username con verificacion responsable]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/maigret-osint-correlacion-perfiles-username-verificacion-responsable</id>
