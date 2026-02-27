@@ -9,6 +9,9 @@ image: /img/blog/2026-02-27-historia-rohingya-osint-satelite-antes-despues-docum
 
 ![Ilustracion editorial de analista OSINT comparando imagenes satelitales antes y despues para verificar destruccion de aldeas con metodologia responsable](/img/blog/2026-02-27-historia-rohingya-osint-satelite-antes-despues-documentar-destruccion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion.m4a)
+
+
 En agosto de 2017, mientras miles de personas huian de Rakhine hacia Bangladesh, una parte clave de la verdad no llego primero por ruedas de prensa ni por notas oficiales: llego por **comparativas satelitales antes/despues**. En este caso, la leccion OSINT no es "mirar un mapa bonito", sino construir evidencia verificable cuando hay acceso fisico limitado, propaganda cruzada y riesgo de borrar huellas.
 
 Este contenido esta orientado a usos legitimos (periodismo, investigacion academica, derechos humanos, verificacion de riesgos y analisis defensivo). No incluye tacticas para dano, acoso ni vigilancia abusiva.
