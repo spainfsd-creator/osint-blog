@@ -25,7 +25,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
-- [ ] Arkham Intelligence & DeBank
 - [ ] Blackbird
 - [ ] Castrick y la Geolocalización Precisa
 - [ ] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
@@ -49,6 +48,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-02-28: Arkham Intelligence y DeBank en OSINT: contexto blockchain, atribucion prudente y limites
 - 2026-02-27: Historia OSINT: Rohingya (2017), satelite antes/despues para documentar destruccion con cautela metodologica
 - 2026-02-26: Maigret en OSINT: correlacion de perfiles por username con verificacion responsable
 - 2026-02-25: Historia OSINT: Khashoggi (2018-2021), de la cronologia abierta a la atribucion publica con cautela

@@ -62,3 +62,23 @@ opsec:
   label: OPSEC
   permalink: /opsec
   description: Seguridad operativa para investigar con minima exposicion y trazabilidad.
+
+methodology:
+  label: Metodologia
+  permalink: /methodology
+  description: Enfoques de trabajo reproducibles para separar observacion, inferencia y conclusion.
+
+blockchain:
+  label: Blockchain
+  permalink: /blockchain
+  description: Analisis OSINT de direcciones, flujos y contexto on-chain con enfoque responsable.
+
+crypto:
+  label: Cripto
+  permalink: /crypto
+  description: Uso de fuentes abiertas para contextualizar activos y operaciones en ecosistemas cripto.
+
+attribution:
+  label: Atribucion
+  permalink: /attribution
+  description: Criterios prudentes para vincular senales publicas con entidades sin sobredimensionar la evidencia.
