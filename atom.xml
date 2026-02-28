@@ -2,11 +2,134 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-02-27T00:00:00.000Z</updated>
+    <updated>2026-02-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Arkham Intelligence y DeBank en OSINT: contexto blockchain, atribucion prudente y limites]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites"/>
+        <updated>2026-02-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de un analista OSINT revisando flujos on-chain y carteras publicas con grafos, paneles abstractos y notas de compliance]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT revisando flujos on-chain y carteras publicas con grafos, paneles abstractos y notas de compliance" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-28-arkham-debank-osint-inteligencia-blockchain-contexto-limites-370fbd9883d104b89eaa04122c7955b7.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion toca criptoactivos, el error mas comun no es "no tener datos": es <strong>confundir una cartera visible con una identidad ya demostrada</strong>. <code>Arkham Intelligence</code> y <code>DeBank</code> son dos piezas muy utiles para construir contexto sobre actividad on-chain, pero su valor real aparece cuando se usan para <strong>priorizar hipotesis, documentar evidencia y descartar atajos narrativos</strong>, no para saltar a una atribucion definitiva.</p>
+<p>Este contenido esta orientado a usos legitimos (compliance, periodismo, due diligence, analisis defensivo e investigacion academica). No incluye tacticas para acoso, doxxing, intrusiones ni dano a terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-son-y-para-que-sirven">Que son (y para que sirven)<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#que-son-y-para-que-sirven" class="hash-link" aria-label="Enlace directo al Que son (y para que sirven)" title="Enlace directo al Que son (y para que sirven)" translate="no">​</a></h2>
+<p><code>Arkham Intelligence</code> y <code>DeBank</code> no resuelven la misma pregunta, aunque se complementan bien:</p>
+<ul>
+<li class=""><strong>Arkham</strong> prioriza la capa de inteligencia y etiquetado: relaciones entre direcciones, entidades, flujos, contrapartes y contexto de atribucion.</li>
+<li class=""><strong>DeBank</strong> prioriza la capa de cartera y exposicion DeFi: cadenas usadas, balances, protocolos, posiciones y valor neto agregado por direccion.</li>
+</ul>
+<p>En terminos practicos, una pareja muy util es esta:</p>
+<ol>
+<li class="">Usar <code>DeBank</code> para obtener una foto rapida de la superficie economica visible de una direccion.</li>
+<li class="">Usar <code>Arkham</code> para convertir esa foto en una hipotesis investigable sobre entidades, flujos y contrapartes.</li>
+<li class="">Volver a fuentes independientes para confirmar o refutar lo que ambas plataformas sugieren.</li>
+</ol>
+<p>La diferencia importante es metodologica: ni una etiqueta de entidad ni una cartera con mucho valor sustituyen la corroboracion multifuente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso (legitimo) con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso (legitimo) con ejemplo ficticio" title="Enlace directo al Caso de uso (legitimo) con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una empresa que estudia contratar a un proveedor Web3 para custodiar tesoreria. En la due diligence aparece una direccion publica que el proveedor presenta como "wallet operativa principal".</p>
+<p>Un flujo prudente seria:</p>
+<ol>
+<li class="">Revisar en <code>DeBank</code> que cadenas usa esa direccion, en que protocolos aparece, y si la exposicion esta muy concentrada en un solo ecosistema o en activos poco liquidos.</li>
+<li class="">Revisar en <code>Arkham</code> si esa direccion o sus contrapartes tienen etiquetas publicas, flujos frecuentes hacia exchanges, bridges, market makers o servicios conocidos.</li>
+<li class="">Comparar esos hallazgos con declaraciones publicas, auditorias, comunicados del proveedor y exploradores de bloques.</li>
+<li class="">Documentar solo lo verificable:<!-- -->
+<ul>
+<li class="">que activos y protocolos aparecen;</li>
+<li class="">que movimientos son observables;</li>
+<li class="">que etiquetas existen;</li>
+<li class="">y que parte sigue siendo inferencia.</li>
+</ul>
+</li>
+</ol>
+<p>El objetivo no es "desanonimizar por deporte", sino responder preguntas concretas: riesgo de concentracion, dependencia de terceros, exposicion operativa, uso de infraestructura conocida y coherencia entre relato publico y huella on-chain.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-antes-de-abrir-herramientas">1. Define la pregunta antes de abrir herramientas<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#1-define-la-pregunta-antes-de-abrir-herramientas" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta antes de abrir herramientas" title="Enlace directo al 1. Define la pregunta antes de abrir herramientas" translate="no">​</a></h3>
+<p>No empieces por "a ver que sale". Empieza por una hipotesis limitada:</p>
+<ul>
+<li class="">verificar si una entidad usa realmente varias cadenas;</li>
+<li class="">estimar si hay dependencia de un protocolo concreto;</li>
+<li class="">observar si existen contrapartes recurrentes;</li>
+<li class="">o comprobar si una narrativa publica encaja con la actividad visible.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-obtiene-una-foto-base-con-debank">2. Obtiene una foto base con DeBank<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#2-obtiene-una-foto-base-con-debank" class="hash-link" aria-label="Enlace directo al 2. Obtiene una foto base con DeBank" title="Enlace directo al 2. Obtiene una foto base con DeBank" translate="no">​</a></h3>
+<p><code>DeBank</code> es especialmente util para:</p>
+<ul>
+<li class="">identificar cadenas activas de una direccion;</li>
+<li class="">estimar balance neto agregado;</li>
+<li class="">ver posiciones simples y complejas en protocolos;</li>
+<li class="">y detectar rapidamente donde merece la pena profundizar.</li>
+</ul>
+<p>Su utilidad operativa es la velocidad: te da una vista compacta para priorizar. Pero no confundas esa comodidad con precision absoluta en tiempo real. Segun su propia documentacion, algunos datos de carteras complejas suelen estar cerca del tiempo real, pero pueden ir con retraso en ciertos casos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-convierte-la-foto-en-una-hipotesis-con-arkham">3. Convierte la foto en una hipotesis con Arkham<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#3-convierte-la-foto-en-una-hipotesis-con-arkham" class="hash-link" aria-label="Enlace directo al 3. Convierte la foto en una hipotesis con Arkham" title="Enlace directo al 3. Convierte la foto en una hipotesis con Arkham" translate="no">​</a></h3>
+<p>Cuando ya sabes "donde mirar", <code>Arkham</code> ayuda a:</p>
+<ul>
+<li class="">explorar etiquetas y entidades asociadas;</li>
+<li class="">revisar historial de balances y flujos;</li>
+<li class="">observar contrapartes destacadas;</li>
+<li class="">y seguir rutas visibles entre direcciones y servicios conocidos.</li>
+</ul>
+<p>La idea correcta es trabajar en modo <strong>entity-first pero con cautela</strong>: una entidad etiquetada ayuda a orientar la investigacion, pero sigue siendo una afirmacion que requiere comprobacion adicional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corrobora-fuera-de-la-plataforma">4. Corrobora fuera de la plataforma<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#4-corrobora-fuera-de-la-plataforma" class="hash-link" aria-label="Enlace directo al 4. Corrobora fuera de la plataforma" title="Enlace directo al 4. Corrobora fuera de la plataforma" translate="no">​</a></h3>
+<p>El paso que separa analisis serio de sobrelectura es contrastar:</p>
+<ul>
+<li class="">exploradores de bloques;</li>
+<li class="">paginas oficiales del proyecto o proveedor;</li>
+<li class="">reportes de incidentes o auditorias;</li>
+<li class="">registros mercantiles, notas de prensa o disclosures publicos;</li>
+<li class="">y, si procede, otras herramientas de analitica on-chain.</li>
+</ul>
+<p>Si solo puedes demostrar la existencia de flujos entre carteras, eso es lo que debes escribir. No escales a "pertenece a X" sin evidencia externa suficiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Estas dos herramientas son potentes, pero tienen trampas analiticas muy claras:</p>
+<ul>
+<li class=""><strong>Etiqueta no es identidad definitiva</strong>: incluso una atribucion solida sigue siendo una inferencia operativa, no una prueba forense por si sola.</li>
+<li class=""><strong>Una direccion no equivale a una persona</strong>: puede representar un contrato, una tesoreria compartida, un servicio custodial o una infraestructura temporal.</li>
+<li class=""><strong>La visibilidad on-chain no cubre todo el contexto</strong>: acuerdos OTC, control multinivel, custodios, firmantes y estructuras legales pueden quedar fuera.</li>
+<li class=""><strong>La foto economica puede cambiar rapido</strong>: puentes, wrappers, exchanges y reorganizaciones internas alteran la lectura si te quedas con una captura aislada.</li>
+<li class=""><strong>Los dashboards simplifican</strong>: lo que ves agregado puede ocultar detalles que solo aparecen al volver a la transaccion o al contrato concreto.</li>
+</ul>
+<p>En resumen: son herramientas excelentes para reducir incertidumbre, no para eliminarla.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con una pregunta legitima y documentable, no con curiosidad invasiva.</li>
+<li class="">Separa siempre observacion, inferencia y conclusion.</li>
+<li class="">Evita exponer direcciones personales de usuarios particulares si no existe un interes publico claro y proporcionado.</li>
+<li class="">Guarda capturas, hashes de transaccion, fechas y enlaces de verificacion para que otro analista pueda reproducir tu recorrido.</li>
+<li class="">Si el caso puede afectar a terceros, redacta con minima revelacion: describe patrones y riesgos sin amplificar datos sensibles innecesariamente.</li>
+</ul>
+<p>La mejor practica no es "mirar mas", sino escribir menos de lo que no puedes sostener.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si despues de <code>DeBank</code> y <code>Arkham</code> necesitas mas profundidad, el siguiente paso razonable suele ser:</p>
+<ul>
+<li class="">volver al explorador nativo de la cadena;</li>
+<li class="">cruzar con herramientas de analitica adicional o alertado;</li>
+<li class="">y preparar una matriz simple de evidencia: direccion, etiqueta, fuente, nivel de confianza y limitacion conocida.</li>
+</ul>
+<p>Para equipos de compliance o investigacion interna, un enfoque robusto consiste en usar estas plataformas como capa de triage y dejar la atribucion formal para un expediente multifuente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-y-documentacion">Fuentes oficiales y documentacion<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#fuentes-oficiales-y-documentacion" class="hash-link" aria-label="Enlace directo al Fuentes oficiales y documentacion" title="Enlace directo al Fuentes oficiales y documentacion" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://api-guide.intel.arkm.com/" target="_blank" rel="noopener noreferrer" class="">Arkham API Guide</a></li>
+<li class=""><a href="https://docs.intel.arkm.com/" target="_blank" rel="noopener noreferrer" class="">Arkham API Reference</a></li>
+<li class=""><a href="https://docs.cloud.debank.com/en/readme/open-api" target="_blank" rel="noopener noreferrer" class="">DeBank OpenAPI</a></li>
+<li class=""><a href="https://docs.cloud.debank.com/en/readme/api-pro-reference/user" target="_blank" rel="noopener noreferrer" class="">DeBank User API</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p>Si trabajas OSINT sobre cripto, <code>DeBank</code> te ayuda a ver rapido <strong>que superficie economica existe</strong> y <code>Arkham</code> a estructurar <strong>que relaciones merece la pena investigar</strong>. Lo profesional no es convertir eso en una acusacion veloz, sino en una hipotesis clara, reproducible y limitada por la evidencia disponible.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Herramientas" term="Herramientas"/>
+        <category label="Blockchain" term="Blockchain"/>
+        <category label="Cripto" term="Cripto"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Atribucion" term="Atribucion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Historia OSINT: Rohingya (2017), satelite antes/despues para documentar destruccion con cautela metodologica]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/historia-rohingya-osint-satelite-antes-despues-documentar-destruccion</id>
@@ -379,7 +502,7 @@
         <category label="Historia" term="Historia"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="OPSEC" term="OPSEC"/>
-        <category label="methodology" term="methodology"/>
+        <category label="Metodologia" term="Metodologia"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[ADS-B Exchange y MarineTraffic en OSINT: seguimiento de activos con contexto, limites y verificacion responsable]]></title>
