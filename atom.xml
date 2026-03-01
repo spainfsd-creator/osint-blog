@@ -2,11 +2,100 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-02-28T00:00:00.000Z</updated>
+    <updated>2026-03-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Historia OSINT: Jan 6 (2021), un oceano de videos y como evitar errores de identificacion]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion"/>
+        <updated>2026-03-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de un analista OSINT ordenando docenas de videos, capturas y lineas temporales para reconstruir un evento caotico sin precipitar identificaciones]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT ordenando docenas de videos, capturas y lineas temporales para reconstruir un evento caotico sin precipitar identificaciones" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-03-01-historia-jan-6-2021-oceano-videos-evitar-errores-identificacion-e3622e01cc477d2c23025fc13fd7db8f.png" width="1376" height="768" class="img_ev3q"></p>
+<p>El 6 de enero de 2021 dejo una leccion brutal para cualquier analista: cuando aparecen <strong>miles de clips, retransmisiones, selfies, camaras fijas y testimonios cruzados</strong>, el riesgo no es solo perderse en el ruido. El riesgo real es <strong>creer que una cara aislada, un frame llamativo o un hilo viral bastan para identificar a alguien con fiabilidad</strong>. La utilidad OSINT de este caso no esta en "adivinar" rapido, sino en aprender a preservar evidencia, ordenar cronologias y frenar el impulso de confirmar una hipotesis antes de tiempo.</p>
+<p>Este contenido esta orientado a usos legitimos (periodismo, investigacion academica, analisis defensivo y documentacion publica). No incluye tacticas para acoso, doxxing ni vigilancia abusiva contra personas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve-esta-leccion-osint">Que es (y para que sirve) esta leccion OSINT<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#que-es-y-para-que-sirve-esta-leccion-osint" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve) esta leccion OSINT" title="Enlace directo al Que es (y para que sirve) esta leccion OSINT" translate="no">​</a></h2>
+<p>La historia de <code>Jan 6</code> se convirtio en un caso de referencia porque mezclo tres ingredientes muy poco habituales a esa escala:</p>
+<ul>
+<li class="">una avalancha de material abierto publicado casi en tiempo real;</li>
+<li class="">una gran cantidad de actores grabandose a si mismos;</li>
+<li class="">y una necesidad urgente de separar evidencia util de especulacion viral.</li>
+</ul>
+<p>En terminos metodologicos, el caso sirve para entrenar una disciplina clave: <strong>pasar de un oceano de piezas desordenadas a una reconstruccion verificable</strong>. Eso implica preservar primero, clasificar despues y atribuir solo al final.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mini-relato-con-metodo-cuando-sobran-videos-pero-falta-certeza">Mini-relato con metodo: cuando sobran videos pero falta certeza<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#mini-relato-con-metodo-cuando-sobran-videos-pero-falta-certeza" class="hash-link" aria-label="Enlace directo al Mini-relato con metodo: cuando sobran videos pero falta certeza" title="Enlace directo al Mini-relato con metodo: cuando sobran videos pero falta certeza" translate="no">​</a></h2>
+<p>Imagina que tu equipo recibe decenas de enlaces, capturas y clips reenviados por redes. Algunos parecen mostrar la misma escena desde angulos distintos; otros estan cortados, re-subidos o sin contexto.</p>
+<p>El error clasico seria este:</p>
+<ol>
+<li class="">encontrar un rostro que "parece" coincidir con una foto de perfil;</li>
+<li class="">asumir que la similitud basta;</li>
+<li class="">y publicar una identificacion antes de reconstruir tiempo, lugar y secuencia.</li>
+</ol>
+<p>En un evento con tanta densidad visual, ese atajo rompe la cadena de confianza. Un clip puede estar descontextualizado, una cuenta puede haber republicado contenido ajeno y una captura puede aislar un instante que contradice el minuto anterior o posterior.</p>
+<p>La leccion valiosa es otra: primero se fija el <strong>hecho observable</strong> ("esta persona aparece aqui, en este momento, haciendo esto"), y solo despues se estudia si hay base para enlazar esa aparicion con una identidad concreta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-para-investigar-un-evento-con-material-masivo">Flujo recomendado para investigar un evento con material masivo<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#flujo-recomendado-para-investigar-un-evento-con-material-masivo" class="hash-link" aria-label="Enlace directo al Flujo recomendado para investigar un evento con material masivo" title="Enlace directo al Flujo recomendado para investigar un evento con material masivo" translate="no">​</a></h2>
+<p>Un flujo prudente y repetible seria este:</p>
+<ol>
+<li class=""><strong>Preservar lo volatil</strong>. Guardar enlaces, capturas y copias de los clips mas sensibles antes de que se borren, especialmente retransmisiones y publicaciones de personas presentes en la escena.</li>
+<li class=""><strong>Crear una cronologia minima</strong>. Ordenar el material por hora aproximada, secuencia visible, cambios de luz, audio, carteleria, movimientos de masas y puntos de acceso.</li>
+<li class=""><strong>Agrupar por escena, no por sospechoso</strong>. Antes de seguir a una persona concreta, conviene agrupar videos que muestran el mismo pasillo, la misma puerta o el mismo tramo temporal.</li>
+<li class=""><strong>Corroborar con multiples senales</strong>. Ropa, objetos, trayectoria, interacciones, geografia del lugar, metadatos conservados y angulos independientes valen mas que una sola cara.</li>
+<li class=""><strong>Separar identificacion de atribucion</strong>. Que un individuo aparezca en un clip no significa automaticamente que haya realizado la accion mas grave que circula en redes sobre el mismo evento.</li>
+<li class=""><strong>Registrar incertidumbre</strong>. Cada hipotesis debe conservar el nivel de confianza, las piezas a favor y los huecos pendientes.</li>
+</ol>
+<p>Este enfoque es menos vistoso que una "caza" en redes, pero produce algo mucho mas util: evidencia revisable por terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Supongamos que una redaccion quiere verificar si una persona concreta participo en una agresion dentro de un edificio publico durante un disturbio. Un procedimiento responsable no seria buscar solo una foto de perfil y compararla con un fotograma.</p>
+<p>Seria mejor:</p>
+<ol>
+<li class="">identificar primero el tramo exacto del incidente;</li>
+<li class="">reunir todos los clips de ese tramo, incluidos los que contradicen la primera impresion;</li>
+<li class="">establecer que prendas, objetos y desplazamientos se mantienen constantes;</li>
+<li class="">comprobar si la cuenta desde la que se publico el video es original, re-subida o comentario de tercero;</li>
+<li class="">y solo entonces evaluar si existe una coincidencia robusta entre presencia, accion y posible identidad.</li>
+</ol>
+<p>El objetivo legitimo no es "señalar a alguien" deprisa, sino documentar con trazabilidad que se observa y que no se puede sostener todavia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>En escenarios como <code>Jan 6</code>, los falsos positivos nacen por patrones muy repetidos:</p>
+<ul>
+<li class=""><strong>Parecidos fisicos triviales</strong>: barba, gorra, chaqueta o mochila similares no bastan.</li>
+<li class=""><strong>Recortes sin contexto</strong>: un frame viral puede ocultar el momento inmediatamente anterior o posterior.</li>
+<li class=""><strong>Cuentas espejo y reuploads</strong>: un video republicado no demuestra autoria ni presencia del titular de la cuenta.</li>
+<li class=""><strong>Sesgo de confirmacion</strong>: cuando una comunidad online "cree" haber encontrado a alguien, empieza a leer cada nueva pieza como confirmacion.</li>
+<li class=""><strong>Metadatos incompletos o inconsistentes</strong>: no todo archivo conserva hora, GPS o dispositivo; y cuando los conserva, aun asi toca validarlos.</li>
+</ul>
+<p>La regla practica es simple: si una conclusion depende de una sola senal llamativa, todavia no esta madura.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con un registro claro de fuentes y pasos para que otra persona pueda auditar tu camino.</li>
+<li class="">Conserva copias locales y hashes cuando el material pueda desaparecer o cambiar.</li>
+<li class="">Evita publicar identidades de particulares si la evidencia solo permite hablar de presencia probable o de una hipotesis sin cerrar.</li>
+<li class="">Distingue siempre entre interes publico y curiosidad morbosa.</li>
+<li class="">Si colaboras en comunidad, separa el canal de recopilacion del canal de conclusiones para que el ruido no contamine la evaluacion.</li>
+</ul>
+<p>En una investigacion responsable, la paciencia tambien es una medida de seguridad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>La mayor leccion de este caso no depende de una sola herramienta. Puedes combinar:</p>
+<ul>
+<li class="">archivado y trazabilidad (<code>Wayback Machine</code>, <code>Archive.today</code>, <code>Hunchly</code>);</li>
+<li class="">orden cronologico y comparacion visual;</li>
+<li class="">y verificacion manual asistida por hojas de trabajo, mapas y notas de escena.</li>
+</ul>
+<p>Si quieres profundizar despues de este post, el siguiente salto natural es estudiar como convertir esa cronologia visual en una reconstruccion espacial: entradas, salidas, lineas de vision y puntos de convergencia entre clips.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>Jan 6</code> demostro que el OSINT moderno no fracasa solo por falta de datos: tambien fracasa cuando hay <strong>demasiados</strong> y el analista confunde velocidad con rigor. La disciplina correcta es preservar pronto, ordenar con metodo y retrasar la identificacion hasta que varias capas de evidencia cuenten la misma historia.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Historia" term="Historia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="SOCMINT" term="SOCMINT"/>
+        <category label="OPSEC" term="OPSEC"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Arkham Intelligence y DeBank en OSINT: contexto blockchain, atribucion prudente y limites]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/arkham-debank-osint-inteligencia-blockchain-contexto-limites</id>
@@ -2194,76 +2283,6 @@ Un mapa inicial fiable para que TI y seguridad reduzcan riesgo sin interrumpir n
         <category label="OSINT" term="OSINT"/>
         <category label="Herramientas" term="Herramientas"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Tradecraft" term="Tradecraft"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Que es OSINT: origenes, historia y estado actual]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual"/>
-        <updated>2026-02-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion sobre OSINT]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion sobre OSINT" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-08-osint-origenes-historia-e2dda2beb520b4d6b94c6c72f94ad9c6.png" width="1024" height="1024" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/descifrar-la-verdad-con-fuentes-abiertas-21290b72ee7ff09a1b01373826d97c78.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>OSINT (Open Source Intelligence) es inteligencia obtenida a partir de <strong>fuentes publicas</strong>: documentos, registros, webs, redes sociales, mapas, imagen satelital comercial, bases de datos abiertas y, en general, cualquier informacion accesible legalmente sin intrusion. La clave no es la fuente, sino el proceso: <strong>recopilar, contrastar, contextualizar y producir conclusiones</strong> utiles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-osint-y-que-no-es">Que es OSINT (y que no es)<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#que-es-osint-y-que-no-es" class="hash-link" aria-label="Enlace directo al Que es OSINT (y que no es)" title="Enlace directo al Que es OSINT (y que no es)" translate="no">​</a></h2>
-<p>OSINT es una disciplina dentro del ciclo de inteligencia. No es "buscar en Google" ni "cotillear": es investigar con metodo y con verificacion.</p>
-<ul>
-<li class=""><strong>OSINT</strong>: trabajar con informacion publica para responder una pregunta concreta (quien, que, cuando, donde, como, con que grado de confianza) y dejar rastro del razonamiento.</li>
-<li class=""><strong>No es OSINT</strong>: acceder a cuentas ajenas, explotar vulnerabilidades, obtener datos mediante engano, o publicar datos personales sin justificacion.</li>
-</ul>
-<p>En la practica, OSINT se usa en periodismo de investigacion, ciberseguridad, due diligence, analisis geopolitico, investigacion corporativa, respuesta a incidentes, y verificacion de contenidos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="origenes-antes-de-que-existiera-internet">Origenes: antes de que existiera Internet<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#origenes-antes-de-que-existiera-internet" class="hash-link" aria-label="Enlace directo al Origenes: antes de que existiera Internet" title="Enlace directo al Origenes: antes de que existiera Internet" translate="no">​</a></h2>
-<p>La idea de extraer inteligencia de lo publico es antigua: prensa, panfletos, boletines, radio, anuncios, directorios y publicaciones tecnicas siempre han sido minas de informacion.</p>
-<p>En el siglo XX, con la radio y la prensa masiva, muchos estados institucionalizaron el monitoreo de emisiones y medios extranjeros. En la Segunda Guerra Mundial y la Guerra Fria, el seguimiento sistematico de <strong>radio, prensa y propaganda</strong> se volvio un pilar para entender intenciones, capacidades y narrativas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="breve-historia-de-osint-en-6-etapas">Breve historia de OSINT (en 6 etapas)<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#breve-historia-de-osint-en-6-etapas" class="hash-link" aria-label="Enlace directo al Breve historia de OSINT (en 6 etapas)" title="Enlace directo al Breve historia de OSINT (en 6 etapas)" translate="no">​</a></h2>
-<ol>
-<li class=""><strong>Monitoreo de medios (siglo XX)</strong>: lectura y traduccion sistematica de prensa y emisiones para analisis estrategico.</li>
-<li class=""><strong>Estandarizacion (finales del siglo XX)</strong>: OSINT se formaliza como "disciplina" con procedimientos y equipos dedicados.</li>
-<li class=""><strong>Web y buscadores (1995-2005)</strong>: la web convierte el rastreo y el archivo en una nueva frontera; nacen los primeros flujos modernos de investigacion digital.</li>
-<li class=""><strong>Redes sociales (2005-2015)</strong>: perfiles, conexiones y contenido geolocalizable permiten reconstruir eventos y redes con un volumen sin precedentes.</li>
-<li class=""><strong>OSINT geoespacial (2014-2022)</strong>: imagen satelital comercial, mapas, Street View, AIS/ADS-B y metadatos visuales impulsan la verificacion y el "geolocation".</li>
-<li class=""><strong>Era actual: abundancia, restricciones y automatizacion (2022-2026)</strong>: mas datos que nunca, pero tambien mas muros (login, paywalls, rate limits), mas ruido (desinformacion) y mas herramientas (automatizacion y apoyo de IA).</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="por-que-es-importante">Por que es importante<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#por-que-es-importante" class="hash-link" aria-label="Enlace directo al Por que es importante" title="Enlace directo al Por que es importante" translate="no">​</a></h2>
-<p>OSINT importa porque democratiza capacidades: reduce dependencia de fuentes cerradas y permite <strong>verificar</strong>.</p>
-<ul>
-<li class=""><strong>Transparencia</strong>: aporta evidencia trazable (capturas, enlaces, hashes, archivo).</li>
-<li class=""><strong>Rapidez</strong>: acelera el triage: que esta pasando y que hay que mirar primero.</li>
-<li class=""><strong>Cobertura</strong>: une piezas de fuentes diversas (registros, prensa local, imagenes, foros, datasets).</li>
-<li class=""><strong>Riesgo controlado</strong>: bien hecho, es mas barato y menos intrusivo que otras tecnicas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="estado-actual-que-ha-cambiado-y-que-no">Estado actual: que ha cambiado (y que no)<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#estado-actual-que-ha-cambiado-y-que-no" class="hash-link" aria-label="Enlace directo al Estado actual: que ha cambiado (y que no)" title="Enlace directo al Estado actual: que ha cambiado (y que no)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-ha-cambiado">Lo que ha cambiado<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#lo-que-ha-cambiado" class="hash-link" aria-label="Enlace directo al Lo que ha cambiado" title="Enlace directo al Lo que ha cambiado" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>La huella digital es enorme</strong>: individuos y organizaciones dejan rastros en plataformas, metadatos, repositorios y registros.</li>
-<li class=""><strong>El OSINT es mas visual</strong>: fotos y video, geolocalizacion, analisis de sombras, cartografia, series temporales.</li>
-<li class=""><strong>Hay industria</strong>: tooling comercial y comunidades abiertas; estandarizacion de playbooks.</li>
-<li class=""><strong>La IA ayuda, pero no sustituye</strong>: resume, clasifica y sugiere caminos, pero la verificacion y la atribucion siguen siendo humanas.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-no-ha-cambiado">Lo que no ha cambiado<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#lo-que-no-ha-cambiado" class="hash-link" aria-label="Enlace directo al Lo que no ha cambiado" title="Enlace directo al Lo que no ha cambiado" translate="no">​</a></h3>
-<ul>
-<li class="">La regla de oro: <strong>una sola fuente rara vez basta</strong>.</li>
-<li class="">La necesidad de <strong>contexto</strong> (idioma, cultura, horarios, geografia, sesgos de plataforma).</li>
-<li class="">El trabajo de archivo: guardar pruebas (capturas, copias en servicios de archivo, notas, timelines).</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-osint-responsable">Buenas practicas (OSINT responsable)<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#buenas-practicas-osint-responsable" class="hash-link" aria-label="Enlace directo al Buenas practicas (OSINT responsable)" title="Enlace directo al Buenas practicas (OSINT responsable)" translate="no">​</a></h2>
-<ul>
-<li class="">Define una <strong>pregunta investigable</strong> y un criterio de "suficiente".</li>
-<li class="">Separa <strong>hechos</strong> de <strong>inferencias</strong>. Escribe el nivel de confianza.</li>
-<li class="">Contrasta: busca siempre un <strong>segundo indicador</strong> (otra fuente, otro dataset, otra evidencia).</li>
-<li class="">Minimiza datos personales: si no es necesario, no lo recojas. Si es sensible, no lo publiques.</li>
-<li class="">Documenta tu proceso: consultas, filtros, fechas y enlaces.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="siguiente-paso">Siguiente paso<a href="https://spainfsd-creator.github.io/osint-blog/que-es-osint-origenes-historia-estado-actual#siguiente-paso" class="hash-link" aria-label="Enlace directo al Siguiente paso" title="Enlace directo al Siguiente paso" translate="no">​</a></h2>
-<p>En la siguiente entrada vamos a bajar de la teoria a la practica: un flujo OSINT para un caso tipico (por ejemplo, reconocimiento de una organizacion y sus activos publicos) con herramientas gratuitas y verificaciones.</p>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Historia" term="Historia"/>
         <category label="Tradecraft" term="Tradecraft"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
