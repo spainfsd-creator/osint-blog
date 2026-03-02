@@ -4,10 +4,126 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 01 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Blackbird en OSINT: busqueda rapida de usernames y correos con verificacion responsable]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion</guid>
+            <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de un analista OSINT correlacionando usernames y correos entre perfiles publicos con grafos y tarjetas anonimizadas]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT correlacionando usernames y correos entre perfiles publicos con grafos y tarjetas anonimizadas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-03-02-blackbird-osint-busqueda-username-email-perfiles-verificacion-7682fbdaa5110eb54ffff83ff717dcb9.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion arranca con un alias repetido en foros, una bio reciclada o un correo que aparece en varias pistas, el peligro no es solo perder tiempo: el peligro es <strong>forzar coincidencias debiles y convertir ruido en una falsa identidad</strong>. <code>Blackbird</code> sirve precisamente para la fase inicial de cribado rapido: localizar presencia publica de un <code>username</code> o un correo en muchas plataformas, priorizar donde merece mirar y documentar que sigue siendo solo una hipotesis hasta que haya corroboracion.</p>
+<p>Este contenido esta orientado a usos legitimos (verificacion periodistica, due diligence, seguridad defensiva e investigacion academica). No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es (y para que sirve)<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve)" title="Enlace directo al Que es (y para que sirve)" translate="no">​</a></h2>
+<p><code>Blackbird</code> es una herramienta OSINT de linea de comandos centrada en buscar cuentas publicas asociadas a un identificador. Segun su documentacion oficial, puede trabajar con:</p>
+<ul>
+<li class=""><code>username</code></li>
+<li class=""><code>email</code></li>
+<li class=""><code>phone</code></li>
+<li class=""><code>name</code></li>
+</ul>
+<p>Su valor practico no esta en "resolver una persona" de un clic, sino en acelerar una pregunta mucho mas modesta y util: <strong>en que servicios conviene comprobar primero si una misma pista deja huella publica</strong>.</p>
+<p>Frente a herramientas mas veteranas de enumeracion social, <code>Blackbird</code> pone el foco en:</p>
+<ul>
+<li class="">velocidad alta para consultas amplias;</li>
+<li class="">filtros por categoria de plataforma;</li>
+<li class="">exportacion estructurada de resultados;</li>
+<li class="">y reduccion de falsos positivos con comprobaciones mas cuidadas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina un equipo de riesgos que revisa a un proveedor externo antes de darle acceso a una comunidad privada. En una solicitud aparece el alias ficticio <code>nexo_verde</code> y un correo de contacto corporativo.</p>
+<p>Un uso prudente de <code>Blackbird</code> seria:</p>
+<ol>
+<li class="">lanzar una busqueda inicial por <code>username</code> para ver en que plataformas aparece ese alias;</li>
+<li class="">repetir con el correo solo para confirmar presencia publica, no para invadir cuentas;</li>
+<li class="">anotar coincidencias fuertes y senales de duda;</li>
+<li class="">pasar despues a revision manual en las pocas plataformas que realmente aportan contexto.</li>
+</ol>
+<p>El objetivo no es perfilar a una persona "porque si", sino responder una pregunta limitada: si la huella publica visible es coherente con la identidad profesional que dice representar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-hipotesis-antes-de-buscar">1. Define la hipotesis antes de buscar<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#1-define-la-hipotesis-antes-de-buscar" class="hash-link" aria-label="Enlace directo al 1. Define la hipotesis antes de buscar" title="Enlace directo al 1. Define la hipotesis antes de buscar" translate="no">​</a></h3>
+<p>No abras la herramienta con una idea difusa. Acota la pregunta:</p>
+<ul>
+<li class="">quieres validar reutilizacion de alias;</li>
+<li class="">quieres medir si un correo deja demasiada exposicion publica;</li>
+<li class="">o quieres confirmar si varias pistas parecen pertenecer al mismo actor.</li>
+</ul>
+<p>Sin esa acotacion, cualquier lista larga de coincidencias acaba pareciendo mas concluyente de lo que es.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-el-identificador-menos-ambiguo">2. Empieza por el identificador menos ambiguo<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#2-empieza-por-el-identificador-menos-ambiguo" class="hash-link" aria-label="Enlace directo al 2. Empieza por el identificador menos ambiguo" title="Enlace directo al 2. Empieza por el identificador menos ambiguo" translate="no">​</a></h3>
+<p>Si tienes varias pistas, empieza por la menos comun:</p>
+<ul>
+<li class="">un alias poco frecuente;</li>
+<li class="">un correo corporativo;</li>
+<li class="">o un telefono ya publicado por el propio titular.</li>
+</ul>
+<p>Los nombres genericos producen mucho ruido. <code>Blackbird</code> ayuda a reducirlo, pero no puede arreglar una semilla debil.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-filtros-y-exportacion-para-no-perseguir-ruido">3. Usa filtros y exportacion para no perseguir ruido<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#3-usa-filtros-y-exportacion-para-no-perseguir-ruido" class="hash-link" aria-label="Enlace directo al 3. Usa filtros y exportacion para no perseguir ruido" title="Enlace directo al 3. Usa filtros y exportacion para no perseguir ruido" translate="no">​</a></h3>
+<p>La documentacion de <code>Blackbird</code> incluye filtros como <code>--site</code>, <code>--category</code> y <code>--exclude-category</code>, ademas de opciones de salida como <code>--csv</code>, <code>--json</code> y <code>--pdf</code>.</p>
+<p>Eso permite algo muy util en equipos:</p>
+<ol>
+<li class="">limitar la busqueda a tipos de plataformas relevantes;</li>
+<li class="">exportar hallazgos;</li>
+<li class="">y revisar despues con trazabilidad, en vez de confiar en memoria o capturas sueltas.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corrobora-fuera-de-la-herramienta">4. Corrobora fuera de la herramienta<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#4-corrobora-fuera-de-la-herramienta" class="hash-link" aria-label="Enlace directo al 4. Corrobora fuera de la herramienta" title="Enlace directo al 4. Corrobora fuera de la herramienta" translate="no">​</a></h3>
+<p>Un "match" no es una atribucion. Antes de escribir una conclusion, conviene contrastar:</p>
+<ul>
+<li class="">foto o branding consistente;</li>
+<li class="">bio, enlaces o dominios relacionados;</li>
+<li class="">fechas de actividad razonables;</li>
+<li class="">y coherencia con otras fuentes abiertas.</li>
+</ul>
+<p>Si una coincidencia solo comparte un alias y nada mas, sigue siendo una pista, no una identidad validada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Blackbird</code> es util, pero tiene limites que conviene asumir desde el minuto uno:</p>
+<ul>
+<li class="">muchos aliases se reutilizan por personas distintas;</li>
+<li class="">algunas plataformas cambian su respuesta y eso rompe comprobaciones;</li>
+<li class="">un correo puede aparecer por historico o por menciones de terceros;</li>
+<li class="">y una cuenta encontrada puede estar abandonada, suplantada o no guardar relacion real con el caso.</li>
+</ul>
+<p>Tambien hay una limitacion metodologica importante: cuanto mas amplio es el barrido, mas facil es sobreinterpretar coincidencias superficiales. La velocidad es una ventaja solo si va acompaniada de disciplina.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga solo sobre datos ya publicos o legitimamente aportados.</li>
+<li class="">Evita convertir una busqueda exploratoria en un dossier personal innecesario.</li>
+<li class="">Guarda solo lo relevante para la pregunta del caso.</li>
+<li class="">Documenta que parte es hecho observable y que parte es inferencia.</li>
+<li class="">Si el analisis afecta a una persona real, revisa siempre proporcionalidad, base legal y necesidad.</li>
+</ul>
+<p>La mejor forma de usar <code>Blackbird</code> no es "buscar mas", sino <strong>descartar antes</strong> y centrar la verificacion humana en lo que realmente merece contexto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Blackbird</code> encaja muy bien en una caja de herramientas mas amplia:</p>
+<ul>
+<li class=""><code>Sherlock</code>, si quieres una referencia muy conocida para busqueda por username;</li>
+<li class=""><code>Maigret</code>, si te interesa extraer mas metadatos del perfil encontrado;</li>
+<li class=""><code>WhatsMyName</code>, si quieres contrastar patrones de sitios y cobertura;</li>
+<li class="">revision manual del navegador, para confirmar que una coincidencia es real y contextual.</li>
+</ul>
+<p>Como siguiente paso practico, una buena rutina es esta:</p>
+<ol>
+<li class="">usar <code>Blackbird</code> para cribado;</li>
+<li class="">elegir 3 o 4 coincidencias realmente prometedoras;</li>
+<li class="">validarlas manualmente;</li>
+<li class="">y cerrar con una nota breve de confianza, huecos y dudas.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/blackbird-osint-busqueda-username-email-perfiles-verificacion#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>Blackbird</code> no sustituye criterio, pero si acorta mucho la fase mas mecanica del OSINT sobre identidades: separar rapido donde hay señal y donde solo hay alias repetidos. Usado con limites claros, es una herramienta de triage muy potente para investigar mejor sin precipitar conclusiones.</p>
+<p>Fuentes recomendadas:</p>
+<ul>
+<li class=""><a href="https://github.com/p1ngul1n0/blackbird" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de Blackbird</a></li>
+<li class=""><a href="https://blackbird-osint.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="">Documentacion oficial</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Herramientas</category>
+            <category>SOCMINT</category>
+            <category>Verificacion</category>
+            <category>Usernames</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Historia OSINT: Jan 6 (2021), un oceano de videos y como evitar errores de identificacion]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion</link>
@@ -2058,148 +2174,6 @@ Un mapa inicial fiable para que TI y seguridad reduzcan riesgo sin interrumpir n
 <li class="">Internet Archive FAQ (Wayback Machine). <a href="https://archive.org/about/faqs.php#The_Wayback_Machine" target="_blank" rel="noopener noreferrer" class="">https://archive.org/about/faqs.php#The_Wayback_Machine</a></li>
 <li class="">Internet Archive Developers (APIs y acceso programatico). <a href="https://archive.org/developers/" target="_blank" rel="noopener noreferrer" class="">https://archive.org/developers/</a></li>
 <li class="">Internet Archive Blog: robots.txt changes and transparency. <a href="https://blog.archive.org/2017/04/17/robots-txt-means-more-transparency/" target="_blank" rel="noopener noreferrer" class="">https://blog.archive.org/2017/04/17/robots-txt-means-more-transparency/</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Herramientas</category>
-            <category>Investigacion</category>
-            <category>Tradecraft</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Google Dorks para OSINT responsable: auditoria defensiva y verificacion]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria</guid>
-            <pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion sobre busqueda avanzada para OSINT responsable]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion sobre busqueda avanzada para OSINT responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-10-google-dorks-osint-responsable-40da0cabc5fcad7f1e06a39e1b0e65d1.png" width="1024" height="1024" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/google-dorks-osint-responsable-auditoria-8345e57d0e0e75c5df7f43213eb321a4.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>La busqueda avanzada (lo que popularmente se llama "Google Dorks") no es magia ni "hacking": es <strong>saber formular preguntas</strong> con operadores para encontrar informacion ya publica y ya indexada. Bien usada, es una tecnica defensiva excelente para <strong>auditar exposicion</strong>, verificar afirmaciones y reducir sorpresas en una investigacion OSINT.</p>
-<p>En esta guia voy a enfocarme en un uso <strong>responsable y no intrusivo</strong>: trabajar sobre tus propios activos (o con permiso) y documentar hallazgos para corregirlos, no para explotar a terceros.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-son-y-por-que-el-termino-confunde">Que son (y por que el termino confunde)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#que-son-y-por-que-el-termino-confunde" class="hash-link" aria-label="Enlace directo al Que son (y por que el termino confunde)" title="Enlace directo al Que son (y por que el termino confunde)" translate="no">​</a></h2>
-<p>Un "dork" es una consulta de buscador que combina operadores y filtros para acotar resultados. El problema es que el termino se popularizo asociado a abuso (buscar paneles expuestos, errores de configuracion, etc.). La misma mecanica, sin embargo, es perfectamente valida para:</p>
-<ul>
-<li class="">Auditorias de exposicion de una organizacion.</li>
-<li class="">Due diligence (documentos, comunicados, versiones, huella publica).</li>
-<li class="">Verificacion de contenido (encontrar la fuente original, detectar copias).</li>
-<li class="">Analisis de superficie informativa (que aparece de tu marca en la web).</li>
-</ul>
-<p>La regla: <strong>si el objetivo es daño o intrusivo, no es OSINT responsable</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="antes-de-empezar-limites-etica-y-registro">Antes de empezar: limites, etica y registro<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#antes-de-empezar-limites-etica-y-registro" class="hash-link" aria-label="Enlace directo al Antes de empezar: limites, etica y registro" title="Enlace directo al Antes de empezar: limites, etica y registro" translate="no">​</a></h2>
-<ol>
-<li class="">Define el <strong>alcance</strong>: que dominios, marcas o activos estas autorizado a revisar.</li>
-<li class="">No intentes acceder a contenido no destinado a ti (login, cuentas, APIs privadas).</li>
-<li class="">Minimiza datos personales: si aparece PII innecesaria, tratalo como incidente y evita redistribuirlo.</li>
-<li class="">Documenta: fecha/hora, consulta exacta, capturas/URLs, y que significa el hallazgo.</li>
-</ol>
-<p>Un buen analista OSINT deja un rastro reproducible: no "descubre cosas", <strong>construye evidencia</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="operadores-utiles-con-ejemplos-seguros">Operadores utiles (con ejemplos seguros)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#operadores-utiles-con-ejemplos-seguros" class="hash-link" aria-label="Enlace directo al Operadores utiles (con ejemplos seguros)" title="Enlace directo al Operadores utiles (con ejemplos seguros)" translate="no">​</a></h2>
-<p>Los operadores cambian con el tiempo y no siempre estan documentados al 100%, pero estos suelen ser estables y suficientes para un flujo defensivo. Usa ejemplos con placeholders, por ejemplo <code>tu-dominio.com</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="site-limitar-a-un-dominio-o-subdominio"><code>site:</code> (limitar a un dominio o subdominio)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#site-limitar-a-un-dominio-o-subdominio" class="hash-link" aria-label="Enlace directo al site-limitar-a-un-dominio-o-subdominio" title="Enlace directo al site-limitar-a-un-dominio-o-subdominio" translate="no">​</a></h3>
-<ul>
-<li class="">Encontrar documentos publicos en tu web:<!-- -->
-<ul>
-<li class=""><code>site:tu-dominio.com filetype:pdf</code></li>
-</ul>
-</li>
-<li class="">Separar un subdominio concreto:<!-- -->
-<ul>
-<li class=""><code>site:blog.tu-dominio.com "nota de prensa"</code></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="filetype-tipo-de-archivo"><code>filetype:</code> (tipo de archivo)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#filetype-tipo-de-archivo" class="hash-link" aria-label="Enlace directo al filetype-tipo-de-archivo" title="Enlace directo al filetype-tipo-de-archivo" translate="no">​</a></h3>
-<p>Util para inventariar PDFs, presentaciones o hojas de calculo publicas.</p>
-<ul>
-<li class=""><code>site:tu-dominio.com filetype:ppt</code></li>
-<li class=""><code>site:tu-dominio.com filetype:xlsx</code></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comillas--frase-exacta">Comillas <code>"..."</code> (frase exacta)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#comillas--frase-exacta" class="hash-link" aria-label="Enlace directo al comillas--frase-exacta" title="Enlace directo al comillas--frase-exacta" translate="no">​</a></h3>
-<p>Ayuda a buscar nombres de productos, textos legales o fragmentos de comunicados.</p>
-<ul>
-<li class=""><code>site:tu-dominio.com "terminos y condiciones"</code></li>
-<li class=""><code>"tu marca" "aviso legal"</code></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="intitle-y-inurl-titulourl"><code>intitle:</code> y <code>inurl:</code> (titulo/URL)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#intitle-y-inurl-titulourl" class="hash-link" aria-label="Enlace directo al intitle-y-inurl-titulourl" title="Enlace directo al intitle-y-inurl-titulourl" translate="no">​</a></h3>
-<p>Sirven para localizar secciones (prensa, legal, docs) sin entrar en contenido sensible.</p>
-<ul>
-<li class=""><code>site:tu-dominio.com intitle:"prensa"</code></li>
-<li class=""><code>site:tu-dominio.com inurl:/docs/</code></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="exclusion---y-alternativas-or">Exclusion <code>-</code> y alternativas <code>OR</code><a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#exclusion---y-alternativas-or" class="hash-link" aria-label="Enlace directo al exclusion---y-alternativas-or" title="Enlace directo al exclusion---y-alternativas-or" translate="no">​</a></h3>
-<p>Para quitar ruido y comparar variantes.</p>
-<ul>
-<li class=""><code>site:tu-dominio.com filetype:pdf -inurl:/privacidad/</code></li>
-<li class=""><code>"tu marca" (fraude OR "suplantacion" OR "phishing")</code></li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-auditoria-defensiva-de-exposicion">Flujo recomendado: auditoria defensiva de exposicion<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#flujo-recomendado-auditoria-defensiva-de-exposicion" class="hash-link" aria-label="Enlace directo al Flujo recomendado: auditoria defensiva de exposicion" title="Enlace directo al Flujo recomendado: auditoria defensiva de exposicion" translate="no">​</a></h2>
-<p>Este playbook esta pensado para equipos de seguridad, comunicacion o cumplimiento, y para analistas OSINT trabajando con autorizacion.</p>
-<ol>
-<li class="">Inventario de dominios y subdominios en alcance.</li>
-<li class="">Bateria de consultas (site + filetype + secciones).</li>
-<li class="">Clasificacion rapida:<!-- -->
-<ul>
-<li class="">"Normal": contenido esperado.</li>
-<li class="">"Riesgo bajo": versiones antiguas, duplicados, paginas no enlazadas.</li>
-<li class="">"Riesgo alto": informacion operativa innecesaria (contactos internos, endpoints documentados sin necesidad, metadatos).</li>
-</ul>
-</li>
-<li class="">Verificacion manual: abre, contextualiza, comprueba si sigue accesible, y guarda evidencia.</li>
-<li class="">Remediacion: despublicar o mover, ajustar indexacion, actualizar contenido, o mejorar procesos editoriales.</li>
-<li class="">Seguimiento: repetir cada X semanas o tras cambios grandes (migracion, rebrand, incidentes).</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-practico-ficticio-acme-iberia">Caso practico (ficticio): "Acme Iberia"<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#caso-practico-ficticio-acme-iberia" class="hash-link" aria-label="Enlace directo al Caso practico (ficticio): &quot;Acme Iberia&quot;" title="Enlace directo al Caso practico (ficticio): &quot;Acme Iberia&quot;" translate="no">​</a></h2>
-<p>Escenario: Acme Iberia quiere asegurarse de que en su dominio publico no quedan documentos obsoletos tras una migracion web.</p>
-<p>Consultas defensivas y seguras:</p>
-<ul>
-<li class="">Inventario de PDFs:<!-- -->
-<ul>
-<li class=""><code>site:acme-iberia.example filetype:pdf</code></li>
-</ul>
-</li>
-<li class="">Presentaciones publicas:<!-- -->
-<ul>
-<li class=""><code>site:acme-iberia.example filetype:ppt</code></li>
-</ul>
-</li>
-<li class="">Comunicados (frase exacta):<!-- -->
-<ul>
-<li class=""><code>site:acme-iberia.example "nota de prensa"</code></li>
-</ul>
-</li>
-<li class="">Seccion de empleo (exposicion no intencionada de tecnologia/roles):<!-- -->
-<ul>
-<li class=""><code>site:acme-iberia.example (empleo OR careers OR jobs)</code></li>
-</ul>
-</li>
-</ul>
-<p>Que buscas aqui:</p>
-<ul>
-<li class="">Documentos duplicados o muy antiguos que sigan accesibles.</li>
-<li class="">PDFs con metadatos (autor/organizacion) que no deberian salir.</li>
-<li class="">Contenido que ya no representa politicas actuales (compliance, privacidad, terminos).</li>
-</ul>
-<p>No necesitas nada mas para obtener valor: el objetivo es <strong>reducir superficie informativa innecesaria</strong>, no encontrar "cosas jugosas".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<ul>
-<li class="">Indexacion: lo que ves depende de que el buscador lo haya rastreado y mantenido.</li>
-<li class="">Personalizacion: resultados pueden variar por idioma, ubicacion y sesion.</li>
-<li class="">Contenido no indexado: paginas con restricciones, bloqueos o recien publicadas pueden no aparecer.</li>
-<li class="">Duplicados: el mismo documento puede existir con varias URLs (UTM, parametros, mirrors).</li>
-</ul>
-<p>En OSINT, una consulta es una hipotesis. El hallazgo real llega con verificacion y contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-y-metodo">Buenas practicas (OPSEC y metodo)<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#buenas-practicas-opsec-y-metodo" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC y metodo)" title="Enlace directo al Buenas practicas (OPSEC y metodo)" translate="no">​</a></h2>
-<ul>
-<li class="">Usa un cuaderno de investigacion: consulta exacta, fecha, resultado, conclusion.</li>
-<li class="">Evita cuentas personales para tareas sensibles (separa roles).</li>
-<li class="">No automatices a lo bruto: respeta terminos, limites y la legalidad.</li>
-<li class="">Si descubres datos personales o sensibles en tu propio dominio: trata el caso como <strong>incidente</strong> y aplica minimizacion.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="siguientes-pasos">Siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#siguientes-pasos" class="hash-link" aria-label="Enlace directo al Siguientes pasos" title="Enlace directo al Siguientes pasos" translate="no">​</a></h2>
-<p>Si quieres profundizar, el siguiente tema natural es complementar esto con <strong>archivo web y cambios en el tiempo</strong> (p. ej., Wayback Machine) para detectar ediciones, borrados o reescrituras de contenido publico sin caer en conclusiones precipitadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/google-dorks-osint-responsable-auditoria#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class="">Google Search Central: "Debugging with Google Search Operators" (documentacion oficial de operadores orientada a monitorizacion/debug). <a href="https://developers.google.com/search/docs/monitor-debug/search-operators" target="_blank" rel="noopener noreferrer" class="">https://developers.google.com/search/docs/monitor-debug/search-operators</a></li>
-<li class="">Google Guide: "Using Advanced Operators" (referencia practica, no oficial). <a href="https://www.googleguide.com/using_advanced_operators.html" target="_blank" rel="noopener noreferrer" class="">https://www.googleguide.com/using_advanced_operators.html</a></li>
 </ul>]]></content:encoded>
             <category>OSINT</category>
             <category>Herramientas</category>
