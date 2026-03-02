@@ -82,3 +82,8 @@ attribution:
   label: Atribucion
   permalink: /attribution
   description: Criterios prudentes para vincular senales publicas con entidades sin sobredimensionar la evidencia.
+
+usernames:
+  label: Usernames
+  permalink: /usernames
+  description: Analisis de alias, reutilizacion de nombres de usuario y correlacion responsable entre plataformas.
