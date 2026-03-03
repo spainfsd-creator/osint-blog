@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Bucha (2022) - satelite + cronologia para fijar hechos
 - [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
@@ -46,6 +45,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-03: Historia OSINT: Bucha (2022), satelite, cronologia y como fijar hechos sin precipitarse
 - 2026-03-02: Blackbird en OSINT: busqueda rapida de usernames y correos con verificacion responsable
 - 2026-03-01: Historia OSINT: Jan 6 (2021), un oceano de videos y como evitar errores de identificacion
 - 2026-02-28: Arkham Intelligence y DeBank en OSINT: contexto blockchain, atribucion prudente y limites
