@@ -4,10 +4,126 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 03 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Castrick en OSINT: geolocalizacion precisa, contexto y limites para no sobreinterpretar]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites</guid>
+            <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de un analista OSINT cruzando mapas, DNS, WHOIS y metadatos publicos para acotar una geolocalizacion con criterio]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT cruzando mapas, DNS, WHOIS y metadatos publicos para acotar una geolocalizacion con criterio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-03-04-castrick-osint-geolocalizacion-precisa-contexto-limites-542d2d1a245bac1b6a6077f6df38d6a4.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion necesita ubicar una infraestructura, un activo digital o una pista publica sobre el terreno, el mayor riesgo no es "no encontrar nada": el mayor riesgo es <strong>confundir una senal aproximada con una localizacion exacta</strong>. <code>Castrick</code>, citado hoy dentro del ecosistema de <code>ClatScope</code>, encaja mejor como capa de enriquecimiento y triage que como oraculo. Sirve para reunir indicios tecnicos y contextuales que ayudan a estrechar una hipotesis geografica, pero la validacion sigue dependiendo de contraste humano y de varias fuentes abiertas.</p>
+<p>Este contenido esta orientado a usos legitimos (verificacion, defensa, analisis de exposicion y due diligence). No incluye tacticas para acoso, doxxing, vigilancia abusiva ni intrusiones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es (y para que sirve)<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve)" title="Enlace directo al Que es (y para que sirve)" translate="no">​</a></h2>
+<p>En la documentacion publica de <code>ClatScope</code>, <code>Castrick</code> aparece como una integracion dentro de un flujo OSINT mas amplio. La propuesta util, leida con prudencia, es clara: combinar datos de red y trazas publicas para responder una pregunta acotada como estas:</p>
+<ul>
+<li class="">que pais o region encaja mejor con un activo;</li>
+<li class="">si una IP, dominio o senal publica apunta a una presencia coherente;</li>
+<li class="">o si una pista geografica merece verificacion adicional antes de escalarla.</li>
+</ul>
+<p>Dicho de otro modo: no es una "herramienta para localizar personas", sino una pieza para <strong>orientar la geolocalizacion de infraestructura y contexto tecnico</strong> con informacion abierta.</p>
+<p>En la practica, este tipo de enriquecimiento suele apoyarse en:</p>
+<ul>
+<li class="">geolocalizacion IP y ASN;</li>
+<li class="">DNS y reverse DNS;</li>
+<li class="">WHOIS y huella de registro;</li>
+<li class="">metadatos de web y certificados;</li>
+<li class="">y enlaces externos como mapas o referencias publicas asociadas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina un equipo de seguridad defensiva que detecta un portal sospechoso que suplanta una marca local. Antes de escalar a bloqueo o denuncia, necesita una foto inicial del activo:</p>
+<ol>
+<li class="">si la infraestructura parece realmente ligada a una zona geografica concreta;</li>
+<li class="">si el registro del dominio y la resolucion tecnica cuentan una historia coherente;</li>
+<li class="">y si hay indicios de que se trata de una operacion desechable o recurrente.</li>
+</ol>
+<p>Un uso prudente de <code>Castrick</code> o de una capa equivalente seria reunir senales abiertas para construir una hipotesis inicial de ubicacion y contexto. Esa hipotesis luego se contrasta con mas evidencia: hosting, historico, certificados, capturas y observacion manual. El objetivo no es "señalar un lugar exacto" con falsa precision, sino priorizar la siguiente comprobacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-nivel-de-precision-que-realmente-necesitas">1. Define el nivel de precision que realmente necesitas<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#1-define-el-nivel-de-precision-que-realmente-necesitas" class="hash-link" aria-label="Enlace directo al 1. Define el nivel de precision que realmente necesitas" title="Enlace directo al 1. Define el nivel de precision que realmente necesitas" translate="no">​</a></h3>
+<p>Antes de lanzar ninguna consulta, decide si buscas:</p>
+<ul>
+<li class="">pais;</li>
+<li class="">region;</li>
+<li class="">proveedor o ASN;</li>
+<li class="">ciudad aproximada;</li>
+<li class="">o solo coherencia entre varias pistas.</li>
+</ul>
+<p>La mayoria de errores empiezan cuando se exige precision de calle a senales que solo permiten una inferencia de alto nivel.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-infraestructura-no-por-conclusiones">2. Empieza por infraestructura, no por conclusiones<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#2-empieza-por-infraestructura-no-por-conclusiones" class="hash-link" aria-label="Enlace directo al 2. Empieza por infraestructura, no por conclusiones" title="Enlace directo al 2. Empieza por infraestructura, no por conclusiones" translate="no">​</a></h3>
+<p>Si el objetivo es un dominio o una IP, el orden mas sano es:</p>
+<ol>
+<li class="">resolver DNS;</li>
+<li class="">identificar ASN y proveedor;</li>
+<li class="">revisar certificados y metadatos web;</li>
+<li class="">y anotar solo despues las pistas geograficas que se repiten.</li>
+</ol>
+<p>Este orden obliga a trabajar con hechos observables antes de interpretar mapas o etiquetas de localizacion.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-la-geolocalizacion-como-pista-no-como-prueba">3. Usa la geolocalizacion como pista, no como prueba<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#3-usa-la-geolocalizacion-como-pista-no-como-prueba" class="hash-link" aria-label="Enlace directo al 3. Usa la geolocalizacion como pista, no como prueba" title="Enlace directo al 3. Usa la geolocalizacion como pista, no como prueba" translate="no">​</a></h3>
+<p>Una base de datos IP puede apuntar a una ciudad y seguir estando mal calibrada. Un enlace a mapas puede describir la sede del proveedor, no el activo. Un registro WHOIS puede reflejar un intermediario. Por eso conviene tratar cada salida como una senal con confianza variable:</p>
+<ul>
+<li class="">alta, si varias fuentes independientes coinciden;</li>
+<li class="">media, si solo hay consistencia tecnica parcial;</li>
+<li class="">baja, si la pista depende de un unico proveedor o de datos historicos dudosos.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cierra-siempre-con-corroboracion-externa">4. Cierra siempre con corroboracion externa<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#4-cierra-siempre-con-corroboracion-externa" class="hash-link" aria-label="Enlace directo al 4. Cierra siempre con corroboracion externa" title="Enlace directo al 4. Cierra siempre con corroboracion externa" translate="no">​</a></h3>
+<p>Antes de escribir una conclusion operativa, contrasta con:</p>
+<ul>
+<li class="">historico en Wayback u otros archivos;</li>
+<li class="">reputacion del dominio o IP;</li>
+<li class="">observacion manual del contenido;</li>
+<li class="">y evidencia temporal (cuando aparecio, cuando cambio, cuando se movio).</li>
+</ul>
+<p>La geolocalizacion aislada rara vez basta para tomar decisiones serias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>La geolocalizacion "precisa" en OSINT casi nunca es tan precisa como promete el nombre comercial. Hay varias razones:</p>
+<ul>
+<li class="">las bases de datos IP se actualizan con retraso;</li>
+<li class="">muchos proveedores enrutan trafico lejos de donde esta el activo;</li>
+<li class="">CDNs, proxies y VPNs separan origen tecnico y operacion real;</li>
+<li class="">los datos de registro pueden pertenecer a revendedores;</li>
+<li class="">y una coincidencia geografica puede ser casual si no hay mas contexto.</li>
+</ul>
+<p>Tambien existe un riesgo metodologico: cuanto mas atractiva parece una coordenada o un mapa, mas facil es sobreinterpretarla. Una visualizacion convincente no sustituye la corroboracion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Limita la investigacion a activos, dominios y datos publicos con interes legitimo.</li>
+<li class="">Documenta que hallazgos son observables y cuales son inferencias.</li>
+<li class="">Evita convertir una aproximacion geografica en atribucion personal.</li>
+<li class="">Guarda solo lo necesario para el caso y con una justificacion clara.</li>
+<li class="">Si aparecen datos sensibles de terceros, minimiza retencion y difusion.</li>
+</ul>
+<p>La mejor forma de usar una herramienta de este tipo es <strong>reducir incertidumbre</strong>, no fabricar certeza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si <code>Castrick</code> no encaja o no aporta suficiente contexto, una rutina equilibrada puede combinar:</p>
+<ul>
+<li class="">consulta directa de <code>WHOIS</code>, <code>DNS</code> y certificados;</li>
+<li class=""><code>Shodan</code> para superficie expuesta y banners;</li>
+<li class=""><code>Wayback Machine</code> para historico del activo;</li>
+<li class="">y analisis manual del sitio, formularios, metadatos y lenguaje operativo.</li>
+</ul>
+<p>En muchos casos, la mejor mejora no es otra herramienta, sino una libreta mas estricta:</p>
+<ol>
+<li class="">anotar que dato apoya cada inferencia;</li>
+<li class="">marcar el nivel de confianza;</li>
+<li class="">y separar claramente ubicacion tecnica, ubicacion comercial y atribucion.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>Castrick</code>, entendido como capa de enriquecimiento dentro de un stack OSINT, puede ahorrar mucho tiempo cuando necesitas ordenar rapido pistas tecnicas y geograficas. Su valor real no esta en prometer exactitud magica, sino en ayudarte a decidir <strong>que merece comprobar despues</strong>. En geolocalizacion OSINT, el criterio sigue siendo mas importante que el mapa.</p>
+<p>Fuentes recomendadas:</p>
+<ul>
+<li class=""><a href="https://github.com/Clats97/ClatScope" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de ClatScope</a></li>
+<li class=""><a href="https://pypi.org/project/clatscope/" target="_blank" rel="noopener noreferrer" class="">Paquete publicado en PyPI</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Herramientas</category>
+            <category>GEOINT</category>
+            <category>Verificacion</category>
+            <category>OPSEC</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Historia OSINT: Bucha (2022), satelite, cronologia y como fijar hechos sin precipitarse]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/historia-bucha-2022-satelite-cronologia-verificar-hechos</link>
@@ -2091,103 +2207,6 @@
             <category>Tradecraft</category>
             <category>Privacidad</category>
             <category>Analisis de enlaces</category>
-        </item>
-        <item>
-            <title><![CDATA[Shodan en OSINT: cartografiar superficie expuesta con enfoque defensivo]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva</guid>
-            <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion sobre Shodan y superficie expuesta en Internet]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion sobre Shodan y superficie expuesta en Internet" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-12-shodan-osint-superficie-ataque-8e942940fdc86dcdf36dd413cc42bbaa.png" width="1024" height="1024" class="img_ev3q"></p>
-<p>Cuando una organizacion sufre un incidente externo, casi siempre aparece la misma pregunta: <strong>que teniamos realmente expuesto en Internet y desde cuando</strong>. Shodan encaja justo ahi: no para "atacar", sino para observar huella publica, priorizar riesgos y validar correcciones con evidencias.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-shodan-y-para-que-sirve-en-osint">Que es Shodan (y para que sirve en OSINT)<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#que-es-shodan-y-para-que-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Que es Shodan (y para que sirve en OSINT)" title="Enlace directo al Que es Shodan (y para que sirve en OSINT)" translate="no">​</a></h2>
-<p>Shodan es un motor de busqueda de servicios conectados a Internet. En lugar de indexar paginas web como un buscador generalista, indexa <strong>banners de servicios</strong> (metadatos que los servicios publican al responder en red).</p>
-<p>En un flujo OSINT responsable, se usa para:</p>
-<ul>
-<li class="">Inventariar exposicion externa de activos propios o autorizados.</li>
-<li class="">Detectar configuraciones inesperadas (puertos, productos, versiones declaradas por banner).</li>
-<li class="">Estimar prioridad de remediacion por impacto potencial.</li>
-<li class="">Verificar si un cambio defensivo ya se refleja hacia fuera.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-ficticio">Caso de uso legitimo (ficticio)<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#caso-de-uso-legitimo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo (ficticio)" title="Enlace directo al Caso de uso legitimo (ficticio)" translate="no">​</a></h2>
-<p>Una empresa mediana abre filiales nuevas en dos paises y quiere revisar su superficie expuesta antes de una auditoria.</p>
-<p>Objetivo defensivo:</p>
-<ol>
-<li class="">Localizar servicios publicados por su organizacion en rangos y dominios autorizados.</li>
-<li class="">Identificar activos "olvidados" (staging, equipos temporales, servicios legacy).</li>
-<li class="">Registrar hallazgos con fecha, evidencia y accion correctiva.</li>
-</ol>
-<p>Resultado esperado:
-Un mapa inicial fiable para que TI y seguridad reduzcan riesgo sin interrumpir negocio.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado (paso a paso)<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado (paso a paso)" title="Enlace directo al Flujo recomendado (paso a paso)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-y-permisos">1. Define alcance y permisos<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#1-define-alcance-y-permisos" class="hash-link" aria-label="Enlace directo al 1. Define alcance y permisos" title="Enlace directo al 1. Define alcance y permisos" translate="no">​</a></h3>
-<ul>
-<li class="">Lista ASN, netblocks, dominios y subdominios bajo control de tu organizacion.</li>
-<li class="">Deja por escrito autorizacion y ventana temporal de trabajo.</li>
-<li class="">Evita buscar o profundizar en activos de terceros sin base legal.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-preguntas-de-inventario-no-por-vulns">2. Empieza por preguntas de inventario, no por "vulns"<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#2-empieza-por-preguntas-de-inventario-no-por-vulns" class="hash-link" aria-label="Enlace directo al 2. Empieza por preguntas de inventario, no por &quot;vulns&quot;" title="Enlace directo al 2. Empieza por preguntas de inventario, no por &quot;vulns&quot;" translate="no">​</a></h3>
-<p>Ejemplos de consultas defensivas:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">org:"Nombre de tu organizacion" country:ES</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">net:203.0.113.0/24</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">hostname:empresa-ejemplo.com</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">ssl:"empresa-ejemplo.com"</span><br></span></code></pre></div></div>
-<p>Primero confirma <strong>que existe</strong> y <strong>donde esta</strong>. Luego ya priorizas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-segmenta-por-tecnologia-y-exposicion">3. Segmenta por tecnologia y exposicion<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#3-segmenta-por-tecnologia-y-exposicion" class="hash-link" aria-label="Enlace directo al 3. Segmenta por tecnologia y exposicion" title="Enlace directo al 3. Segmenta por tecnologia y exposicion" translate="no">​</a></h3>
-<p>Una vez localizado el inventario:</p>
-<ul>
-<li class="">Agrupa por <code>port</code>, <code>product</code>, <code>org</code>, <code>country</code>.</li>
-<li class="">Distingue activos productivos de pruebas.</li>
-<li class="">Marca servicios que no deberian ser publicos.</li>
-</ul>
-<p>Si usas API/CLI, aprovecha conteos y agregaciones para informes semanales comparables.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-contrasta-antes-de-concluir">4. Contrasta antes de concluir<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#4-contrasta-antes-de-concluir" class="hash-link" aria-label="Enlace directo al 4. Contrasta antes de concluir" title="Enlace directo al 4. Contrasta antes de concluir" translate="no">​</a></h3>
-<p>Shodan refleja observacion externa en el tiempo, no siempre "estado instantaneo". Valida cada hallazgo relevante con:</p>
-<ul>
-<li class="">Fuentes internas de inventario/CMDB.</li>
-<li class="">Telemetria de firewall y balanceadores.</li>
-<li class="">Comprobacion tecnica de equipo responsable.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cierra-el-ciclo-remedias-y-verificas">5. Cierra el ciclo: remedias y verificas<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#5-cierra-el-ciclo-remedias-y-verificas" class="hash-link" aria-label="Enlace directo al 5. Cierra el ciclo: remedias y verificas" title="Enlace directo al 5. Cierra el ciclo: remedias y verificas" translate="no">​</a></h3>
-<ul>
-<li class="">Aplica controles (cerrar puerto, restringir origen, retirar servicio, endurecer configuracion).</li>
-<li class="">Repite consulta tras el cambio para confirmar reduccion de exposicion.</li>
-<li class="">Documenta evidencia del antes/despues.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<ul>
-<li class="">Un banner puede estar desactualizado respecto al ultimo cambio interno.</li>
-<li class="">Puede haber atribuciones confusas por NAT, proveedores o activos compartidos.</li>
-<li class="">"Ver un servicio" no equivale automaticamente a "vulnerable explotable".</li>
-<li class="">La ausencia en resultados no demuestra inexistencia total del activo.</li>
-</ul>
-<p>Conclusiones de seguridad deben basarse en <strong>correlacion de fuentes</strong>, no en una unica captura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Minimizacion: recolecta solo lo necesario para el objetivo defensivo.</li>
-<li class="">Trazabilidad: conserva consultas, fecha/hora y contexto de analisis.</li>
-<li class="">Proporcionalidad: no profundices mas de lo necesario en datos sensibles.</li>
-<li class="">Divulgacion interna responsable: reporta hallazgos con severidad y accion concreta.</li>
-<li class="">Cumplimiento: trabaja siempre con autorizacion y marco legal aplicable.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Shodan funciona mejor combinado con otras capas:</p>
-<ul>
-<li class="">DNS/CT logs para descubrir activos no evidentes.</li>
-<li class="">Inventario interno para confirmar propiedad y criticidad.</li>
-<li class="">Escaneo autorizado propio para validar exposicion en tiempo real.</li>
-</ul>
-<p>Si ya dominas esta fase, el siguiente paso natural es automatizar un <strong>baseline semanal</strong> (consultas + facets + diff de cambios) para detectar deriva de superficie expuesta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="referencias-recomendadas">Referencias recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/shodan-osint-superficie-expuesta-defensiva#referencias-recomendadas" class="hash-link" aria-label="Enlace directo al Referencias recomendadas" title="Enlace directo al Referencias recomendadas" translate="no">​</a></h2>
-<ul>
-<li class="">Shodan Help Center - What is Shodan?: <a href="https://help.shodan.io/the-basics/what-is-shodan" target="_blank" rel="noopener noreferrer" class="">https://help.shodan.io/the-basics/what-is-shodan</a></li>
-<li class="">Shodan Help Center - Search Query Fundamentals: <a href="https://help.shodan.io/the-basics/search-query-fundamentals" target="_blank" rel="noopener noreferrer" class="">https://help.shodan.io/the-basics/search-query-fundamentals</a></li>
-<li class="">Shodan Book - Search Query Syntax: <a href="https://book.shodan.io/getting-started/query-syntax/" target="_blank" rel="noopener noreferrer" class="">https://book.shodan.io/getting-started/query-syntax/</a></li>
-<li class="">Shodan Developer API: <a href="https://developer.shodan.io/api" target="_blank" rel="noopener noreferrer" class="">https://developer.shodan.io/api</a></li>
-<li class="">Shodan Help Center - On-Demand Scanning: <a href="https://help.shodan.io/the-basics/on-demand-scanning" target="_blank" rel="noopener noreferrer" class="">https://help.shodan.io/the-basics/on-demand-scanning</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Herramientas</category>
-            <category>Investigacion</category>
-            <category>Tradecraft</category>
-            <category>Privacidad</category>
         </item>
     </channel>
 </rss>
