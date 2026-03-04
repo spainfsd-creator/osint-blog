@@ -9,6 +9,9 @@ image: /img/blog/2026-03-01-historia-jan-6-2021-oceano-videos-evitar-errores-ide
 
 ![Ilustracion editorial de un analista OSINT ordenando docenas de videos, capturas y lineas temporales para reconstruir un evento caotico sin precipitar identificaciones](/img/blog/2026-03-01-historia-jan-6-2021-oceano-videos-evitar-errores-identificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-jan-6-2021-oceano-videos-evitar-errores-identificacion.m4a)
+
+
 El 6 de enero de 2021 dejo una leccion brutal para cualquier analista: cuando aparecen **miles de clips, retransmisiones, selfies, camaras fijas y testimonios cruzados**, el riesgo no es solo perderse en el ruido. El riesgo real es **creer que una cara aislada, un frame llamativo o un hilo viral bastan para identificar a alguien con fiabilidad**. La utilidad OSINT de este caso no esta en "adivinar" rapido, sino en aprender a preservar evidencia, ordenar cronologias y frenar el impulso de confirmar una hipotesis antes de tiempo.
 
 Este contenido esta orientado a usos legitimos (periodismo, investigacion academica, analisis defensivo y documentacion publica). No incluye tacticas para acoso, doxxing ni vigilancia abusiva contra personas.

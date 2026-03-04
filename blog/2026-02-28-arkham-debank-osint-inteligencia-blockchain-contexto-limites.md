@@ -9,6 +9,9 @@ image: /img/blog/2026-02-28-arkham-debank-osint-inteligencia-blockchain-contexto
 
 ![Ilustracion editorial de un analista OSINT revisando flujos on-chain y carteras publicas con grafos, paneles abstractos y notas de compliance](/img/blog/2026-02-28-arkham-debank-osint-inteligencia-blockchain-contexto-limites.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/arkham-debank-osint-inteligencia-blockchain-contexto-limites.m4a)
+
+
 Cuando una investigacion toca criptoactivos, el error mas comun no es "no tener datos": es **confundir una cartera visible con una identidad ya demostrada**. `Arkham Intelligence` y `DeBank` son dos piezas muy utiles para construir contexto sobre actividad on-chain, pero su valor real aparece cuando se usan para **priorizar hipotesis, documentar evidencia y descartar atajos narrativos**, no para saltar a una atribucion definitiva.
 
 Este contenido esta orientado a usos legitimos (compliance, periodismo, due diligence, analisis defensivo e investigacion academica). No incluye tacticas para acoso, doxxing, intrusiones ni dano a terceros.
