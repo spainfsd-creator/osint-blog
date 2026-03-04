@@ -9,6 +9,9 @@ image: /img/blog/2026-03-03-historia-bucha-2022-satelite-cronologia-verificar-he
 
 ![Ilustracion editorial de un analista OSINT comparando imagenes satelitales antes y despues, una cronologia de evidencias y notas anonimizadas para verificar hechos en un entorno urbano](/img/blog/2026-03-03-historia-bucha-2022-satelite-cronologia-verificar-hechos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-bucha-2022-satelite-cronologia-verificar-hechos.m4a)
+
+
 Cuando una ciudad sale de una ocupacion, el primer riesgo no es solo perder pruebas: es que el ruido politico, el impacto emocional y la velocidad de las narrativas tapen el orden real de los hechos. `Bucha` se ha convertido en un caso de estudio porque obligo a demostrar algo muy concreto con fuentes abiertas: **si ciertos indicios visibles en calle ya estaban ahi antes de que cambiara el control del terreno**. La leccion OSINT no consiste en lanzar conclusiones grandilocuentes, sino en aprender a unir satelite, cronologia y corroboracion de campo sin forzar ninguna pieza.
 
 Este contenido esta orientado a usos legitimos (periodismo, analisis humanitario, documentacion publica y verificacion academica). No incluye tacticas para acoso, doxxing ni vigilancia abusiva contra particulares.
