@@ -2,11 +2,122 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-03-04T00:00:00.000Z</updated>
+    <updated>2026-03-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Historia OSINT: Ngarbuh (2020), satelite, tiempo y corroboracion sin perder la prudencia]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion"/>
+        <updated>2026-03-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de analisis OSINT con comparativa satelital, linea temporal y notas anonimizadas para corroborar hechos en una investigacion humanitaria]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de analisis OSINT con comparativa satelital, linea temporal y notas anonimizadas para corroborar hechos en una investigacion humanitaria" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-03-05-historia-ngarbuh-2020-osint-satelite-corroboracion-ab8187182ca6fed6aa0cd314ada97799.png" width="1376" height="768" class="img_ev3q"></p>
+<p>En una investigacion de violencia masiva, el error mas caro no siempre es "no encontrar una prueba": muchas veces es forzar una narrativa antes de ordenar bien <strong>que paso, cuando paso y que puede afirmar cada fuente</strong>. El caso de Ngarbuh (Camerun), ocurrido el <strong>14 de febrero de 2020</strong>, se estudio en abierto precisamente por eso: combinar testimonios, analisis remoto y cronologia para acercarse a los hechos sin convertir hipotesis en certeza absoluta.</p>
+<p>Este contenido es didactico y orientado a usos legitimos (periodismo, documentacion humanitaria, verificacion academica y due diligence institucional). No incluye tacticas de acoso, doxxing ni vigilancia abusiva.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve-esta-leccion-osint">Que es (y para que sirve) esta leccion OSINT<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#que-es-y-para-que-sirve-esta-leccion-osint" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve) esta leccion OSINT" title="Enlace directo al Que es (y para que sirve) esta leccion OSINT" translate="no">​</a></h2>
+<p>La leccion de Ngarbuh no es "una herramienta magica". Es un metodo:</p>
+<ul>
+<li class="">fijar una linea temporal minima verificable;</li>
+<li class="">contrastar fuentes de diferente naturaleza (testigos, ONG, comunicados oficiales, analisis tecnico);</li>
+<li class="">y separar con disciplina lo confirmado, lo probable y lo no verificable.</li>
+</ul>
+<p>En terminos OSINT, sirve para investigaciones donde hay disputa sobre autoria, numero de victimas o secuencia de eventos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mini-relato-metodologico-del-ruido-inicial-al-marco-verificable">Mini-relato metodologico: del ruido inicial al marco verificable<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#mini-relato-metodologico-del-ruido-inicial-al-marco-verificable" class="hash-link" aria-label="Enlace directo al Mini-relato metodologico: del ruido inicial al marco verificable" title="Enlace directo al Mini-relato metodologico: del ruido inicial al marco verificable" translate="no">​</a></h2>
+<p>Imagina que tu equipo recibe en pocas horas tres bloques de informacion:</p>
+<ul>
+<li class="">testimonios en conflicto sobre el numero de fallecidos;</li>
+<li class="">versiones institucionales que cambian con los dias;</li>
+<li class="">y reportes de organizaciones internacionales que apuntan a responsabilidades concretas.</li>
+</ul>
+<p>Si mezclas todo de golpe, acabas con un documento imposible de auditar. Si lo ordenas por tiempo y trazabilidad, aparece un marco mas util:</p>
+<ol>
+<li class="">primero, el hecho base (fecha/lugar) y quien lo reporta;</li>
+<li class="">despues, que elementos independientes convergen;</li>
+<li class="">por ultimo, que parte sigue abierta y requiere mas evidencia.</li>
+</ol>
+<p>Esa disciplina convierte una discusion emocional en una investigacion repetible.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-pasos">Flujo recomendado (pasos)<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#flujo-recomendado-pasos" class="hash-link" aria-label="Enlace directo al Flujo recomendado (pasos)" title="Enlace directo al Flujo recomendado (pasos)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-congelar-cronologia-con-fechas-absolutas">1. Congelar cronologia con fechas absolutas<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#1-congelar-cronologia-con-fechas-absolutas" class="hash-link" aria-label="Enlace directo al 1. Congelar cronologia con fechas absolutas" title="Enlace directo al 1. Congelar cronologia con fechas absolutas" translate="no">​</a></h3>
+<p>Para este caso, empieza por hitos concretos:</p>
+<ul>
+<li class=""><strong>14 de febrero de 2020</strong>: ataque en Ngarbuh.</li>
+<li class=""><strong>21 de abril de 2020</strong>: Human Rights Watch publica su investigacion y atribuye responsabilidad a fuerzas estatales y milicias aliadas.</li>
+<li class=""><strong>22 de abril de 2020</strong>: el Gobierno de Camerun publica un comunicado aceptando la implicacion de soldados en la operacion.</li>
+<li class=""><strong>24 de febrero de 2026</strong>: un tribunal militar condena a varios implicados por los hechos.</li>
+</ul>
+<p>Sin anclar estas fechas, el analisis posterior se vuelve ambiguo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-triangular-fuentes-abiertas-heterogeneas">2. Triangular fuentes abiertas heterogeneas<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#2-triangular-fuentes-abiertas-heterogeneas" class="hash-link" aria-label="Enlace directo al 2. Triangular fuentes abiertas heterogeneas" title="Enlace directo al 2. Triangular fuentes abiertas heterogeneas" translate="no">​</a></h3>
+<p>Cruza siempre, como minimo, tres familias:</p>
+<ul>
+<li class="">investigacion de campo (entrevistas y verificacion de testigos);</li>
+<li class="">fuentes institucionales (comunicados, procedimientos judiciales);</li>
+<li class="">organismos internacionales o derechos humanos con metodologia publica.</li>
+</ul>
+<p>Cuando dos familias convergen y la tercera no contradice, sube la confianza. Cuando divergen, documenta la divergencia, no la tapes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-satelite-y-geolocalizacion-como-capa-de-corroboracion">3. Usar satelite y geolocalizacion como capa de corroboracion<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#3-usar-satelite-y-geolocalizacion-como-capa-de-corroboracion" class="hash-link" aria-label="Enlace directo al 3. Usar satelite y geolocalizacion como capa de corroboracion" title="Enlace directo al 3. Usar satelite y geolocalizacion como capa de corroboracion" translate="no">​</a></h3>
+<p>En escenarios con acceso fisico limitado, la observacion remota ayuda a responder preguntas acotadas:</p>
+<ul>
+<li class="">habia senales de destruccion compatibles con los testimonios;</li>
+<li class="">el patron espacial y temporal encaja con la cronologia declarada;</li>
+<li class="">hay cambios observables antes/despues que reduzcan explicaciones alternativas.</li>
+</ul>
+<p>Clave: el satelite rara vez "resuelve" autoria por si solo; sirve para reforzar o tensionar hipotesis.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-etiquetar-nivel-de-confianza-en-cada-afirmacion">4. Etiquetar nivel de confianza en cada afirmacion<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#4-etiquetar-nivel-de-confianza-en-cada-afirmacion" class="hash-link" aria-label="Enlace directo al 4. Etiquetar nivel de confianza en cada afirmacion" title="Enlace directo al 4. Etiquetar nivel de confianza en cada afirmacion" translate="no">​</a></h3>
+<p>Una plantilla simple evita sobreinterpretar:</p>
+<ul>
+<li class=""><strong>Confirmado</strong>: respaldado por evidencia abierta convergente.</li>
+<li class=""><strong>Probable</strong>: evidencia parcial con lagunas relevantes.</li>
+<li class=""><strong>No verificado</strong>: pista plausible, sin soporte suficiente.</li>
+</ul>
+<p>Publicar esta etiqueta junto a cada hallazgo mejora la transparencia del informe.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<ul>
+<li class="">Testimonios pueden contener sesgos por trauma, miedo o desinformacion local.</li>
+<li class="">Las imagenes satelitales dependen de resolucion, nubosidad y ventana temporal.</li>
+<li class="">Fuentes institucionales y politicas pueden cambiar su relato con el tiempo.</li>
+<li class="">Un mismo indicador visual (zona quemada, estructuras colapsadas) puede tener mas de una causa.</li>
+</ul>
+<p>Por eso, evita frases cerradas cuando la evidencia no llega a ese umbral.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Minimiza datos personales de testigos y supervivientes.</li>
+<li class="">Publica solo lo necesario para sostener la conclusion tecnica.</li>
+<li class="">Conserva un registro de decisiones analiticas para auditoria posterior.</li>
+<li class="">Prioriza seguridad de fuentes sobre velocidad de publicacion.</li>
+</ul>
+<p>En OSINT responsable, proteger a personas reales pesa mas que "ganar" una narrativa en redes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si investigas casos similares, complementa este enfoque con:</p>
+<ul>
+<li class="">analisis de video verificable cuadro a cuadro (InVID/forense basico);</li>
+<li class="">cartografia temporal en QGIS para eventos y puntos de interes;</li>
+<li class="">matriz de consistencia entre testimonios y evidencia tecnica.</li>
+</ul>
+<p>Siguiente tema sugerido para seguir la serie: <strong>Pandora Papers (2021)</strong> como ejemplo de investigacion hibrida (filtracion + OSINT de corroboracion publica).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-recomendadas">Fuentes recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion#fuentes-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes recomendadas" title="Enlace directo al Fuentes recomendadas" translate="no">​</a></h2>
+<ul>
+<li class="">Human Rights Watch (21-04-2020): investigacion sobre Ngarbuh.
+<a href="https://www.hrw.org/news/2020/04/21/cameroon-army-behind-massacre" target="_blank" rel="noopener noreferrer" class="">https://www.hrw.org/news/2020/04/21/cameroon-army-behind-massacre</a></li>
+<li class="">Gobierno de Camerun / MINCOM (22-04-2020): comunicado oficial sobre la comision de investigacion.
+<a href="https://www.mincom.gov.cm/web/index.php/en/news/press-releases/3209-cameroon-ngorbuh-tragedy-the-government-makes-public-the-report-of-the-commission-of-inquiry" target="_blank" rel="noopener noreferrer" class="">https://www.mincom.gov.cm/web/index.php/en/news/press-releases/3209-cameroon-ngorbuh-tragedy-the-government-makes-public-the-report-of-the-commission-of-inquiry</a></li>
+<li class="">OHCHR (25-04-2020): valoracion y llamado a rendicion de cuentas.
+<a href="https://www.ohchr.org/en/press-releases/2020/04/cameroon-un-human-rights-chief-bachelet-welcomes-government-investigation" target="_blank" rel="noopener noreferrer" class="">https://www.ohchr.org/en/press-releases/2020/04/cameroon-un-human-rights-chief-bachelet-welcomes-government-investigation</a></li>
+<li class="">Human Rights Watch (24-02-2026): sentencia del tribunal militar sobre Ngarbuh.
+<a href="https://www.hrw.org/news/2026/02/24/cameroon-verdict-massacre-case" target="_blank" rel="noopener noreferrer" class="">https://www.hrw.org/news/2026/02/24/cameroon-verdict-massacre-case</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Historia" term="Historia"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Castrick en OSINT: geolocalizacion precisa, contexto y limites para no sobreinterpretar]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/castrick-osint-geolocalizacion-precisa-contexto-limites</id>
@@ -2165,128 +2276,5 @@
         <category label="Investigacion" term="Investigacion"/>
         <category label="Privacidad" term="Privacidad"/>
         <category label="Automatizacion" term="Automatizacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Maltego en OSINT: analisis de enlaces y grafos para investigar con metodo]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos"/>
-        <updated>2026-02-13T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion sobre analisis de enlaces (grafos) en una investigacion OSINT con Maltego]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion sobre analisis de enlaces (grafos) en una investigacion OSINT con Maltego" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-13-maltego-osint-grafos-ce51264062bec67f578053e6979b7596.png" width="1024" height="1024" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/maltego-osint-analisis-enlaces-grafos-f0e78bd083265ed077a178733df03a2a.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Cuando una investigacion OSINT crece, el problema deja de ser "encontrar algo" y pasa a ser <strong>no perderse</strong>: demasiados dominios, correos, organizaciones, infraestructuras, aliases y fuentes abiertas inconexas. En ese punto, herramientas de <strong>analisis de enlaces</strong> (link analysis) como Maltego ayudan a convertir una lista caotica de hallazgos en una estructura que se puede revisar, auditar y explicar.</p>
-<p>En esta guia vas a ver un enfoque <strong>practico y responsable</strong>: metodologia, buen uso de transformaciones, y como evitar falsos positivos, sesgos y recogida innecesaria de datos personales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-maltego-y-por-que-encaja-en-osint">Que es Maltego (y por que encaja en OSINT)<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#que-es-maltego-y-por-que-encaja-en-osint" class="hash-link" aria-label="Enlace directo al Que es Maltego (y por que encaja en OSINT)" title="Enlace directo al Que es Maltego (y por que encaja en OSINT)" translate="no">​</a></h2>
-<p>Maltego es una herramienta de investigacion basada en <strong>entidades</strong> y <strong>relaciones</strong>.</p>
-<ul>
-<li class="">Una entidad es un "tipo de cosa": dominio, IP, organizacion, correo, persona, documento, etc.</li>
-<li class="">Una relacion es un vinculo: resuelve a, pertenece a, aparece en, comparte infraestructura con, etc.</li>
-</ul>
-<p>La idea clave: en lugar de trabajar con notas sueltas, construyes un <strong>grafo</strong> donde cada nodo tiene procedencia y cada enlace se puede justificar.</p>
-<p>Usos legitimos tipicos en OSINT:</p>
-<ul>
-<li class="">Due diligence (relaciones entre empresas, marcas, dominios, presencia publica).</li>
-<li class="">Ciberinteligencia defensiva (mapear infraestructura expuesta propia o autorizada).</li>
-<li class="">Respuesta a incidentes (correlacionar dominios, certificados, rangos e indicadores publicos).</li>
-<li class="">Investigacion periodistica (organizar fuentes abiertas y lineas de relacion verificables).</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-ficticio-due-diligence-de-proveedor">Caso de uso (ficticio): due diligence de proveedor<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#caso-de-uso-ficticio-due-diligence-de-proveedor" class="hash-link" aria-label="Enlace directo al Caso de uso (ficticio): due diligence de proveedor" title="Enlace directo al Caso de uso (ficticio): due diligence de proveedor" translate="no">​</a></h2>
-<p>Contexto: una empresa va a contratar a un proveedor de servicios digitales. El proveedor presenta tres dominios y un conjunto de marcas. El objetivo es <strong>reducir riesgo</strong> (no "cazar" a nadie).</p>
-<p>Preguntas razonables:</p>
-<ol>
-<li class="">Que dominios y subdominios publicos se asocian a esa marca/proveedor.</li>
-<li class="">Si hay infraestructura compartida con servicios que no encajan (p. ej. paneles publicos no esperados).</li>
-<li class="">Si hay indicios publicos de suplantaciones o typosquatting alrededor de su marca.</li>
-</ol>
-<p>Resultado deseado: un mapa claro de activos publicos relacionados (y su nivel de confianza) para informar al equipo de compras/seguridad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso-con-criterio">Flujo recomendado (paso a paso, con criterio)<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#flujo-recomendado-paso-a-paso-con-criterio" class="hash-link" aria-label="Enlace directo al Flujo recomendado (paso a paso, con criterio)" title="Enlace directo al Flujo recomendado (paso a paso, con criterio)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-permisos-y-limite-de-datos">1) Define alcance, permisos y limite de datos<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#1-define-alcance-permisos-y-limite-de-datos" class="hash-link" aria-label="Enlace directo al 1) Define alcance, permisos y limite de datos" title="Enlace directo al 1) Define alcance, permisos y limite de datos" translate="no">​</a></h3>
-<p>Antes de abrir la herramienta:</p>
-<ul>
-<li class="">Define el objetivo: "inventario publico" y "coherencia de marca/infra".</li>
-<li class="">Documenta el alcance (dominios proporcionados, marcas, paises, ventana temporal).</li>
-<li class="">Minimiza PII: si una relacion no aporta a la hipotesis, no la persigas ni la conserves.</li>
-</ul>
-<p>Regla de oro: <strong>OSINT responsable no es acumular, es justificar</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prepara-semillas-inputs-de-calidad">2) Prepara semillas (inputs) de calidad<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#2-prepara-semillas-inputs-de-calidad" class="hash-link" aria-label="Enlace directo al 2) Prepara semillas (inputs) de calidad" title="Enlace directo al 2) Prepara semillas (inputs) de calidad" translate="no">​</a></h3>
-<p>En Maltego, una buena investigacion empieza con pocas semillas, pero buenas:</p>
-<ul>
-<li class="">Dominios oficiales: <code>proveedor-ejemplo.com</code>, <code>proveedor-ejemplo.net</code></li>
-<li class="">Marca/razon social: "Proveedor Ejemplo, S.L."</li>
-<li class="">Correo generico de contacto (si es publico y relevante): <code>contacto@proveedor-ejemplo.com</code></li>
-</ul>
-<p>Evita empezar con datos personales (nombres, handles) salvo que sea imprescindible y este justificado.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-ejecuta-transformaciones-en-capas-no-en-cascada-sin-control">3) Ejecuta transformaciones en capas, no en cascada sin control<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#3-ejecuta-transformaciones-en-capas-no-en-cascada-sin-control" class="hash-link" aria-label="Enlace directo al 3) Ejecuta transformaciones en capas, no en cascada sin control" title="Enlace directo al 3) Ejecuta transformaciones en capas, no en cascada sin control" translate="no">​</a></h3>
-<p>Una trampa comun es lanzar "todo" y producir un grafo enorme, imposible de revisar.</p>
-<p>En su lugar, trabaja por capas:</p>
-<ol>
-<li class="">Resolucion basica: dominio -&gt; DNS -&gt; IPs (y a la inversa, cuando aplique).</li>
-<li class="">Contexto tecnico: certificados TLS (cuando la fuente lo permita), hosting, ASNs.</li>
-<li class="">Contexto de marca: presencia en fuentes abiertas (webs oficiales, perfiles verificados, repositorios, etc.).</li>
-</ol>
-<p>Despues de cada capa:</p>
-<ul>
-<li class="">Revisa que cada salto tenga sentido.</li>
-<li class="">Elimina ruido.</li>
-<li class="">Anota "por que" lo mantienes.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-registra-procedencia-y-nivel-de-confianza">4) Registra procedencia y nivel de confianza<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#4-registra-procedencia-y-nivel-de-confianza" class="hash-link" aria-label="Enlace directo al 4) Registra procedencia y nivel de confianza" title="Enlace directo al 4) Registra procedencia y nivel de confianza" translate="no">​</a></h3>
-<p>No todos los enlaces valen lo mismo.</p>
-<ul>
-<li class="">Una relacion basada en una fuente oficial (web corporativa, repositorio oficial, documento firmado) tiene mas peso.</li>
-<li class="">Una relacion inferida por coincidencias tecnicas (hosting compartido, CDN, etc.) es util, pero puede ser circunstancial.</li>
-</ul>
-<p>Practica recomendable:</p>
-<ul>
-<li class="">Marca en tus notas si una relacion es: confirmada, probable, debil.</li>
-<li class="">Guarda evidencia reproducible (URL, fecha/hora, captura si procede).</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cierra-el-ciclo-con-verificacion-cruzada">5) Cierra el ciclo con verificacion cruzada<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#5-cierra-el-ciclo-con-verificacion-cruzada" class="hash-link" aria-label="Enlace directo al 5) Cierra el ciclo con verificacion cruzada" title="Enlace directo al 5) Cierra el ciclo con verificacion cruzada" translate="no">​</a></h3>
-<p>Maltego te ayuda a <strong>formular hipotesis</strong>; la verificacion la haces con triangulacion:</p>
-<ul>
-<li class="">Contrasta con otras fuentes abiertas.</li>
-<li class="">Repite una consulta con otra herramienta cuando el hallazgo sea critico.</li>
-<li class="">Si el trabajo es para una organizacion: contrasta con inventario interno/autorizado.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-donde-aparecen-los-falsos-positivos">Limitaciones (y donde aparecen los falsos positivos)<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#limitaciones-y-donde-aparecen-los-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones (y donde aparecen los falsos positivos)" title="Enlace directo al Limitaciones (y donde aparecen los falsos positivos)" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Fuentes heterogeneas</strong>: las transformaciones dependen de proveedores/fuentes con coberturas y politicas distintas.</li>
-<li class=""><strong>Cambios en la web</strong>: una relacion valida hoy puede no existir manana (y al reves).</li>
-<li class=""><strong>Infraestructura compartida</strong>: hosting, CDNs y servicios gestionados pueden generar relaciones engañosas.</li>
-<li class=""><strong>Sesgos de entrada</strong>: si empiezas con una semilla equivocada, todo el grafo se contamina.</li>
-</ul>
-<p>Mitigacion practica: cuanto mas "sorprendente" sea una conclusion, mas evidencia cruzada necesita.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con finalidad legitima y con permiso cuando corresponda.</li>
-<li class="">Evita automatizar recogida masiva de datos personales.</li>
-<li class="">No publiques PII en el blog ni en informes; redacta o agrega.</li>
-<li class="">Respeta terminos de servicio de las fuentes y licencias de datos.</li>
-<li class="">Documenta tus pasos: una investigacion profesional es reproducible.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-segun-tu-caso">Alternativas (segun tu caso)<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#alternativas-segun-tu-caso" class="hash-link" aria-label="Enlace directo al Alternativas (segun tu caso)" title="Enlace directo al Alternativas (segun tu caso)" translate="no">​</a></h2>
-<ul>
-<li class="">Si buscas automatizacion "one-click" orientada a reconocimiento: herramientas de OSINT automatizado pueden encajar mejor en fases iniciales.</li>
-<li class="">Si tu problema es analisis avanzado de grafos a gran escala: bases de datos de grafos (y pipelines propios) pueden ser mas adecuadas, a costa de mas ingenieria.</li>
-<li class="">Si necesitas solo un mapa visual sencillo: incluso una tabla bien mantenida puede ser mejor que un grafo gigante.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-analisis-enlaces-grafos#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class="">Sitio oficial de Maltego: <a href="https://www.maltego.com/" target="_blank" rel="noopener noreferrer" class="">https://www.maltego.com/</a></li>
-<li class="">Documentacion oficial: <a href="https://docs.maltego.com/" target="_blank" rel="noopener noreferrer" class="">https://docs.maltego.com/</a></li>
-<li class="">Transform Hub (integraciones y transformaciones): <a href="https://www.maltego.com/transform-hub/" target="_blank" rel="noopener noreferrer" class="">https://www.maltego.com/transform-hub/</a></li>
-<li class="">Metodologias OSINT y verificacion (enfoque responsable): <a href="https://www.bellingcat.com/resources/how-tos/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/resources/how-tos/</a></li>
-</ul>
-<p>Si quieres, en un proximo post puedo cubrir un flujo complementario: como usar una herramienta de automatizacion OSINT para generar semillas y luego pasar a Maltego para el analisis de enlaces.</p>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Herramientas" term="Herramientas"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Tradecraft" term="Tradecraft"/>
-        <category label="Privacidad" term="Privacidad"/>
-        <category label="Analisis de enlaces" term="Analisis de enlaces"/>
     </entry>
 </feed>
