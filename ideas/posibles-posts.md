@@ -20,7 +20,6 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] Historia: Ngarbuh (Camerun, 2020) - satelite para corroborar incendios y destruccion
 - [ ] Historia: Pandora Papers (2021) - filtracion validada/ampliada con OSINT (nota: no OSINT puro)
 
 - [ ] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
@@ -44,6 +43,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-05: Historia OSINT: Ngarbuh (2020), satelite, tiempo y corroboracion sin perder la prudencia
 - 2026-03-04: Castrick en OSINT: geolocalizacion precisa, contexto y limites para no sobreinterpretar
 - 2026-03-03: Historia OSINT: Bucha (2022), satelite, cronologia y como fijar hechos sin precipitarse
 - 2026-03-02: Blackbird en OSINT: busqueda rapida de usernames y correos con verificacion responsable
