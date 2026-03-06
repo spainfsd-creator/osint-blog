@@ -4,10 +4,97 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Thu, 05 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Historia OSINT: Pandora Papers (2021), filtracion masiva y corroboracion transfronteriza]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion</guid>
+            <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de analistas OSINT revisando estructuras offshore con mapas de conexiones, documentos anonimizados y checklist de verificacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de analistas OSINT revisando estructuras offshore con mapas de conexiones, documentos anonimizados y checklist de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-03-06-historia-pandora-papers-2021-filtracion-osint-corroboracion-1f8ca21b3207fe21ea9a7d79f62d79ce.png" width="1376" height="768" class="img_ev3q"></p>
+<p>El caso <code>Pandora Papers</code>, publicado el <strong>3 de octubre de 2021</strong>, sirve para entender una idea clave de OSINT serio: una filtracion enorme no vale nada por si sola si no la conviertes en evidencia verificable, contextualizada y publicable sin dañar a terceros por error. Aqui no hay magia ni "superpoderes" tecnicos: hay metodo, contraste documental y coordinacion internacional para separar hechos de ruido.</p>
+<p>Este contenido esta orientado a usos legitimos (periodismo, investigacion financiera, compliance, due diligence y analisis academico). No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva de particulares.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve-esta-leccion-osint">Que es (y para que sirve) esta leccion OSINT<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#que-es-y-para-que-sirve-esta-leccion-osint" class="hash-link" aria-label="Enlace directo al Que es (y para que sirve) esta leccion OSINT" title="Enlace directo al Que es (y para que sirve) esta leccion OSINT" translate="no">​</a></h2>
+<p><code>Pandora Papers</code> fue una investigacion colaborativa liderada por <code>ICIJ</code> con mas de 600 periodistas y 150 medios, a partir de mas de 11,9 millones de archivos confidenciales procedentes de 14 proveedores de servicios offshore.</p>
+<p>La leccion OSINT util no es "buscar famosos": es aprender a trabajar con tres capas a la vez:</p>
+<ul>
+<li class="">datos filtrados (que pueden estar incompletos o desactualizados),</li>
+<li class="">registros y documentos publicos (mercantiles, judiciales, societarios, hemeroteca),</li>
+<li class="">y contexto legal para no confundir "offshore" con "ilegal" automaticamente.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-ficticio-riesgo-de-terceros-en-compliance">Caso de uso legitimo (ficticio): riesgo de terceros en compliance<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#caso-de-uso-legitimo-ficticio-riesgo-de-terceros-en-compliance" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo (ficticio): riesgo de terceros en compliance" title="Enlace directo al Caso de uso legitimo (ficticio): riesgo de terceros en compliance" translate="no">​</a></h2>
+<p>Imagina un equipo de compliance en una empresa exportadora que va a firmar con un nuevo distribuidor internacional. Aparece una alerta: una sociedad instrumental en una jurisdiccion de baja transparencia conectada indirectamente con el grupo contraparte.</p>
+<p>El objetivo legitimo no es "exponer" a nadie en redes. Es responder con trazabilidad:</p>
+<ol>
+<li class="">si la estructura societaria esta bien declarada;</li>
+<li class="">si hay senales publicas de conflicto de interes o sanciones;</li>
+<li class="">y si el riesgo requiere controles reforzados antes de contratar.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado (paso a paso)<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado (paso a paso)" title="Enlace directo al Flujo recomendado (paso a paso)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-delimita-la-hipotesis">1) Delimita la hipotesis<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#1-delimita-la-hipotesis" class="hash-link" aria-label="Enlace directo al 1) Delimita la hipotesis" title="Enlace directo al 1) Delimita la hipotesis" translate="no">​</a></h3>
+<p>Formula preguntas verificables, por ejemplo:</p>
+<ul>
+<li class="">quien controla realmente la entidad X segun fuentes abiertas actuales;</li>
+<li class="">que cambios de propiedad hubo por fecha;</li>
+<li class="">que parte es hecho documentado y que parte es inferencia.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-evidencia-primaria-de-contexto">2) Separa evidencia primaria de contexto<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#2-separa-evidencia-primaria-de-contexto" class="hash-link" aria-label="Enlace directo al 2) Separa evidencia primaria de contexto" title="Enlace directo al 2) Separa evidencia primaria de contexto" translate="no">​</a></h3>
+<ul>
+<li class="">Primaria: registros societarios, resoluciones, documentos judiciales, bases con licencia y metadatos.</li>
+<li class="">Contexto: piezas periodisticas, comunicados, analisis secundarios.</li>
+</ul>
+<p>No mezcles ambas capas en la misma nota sin etiquetar su nivel de fiabilidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-una-cronologia-auditable">3) Construye una cronologia auditable<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#3-construye-una-cronologia-auditable" class="hash-link" aria-label="Enlace directo al 3) Construye una cronologia auditable" title="Enlace directo al 3) Construye una cronologia auditable" translate="no">​</a></h3>
+<p>Para cada hito, guarda: fecha, fuente, captura/export, hash interno y nota de incertidumbre. Esto evita "retocar" la historia cuando aparecen nuevos datos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corrobora-identidad-antes-de-atribuir">4) Corrobora identidad antes de atribuir<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#4-corrobora-identidad-antes-de-atribuir" class="hash-link" aria-label="Enlace directo al 4) Corrobora identidad antes de atribuir" title="Enlace directo al 4) Corrobora identidad antes de atribuir" translate="no">​</a></h3>
+<p>En ecosistemas offshore hay homonimias frecuentes. Cruza nombre con direccion, fechas, representantes y relaciones mercantiles antes de afirmar que una persona concreta controla una sociedad concreta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-redacta-con-prudencia-juridica">5) Redacta con prudencia juridica<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#5-redacta-con-prudencia-juridica" class="hash-link" aria-label="Enlace directo al 5) Redacta con prudencia juridica" title="Enlace directo al 5) Redacta con prudencia juridica" translate="no">​</a></h3>
+<p>Diferencia siempre:</p>
+<ul>
+<li class="">"aparece vinculado en documento X" (hecho),</li>
+<li class="">"podria indicar" (inferencia),</li>
+<li class="">"cometio delito" (conclusion legal, solo con respaldo judicial firme).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<ul>
+<li class="">Los datasets historicos no siempre reflejan cambios recientes.</li>
+<li class="">Que una estructura sea opaca no prueba delito por si mismo.</li>
+<li class="">La ausencia de datos no equivale a exoneracion total.</li>
+<li class="">El sesgo de confirmacion aumenta cuando el caso es mediatico.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
+<ul>
+<li class="">Minimiza datos personales en borradores de trabajo.</li>
+<li class="">Evita publicar direcciones, telefonos o detalles familiares irrelevantes.</li>
+<li class="">Conserva registro de decisiones editoriales (que se publico y por que).</li>
+<li class="">Si hay duda alta de identificacion, para y revalida antes de difundir.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si no trabajas con grandes filtraciones, puedes entrenar el mismo metodo con casos pequenos y publicos:</p>
+<ul>
+<li class="">contratacion publica con empresas interpuestas,</li>
+<li class="">conflictos de interes locales,</li>
+<li class="">trazabilidad de sociedades en due diligence.</li>
+</ul>
+<p>El patron es el mismo: pregunta precisa, evidencia verificable, cronologia y lenguaje responsable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-recomendadas">Fuentes recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-pandora-papers-2021-filtracion-osint-corroboracion#fuentes-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes recomendadas" title="Enlace directo al Fuentes recomendadas" translate="no">​</a></h2>
+<ul>
+<li class="">ICIJ, portal de investigacion <code>Pandora Papers</code>: <a href="https://www.icij.org/investigations/pandora-papers/" target="_blank" rel="noopener noreferrer" class="">https://www.icij.org/investigations/pandora-papers/</a></li>
+<li class="">ICIJ, investigacion global (metodo, alcance y cifras): <a href="https://www.icij.org/investigations/pandora-papers/global-investigation-tax-havens-offshore/" target="_blank" rel="noopener noreferrer" class="">https://www.icij.org/investigations/pandora-papers/global-investigation-tax-havens-offshore/</a></li>
+<li class="">ICIJ Offshore Leaks Database (alcance, licencias y advertencias de uso): <a href="https://offshoreleaks.icij.org/" target="_blank" rel="noopener noreferrer" class="">https://offshoreleaks.icij.org/</a></li>
+<li class="">ICIJ, red de media partners (colaboracion transfronteriza): <a href="https://www.icij.org/about/media-partners/" target="_blank" rel="noopener noreferrer" class="">https://www.icij.org/about/media-partners/</a></li>
+</ul>
+<p>Siguiente tema sugerido para alternar la serie con herramienta: <strong>ExifTool &amp; InVID</strong> aplicado a verificacion multimedia sin sobreinterpretar metadatos.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Historia</category>
+            <category>Verificacion</category>
+            <category>Tradecraft</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Historia OSINT: Ngarbuh (2020), satelite, tiempo y corroboracion sin perder la prudencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/historia-ngarbuh-2020-osint-satelite-corroboracion</link>
@@ -2094,110 +2181,6 @@
             <category>Verificacion</category>
             <category>Tradecraft</category>
             <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[theHarvester en OSINT: reconocimiento de dominio y exposicion de correo con enfoque defensivo]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo</guid>
-            <pubDate>Sat, 14 Feb 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion sobre reconocimiento OSINT de un dominio con enfoque defensivo (theHarvester)]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion sobre reconocimiento OSINT de un dominio con enfoque defensivo (theHarvester)" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-02-14-theharvester-osint-recon-ab4cdcae63e56aa10f66a4e0d9c5e556.png" width="1024" height="1024" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/theharvester-osint-recon-dominio-defensivo-2b689cc710521af119d85b1e325904b8.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Cuando te toca hacer <strong>inventario de exposicion publica</strong> de una organizacion (tuya o con autorizacion), lo dificil no es "encontrar cosas": es <strong>encontrar lo relevante sin pasarte de la raya</strong>. En ese punto, <code>theHarvester</code> funciona como una navaja suiza para una tarea muy concreta: recolectar, desde fuentes abiertas, <strong>correos, subdominios, hosts, URLs e IPs</strong> asociables a un dominio y convertirlo en una primer lista para validar y corregir.</p>
-<p>Esta guia esta escrita desde un enfoque <strong>defensivo y responsable</strong>: como usarlo para reducir riesgo (shadow IT, fugas de correo, superficie olvidada), documentar evidencias y evitar falsos positivos, sin convertirlo en un manual de abuso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-theharvester-y-para-que-sirve">Que es theHarvester (y para que sirve)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#que-es-theharvester-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es theHarvester (y para que sirve)" title="Enlace directo al Que es theHarvester (y para que sirve)" translate="no">​</a></h2>
-<p><code>theHarvester</code> es una herramienta de OSINT orientada a la fase de <strong>reconocimiento</strong>: consulta multiples recursos publicos y agrega resultados asociados a un dominio, como:</p>
-<ul>
-<li class="">Correos (por ejemplo, patrones <code>@tu-dominio.tld</code> encontrados en fuentes publicas).</li>
-<li class="">Subdominios y hosts (pistas de servicios o entornos expuestos).</li>
-<li class="">URLs e IPs (segun las fuentes usadas y lo que devuelvan).</li>
-</ul>
-<p>Su valor no es "la verdad": es <strong>un punto de partida trazable</strong> para un analista que luego valida, depura y prioriza.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-ficticio-reducir-riesgo-en-una-organizacion">Caso de uso (ficticio): reducir riesgo en una organizacion<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#caso-de-uso-ficticio-reducir-riesgo-en-una-organizacion" class="hash-link" aria-label="Enlace directo al Caso de uso (ficticio): reducir riesgo en una organizacion" title="Enlace directo al Caso de uso (ficticio): reducir riesgo en una organizacion" translate="no">​</a></h2>
-<p>Escenario: el equipo de seguridad quiere revisar la exposicion publica de <code>empresa-ejemplo.tld</code> antes de una auditoria externa. Objetivo: encontrar activos olvidados y fugas triviales (no "cazar" a nadie).</p>
-<p>Preguntas razonables:</p>
-<ul>
-<li class="">Que subdominios aparecen asociados al dominio en fuentes abiertas (incluyendo historicos).</li>
-<li class="">Si hay correos corporativos que aparecen en contextos publicos (repositorios, documentos, listados).</li>
-<li class="">Si existen URLs/hosts que sugieren servicios sensibles que deberian estar cerrados o autenticados.</li>
-</ul>
-<p>Resultado deseado: un listado "para revisar" con evidencias y notas de confianza, no un informe de conclusiones apresuradas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-practico-sin-atajos">Flujo recomendado (practico, sin atajos)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#flujo-recomendado-practico-sin-atajos" class="hash-link" aria-label="Enlace directo al Flujo recomendado (practico, sin atajos)" title="Enlace directo al Flujo recomendado (practico, sin atajos)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-y-minimizacion-antes-de-tocar-nada">1) Define alcance y minimizacion (antes de tocar nada)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#1-define-alcance-y-minimizacion-antes-de-tocar-nada" class="hash-link" aria-label="Enlace directo al 1) Define alcance y minimizacion (antes de tocar nada)" title="Enlace directo al 1) Define alcance y minimizacion (antes de tocar nada)" translate="no">​</a></h3>
-<p>Antes de recolectar:</p>
-<ul>
-<li class="">Escribe el objetivo: "inventario publico de activos de <code>empresa-ejemplo.tld</code>".</li>
-<li class="">Define el perimetro: dominios autorizados, ventanas temporales, y que datos vas a guardar.</li>
-<li class="">Minimiza PII: si la investigacion es de <strong>activos</strong>, no necesitas perseguir identidades personales.</li>
-</ul>
-<p>Regla util: si un dato no cambia una decision defensiva, probablemente no deberias recolectarlo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-fuentes-pasivas-y-repetibles">2) Empieza por fuentes pasivas y repetibles<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#2-empieza-por-fuentes-pasivas-y-repetibles" class="hash-link" aria-label="Enlace directo al 2) Empieza por fuentes pasivas y repetibles" title="Enlace directo al 2) Empieza por fuentes pasivas y repetibles" translate="no">​</a></h3>
-<p><code>theHarvester</code> suele integrarse con multiples fuentes (buscadores, CT logs, servicios de enumeracion, etc.). En la practica defensiva:</p>
-<ul>
-<li class="">Prioriza fuentes que puedas volver a ejecutar en el futuro y comparar.</li>
-<li class="">Si usas APIs (algunas lo requieren), documenta el proveedor y limites (rate limit, coste, cobertura).</li>
-</ul>
-<p>Consejo operativo: en lugar de "todo a la vez", haz iteraciones cortas y registra que fuentes te aportan senal real.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-salidas-lista-accionable-no-volcado">3) Normaliza salidas: lista accionable, no "volcado"<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#3-normaliza-salidas-lista-accionable-no-volcado" class="hash-link" aria-label="Enlace directo al 3) Normaliza salidas: lista accionable, no &quot;volcado&quot;" title="Enlace directo al 3) Normaliza salidas: lista accionable, no &quot;volcado&quot;" translate="no">​</a></h3>
-<p>Cuando tengas resultados, conviertelos en una tabla simple (CSV o notas) con columnas:</p>
-<ul>
-<li class="">Hallazgo (subdominio/correo/URL/IP).</li>
-<li class="">Fuente (de donde sale).</li>
-<li class="">Fecha/hora de recoleccion.</li>
-<li class="">Estado (pendiente, validado, descartado).</li>
-<li class="">Nota de riesgo (por que importa).</li>
-</ul>
-<p>Esto evita el error tipico: acumular datos que luego nadie puede auditar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-valida-subdominios-y-hosts-con-pruebas-no-intrusivas">4) Valida subdominios y hosts con pruebas no intrusivas<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#4-valida-subdominios-y-hosts-con-pruebas-no-intrusivas" class="hash-link" aria-label="Enlace directo al 4) Valida subdominios y hosts con pruebas no intrusivas" title="Enlace directo al 4) Valida subdominios y hosts con pruebas no intrusivas" translate="no">​</a></h3>
-<p>Validar no significa atacar:</p>
-<ul>
-<li class="">Resuelve DNS para confirmar si el subdominio existe hoy.</li>
-<li class="">Comprueba si es un alias de terceros (CDN, SaaS) para no atribuir mal.</li>
-<li class="">Si aparece un host "raro", busca evidencia adicional (otra fuente abierta, una captura archivada, una referencia en un doc publico).</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-trata-los-correos-como-indicador-de-riesgo-no-como-objetivo">5) Trata los correos como indicador de riesgo, no como objetivo<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#5-trata-los-correos-como-indicador-de-riesgo-no-como-objetivo" class="hash-link" aria-label="Enlace directo al 5) Trata los correos como indicador de riesgo, no como objetivo" title="Enlace directo al 5) Trata los correos como indicador de riesgo, no como objetivo" translate="no">​</a></h3>
-<p>Un correo encontrado en fuentes abiertas suele ser util para:</p>
-<ul>
-<li class="">Detectar <strong>patrones</strong> (por ejemplo, <code>nombre.apellido@...</code>) que facilitan suplantaciones.</li>
-<li class="">Identificar <strong>fugas</strong> de listas de distribucion o correos de sistemas antiguos.</li>
-<li class="">Justificar mitigaciones: DMARC/SPF/DKIM, hardening de repositorios, politicas de publicacion.</li>
-</ul>
-<p>Evita convertirlo en una lista de "personas": la conclusion defensiva suele ser de proceso, no de individuo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos-lo-que-suele-fallar">Limitaciones y falsos positivos (lo que suele fallar)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#limitaciones-y-falsos-positivos-lo-que-suele-fallar" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos (lo que suele fallar)" title="Enlace directo al Limitaciones y falsos positivos (lo que suele fallar)" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Resultados historicos</strong>: subdominios que existieron pero ya no, o que apuntan a infra reciclada.</li>
-<li class=""><strong>Atribucion incorrecta</strong>: un subdominio puede estar delegado a un tercero; eso cambia el riesgo.</li>
-<li class=""><strong>Cobertura desigual</strong>: segun el proveedor, un hallazgo aparece o no (y puede desaparecer por cambios de politica/rate limit).</li>
-<li class=""><strong>Correos "decorativos"</strong>: correos en documentos ejemplo, plantillas, o cadenas que no implican uso real.</li>
-</ul>
-<p>La salida de <code>theHarvester</code> se debe leer como <strong>hipotesis</strong>, no como evidencia final.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-opsec-etica-y-privacidad">Buenas practicas (OPSEC, etica y privacidad)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#buenas-practicas-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" title="Enlace directo al Buenas practicas (OPSEC, etica y privacidad)" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con autorizacion y con un objetivo defensivo claro (inventario, higiene, verificacion).</li>
-<li class="">Guarda solo lo necesario y durante el tiempo minimo (minimizacion).</li>
-<li class="">Separa "datos" de "conclusiones" y etiqueta nivel de confianza.</li>
-<li class="">Si vas a compartir un informe, redacta PII que no sea estrictamente necesaria.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-como-combinarlas">Alternativas (y como combinarlas)<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#alternativas-y-como-combinarlas" class="hash-link" aria-label="Enlace directo al Alternativas (y como combinarlas)" title="Enlace directo al Alternativas (y como combinarlas)" translate="no">​</a></h2>
-<ul>
-<li class="">Para automatizacion mas amplia y correlacion: SpiderFoot.</li>
-<li class="">Para superficie DNS/subdominios con enfoque de mapeo: Amass (y fuentes de certificados/CT cuando aplique).</li>
-<li class="">Para analisis y presentacion de relaciones: herramientas de grafo (p. ej., Maltego) cuando ya tengas entidades validadas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="siguiente-paso">Siguiente paso<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#siguiente-paso" class="hash-link" aria-label="Enlace directo al Siguiente paso" title="Enlace directo al Siguiente paso" translate="no">​</a></h2>
-<p>Si quieres convertir este flujo en un playbook repetible, el proximo paso es definir un <strong>baseline</strong> (lo que "deberia" existir) y ejecutar revisiones periodicas: lo importante no es la foto de hoy, sino detectar <strong>deriva</strong> (aparece un subdominio nuevo, un correo en un sitio publico, un servicio inesperado).</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentacion">Fuentes y documentacion<a href="https://spainfsd-creator.github.io/osint-blog/theharvester-osint-recon-dominio-defensivo#fuentes-y-documentacion" class="hash-link" aria-label="Enlace directo al Fuentes y documentacion" title="Enlace directo al Fuentes y documentacion" translate="no">​</a></h2>
-<ul>
-<li class="">Repositorio oficial de theHarvester (README e instrucciones): <a href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener noreferrer" class="">https://github.com/laramies/theHarvester</a></li>
-<li class="">Wiki de instalacion (mantenida por el proyecto): <a href="https://github.com/laramies/theHarvester/wiki/Installation" target="_blank" rel="noopener noreferrer" class="">https://github.com/laramies/theHarvester/wiki/Installation</a></li>
-<li class="">Paquete/documentacion en Kali Linux: <a href="https://www.kali.org/tools/theharvester/" target="_blank" rel="noopener noreferrer" class="">https://www.kali.org/tools/theharvester/</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Herramientas</category>
-            <category>Reconocimiento</category>
-            <category>Investigacion</category>
-            <category>Privacidad</category>
-            <category>Automatizacion</category>
         </item>
     </channel>
 </rss>
