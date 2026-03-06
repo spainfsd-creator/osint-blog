@@ -9,6 +9,9 @@ image: /img/blog/2026-03-06-historia-pandora-papers-2021-filtracion-osint-corrob
 
 ![Ilustracion editorial de analistas OSINT revisando estructuras offshore con mapas de conexiones, documentos anonimizados y checklist de verificacion](/img/blog/2026-03-06-historia-pandora-papers-2021-filtracion-osint-corroboracion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-pandora-papers-2021-filtracion-osint-corroboracion.m4a)
+
+
 El caso `Pandora Papers`, publicado el **3 de octubre de 2021**, sirve para entender una idea clave de OSINT serio: una filtracion enorme no vale nada por si sola si no la conviertes en evidencia verificable, contextualizada y publicable sin dañar a terceros por error. Aqui no hay magia ni "superpoderes" tecnicos: hay metodo, contraste documental y coordinacion internacional para separar hechos de ruido.
 
 Este contenido esta orientado a usos legitimos (periodismo, investigacion financiera, compliance, due diligence y analisis academico). No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva de particulares.
