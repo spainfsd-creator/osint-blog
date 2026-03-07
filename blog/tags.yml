@@ -53,6 +53,11 @@ geoint:
   permalink: /geoint
   description: Inteligencia geoespacial y analisis de imagenes satelitales.
 
+imint:
+  label: IMINT
+  permalink: /imint
+  description: Verificacion y analisis de imagenes y video en investigaciones OSINT.
+
 socmint:
   label: SOCMINT
   permalink: /socmint
@@ -87,3 +92,8 @@ usernames:
   label: Usernames
   permalink: /usernames
   description: Analisis de alias, reutilizacion de nombres de usuario y correlacion responsable entre plataformas.
+
+metadata:
+  label: Metadatos
+  permalink: /metadata
+  description: Extraccion e interpretacion prudente de metadatos en archivos y evidencias abiertas.
