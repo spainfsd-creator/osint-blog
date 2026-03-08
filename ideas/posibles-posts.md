@@ -20,7 +20,7 @@ Regla editorial (nuevo): alternar herramientas e historias
 
 Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herramienta, 1 historia).
 
-- [ ] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
+- [x] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
 - [x] ExifTool & InVID
 - [ ] Ghunt (Google OSINT)
 - [ ] Herramientas de Verificación de Contacto y Correo Electrónico
@@ -41,6 +41,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
 - 2026-03-07: ExifTool e InVID en OSINT: verificacion multimedia con metodo y sin fetichismo del metadato
 - 2026-03-06: Historia OSINT: Pandora Papers (2021), filtracion masiva y corroboracion transfronteriza
 - 2026-03-05: Historia OSINT: Ngarbuh (2020), satelite, tiempo y corroboracion sin perder la prudencia
