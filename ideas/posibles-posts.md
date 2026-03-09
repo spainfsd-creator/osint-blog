@@ -22,7 +22,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 - [x] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
 - [x] ExifTool & InVID
-- [ ] Ghunt (Google OSINT)
+- [x] Ghunt (Google OSINT)
 - [ ] Herramientas de Verificación de Contacto y Correo Electrónico
 - [ ] Holehe
 - [ ] Inteligencia Centrada en Personas (SOCMINT): De la Fama al Nicho
@@ -42,6 +42,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 ## Publicados
 
 - 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
+- 2026-03-09: GHunt en OSINT: perfiles de Google y Google Maps con metodo, contexto y limites
 - 2026-03-07: ExifTool e InVID en OSINT: verificacion multimedia con metodo y sin fetichismo del metadato
 - 2026-03-06: Historia OSINT: Pandora Papers (2021), filtracion masiva y corroboracion transfronteriza
 - 2026-03-05: Historia OSINT: Ngarbuh (2020), satelite, tiempo y corroboracion sin perder la prudencia
