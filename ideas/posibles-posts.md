@@ -23,7 +23,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] El Estrato Fundamental: Motores de Búsqueda y Arquitectura de la Información
 - [x] ExifTool & InVID
 - [x] Ghunt (Google OSINT)
-- [ ] Herramientas de Verificación de Contacto y Correo Electrónico
+- [x] Herramientas de Verificacion de Contacto y Correo Electronico
 - [ ] Holehe
 - [ ] Inteligencia Centrada en Personas (SOCMINT): De la Fama al Nicho
 - [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
@@ -41,6 +41,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-10: Verificacion de contacto y correo en OSINT: metodo responsable para reducir falsos positivos
 - 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
 - 2026-03-09: GHunt en OSINT: perfiles de Google y Google Maps con metodo, contexto y limites
 - 2026-03-07: ExifTool e InVID en OSINT: verificacion multimedia con metodo y sin fetichismo del metadato
