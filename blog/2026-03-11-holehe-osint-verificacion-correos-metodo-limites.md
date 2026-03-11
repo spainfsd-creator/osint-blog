@@ -9,6 +9,9 @@ image: /img/blog/2026-03-11-holehe-osint-verificacion-correos-metodo-limites.png
 
 ![Ilustracion editorial de analisis OSINT para verificar presencia de correos en servicios publicos con checklist metodologico y contexto de privacidad](/img/blog/2026-03-11-holehe-osint-verificacion-correos-metodo-limites.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/holehe-osint-verificacion-correos-metodo-limites.m4a)
+
+
 Si una investigacion depende de un correo, el error mas caro no suele ser "no encontrar datos", sino **confundir senales de registro con una atribucion de identidad**. `Holehe` puede ahorrar tiempo para detectar en que servicios parece estar usado un email, pero solo aporta indicios tecnicos. El valor real aparece cuando lo integras en un metodo de corroboracion, no cuando lo usas como veredicto.
 
 Este contenido esta orientado a usos legitimos (periodismo, due diligence, investigacion defensiva y verificacion documental). No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.
