@@ -24,7 +24,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] ExifTool & InVID
 - [x] Ghunt (Google OSINT)
 - [x] Herramientas de Verificacion de Contacto y Correo Electronico
-- [ ] Holehe
+- [x] Holehe
 - [ ] Inteligencia Centrada en Personas (SOCMINT): De la Fama al Nicho
 - [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
 - [ ] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
@@ -41,6 +41,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-11: Holehe en OSINT: verificacion de correos con metodo, contexto y limites
 - 2026-03-10: Verificacion de contacto y correo en OSINT: metodo responsable para reducir falsos positivos
 - 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
 - 2026-03-09: GHunt en OSINT: perfiles de Google y Google Maps con metodo, contexto y limites
