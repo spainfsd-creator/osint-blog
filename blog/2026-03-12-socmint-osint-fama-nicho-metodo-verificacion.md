@@ -9,6 +9,9 @@ image: /img/blog/2026-03-12-socmint-osint-fama-nicho-metodo-verificacion.png
 
 ![Ilustracion editorial de un analista OSINT organizando perfiles publicos en un tablero por niveles de confianza, desde herramientas masivas hasta nichos tecnicos](/img/blog/2026-03-12-socmint-osint-fama-nicho-metodo-verificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/socmint-osint-fama-nicho-metodo-verificacion.m4a)
+
+
 Cuando un caso OSINT gira alrededor de una persona, la trampa mas comun no es "usar pocas herramientas", sino mezclar indicios heterogeneos sin un sistema de confianza claro. En SOCMINT, pasar de utilidades famosas a herramientas de nicho solo tiene sentido si cada paso reduce ambiguedad y no aumenta el riesgo de atribucion errónea.
 
 Este contenido esta orientado a usos legitimos (periodismo, due diligence, compliance, ciberinteligencia defensiva e investigacion academica). No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.
