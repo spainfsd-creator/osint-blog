@@ -25,7 +25,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] Ghunt (Google OSINT)
 - [x] Herramientas de Verificacion de Contacto y Correo Electronico
 - [x] Holehe
-- [ ] Inteligencia Centrada en Personas (SOCMINT): De la Fama al Nicho
 - [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
 - [ ] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
 - [ ] Introducción: El Estado del Arte en la Inteligencia Abierta
@@ -41,6 +40,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-12: SOCMINT en OSINT: de herramientas famosas a nichos tecnicos con metodo de verificacion
 - 2026-03-11: Holehe en OSINT: verificacion de correos con metodo, contexto y limites
 - 2026-03-10: Verificacion de contacto y correo en OSINT: metodo responsable para reducir falsos positivos
 - 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
