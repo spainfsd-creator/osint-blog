@@ -29,7 +29,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
 - [ ] Introducción: El Estado del Arte en la Inteligencia Abierta
 - [ ] La Frontera Financiera: Blockchain y Criptomonedas
-- [ ] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
+- [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
 - [ ] Los Gigantes de la Infraestructura y la Visualización
 - [ ] Lynir y la IA Predictiva
 - [ ] OSINTgram (Instagram)
@@ -41,6 +41,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 ## Publicados
 
 - 2026-03-12: SOCMINT en OSINT: de herramientas famosas a nichos tecnicos con metodo de verificacion
+- 2026-03-13: GitHub en OSINT: automatizacion comunitaria con trazabilidad y criterio
 - 2026-03-11: Holehe en OSINT: verificacion de correos con metodo, contexto y limites
 - 2026-03-10: Verificacion de contacto y correo en OSINT: metodo responsable para reducir falsos positivos
 - 2026-03-08: Motores de busqueda y arquitectura de la informacion en OSINT: el estrato fundamental
