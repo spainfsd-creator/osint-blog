@@ -26,7 +26,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] Herramientas de Verificacion de Contacto y Correo Electronico
 - [x] Holehe
 - [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
-- [ ] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
+- [x] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
 - [ ] Introducción: El Estado del Arte en la Inteligencia Abierta
 - [ ] La Frontera Financiera: Blockchain y Criptomonedas
 - [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
@@ -40,6 +40,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
 - 2026-03-12: SOCMINT en OSINT: de herramientas famosas a nichos tecnicos con metodo de verificacion
 - 2026-03-13: GitHub en OSINT: automatizacion comunitaria con trazabilidad y criterio
 - 2026-03-11: Holehe en OSINT: verificacion de correos con metodo, contexto y limites
