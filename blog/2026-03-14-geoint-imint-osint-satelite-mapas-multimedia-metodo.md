@@ -9,6 +9,9 @@ image: /img/blog/2026-03-14-geoint-imint-osint-satelite-mapas-multimedia-metodo.
 
 ![Ilustracion editorial de un analista OSINT cruzando imagen satelital, mapas vectoriales y fotogramas publicos para corroborar un lugar sin sobreactuar](/img/blog/2026-03-14-geoint-imint-osint-satelite-mapas-multimedia-metodo.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/geoint-imint-osint-satelite-mapas-multimedia-metodo.m4a)
+
+
 Cuando una pista visual parece "encajar" con un lugar, el mayor peligro no es quedarse corto: es **cerrar demasiado pronto una geolocalizacion que solo parecia bonita en pantalla**. `GEOINT` e `IMINT` son utiles precisamente cuando obligan a separar capas: terreno, tiempo, infraestructura, actividad visible y contexto de circulacion. El valor no esta en encontrar una coincidencia vistosa, sino en construir una corroboracion que resista una segunda lectura.
 
 Este contenido esta orientado a usos legitimos de verificacion, periodismo, derechos humanos, analisis defensivo y due diligence. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.
