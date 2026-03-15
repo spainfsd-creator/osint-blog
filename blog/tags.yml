@@ -53,6 +53,16 @@ tooling:
   permalink: /tooling
   description: Evaluacion practica de utilidades, scripts y ecosistemas tecnicos que apoyan investigaciones OSINT.
 
+dns:
+  label: DNS
+  permalink: /dns
+  description: Registros, resoluciones e historial DNS utiles para reconstruir infraestructura y contexto tecnico.
+
+infrastructure:
+  label: Infraestructura
+  permalink: /infrastructure
+  description: Activos expuestos, servicios, certificados y relaciones tecnicas visibles desde el exterior.
+
 link-analysis:
   label: Analisis de enlaces
   permalink: /link-analysis
