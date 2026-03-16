@@ -31,7 +31,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] La Frontera Financiera: Blockchain y Criptomonedas
 - [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
 - [ ] Lynir y la IA Predictiva
-- [ ] OSINTgram (Instagram)
+- [x] OSINTgram (Instagram)
 - [ ] PhoneInfoga
 - [ ] Tendencias Emergentes y Herramientas del Futuro (2026)
 - [ ] Toutatis (TikTok)
@@ -41,6 +41,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 - 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
 - 2026-03-15: Censys y SecurityTrails en OSINT: cartografiar infraestructura, DNS e historial sin perder el contexto
+- 2026-03-16: OSINTgram en OSINT: Instagram con metodo, limites actuales y OPSEC
 - 2026-03-12: SOCMINT en OSINT: de herramientas famosas a nichos tecnicos con metodo de verificacion
 - 2026-03-13: GitHub en OSINT: automatizacion comunitaria con trazabilidad y criterio
 - 2026-03-11: Holehe en OSINT: verificacion de correos con metodo, contexto y limites
