@@ -117,3 +117,8 @@ metadata:
   label: Metadatos
   permalink: /metadata
   description: Extraccion e interpretacion prudente de metadatos en archivos y evidencias abiertas.
+
+telecom:
+  label: Telecom
+  permalink: /telecom
+  description: Numeracion, carriers, tipos de linea y contexto telefonico util para investigaciones OSINT responsables.
