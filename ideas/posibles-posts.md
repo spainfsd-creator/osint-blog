@@ -35,10 +35,10 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] PhoneInfoga
 - [ ] Tendencias Emergentes y Herramientas del Futuro (2026)
 - [ ] Toutatis (TikTok)
-- [ ] WhatsMyName
 
 ## Publicados
 
+- 2026-03-18: WhatsMyName en OSINT: usernames con criterio, cobertura y falsos positivos
 - 2026-03-17: PhoneInfoga en OSINT: telefono con metodo, contexto y falsos positivos
 - 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
 - 2026-03-15: Censys y SecurityTrails en OSINT: cartografiar infraestructura, DNS e historial sin perder el contexto
