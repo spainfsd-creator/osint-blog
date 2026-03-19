@@ -34,10 +34,11 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] OSINTgram (Instagram)
 - [x] PhoneInfoga
 - [ ] Tendencias Emergentes y Herramientas del Futuro (2026)
-- [ ] Toutatis (TikTok)
+- [x] Toutatis (TikTok)
 
 ## Publicados
 
+- 2026-03-19: Toutatis en OSINT: validar una herramienta antes de meterla en tu flujo
 - 2026-03-18: WhatsMyName en OSINT: usernames con criterio, cobertura y falsos positivos
 - 2026-03-17: PhoneInfoga en OSINT: telefono con metodo, contexto y falsos positivos
 - 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
