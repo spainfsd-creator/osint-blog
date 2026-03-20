@@ -122,3 +122,13 @@ telecom:
   label: Telecom
   permalink: /telecom
   description: Numeracion, carriers, tipos de linea y contexto telefonico util para investigaciones OSINT responsables.
+
+media:
+  label: Medios
+  permalink: /media
+  description: Cobertura periodistica, comparacion de narrativas y analisis critico de fuentes abiertas mediaticas.
+
+research:
+  label: Research
+  permalink: /research
+  description: Flujos de investigacion documental y seguimiento tematico para convertir cobertura dispersa en contexto util.

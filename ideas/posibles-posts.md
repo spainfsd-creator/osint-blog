@@ -30,7 +30,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [ ] Introducción: El Estado del Arte en la Inteligencia Abierta
 - [ ] La Frontera Financiera: Blockchain y Criptomonedas
 - [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
-- [ ] Lynir y la IA Predictiva
+- [x] Lynir y la IA Predictiva
 - [x] OSINTgram (Instagram)
 - [x] PhoneInfoga
 - [ ] Tendencias Emergentes y Herramientas del Futuro (2026)
@@ -39,6 +39,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 ## Publicados
 
 - 2026-03-19: Toutatis en OSINT: validar una herramienta antes de meterla en tu flujo
+- 2026-03-20: Lynir en OSINT: cronologia, perspectivas y ruido informativo bajo control
 - 2026-03-18: WhatsMyName en OSINT: usernames con criterio, cobertura y falsos positivos
 - 2026-03-17: PhoneInfoga en OSINT: telefono con metodo, contexto y falsos positivos
 - 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
