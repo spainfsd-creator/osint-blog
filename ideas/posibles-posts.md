@@ -27,7 +27,6 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] Holehe
 - [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
 - [x] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
-- [ ] Introducción: El Estado del Arte en la Inteligencia Abierta
 - [ ] La Frontera Financiera: Blockchain y Criptomonedas
 - [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
 - [x] Lynir y la IA Predictiva
@@ -40,6 +39,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 - 2026-03-19: Toutatis en OSINT: validar una herramienta antes de meterla en tu flujo
 - 2026-03-20: Lynir en OSINT: cronologia, perspectivas y ruido informativo bajo control
+- 2026-03-21: OSINT en 2026: estado del arte, criterio y oficio en la inteligencia abierta
 - 2026-03-18: WhatsMyName en OSINT: usernames con criterio, cobertura y falsos positivos
 - 2026-03-17: PhoneInfoga en OSINT: telefono con metodo, contexto y falsos positivos
 - 2026-03-14: GEOINT e IMINT en OSINT: satelite, mapas y multimedia con metodo de corroboracion
