@@ -25,18 +25,19 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 - [x] Ghunt (Google OSINT)
 - [x] Herramientas de Verificacion de Contacto y Correo Electronico
 - [x] Holehe
-- [ ] Inteligencia de Plataformas Específicas y Nichos Técnicos
+- [x] Inteligencia de Plataformas Específicas y Nichos Técnicos
 - [x] Inteligencia Geoespacial (GEOINT) y Forense Multimedia (IMINT)
 - [x] La Frontera Financiera: Blockchain y Criptomonedas
 - [x] La Potencia Comunitaria: Automatización y Scripts de Código Abierto (GitHub)
 - [x] Lynir y la IA Predictiva
 - [x] OSINTgram (Instagram)
 - [x] PhoneInfoga
-- [ ] Tendencias Emergentes y Herramientas del Futuro (2026)
+- [x] Tendencias Emergentes y Herramientas del Futuro (2026)
 - [x] Toutatis (TikTok)
 
 ## Publicados
 
+- 2026-03-23: Tendencias emergentes y herramientas del futuro en OSINT (2026): navegador, multimodalidad y trazabilidad
 - 2026-03-19: Toutatis en OSINT: validar una herramienta antes de meterla en tu flujo
 - 2026-03-20: Lynir en OSINT: cronologia, perspectivas y ruido informativo bajo control
 - 2026-03-21: OSINT en 2026: estado del arte, criterio y oficio en la inteligencia abierta
