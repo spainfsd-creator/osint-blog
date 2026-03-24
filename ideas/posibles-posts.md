@@ -1,7 +1,7 @@
 # Posibles posts (OSINT blog)
 
 Fuente: Google Doc 1lskgX8KPVEQAeo9JeDHZCEbqTjCiSZ44oNLygc-BIk0
-Actualizado: 2026-02-09T05:14:32.462Z
+Actualizado: 2026-03-24T00:00:00.000Z
 
 ## Ideas (candidatas)
 
@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-24: Datasette y SQLite en OSINT: trazabilidad consultable sin convertir tu caso en un caos
 - 2026-03-23: Tendencias emergentes y herramientas del futuro en OSINT (2026): navegador, multimodalidad y trazabilidad
 - 2026-03-19: Toutatis en OSINT: validar una herramienta antes de meterla en tu flujo
 - 2026-03-20: Lynir en OSINT: cronologia, perspectivas y ruido informativo bajo control

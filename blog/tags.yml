@@ -132,3 +132,13 @@ research:
   label: Research
   permalink: /research
   description: Flujos de investigacion documental y seguimiento tematico para convertir cobertura dispersa en contexto util.
+
+sqlite:
+  label: SQLite
+  permalink: /sqlite
+  description: Bases de datos ligeras y portables para organizar hallazgos, cronologias y evidencia estructurada en OSINT.
+
+datasette:
+  label: Datasette
+  permalink: /datasette
+  description: Publicacion navegable de bases SQLite con filtros, consultas y exportaciones utiles para trazabilidad investigadora.
