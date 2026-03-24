@@ -9,6 +9,9 @@ image: /img/blog/2026-03-24-datasette-sqlite-osint-trazabilidad-consultable.png
 
 ![Ilustracion editorial de un analista OSINT consultando una base SQLite publicada con Datasette, filtros facetados, busqueda de texto y cronologia verificable](/img/blog/2026-03-24-datasette-sqlite-osint-trazabilidad-consultable.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/datasette-sqlite-osint-trazabilidad-consultable.m4a)
+
+
 Hay un momento en casi toda investigacion OSINT medianamente seria en el que el problema deja de ser "encontrar mas" y pasa a ser "no perder el hilo". Capturas, CSVs, notas de contexto, aliases, URLs, fechas, documentos y correcciones posteriores acaban repartidos entre carpetas, hojas y mensajes. Ahi es donde una pareja modesta como `SQLite` + `Datasette` gana mucho valor: no te da magia, pero si una forma muy practica de convertir hallazgos dispersos en un cuaderno consultable, verificable y facil de revisar por otra persona.
 
 Este contenido esta orientado a periodismo, investigacion academica, due diligence, compliance y ciberinteligencia defensiva. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.
