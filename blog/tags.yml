@@ -63,6 +63,16 @@ infrastructure:
   permalink: /infrastructure
   description: Activos expuestos, servicios, certificados y relaciones tecnicas visibles desde el exterior.
 
+tls:
+  label: TLS
+  permalink: /tls
+  description: Certificados, handshakes y senales TLS utiles para descubrir, fechar y correlacionar infraestructura publica.
+
+certificates:
+  label: Certificados
+  permalink: /certificates
+  description: Certificados digitales como fuente OSINT para descubrir nombres, cronologias y relaciones tecnicas con cautela.
+
 link-analysis:
   label: Analisis de enlaces
   permalink: /link-analysis
