@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-26: urlscan.io en OSINT: capturas, DOM y redirecciones para investigar webs con contexto
 - 2026-03-25: CT logs y certificados TLS en OSINT: descubrimiento historico y correlacion sin vender humo
 - 2026-03-24: Datasette y SQLite en OSINT: trazabilidad consultable sin convertir tu caso en un caos
 - 2026-03-23: Tendencias emergentes y herramientas del futuro en OSINT (2026): navegador, multimodalidad y trazabilidad
