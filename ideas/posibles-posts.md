@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-28: Archive.today en OSINT: preservacion web bajo demanda sin confundir captura con prueba total
 - 2026-03-27: OpenAleph en OSINT: ordenar documentos, entidades y grafos sin perder el contexto
 - 2026-03-26: urlscan.io en OSINT: capturas, DOM y redirecciones para investigar webs con contexto
 - 2026-03-25: CT logs y certificados TLS en OSINT: descubrimiento historico y correlacion sin vender humo
