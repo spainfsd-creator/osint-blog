@@ -9,6 +9,9 @@ image: /img/blog/2026-03-30-littlesis-osint-mapear-poder-donaciones-interlocks-t
 
 ![Ilustracion editorial de una investigacion OSINT centrada en redes de poder, donaciones e interlocks entre personas y organizaciones](/img/blog/2026-03-30-littlesis-osint-mapear-poder-donaciones-interlocks-trazabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/littlesis-osint-mapear-poder-donaciones-interlocks-trazabilidad.m4a)
+
+
 Cuando una investigacion deja de girar en torno a una sola persona y empieza a tocar patronatos, despachos, donantes, firmas de lobby y asociaciones satelite, el problema ya no es "encontrar nombres". El problema real es **explicar como se conectan sin convertir el caso en una pared de hilos rojos**. Ahi es donde `LittleSis` puede aportar mucho valor: no como oraculo, sino como base abierta para convertir relaciones dispersas en una estructura revisable.
 
 Su utilidad encaja especialmente bien en periodismo de investigacion, due diligence, accountability, analisis de influencia y trabajo academico. No es una herramienta para acoso, doxxing ni vigilancia personal abusiva. Su mejor version aparece cuando se usa para entender **redes de poder e influencia ya expuestas en fuentes publicas** y se documenta cada afirmacion con prudencia.
