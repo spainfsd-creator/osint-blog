@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-03-31: GreyNoise en OSINT: filtrar ruido de internet y dar contexto a una IP sin sobrerreaccionar
 - 2026-03-30: LittleSis en OSINT: mapear poder, donaciones e interlocks sin perder la trazabilidad
 - 2026-03-29: Hunchly en OSINT: capturar navegacion, contexto y cadena de evidencias sin depender de tu memoria
 - 2026-03-28: Archive.today en OSINT: preservacion web bajo demanda sin confundir captura con prueba total
