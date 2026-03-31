@@ -63,6 +63,16 @@ infrastructure:
   permalink: /infrastructure
   description: Activos expuestos, servicios, certificados y relaciones tecnicas visibles desde el exterior.
 
+triage:
+  label: Triage
+  permalink: /triage
+  description: Priorizacion y contextualizacion inicial de senales, alertas e indicadores para separar ruido de hallazgos accionables.
+
+threat-intelligence:
+  label: Threat Intelligence
+  permalink: /threat-intelligence
+  description: Contexto sobre infraestructura, actores y comportamientos observables para enriquecer analisis defensivo sin sobreatribuir.
+
 tls:
   label: TLS
   permalink: /tls
