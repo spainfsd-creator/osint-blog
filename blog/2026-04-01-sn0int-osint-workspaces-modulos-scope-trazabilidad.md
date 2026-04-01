@@ -9,6 +9,9 @@ image: /img/blog/2026-04-01-sn0int-osint-workspaces-modulos-scope-trazabilidad.p
 
 ![Ilustracion editorial de un analista OSINT trabajando con workspaces, modulos y scope para ordenar una investigacion tecnica con trazabilidad](/img/blog/2026-04-01-sn0int-osint-workspaces-modulos-scope-trazabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sn0int-osint-workspaces-modulos-scope-trazabilidad.m4a)
+
+
 Cuando una investigacion tecnica empieza con un dominio, una IP, un correo o una pista aislada, el riesgo no suele ser "quedarte corto". El riesgo real es **mezclar hallazgos, perder el alcance del caso y convertir una recogida de senales en un monton de datos sin narrativa**. `sn0int` resulta interesante precisamente porque obliga a pensar la investigacion como un sistema: entidades, scope, workspaces, actividad registrada y modulos que amplian contexto sin fingir certeza.
 
 La herramienta encaja bien en inventario defensivo, due diligence tecnica, investigacion de infraestructura y apoyo a verificacion periodistica. No es una excusa para acosar, doxxear ni lanzar recoleccion indiscriminada sobre personas. Su valor aparece cuando se usa con objetivo legitimo, alcance definido y corroboracion externa.
