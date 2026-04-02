@@ -153,6 +153,11 @@ research:
   permalink: /research
   description: Flujos de investigacion documental y seguimiento tematico para convertir cobertura dispersa en contexto util.
 
+search:
+  label: Busqueda
+  permalink: /search
+  description: Busqueda por selectores, filtros y estrategias para encontrar contexto sin confundir indice con evidencia.
+
 sqlite:
   label: SQLite
   permalink: /sqlite
