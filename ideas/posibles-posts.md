@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-03: OSINT Framework en OSINT: elegir fuentes, leer OPSEC y no confundir mapa con evidencia
 - 2026-04-02: Intelligence X en OSINT: buscar por selectores, filtrar contexto y no confundir indice con prueba
 - 2026-04-01: sn0int en OSINT: workspaces, modulos y scope para investigar con trazabilidad
 - 2026-03-31: GreyNoise en OSINT: filtrar ruido de internet y dar contexto a una IP sin sobrerreaccionar
