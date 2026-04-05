@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-05: OSINT y evidencia utilizable: hashing, WARC y notas de consulta para que un hallazgo resista revision (fallback editorial: backlog formal agotado; tema extraido de la investigacion base sobre trazabilidad)
 - 2026-04-04: BBOT en OSINT: recursion, presets y scope para automatizar sin perder el control (nuevo tema; backlog formal agotado)
 - 2026-04-03: OSINT Framework en OSINT: elegir fuentes, leer OPSEC y no confundir mapa con evidencia
 - 2026-04-02: Intelligence X en OSINT: buscar por selectores, filtrar contexto y no confundir indice con prueba
