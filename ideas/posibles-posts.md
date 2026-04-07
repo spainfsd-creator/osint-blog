@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-07: Netlas en OSINT: busqueda de infraestructura, query language y contexto antes de concluir (fallback editorial: backlog formal sin ideas libres; tema nuevo no tratado en el blog y no repetido en las 3 ultimas entradas)
 - 2026-04-06: VirusTotal en OSINT: relaciones, colecciones y contexto para investigar sin sobreatribuir (fallback editorial: backlog formal agotado; tema citado como siguiente puente metodologico en posts previos)
 - 2026-04-05: OSINT y evidencia utilizable: hashing, WARC y notas de consulta para que un hallazgo resista revision (fallback editorial: backlog formal agotado; tema extraido de la investigacion base sobre trazabilidad)
 - 2026-04-04: BBOT en OSINT: recursion, presets y scope para automatizar sin perder el control (nuevo tema; backlog formal agotado)
