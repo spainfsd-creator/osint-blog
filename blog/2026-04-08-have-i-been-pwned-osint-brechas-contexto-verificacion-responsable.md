@@ -9,6 +9,9 @@ image: /img/blog/2026-04-08-have-i-been-pwned-osint-brechas-contexto-verificacio
 
 ![Ilustracion editorial de una analista OSINT revisando exposiciones de brechas, alertas y un cuaderno de verificacion con enfoque responsable](/img/blog/2026-04-08-have-i-been-pwned-osint-brechas-contexto-verificacion-responsable.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/have-i-been-pwned-osint-brechas-contexto-verificacion-responsable.m4a)
+
+
 Hay consultas OSINT que parecen pequeñas y en realidad son delicadas. Buscar si una direccion de correo ha aparecido en una brecha es una de ellas. `Have I Been Pwned` puede ahorrar mucho tiempo cuando necesitas distinguir entre rumor, exposicion confirmada y simple sospecha, pero solo si recuerdas algo importante: **aparecer en una brecha no equivale a explicar un incidente por si solo, y consultar ese dato no te da licencia para ampliar el tratamiento de informacion personal sin necesidad real**.
 
 La propia API oficial marca muy bien ese tono. `HIBP` exige clave para las consultas por correo y dominio, mantiene limites de uso, separa brechas sensibles, distingue conjuntos `subscription-free`, documenta la verificacion de dominios y prohíbe expresamente usos orientados a causar daño a las victimas de una filtracion. En otras palabras: no es una base para curiosear; es una herramienta para **contextualizar exposiciones de forma proporcionada, atribuible y con restricciones claras**.
