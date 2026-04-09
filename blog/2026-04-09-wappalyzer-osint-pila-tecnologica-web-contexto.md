@@ -9,6 +9,9 @@ image: /img/blog/2026-04-09-wappalyzer-osint-pila-tecnologica-web-contexto.png
 
 ![Ilustracion editorial de una analista OSINT perfilando la pila tecnologica de un sitio web con componentes abstractos de CMS, CDN, analitica y framework conectados a un plano web](/img/blog/2026-04-09-wappalyzer-osint-pila-tecnologica-web-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/wappalyzer-osint-pila-tecnologica-web-contexto.m4a)
+
+
 Cuando una investigacion empieza por una web corporativa, una tienda online o el portal de un proveedor, la tentacion habitual es ir demasiado deprisa: ves un framework, un pixel, una CDN o un formulario y ya estas contando una historia sobre madurez, riesgo o relacion entre activos. `Wappalyzer` resulta util precisamente porque frena ese impulso y convierte la primera pasada en algo mas ordenado: **que tecnologia parece visible, donde aparece la senal y que hipotesis merece comprobacion posterior**.
 
 No conviene venderlo como detector infalible. La propia FAQ oficial deja claro que la extension identifica tecnologias a partir de senales publicas en HTML, scripts, cookies, peticiones de red y certificados. Eso significa dos cosas importantes para OSINT responsable: que trabajas sobre huella observable, no sobre acceso privilegiado; y que cualquier deteccion depende de que esa huella exista, sea legible y no este mezclada con capas compartidas de terceros.
