@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-09: Wappalyzer en OSINT: perfilar la pila tecnologica web sin confundir huella con evidencia (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-08: Have I Been Pwned en OSINT: brechas, contexto y verificacion responsable (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-07: Netlas en OSINT: busqueda de infraestructura, query language y contexto antes de concluir (fallback editorial: backlog formal sin ideas libres; tema nuevo no tratado en el blog y no repetido en las 3 ultimas entradas)
 - 2026-04-06: VirusTotal en OSINT: relaciones, colecciones y contexto para investigar sin sobreatribuir (fallback editorial: backlog formal agotado; tema citado como siguiente puente metodologico en posts previos)
