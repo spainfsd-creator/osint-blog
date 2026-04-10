@@ -158,6 +158,11 @@ search:
   permalink: /search
   description: Busqueda por selectores, filtros y estrategias para encontrar contexto sin confundir indice con evidencia.
 
+web:
+  label: Web
+  permalink: /web
+  description: Sitios web, codigo fuente visible, widgets, archivo web y otras huellas publicas utiles para investigar con contexto.
+
 sqlite:
   label: SQLite
   permalink: /sqlite
