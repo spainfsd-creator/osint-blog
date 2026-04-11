@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-11: LeakIX en OSINT: exposicion publica, alertas y contexto para no sobreatribuir (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-10: PublicWWW en OSINT: firmas de codigo, huellas compartidas y relaciones web con contexto (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-09: Wappalyzer en OSINT: perfilar la pila tecnologica web sin confundir huella con evidencia (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-08: Have I Been Pwned en OSINT: brechas, contexto y verificacion responsable (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
