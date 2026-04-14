@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-14: dnstwist en OSINT: dominios parecidos, typosquatting y verificacion antes de escalar (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-13: ZoomEye en OSINT: cobertura de activos, sintaxis de consulta y contexto antes de concluir (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-12: FOFA en OSINT: cobertura de infraestructura, sintaxis de consulta y contexto antes de concluir (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-11: LeakIX en OSINT: exposicion publica, alertas y contexto para no sobreatribuir (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
