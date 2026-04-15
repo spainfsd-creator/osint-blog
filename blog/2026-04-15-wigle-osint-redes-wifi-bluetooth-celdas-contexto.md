@@ -9,6 +9,9 @@ image: /img/blog/2026-04-15-wigle-osint-redes-wifi-bluetooth-celdas-contexto.png
 
 ![Ilustracion editorial de una analista OSINT superponiendo observaciones publicas de WiFi, Bluetooth y celdas sobre un mapa urbano con criterio defensivo](/img/blog/2026-04-15-wigle-osint-redes-wifi-bluetooth-celdas-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/wigle-osint-redes-wifi-bluetooth-celdas-contexto.m4a)
+
+
 Cuando una investigacion tecnica toca geografia, movilidad o superficie expuesta en el mundo fisico, el error mas caro no suele ser "no encontrar datos", sino **confundir un mapa de observaciones con una prueba directa sobre una persona o una intencion**. `WiGLE` resulta util precisamente porque ordena observaciones geolocalizadas de redes inalambricas en una base consultable, pero obliga a recordar desde el principio que ahi ves huellas recogidas por terceros, en momentos concretos y con calidad desigual.
 
 Eso la vuelve interesante para OSINT responsable, inventario defensivo, verificacion de presencia tecnica en una zona o contraste de cobertura radio en una investigacion mas amplia. Tambien marca una frontera etica clara: **no es una herramienta para localizar personas, invadir redes ni convertir una coincidencia de SSID en una historia concluyente**. El valor real aparece cuando la usas como contexto y la corroboras con otras fuentes.
