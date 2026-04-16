@@ -73,6 +73,16 @@ threat-intelligence:
   permalink: /threat-intelligence
   description: Contexto sobre infraestructura, actores y comportamientos observables para enriquecer analisis defensivo sin sobreatribuir.
 
+malware:
+  label: Malware
+  permalink: /malware
+  description: URLs, payloads, familias y senales tecnicas utiles para investigacion defensiva y triage con contexto.
+
+defense:
+  label: Defensa
+  permalink: /defense
+  description: Enfoque defensivo aplicado a OSINT, threat hunting, validacion y reduccion de impacto sin sobrerreaccionar.
+
 tls:
   label: TLS
   permalink: /tls
