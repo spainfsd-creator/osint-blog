@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-18: Pulsedive en OSINT: indicadores, riesgo y pivotes con contexto defensivo (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-17: Historia OSINT: Ever Given y el Canal de Suez, AIS, satelite y cronologia para entender un cuello de botella global (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica historia nueva no tratada como post principal y se retoma la alternancia frente a las tres ultimas entradas de herramienta)
 - 2026-04-16: URLhaus en OSINT: malware URLs, payloads y contexto defensivo sin sobreactuar (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
 - 2026-04-15: WiGLE en OSINT: cartografiar redes WiFi, Bluetooth y celdas con contexto (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica tema nuevo no tratado como post principal)
