@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-20: RDAP y WHOIS en OSINT: registro, fechas y contexto sin sobreatribuir (fallback editorial: ya no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una metodologia nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-19: PeeringDB en OSINT: ASNs, interconexiones y facilities con contexto (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-18: Pulsedive en OSINT: indicadores, riesgo y pivotes con contexto defensivo (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-17: Historia OSINT: Ever Given y el Canal de Suez, AIS, satelite y cronologia para entender un cuello de botella global (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica historia nueva no tratada como post principal y se retoma la alternancia frente a las tres ultimas entradas de herramienta)
