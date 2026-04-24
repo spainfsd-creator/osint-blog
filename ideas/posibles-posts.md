@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-24: OpenSanctions en OSINT: entidades, listas y coincidencias con contexto (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-23: Historia OSINT: Strava, mapas de calor y la leccion de privacidad que brillaba demasiado (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una historia nueva no tratada como post principal y no repetida en las 3 ultimas entradas)
 - 2026-04-22: AlienVault OTX en OSINT: pulsos, indicadores y contexto comunitario sin sobreactuar (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)
 - 2026-04-21: SecurityTrails en OSINT: historial DNS, WHOIS e infraestructura con contexto (fallback editorial: no quedaban ideas sin usar en `Ideas (candidatas)`; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)

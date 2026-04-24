@@ -8,10 +8,20 @@ investigation:
   permalink: /investigation
   description: Metodos, flujos de trabajo y verificacion para investigaciones OSINT.
 
+due-diligence:
+  label: Due Diligence
+  permalink: /due-diligence
+  description: Revisiones de terceros, riesgo y contexto para investigaciones OSINT responsables.
+
 verification:
   label: Verificacion
   permalink: /verification
   description: Tecnicas para validar evidencias, reducir falsos positivos y documentar incertidumbre.
+
+data:
+  label: Datos
+  permalink: /data
+  description: Fuentes, modelos de datos y estructuras que ayudan a investigar con trazabilidad.
 
 history:
   label: Historia
