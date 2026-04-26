@@ -9,6 +9,9 @@ image: /img/blog/2026-04-26-threatfox-osint-iocs-contexto-defensivo.png
 
 ![Ilustracion editorial de una analista OSINT contrastando indicadores de compromiso, familias de malware y contexto de red en un panel comunitario defensivo](/img/blog/2026-04-26-threatfox-osint-iocs-contexto-defensivo.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/threatfox-osint-iocs-contexto-defensivo.m4a)
+
+
 Cuando un dominio, una `IP`, una `URL` o un `hash` aparece en un incidente, el analista suele caer en una de dos trampas: o lo trata como una pista aislada sin contexto, o le da un peso excesivo solo porque "sale en una base". `ThreatFox` resulta util justo en medio de esas dos malas salidas. Sirve para saber si un indicador ya ha sido compartido por la comunidad, con que familia de `malware` se asocia, que etiquetas arrastra y si merece una comprobacion mas profunda en tu flujo defensivo.
 
 Su valor real no esta en sentenciar, sino en **reducir tiempo de triage y mejorar las preguntas**. La propia plataforma de `abuse.ch` y `Spamhaus` la presenta como un espacio comunitario para compartir indicadores de compromiso ligados a `malware`, explorar la base y automatizar consultas mediante `API`. Eso ya marca un limite importante: `ThreatFox` aporta contexto tecnico y comunitario, no prueba por si solo impacto, autoria ni intencion.
