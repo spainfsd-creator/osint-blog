@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-04-29: MXToolbox en OSINT: correo, DNS y reputacion tecnica con contexto (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog historico tambien estaba agotado; se publica una herramienta nueva no tratada como tema principal y sin repetir las 3 ultimas entradas)
 - 2026-04-28: BuiltWith en OSINT: huella tecnologica, relaciones y contexto sin confundir scripts con propiedad (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta nueva no tratada como tema principal y sin repetir las 3 ultimas entradas)
 - 2026-04-27: Historia OSINT: Rohingya, satelite antes/despues y el metodo para verificar destruccion a distancia (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica la siguiente historia no tratada como post principal desde `ideas/historias-osint.md` y se mantiene la alternancia frente a la ultima entrada de herramienta)
 - 2026-04-26: ThreatFox en OSINT: IOCs comunitarios, etiquetas y contexto defensivo (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta nueva no tratada como tema principal y no repetida en las 3 ultimas entradas)

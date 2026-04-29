@@ -68,6 +68,11 @@ dns:
   permalink: /dns
   description: Registros, resoluciones e historial DNS utiles para reconstruir infraestructura y contexto tecnico.
 
+email:
+  label: Email
+  permalink: /email
+  description: Correo electronico, entregabilidad, autenticacion y senales tecnicas visibles utiles para investigaciones OSINT responsables.
+
 infrastructure:
   label: Infraestructura
   permalink: /infrastructure
