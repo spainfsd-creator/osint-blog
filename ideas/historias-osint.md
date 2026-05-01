@@ -35,7 +35,7 @@ Seguridad y etica:
 
 Cada historia debe cerrar con un "puente" a una herramienta o tecnica (para que el blog quede equilibrado entre relato y tutorial).
 
-- MH17 (2014-2022): geolocalizacion/cronologia de un BUK y como un rastro publico llega a un tribunal.
+- [x] MH17 (2014-2022): geolocalizacion/cronologia de un BUK y como un rastro publico llega a un tribunal.
   - Puente a herramientas: Google Earth/Street View, satelite comercial, verificacion de video.
 - Skripal (2018): identidades de cobertura y como se triangula una identidad sin "fuentes internas".
   - Puente: registros publicos, hemeroteca, analisis de huella digital.
@@ -57,4 +57,3 @@ Cada historia debe cerrar con un "puente" a una herramienta o tecnica (para que 
   - Puente: satelite, geolocalizacion, lectura critica de informes.
 - Pandora Papers (2021): investigacion con filtracion, validada y ampliada con OSINT (nota: no OSINT puro).
   - Puente: registros mercantiles, PEP/sanciones, grafo de entidades.
-
