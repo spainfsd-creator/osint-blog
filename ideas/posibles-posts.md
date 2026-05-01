@@ -37,7 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
-- 2026-05-01: ExifTool e InVID en OSINT: verificacion multimedia con contexto antes de concluir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog de historias estaba ya cubierto en el blog; se publica una combinacion de herramientas ya sugerida varias veces como siguiente puente metodologico y no repetida como tema principal en las 3 ultimas entradas)
+- 2026-05-01: SunCalc en OSINT: sombras, cronolocalizacion y contexto antes de concluir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog de historias estaba ya cubierto en el blog; se publica una herramienta metodologica muy citada como siguiente paso en varias entradas y no tratada hasta ahora como tema principal)
 - 2026-04-30: FOCA en OSINT: metadatos, documentos y superficie expuesta sin sobreatribuir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog historico tambien estaba agotado; se publica una herramienta clasica no tratada como tema principal en el blog y sin repetir las 3 ultimas entradas)
 - 2026-04-29: MXToolbox en OSINT: correo, DNS y reputacion tecnica con contexto (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog historico tambien estaba agotado; se publica una herramienta nueva no tratada como tema principal y sin repetir las 3 ultimas entradas)
 - 2026-04-28: BuiltWith en OSINT: huella tecnologica, relaciones y contexto sin confundir scripts con propiedad (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta nueva no tratada como tema principal y sin repetir las 3 ultimas entradas)
