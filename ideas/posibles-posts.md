@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-05-03: RiskIQ PassiveTotal en OSINT: passive DNS, WHOIS y relaciones con contexto (fallback editorial: `Ideas (candidatas)` seguia vacia y el backlog historico practico tambien estaba agotado o desactualizado; se elige un tema no tratado como post principal en `blog/` y sin repetir las 3 ultimas entradas)
 - 2026-05-02: OWASP Amass en OSINT: superficie externa, ASN y relaciones con mas contexto (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog de historias ya estaba publicado; se elige un tema no tratado como post principal en `blog/` para mantener novedad sin repetir las 3 ultimas entradas)
 - 2026-05-01: SunCalc en OSINT: sombras, cronolocalizacion y contexto antes de concluir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog de historias estaba ya cubierto en el blog; se publica una herramienta metodologica muy citada como siguiente paso en varias entradas y no tratada hasta ahora como tema principal)
 - 2026-04-30: FOCA en OSINT: metadatos, documentos y superficie expuesta sin sobreatribuir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres y el backlog historico tambien estaba agotado; se publica una herramienta clasica no tratada como tema principal en el blog y sin repetir las 3 ultimas entradas)
