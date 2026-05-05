@@ -68,6 +68,11 @@ dns:
   permalink: /dns
   description: Registros, resoluciones e historial DNS utiles para reconstruir infraestructura y contexto tecnico.
 
+passive-dns:
+  label: Passive DNS
+  permalink: /passive-dns
+  description: Observacion historica de resoluciones y nombres asociados para contextualizar infraestructura con cautela temporal.
+
 email:
   label: Email
   permalink: /email
