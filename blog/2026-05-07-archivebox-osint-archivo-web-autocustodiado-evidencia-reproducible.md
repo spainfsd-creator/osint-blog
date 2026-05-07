@@ -9,6 +9,9 @@ image: /img/blog/2026-05-07-archivebox-osint-archivo-web-autocustodiado-evidenci
 
 ![Ilustracion editorial de una analista OSINT preservando paginas web, capturas, PDF y WARC en un archivo autocustodiado con trazabilidad local](/img/blog/2026-05-07-archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible.m4a)
+
+
 Cuando una pagina delicada cambia, desaparece o empieza a devolver otra cosa, el error no siempre es "no haberla visto". Muchas veces el error serio es haber confiado en que **algun tercero la conservaria por ti**. En ese hueco entra `ArchiveBox`: no como oraculo magico, sino como una forma de **preservar contenido web bajo tu propio control**, con varias salidas revisables y sin depender por completo de un servicio ajeno que mañana puede fallar, limitarte o cambiar de politica.
 
 La utilidad OSINT aqui es muy concreta. Si necesitas documentar una web corporativa, un anuncio publico, una pagina de producto, una fuente periodistica o un registro visible antes de que cambie, `ArchiveBox` te da un enfoque mas cercano a la **custodia operativa** que al simple "guardar un enlace". Pero esa potencia tambien trae responsabilidades: espacio en disco, riesgo al abrir contenido archivado con JavaScript, y la necesidad de separar claramente **captura**, **contexto** y **conclusion analitica**.
