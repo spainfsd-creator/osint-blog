@@ -37,6 +37,7 @@ Nota: estas ideas no sustituyen a las herramientas; se deben alternar (1 herrami
 
 ## Publicados
 
+- 2026-05-13: Lampyre en OSINT: grafos, entidades y macros para investigar con mas contexto (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta no tratada como tema principal en `blog/`, evitando repetir `Maigret`, `ZGrab2` y `ONYPHE` y manteniendo foco en trazabilidad, vistas multiples y trabajo local)
 - 2026-05-12: Maigret en OSINT: usernames, recursion y contexto antes de atribuir perfiles (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta citada como siguiente puente metodologico en entradas previas, no tratada todavia como tema principal en `blog/`, evitando repetir `ZGrab2`, `ONYPHE` y `Wikidata`)
 - 2026-05-11: ZGrab2 en OSINT: banners, handshakes y contexto para enriquecer servicios sin sobreatribuir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; se publica una herramienta no tratada como tema principal en `blog/`, enlazada ademas como siguiente puente metodologico desde `IVRE`, evitando repetir `Overpass Turbo`, `Wikidata` y `ONYPHE`)
 - 2026-05-10: ONYPHE en OSINT: OQL, scope APIs y contexto para mapear exposicion sin sobreatribuir (fallback editorial: `Ideas (candidatas)` seguia sin entradas libres; durante la revision se descarto un borrador sobre `recon-ng` por duplicar un tema ya publicado y se sustituyo por una herramienta no tratada como post principal en `blog/`, evitando repetir `ArchiveBox`, `Overpass Turbo` y `Wikidata`)
