@@ -83,6 +83,16 @@ infrastructure:
   permalink: /infrastructure
   description: Activos expuestos, servicios, certificados y relaciones tecnicas visibles desde el exterior.
 
+network:
+  label: Red
+  permalink: /network
+  description: Topologia, transitividad, routing y contexto de red utiles para investigar infraestructura publica con cautela.
+
+asn:
+  label: ASN
+  permalink: /asn
+  description: Sistemas autonomos, prefijos y relaciones visibles entre redes para contextualizar hallazgos tecnicos en OSINT.
+
 triage:
   label: Triage
   permalink: /triage
