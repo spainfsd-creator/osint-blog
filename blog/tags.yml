@@ -203,6 +203,11 @@ web:
   permalink: /web
   description: Sitios web, codigo fuente visible, widgets, archivo web y otras huellas publicas utiles para investigar con contexto.
 
+archive:
+  label: Archivo
+  permalink: /archive
+  description: Archivo web, memoria longitudinal y reconstruccion cronologica de presencia publica con trazabilidad.
+
 sqlite:
   label: SQLite
   permalink: /sqlite
