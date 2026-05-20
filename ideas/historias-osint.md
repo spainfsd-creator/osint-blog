@@ -37,7 +37,7 @@ Cada historia debe cerrar con un "puente" a una herramienta o tecnica (para que 
 
 - [x] MH17 (2014-2022): geolocalizacion/cronologia de un BUK y como un rastro publico llega a un tribunal.
   - Puente a herramientas: Google Earth/Street View, satelite comercial, verificacion de video.
-- Skripal (2018): identidades de cobertura y como se triangula una identidad sin "fuentes internas".
+- [x] Skripal (2018): identidades de cobertura y como se triangula una identidad sin "fuentes internas".
   - Puente: registros publicos, hemeroteca, analisis de huella digital.
 - Navalny (2020): de patrones de viaje a confirmacion tecnica internacional (OPAQ) y sanciones.
   - Puente: timeline, corroboracion cruzada, preservacion de evidencias.
