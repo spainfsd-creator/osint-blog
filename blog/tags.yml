@@ -78,6 +78,11 @@ email:
   permalink: /email
   description: Correo electronico, entregabilidad, autenticacion y senales tecnicas visibles utiles para investigaciones OSINT responsables.
 
+breaches:
+  label: Brechas
+  permalink: /breaches
+  description: Exposicion en brechas, clases de datos comprometidos y contexto para interpretar hallazgos sin sobrerreaccionar.
+
 infrastructure:
   label: Infraestructura
   permalink: /infrastructure
