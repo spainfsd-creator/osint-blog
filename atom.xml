@@ -2,11 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-05-23T00:00:00.000Z</updated>
+    <updated>2026-05-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[crt.sh en OSINT: CT logs, subdominios y cronologia de certificados con contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto"/>
+        <updated>2026-05-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando certificados TLS, subdominios y una cronologia de emision en una interfaz tipo ct log con notas metodologicas sobrias]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando certificados TLS, subdominios y una cronologia de emision en una interfaz tipo ct log con notas metodologicas sobrias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-24-crtsh-osint-ct-logs-subdominios-cronologia-contexto-65392886f2355e9be342a53094069810.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica necesita responder que dominios han existido de verdad, cuando aparecieron y con que senales publicas se relacionan, mucha gente comete el mismo error: tratar un certificado TLS como si fuera una prueba cerrada de propiedad, actividad o intencion. <code>crt.sh</code> sirve precisamente para enfriar ese impulso. Te deja consultar datos de <code>Certificate Transparency</code> y observar emisiones historicas, nombres alternativos y pistas cronologicas que ayudan a abrir preguntas mejores, no a cerrarlas demasiado pronto.</p>
+<p>A fecha de <strong>24 de mayo de 2026</strong>, la documentacion publica del ecosistema CT sigue describiendo estos logs como registros publicos y auditables de certificados, pensados para detectar emisiones sospechosas y aumentar la transparencia del <code>Web PKI</code>. Y Sectigo sigue presentando <code>crt.sh</code> como su herramienta estandar de busqueda y reporte sobre esos logs. Traducido a trabajo OSINT serio: <code>crt.sh</code> no demuestra por si solo que un activo este vivo, que un subdominio siga resolviendo o que una organizacion controle hoy todo lo que aparece en un certificado. Pero si te da una de las cronologias publicas mas utiles para descubrir superficie web, revisar cambios y documentar por que una hipotesis merece mas comprobacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>crt.sh</code> es una interfaz publica de busqueda sobre datos de <code>Certificate Transparency</code> (<code>CT</code>). El ecosistema CT, descrito por la propia iniciativa <code>certificate.transparency.dev</code> y por la <code>RFC 9162</code>, existe para que los certificados TLS emitidos queden registrados en logs publicos, auditables y monitorizables. Eso permite que propietarios de dominios, navegadores, investigadores y operadores detecten emisiones no autorizadas o, como minimo, entiendan mejor que certificados han existido y cuando.</p>
+<p>Para una investigacion OSINT defensiva o de superficie externa, <code>crt.sh</code> resulta especialmente util en cuatro tareas:</p>
+<ul>
+<li class="">descubrir subdominios historicos o poco visibles que aparecen en <code>Subject Alternative Name</code>;</li>
+<li class="">observar cronologias de emision, renovacion o reemision de certificados;</li>
+<li class="">pivotar por dominio, organizacion, <code>SHA-1</code>, <code>SHA-256</code> o incluso por identificador concreto de certificado;</li>
+<li class="">y documentar una relacion tecnica publica antes de contrastarla con DNS, web visible, captura propia o contexto societario.</li>
+</ul>
+<p>La clave es colocar la herramienta en su sitio. Un certificado te habla de una emision registrada y de unos nombres incluidos en ese artefacto. No te garantiza servicio activo, no te demuestra uso malicioso y no convierte una coincidencia tecnica en atribucion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una empresa ficticia, <code>acme-ejemplo.com</code>, que esta revisando su superficie externa antes de una auditoria o despues de una adquisicion. El equipo cree tener inventariados todos sus subdominios publicos, pero sospecha que quedan restos de entornos antiguos, nombres de preproduccion o servicios heredados que todavia dejaron huella en certificados.</p>
+<p>Un flujo prudente con <code>crt.sh</code> podria ser:</p>
+<ol>
+<li class="">buscar el dominio base para identificar certificados emitidos historicamente;</li>
+<li class="">anotar <code>SANs</code> o nombres raros que no estaban en el inventario actual;</li>
+<li class="">separar enseguida lo historico de lo vigente, sin asumir que todo lo listado sigue expuesto;</li>
+<li class="">cruzar solo los candidatos utiles con DNS, HTTP, archivo web o escaneos autorizados;</li>
+<li class="">registrar fecha de consulta, consulta realizada y por que cada nombre paso o no a la siguiente fase.</li>
+</ol>
+<p>Lo importante no es "sacar muchos subdominios". Lo importante es <strong>convertir una lista tecnica en un mapa priorizado de hipotesis verificables</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-un-dominio-a-una-cronologia-que-no-te-haga-sobreactuar">Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#flujo-recomendado-de-un-dominio-a-una-cronologia-que-no-te-haga-sobreactuar" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar" title="Enlace directo al Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-no-por-el-volumen">1. Empieza por la pregunta, no por el volumen<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#1-empieza-por-la-pregunta-no-por-el-volumen" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta, no por el volumen" title="Enlace directo al 1. Empieza por la pregunta, no por el volumen" translate="no">​</a></h3>
+<p>La tentacion con <code>crt.sh</code> es lanzar una busqueda amplia y asumir que mas resultados equivalen a mas verdad. Suele ser al reves. Antes de abrir la herramienta, conviene fijar que quieres resolver:</p>
+<ul>
+<li class="">descubrir activos externos olvidados;</li>
+<li class="">entender cambios de marca o de infraestructura;</li>
+<li class="">revisar si hubo emisiones inesperadas para un dominio;</li>
+<li class="">o preparar una comprobacion de terceros con mejor contexto tecnico.</li>
+</ul>
+<p>Si no haces esa distincion, acabaras mezclando certificados historicos, nombres de prueba, <code>wildcards</code>, emisiones repetidas y residuos operativos como si fueran una sola historia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-cronologia-como-pista-no-como-sentencia">2. Usa la cronologia como pista, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#2-usa-la-cronologia-como-pista-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 2. Usa la cronologia como pista, no como sentencia" title="Enlace directo al 2. Usa la cronologia como pista, no como sentencia" translate="no">​</a></h3>
+<p>La <code>RFC 9162</code> describe CT como un mecanismo para registrar la existencia de certificados emitidos u observados de forma que cualquiera pueda auditar la actividad de las autoridades de certificacion y detectar emisiones sospechosas. Ese detalle importa mucho en OSINT: el dato principal es la <strong>existencia registrada de un certificado en una ventana temporal</strong>, no una fotografia total de un servicio.</p>
+<p>Practicalmente, eso significa:</p>
+<ul>
+<li class="">una emision en CT puede apuntar a un activo legitimo ya retirado;</li>
+<li class="">una renovacion no te dice por si sola quien opera el servicio hoy;</li>
+<li class="">un nombre en <code>SAN</code> puede ser solo un alias tecnico o una fase temporal;</li>
+<li class="">y un subdominio en un certificado no implica que sea accesible, interesante o critico.</li>
+</ul>
+<p>La cronologia ayuda a ordenar preguntas como estas:</p>
+<ul>
+<li class="">cuando empezo a aparecer un nombre concreto;</li>
+<li class="">si hubo rotacion de certificados en momentos relevantes;</li>
+<li class="">si una familia de subdominios crecio, se simplifico o desaparecio;</li>
+<li class="">o si hay una emision que merece monitorizacion adicional.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-bien-los-selectores-de-entrada">3. Aprovecha bien los selectores de entrada<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#3-aprovecha-bien-los-selectores-de-entrada" class="hash-link" aria-label="Enlace directo al 3. Aprovecha bien los selectores de entrada" title="Enlace directo al 3. Aprovecha bien los selectores de entrada" translate="no">​</a></h3>
+<p>Sectigo explica en su material sobre <code>crt.sh</code> que la interfaz permite buscar por nombre de dominio, nombre de organizacion, huella <code>SHA-1</code>, huella <code>SHA-256</code> o identificador concreto del certificado. Esa variedad es util porque te deja entrar por distintas puertas segun el caso.</p>
+<p>En un flujo responsable, cada selector responde a una necesidad distinta:</p>
+<ul>
+<li class="">dominio: para descubrir cobertura y nombres relacionados;</li>
+<li class="">organizacion: para explorar emisiones asociadas a una entidad, con mucha mas cautela por homonimias;</li>
+<li class="">fingerprint: para validar o contextualizar un certificado ya observado en otro sitio;</li>
+<li class="">identificador: para fijar la referencia exacta cuando documentas evidencia.</li>
+</ul>
+<p>La disciplina aqui es simple: <strong>anota siempre que buscaste exactamente</strong>. Si luego necesitas reproducir tu hallazgo o explicarlo a otra persona, ese detalle vale mas que una captura sin contexto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante">4. Cruza fuera de <code>crt.sh</code> antes de afirmar nada importante<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" class="hash-link" aria-label="Enlace directo al 4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" title="Enlace directo al 4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" translate="no">​</a></h3>
+<p>El ecosistema <code>certificate.transparency.dev</code> recuerda que los monitores CT sirven para detectar certificados sospechosos y para avisar a operadores cuando aparecen emisiones nuevas para sus dominios. Eso deja clara una idea operativa: CT es una capa de visibilidad y alerta, no una respuesta completa.</p>
+<p>Despues de una consulta en <code>crt.sh</code>, lo razonable suele ser contrastar con:</p>
+<ul>
+<li class="">DNS o <code>RDAP</code> para ver si un nombre sigue teniendo vida util;</li>
+<li class="">web visible o captura propia si el problema es de contenido o branding;</li>
+<li class="">historicos web si necesitas relacion temporal con cambios publicos;</li>
+<li class="">y fuentes societarias o de terceros si la conclusion puede afectar a reputacion, riesgo o atribucion.</li>
+</ul>
+<p>Este cruce adicional evita uno de los errores mas comunes del OSINT tecnico: convertir un artefacto PKI en una narrativa corporativa demasiado ambiciosa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-piensa-en-monitoring-no-solo-en-busqueda-puntual">5. Piensa en <code>monitoring</code>, no solo en busqueda puntual<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#5-piensa-en-monitoring-no-solo-en-busqueda-puntual" class="hash-link" aria-label="Enlace directo al 5-piensa-en-monitoring-no-solo-en-busqueda-puntual" title="Enlace directo al 5-piensa-en-monitoring-no-solo-en-busqueda-puntual" translate="no">​</a></h3>
+<p>La documentacion publica de CT insiste en que los monitores revisan logs para ayudar a detectar emisiones no autorizadas y otras senales sospechosas. Incluso si usas <code>crt.sh</code> de forma manual, merece la pena adoptar esa mentalidad: no preguntarte solo "que hay ahora", sino "que deberia vigilar a partir de hoy".</p>
+<p>En entornos defensivos o de due diligence tecnica, eso se traduce en:</p>
+<ul>
+<li class="">registrar dominios clave y revisarlos periodicamente;</li>
+<li class="">prestar atencion a patrones nuevos, no solo a nombres aislados;</li>
+<li class="">documentar fechas de primera y ultima observacion;</li>
+<li class="">y separar claramente descubrimiento, validacion y escalado.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>crt.sh</code> es potentisimo, pero tiene limites que conviene escribir en mayusculas mentales:</p>
+<ul>
+<li class="">refleja emisiones registradas en CT, no la totalidad del estado operativo de una organizacion;</li>
+<li class="">puede devolver ruido historico, nombres de laboratorio o restos de migraciones;</li>
+<li class="">las busquedas por organizacion pueden mezclar entidades distintas con nombres parecidos;</li>
+<li class="">los <code>wildcards</code> reducen granularidad y pueden sugerir mas cobertura concreta de la que realmente ves;</li>
+<li class="">y un dominio en un certificado no demuestra control exclusivo, uso actual ni relevancia analitica.</li>
+</ul>
+<p>Tambien hay una limitacion metodologica menos obvia: <code>crt.sh</code> puede hacerte sentir que ya "entendiste" una superficie porque ves una tabla convincente. A menudo solo has encontrado el indice inicial.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Consulta con el selector minimo necesario y evita meter datos personales si el problema se resuelve por dominio o certificado.</li>
+<li class="">Distingue en tus notas entre <code>observado en CT</code>, <code>resuelve hoy</code>, <code>sirve contenido hoy</code> y <code>atribuido con evidencia adicional</code>.</li>
+<li class="">Si una emision parece sospechosa, trata la salida como senal de revision, no como acusacion publica.</li>
+<li class="">Preserva la trazabilidad: fecha, consulta, fila relevante y comprobaciones posteriores.</li>
+<li class="">Si el caso es sensible, cruza con una segunda fuente antes de compartir conclusiones fuera del equipo.</li>
+</ul>
+<p>La mejor forma de usar <code>crt.sh</code> no es como detector magico de subdominios, sino como <strong>registro publico que te obliga a pensar temporalmente</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si <code>crt.sh</code> te aporta una pista pero necesitas mas contexto, estas combinaciones suelen funcionar bien:</p>
+<ul>
+<li class=""><code>SecurityTrails</code> o historicos DNS, si quieres relacionar certificados con cambios de resolucion;</li>
+<li class=""><code>urlscan.io</code>, si importa ver comportamiento web, recursos cargados o redirecciones;</li>
+<li class=""><code>Censys</code>, <code>Netlas</code> o buscadores de activos, si la pregunta principal es exposicion observable;</li>
+<li class="">y archivo web o captura propia, si necesitas sostener mejor la cronologia visible.</li>
+</ul>
+<p>Como siguiente tema natural, tiene sentido aterrizar esto en un flujo combinado de <code>crt.sh</code>, DNS y captura web para revisar superficie externa sin confundir descubrimiento con evidencia cerrada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cierre">Cierre<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#cierre" class="hash-link" aria-label="Enlace directo al Cierre" title="Enlace directo al Cierre" translate="no">​</a></h2>
+<p><code>crt.sh</code> destaca porque convierte una parte muy tecnica del <code>Web PKI</code> en una fuente publica, consultable y sorprendentemente util para OSINT. Su valor real no esta en darte una lista enorme, sino en ayudarte a responder con mas rigor cuando aparecio un nombre, que relacion tecnica minima tuvo y que merece verificarse despues.</p>
+<p>La takeaway accionable es esta: usa <code>crt.sh</code> para abrir una cronologia, no para cerrarla. Si sales de la herramienta con tres hipotesis bien documentadas y no con treinta conclusiones grandilocuentes, la consulta ya ha valido la pena.</p>
+<p>Fuentes:</p>
+<ul>
+<li class=""><a href="https://certificate.transparency.dev/howctworks/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: How CT Works</a></li>
+<li class=""><a href="https://certificate.transparency.dev/monitors/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Monitors</a></li>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9162" target="_blank" rel="noopener noreferrer" class="">RFC 9162: Certificate Transparency Version 2.0</a></li>
+<li class=""><a href="https://www.sectigo.com/root-causes/root-causes-216-what-is-crt-sh" target="_blank" rel="noopener noreferrer" class="">Sectigo: Root Causes 216 - What is crt.sh?</a></li>
+<li class=""><a href="https://www.sectigo.com/pki-leadership" target="_blank" rel="noopener noreferrer" class="">Sectigo: WebPKI Standards, Open Source and PKI Ops</a></li>
+<li class=""><a href="https://github.com/crtsh" target="_blank" rel="noopener noreferrer" class="">GitHub: crt.sh organization</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Web" term="Web"/>
+        <category label="Tradecraft" term="Tradecraft"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[AbuseIPDB en OSINT: reputacion de IPs, triage y contexto antes de bloquear]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/abuseipdb-osint-reputacion-ips-triage-contexto</id>
@@ -2158,127 +2294,5 @@
         <category label="Tooling" term="Tooling"/>
         <category label="Passive DNS" term="Passive DNS"/>
         <category label="Investigacion" term="Investigacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Maltego en OSINT: grafos, transforms y contexto para investigar sin confundir conexiones con evidencia]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto"/>
-        <updated>2026-05-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT construyendo un grafo de relaciones con dominios, entidades, mapas y documentos publicos]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT construyendo un grafo de relaciones con dominios, entidades, mapas y documentos publicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-04-maltego-osint-grafos-transforms-contexto-31317772e27eab3e91d39b5932b93469.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay investigaciones que no fallan por falta de datos, sino por falta de estructura. Un dominio lleva a una IP, la IP a un ASN, el ASN a una empresa, la empresa a otra web, la web a un tracking code y, cuando quieres darte cuenta, tienes veinte pestañas abiertas y una intuicion dificil de defender. <code>Maltego</code> sigue siendo util justo en ese punto: no porque "descubra la verdad" por ti, sino porque te obliga a <strong>modelar relaciones, separar pivotes y visualizar que merece verificarse de nuevo</strong>.</p>
-<p>Ese matiz importa especialmente en 2026. La documentacion oficial deja claro que el ecosistema ha cambiado: <code>Maltego Graph</code> convive hoy con <code>Maltego Search</code>, <code>Cases</code>, <code>Admin</code>, <code>Data Pass</code> y conectores modernos, mientras que los <code>Standard Transforms</code> clasicos ya figuran como oferta heredada para usuarios legacy. Traducido a lenguaje de analista: el valor de <code>Maltego</code> ya no esta solo en "tirar transforms", sino en <strong>combinar datos, metodo y criterio para no inflar una coincidencia tecnica hasta convertirla en una conclusion</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p>La pagina oficial de <code>Maltego Graph</code> lo presenta como una herramienta de analisis de enlaces para investigaciones complejas, pensada para descubrir conexiones en datasets grandes de forma visual e intuitiva. Su documentacion sobre <code>Transforms</code> añade la pieza importante: un transform es codigo que toma una entidad de entrada y devuelve entidades relacionadas. Parece una definicion pequena, pero condiciona toda la metodologia.</p>
-<p>En la practica, <code>Maltego</code> sirve para preguntas como estas:</p>
-<ul>
-<li class="">que relaciones tecnicas aparecen alrededor de un dominio, persona, alias o empresa;</li>
-<li class="">que pivotes merecen repetirse con otra fuente antes de escribir nada;</li>
-<li class="">que partes de un caso son observacion directa y cuales son inferencia;</li>
-<li class="">y como documentar un mapa de relaciones sin depender de tu memoria ni de veinte pestañas sueltas.</li>
-</ul>
-<p>No es lo mismo que un buscador especializado ni que una base de datos OSINT concreta. <code>Maltego</code> es, sobre todo, una <strong>capa de orquestacion y visualizacion</strong>. La gracia no esta en tener mas nodos, sino en tener un grafo que siga siendo legible cuando el caso se complica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una <code>due diligence</code> tecnica sobre una empresa ficticia llamada <code>Norte Claro Energia</code>. El encargo no pide atribuir nada raro ni "hackear" nada; solo entender mejor su superficie publica y sus relaciones visibles antes de una compra.</p>
-<p>El punto de partida podria ser un dominio corporativo y dos filiales conocidas. A partir de ahi, un flujo prudente en <code>Maltego</code> seria:</p>
-<ol>
-<li class="">crear entidades separadas para dominio, organizacion y marcas relacionadas;</li>
-<li class="">extraer DNS, MX y resoluciones visibles para no mezclar correo con hosting sin revisar;</li>
-<li class="">anotar tracking codes, tecnologias web o certificados que merezcan contraste;</li>
-<li class="">cruzar esos hallazgos con otra fuente externa antes de elevarlos a "relacion probable";</li>
-<li class="">marcar en el propio grafo que es dato observado, que es hipotesis y que ha quedado descartado.</li>
-</ol>
-<p>Lo importante no es que el grafo "quede bonito". Lo importante es que, si alguien te pregunta por que relacionaste dos webs o por que descartaste una tercera, puedas volver al nodo, a la fuente y al paso metodologico concreto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-modela-poco-al-principio">1. Modela poco al principio<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#1-modela-poco-al-principio" class="hash-link" aria-label="Enlace directo al 1. Modela poco al principio" title="Enlace directo al 1. Modela poco al principio" translate="no">​</a></h3>
-<p>La propia definicion oficial de <code>Transform</code> insiste en devolver la pieza de informacion mas pequena posible para aprovechar el analisis de enlaces. Esa idea evita uno de los errores mas comunes: arrancar con entidades demasiado gordas, ambiguas o mezcladas.</p>
-<p>En vez de meter una conclusion del tipo "infraestructura de la empresa X", conviene empezar con piezas mas defensables:</p>
-<ul>
-<li class="">un dominio;</li>
-<li class="">una direccion de correo;</li>
-<li class="">una IP;</li>
-<li class="">un alias;</li>
-<li class="">una organizacion nombrada de forma consistente.</li>
-</ul>
-<p>Cuanto mejor sea la entidad de entrada, mejor sera el resto del grafo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-transforms-y-conectores-como-capas-no-como-sentencia">2. Usa transforms y conectores como capas, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#2-usa-transforms-y-conectores-como-capas-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 2. Usa transforms y conectores como capas, no como sentencia" title="Enlace directo al 2. Usa transforms y conectores como capas, no como sentencia" translate="no">​</a></h3>
-<p>La documentacion actual de <code>Maltego Graph</code> habla de mas de <code>120</code> proveedores de datos y mas de <code>12.000</code> metodos de busqueda. Eso no significa que todo deba consultarse siempre. Significa que el analista tiene mas superficie de enrichment y, por tanto, mas responsabilidad para no mezclar fuentes heterogeneas sin contexto.</p>
-<p>Una disciplina sensata seria esta:</p>
-<ul>
-<li class="">primero, obtener relaciones basicas y visibles;</li>
-<li class="">despues, enriquecer con fuentes mas especializadas;</li>
-<li class="">luego, contrastar fuera de <code>Maltego</code> los pivotes sensibles;</li>
-<li class="">y finalmente, dejar notas claras sobre grado de confianza.</li>
-</ul>
-<p>Si un tracking code aparece en dos webs, eso no prueba control comun por si solo. Si un correo sale vinculado a un dominio, tampoco demuestra rol actual. <code>Maltego</code> acelera el hallazgo del patron; tu trabajo sigue siendo validarlo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-entiende-la-arquitectura-cuando-el-caso-es-sensible">3. Entiende la arquitectura cuando el caso es sensible<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#3-entiende-la-arquitectura-cuando-el-caso-es-sensible" class="hash-link" aria-label="Enlace directo al 3. Entiende la arquitectura cuando el caso es sensible" title="Enlace directo al 3. Entiende la arquitectura cuando el caso es sensible" translate="no">​</a></h3>
-<p>En investigaciones delicadas, la parte menos glamurosa importa mucho. La documentacion de <code>TDS/iTDS</code> explica que existe un <code>Public TDS</code>, alojado en infraestructura de Maltego, y un <code>iTDS</code> interno para organizaciones que no quieren que ciertos flujos pasen por internet o por la infraestructura del proveedor.</p>
-<p>Operativamente, eso te obliga a pensar en tres cosas:</p>
-<ul>
-<li class="">que datos introduces en entidades y consultas;</li>
-<li class="">que transforms dependen de servicios de terceros;</li>
-<li class="">y cuando conviene usar infraestructura interna o compartimentada.</li>
-</ul>
-<p>No es una cuestion puramente tecnica. Es <code>OPSEC</code> aplicada al tooling.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-el-maltego-clasico-del-maltego-actual">4. Separa el Maltego "clasico" del Maltego actual<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#4-separa-el-maltego-clasico-del-maltego-actual" class="hash-link" aria-label="Enlace directo al 4. Separa el Maltego &quot;clasico&quot; del Maltego actual" title="Enlace directo al 4. Separa el Maltego &quot;clasico&quot; del Maltego actual" translate="no">​</a></h3>
-<p>Aqui hay una actualizacion importante. A <code>21 de enero de 2026</code>, la propia documentacion de <code>Standard Transforms</code> los marca como funcionalidad heredada para usuarios legacy y dice que ya no reciben soporte. Al mismo tiempo, la documentacion de <code>Data Pass and Connectors for Maltego Graph</code>, actualizada el <code>19 de enero de 2026</code>, explica que muchas capacidades viven ahora en modulos y conectores modernos, incluidos varios utilitarios que antes estaban en los <code>Standard Transforms</code>.</p>
-<p>La lectura util para un analista no es nostalgica. Es practica:</p>
-<ul>
-<li class="">si lees guias antiguas, revisa si dependen de transforms legacy;</li>
-<li class="">si repites un flujo historico, comprueba si hoy vive en <code>Utilities</code>, <code>Data Pass</code> o un conector concreto;</li>
-<li class="">y si una investigacion depende de una integracion de pago o de creditos, planifica antes de lanzar consultas en masa.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Maltego</code> puede hacerte mas rapido, pero tambien te puede hacer mas convincente de la cuenta. Ese es su riesgo real.</p>
-<p>Los falsos positivos suelen aparecer cuando:</p>
-<ul>
-<li class="">confundes proximidad visual en el grafo con relacion probada;</li>
-<li class="">tratas un enrich de tercero como si fuera observacion primaria;</li>
-<li class="">mezclas historico y presente sin marcar fechas;</li>
-<li class="">o arrastras demasiados nodos irrelevantes hasta que el grafo parece profundo solo por volumen.</li>
-</ul>
-<p>Tambien hay limites practicos. La documentacion de <code>Maltego Graph Community Edition</code> indica limites como hasta <code>10.000</code> entidades por grafo, hasta <code>24</code> resultados por transform y una asignacion minima de <code>200</code> creditos al mes. Eso obliga a priorizar mejor en lugar de lanzar consultas sin criterio.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>La documentacion de Maltego sobre logging aclara que no registra el cuerpo HTTP con las entidades enviadas ni los resultados devueltos, pero si conserva metadatos de ejecucion como fecha, IP origen, URL del transform, nombre del transform, clave API derivada de la licencia, <code>user agent</code> y cabeceras de tamano. Esa distincion es importante: no es excusa para descuidar compartimentacion, minimizacion o higiene de consultas.</p>
-<p>Buenas practicas razonables:</p>
-<ul>
-<li class="">no introduzcas mas datos personales de los necesarios para resolver la pregunta;</li>
-<li class="">usa workspaces, naming y notas coherentes para no mezclar casos;</li>
-<li class="">marca con claridad lo observado, lo inferido y lo pendiente de validar;</li>
-<li class="">revisa que proveedores y conectores participan en tu flujo antes de tocar casos sensibles;</li>
-<li class="">y evita convertir una capacidad tecnica en una invitacion a invadir la vida privada de nadie.</li>
-</ul>
-<p>OSINT responsable no consiste en "ver hasta donde puedo llegar". Consiste en saber <strong>cuando parar, que no afirmar y como dejar trazabilidad suficiente para que otra persona pueda revisar tu trabajo</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Maltego</code> no reemplaza a herramientas concretas; las organiza. Segun el caso, puede encajar bien junto a:</p>
-<ul>
-<li class=""><code>SecurityTrails</code>, <code>urlscan.io</code> o <code>PeeringDB</code> para enriquecer infraestructura;</li>
-<li class=""><code>OpenSanctions</code> u <code>OpenCorporates</code> para contexto corporativo;</li>
-<li class=""><code>Hunchly</code> o captura propia para preservacion del recorrido;</li>
-<li class="">y <code>SQLite</code> o <code>Datasette</code> cuando necesitas explotar tablas, cronologias o exportaciones con mas control.</li>
-</ul>
-<p>Si tu caso es pequeno y la pregunta es sencilla, puede que un cuaderno estructurado baste. Cuando la investigacion empieza a depender de relaciones cruzadas, historicos, enrichments y revision por terceros, ahi es donde <code>Maltego</code> suele justificar su coste cognitivo.</p>
-<p>La takeaway accionable es esta: usa <code>Maltego</code> para <strong>pensar mejor las relaciones</strong>, no para adornarlas. Un buen grafo no es el que tiene mas nodos; es el que deja claro que viste, que dedujiste y que todavia no puedes sostener. Como siguiente puente editorial, tendria sentido aterrizar esto en un caso practico de infraestructura web con <code>Maltego</code>, <code>urlscan.io</code> y <code>CT logs</code>, mostrando donde acaba la correlacion util y donde empieza la fantasia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/maltego-osint-grafos-transforms-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.maltego.com/graph/" target="_blank" rel="noopener noreferrer" class="">Maltego Graph</a></li>
-<li class=""><a href="https://support.maltego.com/en/support/solutions/articles/15000034010-what-is-a-transform-" target="_blank" rel="noopener noreferrer" class="">What is a Transform?</a></li>
-<li class=""><a href="https://docs.maltego.com/en/support/solutions/articles/15000041468-introduction-to-maltego-standard-transforms" target="_blank" rel="noopener noreferrer" class="">Introduction to Maltego Standard Transforms</a></li>
-<li class=""><a href="https://docs.maltego.com/en/support/solutions/articles/15000058711-data-pass-and-connectors-for-maltego-graph" target="_blank" rel="noopener noreferrer" class="">Data Pass and Connectors for Maltego Graph</a></li>
-<li class=""><a href="https://support.maltego.com/en/support/solutions/articles/15000020198-what-is-a-transform-distribution-server-tds-itds-" target="_blank" rel="noopener noreferrer" class="">What is a Transform Distribution Server (TDS/iTDS)?</a></li>
-<li class=""><a href="https://support.maltego.com/en/support/solutions/articles/15000036759-maltego-products-and-plans" target="_blank" rel="noopener noreferrer" class="">Maltego Products and Plans</a></li>
-<li class=""><a href="https://docs.maltego.com/en/support/solutions/articles/15000018947-what-is-maltego-graph-community-edition-ce-" target="_blank" rel="noopener noreferrer" class="">What is Maltego Graph Community Edition (CE)?</a></li>
-<li class=""><a href="https://docs.maltego.com/en/support/solutions/articles/15000011924-what-is-logged-when-i-run-a-transform-" target="_blank" rel="noopener noreferrer" class="">What is logged when I run a Transform?</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Analisis de enlaces" term="Analisis de enlaces"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="OPSEC" term="OPSEC"/>
     </entry>
 </feed>
