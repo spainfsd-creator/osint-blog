@@ -103,6 +103,11 @@ triage:
   permalink: /triage
   description: Priorizacion y contextualizacion inicial de senales, alertas e indicadores para separar ruido de hallazgos accionables.
 
+ioc:
+  label: IoC
+  permalink: /ioc
+  description: Indicators of Compromise y artefactos tecnicos visibles que requieren enrichment, verificacion y lectura contextual.
+
 threat-intelligence:
   label: Threat Intelligence
   permalink: /threat-intelligence
