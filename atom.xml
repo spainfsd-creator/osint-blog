@@ -8,111 +8,116 @@
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
     <entry>
-        <title type="html"><![CDATA[Historia OSINT: Navalny, patrones de viaje y la paciencia de correlacionar sin fabular]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint"/>
+        <title type="html"><![CDATA[Maltiverse en OSINT: enriquecer IoCs, filtrar ruido y decidir con mas contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido"/>
         <updated>2026-06-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una investigacion OSINT con mapas de rutas aereas, billetes, registros publicos y un escritorio analitico sin marcas comerciales]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una investigacion OSINT con mapas de rutas aereas, billetes, registros publicos y un escritorio analitico sin marcas comerciales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-02-historia-navalny-patrones-viaje-corrobacion-osint-2564e02249dffbdac850fb04cac9354c.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay historias donde el detalle decisivo parece pequeno hasta que alguien se obliga a ponerlo al lado de todos los demas. En el caso de <code>Alexei Navalny</code>, el momento inquietante no fue solo el colapso en un vuelo entre <code>Tomsk</code> y <code>Moscu</code> el <code>20 de agosto de 2020</code>. Fue descubrir que, cuando empiezas a superponer itinerarios, telefonia, perfiles profesionales y cronologias publicas, <strong>la casualidad empieza a quedarse sin espacio para respirar</strong>.</p>
-<p>Eso hace de este caso una leccion util para cualquiera que trabaje con inteligencia abierta. No porque invite a imitar una caceria de espias, sino porque enseña algo mas sobrio y mas valioso: <strong>el OSINT serio rara vez "adivina"; mas bien acumula capas de corroboracion hasta que una version oficial o una explicacion conveniente dejan de sostener su propio peso</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contexto-minimo-primero-los-hechos-duros-luego-la-narrativa">Contexto minimo: primero los hechos duros, luego la narrativa<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#contexto-minimo-primero-los-hechos-duros-luego-la-narrativa" class="hash-link" aria-label="Enlace directo al Contexto minimo: primero los hechos duros, luego la narrativa" title="Enlace directo al Contexto minimo: primero los hechos duros, luego la narrativa" translate="no">​</a></h2>
-<p>La base del caso no nacio en redes sociales. Segun el Gobierno federal aleman, <code>Navalny</code> fue trasladado a <code>Berlin</code> el <code>22 de agosto de 2020</code> y el <code>2 de septiembre de 2020</code> Alemania anuncio que un laboratorio especializado de la <code>Bundeswehr</code> habia encontrado prueba inequívoca de un agente nervioso del grupo <code>Novichok</code>. El <code>14 de septiembre de 2020</code>, el propio Gobierno aleman comunico que laboratorios de <code>Francia</code> y <code>Suecia</code> confirmaban por separado esos hallazgos.</p>
-<p>Ese orden importa. Antes de hablar de sospechosos, patrones o atribucion, ya existia una base medico-toxicologica externa que fijaba el hecho principal: no se trataba simplemente de "un desmayo raro". Ademas, la <code>OPCW</code> emitio el <code>6 de octubre de 2020</code> un resumen de su asistencia tecnica a Alemania en el caso de <code>Mr Alexei Navalny</code>, reforzando que el asunto habia pasado por una cadena internacional de verificacion.</p>
-<p>La historia, por tanto, no parte de una intuicion brillante. Parte de tres pilares que un analista responsable deberia aislar cuanto antes:</p>
+        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analista con paneles de IoCs, nodos de infraestructura, etiquetas de amenazas y un flujo de triage defensivo sin logos]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analista con paneles de IoCs, nodos de infraestructura, etiquetas de amenazas y un flujo de triage defensivo sin logos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-02-maltiverse-osint-iocs-contexto-ruido-c9ba9e093d23cc9d5e5bc46c1fb2982b.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Hay herramientas que no te dan "la respuesta" y precisamente por eso merecen un sitio en un flujo OSINT serio. <code>Maltiverse</code> entra en esa categoria. Si te llega una <code>IP</code>, un <code>dominio</code>, una <code>URL</code> o un <code>hash</code> sospechoso, el problema no suele ser no encontrar datos: el problema real es <strong>separar senales utiles de ruido, etiquetas heredadas y reputacion mal interpretada</strong>.</p>
+<p>Por eso <code>Maltiverse</code> resulta interesante para analistas, equipos de respuesta y perfiles de threat intel con sensibilidad OSINT. No porque sustituya la verificacion, sino porque ayuda a centralizar <code>IoCs</code>, enriquecerlos con contexto y cruzarlos con clasificaciones, referencias externas y consultas repetibles. Bien usado, te acelera el triage. Mal usado, te empuja a tomar un score o una etiqueta como si fueran verdad final. Y ese es justo el error que conviene evitar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>Maltiverse</code> se presenta como una plataforma cloud de threat intelligence centrada en la gestion y enriquecimiento de <code>Indicators of Compromise</code>. En su propia documentacion describe funciones de plataforma, feeds, analizador de amenazas y una sintaxis de consulta para buscar y filtrar indicadores con mas precision.</p>
+<p>Traducido al trabajo real: sirve para recibir un indicador suelto y contestar preguntas utiles sin improvisar demasiado:</p>
 <ul>
-<li class="">una cronologia publica del incidente;</li>
-<li class="">una confirmacion toxicolgica multifuente;</li>
-<li class="">y una secuencia institucional con fechas exactas.</li>
+<li class="">este <code>IOC</code> aparece clasificado como <code>phishing</code>, <code>malware</code>, <code>botnet</code> u otra categoria?;</li>
+<li class="">que metadatos lo acompanan?;</li>
+<li class="">cuando fue visto o actualizado?;</li>
+<li class="">que referencias externas o contexto adicional arrastra?;</li>
+<li class="">y como puedo acotar una consulta para no perderme en una lista infinita de coincidencias pobres?</li>
 </ul>
-<p>Solo despues tiene sentido preguntar quien estaba cerca, desde cuando y con que patron.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-metodo-osint-convertir-viajes-en-una-hipotesis-comprobable">El metodo OSINT: convertir viajes en una hipotesis comprobable<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#el-metodo-osint-convertir-viajes-en-una-hipotesis-comprobable" class="hash-link" aria-label="Enlace directo al El metodo OSINT: convertir viajes en una hipotesis comprobable" title="Enlace directo al El metodo OSINT: convertir viajes en una hipotesis comprobable" translate="no">​</a></h2>
-<p>La gran aportacion metodologica del caso no consiste en una foto viral ni en una sola filtracion. Consiste en la disciplina de tratar los desplazamientos como datos comparables.</p>
-<p>La investigacion conjunta publicada por <code>Bellingcat</code> y colaboradores el <code>14 de diciembre de 2020</code> expuso una idea poderosa: si un grupo de personas aparece repetidamente cerca del mismo objetivo en ciudades y ventanas temporales compatibles con sus viajes, esa repeticion deja de parecer ruido. En el caso <code>Navalny</code>, el trabajo describio como varios operativos vinculados al <code>FSB</code> y a perfiles tecnicos relacionados con quimica, medicina o criminalistica habrian seguido al opositor durante anos.</p>
-<p>La clave no es la espectacularidad. Es el flujo:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-la-cronologia-del-objetivo">1. Fijar la cronologia del objetivo<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#1-fijar-la-cronologia-del-objetivo" class="hash-link" aria-label="Enlace directo al 1. Fijar la cronologia del objetivo" title="Enlace directo al 1. Fijar la cronologia del objetivo" translate="no">​</a></h3>
-<p>Antes de buscar acompanantes, hay que fijar los viajes del protagonista con la mayor precision posible. Fechas, ciudades, trayectos, cambios de ultima hora y eventos publicos asociados. Si la cronologia base esta mal, toda correlacion posterior nace contaminada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-buscar-solapamientos-repetidos-no-coincidencias-unicas">2. Buscar solapamientos repetidos, no coincidencias unicas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#2-buscar-solapamientos-repetidos-no-coincidencias-unicas" class="hash-link" aria-label="Enlace directo al 2. Buscar solapamientos repetidos, no coincidencias unicas" title="Enlace directo al 2. Buscar solapamientos repetidos, no coincidencias unicas" translate="no">​</a></h3>
-<p>Una coincidencia aislada puede ser azar. Varias coincidencias, repartidas en distintos anos y ciudades, ya exigen otra explicacion. El metodo bueno no consiste en enamorarse del primer match, sino en preguntar: cuantas veces vuelve a ocurrir y con que consistencia temporal.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-mirar-los-perfiles-alrededor-del-patron">3. Mirar los perfiles alrededor del patron<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#3-mirar-los-perfiles-alrededor-del-patron" class="hash-link" aria-label="Enlace directo al 3. Mirar los perfiles alrededor del patron" title="Enlace directo al 3. Mirar los perfiles alrededor del patron" translate="no">​</a></h3>
-<p>Cuando los nombres asociados a esos desplazamientos apuntan a personas con trayectorias ligadas a laboratorios, toxicologia, criminalistica o estructuras de seguridad, el contexto cambia. No prueba por si solo una operacion concreta, pero modifica mucho la plausibilidad de la explicacion inocente.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-por-capas-heterogeneas">4. Corroborar por capas heterogeneas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#4-corroborar-por-capas-heterogeneas" class="hash-link" aria-label="Enlace directo al 4. Corroborar por capas heterogeneas" title="Enlace directo al 4. Corroborar por capas heterogeneas" translate="no">​</a></h3>
-<p>Los viajes solo son una capa. El siguiente paso es contrastar telefonia, conexiones institucionales, metadatos de registros y huella biografica. Cuantas mas capas independientes convergen, menos dependes de una sola pieza fragil.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-giro-cuando-el-patron-pesa-mas-que-el-detalle-vistoso">El giro: cuando el patron pesa mas que el detalle vistoso<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#el-giro-cuando-el-patron-pesa-mas-que-el-detalle-vistoso" class="hash-link" aria-label="Enlace directo al El giro: cuando el patron pesa mas que el detalle vistoso" title="Enlace directo al El giro: cuando el patron pesa mas que el detalle vistoso" translate="no">​</a></h2>
-<p>En los relatos mediaticos solemos recordar el momento mas cinematografico: la llamada posterior en la que <code>Navalny</code> logro hablar con un supuesto miembro del equipo implicado, episodio difundido dias despues de la investigacion principal. Pero desde el punto de vista del oficio, el giro mas instructivo ocurre antes.</p>
-<p>Ocurre cuando una lista de vuelos deja de ser una lista y empieza a comportarse como un sistema. <code>Bellingcat</code> describio, por ejemplo, como la busqueda arranco al detectar picos de comunicaciones entre ejecutivos de <code>SC Signal</code> y numeros vinculados al <code>FSB</code>, y como de ahi se fue tirando del hilo hacia identidades y viajes que coincidian con itinerarios de <code>Navalny</code>. Ese paso ensena una leccion que vale mucho mas que el caso concreto: <strong>las investigaciones abiertas maduran cuando cambias la pregunta "quien fue" por otra mas operativa: "que estructura repetida aparece cuando ordeno los datos?"</strong></p>
-<p>Es una mentalidad muy distinta. En vez de perseguir una revelacion heroica, trabajas como si estuvieras auditando un sistema defectuoso:</p>
+<p>No es una navaja suiza universal. Es mas bien una capa de contexto para priorizar mejor que mirar primero.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-una-alerta-de-phishing-que-no-quieres-sobrerreaccionar">Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#caso-de-uso-legitimo-una-alerta-de-phishing-que-no-quieres-sobrerreaccionar" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar" title="Enlace directo al Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar" translate="no">​</a></h2>
+<p>Imagina un escenario defensivo corriente. Llega una alerta de correo sospechoso y dentro aparece una <code>URL</code> acortada que termina resolviendo a un dominio recien visto por tu equipo. El error habitual es elegir uno de estos dos extremos:</p>
 <ul>
-<li class="">recoges eventos;</li>
-<li class="">alineas tiempos;</li>
-<li class="">comparas trayectorias;</li>
-<li class="">descartas ruido;</li>
-<li class="">y solo entonces formulas una hipotesis.</li>
+<li class="">dar por hecho que es malicioso solo porque "suena raro";</li>
+<li class="">o ignorarlo porque todavia no tienes una prueba perfecta.</li>
 </ul>
-<p>El resultado no es una novela. Es algo mejor: una historia donde cada nueva pieza tiene que sobrevivir a las ya colocadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidencia-y-limites-que-puede-decirse-sin-pasarse-de-listo">Evidencia y limites: que puede decirse sin pasarse de listo<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#evidencia-y-limites-que-puede-decirse-sin-pasarse-de-listo" class="hash-link" aria-label="Enlace directo al Evidencia y limites: que puede decirse sin pasarse de listo" title="Enlace directo al Evidencia y limites: que puede decirse sin pasarse de listo" translate="no">​</a></h2>
-<p>Con fuentes publicas y oficiales, hay varias afirmaciones firmes:</p>
+<p>Con <code>Maltiverse</code>, el trabajo responsable seria otro:</p>
+<ol>
+<li class="">Consultar el dominio o la <code>URL</code>.</li>
+<li class="">Revisar clasificacion, tags, timestamps y cualquier descripcion disponible.</li>
+<li class="">Mirar si el indicador enlaza con otras piezas de infraestructura que merezcan revision.</li>
+<li class="">Tomar la informacion como una pista priorizada, no como sentencia.</li>
+<li class="">Corroborar fuera: <code>DNS</code>, captura web, historico, sandbox o tus propias telemetrias.</li>
+</ol>
+<p>Ese flujo no solo ahorra tiempo. Tambien protege contra dos vicios comunes del OSINT tecnico: enamorarse de una etiqueta y confundir enrichment con evidencia suficiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-un-indicador-concreto">1. Empezar por un indicador concreto<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#1-empezar-por-un-indicador-concreto" class="hash-link" aria-label="Enlace directo al 1. Empezar por un indicador concreto" title="Enlace directo al 1. Empezar por un indicador concreto" translate="no">​</a></h3>
+<p><code>Maltiverse</code> trabaja bien cuando entras con una pieza definida: <code>IP</code>, dominio, hostname, <code>URL</code> o fichero. Su documentacion sobre tipos de <code>IoC</code> explica precisamente esa idea: varios tipos de artefacto, cada uno con sus propios campos y contexto asociado.</p>
+<p>Esto es importante porque obliga a preguntar primero "que estoy observando?" antes de preguntar "quien esta detras?". Para OSINT responsable, ese orden salva mucho analisis malo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usar-la-consulta-como-filtro-no-como-oraculo">2. Usar la consulta como filtro, no como oraculo<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#2-usar-la-consulta-como-filtro-no-como-oraculo" class="hash-link" aria-label="Enlace directo al 2. Usar la consulta como filtro, no como oraculo" title="Enlace directo al 2. Usar la consulta como filtro, no como oraculo" translate="no">​</a></h3>
+<p>La <code>Maltiverse Query Language</code> esta pensada para combinar texto libre y campos concretos. Eso, en la practica, te deja hacer algo muy util: refinar rapidamente busquedas y quedarte con subconjuntos manejables.</p>
+<p>La ventaja operativa no es solo velocidad. Es trazabilidad. Si tu filtro queda escrito, otro analista puede repetirlo, discutirlo o mejorarlo. Esa reproducibilidad vale mas que una intuicion brillante pero irrepetible.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-bien-la-clasificacion-y-los-metadatos">3. Leer bien la clasificacion y los metadatos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#3-leer-bien-la-clasificacion-y-los-metadatos" class="hash-link" aria-label="Enlace directo al 3. Leer bien la clasificacion y los metadatos" title="Enlace directo al 3. Leer bien la clasificacion y los metadatos" translate="no">​</a></h3>
+<p>Una plataforma de inteligencia tiende a devolver scores, tags, descripciones y relaciones. La tentacion es mirar solo el semaforo final. Mejor hacer lo contrario:</p>
 <ul>
-<li class=""><code>Navalny</code> enfermo en un vuelo el <code>20 de agosto de 2020</code>.</li>
-<li class="">Alemania anuncio el <code>2 de septiembre de 2020</code> prueba inequívoca de un agente nervioso del grupo <code>Novichok</code>.</li>
-<li class="">El <code>14 de septiembre de 2020</code>, Alemania dijo que <code>Francia</code> y <code>Suecia</code> confirmaban independientemente esos resultados.</li>
-<li class="">La <code>OPCW</code> publico el <code>6 de octubre de 2020</code> el resumen de su asistencia tecnica relacionada con el caso.</li>
-<li class="">El <code>15 de octubre de 2020</code>, el <code>Consejo de la UE</code> sanciono a seis individuos y una entidad por su implicacion en el intento de asesinato con agente del grupo <code>Novichok</code>.</li>
-<li class="">El <code>14 de diciembre de 2020</code>, <code>Bellingcat</code> y socios publicaron la investigacion que conectaba una unidad del <code>FSB</code> con el seguimiento prolongado de <code>Navalny</code>.</li>
+<li class="">revisar la categoria asignada;</li>
+<li class="">comprobar fecha de creacion y ultima actualizacion;</li>
+<li class="">mirar que etiquetas acompanan el <code>IoC</code>;</li>
+<li class="">y separar que viene de enrichment automatico y que parece validacion mas fuerte.</li>
 </ul>
-<p>Tambien hay limites que conviene dejar por escrito:</p>
+<p>En otras palabras: no uses el color del tablero como atajo mental para saltarte el contexto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-aprovechar-el-enrichment-pero-con-cautela">4. Aprovechar el enrichment, pero con cautela<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#4-aprovechar-el-enrichment-pero-con-cautela" class="hash-link" aria-label="Enlace directo al 4. Aprovechar el enrichment, pero con cautela" title="Enlace directo al 4. Aprovechar el enrichment, pero con cautela" translate="no">​</a></h3>
+<p>Una parte interesante de la documentacion oficial es el enriquecimiento automatico con <code>MITRE ATT&amp;CK</code>. <code>Maltiverse</code> explica que puede etiquetar <code>IoCs</code> en tiempo real a partir del campo <code>blacklist.description</code>, anadiendo referencias externas como identificadores y enlaces al conocimiento de <code>MITRE</code>.</p>
+<p>Esto es util para hablar un lenguaje comun con defensa y respuesta a incidentes. Pero tambien tiene una trampa sutil: si la descripcion de origen es pobre o ambigua, el enrichment no crea certeza de la nada. Solo organiza mejor lo que ya venia insinuado por los datos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cerrar-siempre-fuera-de-la-plataforma">5. Cerrar siempre fuera de la plataforma<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#5-cerrar-siempre-fuera-de-la-plataforma" class="hash-link" aria-label="Enlace directo al 5. Cerrar siempre fuera de la plataforma" title="Enlace directo al 5. Cerrar siempre fuera de la plataforma" translate="no">​</a></h3>
+<p><code>Maltiverse</code> puede ayudarte a priorizar que mirar, pero no deberia ser tu ultima parada. El cierre razonable suele venir de fuera:</p>
 <ul>
-<li class="">El OSINT no reemplaza una investigacion judicial completa.</li>
-<li class="">La presencia simultanea en viajes no equivale por si sola a responsabilidad penal individual.</li>
-<li class="">Parte del trabajo publicado sobre este caso combina datos filtrados con fuentes abiertas; por eso la corroboracion cruzada es indispensable.</li>
-<li class="">La atribucion estatal exige prudencia incluso cuando la convergencia de indicios es fuerte.</li>
+<li class="">resolver <code>DNS</code> y revisar cambios;</li>
+<li class="">capturar la pagina o <code>URL</code> en un entorno seguro;</li>
+<li class="">contrastar con otras fuentes de reputacion;</li>
+<li class="">revisar <code>WHOIS</code> o <code>RDAP</code> cuando aporte contexto;</li>
+<li class="">y guardar una nota clara de que parte del juicio sale de inteligencia externa y que parte sale de observacion propia.</li>
 </ul>
-<p>Decir menos y decirlo mejor es una forma de rigor. En un caso tan sensible, la tentacion de sobreactuar es enorme. El analista responsable hace lo contrario: separa lo confirmado, lo muy probable y lo todavia interpretativo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-aprende-un-analista-de-aqui-sin-replicar-los-riesgos">Que aprende un analista de aqui sin replicar los riesgos<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#que-aprende-un-analista-de-aqui-sin-replicar-los-riesgos" class="hash-link" aria-label="Enlace directo al Que aprende un analista de aqui sin replicar los riesgos" title="Enlace directo al Que aprende un analista de aqui sin replicar los riesgos" translate="no">​</a></h2>
-<p>La utilidad del caso <code>Navalny</code> para un blog OSINT no esta en dramatizar el veneno ni en fetichizar las filtraciones. Esta en tres habitos que cualquier investigacion legitima puede adoptar:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="construir-una-tabla-de-movimientos-antes-de-opinar">Construir una tabla de movimientos antes de opinar<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#construir-una-tabla-de-movimientos-antes-de-opinar" class="hash-link" aria-label="Enlace directo al Construir una tabla de movimientos antes de opinar" title="Enlace directo al Construir una tabla de movimientos antes de opinar" translate="no">​</a></h3>
-<p>Si tu caso incluye personas, empresas, dominios o vehiculos, convierte primero el relato en una tabla temporal. Las contradicciones suelen aparecer ahi antes que en cualquier grafico bonito.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-tratar-cada-dato-como-igual-de-fiable">No tratar cada dato como igual de fiable<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#no-tratar-cada-dato-como-igual-de-fiable" class="hash-link" aria-label="Enlace directo al No tratar cada dato como igual de fiable" title="Enlace directo al No tratar cada dato como igual de fiable" translate="no">​</a></h3>
-<p>Una nota oficial, una publicacion periodistica bien documentada, un registro mercantil, una base filtrada y una captura de red social no pesan lo mismo. El buen trabajo consiste en etiquetar confianza y procedencia desde el principio.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="buscar-patrones-que-sobrevivan-a-un-intento-serio-de-refutacion">Buscar patrones que sobrevivan a un intento serio de refutacion<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#buscar-patrones-que-sobrevivan-a-un-intento-serio-de-refutacion" class="hash-link" aria-label="Enlace directo al Buscar patrones que sobrevivan a un intento serio de refutacion" title="Enlace directo al Buscar patrones que sobrevivan a un intento serio de refutacion" translate="no">​</a></h3>
-<p>Si tu hipotesis depende de una sola coincidencia, probablemente no esta lista. Si sobrevive a varias comprobaciones hostiles y sigue explicando mejor los datos que las alternativas, entonces empieza a tener valor analitico.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolkit-metodologico-para-aplicar-la-leccion-sin-salirte-del-carril">Toolkit metodologico para aplicar la leccion sin salirte del carril<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#toolkit-metodologico-para-aplicar-la-leccion-sin-salirte-del-carril" class="hash-link" aria-label="Enlace directo al Toolkit metodologico para aplicar la leccion sin salirte del carril" title="Enlace directo al Toolkit metodologico para aplicar la leccion sin salirte del carril" translate="no">​</a></h2>
-<p>No hace falta tocar informacion sensible ni entrar en territorios abusivos para aprender de esta historia. Lo replicable y etico es el metodo:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Las plataformas de <code>IoCs</code> son utiles precisamente porque reducen friccion. Y por eso mismo pueden introducir una pereza peligrosa.</p>
+<p>Riesgos tipicos:</p>
 <ul>
-<li class="">hoja de cronologia o base ligera para ordenar viajes, eventos y fuentes;</li>
-<li class="">archivo web para congelar comunicados y cambios posteriores;</li>
-<li class="">mapas y tablas para visualizar secuencias sin perder detalle;</li>
-<li class="">notas de validacion donde cada hallazgo indique fuente, fecha y nivel de confianza;</li>
-<li class="">y una disciplina constante para separar evidencia, inferencia y contexto.</li>
+<li class=""><code>IP</code> compartidas o recicladas que heredan mala reputacion ajena;</li>
+<li class="">dominios comprometidos temporalmente que despues cambian de estado;</li>
+<li class="">etiquetas demasiado amplias que mezclan spam, phishing, malware o abuso generico;</li>
+<li class="">y analistas que saltan de "esta marcado" a "ya esta demostrado".</li>
 </ul>
-<p>Si tuviera que resumir la leccion del caso <code>Navalny</code> en una sola frase, seria esta: <strong>el OSINT no gana por intuicion, gana cuando fuerza a los datos a convivir y deja que los patrones hablen antes que el ego del analista</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaways">Takeaways<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#takeaways" class="hash-link" aria-label="Enlace directo al Takeaways" title="Enlace directo al Takeaways" translate="no">​</a></h2>
+<p>Si un <code>IOC</code> aparece con contexto escaso, piensa en <code>Maltiverse</code> como una herramienta de triage, no como sustituto de atribucion o analisis forense.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Aunque este tipo de plataforma se mueve en contexto defensivo, sigue siendo buena idea imponer limites claros:</p>
 <ul>
-<li class="">Las cronologias reducen mas ruido que los hilos espectaculares.</li>
-<li class="">Un patron repetido de viajes vale mucho mas que una coincidencia vistosa.</li>
-<li class="">La corroboracion heterogenea importa mas que la herramienta concreta.</li>
-<li class="">Decir exactamente lo que se sabe y lo que no se sabe protege la calidad del analisis.</li>
-<li class="">Los casos sensibles exigen metodo, contexto legal y contencion narrativa.</li>
+<li class="">no compartas datos internos innecesarios si el caso exige minima exposicion;</li>
+<li class="">evita enriquecer automaticamente cualquier hallazgo sensible sin revisar primero su legitimidad;</li>
+<li class="">no confundas infraestructura comprometida con operador responsable;</li>
+<li class="">y documenta tus inferencias para que otro analista entienda donde acababa el dato y donde empezaba tu lectura.</li>
 </ul>
-<p>Como puente para una proxima entrada del blog, este caso conecta muy bien con un tema tecnico y util: <strong>como construir tablas de movimientos y matrices de corroboracion para investigar sin convertir una carpeta de notas en un vertedero</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
+<p>La disciplina etica aqui no es abstracta. Es practica. Evita errores de atribucion y respuestas desproporcionadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Maltiverse</code> no vive solo. Dependiendo del caso, puedes complementarlo con:</p>
 <ul>
-<li class=""><code>Bundesregierung</code>, "Statement by the Federal Government on the Navalny case", <code>14 de septiembre de 2020</code>: <a href="https://www.bundesregierung.de/breg-en/service/archive/statement-by-the-federal-government-on-the-navalny-case-1786624" target="_blank" rel="noopener noreferrer" class="">https://www.bundesregierung.de/breg-en/service/archive/statement-by-the-federal-government-on-the-navalny-case-1786624</a></li>
-<li class=""><code>OPCW</code>, "Case of Mr Alexei Navalny": <a href="https://www.opcw.org/media-centre/featured-topics/case-mr-alexei-navalny" target="_blank" rel="noopener noreferrer" class="">https://www.opcw.org/media-centre/featured-topics/case-mr-alexei-navalny</a></li>
-<li class=""><code>Council of the EU</code>, "Use of chemical weapons in the assassination attempt on Alexei Navalny: EU sanctions six individuals and one entity", <code>15 de octubre de 2020</code>: <a href="https://www.consilium.europa.eu/en/press/press-releases/2020/10/15/use-of-chemical-weapons-in-the-assassination-attempt-on-alexei-navalny-eu-sanctions-six-individuals-and-one-entity/" target="_blank" rel="noopener noreferrer" class="">https://www.consilium.europa.eu/en/press/press-releases/2020/10/15/use-of-chemical-weapons-in-the-assassination-attempt-on-alexei-navalny-eu-sanctions-six-individuals-and-one-entity/</a></li>
-<li class=""><code>Bellingcat</code>, "FSB Team of Chemical Weapon Experts Implicated in Alexey Navalny Novichok Poisoning", <code>14 de diciembre de 2020</code>: <a href="https://www.bellingcat.com/news/2020/12/14/fsb-team-of-chemical-weapon-experts-implicated-in-alexey-navalny-novichok-poisoning/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/2020/12/14/fsb-team-of-chemical-weapon-experts-implicated-in-alexey-navalny-novichok-poisoning/</a></li>
-<li class=""><code>Bellingcat</code>, "Hunting the Hunters: How We Identified Navalny's FSB Stalkers", <code>14 de diciembre de 2020</code>: <a href="https://www.bellingcat.com/resources/2020/12/14/navalny-fsb-methodology/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/resources/2020/12/14/navalny-fsb-methodology/</a></li>
+<li class=""><code>AbuseIPDB</code> para reputacion comunitaria muy orientada a <code>IP</code>;</li>
+<li class=""><code>VirusTotal</code> para relaciones y contexto multifuente;</li>
+<li class=""><code>urlscan.io</code> si necesitas ver comportamiento y recursos cargados por una <code>URL</code>;</li>
+<li class=""><code>SecurityTrails</code>, <code>crt.sh</code> o <code>RDAP</code> si el problema exige mas profundidad historica e infraestructura;</li>
+<li class="">y tus propias fuentes internas si trabajas con telemetria operativa.</li>
+</ul>
+<p>La decision madura no es "que herramienta gana". Es "que capa me falta todavia para sostener una conclusion razonable".</p>
+<p>Takeaway final: <code>Maltiverse</code> es mas valioso cuando lo usas para ordenar incertidumbre, no para fingir que la incertidumbre ya no existe. Si quieres seguir por esta linea en el blog, un puente natural seria un post practico sobre <strong>como comparar varias fuentes de reputacion y enrichment sin mezclar severidad con certeza</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
+<ul>
+<li class=""><code>Maltiverse</code>, vision general de la plataforma y su documentacion: <a href="https://whatis.maltiverse.com/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/</a></li>
+<li class=""><code>Maltiverse Docs</code>, <code>Maltiverse Query Language</code>: <a href="https://whatis.maltiverse.com/docs/search-engine-query-syntax/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/search-engine-query-syntax/</a></li>
+<li class=""><code>Maltiverse Docs</code>, <code>Types of Indicators of Compromise (IoCs) in Maltiverse</code>: <a href="https://whatis.maltiverse.com/docs/ioc-types/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/ioc-types/</a></li>
+<li class=""><code>Maltiverse Docs</code>, <code>MITRE ATT&amp;CK Enrichment</code>: <a href="https://whatis.maltiverse.com/docs/mitre-attck-enrichment/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/mitre-attck-enrichment/</a></li>
+<li class=""><code>Maltiverse Docs</code>, <code>Creating a Threat Intelligence Feed in Maltiverse Platform</code>: <a href="https://whatis.maltiverse.com/docs/create-threat-intelligence-feed/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/create-threat-intelligence-feed/</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter</name>
             <uri>https://github.com/spainfsd-creator</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
-        <category label="Historia" term="Historia"/>
-        <category label="Verificacion" term="Verificacion"/>
+        <category label="Threat Intelligence" term="Threat Intelligence"/>
+        <category label="IoC" term="IoC"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="OPSEC" term="OPSEC"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Triage" term="Triage"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[crt.sh en OSINT: CT logs, subdominios y cronologia de certificados con contexto]]></title>
