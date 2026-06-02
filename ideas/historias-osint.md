@@ -39,7 +39,7 @@ Cada historia debe cerrar con un "puente" a una herramienta o tecnica (para que 
   - Puente a herramientas: Google Earth/Street View, satelite comercial, verificacion de video.
 - [x] Skripal (2018): identidades de cobertura y como se triangula una identidad sin "fuentes internas".
   - Puente: registros publicos, hemeroteca, analisis de huella digital.
-- Navalny (2020): de patrones de viaje a confirmacion tecnica internacional (OPAQ) y sanciones.
+- [x] Navalny (2020): de patrones de viaje a confirmacion tecnica internacional (OPAQ) y sanciones.
   - Puente: timeline, corroboracion cruzada, preservacion de evidencias.
 - "Jihadi John" (2014-2015): identificacion publica con huellas abiertas y corroboracion periodistica.
   - Puente: analisis de voz/contexto, hemeroteca, OSINT responsable.
