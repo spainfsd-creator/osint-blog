@@ -9,6 +9,9 @@ image: /img/blog/2026-06-02-maltiverse-osint-iocs-contexto-ruido.png
 
 ![Ilustracion editorial de una mesa de analista con paneles de IoCs, nodos de infraestructura, etiquetas de amenazas y un flujo de triage defensivo sin logos](/img/blog/2026-06-02-maltiverse-osint-iocs-contexto-ruido.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/maltiverse-osint-iocs-contexto-ruido.m4a)
+
+
 Hay herramientas que no te dan "la respuesta" y precisamente por eso merecen un sitio en un flujo OSINT serio. `Maltiverse` entra en esa categoria. Si te llega una `IP`, un `dominio`, una `URL` o un `hash` sospechoso, el problema no suele ser no encontrar datos: el problema real es **separar senales utiles de ruido, etiquetas heredadas y reputacion mal interpretada**.
 
 Por eso `Maltiverse` resulta interesante para analistas, equipos de respuesta y perfiles de threat intel con sensibilidad OSINT. No porque sustituya la verificacion, sino porque ayuda a centralizar `IoCs`, enriquecerlos con contexto y cruzarlos con clasificaciones, referencias externas y consultas repetibles. Bien usado, te acelera el triage. Mal usado, te empuja a tomar un score o una etiqueta como si fueran verdad final. Y ese es justo el error que conviene evitar.
