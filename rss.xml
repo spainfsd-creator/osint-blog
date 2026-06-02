@@ -4,10 +4,113 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 24 May 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Historia OSINT: Navalny, patrones de viaje y la paciencia de correlacionar sin fabular]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint</guid>
+            <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una investigacion OSINT con mapas de rutas aereas, billetes, registros publicos y un escritorio analitico sin marcas comerciales]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una investigacion OSINT con mapas de rutas aereas, billetes, registros publicos y un escritorio analitico sin marcas comerciales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-02-historia-navalny-patrones-viaje-corrobacion-osint-2564e02249dffbdac850fb04cac9354c.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Hay historias donde el detalle decisivo parece pequeno hasta que alguien se obliga a ponerlo al lado de todos los demas. En el caso de <code>Alexei Navalny</code>, el momento inquietante no fue solo el colapso en un vuelo entre <code>Tomsk</code> y <code>Moscu</code> el <code>20 de agosto de 2020</code>. Fue descubrir que, cuando empiezas a superponer itinerarios, telefonia, perfiles profesionales y cronologias publicas, <strong>la casualidad empieza a quedarse sin espacio para respirar</strong>.</p>
+<p>Eso hace de este caso una leccion util para cualquiera que trabaje con inteligencia abierta. No porque invite a imitar una caceria de espias, sino porque enseña algo mas sobrio y mas valioso: <strong>el OSINT serio rara vez "adivina"; mas bien acumula capas de corroboracion hasta que una version oficial o una explicacion conveniente dejan de sostener su propio peso</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contexto-minimo-primero-los-hechos-duros-luego-la-narrativa">Contexto minimo: primero los hechos duros, luego la narrativa<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#contexto-minimo-primero-los-hechos-duros-luego-la-narrativa" class="hash-link" aria-label="Enlace directo al Contexto minimo: primero los hechos duros, luego la narrativa" title="Enlace directo al Contexto minimo: primero los hechos duros, luego la narrativa" translate="no">​</a></h2>
+<p>La base del caso no nacio en redes sociales. Segun el Gobierno federal aleman, <code>Navalny</code> fue trasladado a <code>Berlin</code> el <code>22 de agosto de 2020</code> y el <code>2 de septiembre de 2020</code> Alemania anuncio que un laboratorio especializado de la <code>Bundeswehr</code> habia encontrado prueba inequívoca de un agente nervioso del grupo <code>Novichok</code>. El <code>14 de septiembre de 2020</code>, el propio Gobierno aleman comunico que laboratorios de <code>Francia</code> y <code>Suecia</code> confirmaban por separado esos hallazgos.</p>
+<p>Ese orden importa. Antes de hablar de sospechosos, patrones o atribucion, ya existia una base medico-toxicologica externa que fijaba el hecho principal: no se trataba simplemente de "un desmayo raro". Ademas, la <code>OPCW</code> emitio el <code>6 de octubre de 2020</code> un resumen de su asistencia tecnica a Alemania en el caso de <code>Mr Alexei Navalny</code>, reforzando que el asunto habia pasado por una cadena internacional de verificacion.</p>
+<p>La historia, por tanto, no parte de una intuicion brillante. Parte de tres pilares que un analista responsable deberia aislar cuanto antes:</p>
+<ul>
+<li class="">una cronologia publica del incidente;</li>
+<li class="">una confirmacion toxicolgica multifuente;</li>
+<li class="">y una secuencia institucional con fechas exactas.</li>
+</ul>
+<p>Solo despues tiene sentido preguntar quien estaba cerca, desde cuando y con que patron.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-metodo-osint-convertir-viajes-en-una-hipotesis-comprobable">El metodo OSINT: convertir viajes en una hipotesis comprobable<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#el-metodo-osint-convertir-viajes-en-una-hipotesis-comprobable" class="hash-link" aria-label="Enlace directo al El metodo OSINT: convertir viajes en una hipotesis comprobable" title="Enlace directo al El metodo OSINT: convertir viajes en una hipotesis comprobable" translate="no">​</a></h2>
+<p>La gran aportacion metodologica del caso no consiste en una foto viral ni en una sola filtracion. Consiste en la disciplina de tratar los desplazamientos como datos comparables.</p>
+<p>La investigacion conjunta publicada por <code>Bellingcat</code> y colaboradores el <code>14 de diciembre de 2020</code> expuso una idea poderosa: si un grupo de personas aparece repetidamente cerca del mismo objetivo en ciudades y ventanas temporales compatibles con sus viajes, esa repeticion deja de parecer ruido. En el caso <code>Navalny</code>, el trabajo describio como varios operativos vinculados al <code>FSB</code> y a perfiles tecnicos relacionados con quimica, medicina o criminalistica habrian seguido al opositor durante anos.</p>
+<p>La clave no es la espectacularidad. Es el flujo:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-la-cronologia-del-objetivo">1. Fijar la cronologia del objetivo<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#1-fijar-la-cronologia-del-objetivo" class="hash-link" aria-label="Enlace directo al 1. Fijar la cronologia del objetivo" title="Enlace directo al 1. Fijar la cronologia del objetivo" translate="no">​</a></h3>
+<p>Antes de buscar acompanantes, hay que fijar los viajes del protagonista con la mayor precision posible. Fechas, ciudades, trayectos, cambios de ultima hora y eventos publicos asociados. Si la cronologia base esta mal, toda correlacion posterior nace contaminada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-buscar-solapamientos-repetidos-no-coincidencias-unicas">2. Buscar solapamientos repetidos, no coincidencias unicas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#2-buscar-solapamientos-repetidos-no-coincidencias-unicas" class="hash-link" aria-label="Enlace directo al 2. Buscar solapamientos repetidos, no coincidencias unicas" title="Enlace directo al 2. Buscar solapamientos repetidos, no coincidencias unicas" translate="no">​</a></h3>
+<p>Una coincidencia aislada puede ser azar. Varias coincidencias, repartidas en distintos anos y ciudades, ya exigen otra explicacion. El metodo bueno no consiste en enamorarse del primer match, sino en preguntar: cuantas veces vuelve a ocurrir y con que consistencia temporal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-mirar-los-perfiles-alrededor-del-patron">3. Mirar los perfiles alrededor del patron<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#3-mirar-los-perfiles-alrededor-del-patron" class="hash-link" aria-label="Enlace directo al 3. Mirar los perfiles alrededor del patron" title="Enlace directo al 3. Mirar los perfiles alrededor del patron" translate="no">​</a></h3>
+<p>Cuando los nombres asociados a esos desplazamientos apuntan a personas con trayectorias ligadas a laboratorios, toxicologia, criminalistica o estructuras de seguridad, el contexto cambia. No prueba por si solo una operacion concreta, pero modifica mucho la plausibilidad de la explicacion inocente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-por-capas-heterogeneas">4. Corroborar por capas heterogeneas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#4-corroborar-por-capas-heterogeneas" class="hash-link" aria-label="Enlace directo al 4. Corroborar por capas heterogeneas" title="Enlace directo al 4. Corroborar por capas heterogeneas" translate="no">​</a></h3>
+<p>Los viajes solo son una capa. El siguiente paso es contrastar telefonia, conexiones institucionales, metadatos de registros y huella biografica. Cuantas mas capas independientes convergen, menos dependes de una sola pieza fragil.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-giro-cuando-el-patron-pesa-mas-que-el-detalle-vistoso">El giro: cuando el patron pesa mas que el detalle vistoso<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#el-giro-cuando-el-patron-pesa-mas-que-el-detalle-vistoso" class="hash-link" aria-label="Enlace directo al El giro: cuando el patron pesa mas que el detalle vistoso" title="Enlace directo al El giro: cuando el patron pesa mas que el detalle vistoso" translate="no">​</a></h2>
+<p>En los relatos mediaticos solemos recordar el momento mas cinematografico: la llamada posterior en la que <code>Navalny</code> logro hablar con un supuesto miembro del equipo implicado, episodio difundido dias despues de la investigacion principal. Pero desde el punto de vista del oficio, el giro mas instructivo ocurre antes.</p>
+<p>Ocurre cuando una lista de vuelos deja de ser una lista y empieza a comportarse como un sistema. <code>Bellingcat</code> describio, por ejemplo, como la busqueda arranco al detectar picos de comunicaciones entre ejecutivos de <code>SC Signal</code> y numeros vinculados al <code>FSB</code>, y como de ahi se fue tirando del hilo hacia identidades y viajes que coincidian con itinerarios de <code>Navalny</code>. Ese paso ensena una leccion que vale mucho mas que el caso concreto: <strong>las investigaciones abiertas maduran cuando cambias la pregunta "quien fue" por otra mas operativa: "que estructura repetida aparece cuando ordeno los datos?"</strong></p>
+<p>Es una mentalidad muy distinta. En vez de perseguir una revelacion heroica, trabajas como si estuvieras auditando un sistema defectuoso:</p>
+<ul>
+<li class="">recoges eventos;</li>
+<li class="">alineas tiempos;</li>
+<li class="">comparas trayectorias;</li>
+<li class="">descartas ruido;</li>
+<li class="">y solo entonces formulas una hipotesis.</li>
+</ul>
+<p>El resultado no es una novela. Es algo mejor: una historia donde cada nueva pieza tiene que sobrevivir a las ya colocadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidencia-y-limites-que-puede-decirse-sin-pasarse-de-listo">Evidencia y limites: que puede decirse sin pasarse de listo<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#evidencia-y-limites-que-puede-decirse-sin-pasarse-de-listo" class="hash-link" aria-label="Enlace directo al Evidencia y limites: que puede decirse sin pasarse de listo" title="Enlace directo al Evidencia y limites: que puede decirse sin pasarse de listo" translate="no">​</a></h2>
+<p>Con fuentes publicas y oficiales, hay varias afirmaciones firmes:</p>
+<ul>
+<li class=""><code>Navalny</code> enfermo en un vuelo el <code>20 de agosto de 2020</code>.</li>
+<li class="">Alemania anuncio el <code>2 de septiembre de 2020</code> prueba inequívoca de un agente nervioso del grupo <code>Novichok</code>.</li>
+<li class="">El <code>14 de septiembre de 2020</code>, Alemania dijo que <code>Francia</code> y <code>Suecia</code> confirmaban independientemente esos resultados.</li>
+<li class="">La <code>OPCW</code> publico el <code>6 de octubre de 2020</code> el resumen de su asistencia tecnica relacionada con el caso.</li>
+<li class="">El <code>15 de octubre de 2020</code>, el <code>Consejo de la UE</code> sanciono a seis individuos y una entidad por su implicacion en el intento de asesinato con agente del grupo <code>Novichok</code>.</li>
+<li class="">El <code>14 de diciembre de 2020</code>, <code>Bellingcat</code> y socios publicaron la investigacion que conectaba una unidad del <code>FSB</code> con el seguimiento prolongado de <code>Navalny</code>.</li>
+</ul>
+<p>Tambien hay limites que conviene dejar por escrito:</p>
+<ul>
+<li class="">El OSINT no reemplaza una investigacion judicial completa.</li>
+<li class="">La presencia simultanea en viajes no equivale por si sola a responsabilidad penal individual.</li>
+<li class="">Parte del trabajo publicado sobre este caso combina datos filtrados con fuentes abiertas; por eso la corroboracion cruzada es indispensable.</li>
+<li class="">La atribucion estatal exige prudencia incluso cuando la convergencia de indicios es fuerte.</li>
+</ul>
+<p>Decir menos y decirlo mejor es una forma de rigor. En un caso tan sensible, la tentacion de sobreactuar es enorme. El analista responsable hace lo contrario: separa lo confirmado, lo muy probable y lo todavia interpretativo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-aprende-un-analista-de-aqui-sin-replicar-los-riesgos">Que aprende un analista de aqui sin replicar los riesgos<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#que-aprende-un-analista-de-aqui-sin-replicar-los-riesgos" class="hash-link" aria-label="Enlace directo al Que aprende un analista de aqui sin replicar los riesgos" title="Enlace directo al Que aprende un analista de aqui sin replicar los riesgos" translate="no">​</a></h2>
+<p>La utilidad del caso <code>Navalny</code> para un blog OSINT no esta en dramatizar el veneno ni en fetichizar las filtraciones. Esta en tres habitos que cualquier investigacion legitima puede adoptar:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="construir-una-tabla-de-movimientos-antes-de-opinar">Construir una tabla de movimientos antes de opinar<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#construir-una-tabla-de-movimientos-antes-de-opinar" class="hash-link" aria-label="Enlace directo al Construir una tabla de movimientos antes de opinar" title="Enlace directo al Construir una tabla de movimientos antes de opinar" translate="no">​</a></h3>
+<p>Si tu caso incluye personas, empresas, dominios o vehiculos, convierte primero el relato en una tabla temporal. Las contradicciones suelen aparecer ahi antes que en cualquier grafico bonito.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-tratar-cada-dato-como-igual-de-fiable">No tratar cada dato como igual de fiable<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#no-tratar-cada-dato-como-igual-de-fiable" class="hash-link" aria-label="Enlace directo al No tratar cada dato como igual de fiable" title="Enlace directo al No tratar cada dato como igual de fiable" translate="no">​</a></h3>
+<p>Una nota oficial, una publicacion periodistica bien documentada, un registro mercantil, una base filtrada y una captura de red social no pesan lo mismo. El buen trabajo consiste en etiquetar confianza y procedencia desde el principio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="buscar-patrones-que-sobrevivan-a-un-intento-serio-de-refutacion">Buscar patrones que sobrevivan a un intento serio de refutacion<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#buscar-patrones-que-sobrevivan-a-un-intento-serio-de-refutacion" class="hash-link" aria-label="Enlace directo al Buscar patrones que sobrevivan a un intento serio de refutacion" title="Enlace directo al Buscar patrones que sobrevivan a un intento serio de refutacion" translate="no">​</a></h3>
+<p>Si tu hipotesis depende de una sola coincidencia, probablemente no esta lista. Si sobrevive a varias comprobaciones hostiles y sigue explicando mejor los datos que las alternativas, entonces empieza a tener valor analitico.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolkit-metodologico-para-aplicar-la-leccion-sin-salirte-del-carril">Toolkit metodologico para aplicar la leccion sin salirte del carril<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#toolkit-metodologico-para-aplicar-la-leccion-sin-salirte-del-carril" class="hash-link" aria-label="Enlace directo al Toolkit metodologico para aplicar la leccion sin salirte del carril" title="Enlace directo al Toolkit metodologico para aplicar la leccion sin salirte del carril" translate="no">​</a></h2>
+<p>No hace falta tocar informacion sensible ni entrar en territorios abusivos para aprender de esta historia. Lo replicable y etico es el metodo:</p>
+<ul>
+<li class="">hoja de cronologia o base ligera para ordenar viajes, eventos y fuentes;</li>
+<li class="">archivo web para congelar comunicados y cambios posteriores;</li>
+<li class="">mapas y tablas para visualizar secuencias sin perder detalle;</li>
+<li class="">notas de validacion donde cada hallazgo indique fuente, fecha y nivel de confianza;</li>
+<li class="">y una disciplina constante para separar evidencia, inferencia y contexto.</li>
+</ul>
+<p>Si tuviera que resumir la leccion del caso <code>Navalny</code> en una sola frase, seria esta: <strong>el OSINT no gana por intuicion, gana cuando fuerza a los datos a convivir y deja que los patrones hablen antes que el ego del analista</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaways">Takeaways<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#takeaways" class="hash-link" aria-label="Enlace directo al Takeaways" title="Enlace directo al Takeaways" translate="no">​</a></h2>
+<ul>
+<li class="">Las cronologias reducen mas ruido que los hilos espectaculares.</li>
+<li class="">Un patron repetido de viajes vale mucho mas que una coincidencia vistosa.</li>
+<li class="">La corroboracion heterogenea importa mas que la herramienta concreta.</li>
+<li class="">Decir exactamente lo que se sabe y lo que no se sabe protege la calidad del analisis.</li>
+<li class="">Los casos sensibles exigen metodo, contexto legal y contencion narrativa.</li>
+</ul>
+<p>Como puente para una proxima entrada del blog, este caso conecta muy bien con un tema tecnico y util: <strong>como construir tablas de movimientos y matrices de corroboracion para investigar sin convertir una carpeta de notas en un vertedero</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-navalny-patrones-viaje-corrobacion-osint#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
+<ul>
+<li class=""><code>Bundesregierung</code>, "Statement by the Federal Government on the Navalny case", <code>14 de septiembre de 2020</code>: <a href="https://www.bundesregierung.de/breg-en/service/archive/statement-by-the-federal-government-on-the-navalny-case-1786624" target="_blank" rel="noopener noreferrer" class="">https://www.bundesregierung.de/breg-en/service/archive/statement-by-the-federal-government-on-the-navalny-case-1786624</a></li>
+<li class=""><code>OPCW</code>, "Case of Mr Alexei Navalny": <a href="https://www.opcw.org/media-centre/featured-topics/case-mr-alexei-navalny" target="_blank" rel="noopener noreferrer" class="">https://www.opcw.org/media-centre/featured-topics/case-mr-alexei-navalny</a></li>
+<li class=""><code>Council of the EU</code>, "Use of chemical weapons in the assassination attempt on Alexei Navalny: EU sanctions six individuals and one entity", <code>15 de octubre de 2020</code>: <a href="https://www.consilium.europa.eu/en/press/press-releases/2020/10/15/use-of-chemical-weapons-in-the-assassination-attempt-on-alexei-navalny-eu-sanctions-six-individuals-and-one-entity/" target="_blank" rel="noopener noreferrer" class="">https://www.consilium.europa.eu/en/press/press-releases/2020/10/15/use-of-chemical-weapons-in-the-assassination-attempt-on-alexei-navalny-eu-sanctions-six-individuals-and-one-entity/</a></li>
+<li class=""><code>Bellingcat</code>, "FSB Team of Chemical Weapon Experts Implicated in Alexey Navalny Novichok Poisoning", <code>14 de diciembre de 2020</code>: <a href="https://www.bellingcat.com/news/2020/12/14/fsb-team-of-chemical-weapon-experts-implicated-in-alexey-navalny-novichok-poisoning/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/2020/12/14/fsb-team-of-chemical-weapon-experts-implicated-in-alexey-navalny-novichok-poisoning/</a></li>
+<li class=""><code>Bellingcat</code>, "Hunting the Hunters: How We Identified Navalny's FSB Stalkers", <code>14 de diciembre de 2020</code>: <a href="https://www.bellingcat.com/resources/2020/12/14/navalny-fsb-methodology/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/resources/2020/12/14/navalny-fsb-methodology/</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Historia</category>
+            <category>Verificacion</category>
+            <category>Investigacion</category>
+            <category>Metodologia</category>
+            <category>OPSEC</category>
+        </item>
         <item>
             <title><![CDATA[crt.sh en OSINT: CT logs, subdominios y cronologia de certificados con contexto]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto</link>
@@ -2108,113 +2211,6 @@
             <category>GEOINT</category>
             <category>Verificacion</category>
             <category>Metodologia</category>
-            <category>Investigacion</category>
-        </item>
-        <item>
-            <title><![CDATA[IVRE en OSINT: recon activa, pasiva y vista consolidada para investigar con control]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada</guid>
-            <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT correlacionando escaneos activos, passive DNS y una vista consolidada de infraestructura en varias pantallas]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT correlacionando escaneos activos, passive DNS y una vista consolidada de infraestructura en varias pantallas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-05-ivre-osint-recon-activa-pasiva-vista-consolidada-6c63309236e368352e43b360afdb844f.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay investigaciones tecnicas que no fracasan por falta de fuentes, sino por exceso de piezas sueltas. Un XML de <code>Nmap</code> por aqui, un <code>passive DNS</code> por alla, banners recogidos dias despues, y una libreta llena de pivotes que ya nadie recuerda de donde salieron. <code>IVRE</code> resulta util justo en ese hueco: <strong>no como atajo para "descubrirlo todo", sino como marco para reunir observacion activa y pasiva bajo un mismo modelo consultable</strong>.</p>
-<p>Ese matiz importa mucho en OSINT responsable. La propia documentacion oficial presenta <code>IVRE</code> como un framework de <code>network recon</code> capaz de trabajar con capturas y escaneos para ayudarte a entender como funciona una red. Traducido a lenguaje de analista: su valor no esta en lanzar mas consultas por lanzar, sino en <strong>preservar contexto, separar fuentes y revisar hallazgos con trazabilidad</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>IVRE</code> es un framework abierto, escrito en Python, orientado a <code>network recon</code>. Su documentacion y su repositorio oficial insisten en una idea central: puedes usarlo para combinar datos activos y pasivos, consultarlos por CLI, API web, interfaz web o Python, y construir una alternativa autocontrolada a servicios externos de descubrimiento y contexto de infraestructura.</p>
-<p>La pagina de principios de <code>IVRE</code> divide el trabajo en varios "propositos" que conviene entender bien:</p>
-<ul>
-<li class=""><code>nmap</code>, para resultados de escaneo activo e importaciones de herramientas como <code>Nmap</code>, <code>Masscan</code>, <code>ZGrab2</code>, <code>ZDNS</code>, <code>Nuclei</code>, <code>httpx</code>, <code>tlsx</code> o <code>dnsx</code>;</li>
-<li class=""><code>passive</code>, para inteligencia capturada desde red con <code>Zeek</code>, <code>p0f</code>, <code>airodump-ng</code> y consultas de <code>passive DNS</code>;</li>
-<li class=""><code>view</code>, para una vista consolidada de host a partir de datos activos y pasivos;</li>
-<li class=""><code>flow</code>, para flujos agregados procedentes de <code>Zeek</code>, <code>Argus</code> o <code>Nfdump</code>;</li>
-<li class="">y <code>data</code>, para informacion auxiliar de IPs y geodatos.</li>
-</ul>
-<p>Eso convierte a <code>IVRE</code> en una buena respuesta para preguntas como estas:</p>
-<ul>
-<li class="">que se ve de una infraestructura propia o autorizada desde fuentes tecnicas distintas;</li>
-<li class="">como unir tiempo, servicio, hostname y observacion pasiva sin depender de pestañas sueltas;</li>
-<li class="">que pivotes justifican una revision manual adicional;</li>
-<li class="">y como conservar un corpus tecnico consultable cuando el caso dura dias o semanas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una empresa ficticia llamada <code>Puerto Norte Logistica</code>. Va a pasar una auditoria externa y quiere revisar su superficie visible antes de que empiece el trabajo formal. Ya dispone de varios materiales legitimos:</p>
-<ul>
-<li class="">un rango de IPs autorizado para escaneo;</li>
-<li class="">resultados XML previos de <code>Nmap</code>;</li>
-<li class="">algunos logs de <code>Zeek</code> recogidos por su equipo;</li>
-<li class="">y dudas sobre que nombres, servicios y certificados merecen seguimiento.</li>
-</ul>
-<p>En ese escenario, <code>IVRE</code> no aporta magia. Aporta orden. Puedes importar resultados de escaneo, enriquecerlos con observacion pasiva, construir una <code>view</code> consolidada y responder preguntas muy concretas:</p>
-<ul>
-<li class="">que host expone realmente un servicio y cuando se observo;</li>
-<li class="">que hostname aparecio por <code>passive DNS</code> pero no encaja con el inventario esperado;</li>
-<li class="">que cambios hay entre una foto y otra;</li>
-<li class="">y que hallazgo tecnico merece convertirse en ticket interno en lugar de quedarse en intuicion.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<p>Un flujo prudente con <code>IVRE</code> seria este:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-bien-el-alcance-antes-de-tocar-nada">1. Define bien el alcance antes de tocar nada<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#1-define-bien-el-alcance-antes-de-tocar-nada" class="hash-link" aria-label="Enlace directo al 1. Define bien el alcance antes de tocar nada" title="Enlace directo al 1. Define bien el alcance antes de tocar nada" translate="no">​</a></h3>
-<p><code>IVRE</code> puede trabajar con datos muy potentes, pero eso no convierte cualquier uso en aceptable. Si el objetivo no es propio, contratado o expresamente autorizado, el problema ya no es tecnico sino legal y etico. En OSINT defensivo, la primera capa sigue siendo el <code>scope</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-importa-primero-lo-que-ya-tienes">2. Importa primero lo que ya tienes<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#2-importa-primero-lo-que-ya-tienes" class="hash-link" aria-label="Enlace directo al 2. Importa primero lo que ya tienes" title="Enlace directo al 2. Importa primero lo que ya tienes" translate="no">​</a></h3>
-<p>Una de las virtudes de <code>IVRE</code> es que no obliga a empezar desde cero. Su documentacion de principios explica que el bloque <code>nmap</code> admite resultados de varias herramientas y que el bloque <code>passive</code> puede poblarse desde logs especializados. Eso facilita un enfoque sensato:</p>
-<ul>
-<li class="">importar XML/JSON ya recogidos;</li>
-<li class="">separar observacion activa de observacion pasiva;</li>
-<li class="">y evitar mezclar datos de momentos distintos sin marcar el tiempo.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-una-vista-consolidada">3. Construye una vista consolidada<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#3-construye-una-vista-consolidada" class="hash-link" aria-label="Enlace directo al 3. Construye una vista consolidada" title="Enlace directo al 3. Construye una vista consolidada" translate="no">​</a></h3>
-<p>La pieza mas interesante para muchos analistas no es el escaneo aislado, sino <code>view</code>. Segun la documentacion oficial, <code>view</code> resume un host a partir de datos activos y pasivos y puede consultarse por CLI, API web o interfaz web. Dicho de forma simple: <strong>te ayuda a pasar de "tengo muchos artefactos" a "tengo una historia tecnica mas legible"</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-consulta-con-herramientas-distintas-segun-la-pregunta">4. Consulta con herramientas distintas segun la pregunta<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#4-consulta-con-herramientas-distintas-segun-la-pregunta" class="hash-link" aria-label="Enlace directo al 4. Consulta con herramientas distintas segun la pregunta" title="Enlace directo al 4. Consulta con herramientas distintas segun la pregunta" translate="no">​</a></h3>
-<p>La capa pasiva no responde igual que la activa. La documentacion de uso indica, por ejemplo, que <code>ivre ipinfo</code> sirve para datos pasivos generales y <code>ivre iphost</code> para consultas de <code>passive DNS</code>. El empaquetado de Kali tambien deja claro el abanico operativo, con comandos como <code>scancli</code>, <code>db2view</code>, <code>view</code>, <code>runscans</code>, <code>passiverecon2db</code> o <code>httpd</code>.</p>
-<p>Traducido al trabajo diario:</p>
-<ul>
-<li class="">usa <code>scancli</code> cuando la duda esta en los resultados de escaneo;</li>
-<li class="">usa <code>ipinfo</code> o <code>iphost</code> cuando buscas observacion pasiva o nombres asociados;</li>
-<li class="">usa <code>db2view</code> para consolidar;</li>
-<li class="">y reserva la interfaz web para explorar sin perder la trazabilidad del backend.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corrobora-fuera-de-ivre">5. Corrobora fuera de IVRE<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#5-corrobora-fuera-de-ivre" class="hash-link" aria-label="Enlace directo al 5. Corrobora fuera de IVRE" title="Enlace directo al 5. Corrobora fuera de IVRE" translate="no">​</a></h3>
-<p>Este punto importa mucho. <code>IVRE</code> no sustituye la verificacion externa. Un banner puede ser historico. Un hostname puede ser compartido. Un certificado puede apuntar a una plataforma de terceros. Lo correcto es tratar cada hallazgo como pivote y no como sentencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>IVRE</code> es muy util, pero conviene entrar con expectativas sobrias:</p>
-<ul>
-<li class="">no representa por si solo el estado exacto y en tiempo real de una infraestructura;</li>
-<li class="">depende bastante de la calidad de los datos que importas o capturas;</li>
-<li class="">puede volverse complejo si mezclas demasiadas fuentes sin una convencion de tiempo y origen;</li>
-<li class="">y su despliegue no es trivial si quieres usar todas las piezas con base de datos, web e ingesta pasiva.</li>
-</ul>
-<p>La documentacion oficial de instalacion deja claro, ademas, que <code>MongoDB</code> sigue siendo el backend de referencia para cubrir todos los propositos, mientras que <code>PostgreSQL</code> y <code>Elasticsearch</code> aparecen como backends experimentales para partes concretas. Tambien exige dependencias serias: <code>Python 3.12</code> minimo en la rama <code>latest</code>, base de datos, herramientas de escaneo y, segun el caso, servidor web o <code>Docker</code>.</p>
-<p>Ese detalle ya te da una pista metodologica: <code>IVRE</code> encaja mejor como plataforma controlada y duradera que como utilidad "instantanea" para una consulta de cinco minutos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Si vas a usar <code>IVRE</code> en un flujo serio, estas practicas merecen estar por escrito:</p>
-<ul>
-<li class="">trabaja solo sobre activos propios, autorizados o claramente legitimados;</li>
-<li class="">conserva fechas y origen de cada importacion;</li>
-<li class="">separa en tus notas lo observado, lo inferido y lo pendiente de confirmar;</li>
-<li class="">no publiques datos sensibles solo porque la herramienta los haga consultables mejor;</li>
-<li class="">y evita transformar una vista consolidada en una narrativa cerrada antes de contrastar con otra fuente.</li>
-</ul>
-<p><code>IVRE</code> mejora la memoria operativa del analista, pero no le presta criterio.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si tu necesidad principal es un indice externo listo para consultar, <code>Netlas</code>, <code>Censys</code>, <code>FOFA</code> o <code>ZoomEye</code> pueden ser mas directos. Si la prioridad es <code>passive DNS</code> puro, tambien puede interesarte una fuente especializada. Y si lo importante es capturar tu propia navegacion de investigacion, <code>Hunchly</code>, archivo web o un flujo de evidencias propio cubren otra capa distinta.</p>
-<p>Donde <code>IVRE</code> brilla de verdad es en este espacio intermedio: <strong>cuando quieres juntar escaneo, observacion pasiva, consulta y control local sin regalar toda la memoria de tu caso a un tercero</strong>.</p>
-<p>El takeaway practico es sencillo: usa <code>IVRE</code> para ordenar infraestructura y contexto tecnico con disciplina, no para inflar conclusiones. Si varias capas distintas empiezan a contar la misma historia, entonces si merece la pena escalar el hallazgo.</p>
-<p>Como siguiente puente editorial del blog, el paso natural seria bajar a una pieza muy concreta del mismo ecosistema: por ejemplo, <code>passive DNS</code> autocontrolado, <code>ZGrab2</code> como enriquecimiento de servicios o una comparativa metodologica entre <code>IVRE</code>, <code>Netlas</code> y <code>Censys</code>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/ivre-osint-recon-activa-pasiva-vista-consolidada#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://doc.ivre.rocks/en/latest/" target="_blank" rel="noopener noreferrer" class="">IVRE documentation: Welcome</a></li>
-<li class=""><a href="https://doc.ivre.rocks/en/latest/overview/principles.html" target="_blank" rel="noopener noreferrer" class="">IVRE documentation: Principles</a></li>
-<li class=""><a href="https://doc.ivre.rocks/en/latest/usage/passive.html" target="_blank" rel="noopener noreferrer" class="">IVRE documentation: Passive</a></li>
-<li class=""><a href="https://doc.ivre.rocks/en/latest/install/installation.html" target="_blank" rel="noopener noreferrer" class="">IVRE documentation: Installation guidelines</a></li>
-<li class=""><a href="https://doc.ivre.rocks/en/latest/install/fast-install-and-first-run.html" target="_blank" rel="noopener noreferrer" class="">IVRE documentation: Fast install &amp; first run</a></li>
-<li class=""><a href="https://github.com/ivre/ivre" target="_blank" rel="noopener noreferrer" class="">ivre/ivre en GitHub</a></li>
-<li class=""><a href="https://www.kali.org/tools/ivre/" target="_blank" rel="noopener noreferrer" class="">Kali Linux Tools: ivre</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Reconocimiento</category>
-            <category>Infraestructura</category>
-            <category>Tooling</category>
-            <category>Passive DNS</category>
             <category>Investigacion</category>
         </item>
     </channel>
