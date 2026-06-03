@@ -2,11 +2,119 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-02T00:00:00.000Z</updated>
+    <updated>2026-06-03T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[TinEye en OSINT: verificar imagenes, rastrear origen y poner contexto antes de concluir]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto"/>
+        <updated>2026-06-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT comparando versiones de una misma imagen, fechas de rastreo y origenes web en un tablero de verificacion visual]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando versiones de una misma imagen, fechas de rastreo y origenes web en un tablero de verificacion visual" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-03-tineye-osint-verificar-imagenes-origen-contexto-e539c8806aaa27a301ee5d56e1880c4b.png" width="1600" height="900" class="img_ev3q"></p>
+<p>Cuando una foto aparece en una alerta, en un perfil dudoso o en un mensaje que intenta forzar una reaccion rapida, el error mas comun no es tecnico: es emocional. Mucha gente mira la imagen, siente que "ya la ha visto" y se lanza a concluir que es autentica, reciente o unica. <code>TinEye</code> sirve precisamente para enfriar ese impulso. No te dice quien sale en la foto ni te regala una atribucion cerrada, pero te ayuda a comprobar si esa misma imagen ya circulaba antes, si existe en otras resoluciones o si ha sido reutilizada en contextos distintos.</p>
+<p>En un flujo OSINT responsable, eso importa mucho. Una busqueda inversa bien hecha puede desmontar una falsa exclusividad, reubicar una foto en otra cronologia y abrir mejores preguntas sobre origen, reuso y edicion. Lo importante es no pedirle mas de lo que realmente hace.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>TinEye</code> es un motor de busqueda inversa por imagen. Su documentacion oficial explica que trabaja con reconocimiento visual y huellas digitales de la imagen, no con nombres de archivo, metadatos o marcas de agua. Tambien aclara que esta orientado a encontrar coincidencias de la misma imagen, incluidas versiones recortadas, redimensionadas o editadas, no "imagenes parecidas" en sentido semantico.</p>
+<p>Traducido al trabajo real de OSINT, resulta util para tareas como estas:</p>
+<ul>
+<li class="">comprobar si una foto de perfil ya estaba publicada en otros sitios;</li>
+<li class="">encontrar versiones anteriores o de mayor resolucion de una imagen;</li>
+<li class="">detectar reutilizaciones de una misma foto en contextos incompatibles;</li>
+<li class="">revisar que dominios o colecciones la publicaron;</li>
+<li class="">y abrir una cronologia aproximada de rastreo sin confundirla con la fecha real de origen.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una periodista recibe un mensaje de una supuesta fuente que incluye la foto de una manifestacion "ocurrida hoy mismo" en una capital europea. La imagen parece plausible, pero nadie deberia publicarla solo por intuicion visual.</p>
+<p>Con <code>TinEye</code>, el flujo prudente seria:</p>
+<ul>
+<li class="">lanzar una busqueda con la imagen recibida;</li>
+<li class="">revisar si aparecen coincidencias anteriores en otros dominios;</li>
+<li class="">ordenar resultados por <code>oldest</code> y por <code>newest</code> para entender la ventana de rastreo observada;</li>
+<li class="">comparar si la imagen actual es un recorte o una version modificada de otra mas antigua;</li>
+<li class="">y anotar que parte de la historia es observable y que parte sigue siendo inferencia.</li>
+</ul>
+<p>Si los primeros resultados muestran que la misma foto ya estaba rastreada meses antes en otro contexto, ya no tienes una primicia: tienes una reutilizacion. Ese hallazgo no resuelve por si solo quien la reutilizo ni con que intencion, pero evita publicar una mentira con apariencia de urgencia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-modesta">1. Empieza por una pregunta modesta<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#1-empieza-por-una-pregunta-modesta" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta modesta" title="Enlace directo al 1. Empieza por una pregunta modesta" translate="no">​</a></h3>
+<p>La mejor pregunta inicial no es "quien hizo esta foto" ni "es esta persona quien dice ser". La pregunta sensata es mucho mas estrecha: "esta misma imagen, o una version alterada de ella, ya aparecio antes en la web rastreada por TinEye?".</p>
+<p>Ese recorte de ambicion mejora el metodo. La propia ayuda oficial insiste en que <code>TinEye</code> busca coincidencias visuales de la imagen y que no hace reconocimiento facial ni devuelve, por regla general, imagenes simplemente similares.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-sube-la-imagen-correcta-y-cuida-el-ruido">2. Sube la imagen correcta y cuida el ruido<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#2-sube-la-imagen-correcta-y-cuida-el-ruido" class="hash-link" aria-label="Enlace directo al 2. Sube la imagen correcta y cuida el ruido" title="Enlace directo al 2. Sube la imagen correcta y cuida el ruido" translate="no">​</a></h3>
+<p>La ayuda oficial indica que <code>TinEye</code> acepta varios formatos comunes y funciona mejor con imagenes de al menos 300 pixeles por lado, aunque puede aceptar tamanos menores. Tambien advierte que las marcas de agua visibles pueden perjudicar la busqueda, porque el sistema puede terminar priorizando esa capa por encima de la escena.</p>
+<p>En practica:</p>
+<ul>
+<li class="">evita capturas con bordes, marcos o textos anadidos si tienes acceso a una version mas limpia;</li>
+<li class="">guarda la copia original antes de recortarla para poder repetir la prueba;</li>
+<li class="">y si sospechas edicion fuerte, prueba tambien con detalles parciales de la imagen para comprobar si el reuso afecta solo a una zona.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-ordena-resultados-con-intencion-analitica">3. Ordena resultados con intencion analitica<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#3-ordena-resultados-con-intencion-analitica" class="hash-link" aria-label="Enlace directo al 3. Ordena resultados con intencion analitica" title="Enlace directo al 3. Ordena resultados con intencion analitica" translate="no">​</a></h3>
+<p>Una parte muy aprovechable de <code>TinEye</code> es el ordenado de resultados. La documentacion explica que puedes clasificarlos por <code>best match</code>, <code>biggest image</code>, <code>most changed</code>, <code>newest</code> y <code>oldest</code>. Esa variedad no es decorativa: cambia la lectura metodologica.</p>
+<ul>
+<li class=""><code>best match</code> ayuda a encontrar la version mas cercana a tu muestra;</li>
+<li class=""><code>most changed</code> puede sacar a la luz copias con ediciones fuertes;</li>
+<li class=""><code>biggest image</code> sirve para localizar versiones con mas detalle;</li>
+<li class=""><code>oldest</code> y <code>newest</code> ayudan a acotar cuando encontro TinEye una coincidencia en su propio indice.</li>
+</ul>
+<p>Aqui conviene una cautela importante: la propia plataforma advierte que la fecha de rastreo en <code>oldest</code> o <code>newest</code> no equivale a la fecha en que la imagen aparecio por primera vez en Internet. Solo te dice cuando su crawler la encontro.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-indice-como-cobertura-parcial-no-como-universo-total">4. Lee el indice como cobertura parcial, no como universo total<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#4-lee-el-indice-como-cobertura-parcial-no-como-universo-total" class="hash-link" aria-label="Enlace directo al 4. Lee el indice como cobertura parcial, no como universo total" title="Enlace directo al 4. Lee el indice como cobertura parcial, no como universo total" translate="no">​</a></h3>
+<p>La ayuda sobre el indice de <code>TinEye</code> explica que rastrean miles de millones de imagenes en la web y que prestan especial atencion a colecciones curadas y bancos de imagenes. Tambien indica que normalmente no indexan imagenes de muchas redes sociales porque esas plataformas suelen prohibir ese rastreo.</p>
+<p>Esto cambia bastante la interpretacion:</p>
+<ul>
+<li class="">si encuentras coincidencias, tienes senal util;</li>
+<li class="">si no encuentras ninguna, no has demostrado unicidad;</li>
+<li class="">y si buscas contenido nacido o encerrado en plataformas sociales, la cobertura puede ser incompleta por diseno.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-separa-coincidencia-visual-de-atribucion-personal">5. Separa coincidencia visual de atribucion personal<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#5-separa-coincidencia-visual-de-atribucion-personal" class="hash-link" aria-label="Enlace directo al 5. Separa coincidencia visual de atribucion personal" title="Enlace directo al 5. Separa coincidencia visual de atribucion personal" translate="no">​</a></h3>
+<p>La ayuda oficial es clara en dos limites que conviene repetir. Primero, <code>TinEye</code> no hace reconocimiento facial. Segundo, aunque encuentre la misma foto, eso no significa que conozca la identidad de la persona retratada.</p>
+<p>En OSINT responsable, esta distincion protege de dos errores habituales:</p>
+<ul>
+<li class="">convertir una coincidencia de imagen en una identificacion personal apresurada;</li>
+<li class="">asumir que la pagina donde aparece la imagen es necesariamente la fuente original o el titular legitimo.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-de-resultados-no-demuestra-nada-por-si-sola">La ausencia de resultados no demuestra nada por si sola<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#la-ausencia-de-resultados-no-demuestra-nada-por-si-sola" class="hash-link" aria-label="Enlace directo al La ausencia de resultados no demuestra nada por si sola" title="Enlace directo al La ausencia de resultados no demuestra nada por si sola" translate="no">​</a></h3>
+<p>Puede no haber coincidencias porque la imagen sea nueva, porque este fuera del indice, porque proceda de una red no rastreada o porque la copia disponible tenga demasiada compresion, texto o recorte. Una busqueda sin resultados cierra muy pocas preguntas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-origen-suele-ser-una-hipotesis-no-una-sentencia">El "origen" suele ser una hipotesis, no una sentencia<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#el-origen-suele-ser-una-hipotesis-no-una-sentencia" class="hash-link" aria-label="Enlace directo al El &quot;origen&quot; suele ser una hipotesis, no una sentencia" title="Enlace directo al El &quot;origen&quot; suele ser una hipotesis, no una sentencia" translate="no">​</a></h3>
+<p>Aunque <code>TinEye</code> ayude a encontrar versiones antiguas o de mayor resolucion, el primer match visible no siempre es el creador original. Puede ser un republicador temprano, un banco de imagenes o un mirror.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-fechas-del-crawler-no-sustituyen-una-cronologia-externa">Las fechas del crawler no sustituyen una cronologia externa<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#las-fechas-del-crawler-no-sustituyen-una-cronologia-externa" class="hash-link" aria-label="Enlace directo al Las fechas del crawler no sustituyen una cronologia externa" title="Enlace directo al Las fechas del crawler no sustituyen una cronologia externa" translate="no">​</a></h3>
+<p>Si necesitas sostener una cronologia, cruza <code>TinEye</code> con archivo web, contexto de publicacion, metadatos disponibles, texto acompananante y otras fuentes documentales. La fecha observada por un crawler solo es una pieza de la historia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">usa <code>TinEye</code> para verificar autenticidad contextual de una imagen, no para hostigar a personas;</li>
+<li class="">evita convertir una foto de perfil en una cadena de conclusiones identitarias que la herramienta no puede sostener;</li>
+<li class="">documenta siempre que resultado observaste, en que fecha hiciste la consulta y que limitaciones de cobertura tenia el indice;</li>
+<li class="">si el caso implica derechos de autor, recuerda que encontrar una imagen no equivale a tener permiso para reutilizarla;</li>
+<li class="">y si estas trabajando con material sensible, conserva la copia consultada y las capturas de resultados con fecha.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>TinEye</code> funciona especialmente bien como capa de verificacion de reuso. Si el problema principal es archivo historico, conviene anadir <code>Wayback Machine</code> o capturas propias. Si lo que necesitas es lectura forense del archivo, <code>ExifTool</code> o <code>InVID</code> pueden aportar otra capa. Y si tu objetivo es entender quien publica una imagen y con que narrativa, toca cruzar resultados con contexto editorial, dominio, fecha y reputacion de la fuente.</p>
+<p>El takeaway practico es simple: usa <code>TinEye</code> para rebajar incertidumbre, no para sobreactuar. Cuando una imagen dudosa aparezca en un entorno sensible, lo primero no es interpretarla; lo primero es comprobar si ya habia vivido otra vida en la web.</p>
+<p>Como siguiente tema del blog, el puente natural seria una pieza metodologica sobre <code>TinEye</code> combinado con <code>Wayback Machine</code> e <code>InVID</code> para reconstruir cronologias visuales con mas rigor.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
+<ul>
+<li class="">TinEye, What is TinEye?: <a href="https://help.tineye.com/article/231-what-is-tineye" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/231-what-is-tineye</a></li>
+<li class="">TinEye, How does TinEye work?: <a href="https://help.tineye.com/article/233-how-does-tineye-work" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/233-how-does-tineye-work</a></li>
+<li class="">TinEye, TinEye Tutorial: <a href="https://help.tineye.com/article/265-tineye-tutorial" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/265-tineye-tutorial</a></li>
+<li class="">TinEye, About the TinEye index: <a href="https://help.tineye.com/article/177-about-the-tineye-index" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/177-about-the-tineye-index</a></li>
+<li class="">TinEye, Can TinEye find similar images? Does TinEye do facial recognition?: <a href="https://help.tineye.com/article/235-can-tineye-find-similar-images-does-tineye-do-facial-recognition" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/235-can-tineye-find-similar-images-does-tineye-do-facial-recognition</a></li>
+<li class="">TinEye, Can I sort my results?: <a href="https://help.tineye.com/article/246-can-i-sort-my-results" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/246-can-i-sort-my-results</a></li>
+<li class="">TinEye, What kinds of images can I search on TinEye?: <a href="https://help.tineye.com/article/243-what-kinds-of-images-can-i-search-on-tineye" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/243-what-kinds-of-images-can-i-search-on-tineye</a></li>
+<li class="">TinEye, Does TinEye keep images I upload during a search?: <a href="https://help.tineye.com/article/244-does-tineye-keep-images-i-upload-during-a-search" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/244-does-tineye-keep-images-i-upload-during-a-search</a></li>
+<li class="">TinEye Blog, Using TinEye to find the copyright owner of an image (5 de mayo de 2026): <a href="https://blog.tineye.com/find-copyright-owner-using-tineye/" target="_blank" rel="noopener noreferrer" class="">https://blog.tineye.com/find-copyright-owner-using-tineye/</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="IMINT" term="IMINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Maltiverse en OSINT: enriquecer IoCs, filtrar ruido y decidir con mas contexto]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido</id>
@@ -2172,130 +2280,5 @@
         <category label="Tradecraft" term="Tradecraft"/>
         <category label="Datos" term="Datos"/>
         <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Sentinel Hub EO Browser en OSINT: comparativas temporales, nubosidad y prudencia GEOINT]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia"/>
-        <updated>2026-05-06T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT comparando imagenes satelitales en Sentinel Hub EO Browser con control de fechas, nubes y visualizaciones geoespaciales]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando imagenes satelitales en Sentinel Hub EO Browser con control de fechas, nubes y visualizaciones geoespaciales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-06-sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia-043b1b17fe2d9ffe583e9bdd92be8fe9.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay investigaciones en las que el fallo no consiste en mirar poco, sino en mirar mal. Ves una escena satelital impactante, cambias de fecha, tocas un indice, comparas dos capturas y en diez minutos ya parece que tienes una historia. El problema es que, si no controlas <strong>fecha, nube, resolucion, fuente y visualizacion</strong>, lo que parecia contexto puede convertirse en sobrelectura.</p>
-<p><code>Sentinel Hub EO Browser</code> resulta util precisamente en ese punto. No porque "demuestre" nada por si solo, sino porque te permite <strong>explorar colecciones satelitales, fijar ventanas temporales, comparar escenas y documentar decisiones visuales</strong> sin salirte de un entorno relativamente accesible. Usado con disciplina, es una buena puerta de entrada para GEOINT responsable; usado con prisa, tambien puede fabricar confianza excesiva.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p>La pagina oficial de <code>EO Browser</code> explica que la herramienta permite navegar y comparar imagenes a resolucion completa de las colecciones que ofrece Sentinel Hub. El flujo base es sencillo: eliges un area, defines rango temporal y nubosidad maxima, inspeccionas resultados y pruebas visualizaciones ya preparadas o personalizadas.</p>
-<p>Ese planteamiento la vuelve especialmente util para preguntas OSINT como estas:</p>
-<ul>
-<li class="">que cambio visible se aprecia entre dos fechas sobre una misma zona;</li>
-<li class="">si una alteracion del terreno aparece de forma consistente o depende de la escena elegida;</li>
-<li class="">que visualizacion ayuda mas a separar vegetacion, agua, quemas, nieve o superficie urbana;</li>
-<li class="">y como compartir una comparativa o una "pin story" sin perder del todo el contexto de origen.</li>
-</ul>
-<p>La <code>FAQ</code> oficial de Sentinel Hub tambien recuerda que <code>EO Browser</code> da acceso a un abanico amplio de fuentes: <code>Sentinel-1</code>, <code>Sentinel-2</code>, <code>Sentinel-3</code>, <code>Sentinel-5P</code>, varias generaciones de <code>Landsat</code>, <code>MODIS</code> y otras colecciones. Traducido a lenguaje de analista: no es solo un visor bonito, sino una mesa de trabajo para contrastar sensores distintos cuando una sola capa no basta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una ONG ficticia llamada <code>Observatorio del Delta</code> que intenta verificar una denuncia local: en una zona humeda protegida han aparecido movimientos de tierra y posible drenaje irregular entre marzo y mayo de <code>2026</code>. No hace falta sacar conclusiones juridicas desde el primer minuto. Hace falta responder tres preguntas mucho mas sobrias:</p>
-<ol>
-<li class="">se observan cambios visibles y repetibles en la misma area;</li>
-<li class="">en que ventana temporal aparecen;</li>
-<li class="">y que parte de la lectura depende de la visualizacion elegida.</li>
-</ol>
-<p>Con <code>EO Browser</code>, un flujo prudente podria ser este:</p>
-<ol>
-<li class="">buscar el area exacta por coordenadas o nombre y fijar una extension estable;</li>
-<li class="">seleccionar <code>Sentinel-2</code> para una primera lectura optica y limitar nubosidad;</li>
-<li class="">revisar varias fechas proximas en color natural y en un indice de vegetacion;</li>
-<li class="">pinnear dos o tres escenas representativas para compararlas en modo <code>split</code> u <code>opacity</code>;</li>
-<li class="">si las nubes o brumas distorsionan demasiado, contrastar con <code>Sentinel-1</code>, que aporta otra lectura del terreno;</li>
-<li class="">exportar capturas, fechas y notas, separando siempre observacion de interpretacion.</li>
-</ol>
-<p>El objetivo no es "probar un delito desde el navegador". El objetivo es decidir si existe un cambio visible que merezca contraste adicional con registros administrativos, visitas de campo, testimonios o imagen comercial de mayor resolucion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-la-pregunta-no-por-el-efecto-visual">1. Empezar por la pregunta, no por el efecto visual<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#1-empezar-por-la-pregunta-no-por-el-efecto-visual" class="hash-link" aria-label="Enlace directo al 1. Empezar por la pregunta, no por el efecto visual" title="Enlace directo al 1. Empezar por la pregunta, no por el efecto visual" translate="no">​</a></h3>
-<p><code>EO Browser</code> ofrece visualizaciones preconfiguradas, indices y scripts propios. Eso es potente, pero la propia <code>FAQ</code> de Sentinel Hub advierte algo importante: las plantillas de <code>EO Product</code> pueden cambiar con el tiempo, y quien necesite estabilidad total puede editar el <code>Custom script</code> para mantener control sobre el procesamiento.</p>
-<p>La leccion metodologica es clara: si una conclusion depende por completo de un preset que no entiendes, todavia no tienes una conclusion fuerte. Tienes una pista visual.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-fijar-bien-rango-temporal-y-nubosidad">2. Fijar bien rango temporal y nubosidad<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#2-fijar-bien-rango-temporal-y-nubosidad" class="hash-link" aria-label="Enlace directo al 2. Fijar bien rango temporal y nubosidad" title="Enlace directo al 2. Fijar bien rango temporal y nubosidad" translate="no">​</a></h3>
-<p>El <code>User Guide</code> indica que puedes elegir <code>Time Range</code> manualmente o con calendario, y activar <code>Advanced Search</code> para filtrar <code>Data Quality</code> y <code>Maximum Cloud Coverage</code>. Ese paso parece administrativo, pero en GEOINT cambia todo. Una comparativa buena suele depender menos de "la imagen mas dramatica" y mas de haber acotado bien la ventana de observacion.</p>
-<p>Conviene documentar siempre:</p>
-<ul>
-<li class="">fecha exacta de cada escena usada;</li>
-<li class="">sensor o coleccion;</li>
-<li class="">cobertura nubosa aplicada;</li>
-<li class="">y motivo por el que descartaste otras escenas.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-pines-y-comparacion-para-no-improvisar">3. Usar pines y comparacion para no improvisar<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#3-usar-pines-y-comparacion-para-no-improvisar" class="hash-link" aria-label="Enlace directo al 3. Usar pines y comparacion para no improvisar" title="Enlace directo al 3. Usar pines y comparacion para no improvisar" translate="no">​</a></h3>
-<p>La guia oficial describe un flujo de <code>Pin &amp; Compare</code> bastante util: guardas escenas preferidas, las ordenas y las comparas en dos modos, <code>Split</code> y <code>Opacity</code>. Eso obliga a trabajar mejor que con capturas sueltas en carpetas sueltas.</p>
-<p>En OSINT responsable, esta funcion aporta tres ventajas concretas:</p>
-<ul>
-<li class="">reduce el riesgo de comparar areas ligeramente distintas;</li>
-<li class="">deja mas claro que escenas has considerado "representativas";</li>
-<li class="">y facilita ensenar el cambio a otra persona sin pedirle que recree todo tu proceso desde cero.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-no-confiar-ciegamente-en-la-nube-global">4. No confiar ciegamente en la nube global<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#4-no-confiar-ciegamente-en-la-nube-global" class="hash-link" aria-label="Enlace directo al 4. No confiar ciegamente en la nube global" title="Enlace directo al 4. No confiar ciegamente en la nube global" translate="no">​</a></h3>
-<p>La pagina oficial de <code>EO Browser</code> incluye un aviso muy facil de pasar por alto cuando se trabaja deprisa: en los <code>timelapses</code>, la condicion de nubosidad se aplica a nivel de escena completa, por ejemplo una tesela de <code>100 km x 100 km</code>, asi que aun pueden aparecer frames con demasiadas nubes sobre tu area concreta.</p>
-<p>Ese detalle no vale solo para animaciones. Tambien recuerda algo mas general: el filtro de nubes ayuda, pero no sustituye la inspeccion manual local. Una escena con nubosidad "aceptable" para la tesela puede seguir siendo mala para tu poligono de interes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-elegir-bien-cuando-usar-timelapse">5. Elegir bien cuando usar timelapse<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#5-elegir-bien-cuando-usar-timelapse" class="hash-link" aria-label="Enlace directo al 5. Elegir bien cuando usar timelapse" title="Enlace directo al 5. Elegir bien cuando usar timelapse" translate="no">​</a></h3>
-<p>El <code>timelapse</code> sirve para detectar tendencias y ritmo de cambio, no para reemplazar una comparativa cuidada. La documentacion oficial explica que la funcion soporta hasta <code>300</code> imagenes a la vez. Si necesitas periodos mas largos, recomiendan bajar frecuencia, por ejemplo mensual, o trocear el trabajo.</p>
-<p>La takeaway operativa es sencilla:</p>
-<ul>
-<li class="">usa <code>timelapse</code> para explorar;</li>
-<li class="">usa escenas concretas pineadas para argumentar;</li>
-<li class="">y no conviertas una animacion vistosa en evidencia autosuficiente.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-medir-exportar-y-anotar">6. Medir, exportar y anotar<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#6-medir-exportar-y-anotar" class="hash-link" aria-label="Enlace directo al 6. Medir, exportar y anotar" title="Enlace directo al 6. Medir, exportar y anotar" translate="no">​</a></h3>
-<p>La guia de usuario anade dos funciones muy practicas para trabajo serio: la herramienta <code>Measure</code> para distancia y area, y la exportacion de imagenes en varios formatos. Si vas a redactar un informe, conviene acompanar cada imagen con:</p>
-<ul>
-<li class="">fecha de adquisicion;</li>
-<li class="">capa o indice usado;</li>
-<li class="">area observada;</li>
-<li class="">nota breve de que se ve y que no se puede afirmar todavia.</li>
-</ul>
-<p>Sin ese minimo de disciplina, la captura satelital queda reducida a decorado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>EO Browser</code> es potente, pero no resuelve por arte de magia los problemas clasicos del GEOINT:</p>
-<ul>
-<li class="">la resolucion puede ser insuficiente para sostener detalles finos;</li>
-<li class="">nubes, humo, sombras o cambios estacionales pueden distorsionar mucho la lectura;</li>
-<li class="">un indice puede exagerar visualmente una diferencia que luego requiere mas contexto;</li>
-<li class="">la fecha de adquisicion visible no equivale por si sola a fecha exacta del evento analizado;</li>
-<li class="">y compartir una escena sin el script, el sensor o el rango temporal puede volverla casi irreproducible.</li>
-</ul>
-<p>Tambien conviene recordar una diferencia clave entre observar un cambio y atribuir su causa. Ver una pista, una mancha o una alteracion del terreno no basta para afirmar automaticamente quien la produjo ni con que intencion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque aqui hablamos de observacion satelital abierta, sigue habiendo reglas sanas:</p>
-<ul>
-<li class="">trabaja sobre una pregunta legitima y proporcionada;</li>
-<li class="">evita amplificar ubicaciones sensibles o detalles personales no necesarios;</li>
-<li class="">conserva el contexto de licencia y atribucion de las imagenes exportadas;</li>
-<li class="">distingue hechos observables de hipotesis analiticas;</li>
-<li class="">y, si el caso es delicado, cruza siempre con fuentes humanas, documentales o tecnicas adicionales antes de publicar.</li>
-</ul>
-<p>La pagina de <code>EO Browser</code> recuerda ademas que ciertas funciones, como <code>timelapse</code>, descarga en alta resolucion, guardado de pines, <code>story builder</code> y mediciones de distancia, requieren sesion iniciada. Y para exploracion permanentemente gratuita de datos <code>Copernicus Sentinel</code>, la propia web recomienda el <code>Copernicus Data Space Ecosystem</code>. Esa distincion importa si vas a documentar tu flujo para otra persona y quieres que pueda reproducirlo sin sorpresas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>EO Browser</code> encaja muy bien como interfaz de trabajo inicial, pero no tiene por que ser tu ultima parada.</p>
-<ul>
-<li class=""><code>Copernicus Browser</code> puede ser un buen camino si tu flujo vive sobre el ecosistema <code>Copernicus</code>.</li>
-<li class=""><code>Google Earth</code> sigue siendo util para contexto espacial y comparativas complementarias.</li>
-<li class="">Imagen comercial o de mayor resolucion puede ser necesaria cuando el detalle importa de verdad.</li>
-<li class="">Informes de <code>UNOSAT</code>, <code>HRW</code>, <code>Amnesty</code> o prensa geolocalizada pueden ayudarte a no interpretar una escena en vacio.</li>
-</ul>
-<p>Como siguiente puente natural del blog, tendria sentido bajar un nivel mas y trabajar un caso practico con <code>Sentinel-2</code>, <code>Sentinel-1</code> y una nota metodologica sobre como documentar cambios de terreno sin sobreatribuir.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-recomendadas">Fuentes recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/sentinel-hub-eo-browser-osint-comparativas-temporales-nubosidad-prudencia#fuentes-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes recomendadas" title="Enlace directo al Fuentes recomendadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>Sentinel Hub</code>, <code>EO Browser</code>: <a href="https://www.sentinel-hub.com/explore/eobrowser/" target="_blank" rel="noopener noreferrer" class="">https://www.sentinel-hub.com/explore/eobrowser/</a></li>
-<li class=""><code>Sentinel Hub</code>, <code>EO Browser User Guide</code>: <a href="https://www.sentinel-hub.com/explore/eobrowser/user-guide/" target="_blank" rel="noopener noreferrer" class="">https://www.sentinel-hub.com/explore/eobrowser/user-guide/</a></li>
-<li class=""><code>Sentinel Hub FAQ</code>, <code>Which EO data are available?</code>: <a href="https://www.sentinel-hub.com/faq/" target="_blank" rel="noopener noreferrer" class="">https://www.sentinel-hub.com/faq/</a></li>
-<li class=""><code>Sentinel Hub FAQ</code>, <code>Are EO products being changed through time or is the visualization fixed?</code>: <a href="https://www.sentinel-hub.com/faq/are-eo-products-being-changed-through-time-or-visualization-fixed/" target="_blank" rel="noopener noreferrer" class="">https://www.sentinel-hub.com/faq/are-eo-products-being-changed-through-time-or-visualization-fixed/</a></li>
-<li class=""><code>Sentinel Hub</code>, <code>How do I cite EO Browser or other web pages / applications?</code>: <a href="https://www.sentinel-hub.com/faq/how-do-i-cite-eo-browser-or-other-web-pages-applications/" target="_blank" rel="noopener noreferrer" class="">https://www.sentinel-hub.com/faq/how-do-i-cite-eo-browser-or-other-web-pages-applications/</a></li>
-</ul>
-<p>El takeaway accionable es este: usa <code>Sentinel Hub EO Browser</code> para <strong>hacer visible un cambio con mas metodo</strong>, no para vender certezas prematuras. Si controlas sensor, fecha, nubes, visualizacion y comparativa, la herramienta te ayuda mucho. Si solo persigues la imagen mas llamativa, te ayudara a equivocarte con mas conviccion.</p>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Investigacion" term="Investigacion"/>
     </entry>
 </feed>
