@@ -213,6 +213,11 @@ web:
   permalink: /web
   description: Sitios web, codigo fuente visible, widgets, archivo web y otras huellas publicas utiles para investigar con contexto.
 
+phishing:
+  label: Phishing
+  permalink: /phishing
+  description: URLs, suplantacion, cadenas de redireccion y patrones observables utiles para validar enlaces sospechosos sin abrir narrativas antes de tiempo.
+
 archive:
   label: Archivo
   permalink: /archive
