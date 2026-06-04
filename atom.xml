@@ -8,127 +8,109 @@
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
     <entry>
-        <title type="html"><![CDATA[Historia OSINT: MH17, el convoy Buk y la cronologia abierta que acabo en un tribunal]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal"/>
+        <title type="html"><![CDATA[urlquery en OSINT: analizar URLs, redirecciones y carga web con contexto de sandbox]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto"/>
         <updated>2026-06-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una investigacion OSINT sobre MH17 con mapa de ruta, fotos geolocalizadas de un convoy Buk, notas cronologicas y analistas cruzando evidencias publicas]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una investigacion OSINT sobre MH17 con mapa de ruta, fotos geolocalizadas de un convoy Buk, notas cronologicas y analistas cruzando evidencias publicas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-04-historia-mh17-osint-convoy-buk-cronologia-tribunal-934804c001db58e676a38460ca93250c.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay historias OSINT que parecen imposibles precisamente porque son demasiado grandes. Un avion comercial cae, mueren <code>298</code> personas, el espacio informativo se llena de versiones enfrentadas y cada bando intenta usar la niebla del conflicto como si fuera una coartada. En un caso asi, el peligro no es solo no saber suficiente. El peligro real es <strong>dejar que el volumen de ruido haga pasar por inevitable la confusion</strong>.</p>
-<p>El caso <code>MH17</code> importa porque ensena lo contrario. No fue una sola foto, ni un solo mapa, ni un solo analista con una intuicion brillante. Fue una cadena de trabajo bastante mas sobria: recoger material publico, fijar lugares, ordenar horas, comparar detalles tecnicos, cruzar testimonios, revisar satelite y obligar a que cada pieza conviviera con las demas. Lo interesante para el oficio no es el dramatismo del caso. Es comprobar como una cronologia abierta, bien trabajada, puede reducir el espacio de negacion hasta volverse util incluso en sede judicial.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contexto-minimo-un-desastre-muchas-versiones-y-una-pregunta-central">Contexto minimo: un desastre, muchas versiones y una pregunta central<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#contexto-minimo-un-desastre-muchas-versiones-y-una-pregunta-central" class="hash-link" aria-label="Enlace directo al Contexto minimo: un desastre, muchas versiones y una pregunta central" title="Enlace directo al Contexto minimo: un desastre, muchas versiones y una pregunta central" translate="no">​</a></h2>
-<p>El <code>17 de julio de 2014</code>, el vuelo <code>MH17</code> de <code>Malaysia Airlines</code>, que cubria la ruta entre Amsterdam y Kuala Lumpur, fue derribado sobre el este de Ucrania. El saldo fue total: <code>283</code> pasajeros y <code>15</code> tripulantes muertos. Desde el principio, la escena publica quedo contaminada por dos problemas clasicos de investigacion en guerra:</p>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando una URL en un sandbox, con cadenas de redireccion, peticiones HTTP y capturas de pagina en un tablero tecnico sobrio]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando una URL en un sandbox, con cadenas de redireccion, peticiones HTTP y capturas de pagina en un tablero tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-04-urlquery-osint-analizar-urls-redirecciones-sandbox-contexto-dac45eca8ed1871b1de1bf6d59ae98a4.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Hay enlaces que parecen triviales hasta que los abres en el sitio equivocado, con la cuenta equivocada o en el momento equivocado. En una alerta de <code>phishing</code>, en una investigacion de infraestructura web o en un simple proceso de verificacion, el problema no suele ser "tener una URL". El problema real es <strong>entender que hace esa URL sin regalarle contexto, cookies o confianza antes de tiempo</strong>.</p>
+<p><code>urlquery</code> resulta util precisamente por eso. No te pide que adivines a ojo si una pagina parece maliciosa o sospechosa. Te ofrece una forma bastante mas ordenada de observar como carga una web, que redirecciones encadena, que recursos solicita y que artefactos deja, todo dentro de un entorno instrumentado y aislado. Bien usado, acelera triage y verificacion. Mal usado, puede empujarte a tratar cualquier score o captura como si fuera una conclusion cerrada. Conviene evitar ese salto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p>En su pagina <code>About</code>, <code>urlquery.net</code> se presenta como un proyecto pensado para ayudar a investigadores y analistas a entender amenazas basadas en web. Describe la plataforma como un entorno controlado para analizar URLs, registrar comportamiento de red, capturar redirecciones, descargas y posibles indicadores de compromiso.</p>
+<p>Traducido a trabajo OSINT responsable, eso sirve para tareas como estas:</p>
 <ul>
-<li class="">abundancia de material parcial;</li>
-<li class="">propagacion de narrativas incompatibles;</li>
-<li class="">y un incentivo politico evidente para sembrar duda sobre origen, autoria y contexto.</li>
+<li class="">comprobar si una URL rebota por varios dominios antes de mostrar contenido;</li>
+<li class="">ver que recursos de terceros se cargan realmente en la pagina;</li>
+<li class="">observar certificados, resoluciones, <code>IPs</code> y respuestas <code>HTTP/HTTPS</code>;</li>
+<li class="">revisar capturas de la pagina renderizada sin abrirla en tu navegador habitual;</li>
+<li class="">y priorizar que enlaces merecen mas analisis manual o contraste adicional.</li>
 </ul>
-<p>En este tipo de entorno, OSINT no sirve para "ganar una discusion en internet". Sirve para responder preguntas mas secas y mas dificiles:</p>
+<p>No es una bola de cristal. Es una capa de observacion tecnica sobre comportamiento web.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-validar-una-url-sospechosa-antes-de-escalar">Caso de uso legitimo: validar una URL sospechosa antes de escalar<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#caso-de-uso-legitimo-validar-una-url-sospechosa-antes-de-escalar" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: validar una URL sospechosa antes de escalar" title="Enlace directo al Caso de uso legitimo: validar una URL sospechosa antes de escalar" translate="no">​</a></h2>
+<p>Imagina un escenario sobrio y bastante habitual. A un equipo de seguridad o a una redaccion le reenvian un enlace que supuestamente apunta a un portal de acceso de un proveedor. A primera vista, la <code>URL</code> podria parecer solo "rara". El error clasico seria abrirla directamente con sesion iniciada, confiar en la apariencia visual o limitarse a un <code>screenshot</code> compartido por terceros.</p>
+<p>Con <code>urlquery</code>, el enfoque prudente cambia:</p>
+<ol>
+<li class="">enviar la URL a analisis en un entorno aislado;</li>
+<li class="">revisar si hay redirecciones hacia otros dominios;</li>
+<li class="">comprobar si se descargan scripts, <code>iframes</code> o recursos inesperados;</li>
+<li class="">mirar la captura renderizada para entender la narrativa visual;</li>
+<li class="">cruzar el resultado con reputacion, <code>WHOIS/RDAP</code>, archivo web o registros propios.</li>
+</ol>
+<p>La leccion no es "si urlquery lo marca, ya esta". La leccion es mas modesta y mucho mas util: <strong>te ayuda a convertir un enlace en una secuencia observable de comportamiento tecnico</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<p>La propia descripcion tecnica de <code>urlquery</code> deja bastante claro que el valor no esta solo en el <code>screenshot</code>, sino en la combinacion de varias capas. Un flujo razonable seria este:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-la-url-y-no-por-la-narrativa">1. Empezar por la URL y no por la narrativa<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#1-empezar-por-la-url-y-no-por-la-narrativa" class="hash-link" aria-label="Enlace directo al 1. Empezar por la URL y no por la narrativa" title="Enlace directo al 1. Empezar por la URL y no por la narrativa" translate="no">​</a></h3>
+<p>Antes de interpretar intenciones, conviene mirar que hace el enlace. <code>urlquery</code> indica que abre las URLs enviadas en un navegador instrumentado dentro de un <code>sandbox</code> aislado y registra actividad para dar una lectura mas realista de lo que ocurre al cargar la pagina.</p>
+<p>Eso importa porque muchas webs sospechosas no se comportan igual si solo haces una resolucion DNS o una peticion <code>HEAD</code>. A veces la historia aparece cuando la pagina ejecuta <code>JavaScript</code>, tira de recursos remotos o pasa por varias redirecciones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-leer-la-cadena-de-carga-no-solo-el-destino-final">2. Leer la cadena de carga, no solo el destino final<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#2-leer-la-cadena-de-carga-no-solo-el-destino-final" class="hash-link" aria-label="Enlace directo al 2. Leer la cadena de carga, no solo el destino final" title="Enlace directo al 2. Leer la cadena de carga, no solo el destino final" translate="no">​</a></h3>
+<p>Uno de los usos mas practicos es observar si una URL aparentemente inocua hace algo mas complejo:</p>
 <ul>
-<li class="">que se vio exactamente y donde;</li>
-<li class="">en que secuencia aparecieron ciertos activos;</li>
-<li class="">que partes de la cronologia pueden comprobarse con datos publicos;</li>
-<li class="">y que hipotesis dejan de sostenerse cuando todas esas capas se miran juntas.</li>
+<li class="">redirige varias veces;</li>
+<li class="">cambia de dominio en mitad de la carga;</li>
+<li class="">incrusta recursos desde infraestructura externa;</li>
+<li class="">o intenta entregar descargas o contenido embebido que no aparecia en la URL original.</li>
 </ul>
-<p>El <code>Joint Investigation Team</code> (<code>JIT</code>) presento sus primeros resultados el <code>28 de septiembre de 2016</code>. Ahi ya afirmaba que el vuelo fue alcanzado por un misil <code>Buk</code> lanzado desde un campo cerca de <code>Pervomaiskyi</code>, en una zona entonces controlada por separatistas. El <code>17 de noviembre de 2022</code>, el tribunal de La Haya condeno a <code>Kharchenko</code>, <code>Dubinskiy</code> y <code>Girkin</code> a cadena perpetua y absolvio a <code>Pulatov</code>. Y el <code>8 de febrero de 2023</code>, el <code>JIT</code> publico un informe adicional sobre la cadena de mando y explico que habia indicios fuertes sobre el suministro del sistema <code>Buk</code>, aunque no evidencia bastante para nuevas acusaciones individuales en ese momento.</p>
-<p>Eso ya marca una leccion importante: <strong>OSINT no sustituyo la investigacion penal, pero ayudo a fijar una columna vertebral publica que luego pudo contrastarse, tensionarse y reutilizarse</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-metodo-osint-cuando-la-cronologia-obliga-a-que-todo-encaje">El metodo OSINT: cuando la cronologia obliga a que todo encaje<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#el-metodo-osint-cuando-la-cronologia-obliga-a-que-todo-encaje" class="hash-link" aria-label="Enlace directo al El metodo OSINT: cuando la cronologia obliga a que todo encaje" title="Enlace directo al El metodo OSINT: cuando la cronologia obliga a que todo encaje" translate="no">​</a></h2>
-<p>Lo mas didactico del caso <code>MH17</code> no es el titular final. Es el flujo de trabajo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-no-empezar-por-quien-fue-sino-por-que-ruta-puede-demostrarse">1. No empezar por "quien fue", sino por "que ruta puede demostrarse"<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#1-no-empezar-por-quien-fue-sino-por-que-ruta-puede-demostrarse" class="hash-link" aria-label="Enlace directo al 1. No empezar por &quot;quien fue&quot;, sino por &quot;que ruta puede demostrarse&quot;" title="Enlace directo al 1. No empezar por &quot;quien fue&quot;, sino por &quot;que ruta puede demostrarse&quot;" translate="no">​</a></h3>
-<p>Buena parte de la investigacion abierta se concentro primero en un objeto concreto: un lanzador <code>Buk-TELAR</code> visto en imagenes y videos compartidos publicamente el mismo <code>17 de julio de 2014</code>. La pregunta util no era "de quien era" en abstracto. La pregunta correcta era mas humilde: <strong>puedo demostrar que el mismo sistema aparece en distintos puntos, en una secuencia temporal coherente y con marcas identificables</strong>.</p>
-<p>Segun el dossier de <code>Bellingcat</code> de <code>8 de octubre de 2015</code>, tras el derribo aparecieron fotos y videos que supuestamente mostraban el movimiento del <code>Buk</code> por territorio controlado por separatistas. El trabajo no consistio en aceptar esas publicaciones por fe. Consistio en geolocalizarlas una por una, fijar su orden aproximado y compararlas con otros detalles visibles del vehiculo y del entorno.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-convertir-fotos-sueltas-en-un-recorrido-verificable">2. Convertir fotos sueltas en un recorrido verificable<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#2-convertir-fotos-sueltas-en-un-recorrido-verificable" class="hash-link" aria-label="Enlace directo al 2. Convertir fotos sueltas en un recorrido verificable" title="Enlace directo al 2. Convertir fotos sueltas en un recorrido verificable" translate="no">​</a></h3>
-<p>Ese paso cambia el juego. Una foto aislada puede discutirse durante horas. Una cadena de fotos geolocalizadas en <code>Donetsk</code>, <code>Zuhres</code>, <code>Torez</code> y <code>Snizhne</code>, con referencias visibles y ventanas horarias aproximadas, empieza a comportarse como una ruta.</p>
-<p>El valor metodologico no esta en la estetica del hallazgo, sino en su disciplina:</p>
+<p>Esa parte es especialmente util en triage de <code>phishing</code>, fraude o suplantacion de marca, porque separa "texto visible" de "comportamiento de carga".</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-artefactos-como-pistas-no-como-veredicto">3. Usar artefactos como pistas, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#3-usar-artefactos-como-pistas-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 3. Usar artefactos como pistas, no como veredicto" title="Enlace directo al 3. Usar artefactos como pistas, no como veredicto" translate="no">​</a></h3>
+<p>Segun su pagina <code>About</code>, <code>urlquery</code> recopila durante el escaneo elementos como:</p>
 <ul>
-<li class="">comprobar donde se tomo cada imagen;</li>
-<li class="">revisar sombras, orientacion y contexto urbano;</li>
-<li class="">buscar coincidencias del mismo remolque o del mismo vehiculo;</li>
-<li class="">y descartar material que no aguanta la comprobacion.</li>
+<li class="">peticiones y respuestas <code>HTTP/HTTPS</code>;</li>
+<li class="">resoluciones de dominio e <code>IP</code>;</li>
+<li class="">informacion de certificados <code>SSL/TLS</code>;</li>
+<li class="">actividad <code>JavaScript</code> y de red;</li>
+<li class="">capturas de la pagina renderizada;</li>
+<li class="">y metadatos de archivos descargados o embebidos.</li>
 </ul>
-<p><code>Bellingcat</code> describio precisamente ese enfoque: localizar con precision donde se habia grabado cada imagen y usar ese conjunto para reconstruir el desplazamiento del <code>Buk</code> durante el <code>17 de julio de 2014</code>. Tambien explico que el mismo analisis se apoyo en material compartido por civiles a lo largo de la ruta del convoy en Rusia unas semanas antes, lo que permitio enlazar visualmente el sistema con un origen mas concreto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-tratar-las-huellas-visuales-como-identificadores-tecnicos">3. Tratar las huellas visuales como identificadores tecnicos<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#3-tratar-las-huellas-visuales-como-identificadores-tecnicos" class="hash-link" aria-label="Enlace directo al 3. Tratar las huellas visuales como identificadores tecnicos" title="Enlace directo al 3. Tratar las huellas visuales como identificadores tecnicos" translate="no">​</a></h3>
-<p>Uno de los detalles mas potentes del caso fue metodologicamente pequeno: <strong>no bastaba con decir "es un Buk"</strong>. Habia que preguntarse si era ese mismo <code>Buk</code>.</p>
-<p>La investigacion abierta comparo marcas parciales, pintura, desperfectos y rasgos de las faldillas laterales del vehiculo. Ese nivel de lectura importa mucho en OSINT serio. El analista responsable no trabaja con categorias generales si puede trabajar con rasgos distintivos. La pregunta deja de ser "se parece" y pasa a ser "cuantos elementos independientes apuntan al mismo objeto".</p>
-<p>Segun <code>Bellingcat</code>, la revision de imagenes en Ucrania y Rusia llevo a vincular el lanzador visto el <code>17 de julio</code> con un <code>Buk</code> fotografiado en Rusia a finales de junio, apodado <code>3x2</code>. La conclusion no descansaba en una sola mancha de pintura, sino en una suma de rasgos visibles y en el hecho de que otras comparaciones no encajaban igual de bien.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-la-posible-zona-de-lanzamiento-con-capas-distintas">4. Corroborar la posible zona de lanzamiento con capas distintas<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#4-corroborar-la-posible-zona-de-lanzamiento-con-capas-distintas" class="hash-link" aria-label="Enlace directo al 4. Corroborar la posible zona de lanzamiento con capas distintas" title="Enlace directo al 4. Corroborar la posible zona de lanzamiento con capas distintas" translate="no">​</a></h3>
-<p>El siguiente error que conviene evitar en cualquier caso OSINT es pensar que una ruta basta. No basta. Hace falta otra capa.</p>
-<p>En <code>MH17</code>, la zona de lanzamiento propuesta cerca de <code>Pervomaiskyi</code> se fue apoyando en varios tipos de material:</p>
+<p>Ademas, explica que ciertos artefactos se procesan automaticamente, incluyendo extraccion de archivos, parseo de <code>PDF</code>, analisis de <code>LNK</code> y escaneo con patrones <code>YARA</code>.</p>
+<p>Eso da mucho contexto, pero no deberia usarse sin freno. Que aparezca una alerta, un script opaco o una infraestructura poco conocida no prueba por si solo una campana concreta ni una autoria.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruzar-siempre-fuera-de-la-plataforma">4. Cruzar siempre fuera de la plataforma<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#4-cruzar-siempre-fuera-de-la-plataforma" class="hash-link" aria-label="Enlace directo al 4. Cruzar siempre fuera de la plataforma" title="Enlace directo al 4. Cruzar siempre fuera de la plataforma" translate="no">​</a></h3>
+<p>El informe de <code>urlquery</code> gana valor cuando lo sacas de la burbuja:</p>
 <ul>
-<li class="">foto del rastro de humo;</li>
-<li class="">geolocalizacion de ese material;</li>
-<li class="">imagenes satelitales;</li>
-<li class="">marcas observables sobre el terreno;</li>
-<li class="">conversaciones interceptadas incorporadas por la investigacion oficial;</li>
-<li class="">y testimonios o publicaciones locales sobre el lanzamiento.</li>
+<li class=""><code>RDAP</code> o <code>WHOIS</code>, si importa contexto registral;</li>
+<li class=""><code>crt.sh</code> o <code>CT logs</code>, si necesitas cronologia de certificados;</li>
+<li class="">archivo web, si quieres saber si la pagina o el dominio ya existian con otra funcion;</li>
+<li class=""><code>urlscan.io</code>, si buscas otra perspectiva de carga web;</li>
+<li class="">y captura propia o analisis manual, si el hallazgo parece realmente relevante.</li>
 </ul>
-<p>El tribunal de La Haya resumio despues un punto clave: no basaba su certeza en un unico tipo de evidencia, sino en un conjunto que incluia fotos del rastro, imagenes satelitales, llamadas interceptadas, datos de telefonia, fotos y videos del <code>Buk-TELAR</code> y examen forense de fragmentos hallados en cuerpos y restos del avion. Esa acumulacion disciplinada es exactamente el tipo de convergencia que un analista deberia buscar antes de subir el tono de una conclusion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-giro-cuando-internet-deja-de-ser-escaparate-y-se-convierte-en-archivo-de-movimientos">El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#el-giro-cuando-internet-deja-de-ser-escaparate-y-se-convierte-en-archivo-de-movimientos" class="hash-link" aria-label="Enlace directo al El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos" title="Enlace directo al El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos" translate="no">​</a></h2>
-<p>Hay una version simplista del caso <code>MH17</code> que dice: "las redes sociales resolvieron el misterio". Es una mala lectura. Las redes, por si solas, no resuelven nada. Lo que resuelve es el metodo aplicado sobre material publico.</p>
-<p>El giro real del caso fue otro: <strong>internet dejo de ser solo el lugar donde circulaba el ruido y paso a ser tambien el lugar donde quedaban rastros involuntarios del movimiento de un sistema concreto</strong>. Fotos casuales, videos de paso, referencias urbanas, comentarios locales y material satelital no formaban una narrativa cerrada por separado. Pero juntos reducian mucho el espacio para escenarios alternativos.</p>
-<p>Por eso el caso sigue siendo tan didactico. Ensena que la fuerza del OSINT no siempre esta en descubrir una pieza secreta, sino en obligar a que cientos de piezas publicas dejen de comportarse como anecdotas sueltas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidencia-y-limites-que-puede-afirmarse-con-solidez-y-que-no">Evidencia y limites: que puede afirmarse con solidez y que no<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#evidencia-y-limites-que-puede-afirmarse-con-solidez-y-que-no" class="hash-link" aria-label="Enlace directo al Evidencia y limites: que puede afirmarse con solidez y que no" title="Enlace directo al Evidencia y limites: que puede afirmarse con solidez y que no" translate="no">​</a></h2>
-<p>Con fuentes publicas e institucionales, hay varias afirmaciones fuertes que hoy se sostienen bien:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>urlquery</code> puede ser muy util, pero conviene no pedirle mas de lo que promete.</p>
+<p>Primero, una carga en <code>sandbox</code> no equivale a lo que veria cualquier victima real en cualquier pais, idioma o contexto tecnico. Algunas paginas adaptan contenido por <code>IP</code>, agente de usuario, cabeceras, hora o reputacion del visitante.</p>
+<p>Segundo, una pagina puede cargar recursos de terceros perfectamente legitimos y aun asi parecer "ruidosa". Lo contrario tambien pasa: una web muy limpia visualmente puede ocultar intencion maliciosa fuera de la muestra que has visto.</p>
+<p>Tercero, la propia plataforma indica que retiene resultados durante un tiempo limitado para soporte operativo y de investigacion. Eso significa que no deberias tratarla como archivo eterno ni como sustituto de tu propia preservacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Hay una regla sencilla que aqui importa mucho: <strong>no subas a terceros lo que no deberias externalizar</strong>.</p>
+<p>En practica:</p>
 <ul>
-<li class="">el <code>17 de julio de 2014</code> el vuelo <code>MH17</code> fue derribado en el este de Ucrania y murieron <code>298</code> personas;</li>
-<li class="">el <code>JIT</code> comunico el <code>28 de septiembre de 2016</code> que el misil <code>Buk</code> se habia lanzado desde un campo cerca de <code>Pervomaiskyi</code>;</li>
-<li class="">el tribunal de La Haya establecio el <code>17 de noviembre de 2022</code> que <code>MH17</code> fue alcanzado por un misil <code>Buk</code> disparado desde esa zona y condeno a tres acusados a cadena perpetua;</li>
-<li class="">el <code>JIT</code> mantuvo la investigacion abierta hasta publicar su informe adicional el <code>8 de febrero de 2023</code>, con indicios fuertes sobre la cadena de suministro del sistema pero sin base suficiente para nuevas imputaciones individuales.</li>
+<li class="">no envies URLs internas, privadas o con credenciales;</li>
+<li class="">no uses selectores que revelen datos personales innecesarios;</li>
+<li class="">no confundas un servicio publico de analisis con un contenedor de evidencia definitivo;</li>
+<li class="">y documenta siempre que parte del hallazgo viene de <code>urlquery</code> y que parte viene de tu contraste posterior.</li>
 </ul>
-<p>Tambien conviene mantener limites claros:</p>
+<p>Tambien conviene recordar que un servicio de este tipo esta mas orientado a analisis, investigacion y educacion que a sentencia final. Su propia pagina <code>About</code> lo formula en esos terminos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si lo que necesitas es otra lectura de comportamiento web, <code>urlscan.io</code> puede complementar bastante bien. Si tu foco esta mas en reputacion o enriquecimiento de <code>IoCs</code>, herramientas como <code>Maltiverse</code>, <code>ThreatFox</code> o <code>URLhaus</code> cubren otra parte del problema. Y si lo critico es infraestructura, certificados o historico DNS, el camino suele pasar por <code>CT logs</code>, <code>RDAP</code>, <code>SecurityTrails</code> o fuentes equivalentes.</p>
+<p>La clave es no convertir <code>urlquery</code> en martillo universal. Encaja muy bien cuando la pregunta central es: <strong>que hace de verdad esta URL cuando la dejo cargar en un entorno controlado</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>urlquery</code> no sustituye criterio, pero si reduce trabajo ciego. Te ayuda a ver redirecciones, recursos, capturas y artefactos sin exponer tu navegador principal, y eso ya mejora mucho el triage. El paso serio sigue siendo el de siempre: corroborar, preservar y explicar con calma por que un enlace merece confianza, bloqueo o mas investigacion.</p>
+<p>Como siguiente puente editorial para el blog, tendria sentido bajar de esta pieza a una comparativa practica entre <code>urlquery</code> y <code>urlscan.io</code>: mismas preguntas, distinta cobertura y diferentes limites.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
 <ul>
-<li class="">OSINT no reemplaza por si solo la cadena completa de custodia penal.</li>
-<li class="">Una geolocalizacion fuerte no explica automaticamente toda la cadena de mando.</li>
-<li class="">Material compartido en redes necesita autenticacion y contraste, no entusiasmo.</li>
-<li class="">En conflictos armados siempre existe riesgo de manipular contexto, tiempos o procedencia.</li>
-</ul>
-<p>El punto responsable no es vender invulnerabilidad metodologica. Es reconocer que un buen caso OSINT se vuelve valioso cuando diferentes capas independientes cuentan una historia compatible y, ademas, sobreviven al escrutinio judicial o institucional.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolkit-metodologico-para-aprender-de-mh17-sin-romantizar-el-caso">Toolkit metodologico para aprender de MH17 sin romantizar el caso<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#toolkit-metodologico-para-aprender-de-mh17-sin-romantizar-el-caso" class="hash-link" aria-label="Enlace directo al Toolkit metodologico para aprender de MH17 sin romantizar el caso" title="Enlace directo al Toolkit metodologico para aprender de MH17 sin romantizar el caso" translate="no">​</a></h2>
-<p>Lo replicable de <code>MH17</code> no es el dramatismo del expediente. Es el oficio:</p>
-<ul>
-<li class="">construir una cronologia unica antes de discutir atribucion;</li>
-<li class="">trabajar con objetos identificables, no con categorias vagas;</li>
-<li class="">conservar enlaces, capturas, fechas y contexto de cada hallazgo;</li>
-<li class="">exigir corroboracion geografica y temporal a todo material visual;</li>
-<li class="">y separar siempre hecho, inferencia y hueco pendiente.</li>
-</ul>
-<p>Herramientas y practicas que este caso vuelve especialmente valiosas:</p>
-<ul>
-<li class="">geolocalizacion sobre mapas y referencia urbana;</li>
-<li class="">analisis de sombras y secuencia temporal;</li>
-<li class="">archivo sistematico de publicaciones y multimedia;</li>
-<li class="">tablas de comparacion para rasgos tecnicos de vehiculos u objetos;</li>
-<li class="">satelite comercial o historico para confirmar cambios sobre el terreno;</li>
-<li class="">y notas de investigacion que expliquen por que una pieza entra o sale del caso.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaways">Takeaways<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#takeaways" class="hash-link" aria-label="Enlace directo al Takeaways" title="Enlace directo al Takeaways" translate="no">​</a></h2>
-<ul>
-<li class="">En una guerra informativa, la cronologia es una forma de higiene intelectual.</li>
-<li class="">Una foto no vale por lo que impresiona, sino por lo que puede ubicarse y compararse.</li>
-<li class="">El OSINT mas util suele ser el que convierte material disperso en una secuencia refutable.</li>
-<li class="">Las conclusiones fuertes aparecen cuando varias capas independientes convergen.</li>
-<li class="">El objetivo no es sonar seguro antes de tiempo, sino dejar cada afirmacion mejor atada que el ruido que la rodea.</li>
-</ul>
-<p>Como puente natural para el siguiente tema del blog, tendria sentido bajar de esta historia a una tecnica concreta de trabajo: <strong>como geolocalizar y cronolocalizar material visual sin forzar coincidencias</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>Public Prosecution Service</code>, "JIT presentation of first results of the MH17 criminal investigation", <code>28 de septiembre de 2016</code>: <a href="https://www.prosecutionservice.nl/topics/m/mh17-plane-crash/criminal-investigation-jit-mh17/jit-presentation-first-results-mh17-criminal-investigation-28-9-2016" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/topics/m/mh17-plane-crash/criminal-investigation-jit-mh17/jit-presentation-first-results-mh17-criminal-investigation-28-9-2016</a></li>
-<li class=""><code>Rechtspraak</code>, "Levenslange gevangenisstraffen..." sobre el veredicto de <code>MH17</code>, <code>17 de noviembre de 2022</code>: <a href="https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag/nieuws/mh17" target="_blank" rel="noopener noreferrer" class="">https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag/nieuws/mh17</a></li>
-<li class=""><code>Public Prosecution Service</code>, "Report MH17", <code>8 de febrero de 2023</code>: <a href="https://www.prosecutionservice.nl/topics/mh17-plane-crash/documents/publications/mh17/map/2023/report-mh17" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/topics/mh17-plane-crash/documents/publications/mh17/map/2023/report-mh17</a></li>
-<li class=""><code>Public Prosecution Service</code>, "JIT MH17: strong indications that Russian president decided on supplying Buk", <code>8 de febrero de 2023</code>: <a href="https://www.prosecutionservice.nl/latest/news/2023/02/08/jit-mh17-strong-indications-that-russian-president-decided-on-supplying-buk" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/latest/news/2023/02/08/jit-mh17-strong-indications-that-russian-president-decided-on-supplying-buk</a></li>
-<li class=""><code>Eurojust</code>, "Eurojust support to joint investigation team MH17: three suspects sentenced to life imprisonment", <code>17 de noviembre de 2022</code>: <a href="https://www.eurojust.europa.eu/news/eurojust-support-joint-investigation-team-mh17-three-suspects-sentenced-life-imprisonment" target="_blank" rel="noopener noreferrer" class="">https://www.eurojust.europa.eu/news/eurojust-support-joint-investigation-team-mh17-three-suspects-sentenced-life-imprisonment</a></li>
-<li class=""><code>Bellingcat</code>, "MH17 - The Open Source Evidence", <code>8 de octubre de 2015</code>: <a href="https://www.bellingcat.com/news/europe/2015/10/08/mh17-the-open-source-evidence/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/europe/2015/10/08/mh17-the-open-source-evidence/</a></li>
+<li class=""><code>urlquery</code>, pagina principal: <a href="https://search.urlquery.net/" target="_blank" rel="noopener noreferrer" class="">https://search.urlquery.net/</a></li>
+<li class=""><code>urlquery</code>, <code>About</code>: <a href="https://www.urlquery.net/about" target="_blank" rel="noopener noreferrer" class="">https://www.urlquery.net/about</a></li>
+<li class=""><code>urlquery</code>, <code>Search</code>: <a href="https://www.urlquery.net/search" target="_blank" rel="noopener noreferrer" class="">https://www.urlquery.net/search</a></li>
+<li class=""><code>urlquery</code>, <code>FAQ</code>: <a href="https://urlquery.net/faq" target="_blank" rel="noopener noreferrer" class="">https://urlquery.net/faq</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter</name>
             <uri>https://github.com/spainfsd-creator</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
-        <category label="Historia" term="Historia"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Verificacion" term="Verificacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Web" term="Web"/>
+        <category label="Phishing" term="Phishing"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[TinEye en OSINT: verificar imagenes, rastrear origen y poner contexto antes de concluir]]></title>
