@@ -2,11 +2,134 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-03T00:00:00.000Z</updated>
+    <updated>2026-06-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Historia OSINT: MH17, el convoy Buk y la cronologia abierta que acabo en un tribunal]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal"/>
+        <updated>2026-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una investigacion OSINT sobre MH17 con mapa de ruta, fotos geolocalizadas de un convoy Buk, notas cronologicas y analistas cruzando evidencias publicas]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una investigacion OSINT sobre MH17 con mapa de ruta, fotos geolocalizadas de un convoy Buk, notas cronologicas y analistas cruzando evidencias publicas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-04-historia-mh17-osint-convoy-buk-cronologia-tribunal-934804c001db58e676a38460ca93250c.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Hay historias OSINT que parecen imposibles precisamente porque son demasiado grandes. Un avion comercial cae, mueren <code>298</code> personas, el espacio informativo se llena de versiones enfrentadas y cada bando intenta usar la niebla del conflicto como si fuera una coartada. En un caso asi, el peligro no es solo no saber suficiente. El peligro real es <strong>dejar que el volumen de ruido haga pasar por inevitable la confusion</strong>.</p>
+<p>El caso <code>MH17</code> importa porque ensena lo contrario. No fue una sola foto, ni un solo mapa, ni un solo analista con una intuicion brillante. Fue una cadena de trabajo bastante mas sobria: recoger material publico, fijar lugares, ordenar horas, comparar detalles tecnicos, cruzar testimonios, revisar satelite y obligar a que cada pieza conviviera con las demas. Lo interesante para el oficio no es el dramatismo del caso. Es comprobar como una cronologia abierta, bien trabajada, puede reducir el espacio de negacion hasta volverse util incluso en sede judicial.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contexto-minimo-un-desastre-muchas-versiones-y-una-pregunta-central">Contexto minimo: un desastre, muchas versiones y una pregunta central<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#contexto-minimo-un-desastre-muchas-versiones-y-una-pregunta-central" class="hash-link" aria-label="Enlace directo al Contexto minimo: un desastre, muchas versiones y una pregunta central" title="Enlace directo al Contexto minimo: un desastre, muchas versiones y una pregunta central" translate="no">​</a></h2>
+<p>El <code>17 de julio de 2014</code>, el vuelo <code>MH17</code> de <code>Malaysia Airlines</code>, que cubria la ruta entre Amsterdam y Kuala Lumpur, fue derribado sobre el este de Ucrania. El saldo fue total: <code>283</code> pasajeros y <code>15</code> tripulantes muertos. Desde el principio, la escena publica quedo contaminada por dos problemas clasicos de investigacion en guerra:</p>
+<ul>
+<li class="">abundancia de material parcial;</li>
+<li class="">propagacion de narrativas incompatibles;</li>
+<li class="">y un incentivo politico evidente para sembrar duda sobre origen, autoria y contexto.</li>
+</ul>
+<p>En este tipo de entorno, OSINT no sirve para "ganar una discusion en internet". Sirve para responder preguntas mas secas y mas dificiles:</p>
+<ul>
+<li class="">que se vio exactamente y donde;</li>
+<li class="">en que secuencia aparecieron ciertos activos;</li>
+<li class="">que partes de la cronologia pueden comprobarse con datos publicos;</li>
+<li class="">y que hipotesis dejan de sostenerse cuando todas esas capas se miran juntas.</li>
+</ul>
+<p>El <code>Joint Investigation Team</code> (<code>JIT</code>) presento sus primeros resultados el <code>28 de septiembre de 2016</code>. Ahi ya afirmaba que el vuelo fue alcanzado por un misil <code>Buk</code> lanzado desde un campo cerca de <code>Pervomaiskyi</code>, en una zona entonces controlada por separatistas. El <code>17 de noviembre de 2022</code>, el tribunal de La Haya condeno a <code>Kharchenko</code>, <code>Dubinskiy</code> y <code>Girkin</code> a cadena perpetua y absolvio a <code>Pulatov</code>. Y el <code>8 de febrero de 2023</code>, el <code>JIT</code> publico un informe adicional sobre la cadena de mando y explico que habia indicios fuertes sobre el suministro del sistema <code>Buk</code>, aunque no evidencia bastante para nuevas acusaciones individuales en ese momento.</p>
+<p>Eso ya marca una leccion importante: <strong>OSINT no sustituyo la investigacion penal, pero ayudo a fijar una columna vertebral publica que luego pudo contrastarse, tensionarse y reutilizarse</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-metodo-osint-cuando-la-cronologia-obliga-a-que-todo-encaje">El metodo OSINT: cuando la cronologia obliga a que todo encaje<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#el-metodo-osint-cuando-la-cronologia-obliga-a-que-todo-encaje" class="hash-link" aria-label="Enlace directo al El metodo OSINT: cuando la cronologia obliga a que todo encaje" title="Enlace directo al El metodo OSINT: cuando la cronologia obliga a que todo encaje" translate="no">​</a></h2>
+<p>Lo mas didactico del caso <code>MH17</code> no es el titular final. Es el flujo de trabajo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-no-empezar-por-quien-fue-sino-por-que-ruta-puede-demostrarse">1. No empezar por "quien fue", sino por "que ruta puede demostrarse"<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#1-no-empezar-por-quien-fue-sino-por-que-ruta-puede-demostrarse" class="hash-link" aria-label="Enlace directo al 1. No empezar por &quot;quien fue&quot;, sino por &quot;que ruta puede demostrarse&quot;" title="Enlace directo al 1. No empezar por &quot;quien fue&quot;, sino por &quot;que ruta puede demostrarse&quot;" translate="no">​</a></h3>
+<p>Buena parte de la investigacion abierta se concentro primero en un objeto concreto: un lanzador <code>Buk-TELAR</code> visto en imagenes y videos compartidos publicamente el mismo <code>17 de julio de 2014</code>. La pregunta util no era "de quien era" en abstracto. La pregunta correcta era mas humilde: <strong>puedo demostrar que el mismo sistema aparece en distintos puntos, en una secuencia temporal coherente y con marcas identificables</strong>.</p>
+<p>Segun el dossier de <code>Bellingcat</code> de <code>8 de octubre de 2015</code>, tras el derribo aparecieron fotos y videos que supuestamente mostraban el movimiento del <code>Buk</code> por territorio controlado por separatistas. El trabajo no consistio en aceptar esas publicaciones por fe. Consistio en geolocalizarlas una por una, fijar su orden aproximado y compararlas con otros detalles visibles del vehiculo y del entorno.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-convertir-fotos-sueltas-en-un-recorrido-verificable">2. Convertir fotos sueltas en un recorrido verificable<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#2-convertir-fotos-sueltas-en-un-recorrido-verificable" class="hash-link" aria-label="Enlace directo al 2. Convertir fotos sueltas en un recorrido verificable" title="Enlace directo al 2. Convertir fotos sueltas en un recorrido verificable" translate="no">​</a></h3>
+<p>Ese paso cambia el juego. Una foto aislada puede discutirse durante horas. Una cadena de fotos geolocalizadas en <code>Donetsk</code>, <code>Zuhres</code>, <code>Torez</code> y <code>Snizhne</code>, con referencias visibles y ventanas horarias aproximadas, empieza a comportarse como una ruta.</p>
+<p>El valor metodologico no esta en la estetica del hallazgo, sino en su disciplina:</p>
+<ul>
+<li class="">comprobar donde se tomo cada imagen;</li>
+<li class="">revisar sombras, orientacion y contexto urbano;</li>
+<li class="">buscar coincidencias del mismo remolque o del mismo vehiculo;</li>
+<li class="">y descartar material que no aguanta la comprobacion.</li>
+</ul>
+<p><code>Bellingcat</code> describio precisamente ese enfoque: localizar con precision donde se habia grabado cada imagen y usar ese conjunto para reconstruir el desplazamiento del <code>Buk</code> durante el <code>17 de julio de 2014</code>. Tambien explico que el mismo analisis se apoyo en material compartido por civiles a lo largo de la ruta del convoy en Rusia unas semanas antes, lo que permitio enlazar visualmente el sistema con un origen mas concreto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-tratar-las-huellas-visuales-como-identificadores-tecnicos">3. Tratar las huellas visuales como identificadores tecnicos<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#3-tratar-las-huellas-visuales-como-identificadores-tecnicos" class="hash-link" aria-label="Enlace directo al 3. Tratar las huellas visuales como identificadores tecnicos" title="Enlace directo al 3. Tratar las huellas visuales como identificadores tecnicos" translate="no">​</a></h3>
+<p>Uno de los detalles mas potentes del caso fue metodologicamente pequeno: <strong>no bastaba con decir "es un Buk"</strong>. Habia que preguntarse si era ese mismo <code>Buk</code>.</p>
+<p>La investigacion abierta comparo marcas parciales, pintura, desperfectos y rasgos de las faldillas laterales del vehiculo. Ese nivel de lectura importa mucho en OSINT serio. El analista responsable no trabaja con categorias generales si puede trabajar con rasgos distintivos. La pregunta deja de ser "se parece" y pasa a ser "cuantos elementos independientes apuntan al mismo objeto".</p>
+<p>Segun <code>Bellingcat</code>, la revision de imagenes en Ucrania y Rusia llevo a vincular el lanzador visto el <code>17 de julio</code> con un <code>Buk</code> fotografiado en Rusia a finales de junio, apodado <code>3x2</code>. La conclusion no descansaba en una sola mancha de pintura, sino en una suma de rasgos visibles y en el hecho de que otras comparaciones no encajaban igual de bien.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-la-posible-zona-de-lanzamiento-con-capas-distintas">4. Corroborar la posible zona de lanzamiento con capas distintas<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#4-corroborar-la-posible-zona-de-lanzamiento-con-capas-distintas" class="hash-link" aria-label="Enlace directo al 4. Corroborar la posible zona de lanzamiento con capas distintas" title="Enlace directo al 4. Corroborar la posible zona de lanzamiento con capas distintas" translate="no">​</a></h3>
+<p>El siguiente error que conviene evitar en cualquier caso OSINT es pensar que una ruta basta. No basta. Hace falta otra capa.</p>
+<p>En <code>MH17</code>, la zona de lanzamiento propuesta cerca de <code>Pervomaiskyi</code> se fue apoyando en varios tipos de material:</p>
+<ul>
+<li class="">foto del rastro de humo;</li>
+<li class="">geolocalizacion de ese material;</li>
+<li class="">imagenes satelitales;</li>
+<li class="">marcas observables sobre el terreno;</li>
+<li class="">conversaciones interceptadas incorporadas por la investigacion oficial;</li>
+<li class="">y testimonios o publicaciones locales sobre el lanzamiento.</li>
+</ul>
+<p>El tribunal de La Haya resumio despues un punto clave: no basaba su certeza en un unico tipo de evidencia, sino en un conjunto que incluia fotos del rastro, imagenes satelitales, llamadas interceptadas, datos de telefonia, fotos y videos del <code>Buk-TELAR</code> y examen forense de fragmentos hallados en cuerpos y restos del avion. Esa acumulacion disciplinada es exactamente el tipo de convergencia que un analista deberia buscar antes de subir el tono de una conclusion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-giro-cuando-internet-deja-de-ser-escaparate-y-se-convierte-en-archivo-de-movimientos">El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#el-giro-cuando-internet-deja-de-ser-escaparate-y-se-convierte-en-archivo-de-movimientos" class="hash-link" aria-label="Enlace directo al El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos" title="Enlace directo al El giro: cuando internet deja de ser escaparate y se convierte en archivo de movimientos" translate="no">​</a></h2>
+<p>Hay una version simplista del caso <code>MH17</code> que dice: "las redes sociales resolvieron el misterio". Es una mala lectura. Las redes, por si solas, no resuelven nada. Lo que resuelve es el metodo aplicado sobre material publico.</p>
+<p>El giro real del caso fue otro: <strong>internet dejo de ser solo el lugar donde circulaba el ruido y paso a ser tambien el lugar donde quedaban rastros involuntarios del movimiento de un sistema concreto</strong>. Fotos casuales, videos de paso, referencias urbanas, comentarios locales y material satelital no formaban una narrativa cerrada por separado. Pero juntos reducian mucho el espacio para escenarios alternativos.</p>
+<p>Por eso el caso sigue siendo tan didactico. Ensena que la fuerza del OSINT no siempre esta en descubrir una pieza secreta, sino en obligar a que cientos de piezas publicas dejen de comportarse como anecdotas sueltas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidencia-y-limites-que-puede-afirmarse-con-solidez-y-que-no">Evidencia y limites: que puede afirmarse con solidez y que no<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#evidencia-y-limites-que-puede-afirmarse-con-solidez-y-que-no" class="hash-link" aria-label="Enlace directo al Evidencia y limites: que puede afirmarse con solidez y que no" title="Enlace directo al Evidencia y limites: que puede afirmarse con solidez y que no" translate="no">​</a></h2>
+<p>Con fuentes publicas e institucionales, hay varias afirmaciones fuertes que hoy se sostienen bien:</p>
+<ul>
+<li class="">el <code>17 de julio de 2014</code> el vuelo <code>MH17</code> fue derribado en el este de Ucrania y murieron <code>298</code> personas;</li>
+<li class="">el <code>JIT</code> comunico el <code>28 de septiembre de 2016</code> que el misil <code>Buk</code> se habia lanzado desde un campo cerca de <code>Pervomaiskyi</code>;</li>
+<li class="">el tribunal de La Haya establecio el <code>17 de noviembre de 2022</code> que <code>MH17</code> fue alcanzado por un misil <code>Buk</code> disparado desde esa zona y condeno a tres acusados a cadena perpetua;</li>
+<li class="">el <code>JIT</code> mantuvo la investigacion abierta hasta publicar su informe adicional el <code>8 de febrero de 2023</code>, con indicios fuertes sobre la cadena de suministro del sistema pero sin base suficiente para nuevas imputaciones individuales.</li>
+</ul>
+<p>Tambien conviene mantener limites claros:</p>
+<ul>
+<li class="">OSINT no reemplaza por si solo la cadena completa de custodia penal.</li>
+<li class="">Una geolocalizacion fuerte no explica automaticamente toda la cadena de mando.</li>
+<li class="">Material compartido en redes necesita autenticacion y contraste, no entusiasmo.</li>
+<li class="">En conflictos armados siempre existe riesgo de manipular contexto, tiempos o procedencia.</li>
+</ul>
+<p>El punto responsable no es vender invulnerabilidad metodologica. Es reconocer que un buen caso OSINT se vuelve valioso cuando diferentes capas independientes cuentan una historia compatible y, ademas, sobreviven al escrutinio judicial o institucional.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolkit-metodologico-para-aprender-de-mh17-sin-romantizar-el-caso">Toolkit metodologico para aprender de MH17 sin romantizar el caso<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#toolkit-metodologico-para-aprender-de-mh17-sin-romantizar-el-caso" class="hash-link" aria-label="Enlace directo al Toolkit metodologico para aprender de MH17 sin romantizar el caso" title="Enlace directo al Toolkit metodologico para aprender de MH17 sin romantizar el caso" translate="no">​</a></h2>
+<p>Lo replicable de <code>MH17</code> no es el dramatismo del expediente. Es el oficio:</p>
+<ul>
+<li class="">construir una cronologia unica antes de discutir atribucion;</li>
+<li class="">trabajar con objetos identificables, no con categorias vagas;</li>
+<li class="">conservar enlaces, capturas, fechas y contexto de cada hallazgo;</li>
+<li class="">exigir corroboracion geografica y temporal a todo material visual;</li>
+<li class="">y separar siempre hecho, inferencia y hueco pendiente.</li>
+</ul>
+<p>Herramientas y practicas que este caso vuelve especialmente valiosas:</p>
+<ul>
+<li class="">geolocalizacion sobre mapas y referencia urbana;</li>
+<li class="">analisis de sombras y secuencia temporal;</li>
+<li class="">archivo sistematico de publicaciones y multimedia;</li>
+<li class="">tablas de comparacion para rasgos tecnicos de vehiculos u objetos;</li>
+<li class="">satelite comercial o historico para confirmar cambios sobre el terreno;</li>
+<li class="">y notas de investigacion que expliquen por que una pieza entra o sale del caso.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaways">Takeaways<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#takeaways" class="hash-link" aria-label="Enlace directo al Takeaways" title="Enlace directo al Takeaways" translate="no">​</a></h2>
+<ul>
+<li class="">En una guerra informativa, la cronologia es una forma de higiene intelectual.</li>
+<li class="">Una foto no vale por lo que impresiona, sino por lo que puede ubicarse y compararse.</li>
+<li class="">El OSINT mas util suele ser el que convierte material disperso en una secuencia refutable.</li>
+<li class="">Las conclusiones fuertes aparecen cuando varias capas independientes convergen.</li>
+<li class="">El objetivo no es sonar seguro antes de tiempo, sino dejar cada afirmacion mejor atada que el ruido que la rodea.</li>
+</ul>
+<p>Como puente natural para el siguiente tema del blog, tendria sentido bajar de esta historia a una tecnica concreta de trabajo: <strong>como geolocalizar y cronolocalizar material visual sin forzar coincidencias</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-mh17-osint-convoy-buk-cronologia-tribunal#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
+<ul>
+<li class=""><code>Public Prosecution Service</code>, "JIT presentation of first results of the MH17 criminal investigation", <code>28 de septiembre de 2016</code>: <a href="https://www.prosecutionservice.nl/topics/m/mh17-plane-crash/criminal-investigation-jit-mh17/jit-presentation-first-results-mh17-criminal-investigation-28-9-2016" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/topics/m/mh17-plane-crash/criminal-investigation-jit-mh17/jit-presentation-first-results-mh17-criminal-investigation-28-9-2016</a></li>
+<li class=""><code>Rechtspraak</code>, "Levenslange gevangenisstraffen..." sobre el veredicto de <code>MH17</code>, <code>17 de noviembre de 2022</code>: <a href="https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag/nieuws/mh17" target="_blank" rel="noopener noreferrer" class="">https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag/nieuws/mh17</a></li>
+<li class=""><code>Public Prosecution Service</code>, "Report MH17", <code>8 de febrero de 2023</code>: <a href="https://www.prosecutionservice.nl/topics/mh17-plane-crash/documents/publications/mh17/map/2023/report-mh17" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/topics/mh17-plane-crash/documents/publications/mh17/map/2023/report-mh17</a></li>
+<li class=""><code>Public Prosecution Service</code>, "JIT MH17: strong indications that Russian president decided on supplying Buk", <code>8 de febrero de 2023</code>: <a href="https://www.prosecutionservice.nl/latest/news/2023/02/08/jit-mh17-strong-indications-that-russian-president-decided-on-supplying-buk" target="_blank" rel="noopener noreferrer" class="">https://www.prosecutionservice.nl/latest/news/2023/02/08/jit-mh17-strong-indications-that-russian-president-decided-on-supplying-buk</a></li>
+<li class=""><code>Eurojust</code>, "Eurojust support to joint investigation team MH17: three suspects sentenced to life imprisonment", <code>17 de noviembre de 2022</code>: <a href="https://www.eurojust.europa.eu/news/eurojust-support-joint-investigation-team-mh17-three-suspects-sentenced-life-imprisonment" target="_blank" rel="noopener noreferrer" class="">https://www.eurojust.europa.eu/news/eurojust-support-joint-investigation-team-mh17-three-suspects-sentenced-life-imprisonment</a></li>
+<li class=""><code>Bellingcat</code>, "MH17 - The Open Source Evidence", <code>8 de octubre de 2015</code>: <a href="https://www.bellingcat.com/news/europe/2015/10/08/mh17-the-open-source-evidence/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/europe/2015/10/08/mh17-the-open-source-evidence/</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Historia" term="Historia"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[TinEye en OSINT: verificar imagenes, rastrear origen y poner contexto antes de concluir]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto</id>
@@ -2165,120 +2288,5 @@
         <category label="Tooling" term="Tooling"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ArchiveBox en OSINT: archivo web autocustodiado y evidencia reproducible sin depender de terceros]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible"/>
-        <updated>2026-05-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT preservando paginas web, capturas, PDF y WARC en un archivo autocustodiado con trazabilidad local]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT preservando paginas web, capturas, PDF y WARC en un archivo autocustodiado con trazabilidad local" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-07-archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible-b2774e1e387e8134013c1f5815606dc5.png" width="1600" height="900" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible-ccbd166e0697eaa1714eaccc4ffd1596.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Cuando una pagina delicada cambia, desaparece o empieza a devolver otra cosa, el error no siempre es "no haberla visto". Muchas veces el error serio es haber confiado en que <strong>algun tercero la conservaria por ti</strong>. En ese hueco entra <code>ArchiveBox</code>: no como oraculo magico, sino como una forma de <strong>preservar contenido web bajo tu propio control</strong>, con varias salidas revisables y sin depender por completo de un servicio ajeno que mañana puede fallar, limitarte o cambiar de politica.</p>
-<p>La utilidad OSINT aqui es muy concreta. Si necesitas documentar una web corporativa, un anuncio publico, una pagina de producto, una fuente periodistica o un registro visible antes de que cambie, <code>ArchiveBox</code> te da un enfoque mas cercano a la <strong>custodia operativa</strong> que al simple "guardar un enlace". Pero esa potencia tambien trae responsabilidades: espacio en disco, riesgo al abrir contenido archivado con JavaScript, y la necesidad de separar claramente <strong>captura</strong>, <strong>contexto</strong> y <strong>conclusion analitica</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p>La documentacion oficial presenta <code>ArchiveBox</code> como una solucion de archivo web autocustodiada y de codigo abierto. Su propuesta es sencilla de entender y muy util en investigacion: tomar URLs, historiales, marcadores o listas de texto y generar copias locales en formatos revisables a largo plazo.</p>
-<p>Segun la web del proyecto, puede guardar:</p>
-<ul>
-<li class="">HTML renderizado;</li>
-<li class="">capturas de pantalla;</li>
-<li class="">PDF;</li>
-<li class=""><code>WARC</code>;</li>
-<li class="">texto extraido;</li>
-<li class="">cabeceras, favicon y otros artefactos;</li>
-<li class="">medios y subtitulos cuando el extractor correspondiente aplica.</li>
-</ul>
-<p>Ese detalle importa en OSINT porque rara vez basta una sola representacion. Una captura es buena para lectura rapida; un <code>WARC</code> o un HTML guardado ayudan mas a preservar estructura y reproducibilidad; un PDF puede ser util para compartir revision interna sin abrir una web viva.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina a <code>Delta Due Diligence</code>, una consultora ficticia que revisa la presencia publica de un proveedor antes de un contrato sensible. Durante una semana detecta varios cambios pequenos:</p>
-<ul>
-<li class="">desaparece una pagina de equipo;</li>
-<li class="">se reescribe una politica de privacidad;</li>
-<li class="">se modifica una landing con afirmaciones comerciales agresivas;</li>
-<li class="">y una entrada del blog enlazada en notas internas empieza a devolver error.</li>
-</ul>
-<p>El objetivo no es "pillar" a nadie, sino responder con disciplina:</p>
-<ol>
-<li class="">que estaba publicado en una fecha concreta;</li>
-<li class="">que formato de evidencia conserva mejor ese estado;</li>
-<li class="">como se puede revisar despues sin depender de que el sitio siga igual.</li>
-</ol>
-<p><code>ArchiveBox</code> encaja bien aqui porque permite mantener una coleccion local, etiquetable y repetible de capturas. La web del proyecto subraya ademas que el sistema esta pensado para periodistas, juristas, investigadores e instituciones que necesitan conservar copias revisables fuera de plataformas volatiles. Esa filosofia es especialmente util cuando el valor del hallazgo depende de poder volver a el manana, no solo de verlo hoy.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-y-no-por-una-coleccion-infinita">1. Empieza por una pregunta y no por una coleccion infinita<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#1-empieza-por-una-pregunta-y-no-por-una-coleccion-infinita" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta y no por una coleccion infinita" title="Enlace directo al 1. Empieza por una pregunta y no por una coleccion infinita" translate="no">​</a></h3>
-<p>No archives "todo internet". Define que pregunta intentas responder:</p>
-<ul>
-<li class="">reconstruir una cronologia de cambios;</li>
-<li class="">fijar una declaracion publica antes de que se edite;</li>
-<li class="">preservar una muestra revisable de un conjunto de paginas;</li>
-<li class="">o preparar material para verificacion posterior.</li>
-</ul>
-<p>Ese scope evita dos problemas clasicos: acumular ruido inutil y conservar mas datos de los necesarios.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-varias-salidas-no-una-sola">2. Conserva varias salidas, no una sola<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#2-conserva-varias-salidas-no-una-sola" class="hash-link" aria-label="Enlace directo al 2. Conserva varias salidas, no una sola" title="Enlace directo al 2. Conserva varias salidas, no una sola" translate="no">​</a></h3>
-<p>Uno de los puntos fuertes de <code>ArchiveBox</code> es precisamente que no se limita a una unica vista. La documentacion y la web del proyecto remarcan la combinacion de HTML, capturas, PDF, <code>WARC</code>, texto y metadatos.</p>
-<p>En terminos practicos:</p>
-<ul>
-<li class="">la captura ayuda a lectura humana rapida;</li>
-<li class="">el HTML y el <code>WARC</code> aportan mas profundidad tecnica;</li>
-<li class="">el texto extraido facilita busqueda y comparacion;</li>
-<li class="">y los metadatos en <code>SQLite</code> y <code>JSON</code> ayudan a no perder trazabilidad.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-fuentes-de-entrada-reproducibles">3. Usa fuentes de entrada reproducibles<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#3-usa-fuentes-de-entrada-reproducibles" class="hash-link" aria-label="Enlace directo al 3. Usa fuentes de entrada reproducibles" title="Enlace directo al 3. Usa fuentes de entrada reproducibles" translate="no">​</a></h3>
-<p>El proyecto permite importar una URL puntual, texto canalizado por CLI, exportaciones de marcadores y listas basadas en <code>RSS</code> u otras fuentes textuales. Para un analista eso tiene una ventaja metodologica fuerte: puedes dejar claro <strong>que lista entro</strong>, <strong>cuando</strong> y <strong>con que criterio</strong>.</p>
-<p>Si en seis semanas alguien pregunta "por que se archivo esta URL y no otra", tienes una respuesta mejor que "porque me salio en el navegador".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-el-archivo-como-evidencia-de-trabajo-no-como-prueba-total">4. Trata el archivo como evidencia de trabajo, no como prueba total<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#4-trata-el-archivo-como-evidencia-de-trabajo-no-como-prueba-total" class="hash-link" aria-label="Enlace directo al 4. Trata el archivo como evidencia de trabajo, no como prueba total" title="Enlace directo al 4. Trata el archivo como evidencia de trabajo, no como prueba total" translate="no">​</a></h3>
-<p>Una copia archivada puede fijar un estado visible, pero no resuelve por si sola preguntas de autoria, intencion o legalidad. Un post borrado puede seguir necesitando contraste con:</p>
-<ul>
-<li class=""><code>Wayback Machine</code> o capturas de terceros;</li>
-<li class="">notas internas fechadas;</li>
-<li class="">hashes o registros de preservacion adicionales;</li>
-<li class="">y, cuando proceda, documentacion publica complementaria.</li>
-</ul>
-<p>La regla sobria es esta: <code>ArchiveBox</code> te ayuda a <strong>preservar mejor</strong>, no a <strong>inferir mas de la cuenta</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-asegura-el-entorno-antes-de-publicar-o-compartir">5. Asegura el entorno antes de publicar o compartir<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#5-asegura-el-entorno-antes-de-publicar-o-compartir" class="hash-link" aria-label="Enlace directo al 5. Asegura el entorno antes de publicar o compartir" title="Enlace directo al 5. Asegura el entorno antes de publicar o compartir" translate="no">​</a></h3>
-<p>La documentacion de <code>ArchiveBox</code> dedica una seccion especifica a seguridad. El propio proyecto diferencia entre archivar contenido publico, que presenta como caso por defecto y recomendado para la mayoria, y archivar contenido tras login, que reserva a usuarios avanzados. Tambien insiste en no ejecutar el sistema como <code>root</code> y en revisar cuidadosamente permisos, publicacion y riesgos de contenido activo.</p>
-<p>Para OSINT responsable, eso se traduce en tres habitos:</p>
-<ul>
-<li class="">separa colecciones publicas de material sensible;</li>
-<li class="">no abras a terceros una interfaz con snapshots sin revisar permisos;</li>
-<li class="">y documenta si una captura incluye contenido que no deberia redistribuirse sin mas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>ArchiveBox</code> es potente, pero no conviene romantizarlo:</p>
-<ul>
-<li class="">preservar no equivale a autenticar;</li>
-<li class="">una pagina renderizada hoy puede no reproducirse igual manana;</li>
-<li class="">algunos sitios bloquean automatizacion o exigen cookies/sesion;</li>
-<li class="">el espacio en disco puede crecer deprisa.</li>
-</ul>
-<p>La propia web del proyecto estima un consumo aproximado de <code>1 GB</code> a <code>50 GB</code> por cada <code>1.000 snapshots</code>, segun medios y extractores activados. Eso obliga a decidir que guardas, con que frecuencia y en que formato. Si no lo haces, acabaras con una coleccion grande pero metodologicamente perezosa.</p>
-<p>Tambien hay una advertencia importante: el proyecto avisa del riesgo de visualizar contenido archivado que ejecute JavaScript. Dicho de forma llana, abrir una copia guardada no siempre es lo mismo que abrir una imagen inerte. Si la coleccion importa de verdad, hay que tratar la publicacion y la navegacion de snapshots como una decision de seguridad, no solo de comodidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Archiva por necesidad analitica, no por impulso coleccionista.</li>
-<li class="">Minimiza datos personales si no son relevantes para la pregunta investigativa.</li>
-<li class="">Prefiere contenido publico y acceso legitimo; no conviertas la herramienta en excusa para conservar material obtenido de forma dudosa.</li>
-<li class="">Manten separadas las notas interpretativas de la evidencia preservada.</li>
-<li class="">Si compartes una coleccion, revisa permisos, metadatos y si existe riesgo de reexponer informacion sensible.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si lo que necesitas es un historico publico ya existente, <code>Wayback Machine</code> o <code>Archive.today</code> pueden ser mas rapidos. Si tu prioridad es capturar tu propia navegacion investigativa con contexto continuo, <code>Hunchly</code> ofrece otra filosofia de trabajo. Y si el objetivo principal es evidencia robusta para revision, conviene combinar archivo web con hashes, notas de consulta y una cronologia clara.</p>
-<p>El takeaway practico es sencillo: <code>ArchiveBox</code> merece sitio en una caja de herramientas OSINT madura porque devuelve control sobre la preservacion. No sirve para saltarte el metodo. Sirve para que el metodo no dependa de que otro servicio recuerde por ti lo que hoy estas viendo.</p>
-<p>Como siguiente puente editorial del blog, la comparativa util seria bajar al terreno de <strong>cuando conviene un archivo publico, cuando uno local y cuando necesitas ambas capas a la vez</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://archivebox.io/" target="_blank" rel="noopener noreferrer" class="">ArchiveBox, web oficial</a></li>
-<li class=""><a href="https://docs.archivebox.io/" target="_blank" rel="noopener noreferrer" class="">ArchiveBox Docs, inicio</a></li>
-<li class=""><a href="https://github.com/ArchiveBox/ArchiveBox" target="_blank" rel="noopener noreferrer" class="">ArchiveBox, repositorio oficial en GitHub</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Tradecraft" term="Tradecraft"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
