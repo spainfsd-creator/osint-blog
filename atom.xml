@@ -2,11 +2,114 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-04T00:00:00.000Z</updated>
+    <updated>2026-06-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[FullHunt en OSINT: superficie externa, priorizacion de exposicion y contexto antes de escalar]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto"/>
+        <updated>2026-06-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando dominios, subdominios, IPs, certificados y alertas de exposicion en varios monitores]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando dominios, subdominios, IPs, certificados y alertas de exposicion en varios monitores" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-05-fullhunt-osint-superficie-externa-priorizar-exposicion-contexto-4408e96ad77e7bc5fa631e5fa6861414.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica necesita responder que activos externos existen de verdad, cuales parecen vivos hoy y por donde merece empezar a mirar, el problema rara vez es la falta de datos. El problema real es ordenar senales heterogeneas sin convertir una coincidencia tecnica en una conclusion apresurada. <code>FullHunt</code> resulta util precisamente en ese punto: combina descubrimiento de superficie externa, contexto de hosts, historial pasivo y priorizacion de exposicion para ayudarte a decidir mejor que comprobar primero.</p>
+<p>Segun su documentacion publica consultada el <strong>5 de junio de 2026</strong>, FullHunt se presenta como una plataforma de <code>External Attack Surface Management</code> con APIs para descubrimiento, monitorizacion, inteligencia de vulnerabilidades y pivotes de infraestructura. Traducido a trabajo OSINT serio: no es una prueba final de propiedad, compromiso o intencion. Es una capa de observacion para abrir preguntas mas precisas sobre dominios, subdominios, servicios expuestos, cambios de DNS y senales de riesgo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p>FullHunt es una plataforma orientada a mapear superficie externa y consultar esa informacion via API. En su web publica describe un flujo en cuatro pasos: descubrir, monitorizar, detectar y alertar. En la practica, para un analista OSINT o un equipo defensivo, eso se traduce en varias utilidades concretas:</p>
+<ul>
+<li class="">enumerar dominios, subdominios, hosts e <code>IPs</code> asociados a una organizacion;</li>
+<li class="">observar si un host parece resoluble o vivo, y con que tecnologias o puertos se presenta;</li>
+<li class="">revisar pivotes historicos con <code>Passive DNS</code>;</li>
+<li class="">y priorizar que activos merecen una comprobacion manual adicional por exposicion o vulnerabilidad aparente.</li>
+</ul>
+<p>La documentacion de <code>Domain APIs</code> deja bastante claro el tipo de contexto que puedes recibir: host, <code>HTTP status</code>, titulo web, resolucion DNS, metadatos de nube, certificado TLS y geografia de la <code>IP</code>. Eso no sustituye la verificacion independiente, pero acelera mucho el triage inicial cuando quieres separar activos interesantes de simple ruido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una empresa ficticia, <code>acme-litoral.example</code>, que acaba de absorber una filial pequena. El equipo de seguridad y cumplimiento necesita una fotografia razonable de la superficie publica combinada de ambas marcas antes de lanzar una auditoria externa. El error habitual seria fiarse solo del inventario interno o de una lista antigua de subdominios.</p>
+<p>Con FullHunt, un flujo prudente podria ser este:</p>
+<ol>
+<li class="">consultar el dominio principal para obtener detalle de hosts, estados aparentes y metadatos tecnicos;</li>
+<li class="">revisar si aparecen subdominios olvidados, entornos heredados o paneles administrativos expuestos;</li>
+<li class="">pivotar por <code>Passive DNS</code> para detectar nombres historicos y cambios de infraestructura;</li>
+<li class="">contrastar los hallazgos con DNS propios, navegacion controlada, certificados y contexto societario;</li>
+<li class="">escalar solo los activos corroborados, no cualquier coincidencia vistosa.</li>
+</ol>
+<p>El valor no esta en decir "esto es vulnerable" demasiado pronto. El valor esta en construir una cola de comprobacion mas inteligente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-dominio-no-por-la-intuicion">1. Empieza por el dominio, no por la intuicion<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#1-empieza-por-el-dominio-no-por-la-intuicion" class="hash-link" aria-label="Enlace directo al 1. Empieza por el dominio, no por la intuicion" title="Enlace directo al 1. Empieza por el dominio, no por la intuicion" translate="no">​</a></h3>
+<p>La API publica de dominio (<code>/api/v1/domain/&lt;domain&gt;/details</code>) esta pensada para devolver una vista bastante rica de una organizacion desde un selector muy simple. El ejemplo oficial muestra campos como <code>is_live</code>, <code>is_resolvable</code>, <code>dns</code>, <code>cert_object</code>, proveedor cloud y metadatos de <code>ASN</code> y pais. Para OSINT responsable, eso permite hacer algo mucho mas util que una lista plana de subdominios: construir hipotesis de cobertura.</p>
+<p>Preguntas utiles en esta fase:</p>
+<ul>
+<li class="">que activos parecen realmente responder;</li>
+<li class="">que parte de la superficie esta en nube o <code>CDN</code>;</li>
+<li class="">que nombres merecen contraste con certificados o <code>HTTP titles</code>;</li>
+<li class="">y que entradas parecen restos historicos o ruido de terceros.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-passive-dns-para-anadir-cronologia">2. Usa Passive DNS para anadir cronologia<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#2-usa-passive-dns-para-anadir-cronologia" class="hash-link" aria-label="Enlace directo al 2. Usa Passive DNS para anadir cronologia" title="Enlace directo al 2. Usa Passive DNS para anadir cronologia" translate="no">​</a></h3>
+<p>Uno de los pivotes mas utiles es <code>Passive DNS</code>. La documentacion publica de FullHunt lo presenta como una consulta al historial de resolucion DNS para un dominio concreto. Eso ayuda a responder preguntas muy tipicas en OSINT tecnico:</p>
+<ul>
+<li class="">este subdominio parece nuevo o arrastra historia?;</li>
+<li class="">la organizacion ha movido servicios entre proveedores?;</li>
+<li class="">hay patrones regionales, heredados o estacionales?;</li>
+<li class="">aparecen nombres que ya no resuelven pero explican referencias antiguas en otros artefactos?</li>
+</ul>
+<p>Ese matiz temporal importa. Un nombre encontrado en <code>Passive DNS</code> puede ser una pista excelente y, al mismo tiempo, no significar nada operativo hoy.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-prioriza-por-exposicion-no-por-curiosidad">3. Prioriza por exposicion, no por curiosidad<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#3-prioriza-por-exposicion-no-por-curiosidad" class="hash-link" aria-label="Enlace directo al 3. Prioriza por exposicion, no por curiosidad" title="Enlace directo al 3. Prioriza por exposicion, no por curiosidad" translate="no">​</a></h3>
+<p>La propia pagina de producto insiste en exposiciones, puertos abiertos, paneles administrativos, certificados caducados y vulnerabilidades mapeadas sobre superficie viva. Esa informacion es muy valiosa para priorizar, pero tambien es donde mas facil resulta sobreactuar.</p>
+<p>Mi recomendacion metodologica:</p>
+<ul>
+<li class="">usa FullHunt para ordenar que mirar primero;</li>
+<li class="">confirma despues con una segunda fuente o comprobacion controlada;</li>
+<li class="">separa "activo visible" de "activo relevante";</li>
+<li class="">y documenta que parte del riesgo proviene de observacion directa y que parte es inferencia de plataforma.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-respeta-autenticacion-limites-y-coste-operativo">4. Respeta autenticacion, limites y coste operativo<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#4-respeta-autenticacion-limites-y-coste-operativo" class="hash-link" aria-label="Enlace directo al 4. Respeta autenticacion, limites y coste operativo" title="Enlace directo al 4. Respeta autenticacion, limites y coste operativo" translate="no">​</a></h3>
+<p>La documentacion de autenticacion y <code>rate limiting</code> deja dos restricciones claras: acceso por cabecera <code>X-API-KEY</code> y limites tipicos de <code>60 requests/minute</code> en la mayoria de endpoints, con consumo sujeto tambien a creditos. Esto importa porque una mala integracion degrada rapido la utilidad del dato:</p>
+<ul>
+<li class="">si consultas sin cola ni cache, desperdicias creditos;</li>
+<li class="">si no lees cabeceras de limite, acabas en <code>429</code>;</li>
+<li class="">si disparas peticiones por cada activo sin agrupar, conviertes una investigacion en un cuello de botella.</li>
+</ul>
+<p>En otras palabras: FullHunt funciona mejor como capa de enriquecimiento disciplinada que como martillo para golpear toda la superficie sin criterio.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Aqui conviene frenar expectativas. FullHunt puede mostrarte un host, una tecnologia o una posible exposicion, pero eso no significa automaticamente:</p>
+<ul>
+<li class="">que el activo siga bajo control de la organizacion analizada;</li>
+<li class="">que el servicio observado sea accesible desde tu contexto;</li>
+<li class="">que una tecnologia detectada este correctamente identificada;</li>
+<li class="">o que una vulnerabilidad asociada implique explotabilidad real en ese momento.</li>
+</ul>
+<p>La propia plataforma habla de descubrimiento, monitorizacion y priorizacion. Eso ya da una pista importante: estamos ante inteligencia para decidir mejor, no ante una sentencia tecnica autosuficiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con dominios, activos y organizaciones con interes legitimo: auditoria, due diligence, defensa, periodismo tecnico o verificacion documentada.</li>
+<li class="">Evita convertir enumeracion externa en curiosidad invasiva sobre personas.</li>
+<li class="">No publiques paneles, rutas sensibles o metadatos internos si no son necesarios para explicar el metodo.</li>
+<li class="">Si un hallazgo parece delicado, describe la categoria del problema sin regalar detalles operativos de abuso.</li>
+<li class="">Conserva notas sobre fecha de consulta, endpoint usado y grado de corroboracion.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>FullHunt no vive aislado. Encaja muy bien cuando lo combinas con otras capas del mismo tipo de trabajo:</p>
+<ul>
+<li class=""><code>crt.sh</code> para contexto temporal de certificados;</li>
+<li class=""><code>urlquery</code> o <code>urlscan.io</code> para observar comportamiento web sin abrir a ciegas;</li>
+<li class=""><code>Shodan</code>, <code>Netlas</code> o <code>ZoomEye</code> para ampliar comparativas de exposicion;</li>
+<li class=""><code>Amass</code> o <code>theHarvester</code> para enriquecer descubrimiento desde otros angulos;</li>
+<li class="">y una hoja de trabajo propia para separar hallazgo, evidencia y accion propuesta.</li>
+</ul>
+<p>Si tuviera que resumirlo en una sola frase: <code>FullHunt</code> merece hueco en un flujo OSINT porque reduce friccion entre descubrimiento y priorizacion. Solo hay que recordar su limite principal: te ayuda a decidir que investigar, pero no te exime de investigar bien.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Tradecraft" term="Tradecraft"/>
+        <category label="Automatizacion" term="Automatizacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[urlquery en OSINT: analizar URLs, redirecciones y carga web con contexto de sandbox]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto</id>
@@ -2151,124 +2254,5 @@
         <category label="Metodologia" term="Metodologia"/>
         <category label="Investigacion" term="Investigacion"/>
         <category label="Tooling" term="Tooling"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Overpass Turbo en OSINT: contexto cartografico, consultas responsables y exportes utiles]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables"/>
-        <updated>2026-05-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT filtrando datos cartograficos de OpenStreetMap con consultas responsables, capas geoespaciales y notas metodologicas]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT filtrando datos cartograficos de OpenStreetMap con consultas responsables, capas geoespaciales y notas metodologicas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-08-overpass-turbo-osint-contexto-cartografico-consultas-responsables-325390f5afe68e5dcf7f7e552b5f7c36.png" width="1376" height="768" class="img_ev3q"></p>
-<p>En muchas investigaciones el mapa no falla por falta de puntos, sino por falta de criterio. Hay <code>POIs</code>, carreteras, limites, edificios y etiquetas suficientes para llenar una pantalla, pero eso no equivale a contexto. <code>Overpass Turbo</code> resulta valioso justo en ese hueco: <strong>te deja pedir a OpenStreetMap solo la porcion de datos que necesitas, inspeccionarla con una consulta reproducible y exportarla para contrastarla mejor</strong>.</p>
-<p>Su utilidad OSINT no esta en "descubrir secretos", sino en responder preguntas concretas con menos ruido. La documentacion oficial lo define como una herramienta web para filtrar datos de <code>OpenStreetMap</code> mediante <code>Overpass API</code>, ejecutando consultas y mostrandolas en un mapa interactivo. Traducido a trabajo real: sirve para delimitar area, tipo de objeto y etiquetas; revisar resultados sobre el terreno; y guardar una consulta que otro analista pueda rerunear despues.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Overpass Turbo</code> es la interfaz web mas practica para trabajar con <code>Overpass API</code>, una <code>API</code> de solo lectura optimizada para consumidores de datos que necesitan seleccionar fragmentos concretos de <code>OpenStreetMap</code> por ubicacion, tipo de objeto, etiquetas o proximidad. La combinacion importa mucho:</p>
-<ul>
-<li class=""><code>Overpass API</code> actua como motor de consulta sobre la base de datos de <code>OSM</code>;</li>
-<li class=""><code>Overpass Turbo</code> te da el editor, el mapa, el <code>wizard</code>, los enlaces compartibles y varios exportes;</li>
-<li class="">y <code>OpenStreetMap</code> aporta la capa base de datos comunitaria que debes tratar como fuente util, pero no infalible.</li>
-</ul>
-<p>En OSINT responsable esto encaja muy bien en tareas como:</p>
-<ul>
-<li class="">construir contexto geografico alrededor de un activo visible publicamente;</li>
-<li class="">localizar equipamientos o categorias de lugares en un area delimitada;</li>
-<li class="">comprobar si un patron espacial que parece relevante existe de verdad o era una intuicion visual pobre;</li>
-<li class="">preparar un <code>GeoJSON</code> para cruzarlo con otras capas;</li>
-<li class="">y documentar una consulta con suficiente trazabilidad para que otro analista la revise.</li>
-</ul>
-<p>La idea clave es sencilla: <code>Overpass Turbo</code> no demuestra por si solo que un lugar exista, siga abierto o tenga el uso que sugiere una etiqueta. Lo que hace bien es <strong>reducir trabajo manual y dejar preguntas mejor formuladas</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una <code>due diligence</code> sobre una empresa ficticia, <code>Iberia Cold Chain</code>, que afirma operar varios centros logísticos cerca de un corredor industrial. Antes de aceptar una captura de marketing o una nota de prensa, un analista puede usar <code>Overpass Turbo</code> para ordenar el terreno:</p>
-<ol>
-<li class="">delimitar el poligono o area aproximada del corredor;</li>
-<li class="">pedir elementos etiquetados como <code>industrial</code>, <code>warehouse</code>, <code>landuse=industrial</code> o vias de acceso relevantes;</li>
-<li class="">revisar si la distribucion espacial encaja con el relato publico;</li>
-<li class="">exportar resultados a <code>GeoJSON</code> para compararlos con imagen satelital o con otra cartografia;</li>
-<li class="">y dejar guardado el enlace permanente de la consulta.</li>
-</ol>
-<p>Eso no prueba capacidad operativa ni propiedad. Pero si ayuda a separar tres cosas que a menudo se mezclan: <strong>que existe en el mapa</strong>, <strong>que parece existir en imagenes u otras fuentes</strong>, y <strong>que concluyes tu despues de contrastarlo</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-wizard-si-la-pregunta-es-simple">1. Empieza por el <code>wizard</code> si la pregunta es simple<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#1-empieza-por-el-wizard-si-la-pregunta-es-simple" class="hash-link" aria-label="Enlace directo al 1-empieza-por-el-wizard-si-la-pregunta-es-simple" title="Enlace directo al 1-empieza-por-el-wizard-si-la-pregunta-es-simple" translate="no">​</a></h3>
-<p>La propia documentacion de <code>Overpass Turbo</code> recomienda el <code>Query Wizard</code> para principiantes. Convierte terminos legibles por humanos en consultas funcionales. Para un trabajo OSINT disciplinado eso tiene dos ventajas:</p>
-<ul>
-<li class="">te evita escribir <code>Overpass QL</code> de memoria demasiado pronto;</li>
-<li class="">y te obliga a expresar la pregunta en lenguaje simple antes de complicarla.</li>
-</ul>
-<p>Si tu necesidad inicial es "gasolineras cerca de esta zona", "aparcamientos para camiones", "hospitales", "embajadas" o "edificios industriales", el <code>wizard</code> suele ser una puerta de entrada mucho mas segura que empezar afinando filtros avanzados sin una hipotesis clara.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-delimita-bien-el-area-y-el-tipo-de-objeto">2. Delimita bien el area y el tipo de objeto<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#2-delimita-bien-el-area-y-el-tipo-de-objeto" class="hash-link" aria-label="Enlace directo al 2. Delimita bien el area y el tipo de objeto" title="Enlace directo al 2. Delimita bien el area y el tipo de objeto" translate="no">​</a></h3>
-<p>La guia oficial de lenguaje insiste en filtros basicos como <code>bbox</code>, <code>areas</code> y <code>tag filters</code>. Metodologicamente esto importa mucho porque una consulta demasiado abierta fabrica ruido muy deprisa. Antes de correr nada, deja por escrito:</p>
-<ul>
-<li class="">area de interes;</li>
-<li class="">categorias de objetos que esperas encontrar;</li>
-<li class="">etiquetas clave;</li>
-<li class="">y si buscas un contexto actual aproximado o una foto exacta del mundo fisico.</li>
-</ul>
-<p>Esa ultima distincion es importante porque <code>OSM</code> no es un sensor en tiempo real. Es una base colaborativa viva, con actualizaciones, huecos y granularidad desigual segun zona y comunidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-guarda-la-consulta-y-comparte-el-permalink">3. Guarda la consulta y comparte el permalink<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#3-guarda-la-consulta-y-comparte-el-permalink" class="hash-link" aria-label="Enlace directo al 3. Guarda la consulta y comparte el permalink" title="Enlace directo al 3. Guarda la consulta y comparte el permalink" translate="no">​</a></h3>
-<p><code>Overpass Turbo</code> permite compartir consultas mediante enlaces permanentes. Esa capacidad es mucho mas importante de lo que parece: en vez de pasar una captura recortada, puedes pasar la pregunta exacta que genero la vista.</p>
-<p>En investigacion responsable, esto mejora bastante la trazabilidad:</p>
-<ul>
-<li class="">otro analista puede rerunear la consulta;</li>
-<li class="">el alcance geografico queda visible;</li>
-<li class="">y la logica de filtrado deja de depender de memoria o notas incompletas.</li>
-</ul>
-<p>Si una consulta va a sustentar una decision o una afirmacion publica, el permalink deberia conservarse junto a la nota analitica.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-exporta-con-cuidado">4. Exporta con cuidado<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#4-exporta-con-cuidado" class="hash-link" aria-label="Enlace directo al 4. Exporta con cuidado" title="Enlace directo al 4. Exporta con cuidado" translate="no">​</a></h3>
-<p>La documentacion de <code>Overpass Turbo</code> destaca la exportacion a <code>GeoJSON</code>, y su propia pagina tecnica aclara un matiz esencial: el <code>GeoJSON</code> exportado no representa una correspondencia 1:1 con todos los objetos posibles de <code>OSM</code>. Incluye lo que la interfaz muestra bien, pero no toda la riqueza bruta del modelo.</p>
-<p>Eso tiene consecuencias practicas:</p>
-<ul>
-<li class="">el <code>GeoJSON</code> es excelente para analisis visual y cruces ligeros;</li>
-<li class="">pero no deberias tratarlo como si fuera una copia perfecta de todo el dataset;</li>
-<li class="">y si una conclusion depende de relaciones complejas o de geometria incompleta, conviene revisar el objeto original y no solo la exportacion.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-respeta-las-instancias-publicas">5. Respeta las instancias publicas<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#5-respeta-las-instancias-publicas" class="hash-link" aria-label="Enlace directo al 5. Respeta las instancias publicas" title="Enlace directo al 5. Respeta las instancias publicas" translate="no">​</a></h3>
-<p>La wiki oficial de <code>Overpass API</code> publica politicas de uso practicas para instancias compartidas. En la principal, el propio proyecto indica que se puede asumir un uso seguro si te mantienes por debajo de <code>10.000</code> consultas diarias y menos de <code>1 GB</code> de datos descargados al dia.</p>
-<p>Para OSINT serio esto no es una nota menor. Si tu flujo necesita consultas masivas, historicos pesados o recoleccion programatica intensiva, lo correcto no es exprimir una instancia publica hasta romperla, sino redisenar el proceso o levantar infraestructura adecuada. <code>Overpass Turbo</code> funciona mejor como herramienta de exploracion y validacion que como cosechadora agresiva.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Los riesgos aqui no suelen venir de la herramienta, sino de la interpretacion:</p>
-<ul>
-<li class="">un objeto cartografiado puede estar desactualizado;</li>
-<li class="">una ausencia en <code>OSM</code> no demuestra ausencia en el terreno;</li>
-<li class="">una etiqueta mal puesta puede contaminar una consulta entera;</li>
-<li class="">una geometria incompleta puede empujarte a sobreleer limites o accesos;</li>
-<li class="">y un mapa limpio puede dar una falsa sensacion de precision que no existe en la fuente.</li>
-</ul>
-<p>Tambien conviene recordar que <code>Overpass Turbo</code> muestra datos de <code>OSM</code>, no "verdad oficial" ni telemetria en vivo. Si una conclusion importa de verdad, merece corroboracion con imagen satelital, fuentes locales, paginas oficiales, historico web o trabajo de campo autorizado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Formula preguntas geograficas legitimas y proporcionadas al caso.</li>
-<li class="">Evita convertir contexto cartografico en vigilancia de personas.</li>
-<li class="">Conserva la consulta exacta, la fecha y el enlace compartible.</li>
-<li class="">Diferencia entre dato abierto cartografiado y conclusion analitica propia.</li>
-<li class="">No automatices recoleccion intensiva sobre instancias publicas si no tienes una base tecnica y etica clara para hacerlo.</li>
-</ul>
-<p>El uso responsable de <code>Overpass Turbo</code> consiste en tratarlo como una <strong>lupa cartografica reproducible</strong>, no como un atajo para inferir mas de lo que el dato soporta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Overpass Turbo</code> encaja muy bien cuando necesitas filtrar <code>OSM</code> con precision. Segun la pregunta, suele complementarse con:</p>
-<ul>
-<li class=""><code>Sentinel Hub EO Browser</code>, si necesitas comprobar cambios visibles en el terreno;</li>
-<li class=""><code>Wikimapia</code> u otras capas comunitarias, solo como contraste secundario y nunca como fuente unica;</li>
-<li class=""><code>Google Maps</code> o paginas oficiales, para validar si un lugar sigue operativo o como lo presenta su propietario;</li>
-<li class="">y <code>QGIS</code>, si el siguiente paso exige cruces geoespaciales mas serios que una inspeccion web rapida.</li>
-</ul>
-<p>Como siguiente tema natural, una continuacion util seria bajar de la cartografia comunitaria a consultas de <code>BGP</code>, <code>AIS</code> o catastros abiertos para ver como cambia el metodo cuando la fuente deja de ser colaborativa y pasa a tener otra gobernanza.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/overpass-turbo-osint-contexto-cartografico-consultas-responsables#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank" rel="noopener noreferrer" class="">Overpass API - OpenStreetMap Wiki</a></li>
-<li class=""><a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo" target="_blank" rel="noopener noreferrer" class="">Overpass Turbo - OpenStreetMap Wiki</a></li>
-<li class=""><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide" target="_blank" rel="noopener noreferrer" class="">Overpass API Language Guide - OpenStreetMap Wiki</a></li>
-<li class=""><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example" target="_blank" rel="noopener noreferrer" class="">Overpass API by Example - OpenStreetMap Wiki</a></li>
-<li class=""><a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo/GeoJSON" target="_blank" rel="noopener noreferrer" class="">Overpass Turbo GeoJSON export - OpenStreetMap Wiki</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
     </entry>
 </feed>
