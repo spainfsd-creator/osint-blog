@@ -4,10 +4,115 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Fri, 05 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Subfinder en OSINT: subdominios pasivos, fuentes y contexto antes de ampliar alcance]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto</guid>
+            <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT ordenando subdominios publicos, fuentes pasivas y validaciones DNS en un panel tecnico sobrio]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT ordenando subdominios publicos, fuentes pasivas y validaciones DNS en un panel tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-06-subfinder-osint-subdominios-pasivos-fuentes-contexto-887951dc0620298d62d273841c36be4e.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica arranca con un dominio, el error mas comun no es "mirar poco". El error real suele ser <strong>mezclar demasiado pronto hallazgos pasivos, resoluciones activas, infraestructura de terceros y subdominios heredados</strong>, hasta que el mapa deja de servir para tomar decisiones. <code>Subfinder</code> resulta util precisamente porque obliga a empezar por una pregunta modesta y util: que nombres publicos aparecen asociados a este dominio segun fuentes pasivas, y cuales merecen verificacion posterior.</p>
+<p>Segun la documentacion oficial consultada el <strong>6 de junio de 2026</strong>, <code>Subfinder</code> es una herramienta de ProjectDiscovery centrada en descubrimiento pasivo de subdominios validos. Su propuesta es bastante concreta: consultar fuentes publicas y <code>APIs</code> compatibles, devolver resultados estructurados y dejar que el analista decida despues que merece resolucion adicional, contraste historico o escalado metodologico. Ese orden importa. En OSINT responsable, descubrir superficie no equivale a atribuir propiedad ni a justificar mas alcance del necesario.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>Subfinder</code> es una utilidad de linea de comandos pensada para enumerar subdominios mediante fuentes pasivas. La pagina oficial de vision general insiste en cinco rasgos que importan de verdad en el trabajo diario:</p>
+<ul>
+<li class="">se centra en descubrimiento pasivo de subdominios validos;</li>
+<li class="">usa una arquitectura modular optimizada para velocidad;</li>
+<li class="">incorpora resolucion y eliminacion de <code>wildcards</code>;</li>
+<li class="">soporta salida por <code>stdout</code>, fichero y <code>JSONL</code>;</li>
+<li class="">respeta las licencias y restricciones de uso de las fuentes pasivas que integra.</li>
+</ul>
+<p>Traducido a trabajo real, eso convierte a <code>Subfinder</code> en una buena primera capa para preguntas como estas:</p>
+<ul>
+<li class="">que partes visibles del espacio DNS publico de una organizacion conviene revisar primero;</li>
+<li class="">que nombres aparecen repetidos por varias fuentes y merecen confirmacion adicional;</li>
+<li class="">que activos historicos o de terceros conviene separar del nucleo actual antes de redactar un informe.</li>
+</ul>
+<p>No es una herramienta para "demostrar" pertenencia por si sola. Es una herramienta para <strong>formular mejor el siguiente paso</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision defensiva sobre <code>acme-industrial.es</code>, una empresa ficticia que ha crecido con filiales, micrositios y varios proveedores externos. El objetivo no es escalar privilegios ni hacer escaneo agresivo, sino responder algo mucho mas util:</p>
+<ul>
+<li class="">que subdominios publicos aparecen asociados al dominio principal;</li>
+<li class="">cuales parecen parte del perimetro actual y cuales huelen a legado, terceros o ruido;</li>
+<li class="">que nombres deberian pasar a una segunda fase de validacion con <code>DNS</code>, archivo web o inventario interno.</li>
+</ul>
+<p>En ese escenario, <code>Subfinder</code> encaja bien porque no te obliga a tocar el objetivo para empezar. Puedes obtener una primera lista de candidatos desde fuentes pasivas, comparar patrones de nomenclatura y decidir despues si merece la pena resolver, archivar o correlacionar cada hallazgo con otras capas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-semilla-clara">1. Empieza por una semilla clara<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#1-empieza-por-una-semilla-clara" class="hash-link" aria-label="Enlace directo al 1. Empieza por una semilla clara" title="Enlace directo al 1. Empieza por una semilla clara" translate="no">​</a></h3>
+<p>La ayuda oficial muestra dos entradas basicas: <code>-d</code> para un dominio concreto y <code>-dL</code> para una lista de dominios. Eso ya da una pista metodologica importante: define bien la semilla antes de ampliar el caso. Si el dominio inicial esta mal delimitado, el ruido posterior tambien lo estara.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prioriza-una-primera-pasada-pasiva-y-trazable">2. Prioriza una primera pasada pasiva y trazable<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#2-prioriza-una-primera-pasada-pasiva-y-trazable" class="hash-link" aria-label="Enlace directo al 2. Prioriza una primera pasada pasiva y trazable" title="Enlace directo al 2. Prioriza una primera pasada pasiva y trazable" translate="no">​</a></h3>
+<p>La vision general de ProjectDiscovery define <code>Subfinder</code> como herramienta de enumeracion pasiva. Ese matiz no es cosmetico. Conviene conservarlo en la primera iteracion para:</p>
+<ul>
+<li class="">reducir friccion operativa;</li>
+<li class="">evitar mezclar demasiado pronto descubrimiento con validacion activa;</li>
+<li class="">documentar con claridad que parte del resultado vino de fuentes publicas y que parte vino despues de resolucion propia.</li>
+</ul>
+<p>Una ejecucion sencilla suele bastar para abrir el mapa:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">subfinder -d acme-industrial.es -o subdominios.txt</span><br></span></code></pre></div></div>
+<p>Si necesitas controlar mejor el origen de los resultados, la ayuda tambien permite fijar fuentes concretas con <code>-s</code>, excluir otras con <code>-es</code> y listar las disponibles con <code>-ls</code>. Eso resulta util cuando el caso exige reproducibilidad o cuando una fuente concreta produce demasiado ruido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-enumeracion-de-validacion">3. Separa enumeracion de validacion<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#3-separa-enumeracion-de-validacion" class="hash-link" aria-label="Enlace directo al 3. Separa enumeracion de validacion" title="Enlace directo al 3. Separa enumeracion de validacion" translate="no">​</a></h3>
+<p>La pagina de uso distingue claramente opciones de salida, filtros y configuracion, y tambien separa el modo <code>-nW</code> para mostrar solo subdominios activos. Esa separacion conviene respetarla en el metodo:</p>
+<ul>
+<li class="">primero enumera y conserva el bruto pasivo;</li>
+<li class="">despues filtra y agrupa por patrones utiles;</li>
+<li class="">por ultimo decide que nombres merecen validacion activa o contraste adicional.</li>
+</ul>
+<p>Si inviertes ese orden, es facil perder trazabilidad sobre que hallazgo era publico, cual fue resuelto despues y cual aparece solo porque un proveedor concreto tenia mejor cobertura ese dia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-las-fuentes-como-cobertura-no-como-verdad-total">4. Trata las fuentes como cobertura, no como verdad total<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#4-trata-las-fuentes-como-cobertura-no-como-verdad-total" class="hash-link" aria-label="Enlace directo al 4. Trata las fuentes como cobertura, no como verdad total" title="Enlace directo al 4. Trata las fuentes como cobertura, no como verdad total" translate="no">​</a></h3>
+<p>La documentacion de instalacion deja claro que varias integraciones dependen de <code>API keys</code> en <code>provider-config.yaml</code>, y que distintas fuentes aportan cobertura desigual. Eso obliga a una lectura prudente:</p>
+<ul>
+<li class="">ausencia de un subdominio no equivale a inexistencia;</li>
+<li class="">presencia en una sola fuente no equivale a relevancia operativa;</li>
+<li class="">mejor cobertura no equivale automaticamente a mejor contexto.</li>
+</ul>
+<p>En OSINT serio, un subdominio interesante gana peso cuando encaja con otras capas: resolucion coherente, huella web, archivo historico, certificados o conocimiento previo del objetivo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Subfinder</code> es util, pero sus bordes son bastante claros:</p>
+<ul>
+<li class="">depende de la disponibilidad y limites de las fuentes pasivas conectadas;</li>
+<li class="">algunas integraciones solo aportan valor real si configuras credenciales de terceros;</li>
+<li class="">un nombre descubierto puede apuntar a infraestructura compartida, aparcada o heredada;</li>
+<li class="">la eliminacion de <code>wildcards</code> ayuda, pero no elimina por si sola todos los problemas de contexto.</li>
+</ul>
+<p>Tambien conviene recordar algo sencillo: un subdominio puede existir y seguir sin ser relevante para tu pregunta investigativa. Si lo importante es exposicion actual, tendras que contrastar despues con resolucion, servicio visible, contenido, cronologia o inventario.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja sobre activos propios, autorizados o dentro de una investigacion legitima y proporcionada.</li>
+<li class="">Conserva una copia del resultado bruto antes de filtrar para no perder trazabilidad.</li>
+<li class="">Anota que fuentes o configuraciones especiales usaste si el caso exige reproducibilidad.</li>
+<li class="">No conviertas un subdominio en atribucion de propiedad sin corroboracion adicional.</li>
+<li class="">Minimiza datos personales si algun host expone nombres, correos o paneles con informacion sensible.</li>
+<li class="">Si vas a pasar a resolucion activa o a otra herramienta, deja claro donde termina el trabajo pasivo y donde empieza otra fase.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Subfinder</code> brilla cuando necesitas una primera enumeracion pasiva de subdominios con buena integracion en flujos de consola. Aun asi, no deberia trabajar solo:</p>
+<ul>
+<li class=""><code>crt.sh</code>, <code>CT logs</code> y <code>SecurityTrails</code> aportan mejor contexto temporal cuando importa el historico;</li>
+<li class=""><code>Amass</code> puede encajar mejor si el caso exige un mapa mas amplio de superficie y mas pivotes;</li>
+<li class=""><code>theHarvester</code> sirve bien cuando quieres mezclar dominio, correos y otras huellas en una fase temprana;</li>
+<li class=""><code>httpx</code>, <code>urlscan.io</code> o archivo web ayudan despues a decidir que nombres merecen observacion mas profunda.</li>
+</ul>
+<p>La lectura correcta es esta: usa <code>Subfinder</code> para <strong>reducir incertidumbre inicial sobre el espacio DNS visible</strong>, no para cerrar conclusiones antes de tiempo. Un buen hallazgo en subdominios no termina la investigacion; la ordena.</p>
+<p>Como siguiente puente editorial del blog, tendria sentido bajar un nivel mas y explicar como validar una lista de subdominios pasivos sin mezclar cobertura, actualidad y propiedad aparente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class="">ProjectDiscovery Docs, <code>Subfinder Overview</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/overview" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/overview</a></li>
+<li class="">ProjectDiscovery Docs, <code>Subfinder Usage</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/usage" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/usage</a></li>
+<li class="">ProjectDiscovery Docs, <code>Installing Subfinder</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/install" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/install</a></li>
+<li class="">ProjectDiscovery GitHub organization (<code>subfinder</code> repositorio listado): <a href="https://github.com/projectdiscovery" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery</a></li>
+<li class="">ProjectDiscovery GitHub repository: <a href="https://github.com/projectdiscovery/subfinder" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery/subfinder</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Tooling</category>
+            <category>Reconocimiento</category>
+            <category>DNS</category>
+            <category>Verificacion</category>
+            <category>Automatizacion</category>
+        </item>
         <item>
             <title><![CDATA[FullHunt en OSINT: superficie externa, priorizacion de exposicion y contexto antes de escalar]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/fullhunt-osint-superficie-externa-priorizar-exposicion-contexto</link>
@@ -2048,133 +2153,6 @@
             <category>Datos</category>
             <category>Metodologia</category>
             <category>Investigacion</category>
-        </item>
-        <item>
-            <title><![CDATA[Wikidata en OSINT: entidades, propiedades y consultas con contexto antes de concluir]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto</guid>
-            <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT conectando entidades, propiedades y referencias en un grafo de datos estructurados sobre una mesa de investigacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT conectando entidades, propiedades y referencias en un grafo de datos estructurados sobre una mesa de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-09-wikidata-osint-entidades-propiedades-consultas-contexto-b5324ac5fb5752463ea8fe515f1ecc80.png" width="1376" height="768" class="img_ev3q"></p>
-<p>En muchas investigaciones el problema no es encontrar un nombre, sino <strong>saber si ese nombre apunta a la entidad correcta</strong>. Una empresa cambia de razon social, una fundacion comparte siglas con otra, una persona publica aparece en varios idiomas, y de pronto el analista acumula enlaces sin un identificador estable que ponga orden. <code>Wikidata</code> resulta util justo ahi: no para sustituir a las fuentes primarias, sino para <strong>normalizar entidades, alias, fechas, identificadores y relaciones antes de sacar conclusiones</strong>.</p>
-<p>Su valor OSINT no esta en hacer magia, sino en bajar friccion cognitiva. La propia introduccion oficial define <code>Wikidata</code> como una base de conocimiento libre, colaborativa, multilingüe y secundaria, orientada a datos estructurados. Traducido a trabajo real: te ayuda a tratar nombres, cargos, ubicaciones, identificadores y enlaces entre paginas como <strong>datos que se pueden contrastar</strong>, no como texto suelto repartido por la web.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Wikidata</code> es una base de datos estructurada que puede leerse y editarse tanto por humanos como por maquinas. La documentacion oficial destaca varias ideas que conviene interiorizar antes de usarla en OSINT:</p>
-<ul>
-<li class="">es libre y sus datos estructurados se publican bajo <code>CC0</code>;</li>
-<li class="">es multilingüe, asi que una misma entidad puede tener etiquetas y alias en varios idiomas;</li>
-<li class="">trabaja con items, propiedades, valores, cualificadores y referencias;</li>
-<li class="">y puede enlazarse con otros datasets e identificadores externos.</li>
-</ul>
-<p>En OSINT responsable eso la vuelve muy util para:</p>
-<ul>
-<li class="">desambiguar personas, organizaciones, lugares y obras con un identificador estable;</li>
-<li class="">reunir alias, nombres anteriores y variantes linguisticas sin perder trazabilidad;</li>
-<li class="">pivotar hacia identificadores externos fiables;</li>
-<li class="">y preparar consultas reproducibles sobre conjuntos de entidades.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una diligencia sobre la organizacion ficticia <code>Fundacion Horizonte Abierto</code>. En la web institucional aparecen varias piezas dispersas:</p>
-<ul>
-<li class="">un nombre actual;</li>
-<li class="">un nombre historico usado en notas de prensa antiguas;</li>
-<li class="">una presidenta con paginas en distintos idiomas;</li>
-<li class="">y referencias a sedes, filiales y programas asociados.</li>
-</ul>
-<p>No buscas inventar conexiones. Quieres responder preguntas concretas:</p>
-<ul>
-<li class="">si todos esos nombres apuntan a la misma entidad;</li>
-<li class="">que identificadores externos ayudan a fijar esa entidad;</li>
-<li class="">que relaciones parecen estructurales y cuales solo contextuales;</li>
-<li class="">y donde conviene pasar a una verificacion manual mas cuidadosa.</li>
-</ul>
-<p>Con <code>Wikidata</code>, el primer resultado util no es una "verdad final". Es una <strong>estructura inicial de desambiguacion</strong> que luego debes contrastar con fuentes originales:</p>
-<ul>
-<li class="">alias y etiquetas en varios idiomas;</li>
-<li class="">fechas relevantes;</li>
-<li class="">relaciones con otras entidades;</li>
-<li class="">sitelinks hacia paginas Wikimedia;</li>
-<li class="">e identificadores externos que te llevan fuera de la plataforma.</li>
-</ul>
-<p>Ese orden protege bastante de un error tipico: mezclar entidades parecidas solo porque comparten nombre, siglas o titulares de prensa similares.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-la-entidad-no-por-la-narracion">1. Empezar por la entidad, no por la narracion<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#1-empezar-por-la-entidad-no-por-la-narracion" class="hash-link" aria-label="Enlace directo al 1. Empezar por la entidad, no por la narracion" title="Enlace directo al 1. Empezar por la entidad, no por la narracion" translate="no">​</a></h3>
-<p>Busca el item que mejor represente la entidad investigada y comprueba si los alias, descripciones e identificadores encajan antes de seguir.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-hallazgo-de-corroboracion">2. Separar hallazgo de corroboracion<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#2-separar-hallazgo-de-corroboracion" class="hash-link" aria-label="Enlace directo al 2. Separar hallazgo de corroboracion" title="Enlace directo al 2. Separar hallazgo de corroboracion" translate="no">​</a></h3>
-<p>Que una propiedad exista en <code>Wikidata</code> no la convierte automaticamente en hecho suficiente. La corroboracion llega despues, con referencias, fuentes externas y criterio analitico.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-revisar-manualmente-solo-los-hallazgos-prometedores">3. Revisar manualmente solo los hallazgos prometedores<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#3-revisar-manualmente-solo-los-hallazgos-prometedores" class="hash-link" aria-label="Enlace directo al 3. Revisar manualmente solo los hallazgos prometedores" title="Enlace directo al 3. Revisar manualmente solo los hallazgos prometedores" translate="no">​</a></h3>
-<p>No hace falta seguir todos los enlaces del item. Prioriza:</p>
-<ul>
-<li class="">identificadores externos utiles para tu caso;</li>
-<li class="">relaciones con fecha o cualificadores;</li>
-<li class="">referencias que apunten a una fuente publica revisable;</li>
-<li class="">y entidades relacionadas que expliquen estructura, propiedad o contexto geografico.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-tratar-referencias-y-cualificadores-como-parte-del-dato">4. Tratar referencias y cualificadores como parte del dato<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#4-tratar-referencias-y-cualificadores-como-parte-del-dato" class="hash-link" aria-label="Enlace directo al 4. Tratar referencias y cualificadores como parte del dato" title="Enlace directo al 4. Tratar referencias y cualificadores como parte del dato" translate="no">​</a></h3>
-<p>La ayuda oficial sobre datos recuerda que las afirmaciones pueden incluir no solo propiedad y valor, sino tambien cualificadores y referencias. Esa parte es la que evita que una lista plana de hechos se vuelva engañosa.</p>
-<p>Anota, por ejemplo:</p>
-<ul>
-<li class="">si una relacion estuvo vigente solo en un periodo concreto;</li>
-<li class="">de donde sale la fecha;</li>
-<li class="">y si el dato describe afiliacion formal, ubicacion, apodo o simple mención catalografica.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-pivotar-con-prudencia">5. Pivotar con prudencia<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#5-pivotar-con-prudencia" class="hash-link" aria-label="Enlace directo al 5. Pivotar con prudencia" title="Enlace directo al 5. Pivotar con prudencia" translate="no">​</a></h3>
-<p>Solo despues de fijar bien la entidad tiene sentido pivotar hacia otras fuentes:</p>
-<ul>
-<li class="">hemeroteca;</li>
-<li class="">registros corporativos;</li>
-<li class="">identificadores bibliograficos;</li>
-<li class="">bases de datos sectoriales;</li>
-<li class="">o consultas mas especificas en <code>Wikidata Query Service</code>.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-hace-diferente-a-wikidata">Lo que hace diferente a Wikidata<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#lo-que-hace-diferente-a-wikidata" class="hash-link" aria-label="Enlace directo al Lo que hace diferente a Wikidata" title="Enlace directo al Lo que hace diferente a Wikidata" translate="no">​</a></h2>
-<p>La parte interesante no es solo que "tenga datos", sino <strong>como los organiza</strong>. La documentacion oficial explica que <code>Wikidata</code> trabaja con estructura y linked data:</p>
-<ul>
-<li class="">items con identificadores unicos;</li>
-<li class="">propiedades con significado explicito;</li>
-<li class="">valores que pueden llevar cualificadores y referencias;</li>
-<li class="">y enlaces a otros datasets mediante identificadores externos.</li>
-</ul>
-<p>Esto tiene dos ventajas practicas:</p>
-<ul>
-<li class="">obliga a pensar en que relacion estas afirmando exactamente;</li>
-<li class="">y facilita consultas reproducibles en lugar de listas manuales poco auditables.</li>
-</ul>
-<p>Tambien hay un matiz tecnico muy importante en la ayuda oficial de acceso a datos: el <code>Wikidata Query Service</code> es un endpoint <code>SPARQL</code> pensado para cuando ya conoces las caracteristicas del dato que buscas. No es la mejor opcion para busquedas difusas ni para extraer porciones enormes del dataset.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Aqui esta el punto que mas conviene subrayar: <code>Wikidata</code> mejora la fase de normalizacion, pero no elimina la ambigüedad humana.</p>
-<p>Limites habituales:</p>
-<ul>
-<li class="">una entidad puede estar incompleta o desactualizada;</li>
-<li class="">no todas las afirmaciones tienen el mismo nivel de referencia;</li>
-<li class="">algunas relaciones pueden ser correctas pero demasiado generales para tu caso;</li>
-<li class="">una consulta bien escrita sigue pudiendo devolver un conjunto engañoso si el modelado base es desigual;</li>
-<li class="">y una ausencia en <code>Wikidata</code> no significa ausencia en el mundo real.</li>
-</ul>
-<p>La propia documentacion de acceso a datos insiste en elegir el metodo mas eficiente y en no cargar innecesariamente el sistema. Esa cautela tambien vale metodologicamente: si una investigacion depende demasiado de un unico grafo comunitario, tu conclusion envejece mal y se vuelve dificil de auditar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo con perfiles publicos y preguntas legitimas de investigacion, cumplimiento o verificacion.</li>
-<li class="">Evita convertir una red de relaciones en doxxing, hostigamiento o rastreo personal.</li>
-<li class="">No publiques datos personales irrelevantes solo porque aparezcan enlazados en un item.</li>
-<li class="">Distingue siempre entre <code>misma entidad</code>, <code>entidad relacionada</code> y <code>entidad mencionada</code>; son cosas distintas.</li>
-<li class="">Si el caso es sensible, guarda capturas, URLs y fecha de consulta para que otro analista pueda auditar tu interpretacion.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/wikidata-osint-entidades-propiedades-consultas-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>Wikidata</code> te ayuda a fijar la entidad, otras herramientas pueden ayudarte a profundizar desde angulos distintos:</p>
-<ul>
-<li class="">registros oficiales, cuando necesitas confirmar forma juridica, administradores o fechas;</li>
-<li class="">hemeroteca, cuando la relacion relevante depende de cronologia o contexto narrativo;</li>
-<li class=""><code>Wikidata Query Service</code>, cuando ya sabes que propiedades y entidades quieres cruzar;</li>
-<li class="">y revision manual de las referencias, que sigue siendo la parte mas importante cuando te juegas una atribucion.</li>
-</ul>
-<p>El takeaway util es sencillo: <strong>usa <code>Wikidata</code> para ordenar entidades, propiedades e identificadores antes de investigar mas hondo, no para reemplazar la verificacion con fuentes primarias</strong>. En OSINT responsable, estructurar mejor solo compensa si tambien corroboras mejor.</p>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Datos</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
-            <category>Investigacion</category>
-            <category>Tooling</category>
         </item>
     </channel>
 </rss>
