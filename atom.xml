@@ -2,11 +2,134 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-07T00:00:00.000Z</updated>
+    <updated>2026-06-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[httpx en OSINT: sondear servicios web, priorizar hosts vivos y mantener contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto"/>
+        <updated>2026-06-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT priorizando hosts web vivos, tecnologias visibles y respuestas HTTP en un panel tecnico sobrio]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT priorizando hosts web vivos, tecnologias visibles y respuestas HTTP en un panel tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-08-httpx-osint-sondear-servicios-web-contexto-61087d42815c992904dd348db4dcc0ac.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica pasa de "tengo una lista de nombres o URLs" a "que merece mirarse primero", el problema rara vez es la falta de targets. El problema real suele ser <strong>separar hosts vivos, respuestas utiles, ruido repetido y falsas pistas</strong> sin convertir la fase de comprobacion en una carrera ciega. <code>httpx</code> resulta especialmente valioso justo ahi: convierte un inventario bruto en una lectura mas util de que servicios web responden, como responden y que contexto tecnico merece verificacion posterior.</p>
+<p>Segun la documentacion oficial de <code>ProjectDiscovery</code> consultada el <strong>8 de junio de 2026</strong>, <code>httpx</code> es un <code>HTTP toolkit</code> rapido y multiproposito pensado para lanzar varias sondas sobre servicios web, URLs y otros elementos <code>HTTP</code>, manteniendo fiabilidad incluso con alto paralelismo. En practica OSINT responsable eso no significa "dispara a todo". Significa algo mucho mas util: <strong>probar superficie web visible con preguntas concretas y salida trazable</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>httpx</code> ocupa una capa muy concreta dentro de un flujo OSINT tecnico. No descubre por si solo toda la superficie ni explica toda la historia del objetivo. Lo que hace muy bien es <strong>sondear</strong> hosts, dominios, URLs o rangos que ya tienes sobre la mesa y devolverte metadatos que ayudan a priorizar.</p>
+<p>La pagina de uso oficial deja claro el abanico de probes disponibles. Entre otras cosas, <code>httpx</code> puede mostrar:</p>
+<ul>
+<li class="">codigo de estado, longitud y tipo de contenido;</li>
+<li class="">cabecera <code>Location</code> en redirecciones;</li>
+<li class="">hash <code>mmh3</code> del <code>favicon</code>;</li>
+<li class="">huella <code>JARM</code>;</li>
+<li class="">titulo de pagina y tecnologias visibles basadas en <code>Wappalyzer</code>;</li>
+<li class="">IP, <code>CNAME</code>, <code>ASN</code> y deteccion de <code>CDN/WAF</code>;</li>
+<li class="">soporte de <code>HTTP/2</code>, <code>websocket</code>, <code>VHOST</code> o captura de pantalla.</li>
+</ul>
+<p>Traducido a lenguaje de analista, sirve para responder preguntas pequenas pero muy rentables:</p>
+<ul>
+<li class="">que hosts de una lista responden de verdad por <code>HTTP</code> o <code>HTTPS</code>;</li>
+<li class="">cuales parecen meros espejos o respuestas casi duplicadas;</li>
+<li class="">donde hay redirecciones, banners, titulos o tecnologias que justifican mas contexto;</li>
+<li class="">y que resultados conviene cruzar despues con <code>CT logs</code>, DNS, archivo web o analisis manual.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision defensiva sobre <code>acme-ejemplo.test</code>, un dominio ficticio usado por un equipo de riesgo que quiere entender mejor la huella web publica de un proveedor antes de una integracion. Ya tienes una lista pasiva de subdominios obtenida por fuentes abiertas. El siguiente paso no deberia ser abrirlos todos a mano ni tratar cada nombre como si fuera igual de importante.</p>
+<p>En ese escenario, <code>httpx</code> encaja bien como capa de triage:</p>
+<ol>
+<li class="">recibe la lista de hosts ya descubiertos por un metodo previo;</li>
+<li class="">comprueba cuales responden por web;</li>
+<li class="">anota titulo, <code>status code</code>, tecnologias aparentes o <code>CNAME</code>;</li>
+<li class="">filtra respuestas repetidas o paginas de error obvias;</li>
+<li class="">y deja una salida estructurada para decidir que merece investigacion adicional.</li>
+</ol>
+<p>Ese orden importa porque reduce dos errores muy comunes: asumir que un subdominio resoluble tiene una web interesante, y asumir que una web viva pertenece funcionalmente al mismo entorno que el resto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-con-una-pregunta-modesta-esta-vivo-y-que-devuelve">1. Empieza con una pregunta modesta: esta vivo y que devuelve<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#1-empieza-con-una-pregunta-modesta-esta-vivo-y-que-devuelve" class="hash-link" aria-label="Enlace directo al 1. Empieza con una pregunta modesta: esta vivo y que devuelve" title="Enlace directo al 1. Empieza con una pregunta modesta: esta vivo y que devuelve" translate="no">​</a></h3>
+<p>La documentacion de <code>httpx</code> muestra ejemplos basicos con <code>-sc</code>, <code>-title</code>, <code>-tech-detect</code>, <code>-ip</code>, <code>-asn</code> o <code>-cdn</code>. No hace falta activar veinte cosas a la vez. Un arranque prudente seria pedir unas pocas senales que te ayuden a ordenar.</p>
+<p>Sobre una lista ficticia de subdominios, un ejemplo razonable seria:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">subfinder -d acme-ejemplo.test -silent | httpx -sc -title -tech-detect -ip -cname</span><br></span></code></pre></div></div>
+<p>La idea no es "hacer mas". La idea es obtener una tabla corta que te permita ver que hosts redirigen, que titulo muestran, si parecen compartir infraestructura y cuales merecen una segunda pasada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-aprovecha-el-comportamiento-por-defecto-sin-olvidar-lo-que-implica">2. Aprovecha el comportamiento por defecto sin olvidar lo que implica<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#2-aprovecha-el-comportamiento-por-defecto-sin-olvidar-lo-que-implica" class="hash-link" aria-label="Enlace directo al 2. Aprovecha el comportamiento por defecto sin olvidar lo que implica" title="Enlace directo al 2. Aprovecha el comportamiento por defecto sin olvidar lo que implica" translate="no">​</a></h3>
+<p>La propia pagina de uso recuerda una nota importante: por defecto <code>httpx</code> prueba primero <code>HTTPS</code> y solo cae a <code>HTTP</code> si <code>HTTPS</code> no responde. Tambien explica que <code>-no-fallback</code> permite mostrar ambos resultados.</p>
+<p>Metodologicamente eso importa mucho. Si un host responde por <code>HTTP</code> y <code>HTTPS</code> con diferencias relevantes, conviene saberlo y anotarlo. Si no, puedes estar leyendo solo una parte del borde visible del servicio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-filtra-ruido-antes-de-interpretar">3. Filtra ruido antes de interpretar<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#3-filtra-ruido-antes-de-interpretar" class="hash-link" aria-label="Enlace directo al 3. Filtra ruido antes de interpretar" title="Enlace directo al 3. Filtra ruido antes de interpretar" translate="no">​</a></h3>
+<p>La pagina de uso documenta varios filtros utiles: <code>-filter-error-page</code>, <code>-filter-duplicates</code>, filtros por codigo, longitud, palabras o <code>favicon</code>. En investigaciones reales, ese bloque vale oro porque evita que confundas volumen con cobertura.</p>
+<p>Dos ejemplos practicos:</p>
+<ul>
+<li class=""><code>-fep</code> ayuda a apartar paginas de error detectadas por el clasificador;</li>
+<li class=""><code>-fd</code> conserva solo la primera respuesta de respuestas casi duplicadas.</li>
+</ul>
+<p>Eso no sustituye el juicio humano, pero reduce bastante el problema de acabar revisando veinte clones del mismo <code>landing</code>, <code>default page</code> o mensaje de bloqueo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-probes-pesados-solo-cuando-aportan-una-pregunta-clara">4. Usa probes "pesados" solo cuando aportan una pregunta clara<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#4-usa-probes-pesados-solo-cuando-aportan-una-pregunta-clara" class="hash-link" aria-label="Enlace directo al 4. Usa probes &quot;pesados&quot; solo cuando aportan una pregunta clara" title="Enlace directo al 4. Usa probes &quot;pesados&quot; solo cuando aportan una pregunta clara" translate="no">​</a></h3>
+<p>La misma documentacion advierte que ciertas banderas conviene usarlas para casos concretos y no activarlas por defecto junto al resto: <code>-ports</code>, <code>-path</code>, <code>-vhost</code>, <code>-screenshot</code>, <code>-csp-probe</code>, <code>-tls-probe</code>, <code>-favicon</code>, <code>-http2</code>, <code>-pipeline</code> o <code>-tls-impersonate</code>.</p>
+<p>Ese detalle tecnico es tambien una buena norma editorial. En OSINT responsable, no se lanza todo porque exista. Se activa cada probe cuando responde una pregunta legitima:</p>
+<ul>
+<li class=""><code>-favicon</code> si buscas agrupar superficies por huella visual;</li>
+<li class=""><code>-screenshot</code> si necesitas una captura comparativa de interfaces visibles;</li>
+<li class=""><code>-path</code> si el caso ya justifica revisar una ruta concreta;</li>
+<li class=""><code>-http2</code> o <code>-pipeline</code> si la duda es el comportamiento del servicio, no solo su mera presencia.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-encadena-con-otras-herramientas-sin-perder-trazabilidad">5. Encadena con otras herramientas sin perder trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#5-encadena-con-otras-herramientas-sin-perder-trazabilidad" class="hash-link" aria-label="Enlace directo al 5. Encadena con otras herramientas sin perder trazabilidad" title="Enlace directo al 5. Encadena con otras herramientas sin perder trazabilidad" translate="no">​</a></h3>
+<p>ProjectDiscovery muestra de forma explicita un encadenado sencillo: <code>subfinder -d example.com | httpx -screenshot</code>. La idea general es solida: una herramienta descubre, otra sonda y una tercera profundiza si hace falta.</p>
+<p>Para OSINT, la lectura correcta es esta:</p>
+<ul>
+<li class=""><code>subfinder</code>, <code>Amass</code> o una fuente pasiva te dan candidatos;</li>
+<li class=""><code>httpx</code> te dice que capa web visible merece tiempo;</li>
+<li class="">y luego cruzas con archivo web, <code>CT logs</code>, <code>urlscan.io</code>, <code>Wappalyzer</code>, <code>RDAP/WHOIS</code> o revision manual.</li>
+</ul>
+<p><code>httpx</code> no deberia cerrar la conclusion. Deberia <strong>mejorar la cola de prioridades</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>httpx</code> es util, pero conviene no pedirle mas de lo que da:</p>
+<ul>
+<li class="">un <code>title</code> sugerente no demuestra funcion real del activo;</li>
+<li class=""><code>tech-detect</code> trabaja sobre huellas visibles y puede acertar a medias o quedarse corto;</li>
+<li class="">una respuesta viva no implica propiedad clara ni criticidad;</li>
+<li class="">una coincidencia de <code>favicon</code>, <code>CNAME</code> o <code>ASN</code> abre hipotesis, no pruebas definitivas;</li>
+<li class="">y filtros o deduplicacion pueden ocultar matices si los aplicas demasiado pronto.</li>
+</ul>
+<p>Ademas, la documentacion oficial insiste en un aviso simple: "Use with caution. You are responsible for your actions." Bien leido, no es solo una advertencia legal. Es una pauta metodologica sensata.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja sobre activos propios, autorizados o dentro de una investigacion legitima y proporcionada.</li>
+<li class="">Deja por escrito fecha, lista de entrada y flags usados para que el resultado sea reproducible.</li>
+<li class="">No confundas una sonda web ligera con permiso para ampliar alcance sin justificarlo.</li>
+<li class="">Minimiza probes costosos o intrusivos si una lectura mas simple ya responde la pregunta.</li>
+<li class="">Separa siempre observacion, inferencia y conclusion para no sobreatribuir.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>httpx</code> brilla cuando la pregunta es: "de todo esto, que capa web visible tengo delante y por donde empiezo". Si tu problema es otro, quizas convenga otra pieza:</p>
+<ul>
+<li class=""><code>subfinder</code> o <code>Amass</code> para descubrimiento inicial de superficie;</li>
+<li class=""><code>urlscan.io</code> o <code>urlquery</code> si importa mas el comportamiento de navegador y las redirecciones;</li>
+<li class=""><code>Wappalyzer</code> o <code>BuiltWith</code> para otra lectura de huella tecnologica;</li>
+<li class=""><code>crt.sh</code> y otros <code>CT logs</code> si la clave es cronologia de certificados y nombres;</li>
+<li class=""><code>RDAP/WHOIS</code> o historicos DNS si necesitas ownership aparente y contexto temporal.</li>
+</ul>
+<p>Tambien conviene mirar el estado actual del proyecto. La pagina de <code>releases</code> de GitHub muestra <code>v1.9.0</code> como version publicada el <strong>9 de marzo de 2026</strong>. Y el changelog de <code>v1.8.0</code>, publicado el <strong>21 de enero de 2026</strong>, anadio soporte de entrada <code>Burp XML</code> (<code>-im</code>), autenticacion con fichero secreto (<code>-sf</code>) y deteccion pasiva de <code>CPE</code> y <code>WordPress</code>, ademas de corregir problemas como la extraccion de <code>favicon</code> con redirecciones. Traducido a trabajo diario: el proyecto sigue evolucionando, pero <strong>tu disciplina de alcance y contexto sigue siendo mas importante que la lista de flags</strong>.</p>
+<p>La takeaway accionable es simple: usa <code>httpx</code> para <strong>reducir incertidumbre operativa sobre que web responde y como responde</strong>, no para saltar demasiado pronto de una respuesta <code>HTTP</code> a una narrativa cerrada sobre el objetivo.</p>
+<p>Como siguiente puente editorial del blog, tendria sentido bajar a una comparativa practica entre <code>httpx</code>, <code>urlscan.io</code> y archivo web: misma lista de hosts, preguntas distintas y limites distintos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class="">ProjectDiscovery Docs, <code>httpx Overview</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/overview" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/overview</a></li>
+<li class="">ProjectDiscovery Docs, <code>Installing httpx</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/install" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/install</a></li>
+<li class="">ProjectDiscovery Docs, <code>Httpx Usage</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/usage" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/usage</a></li>
+<li class="">ProjectDiscovery Docs, <code>Running httpx</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/running" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/running</a></li>
+<li class="">GitHub, <code>projectdiscovery/httpx</code> releases: <a href="https://github.com/projectdiscovery/httpx/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery/httpx/releases</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Web" term="Web"/>
+        <category label="Reconocimiento" term="Reconocimiento"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Automatizacion" term="Automatizacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[WAFW00F en OSINT: identificar WAF, entender respuestas y no sobreinterpretar el perimetro web]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto</id>
@@ -2129,112 +2252,5 @@
         <category label="SOCMINT" term="SOCMINT"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ZGrab2 en OSINT: banners, handshakes y contexto para enriquecer servicios sin sobreatribuir]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios"/>
-        <updated>2026-05-11T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando banners, handshakes TLS y contexto de servicios publicos con telemetria estructurada]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando banners, handshakes TLS y contexto de servicios publicos con telemetria estructurada" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-11-zgrab2-osint-banners-handshakes-contexto-servicios-7312112165425a6e3805a984433be14d.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando un activo ya ha aparecido en una fase previa de investigacion, el siguiente error tipico es tratarlo como una simple IP con un puerto abierto. A partir de ahi llegan conclusiones pobres: "parece web", "probablemente es tal producto", "esto seguro pertenece al mismo bloque". <code>ZGrab2</code> resulta util justo antes de caer en ese salto mental, porque permite <strong>hacer handshakes de capa de aplicacion y recoger banners o respuestas estructuradas para describir mejor un servicio visible</strong>.</p>
-<p>La advertencia importante va primero: esto no es una herramienta para curiosear sistemas ajenos "porque total solo responde". El propio proyecto <code>ZMap</code> recuerda que el escaneo a escala de Internet tiene implicaciones eticas y operativas serias, y <code>ZGrab2</code> deja claro que su filosofia se limita a informacion accesible para un cliente estandar sin autenticacion. En OSINT responsable, eso traduce a una norma sencilla: usarlo en patrimonio propio, entornos autorizados o investigaciones defensivas con alcance bien definido; y tratar cada respuesta como <strong>contexto tecnico</strong>, no como prueba final de propiedad, criticidad o intencion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>ZGrab2</code> es el escaner de capa de aplicacion del ecosistema <code>ZMap</code>. El <code>README</code> oficial lo describe como un escaner rapido y modular pensado para encuestas de Internet a gran escala, trabajando en tandem con <code>ZMap</code>: primero identificas hosts con respuesta de capa 4 y despues haces handshakes mas ricos en capa 7.</p>
-<p>La diferencia practica importa mucho. Una IP con <code>443/tcp</code> abierto no te dice demasiado por si sola. Un <code>handshake</code> <code>TLS</code>, una respuesta <code>HTTP</code>, un banner <code>SMTP</code> o una negociacion <code>SSH</code> te dan:</p>
-<ul>
-<li class="">protocolo observado con mas precision;</li>
-<li class="">metadatos de configuracion visibles para cualquier cliente;</li>
-<li class="">material estructurado para analisis offline;</li>
-<li class="">y una forma reproducible de repetir la misma pregunta tecnica sobre varios activos.</li>
-</ul>
-<p>El proyecto soporta muchos modulos, entre ellos <code>HTTP</code>, <code>TLS</code>, <code>SSH</code>, <code>FTP</code>, <code>SMTP</code>, <code>POP3</code>, <code>IMAP</code>, <code>Redis</code>, <code>MongoDB</code>, <code>MySQL</code>, <code>Telnet</code> o <code>SOCKS5</code>. Eso lo vuelve util no para "saberlo todo", sino para enriquecer un inventario tecnico ya acotado con preguntas concretas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision autorizada sobre <code>Puerto Boreal Energia</code>, una empresa ficticia que mantiene varios dominios publicos, un rango pequeno de IPs propias y proveedores externos para distintas aplicaciones. Tras una fase inicial con DNS, historico web y telemetria pasiva, el equipo ya tiene una lista razonable de endpoints visibles. El problema ya no es descubrir mas cosas, sino <strong>entender mejor que responde realmente en cada punto sin perder trazabilidad</strong>.</p>
-<p>En ese escenario, <code>ZGrab2</code> puede encajar como paso intermedio:</p>
-<ol>
-<li class=""><code>ZMap</code> o una fuente previa te deja un conjunto limitado de hosts y puertos dentro de alcance autorizado.</li>
-<li class=""><code>ZGrab2</code> ejecuta un <code>handshake</code> concreto por protocolo y devuelve salida JSON.</li>
-<li class="">El analista revisa banners, certificados, cabeceras, redirecciones o detalles de negociacion.</li>
-<li class="">Solo despues correlaciona eso con <code>RDAP</code>, <code>WHOIS</code>, <code>CT logs</code>, capturas web o inventario interno.</li>
-</ol>
-<p>El valor no esta en que el banner "revele la verdad", sino en que reduce ambiguedad. Tal vez dos IPs que parecian equivalentes responden con certificados distintos. Tal vez un <code>HTTP 200</code> en un puerto raro no es una app corporativa, sino una consola por defecto o un proxy. Tal vez un host responde en <code>443</code>, pero el <code>SNI</code> y el certificado dejan claro que estas viendo infraestructura compartida y no una propiedad directa del objetivo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-delimita-alcance-antes-de-tocar-la-red">1. Delimita alcance antes de tocar la red<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#1-delimita-alcance-antes-de-tocar-la-red" class="hash-link" aria-label="Enlace directo al 1. Delimita alcance antes de tocar la red" title="Enlace directo al 1. Delimita alcance antes de tocar la red" translate="no">​</a></h3>
-<p>Si <code>ZGrab2</code> va a abrir conexiones y completar handshakes, ya no estas en una capa puramente pasiva. Define por escrito:</p>
-<ul>
-<li class="">que activos entran en alcance;</li>
-<li class="">con que base legitima;</li>
-<li class="">que modulos necesitas realmente;</li>
-<li class="">y que ritmo o profundidad son proporcionales al caso.</li>
-</ul>
-<p>La documentacion de <code>ZMap</code> insiste en buenas practicas de ciudadania en Internet: escanear a la menor velocidad necesaria, mas despacio si el espacio objetivo es pequeno, y ofrecer mecanismos de exclusion cuando el trabajo lo requiera. Ese principio es incluso mas importante cuando subes de <code>L4</code> a <code>L7</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prepara-entradas-limpias">2. Prepara entradas limpias<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#2-prepara-entradas-limpias" class="hash-link" aria-label="Enlace directo al 2. Prepara entradas limpias" title="Enlace directo al 2. Prepara entradas limpias" translate="no">​</a></h3>
-<p>El formato de entrada que documenta <code>ZGrab2</code> admite hasta cuatro campos CSV: <code>IP, DOMAIN, TAG, PORT</code>. Ese detalle es muy util porque permite separar varios escenarios:</p>
-<ul>
-<li class="">conectar a una <code>IP</code> concreta;</li>
-<li class="">usar <code>DOMAIN</code> para cabecera <code>Host</code> o <code>SNI</code>;</li>
-<li class="">etiquetar lotes con <code>TAG</code>;</li>
-<li class="">y sobrescribir el puerto por linea cuando hace falta.</li>
-</ul>
-<p>En investigaciones serias, esa estructura ayuda mucho a no mezclar preguntas distintas dentro del mismo lote.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-modulos-concretos-no-una-ambicion-difusa">3. Usa modulos concretos, no una ambicion difusa<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#3-usa-modulos-concretos-no-una-ambicion-difusa" class="hash-link" aria-label="Enlace directo al 3. Usa modulos concretos, no una ambicion difusa" title="Enlace directo al 3. Usa modulos concretos, no una ambicion difusa" translate="no">​</a></h3>
-<p>El modo de uso mas simple es lanzar un solo modulo, por ejemplo <code>http</code>, <code>tls</code> o <code>ssh</code>, y revisar la salida JSON. Pero la pieza mas potente para equipos es el modo <code>multiple</code>, que usa un archivo <code>.ini</code> para declarar varios modulos con nombre, puerto y <code>trigger</code>.</p>
-<p>Eso tiene una ventaja metodologica clara: puedes dejar la pregunta tecnica escrita como configuracion reproducible. En vez de "hicimos varias pruebas", dejas algo mas auditable:</p>
-<ul>
-<li class=""><code>http80</code> para raiz web en <code>80</code>;</li>
-<li class=""><code>http8080</code> para un puerto alternativo;</li>
-<li class=""><code>tls443</code> para recoger negociacion y certificado;</li>
-<li class=""><code>ssh22</code> solo para activos etiquetados con otro <code>TAG</code>.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-analiza-la-salida-como-observacion-no-como-sentencia">4. Analiza la salida como observacion, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#4-analiza-la-salida-como-observacion-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 4. Analiza la salida como observacion, no como sentencia" title="Enlace directo al 4. Analiza la salida como observacion, no como sentencia" translate="no">​</a></h3>
-<p>La propia razon de ser de <code>ZGrab2</code> es producir transcripciones y resultados detallados para analisis offline. Aprovechalo:</p>
-<ul>
-<li class="">guarda la salida cruda;</li>
-<li class="">anota fecha y alcance;</li>
-<li class="">separa hechos observables de inferencias;</li>
-<li class="">y registra tambien incertidumbre.</li>
-</ul>
-<p>Si un banner apunta a un producto concreto, todavia falta validar si es actual, si esta delante de un <code>proxy</code>, si se trata de una firma generica o si el servicio realmente pertenece al objetivo investigado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>ZGrab2</code> es muy util, pero conviene vigilar varias trampas comunes:</p>
-<ul>
-<li class="">un <code>banner</code> puede estar desactualizado o deliberadamente maquillado;</li>
-<li class="">una respuesta <code>HTTP</code> puede venir de infraestructura compartida;</li>
-<li class="">el certificado <code>TLS</code> puede describir varios nombres que no significan propiedad exclusiva;</li>
-<li class="">las redirecciones pueden arrastrarte a otro host o servicio;</li>
-<li class="">y un <code>handshake</code> correcto no demuestra por si solo relevancia analitica.</li>
-</ul>
-<p>Ademas, que una herramienta sea modular y potente no significa que sea inocua en cualquier contexto. Algunas preguntas pueden responderse mejor con fuentes pasivas o historicas antes de abrir una conexion nueva. Otras merecen hacerlo al reves: primero corroborar con <code>RDAP</code>, <code>CT logs</code> o historico DNS y despues usar <code>ZGrab2</code> para comprobar una hipotesis ya razonable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">No escales de un hallazgo pasivo a un <code>handshake</code> activo sin revisar alcance y necesidad.</li>
-<li class="">No confundas "visible para un cliente estandar" con "vale todo en cualquier objetivo".</li>
-<li class="">No publiques banners sensibles, rutas internas o metadatos innecesarios si no aportan valor pedagogico.</li>
-<li class="">No mezcles evidencia de captura con atribucion organizativa sin una segunda capa de corroboracion.</li>
-<li class="">No uses una sola respuesta tecnica para perfilar personas o sacar conclusiones desproporcionadas.</li>
-</ul>
-<p>Una disciplina sencilla ayuda mucho: pregunta tecnica pequena, salida guardada, contraste con otras fuentes y conclusion humilde.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si necesitas <strong>descubrimiento</strong> a gran escala de puertos o respuesta inicial de red, <code>ZMap</code> cubre mejor esa capa. Si lo que buscas es una vista mas consolidada y navegable de resultados activos y pasivos, herramientas como <code>IVRE</code>, <code>Netlas</code> o <code>Censys</code> pueden encajar mejor. Si tu prioridad es resolver DNS rapido y con control, el propio ecosistema <code>ZMap</code> ofrece <code>ZDNS</code>.</p>
-<p><code>ZGrab2</code> aporta otra cosa: el tramo entre "este host responde" y "ya entiendo mejor que servicio me esta hablando". Usado con cuidado, ese tramo evita bastantes historias inventadas por exceso de intuicion tecnica.</p>
-<p>El takeaway accionable es este: usa <code>ZGrab2</code> para <strong>enriquecer servicios visibles con preguntas pequenas y reproducibles</strong>, no para inflar una investigacion con mas ruido del necesario. Como siguiente puente editorial del blog, tendria sentido bajar aun mas a tierra con un flujo comparado entre <code>ZGrab2</code>, <code>ZDNS</code> y <code>IVRE</code> para mostrar como cambia una hipotesis cuando separas descubrimiento, enriquecimiento y consolidacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/zgrab2-osint-banners-handshakes-contexto-servicios#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://github.com/zmap/zgrab2" target="_blank" rel="noopener noreferrer" class="">zmap/zgrab2 en GitHub (README oficial)</a></li>
-<li class=""><a href="https://github.com/zmap/zmap" target="_blank" rel="noopener noreferrer" class="">zmap/zmap en GitHub (README oficial)</a></li>
-<li class=""><a href="https://zmap.io/" target="_blank" rel="noopener noreferrer" class="">The ZMap Project</a></li>
-<li class=""><a href="https://zmap.io/about" target="_blank" rel="noopener noreferrer" class="">About the ZMap Project</a></li>
-<li class=""><a href="https://zmap.io/paper.pdf" target="_blank" rel="noopener noreferrer" class="">ZMap: Fast Internet-Wide Scanning and its Security Applications (USENIX Security 2013)</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Tradecraft" term="Tradecraft"/>
     </entry>
 </feed>
