@@ -2,11 +2,139 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-08T00:00:00.000Z</updated>
+    <updated>2026-06-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenAlex en OSINT: autores, instituciones, financiacion y trazabilidad academica]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad"/>
+        <updated>2026-06-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT cruzando autores, instituciones, financiacion y redes de publicaciones academicas en un panel de investigacion sobrio]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando autores, instituciones, financiacion y redes de publicaciones academicas en un panel de investigacion sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-09-openalex-osint-autores-instituciones-financiacion-trazabilidad-840090343d24485533d9f04199121658.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion toca una universidad, un laboratorio, una <code>spin-off</code>, un proveedor con discurso cientifico o una red de colaboracion que presume de impacto, el error habitual no suele ser "mirar poco". Suele ser <strong>mezclar perfiles, papers, afiliaciones viejas, coautorias ruidosas y nombres parecidos</strong> hasta que la historia deja de sostenerse. <code>OpenAlex</code> resulta util justo porque ordena esa maraña en un grafo de entidades publicas: obras, autores, instituciones, fuentes, temas, editoriales y financiadores.</p>
+<p>Segun la documentacion oficial de <code>OpenAlex Developers</code> consultada el <strong>9 de junio de 2026</strong>, <code>OpenAlex</code> se presenta como un catalogo abierto del sistema global de investigacion, con cientos de millones de trabajos academicos y conexiones entre entidades. En clave OSINT responsable eso importa por una razon sencilla: no te entrega una conclusion, pero si una estructura muy buena para <strong>preguntar mejor, corroborar mejor y documentar mejor</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>OpenAlex</code> es una base de conocimiento academica abierta con <code>API</code> y snapshots descargables. La documentacion tecnica explica dos rasgos que, para OSINT, son mas importantes que cualquier promesa comercial:</p>
+<ul>
+<li class="">modela el ecosistema academico como entidades conectadas;</li>
+<li class="">y expone filtros, busquedas y agrupaciones sobre esas entidades para trabajar con trazabilidad.</li>
+</ul>
+<p>La pagina principal de desarrolladores destaca que el dataset enlaza <code>works</code>, <code>authors</code>, <code>sources</code>, <code>institutions</code>, <code>topics</code>, <code>publishers</code> y <code>funders</code>. Las paginas de esquema de <code>Authors</code> e <code>Institutions</code> anaden ademas un matiz util: los autores aparecen como perfiles desambiguados y las instituciones como universidades u otras organizaciones a las que los autores afirman afiliacion.</p>
+<p>Traducido a preguntas OSINT, sirve para:</p>
+<ul>
+<li class="">verificar si una persona investigada tiene huella academica visible y coherente;</li>
+<li class="">mapear con que instituciones, financiadores o temas aparece conectada una linea de trabajo;</li>
+<li class="">revisar si una organizacion publica investigacion real, con que frecuencia y en que revistas o repositorios;</li>
+<li class="">detectar cambios de afiliacion o colaboraciones que merecen contexto adicional;</li>
+<li class="">y enriquecer debida diligencia, inteligencia competitiva o verificacion de expertos sin depender de una sola web corporativa.</li>
+</ul>
+<p>No sustituye una comprobacion juridica, biografica o mercantil. Lo que hace muy bien es darte un <strong>mapa consultable del discurso academico publico</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que tu equipo evalua a <code>Helix Quantum Analytics</code>, una empresa ficticia que asegura colaborar con varios grupos universitarios y haber recibido apoyo de programas de investigacion europeos. La pregunta correcta no es "a ver si pillamos una contradiccion". La pregunta seria otra:</p>
+<ul>
+<li class="">que autores aparecen vinculados a la empresa o a sus fundadores;</li>
+<li class="">con que instituciones publicaron antes y despues de crear la compania;</li>
+<li class="">si existen trabajos visibles que respalden las capacidades que anuncian;</li>
+<li class="">y si las redes de colaboracion y financiacion que mencionan dejan rastro publico coherente.</li>
+</ul>
+<p>En ese escenario, <code>OpenAlex</code> funciona muy bien como capa intermedia entre una busqueda web general y una revision mas profunda de <code>ORCID</code>, repositorios, perfiles institucionales, subvenciones y registros mercantiles. Si ves autores con produccion consistente, afiliaciones claras y lineas tematicas estables, ganas contexto. Si solo aparece ruido, homonimos o una huella academica inflada por menciones indirectas, bajas la confianza y documentas la incertidumbre.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-entidad-estable-no-por-una-narrativa">1. Empieza por una entidad estable, no por una narrativa<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#1-empieza-por-una-entidad-estable-no-por-una-narrativa" class="hash-link" aria-label="Enlace directo al 1. Empieza por una entidad estable, no por una narrativa" title="Enlace directo al 1. Empieza por una entidad estable, no por una narrativa" translate="no">​</a></h3>
+<p>La tentacion habitual es entrar con una historia ya cerrada: "esta persona trabaja para esta institucion" o "esta empresa sale de este laboratorio". <code>OpenAlex</code> empuja a hacerlo mejor: empezar por una entidad y seguir relaciones observables.</p>
+<p>En practica, suele ser mas fiable arrancar por:</p>
+<ul>
+<li class="">una institucion concreta;</li>
+<li class="">un autor con suficientes senales de identidad;</li>
+<li class="">una obra ya conocida;</li>
+<li class="">o un financiador que quieras contextualizar.</li>
+</ul>
+<p>Ese orden reduce el riesgo de contaminar la busqueda con nombres ambiguos o afiliaciones asumidas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-desambiguacion-como-ayuda-no-como-verdad-revelada">2. Usa la desambiguacion como ayuda, no como verdad revelada<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#2-usa-la-desambiguacion-como-ayuda-no-como-verdad-revelada" class="hash-link" aria-label="Enlace directo al 2. Usa la desambiguacion como ayuda, no como verdad revelada" title="Enlace directo al 2. Usa la desambiguacion como ayuda, no como verdad revelada" translate="no">​</a></h3>
+<p>La documentacion de <code>Authors</code> insiste en que <code>OpenAlex</code> indexa decenas de millones de perfiles de autor desambiguados. Eso es muy util, pero no elimina el problema del todo. En OSINT, la desambiguacion ayuda a recortar ruido; no convierte automaticamente un nombre comun en identidad confirmada.</p>
+<p>Antes de dar por buena una coincidencia, conviene revisar:</p>
+<ul>
+<li class="">variantes del nombre visible;</li>
+<li class="">instituciones conocidas o mas recientes;</li>
+<li class="">temas de trabajo predominantes;</li>
+<li class="">identificadores externos cuando existan;</li>
+<li class="">y la cronologia general de publicaciones.</li>
+</ul>
+<p>Si dos o tres de esas capas no encajan, lo prudente es tratar el perfil como hipotesis de trabajo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruza-autores-instituciones-trabajos-y-financiadores">3. Cruza autores, instituciones, trabajos y financiadores<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#3-cruza-autores-instituciones-trabajos-y-financiadores" class="hash-link" aria-label="Enlace directo al 3. Cruza autores, instituciones, trabajos y financiadores" title="Enlace directo al 3. Cruza autores, instituciones, trabajos y financiadores" translate="no">​</a></h3>
+<p>La fuerza real de <code>OpenAlex</code> no esta en una ficha aislada, sino en el cruce entre entidades. La pagina principal de desarrolladores y la ayuda sobre el dataset describen precisamente ese valor: una gran red de conexiones entre tipos de entidad.</p>
+<p>Para un analista, las preguntas rentables suelen ser:</p>
+<ul>
+<li class="">que trabajos salen asociados a un autor o grupo;</li>
+<li class="">en que instituciones se concentran sus afiliaciones recientes;</li>
+<li class="">que temas dominan su produccion;</li>
+<li class="">que fuentes o revistas publican esa linea;</li>
+<li class="">y si hay financiadores visibles que aporten contexto.</li>
+</ul>
+<p>Eso permite construir cronologias y relaciones sin depender solo de la biografia oficial que una organizacion publica de si misma.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-aprovecha-filtros-y-agrupaciones-para-pasar-de-la-anecdota-al-patron">4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#4-aprovecha-filtros-y-agrupaciones-para-pasar-de-la-anecdota-al-patron" class="hash-link" aria-label="Enlace directo al 4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron" title="Enlace directo al 4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron" translate="no">​</a></h3>
+<p>Las paginas de esquema de <code>Authors</code> e <code>Institutions</code> indican que la <code>API</code> soporta <code>filter</code>, <code>sort</code> y <code>group_by</code> sobre muchos campos. Ese detalle merece mas atencion de la que suele recibir, porque marca la diferencia entre "he visto un ejemplo" y "he visto un patron".</p>
+<p>En OSINT responsable, esa capacidad sirve para:</p>
+<ul>
+<li class="">agrupar por pais, tema o institucion;</li>
+<li class="">filtrar por fechas para separar etapas de carrera;</li>
+<li class="">ordenar por volumen o impacto visible para priorizar revision;</li>
+<li class="">y detectar si una relacion es marginal o sostenida.</li>
+</ul>
+<p>No hace falta obsesionarse con la sintaxis para entender la idea: <strong>primero miras la red; luego intentas medir que nodos y relaciones pesan de verdad</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-documenta-tambien-los-limites-de-acceso-y-cobertura">5. Documenta tambien los limites de acceso y cobertura<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#5-documenta-tambien-los-limites-de-acceso-y-cobertura" class="hash-link" aria-label="Enlace directo al 5. Documenta tambien los limites de acceso y cobertura" title="Enlace directo al 5. Documenta tambien los limites de acceso y cobertura" translate="no">​</a></h3>
+<p>La pagina de acceso de <code>OpenAlex Developers</code> indica que la <code>API</code> es gratuita con clave gratuita, con un limite diario gratuito expresado como <code>$1/day</code>, y que el snapshot libre se actualiza trimestralmente. Eso no es un detalle administrativo menor: afecta a la forma de trabajar y al tipo de afirmaciones que puedes sostener.</p>
+<p>Si trabajas con la <code>API</code>, anota:</p>
+<ul>
+<li class="">fecha de consulta;</li>
+<li class="">entidad de partida;</li>
+<li class="">filtros aplicados;</li>
+<li class="">y si te apoyaste en <code>API</code>, interfaz web o snapshot.</li>
+</ul>
+<p>Si trabajas con snapshot, deja por escrito de que corte temporal partes. En investigaciones academicas o de <code>due diligence</code>, la cronologia de los datos importa tanto como el hallazgo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>OpenAlex</code> es potente, pero conviene entrar con varias precauciones:</p>
+<ul>
+<li class="">una coautoria no demuestra una relacion operativa fuerte fuera del paper;</li>
+<li class="">una afiliacion historica no implica vinculo actual;</li>
+<li class="">temas, impacto o volumen de obra no sustituyen la lectura del contenido;</li>
+<li class="">la desambiguacion puede fallar en nombres muy comunes o trayectorias fragmentadas;</li>
+<li class="">y la ausencia de una entidad en <code>OpenAlex</code> no prueba que no exista actividad academica real.</li>
+</ul>
+<p>Tambien hay un limite metodologico importante: una red academica visible puede sobrevalorar a quien publica mucho y dejar fuera trabajo industrial, tecnico o interno que no pasa por canales academicos abiertos. Si no explicitas ese sesgo, corres el riesgo de interpretar silencio como inexistencia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Aunque <code>OpenAlex</code> trabaja sobre informacion academica publica, sigue siendo buena idea mantener disciplina:</p>
+<ul>
+<li class="">minimiza datos personales irrelevantes cuando el objetivo real es institucional o tematico;</li>
+<li class="">no confundas analisis de colaboracion con perfilado invasivo de personas;</li>
+<li class="">corrobora hallazgos sensibles con fuentes adicionales antes de elevar una conclusion;</li>
+<li class="">separa claramente hechos observados, inferencias probables e hipotesis abiertas;</li>
+<li class="">y evita convertir metrica academica en atajo para reputacion o intencion.</li>
+</ul>
+<p>El mejor uso de <code>OpenAlex</code> en OSINT no es "descubrir a alguien". Es <strong>entender mejor como se relacionan produccion cientifica, instituciones y financiacion visibles</strong> dentro de una investigacion legitima.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si <code>OpenAlex</code> te da una pista buena, el siguiente movimiento no suele ser pedirle mas a la misma herramienta. Suele ser salir a corroborar:</p>
+<ul>
+<li class=""><code>ORCID</code> para perfiles de investigador y trayectorias declaradas;</li>
+<li class="">webs institucionales y repositorios para confirmar afiliaciones y proyectos;</li>
+<li class=""><code>Crossref</code> o paginas de DOI para validar metadatos y ediciones;</li>
+<li class="">registros mercantiles, subvenciones o bases de datos publicas si el caso es corporativo;</li>
+<li class="">y lectura manual de varios trabajos para no quedarte solo con metadatos.</li>
+</ul>
+<p>Como takeaway practico, <code>OpenAlex</code> merece un hueco claro en el kit OSINT de <code>research</code>, <code>due diligence</code> y verificacion de expertos. No porque resuelva solo el caso, sino porque ayuda a pasar de nombres sueltos a <strong>estructuras verificables de autores, instituciones, temas y financiacion</strong>.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Research" term="Research"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[httpx en OSINT: sondear servicios web, priorizar hosts vivos y mantener contexto]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto</id>
@@ -2153,105 +2281,5 @@
         <category label="Metodologia" term="Metodologia"/>
         <category label="GEOINT" term="GEOINT"/>
         <category label="Investigacion" term="Investigacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Maigret en OSINT: usernames, recursion y contexto antes de atribuir perfiles]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto"/>
-        <updated>2026-05-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT correlacionando usernames, perfiles publicos y notas de verificacion en una mesa de investigacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT correlacionando usernames, perfiles publicos y notas de verificacion en una mesa de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-12-maigret-osint-usernames-recursion-contexto-40c1f59658a7ab6179c602205791b2da.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Un alias repetido en varias plataformas parece una pista buenisima hasta que empiezan los atajos mentales: mismo <code>username</code>, misma persona; misma foto, misma identidad; mismo enlace, mismo contexto. <code>Maigret</code> resulta util justo antes de cometer ese error, porque convierte una intuicion dispersa en un <strong>flujo mas ordenado para buscar cuentas publicas, extraer metadatos visibles y abrir pivotes sin fingir que ya has identificado a nadie</strong>.</p>
-<p>Su documentacion oficial ayuda a colocar la herramienta en su sitio real. En mayo de 2026, la documentacion y PyPI la presentan como un proyecto estable, sin necesidad de <code>API keys</code>, con busqueda sobre miles de sitios y arranque por defecto sobre los <code>500</code> mas populares. Tambien deja claro algo metodologicamente importante: <code>Maigret</code> no solo comprueba existencia, sino que puede extraer informacion visible del perfil, seguir usernames nuevos encontrados durante la investigacion y generar informes. Traducido a trabajo serio: sirve para <strong>organizar hallazgos publicos</strong>, no para cerrar atribuciones por si solo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Maigret</code> es una herramienta OSINT orientada a investigar identidades publicas a partir de un <code>username</code>. El proyecto oficial la describe como un fork de <code>Sherlock</code> capaz de buscar cuentas en miles de sitios y reunir informacion disponible en paginas de perfil. Esa diferencia importa: no se queda solo en "existe o no existe", sino que intenta recoger contexto observable para que el analista valore despues que merece seguirse y que no.</p>
-<p>En un flujo responsable puede aportar varias cosas:</p>
-<ul>
-<li class="">localizar perfiles publicos asociados a un alias;</li>
-<li class="">agrupar resultados por etiquetas o paises;</li>
-<li class="">extraer campos visibles, enlaces y pistas secundarias;</li>
-<li class="">lanzar recursion sobre nuevos identificadores hallados;</li>
-<li class="">y documentar todo en formatos exportables para revision posterior.</li>
-</ul>
-<p>La clave no esta en el volumen, sino en el orden. Un alias es un punto de partida debil; <code>Maigret</code> ayuda a convertirlo en una lista de comprobaciones mas trazable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una investigacion interna autorizada sobre una campana de suplantacion contra la empresa ficticia <code>Puerto Boreal Energia</code>. El equipo ha recibido varias capturas con un alias repetido en foros, una plataforma de codigo y una cuenta de microblogging. La pregunta correcta no es "quien es esta persona", sino algo mucho mas prudente:</p>
-<ul>
-<li class="">en que plataformas aparece ese alias de forma publica;</li>
-<li class="">que datos visibles se repiten de verdad;</li>
-<li class="">que enlaces llevan a otros perfiles;</li>
-<li class="">y que hallazgos merecen verificacion adicional.</li>
-</ul>
-<p>En ese escenario, <code>Maigret</code> puede encajar asi:</p>
-<ol>
-<li class="">se ejecuta una busqueda inicial sobre el alias observado;</li>
-<li class="">se revisan solo perfiles publicos con senales minimamente coherentes;</li>
-<li class="">se anotan enlaces, biografias, dominios o usernames derivados;</li>
-<li class="">se lanza recursion solo sobre pivotes razonables;</li>
-<li class="">y cada posible coincidencia se contrasta con contexto humano antes de hablar de identidad.</li>
-</ol>
-<p>Ese orden reduce dos errores clasicos: convertir una coincidencia superficial en atribucion, y perseguir ruido solo porque la herramienta devuelve muchos resultados.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-con-una-pregunta-pequena">1. Empieza con una pregunta pequena<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#1-empieza-con-una-pregunta-pequena" class="hash-link" aria-label="Enlace directo al 1. Empieza con una pregunta pequena" title="Enlace directo al 1. Empieza con una pregunta pequena" translate="no">​</a></h3>
-<p>La documentacion oficial indica que <code>Maigret</code> busca por defecto en <code>500</code> sitios populares y soporta mas de <code>3000</code> en total. Eso suena potente, pero no obliga a empezar a lo grande. Si el alias es comun o ambiguo, conviene partir de una sola cuenta, un pequeno lote o un subconjunto por etiquetas para no inundarte de falsos positivos desde el minuto uno.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-filtra-por-categorias-o-geografia-cuando-el-caso-lo-pida">2. Filtra por categorias o geografia cuando el caso lo pida<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#2-filtra-por-categorias-o-geografia-cuando-el-caso-lo-pida" class="hash-link" aria-label="Enlace directo al 2. Filtra por categorias o geografia cuando el caso lo pida" title="Enlace directo al 2. Filtra por categorias o geografia cuando el caso lo pida" translate="no">​</a></h3>
-<p>El proyecto soporta <code>tags</code> de sitios y ejemplos de filtrado por categorias como <code>photo</code> o <code>dating</code>, ademas de etiquetas geograficas como <code>us</code>. Metodologicamente esto es oro: te obliga a formular mejor la hipotesis. No es lo mismo buscar reutilizacion de alias en repositorios de codigo que en redes visuales o plataformas locales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trata-la-recursion-como-pivote-no-como-automatismo-ciego">3. Trata la recursion como pivote, no como automatismo ciego<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#3-trata-la-recursion-como-pivote-no-como-automatismo-ciego" class="hash-link" aria-label="Enlace directo al 3. Trata la recursion como pivote, no como automatismo ciego" title="Enlace directo al 3. Trata la recursion como pivote, no como automatismo ciego" translate="no">​</a></h3>
-<p>Una de las funciones mas utiles de <code>Maigret</code> es la busqueda recursiva de nuevos <code>usernames</code> u otros identificadores encontrados durante el analisis. Bien usada, esa recursion descubre relaciones publicas interesantes. Mal usada, fabrica arboles enormes de coincidencias debiles. La disciplina recomendable es simple: solo seguir pivotes que tengan sentido contextual y registrar por que merecian una segunda vuelta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-guarda-resultados-en-un-formato-revisable">4. Guarda resultados en un formato revisable<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#4-guarda-resultados-en-un-formato-revisable" class="hash-link" aria-label="Enlace directo al 4. Guarda resultados en un formato revisable" title="Enlace directo al 4. Guarda resultados en un formato revisable" translate="no">​</a></h3>
-<p>La herramienta puede generar informes <code>HTML</code>, <code>PDF</code> y otros formatos, y tambien ofrece interfaz web. Eso no es un adorno. Cuando el caso importa, conviene revisar fuera de la terminal:</p>
-<ul>
-<li class="">que perfiles se consideraron relevantes;</li>
-<li class="">que campos visibles se extrajeron;</li>
-<li class="">que paginas devolvieron senales dudosas;</li>
-<li class="">y que conclusiones quedaron expresamente como hipotesis.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-mantén-actualizada-la-base-de-sitios-pero-no-confundas-frescura-con-precision">5. Mantén actualizada la base de sitios, pero no confundas frescura con precision<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#5-mant%C3%A9n-actualizada-la-base-de-sitios-pero-no-confundas-frescura-con-precision" class="hash-link" aria-label="Enlace directo al 5. Mantén actualizada la base de sitios, pero no confundas frescura con precision" title="Enlace directo al 5. Mantén actualizada la base de sitios, pero no confundas frescura con precision" translate="no">​</a></h3>
-<p>La documentacion tambien explica que <code>Maigret</code> trae una base de sitios integrada y comprueba actualizaciones automaticamente al arrancar. Eso mejora cobertura, pero no resuelve el problema duro: que una plataforma cambie HTML, limite peticiones o exija login. Una base actualizada reduce errores de chequeo; no sustituye la verificacion manual de lo que realmente significa cada hallazgo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-hace-diferente-a-maigret">Lo que hace diferente a Maigret<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#lo-que-hace-diferente-a-maigret" class="hash-link" aria-label="Enlace directo al Lo que hace diferente a Maigret" title="Enlace directo al Lo que hace diferente a Maigret" translate="no">​</a></h2>
-<p><code>Sherlock</code> sigue siendo una referencia conocida para busqueda de aliases, pero <code>Maigret</code> se diferencia sobre todo en tres planos:</p>
-<ul>
-<li class="">intenta extraer mas contexto de perfil, no solo URLs;</li>
-<li class="">permite recursion sobre identificadores nuevos;</li>
-<li class="">y expone mas opciones de informes, filtrado y ajuste operativo.</li>
-</ul>
-<p>Ademas, la documentacion reciente describe protecciones anti-bot de forma bastante explicita. El proyecto distingue sitios con fingerprinting TLS, problemas de reputacion de IP o desafios JavaScript que pueden dejar comprobaciones inutiles desde ciertas redes. Ese detalle es muy valioso para OSINT serio porque recuerda algo basico: <strong>un "no encontrado" puede ser un limite tecnico, no una ausencia real</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Maigret</code> puede ahorrar mucho tiempo, pero tiene trampas obvias si se usa sin criterio:</p>
-<ul>
-<li class="">un mismo <code>username</code> puede pertenecer a personas distintas;</li>
-<li class="">la presencia en una plataforma no demuestra control actual de la cuenta;</li>
-<li class="">un perfil encontrado puede ser vacio, historico o de baja relevancia;</li>
-<li class="">algunas comprobaciones pueden fallar por anti-bot, reputacion de IP o cambios de HTML;</li>
-<li class="">y la recursion puede amplificar ruido si no filtras por contexto.</li>
-</ul>
-<p>La propia documentacion de protecciones y troubleshooting deja claro que hay sitios donde un cliente automatizado no ve lo mismo que un navegador real o una conexion residencial. Por eso conviene registrar tambien ausencias dudosas y no tratarlas como prueba negativa fuerte.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo con perfiles y datos publicamente visibles o con base legitima clara.</li>
-<li class="">No conviertas una coincidencia de alias en identificacion nominal sin corroboracion adicional.</li>
-<li class="">Separa siempre hechos observables, inferencias y dudas pendientes.</li>
-<li class="">Evita recolectar o republicar datos personales innecesarios solo porque sean accesibles.</li>
-<li class="">Si una plataforma exige login, piensa primero si merece la pena y si encaja con tu marco legal y operativo.</li>
-</ul>
-<p>La mejor defensa contra el abuso de este tipo de herramientas es metodologica: pregunta pequena, evidencia visible, contraste multifuente y conclusion humilde.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si tu objetivo es una comprobacion muy rapida de presencia de alias, <code>Sherlock</code> o <code>WhatsMyName</code> pueden bastar como primer filtro. Si te interesa una lectura mas manual y profunda de un conjunto pequeno de perfiles, a veces compensa mas navegador, archivo de evidencias y tabla de corroboracion. Y si el selector principal no es un alias sino un correo, un telefono o una red de entidades, conviene cambiar de herramienta en vez de forzar <code>Maigret</code> fuera de su zona fuerte.</p>
-<p>La takeaway practica es esta: <strong>usa <code>Maigret</code> para ordenar pistas publicas alrededor de un <code>username</code>, abrir pivotes razonables y documentar limites tecnicos; no para vender una atribucion que todavia no has demostrado</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/maigret-osint-usernames-recursion-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://pypi.org/project/maigret/" target="_blank" rel="noopener noreferrer" class="">Maigret en PyPI</a></li>
-<li class=""><a href="https://github.com/soxoj/maigret" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de Maigret</a></li>
-<li class=""><a href="https://maigret.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer" class="">Documentacion oficial de Maigret</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="SOCMINT" term="SOCMINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
     </entry>
 </feed>
