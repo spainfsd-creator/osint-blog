@@ -2,11 +2,131 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-09T00:00:00.000Z</updated>
+    <updated>2026-06-10T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Netcraft Site Report en OSINT: infraestructura, cronologia y contexto antes de atribuir]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto"/>
+        <updated>2026-06-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando hosting, ASN, DNS y cronologia web en un panel sobrio de investigacion]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando hosting, ASN, DNS y cronologia web en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-10-netcraft-site-report-osint-infraestructura-cronologia-contexto-bc2988fec435e94c6db6c2c717c12ba2.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica arranca con un dominio, el error habitual no es quedarse corto. Suele ser lo contrario: <strong>mezclar hosting actual, reputacion heredada, tecnologia visible, DNS, certificados y popularidad sin separar observacion de inferencia</strong>. <code>Netcraft Site Report</code> resulta util justo antes de caer en esa trampa, porque condensa varias senales publicas en una sola vista y obliga a formular mejor las preguntas.</p>
+<p>La propia pagina de <code>Research Tools</code> de Netcraft presenta <code>site report</code> como una forma de averiguar la infraestructura y las tecnologias de cualquier sitio a partir de su mineria de datos de internet. Y un detalle metodologico de mucho peso aparece en su politica de privacidad: cuando consultas un <code>hostname</code>, dominio o <code>URL</code> en <code>sitereport.netcraft.com</code> o <code>searchdns.netcraft.com</code>, Netcraft puede visitar ese recurso para recopilar la informacion solicitada, comprobar contenido malicioso y alimentar su <code>Web Server Survey</code>. Traducido a OSINT serio: <strong>es una herramienta muy util, pero no conviene usarla con URLs sensibles, tokens, rutas privadas o identificadores personales incrustados</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>Netcraft Site Report</code> es un informe web sobre una pagina o dominio que agrega senales visibles sobre red, <code>hosting</code>, DNS, delegacion IP y, segun el caso, capas adicionales como <code>SSL/TLS</code>, <code>SPF</code>, <code>DMARC</code>, <code>web trackers</code> y tecnologia del sitio.</p>
+<p>La pagina publica del servicio resume su propuesta con claridad: mostrar la infraestructura y las tecnologias utilizadas por cualquier sitio a partir de los resultados de su <code>internet data mining</code>. En la practica, para un flujo OSINT responsable, eso sirve para:</p>
+<ul>
+<li class="">ubicar rapidamente un activo en su contexto tecnico visible;</li>
+<li class="">fechar una presencia publica con el campo <code>Date first seen</code>;</li>
+<li class="">detectar proveedor de <code>hosting</code>, pais de alojamiento, IP y <code>ASN</code> observados;</li>
+<li class="">revisar <code>nameservers</code>, registrador y senales basicas de configuracion DNS como <code>DNSSEC</code>;</li>
+<li class="">abrir pivotes prudentes hacia otras fuentes como <code>RDAP</code>, <code>CT logs</code>, archivo web o buscadores de infraestructura;</li>
+<li class="">y documentar mejor que parte de una conclusion proviene de observacion directa y que parte es inferencia.</li>
+</ul>
+<p>Tambien ayuda a evitar una pereza analitica bastante comun: asumir que una IP, un <code>reverse DNS</code> o un proveedor compartido bastan para atribuir propiedad, relacion operativa o intencion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que tu equipo de <code>due diligence</code> revisa a <code>Northbridge Health Systems</code>, una empresa ficticia que acaba de absorber varias marcas regionales. El equipo quiere responder una pregunta razonable: que parte de la superficie web visible parece propia, que parte parece heredada y que parte merece validacion adicional antes de sacar conclusiones.</p>
+<p>Un paso prudente con <code>Netcraft Site Report</code> podria ser:</p>
+<ol>
+<li class="">consultar el dominio principal y dos o tres subdominios conocidos;</li>
+<li class="">anotar <code>Date first seen</code>, <code>hosting company</code>, IP, <code>ASN</code>, <code>nameservers</code> y registrador;</li>
+<li class="">comparar si las piezas criticas viven en el mismo proveedor o si hay mezcla de legado, <code>CDN</code>, terceros y micrositios;</li>
+<li class="">cruzar los activos dudosos con <code>RDAP</code>, <code>crt.sh</code>, archivo web o inventario propio autorizado.</li>
+</ol>
+<p>La gracia no esta en "demostrar" algo desde la primera pantalla. La gracia esta en detectar preguntas mejores:</p>
+<ul>
+<li class="">este subdominio parece corporativo o podria ser un servicio externo?</li>
+<li class="">el proveedor de <code>hosting</code> coincide con una migracion reciente o con un rastro mas antiguo?</li>
+<li class="">el <code>ASN</code> observado apunta a infraestructura propia, <code>cloud</code> compartida o una capa de <code>CDN</code>?</li>
+<li class="">el dominio fue visto hace anos o acaba de aparecer?</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-selector-menos-sensible-posible">1. Empieza por el selector menos sensible posible<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#1-empieza-por-el-selector-menos-sensible-posible" class="hash-link" aria-label="Enlace directo al 1. Empieza por el selector menos sensible posible" title="Enlace directo al 1. Empieza por el selector menos sensible posible" translate="no">​</a></h3>
+<p>Si solo necesitas contexto de infraestructura, introduce antes un dominio o <code>hostname</code> que una <code>URL</code> completa. La politica de privacidad de Netcraft explica que los dominios, <code>hostnames</code> y <code>URLs</code> consultados pueden ser visitados por sus sistemas. Eso vuelve razonable una regla simple: <strong>no pegues rutas con <code>tokens</code>, identificadores de usuario, parametros de recuperacion, paneles internos o cualquier <code>URL</code> que no querrias reenviar a un tercero</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-observacion-de-interpretacion">2. Separa observacion de interpretacion<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#2-separa-observacion-de-interpretacion" class="hash-link" aria-label="Enlace directo al 2. Separa observacion de interpretacion" title="Enlace directo al 2. Separa observacion de interpretacion" translate="no">​</a></h3>
+<p>En un informe tipico puedes encontrar:</p>
+<ul>
+<li class="">fecha de primera observacion;</li>
+<li class="">ranking del sitio;</li>
+<li class="">proveedor de <code>hosting</code> y pais;</li>
+<li class="">direcciones <code>IPv4</code> e <code>IPv6</code>;</li>
+<li class=""><code>ASN</code>;</li>
+<li class=""><code>reverse DNS</code>;</li>
+<li class="">dominio, <code>nameserver</code>, registrador y <code>DNSSEC</code>;</li>
+<li class="">y un arbol de delegacion IP.</li>
+</ul>
+<p>Eso es muy valioso, pero no todo significa lo mismo. Una IP actual es una observacion. Que esa IP "prueba propiedad" ya es otra afirmacion y necesita corroboracion.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-la-cronologia-para-ordenar-la-historia">3. Usa la cronologia para ordenar la historia<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#3-usa-la-cronologia-para-ordenar-la-historia" class="hash-link" aria-label="Enlace directo al 3. Usa la cronologia para ordenar la historia" title="Enlace directo al 3. Usa la cronologia para ordenar la historia" translate="no">​</a></h3>
+<p>El campo <code>Date first seen</code> suele ser mas util de lo que parece. No convierte el informe en archivo web, pero ayuda a decidir si estas mirando:</p>
+<ul>
+<li class="">una presencia antigua y estable;</li>
+<li class="">un dominio relativamente reciente;</li>
+<li class="">o una pieza que merece contraste temporal con otras fuentes.</li>
+</ul>
+<p>Si el caso es sensible, ese dato deberia llevarte a contrastar con <code>Wayback Machine</code>, <code>Common Crawl</code>, <code>CT logs</code> o historicos DNS, no a cerrar la narrativa en la misma herramienta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-mira-el-hosting-como-contexto-no-como-veredicto">4. Mira el hosting como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#4-mira-el-hosting-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 4. Mira el hosting como contexto, no como veredicto" title="Enlace directo al 4. Mira el hosting como contexto, no como veredicto" translate="no">​</a></h3>
+<p>La documentacion de <code>Internet Data and Research</code> explica que Netcraft asigna sitios a proveedores de alojamiento o <code>cloud</code> usando <code>reverse DNS</code> e informacion de delegacion IP, y que rastrea sitios web, direcciones IP, equipos expuestos y certificados <code>SSL</code> a escala de internet. Eso hace muy util la vista de <code>hosting</code>, pero tambien recuerda una limitacion obvia: mucha infraestructura moderna es compartida.</p>
+<p>Ver <code>Cloudflare</code>, <code>AWS</code>, <code>Azure</code>, <code>Fastly</code> o cualquier otro gran proveedor puede servir para contextualizar despliegue, <code>CDN</code>, geografia operativa o madurez tecnica. Lo que no deberia hacer es empujarte a confundir un proveedor comun con una relacion exclusiva.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-aprovecha-los-pivotes-secundarios">5. Aprovecha los pivotes secundarios<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#5-aprovecha-los-pivotes-secundarios" class="hash-link" aria-label="Enlace directo al 5. Aprovecha los pivotes secundarios" title="Enlace directo al 5. Aprovecha los pivotes secundarios" translate="no">​</a></h3>
+<p>El ecosistema publico de Netcraft no se queda en <code>Site Report</code>. Su pagina de <code>Research Tools</code> lista tambien <code>Search DNS</code>, <code>Most Popular Sites</code>, <code>Cybercrime Trends</code> y <code>Threat Map</code>. Y la pagina de la extension del navegador indica que esta ofrece acceso rapido a un informe detallado sobre la tecnologia y el proveedor de <code>hosting</code> del sitio consultado.</p>
+<p>Eso sugiere un flujo sano:</p>
+<ul>
+<li class=""><code>Site Report</code> para contexto puntual del activo;</li>
+<li class=""><code>Search DNS</code> para ampliar nombres o popularidad relativa cuando proceda;</li>
+<li class="">y otras fuentes externas para comprobar si el hallazgo se sostiene fuera del ecosistema Netcraft.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Netcraft Site Report</code> es muy bueno para resumir senales visibles, pero tiene limites claros:</p>
+<ul>
+<li class="">una capa de <code>CDN</code> puede ocultar parte de la topologia real;</li>
+<li class="">el proveedor observado no equivale necesariamente al operador final;</li>
+<li class=""><code>reverse DNS</code> y etiquetas de red ayudan, pero no bastan para atribuir;</li>
+<li class="">algunas secciones dependen de carga adicional o del estado actual del sitio;</li>
+<li class="">y una observacion puntual puede quedarse corta frente a un caso que requiera historia, muestreo o varias fuentes.</li>
+</ul>
+<p>Tambien conviene entender de donde sale parte de la popularidad en el ecosistema Netcraft. Su politica de privacidad y la FAQ de la extension explican que recogen <code>hostnames</code> visitados por usuarios de la extension, no <code>URLs</code> completas, y que esa informacion agregada y anonimizada se usa para rankings y datasets externos. Ese diseno es razonable para privacidad, pero al analista le deja una conclusion simple: <strong>la popularidad es una pista contextual, no una medida universal del trafico real ni una prueba de legitimidad</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Evita consultar <code>URLs</code> sensibles; prioriza dominio o <code>hostname</code>.</li>
+<li class="">Documenta por separado hechos observados e inferencias analiticas.</li>
+<li class="">No atribuyas propiedad solo por compartir IP, <code>hosting</code> o <code>ASN</code>.</li>
+<li class="">Cruza activos importantes con al menos una fuente externa independiente.</li>
+<li class="">Si el caso afecta a personas, minimiza datos y no amplifiques paneles, correos o rutas expuestas sin justificacion legitima.</li>
+<li class="">Si el informe sugiere contenido fraudulento o phishing, trata la herramienta como apoyo de validacion, no como sustituto de un proceso de respuesta.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si <code>Netcraft Site Report</code> te aporta una buena foto inicial, las siguientes piezas suelen complementar bien:</p>
+<ul>
+<li class=""><code>RDAP</code> y <code>WHOIS</code>, para registro y contexto administrativo;</li>
+<li class=""><code>crt.sh</code> o <code>Censys</code>, para certificados y huellas visibles;</li>
+<li class=""><code>SecurityTrails</code> o historicos DNS, para continuidad temporal;</li>
+<li class=""><code>urlscan.io</code> o <code>urlquery</code>, si lo importante es el comportamiento web;</li>
+<li class=""><code>Wayback Machine</code>, si necesitas reconstruccion cronologica de contenido.</li>
+</ul>
+<p>La takeaway practica es esta: <strong>usa <code>Netcraft Site Report</code> para ordenar contexto tecnico visible y abrir pivotes prudentes, no para convertir coincidencias de infraestructura en atribuciones rapidas</strong>. Si en el siguiente post seguimos esta linea, una buena continuacion seria comparar cuando conviene empezar por <code>Netcraft</code>, cuando por <code>RDAP</code> y cuando por historico DNS.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.netcraft.com/resources/research-tools" target="_blank" rel="noopener noreferrer" class="">Netcraft Research Tools</a></li>
+<li class=""><a href="https://sitereport.netcraft.com/" target="_blank" rel="noopener noreferrer" class="">Netcraft Site Report</a></li>
+<li class=""><a href="https://www.netcraft.com/solutions/other-solutions/internet-data-research" target="_blank" rel="noopener noreferrer" class="">Netcraft Internet Data and Research</a></li>
+<li class=""><a href="https://www.netcraft.com/legal/privacy" target="_blank" rel="noopener noreferrer" class="">Netcraft Privacy Policy</a></li>
+<li class=""><a href="https://www.netcraft.com/resources/apps-and-extensions/browser-extension" target="_blank" rel="noopener noreferrer" class="">Netcraft Browser Extension</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Web" term="Web"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Verificacion" term="Verificacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenAlex en OSINT: autores, instituciones, financiacion y trazabilidad academica]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad</id>
@@ -2175,111 +2295,5 @@
         <category label="Reconocimiento" term="Reconocimiento"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Verificacion" term="Verificacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Lampyre en OSINT: grafos, entidades y macros para investigar con mas contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto"/>
-        <updated>2026-05-13T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT construyendo un grafo con entidades, mapas y tablas a partir de fuentes publicas]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT construyendo un grafo con entidades, mapas y tablas a partir de fuentes publicas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-13-lampyre-osint-grafos-entidades-macros-contexto-decfcedc9078fb9f0e961eea503784b9.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay investigaciones que se rompen por un motivo poco espectacular: cada hallazgo vive en un sitio distinto. Una tabla con dominios por un lado, capturas de mapa por otro, relaciones dibujadas deprisa en una libreta y notas dispersas sobre que pivote salio de donde. <code>Lampyre</code> resulta util justo en ese punto, porque propone algo mas disciplinado que "abrir mas pestañas": <strong>convertir datos en entidades, mapearlos a grafos y lanzar tareas repetibles sin perder el contexto del caso</strong>.</p>
-<p>La documentacion oficial ayuda a colocar bien la herramienta. <code>Lampyre</code> usa la plataforma <code>Lighthouse</code> para ejecutar peticiones analiticas y su propia API en Python permite extender el sistema con tareas personalizadas. Ademas, esa misma documentacion subraya un detalle importante para OPSEC: esas tareas pueden ejecutarse en tu propia maquina y no dependen de la infraestructura de red de <code>Lampyre</code>. Traducido a trabajo serio: sirve para <strong>ordenar y enriquecer una investigacion</strong>, no para saltarte la necesidad de definir alcance, contrastar fuentes y separar observacion de inferencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Lampyre</code> es una plataforma orientada a modelar investigaciones como tablas, entidades, enlaces, mapas y grafos en un mismo flujo. La capa <code>Lighthouse</code> describe las peticiones analiticas como <code>Tasks</code>, escritas en Python, con sus parametros de entrada, sus tablas de salida y sus esquemas de visualizacion.</p>
-<p>Eso lo vuelve interesante para preguntas como estas:</p>
-<ul>
-<li class="">como paso de una tabla de resultados a un grafo legible sin rehacer el trabajo a mano;</li>
-<li class="">como reutilizo entidades del sistema para dominios, IPs, ubicaciones o perfiles;</li>
-<li class="">como lanzo una tarea desde un objeto ya presente en el caso;</li>
-<li class="">y como mantengo una investigacion local, reproducible y menos dependiente de servicios externos.</li>
-</ul>
-<p>La pieza metodologica importante no es "ver muchos nodos". Es mantener una cadena de transformacion defendible: dato de entrada, tarea ejecutada, tabla generada, esquema aplicado y pivote posterior.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una investigacion defensiva sobre una empresa ficticia llamada <code>Puerto Azul Media</code>. El equipo quiere revisar su huella publica antes de una <code>due diligence</code> tecnica y ya tiene varios materiales legitimos:</p>
-<ul>
-<li class="">una lista de dominios y subdominios conocidos;</li>
-<li class="">algunas IPs observadas en historicos internos;</li>
-<li class="">resultados previos de una busqueda cartografica o de infraestructura;</li>
-<li class="">y la necesidad de explicarle a otra persona por que ciertos nodos quedaron conectados.</li>
-</ul>
-<p>En un flujo asi, <code>Lampyre</code> no es valioso por "automatizarlo todo". Aporta valor porque puedes:</p>
-<ul>
-<li class="">importar o generar una tabla estructurada;</li>
-<li class="">mapear campos a objetos y enlaces concretos;</li>
-<li class="">desplegar ese resultado en grafo, tabla, mapa o cronologia;</li>
-<li class="">y relanzar tareas o macros desde el propio workspace cuando aparece un nuevo pivote.</li>
-</ul>
-<p>Eso reduce uno de los errores mas comunes en OSINT tecnico: tener intuiciones correctas, pero no una narrativa reproducible de como llegaste a ellas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-no-por-el-grafo">1. Empieza por la pregunta, no por el grafo<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#1-empieza-por-la-pregunta-no-por-el-grafo" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta, no por el grafo" title="Enlace directo al 1. Empieza por la pregunta, no por el grafo" translate="no">​</a></h3>
-<p><code>Lampyre</code> puede resultar vistoso, pero conviene entrar con una hipotesis humilde. Antes de crear entidades o cargar resultados, define que quieres comprobar: relacion entre dominios e IPs, contexto geografico de un hallazgo, o expansion de una tabla hacia enlaces mas legibles. Si no haces eso, la plataforma solo te ayudara a dibujar ruido con mejor aspecto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-modela-bien-la-tabla-de-salida">2. Modela bien la tabla de salida<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#2-modela-bien-la-tabla-de-salida" class="hash-link" aria-label="Enlace directo al 2. Modela bien la tabla de salida" title="Enlace directo al 2. Modela bien la tabla de salida" translate="no">​</a></h3>
-<p>La documentacion de <code>Lighthouse</code> insiste en que la tabla es la pieza central de cualquier tarea. Ese detalle importa mucho: si los encabezados, tipos y fechas estan mal pensados, el grafo posterior tambien lo estara. Un analista prudente define primero:</p>
-<ul>
-<li class="">que columnas representan hechos observados;</li>
-<li class="">cuales son atributos identificadores;</li>
-<li class="">y que valores deben conservar fecha, coordenadas o procedencia.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-esquemas-para-no-duplicar-razonamiento">3. Usa esquemas para no duplicar razonamiento<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#3-usa-esquemas-para-no-duplicar-razonamiento" class="hash-link" aria-label="Enlace directo al 3. Usa esquemas para no duplicar razonamiento" title="Enlace directo al 3. Usa esquemas para no duplicar razonamiento" translate="no">​</a></h3>
-<p>La documentacion de <code>Task schemas</code> explica que un esquema describe como convertir columnas de una tabla en objetos y enlaces de un grafo. Tambien deja una idea muy util: el mismo mapeo puede aprovecharse a la vez en grafo, mapa, cronologia y tabla. Eso ayuda a trabajar mejor cuando un caso necesita varias vistas del mismo dato en lugar de exportaciones manuales y contradictorias.</p>
-<p>En la practica, esto te permite pasar de "tengo filas" a "tengo relaciones" sin reetiquetar todo cada vez que cambias de vista.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-reutiliza-la-ontologia-del-sistema-cuando-tenga-sentido">4. Reutiliza la ontologia del sistema cuando tenga sentido<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#4-reutiliza-la-ontologia-del-sistema-cuando-tenga-sentido" class="hash-link" aria-label="Enlace directo al 4. Reutiliza la ontologia del sistema cuando tenga sentido" title="Enlace directo al 4. Reutiliza la ontologia del sistema cuando tenga sentido" translate="no">​</a></h3>
-<p>La documentacion de <code>Ontology</code> explica que <code>Lampyre</code> ya trae entidades y enlaces del sistema, incluyendo objetos como <code>IP</code>, <code>Domain</code> y otros tipos comunes. Eso evita reinventar tipos basicos y te permite mantener consistencia entre tareas distintas.</p>
-<p>La recomendacion practica es sencilla:</p>
-<ul>
-<li class="">usa objetos del sistema para lo comun;</li>
-<li class="">crea tipos propios solo cuando el caso lo pida;</li>
-<li class="">y documenta que atributo identifica de verdad a cada entidad para no fusionar nodos distintos por error.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reserva-las-macros-para-pivotes-repetibles">5. Reserva las macros para pivotes repetibles<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#5-reserva-las-macros-para-pivotes-repetibles" class="hash-link" aria-label="Enlace directo al 5. Reserva las macros para pivotes repetibles" title="Enlace directo al 5. Reserva las macros para pivotes repetibles" translate="no">​</a></h3>
-<p>La documentacion de <code>Macros</code> las presenta como una forma de lanzar tareas desde el menu contextual de entidades en grafo o mapa, enriqueciendo el workspace con el resultado. Bien usadas, son una ayuda fuerte para repetibilidad; mal usadas, son una maquina de inflar el caso con consultas reflejas.</p>
-<p>Una buena regla operativa es esta: crea o usa macros solo para pivotes que ya hayas validado como utiles y legitimos dentro del alcance del caso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Lampyre</code> no elimina los problemas clasicos del OSINT. Solo los vuelve mas visibles si trabajas con disciplina.</p>
-<p>Los errores tipicos suelen aparecer cuando:</p>
-<ul>
-<li class="">unificas entidades distintas porque comparten un atributo pobre;</li>
-<li class="">conviertes un mapa o un grafo bonito en una conclusion cerrada;</li>
-<li class="">mezclas datos de momentos diferentes sin etiquetar temporalidad;</li>
-<li class="">o lanzas tareas encadenadas sin revisar si el pivote sigue teniendo sentido.</li>
-</ul>
-<p>Tambien conviene recordar que la documentacion oficial distingue claramente entre la ejecucion de la tarea y la construccion del grafo. La tarea rellena tablas; luego <code>Lampyre</code> crea visualizaciones a partir de ese resultado. Metodologicamente eso es bueno, porque te obliga a pensar primero en la calidad del dato y despues en su representacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>El detalle mas util de la documentacion oficial para un analista prudente es que las tareas de <code>Lighthouse</code> pueden ejecutarse en modo local y no usan la infraestructura de red de <code>Lampyre</code>. Eso no resuelve por si solo todos los riesgos, pero si ayuda a plantear mejor ciertos casos sensibles.</p>
-<p>Buenas practicas razonables:</p>
-<ul>
-<li class="">trabaja solo con objetivos propios, autorizados o legitimamente investigables;</li>
-<li class="">minimiza datos personales cuando no sean necesarios para responder la pregunta;</li>
-<li class="">conserva procedencia y fecha en cada tabla o exportacion;</li>
-<li class="">marca que es dato observado, que es inferencia y que sigue pendiente de validar;</li>
-<li class="">y no conviertas una capacidad de automatizacion en licencia para ampliar alcance sin justificacion.</li>
-</ul>
-<p>OSINT responsable no consiste en ver cuantas entidades puedes dibujar. Consiste en dejar un rastro metodologico que otra persona pueda auditar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si tu prioridad es solo buscar infraestructura publica, herramientas como <code>Censys</code>, <code>Netlas</code>, <code>ZoomEye</code> o <code>FOFA</code> pueden darte respuestas mas directas. Si lo que necesitas es mas bien una capa de analisis visual y enlace sobre datasets heterogeneos, <code>Maltego</code> sigue siendo una referencia. Y si el problema principal es preservar navegacion o evidencia web, conviene mirar antes a <code>Hunchly</code>, <code>ArchiveBox</code> o flujos WARC.</p>
-<p>Donde <code>Lampyre</code> encaja mejor es en este punto intermedio: cuando quieres <strong>convertir consultas, tablas y APIs en un workspace analitico coherente</strong>, con vistas multiples y posibilidad de extender la herramienta con tareas propias.</p>
-<p>La takeaway accionable es simple: usa <code>Lampyre</code> para mejorar la trazabilidad del caso, no para adornar relaciones debiles. Si una entidad, un enlace o un mapa no te ayudan a explicar mejor el origen del hallazgo, sobran aunque queden bien en pantalla.</p>
-<p>Como siguiente puente editorial del blog, tendria sentido bajar a un tutorial mas acotado: por ejemplo, una comparativa entre <code>Lampyre</code>, <code>Maltego</code> y <code>Datasette</code> segun tipo de caso, o un flujo practico de infraestructura web cruzando grafo, tabla y cronologia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/lampyre-osint-grafos-entidades-macros-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://lampyre.io/python-api-doc/lighthouse_intro/what_is_lighthouse_and_request.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: What is Lighthouse</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/lighthouse_intro/hello_task.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: Your first task</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/api_explained/execution_process.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: Task execution process</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/api_explained/schemas.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: Task schemas</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/api_explained/ontology.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: Ontology</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/task_tutorial_advanced/macros.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: Macros</a></li>
-<li class=""><a href="https://lampyre.io/python-api-doc/task_tutorial/wigle_task.html" target="_blank" rel="noopener noreferrer" class="">Lighthouse: WiGLE task example</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Analisis de enlaces" term="Analisis de enlaces"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Investigacion" term="Investigacion"/>
     </entry>
 </feed>
