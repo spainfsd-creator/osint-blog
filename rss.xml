@@ -4,10 +4,116 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 10 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[gowitness en OSINT: capturas visuales, priorizar superficie web y mantener contexto]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto</guid>
+            <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando capturas web, titulos, cabeceras y relaciones entre activos visibles en un panel sobrio de investigacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando capturas web, titulos, cabeceras y relaciones entre activos visibles en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-11-gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto-251d2442758296c677088f192ba1db15.png" width="744" height="416" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica reune decenas o cientos de dominios, subdominios o servicios web visibles, el cuello de botella rara vez es encontrar mas superficie. Lo dificil suele ser <strong>ver rapido que pantallas importan, cuales son clones, donde hay portales olvidados y que merece validacion manual antes de sacar conclusiones</strong>. <code>gowitness</code> encaja bien justo en ese punto porque convierte una lista de URLs publicas en una vista visual consultable, con metadatos utiles para priorizar.</p>
+<p>Segun la documentacion oficial de <code>sensepost</code> consultada el <strong>11 de junio de 2026</strong>, <code>gowitness</code> es una utilidad en <code>Golang</code> para capturar pantallas de interfaces web usando <code>Chrome Headless</code>, guardar evidencias relacionadas y revisar los resultados desde un visor web. En OSINT responsable eso no significa "automatiza todo y ya". Significa algo bastante mas util: <strong>tomar capturas reproducibles de superficie ya visible, enlazarlas con contexto tecnico y trabajar despues con mas criterio</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>gowitness</code> es una herramienta de captura visual y triage web. El <code>README</code> oficial y la wiki de funcionalidades coinciden en el nucleo: su objetivo principal es tomar capturas de sitios web y hacerlo bien, pero puede guardar bastante mas informacion por el camino.</p>
+<p>Traducido a preguntas utiles dentro de OSINT defensivo, ayuda a:</p>
+<ul>
+<li class="">convertir una lista de activos web visibles en una galeria revisable;</li>
+<li class="">detectar paneles, portales, <code>login pages</code>, aplicaciones internas expuestas por error o entornos heredados todavia accesibles desde internet;</li>
+<li class="">guardar contexto adicional como titulo, cabeceras, cookies, logs de consola o datos de red cuando se habilitan sus escritores;</li>
+<li class="">exportar resultados a <code>SQLite</code>, <code>JSON Lines</code>, <code>CSV</code> o salida estandar para cruzarlos despues con otras fuentes;</li>
+<li class="">y revisar hallazgos desde un visor web local con <code>API</code>, util cuando el volumen de resultados ya no cabe bien en una terminal.</li>
+</ul>
+<p>No es una herramienta de atribucion. Tampoco demuestra por si sola propiedad, criticidad o exposicion real. Sirve para <strong>ordenar mejor lo que ya es visible publicamente</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de terceros sobre <code>grupo-norte.test</code>, una empresa ficticia que acaba de absorber varias filiales. El equipo ya ha reunido dominios y subdominios visibles a partir de <code>RDAP</code>, <code>CT logs</code>, historico DNS y algunas menciones en buscadores. El problema ahora no es descubrir mas. El problema es decidir:</p>
+<ul>
+<li class="">que activos parecen realmente vivos;</li>
+<li class="">cuales muestran marca actual, marca heredada o un proveedor externo;</li>
+<li class="">donde hay <code>logins</code>, paneles administrativos o aplicaciones verticales que merecen validacion;</li>
+<li class="">y que resultados son simples duplicados visuales de la misma plataforma.</li>
+</ul>
+<p>En ese escenario, <code>gowitness</code> puede encajar como paso de triage prudente:</p>
+<ol>
+<li class="">partir de una lista ya acotada y legitimamente obtenida de <code>URLs</code> o hosts visibles;</li>
+<li class="">generar capturas de esas interfaces y guardar salida estructurada;</li>
+<li class="">revisar visualmente titulos, respuestas finales y elementos repetidos;</li>
+<li class="">cruzar despues lo observado con <code>httpx</code>, <code>Netcraft</code>, <code>Wappalyzer</code>, <code>Wayback Machine</code> o comprobacion manual.</li>
+</ol>
+<p>Lo importante no es "sacar muchas capturas". Lo importante es <strong>reducir el coste de leer superficie web heterogenea sin perder trazabilidad</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-con-alcance-ya-decidido">1. Empieza con alcance ya decidido<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#1-empieza-con-alcance-ya-decidido" class="hash-link" aria-label="Enlace directo al 1. Empieza con alcance ya decidido" title="Enlace directo al 1. Empieza con alcance ya decidido" translate="no">​</a></h3>
+<p>La documentacion oficial muestra que <code>gowitness</code> acepta desde una sola <code>URL</code> hasta listas, <code>CIDRs</code> y resultados de <code>Nmap</code>. En OSINT responsable eso no deberia interpretarse como permiso para ampliar alcance sin criterio. Lo sensato es entrar con una lista de activos publicos ya justificada por el caso y, si hace falta, documentar de donde sale cada objetivo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-captura-como-indice-visual-no-como-prueba-final">2. Usa la captura como indice visual, no como prueba final<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#2-usa-la-captura-como-indice-visual-no-como-prueba-final" class="hash-link" aria-label="Enlace directo al 2. Usa la captura como indice visual, no como prueba final" title="Enlace directo al 2. Usa la captura como indice visual, no como prueba final" translate="no">​</a></h3>
+<p>La fortaleza real de <code>gowitness</code> no es solo el <code>PNG</code>. Es el conjunto captura + metadatos + persistencia. La wiki de <code>Features</code> destaca que puede escribir a <code>SQLite</code>, <code>JSON Lines</code>, <code>CSV</code> y <code>stdout</code>, mientras que el <code>README</code> anade logs de peticiones, cabeceras, cookies y consola entre los datos opcionales que puede guardar.</p>
+<p>Eso permite un enfoque bastante sano:</p>
+<ul>
+<li class="">mirar primero la galeria para detectar rarezas o prioridades;</li>
+<li class="">consultar despues los detalles tecnicos de los resultados relevantes;</li>
+<li class="">y dejar por escrito que parte del analisis proviene de observacion visual y que parte de datos estructurados.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-el-visor-web-local-para-revisar-volumen">3. Aprovecha el visor web local para revisar volumen<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#3-aprovecha-el-visor-web-local-para-revisar-volumen" class="hash-link" aria-label="Enlace directo al 3. Aprovecha el visor web local para revisar volumen" title="Enlace directo al 3. Aprovecha el visor web local para revisar volumen" translate="no">​</a></h3>
+<p>La documentacion del <code>Report Server</code> indica que, una vez recogidos los datos, puede levantarse un visor interactivo en <code>localhost:7171</code> para trabajar los resultados. Y la documentacion del <code>API</code> deja claro que ese servidor permite consultar listados, detalles, capturas y disparar screenshots de forma programatica.</p>
+<p>Para el analista eso tiene una traduccion practica: cuando el lote crece, conviene dejar de pensar en <code>gowitness</code> como una carpeta de imagenes sueltas y empezar a verlo como un pequeño repositorio local de evidencia navegable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ten-presente-su-modelo-de-seguridad">4. Ten presente su modelo de seguridad<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#4-ten-presente-su-modelo-de-seguridad" class="hash-link" aria-label="Enlace directo al 4. Ten presente su modelo de seguridad" title="Enlace directo al 4. Ten presente su modelo de seguridad" translate="no">​</a></h3>
+<p>La propia wiki advierte de algo importante: el servidor de reportes y su <code>API</code> se pensaron para servirse en <code>localhost</code> y <strong>no llevan autenticacion integrada</strong>. Si alguien decide exponerlo a una red mas amplia, la documentacion recomienda poner autenticacion delante mediante un proxy como <code>Traefik</code>.</p>
+<p>En un flujo OSINT serio esto importa por dos razones:</p>
+<ul>
+<li class="">evita abrir sin querer una interfaz con capturas y metadatos a terceros;</li>
+<li class="">y recuerda que la comodidad del visor no debe degradar la custodia minima de la evidencia.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-distingue-bien-entre-parecido-visual-y-relacion-real">5. Distingue bien entre parecido visual y relacion real<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#5-distingue-bien-entre-parecido-visual-y-relacion-real" class="hash-link" aria-label="Enlace directo al 5. Distingue bien entre parecido visual y relacion real" title="Enlace directo al 5. Distingue bien entre parecido visual y relacion real" translate="no">​</a></h3>
+<p>Las capturas ayudan mucho a detectar plantillas repetidas, marcas compartidas, <code>favicons</code> parecidos o paneles que parecen pertenecer a la misma familia. Pero una similitud visual no equivale automaticamente a misma propiedad, misma operacion ni misma criticidad.</p>
+<p>Un <code>single sign-on</code> comun, un proveedor <code>SaaS</code>, una <code>white-label platform</code> o una aplicacion revendida pueden producir pantallas casi iguales. La captura es una pista buena para abrir pivotes, no para cerrarlos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>gowitness</code> es muy util, pero conviene entrar con varias cautelas:</p>
+<ul>
+<li class="">una captura fija no resume toda la logica de una aplicacion;</li>
+<li class="">contenidos dinamicos, <code>A/B tests</code>, geolocalizacion, idioma o sesiones pueden cambiar la vista;</li>
+<li class="">muchos paneles solo muestran su valor real tras autenticacion, asi que la portada publica puede quedarse corta;</li>
+<li class="">respuestas de <code>WAF</code>, <code>CDN</code> o <code>reverse proxy</code> pueden homogeneizar interfaces distintas;</li>
+<li class="">y una interfaz visualmente anodina puede ser mas relevante que una portada llamativa.</li>
+</ul>
+<p>Tambien hay un riesgo metodologico clasico: enamorarse de la galeria. Ver treinta capturas juntas ayuda mucho a priorizar, pero tambien puede empujar a decidir demasiado pronto que algo "parece" viejo, abandonado, interno o mal configurado. Sin contraste adicional, esa conclusion sigue siendo debil.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja solo con activos publicos y dentro del alcance legitimo del caso.</li>
+<li class="">Minimiza coleccion de datos personales si la interfaz muestra nombres, correos o identificadores irrelevantes para la investigacion.</li>
+<li class="">No expongas el visor ni la <code>API</code> a terceros sin una capa de autenticacion delante.</li>
+<li class="">Conserva fecha de captura, fuente del target y contexto de cada lote para mantener reproducibilidad.</li>
+<li class="">Separa en tus notas lo observado directamente en la imagen de lo inferido despues.</li>
+<li class="">Si una captura sugiere un hallazgo sensible, corroboralo con al menos otra fuente antes de elevarlo.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>gowitness</code> no sustituye otras piezas del flujo. Suele complementar bien a:</p>
+<ul>
+<li class=""><code>httpx</code>, para priorizar hosts vivos y metadatos <code>HTTP</code>;</li>
+<li class=""><code>Netcraft Site Report</code>, para contexto de infraestructura y cronologia visible;</li>
+<li class=""><code>Wappalyzer</code>, si interesa perfilar tecnologias aparentes;</li>
+<li class=""><code>Wayback Machine</code> o <code>Archive.today</code>, cuando la pregunta es temporal;</li>
+<li class="">y revision manual en navegador, cuando un hallazgo visual merece lectura fina.</li>
+</ul>
+<p>La takeaway practica es esta: <strong>usa <code>gowitness</code> para bajar el coste de mirar mucha superficie web visible con orden y trazabilidad, no para convertir una captura bonita en una conclusion prematura</strong>. Si el siguiente paso va en esta linea, una continuacion natural seria comparar cuando conviene empezar por <code>httpx</code>, cuando por <code>gowitness</code> y cuando por archivo web.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://github.com/sensepost/gowitness" target="_blank" rel="noopener noreferrer" class="">sensepost/gowitness README</a></li>
+<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Features" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Features</a></li>
+<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Usage" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Usage</a></li>
+<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Installation" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Installation</a></li>
+<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Report-Server" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Report Server</a></li>
+<li class=""><a href="https://github.com/sensepost/gowitness/wiki/API" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: API</a></li>
+<li class=""><a href="https://www.kali.org/tools/gowitness/" target="_blank" rel="noopener noreferrer" class="">Kali Linux Tools: gowitness</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Tooling</category>
+            <category>Web</category>
+            <category>Verificacion</category>
+            <category>Automatizacion</category>
+            <category>Tradecraft</category>
+        </item>
         <item>
             <title><![CDATA[Netcraft Site Report en OSINT: infraestructura, cronologia y contexto antes de atribuir]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto</link>
@@ -2121,101 +2227,6 @@
             <category>Verificacion</category>
             <category>Datos</category>
             <category>Tradecraft</category>
-        </item>
-        <item>
-            <title><![CDATA[SpiderFoot en OSINT: automatizacion, modulos y correlaciones con contexto]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto</guid>
-            <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando modulos, correlaciones y relaciones entre entidades en un panel de investigacion tecnica]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando modulos, correlaciones y relaciones entre entidades en un panel de investigacion tecnica" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-14-spiderfoot-osint-automatizacion-modulos-correlaciones-contexto-e8a9d4c9bf90ffff37dd43df3827dbb4.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion empieza a mezclar dominios, <code>subdomains</code>, correos, <code>usernames</code>, buckets, fugas, reputacion y pivotes tecnicos, el problema rara vez es "no tengo suficientes fuentes". El problema real es <strong>dejar que cada fuente dicte el ritmo del caso, duplicar trabajo y acabar con una montaña de senales sin una narrativa comun</strong>. <code>SpiderFoot</code> resulta util justo en ese punto, porque propone algo mas serio que abrir veinte pestañas: <strong>automatizar recogida y analisis inicial sin renunciar a revisar contexto, alcance y falsos positivos</strong>.</p>
-<p>La documentacion oficial sigue definiendolo como una herramienta de automatizacion OSINT que integra un gran numero de fuentes y metodos de analisis. En mayo de 2026, su repositorio principal sigue mostrando <code>v4.0</code> como ultimo <code>release</code> etiquetado en GitHub, mientras Kali mantiene el paquete <code>spiderfoot</code> en <code>4.0-0kali5</code>. Traducido a trabajo real: no estamos ante una moda efimera, sino ante una pieza madura del ecosistema que conviene entender bien antes de delegarle demasiadas conclusiones.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>SpiderFoot</code> es una plataforma OSINT de automatizacion con interfaz web y <code>CLI</code>, escrita en Python, pensada para recolectar y correlacionar senales publicas alrededor de una entidad objetivo. El <code>README</code> oficial destaca varias capacidades estructurales que importan de verdad en una investigacion:</p>
-<ul>
-<li class="">admite objetivos como IP, dominio, <code>hostname</code>, subred <code>CIDR</code>, <code>ASN</code>, correo, telefono, <code>username</code>, nombre de persona y direccion de Bitcoin;</li>
-<li class="">funciona con mas de <code>200</code> modulos que se alimentan entre si mediante un modelo <code>publisher/subscriber</code>;</li>
-<li class="">permite exportar en <code>CSV</code>, <code>JSON</code> y <code>GEXF</code>, usar <code>SQLite</code> como backend y trabajar desde web o <code>CLI</code>;</li>
-<li class="">incorpora desde <code>v4.0</code> un motor de correlaciones en <code>YAML</code> con reglas predefinidas que ayudan a resaltar patrones interesantes dentro de los resultados.</li>
-</ul>
-<p>Ese ultimo punto marca la diferencia entre "recolector de datos" y "entorno de investigacion". <code>SpiderFoot</code> no solo consulta fuentes: tambien intenta relacionar lo obtenido para que el analista detecte outliers, activos expuestos o hallazgos repetidos por varias fuentes sin rehacer a mano cada cruce.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision defensiva de exposicion publica sobre <code>ejemplo-industrial.es</code>, una empresa ficticia con filiales, micrositios de campana y presencia en varios proveedores cloud. El objetivo no es "atacar" nada, sino responder preguntas prudentes:</p>
-<ul>
-<li class="">que activos publicos parecen pertenecer al mismo perimetro;</li>
-<li class="">que correos, subdominios o buckets aparecen asociados de forma repetible;</li>
-<li class="">que datos conviene validar manualmente antes de elevarlos a informe.</li>
-</ul>
-<p>En ese escenario, <code>SpiderFoot</code> aporta valor porque deja arrancar desde una semilla concreta y encadenar modulos compatibles. Un modulo descubre <code>hostnames</code>, otro resuelve DNS, otro extrae correos de contenido web, otro cruza reputacion o buckets, y otro intenta encontrar contexto historico o social. La automatizacion no sustituye al analista, pero si reduce friccion en la fase de mapeo inicial.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-bien-el-objetivo-y-el-alcance">1. Define bien el objetivo y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#1-define-bien-el-objetivo-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Define bien el objetivo y el alcance" title="Enlace directo al 1. Define bien el objetivo y el alcance" translate="no">​</a></h3>
-<p>Antes de pulsar nada, decide si investigas un dominio principal, un <code>ASN</code>, un correo o un <code>username</code>. El propio proyecto deja claro que la herramienta sirve tanto para reconocimiento ofensivo autorizado como para revisar que informacion publica expone una organizacion. En OSINT responsable, eso obliga a concretar alcance, legitimidad y que tipo de modulos vas a permitir.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-una-pasada-prudente">2. Empieza por una pasada prudente<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#2-empieza-por-una-pasada-prudente" class="hash-link" aria-label="Enlace directo al 2. Empieza por una pasada prudente" title="Enlace directo al 2. Empieza por una pasada prudente" translate="no">​</a></h3>
-<p>La documentacion y la ayuda del binario empaquetado por Kali muestran varios modos de seleccion automatica de modulos, como <code>all</code>, <code>footprint</code>, <code>investigate</code> y <code>passive</code>. Para una primera lectura, suele tener sentido priorizar un enfoque pasivo o de huella:</p>
-<ul>
-<li class="">reduce ruido innecesario;</li>
-<li class="">limita artefactos que puedan interpretarse como actividad intrusiva;</li>
-<li class="">permite decidir despues que hallazgos merecen una verificacion mas dirigida.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-revisa-resultados-por-entidades-no-por-volumen">3. Revisa resultados por entidades, no por volumen<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#3-revisa-resultados-por-entidades-no-por-volumen" class="hash-link" aria-label="Enlace directo al 3. Revisa resultados por entidades, no por volumen" title="Enlace directo al 3. Revisa resultados por entidades, no por volumen" translate="no">​</a></h3>
-<p>Una salida grande impresiona, pero no siempre informa. En <code>SpiderFoot</code> conviene revisar:</p>
-<ul>
-<li class="">que hallazgos salen de multiples fuentes independientes;</li>
-<li class="">que datos derivan solo de una fuente historica o poco fiable;</li>
-<li class="">que entidades son claramente del objetivo y cuales pueden ser simples vecinos, proveedores o coincidencias semanticas.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-correlaciones-para-detectar-patrones-no-para-cerrar-atribuciones">4. Usa correlaciones para detectar patrones, no para cerrar atribuciones<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#4-usa-correlaciones-para-detectar-patrones-no-para-cerrar-atribuciones" class="hash-link" aria-label="Enlace directo al 4. Usa correlaciones para detectar patrones, no para cerrar atribuciones" title="Enlace directo al 4. Usa correlaciones para detectar patrones, no para cerrar atribuciones" translate="no">​</a></h3>
-<p>El <code>README</code> de correlaciones explica que las reglas <code>YAML</code> traducen los resultados del escaneo a consultas y logica sobre la base <code>SQLite</code>. Eso permite resaltar casos como:</p>
-<ul>
-<li class="">servicios que revelan versiones;</li>
-<li class=""><code>hosts</code> o IPs marcados como maliciosos por varias fuentes;</li>
-<li class="">bases de datos expuestas;</li>
-<li class="">outliers de pais, <code>webserver</code> o registrador.</li>
-</ul>
-<p>Es muy util, pero el propio sistema solo analiza datos ya recogidos. Si la fuente original era debil o ambigua, la correlacion no la convierte en verdad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>La trampa mas comun con <code>SpiderFoot</code> es creer que la automatizacion ya hizo la parte dificil. No es asi. Sus limites practicos son bastante claros:</p>
-<ul>
-<li class="">depende de la calidad, cobertura y actualidad de las fuentes conectadas;</li>
-<li class="">algunos modulos requieren <code>API keys</code> o planes de terceros, asi que no todos los resultados son igualmente reproducibles;</li>
-<li class="">una relacion tecnica visible no equivale a propiedad, control o intencion;</li>
-<li class="">una cuenta encontrada, un bucket nombrado parecido o un dominio vecino pueden ser ruido, legado o infraestructura compartida.</li>
-</ul>
-<p>Tambien conviene recordar que el propio proyecto distingue entre la version abierta y <code>SpiderFoot HX</code>. Eso significa que ciertas funciones de operacion gestionada, colaboracion o monitorizacion avanzada pertenecen a otra oferta y no deben darse por supuestas en la edicion <code>open source</code>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo sobre patrimonio propio, entornos autorizados o investigaciones legitimas con base clara.</li>
-<li class="">Empieza por modulos pasivos y activa otros solo si el caso lo justifica.</li>
-<li class="">Documenta que modulo produjo cada hallazgo antes de exportarlo a informe.</li>
-<li class="">Separa observacion de inferencia: "aparece asociado" no es lo mismo que "pertenece a".</li>
-<li class="">Evita usar resultados sobre personas para doxxing, acoso o vigilancia indebida.</li>
-<li class="">Si el caso afecta a terceros, minimiza datos personales no necesarios y conserva solo lo relevante para el objetivo investigativo.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si buscas automatizacion modular con una experiencia mas estructurada que scripts sueltos, <code>SpiderFoot</code> sigue siendo una referencia. Pero no siempre es la mejor pieza unica:</p>
-<ul>
-<li class=""><code>theHarvester</code> encaja mejor para un reconocimiento inicial mas acotado;</li>
-<li class=""><code>Amass</code> o <code>SecurityTrails</code> pueden ser mas directos para cartografiar superficie de dominio e historial DNS;</li>
-<li class=""><code>Maltego</code> o <code>Lampyre</code> pueden resultar mas comodos cuando la prioridad ya es visualizar relaciones y narrar el caso;</li>
-<li class=""><code>ArchiveBox</code>, <code>Wikidata</code> o <code>Datasette</code> aportan mas valor cuando la fase siguiente consiste en custodiar, normalizar o consultar evidencias.</li>
-</ul>
-<p>La lectura correcta es esta: <code>SpiderFoot</code> brilla cuando necesitas <strong>pasar de una semilla a un mapa inicial con trazabilidad suficiente para decidir donde mirar despues</strong>. Usado con criterio, acelera la investigacion. Usado sin criterio, solo automatiza el ruido.</p>
-<p>Como siguiente paso natural para el blog, tiene sentido profundizar en otra pieza vecina del mismo problema: una metodologia para validar hallazgos automatizados antes de convertirlos en conclusiones operativas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/spiderfoot-osint-automatizacion-modulos-correlaciones-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">Repositorio oficial de <code>SpiderFoot</code> (<code>README</code>): <a href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noopener noreferrer" class="">https://github.com/smicallef/spiderfoot</a></li>
-<li class="">Ultimo <code>release</code> etiquetado en GitHub (<code>v4.0</code>, publicado el 7 de abril de 2022): <a href="https://github.com/smicallef/spiderfoot/releases/tag/v4.0" target="_blank" rel="noopener noreferrer" class="">https://github.com/smicallef/spiderfoot/releases/tag/v4.0</a></li>
-<li class="">Documentacion oficial de correlaciones <code>YAML</code>: <a href="https://github.com/smicallef/spiderfoot/blob/master/correlations/README.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/smicallef/spiderfoot/blob/master/correlations/README.md</a></li>
-<li class="">Pagina oficial de <code>SpiderFoot</code> en Kali Linux Tools: <a href="https://www.kali.org/tools/spiderfoot/" target="_blank" rel="noopener noreferrer" class="">https://www.kali.org/tools/spiderfoot/</a></li>
-<li class="">Kali Package Tracker para <code>spiderfoot</code> (<code>4.0-0kali5</code> visible el 14 de mayo de 2026): <a href="https://pkg.kali.org/pkg/spiderfoot" target="_blank" rel="noopener noreferrer" class="">https://pkg.kali.org/pkg/spiderfoot</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Tooling</category>
-            <category>Automatizacion</category>
-            <category>Reconocimiento</category>
-            <category>Metodologia</category>
-            <category>Verificacion</category>
         </item>
     </channel>
 </rss>
