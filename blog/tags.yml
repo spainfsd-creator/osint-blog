@@ -153,6 +153,16 @@ socmint:
   permalink: /socmint
   description: Inteligencia de redes sociales y analisis de perfiles digitales.
 
+mastodon:
+  label: Mastodon
+  permalink: /mastodon
+  description: Investigacion OSINT responsable en entornos federados de Mastodon y fediverso.
+
+federation:
+  label: Federacion
+  permalink: /federation
+  description: Contexto sobre redes federadas, visibilidad parcial y limites de cobertura en plataformas descentralizadas.
+
 opsec:
   label: OPSEC
   permalink: /opsec
