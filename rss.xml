@@ -4,10 +4,145 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sat, 13 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[RDAP y WHOIS en OSINT: propiedad aparente, contactos y contexto sin leer de mas]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto</guid>
+            <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT comparando respuestas RDAP y WHOIS sobre dominios, ASN e IPs con notas de contexto y cautela atributiva]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando respuestas RDAP y WHOIS sobre dominios, ASN e IPs con notas de contexto y cautela atributiva" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-14-rdap-whois-osint-propiedad-aparente-contactos-contexto-d43ba47e11210489a8cd73f63a26da48.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica ya sabe <strong>que dominio, IP o ASN merece atencion</strong>, la pregunta siguiente suele sonar enganosamente simple: "de quien parece ser esto y que contacto o contexto registral deja a la vista?". Ahi es donde mucha gente se precipita. Un registro no equivale a control real, un contacto historico no equivale a responsabilidad actual y una coincidencia de proveedor no equivale a atribucion. <code>RDAP</code> y <code>WHOIS</code> siguen siendo utiles precisamente cuando se usan para <strong>bajar ambiguedad</strong>, no para fabricar certezas.</p>
+<p>La situacion actual importa. Segun <code>ICANN</code>, desde el <strong>28 de enero de 2025</strong> <code>RDAP</code> es la fuente definitiva para la informacion de registro de <code>gTLDs</code> en lugar de los servicios <code>WHOIS</code> retirados en ese ambito. Y segun <code>RFC 9082</code>, <code>RDAP</code> define patrones uniformes de consulta <code>HTTP</code> para recuperar informacion de registro sobre dominios, entidades, redes IP, <code>ASN</code> y <code>nameservers</code>. Traducido a trabajo diario de OSINT: <strong>ya no basta con lanzar un whois textual y copiar lo que salga; conviene entender que parte viene de <code>RDAP</code>, que parte sigue siendo legada y que limites tiene cada respuesta</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>WHOIS</code> y <code>RDAP</code> sirven para consultar datos de registro y contexto administrativo o tecnico sobre recursos de internet. Pero no juegan exactamente en la misma liga.</p>
+<p>La explicacion tecnica de <code>ARIN</code>, consultada el <strong>14 de junio de 2026</strong>, resume bien la diferencia:</p>
+<ul>
+<li class=""><code>RDAP</code> es un protocolo <code>REST</code> sobre <code>HTTP/HTTPS</code> con respuestas estandarizadas en <code>JSON</code>;</li>
+<li class=""><code>WHOIS</code> es un protocolo de texto con salidas menos uniformes;</li>
+<li class=""><code>RDAP</code> soporta internacionalizacion y derivacion hacia la fuente autoritativa;</li>
+<li class="">y los resultados pueden variar segun el <code>RIR</code>, el registro o el registrador que realmente posea los datos.</li>
+</ul>
+<p>Para un analista, eso se traduce en preguntas concretas:</p>
+<ul>
+<li class="">que organizacion o proveedor parece vinculado al recurso;</li>
+<li class="">que registrador, registro o <code>RIR</code> devuelve la informacion;</li>
+<li class="">que fechas, estados o contactos visibles ayudan a entender contexto;</li>
+<li class="">y que partes del dato requieren contraste adicional antes de concluir.</li>
+</ul>
+<p>La utilidad real no esta en "saber el nombre del propietario" como si fuera una verdad final. Esta en <strong>entender la capa registral visible</strong> y documentar con cuidado su grado de fiabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de terceros sobre <code>acme-proveedor.example</code>. Tu equipo ya ha encontrado varios subdominios, una <code>IP</code> visible y un <code>ASN</code> relacionado con el proveedor de conectividad. El objetivo no es invadir nada ni ampliar alcance a ciegas. El objetivo es ordenar mejor la huella publica.</p>
+<p>En ese escenario, <code>RDAP/WHOIS</code> encaja para:</p>
+<ol>
+<li class="">confirmar que registrador y <code>TLD registry</code> aparecen asociados al dominio;</li>
+<li class="">ver estados de dominio, fechas visibles y <code>nameservers</code>;</li>
+<li class="">revisar que <code>RIR</code> responde por la <code>IP</code> o por el <code>ASN</code>;</li>
+<li class="">anotar contactos o entidades cuando sean publicos y realmente pertinentes;</li>
+<li class="">separar propiedad aparente, proveedor de infraestructura y operacion efectiva.</li>
+</ol>
+<p>Ese ultimo punto es el mas importante. Una <code>IP</code> puede corresponder al <code>RIR</code> y al proveedor de red, no a la empresa investigada. Un dominio puede estar registrado via un tercero o un reseller. Y un contacto visible puede ser juridico, tecnico o historico, no operativo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-fuente-mas-autoritativa-disponible">1. Empieza por la fuente mas autoritativa disponible<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#1-empieza-por-la-fuente-mas-autoritativa-disponible" class="hash-link" aria-label="Enlace directo al 1. Empieza por la fuente mas autoritativa disponible" title="Enlace directo al 1. Empieza por la fuente mas autoritativa disponible" translate="no">​</a></h3>
+<p>En dominios <code>gTLD</code>, <code>ICANN</code> recomienda usar su servicio <code>Lookup</code> basado en <code>RDAP</code>. En numeracion y direccionamiento, cada <code>RIR</code> mantiene sus propios servicios.</p>
+<p>Metodologicamente conviene empezar asi:</p>
+<ul>
+<li class="">dominio: <code>RDAP</code> del registrador, del registro o <code>ICANN Lookup</code>;</li>
+<li class=""><code>IP</code> o <code>ASN</code>: <code>RDAP</code> del <code>RIR</code> correspondiente;</li>
+<li class=""><code>WHOIS</code> textual: como apoyo, compatibilidad o contraste, no como unica verdad.</li>
+</ul>
+<p>Ese orden reduce bastante un error comun: tratar una respuesta heredada y poco uniforme como si tuviera mas autoridad que la fuente <code>RDAP</code> actual.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-lee-la-respuesta-como-contexto-no-como-veredicto">2. Lee la respuesta como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#2-lee-la-respuesta-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 2. Lee la respuesta como contexto, no como veredicto" title="Enlace directo al 2. Lee la respuesta como contexto, no como veredicto" translate="no">​</a></h3>
+<p><code>RFC 9082</code> deja claro que <code>RDAP</code> puede devolver dominios, redes <code>IP</code>, <code>ASN</code>, <code>nameservers</code> y entidades, pero tambien recuerda que los servidores pueden soportar solo un subconjunto y responder <code>501 Not Implemented</code> a tipos no soportados. En la practica eso obliga a no sobreinterpretar ausencias.</p>
+<p>Si falta algo, las posibilidades incluyen:</p>
+<ul>
+<li class="">el servidor no publica ese campo;</li>
+<li class="">el tipo de consulta no esta soportado;</li>
+<li class="">el dato esta redactado o restringido;</li>
+<li class="">o simplemente estas consultando una capa equivocada.</li>
+</ul>
+<p>La lectura sana es: "esto es lo que esta fuente publica hoy", no "esto es todo lo que existe".</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-rdap-para-seguir-la-pista-correcta">3. Aprovecha <code>RDAP</code> para seguir la pista correcta<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#3-aprovecha-rdap-para-seguir-la-pista-correcta" class="hash-link" aria-label="Enlace directo al 3-aprovecha-rdap-para-seguir-la-pista-correcta" title="Enlace directo al 3-aprovecha-rdap-para-seguir-la-pista-correcta" translate="no">​</a></h3>
+<p>Una ventaja operativa real de <code>RDAP</code>, destacada por <code>ARIN</code>, es el sistema de referrals y <code>bootstrapping</code>. <code>IANA</code> publica registros bootstrap para espacio <code>IPv4</code>, <code>IPv6</code>, <code>ASN</code> y dominios, de modo que el cliente pueda localizar el servidor autoritativo adecuado.</p>
+<p>Para OSINT responsable esto vale mucho mas de lo que parece. Significa que puedes:</p>
+<ul>
+<li class="">evitar consultas ciegas a servidores <code>WHOIS</code> equivocados;</li>
+<li class="">documentar mejor de que fuente salio cada dato;</li>
+<li class="">y distinguir entre un dato de agregador y un dato del servicio autoritativo.</li>
+</ul>
+<p>Cuando el caso importa, anota siempre el origen exacto de la respuesta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-la-capa-registral-con-otras-capas-antes-de-atribuir">4. Cruza la capa registral con otras capas antes de atribuir<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#4-cruza-la-capa-registral-con-otras-capas-antes-de-atribuir" class="hash-link" aria-label="Enlace directo al 4. Cruza la capa registral con otras capas antes de atribuir" title="Enlace directo al 4. Cruza la capa registral con otras capas antes de atribuir" translate="no">​</a></h3>
+<p><code>RDAP/WHOIS</code> rara vez deberia cerrar una historia por si solo. Funciona mejor cuando llega a mitad del flujo:</p>
+<ul>
+<li class=""><code>DNSDumpster</code>, <code>Subfinder</code> o <code>Amass</code> descubren superficie;</li>
+<li class=""><code>httpx</code> o <code>Netcraft</code> ayudan a leer servicio y comportamiento visible;</li>
+<li class=""><code>RDAP/WHOIS</code> aporta propiedad aparente, registrador, <code>RIR</code> y contexto administrativo;</li>
+<li class="">y archivo web, <code>CT logs</code>, <code>SecurityTrails</code> o revisiones documentales bajan la ambiguedad historica.</li>
+</ul>
+<p>Ese encadenado evita confundir tres cosas distintas: quien aloja, quien registra y quien opera.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-usa-ejemplos-pequeños-y-trazables">5. Usa ejemplos pequeños y trazables<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#5-usa-ejemplos-peque%C3%B1os-y-trazables" class="hash-link" aria-label="Enlace directo al 5. Usa ejemplos pequeños y trazables" title="Enlace directo al 5. Usa ejemplos pequeños y trazables" translate="no">​</a></h3>
+<p>Un ejemplo inocuo con dominio ficticio podria ser:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -s https://rdap.org/domain/acme-proveedor.example</span><br></span></code></pre></div></div>
+<p>Y para una <code>IP</code> de documentacion:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -s https://rdap.org/ip/203.0.113.42</span><br></span></code></pre></div></div>
+<p>No hace falta convertir el post en una lista de trucos. Lo importante es la disciplina posterior:</p>
+<ul>
+<li class="">guardar fecha y URL consultada;</li>
+<li class="">anotar que servidor respondio realmente;</li>
+<li class="">separar campos observados de inferencias;</li>
+<li class="">y registrar que dudas quedan abiertas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>RDAP</code> mejora mucho la consulta, pero no resuelve por arte de magia los problemas clasicos:</p>
+<ul>
+<li class="">un registrante visible puede ser un proveedor, un agente o un dato desactualizado;</li>
+<li class="">muchos datos pueden venir redactados o reducidos por politicas de privacidad y acceso;</li>
+<li class=""><code>WHOIS</code> puede mostrar formatos heterogeneos o campos ambiguos;</li>
+<li class="">registros historicos o caches de terceros pueden contradecir la fuente actual;</li>
+<li class="">y un <code>ASN</code> o netblock asociado describe contexto de red, no autoria del contenido o del servicio.</li>
+</ul>
+<p>Tambien conviene recordar algo que <code>ICANN</code> explica expresamente: para datos <code>gTLD</code> no publicos existe <code>RDRS</code>, pensado para solicitantes con interes legitimo. Ese detalle importa porque subraya un limite de metodo: <strong>si un dato no aparece publicamente, no deberias fingir que la ausencia demuestra inocencia ni que tienes derecho automatico a obtenerlo</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Consulta solo recursos dentro de un caso legitimo, proporcionado y documentable.</li>
+<li class="">No publiques contactos personales, correos o telefonos si no son necesarios para el analisis.</li>
+<li class="">Separa siempre <code>ownership</code> aparente, operacion tecnica y responsabilidad real.</li>
+<li class="">Guarda el <code>timestamp</code>, la URL o comando exacto y la fuente autoritativa que respondio.</li>
+<li class="">Si una conclusion depende demasiado de un solo registro, frena y corrobora con otra capa.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>RDAP/WHOIS</code> brilla cuando la pregunta es "que contexto registral visible acompana a este recurso?". Si el problema es otro, conviene cambiar de herramienta:</p>
+<ul>
+<li class=""><code>SecurityTrails</code> o historicos DNS si importa mas el cambio en el tiempo;</li>
+<li class=""><code>CT logs</code> si el pivote es cronologia de certificados y nombres;</li>
+<li class=""><code>PeeringDB</code> o <code>bgp.tools</code> si la duda gira alrededor de interconexion y red;</li>
+<li class=""><code>OpenCorporates</code> o registros mercantiles si necesitas estructura societaria y no solo registro tecnico;</li>
+<li class=""><code>httpx</code>, <code>urlscan.io</code> o <code>gowitness</code> si lo prioritario es la capa de servicio visible.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>RDAP</code> para <strong>preguntar mejor</strong> por propiedad aparente, origen registral y contexto administrativo. Usa <code>WHOIS</code> cuando aporte compatibilidad o contraste. Y no conviertas ninguna de las dos cosas en atajo narrativo.</p>
+<p>Como siguiente puente editorial del blog, tiene sentido bajar un nivel mas practico: una comparativa entre <code>RDAP/WHOIS</code>, <code>SecurityTrails</code> y <code>CT logs</code> sobre el mismo caso ficticio para ver que responde cada capa y donde empiezan sus limites.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class="">ICANN, <code>ICANN Update: Launching RDAP; Sunsetting WHOIS</code> (27 de enero de 2025): <a href="https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en" target="_blank" rel="noopener noreferrer" class="">https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en</a></li>
+<li class="">ICANN, <code>WHOIS and Registration Data Directory Services</code>: <a href="https://www.icann.org/resources/pages/whois-rdds-2023-11-02-en" target="_blank" rel="noopener noreferrer" class="">https://www.icann.org/resources/pages/whois-rdds-2023-11-02-en</a></li>
+<li class="">ICANN Lookup: <a href="https://lookup.icann.org/en" target="_blank" rel="noopener noreferrer" class="">https://lookup.icann.org/en</a></li>
+<li class="">IETF, <code>RFC 9082: Registration Data Access Protocol (RDAP) Query Format</code>: <a href="https://datatracker.ietf.org/doc/html/rfc9082" target="_blank" rel="noopener noreferrer" class="">https://datatracker.ietf.org/doc/html/rfc9082</a></li>
+<li class="">IETF, <code>RFC 9083: JSON Responses for the Registration Data Access Protocol (RDAP)</code>: <a href="https://datatracker.ietf.org/doc/rfc9083/" target="_blank" rel="noopener noreferrer" class="">https://datatracker.ietf.org/doc/rfc9083/</a></li>
+<li class="">ARIN, <code>Whois/Registration Data Access Protocol (RDAP)</code>: <a href="https://www.arin.net/resources/registry/whois/rdap/" target="_blank" rel="noopener noreferrer" class="">https://www.arin.net/resources/registry/whois/rdap/</a></li>
+<li class="">IANA, <code>Bootstrap Service Registry for Domain Name Space</code>: <a href="https://www.iana.org/assignments/rdap-dns/rdap-dns.xhtml" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-dns/rdap-dns.xhtml</a></li>
+<li class="">IANA, <code>Bootstrap Service Registry for IPv4 Address Space</code>: <a href="https://www.iana.org/assignments/rdap-ipv4" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-ipv4</a></li>
+<li class="">IANA, <code>Bootstrap Service Registry for AS Number Space</code>: <a href="https://www.iana.org/assignments/rdap-asn" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-asn</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>RDAP</category>
+            <category>WHOIS</category>
+            <category>Infraestructura</category>
+            <category>Verificacion</category>
+            <category>Due Diligence</category>
+        </item>
         <item>
             <title><![CDATA[DNSDumpster en OSINT: DNS visible, subdominios, netblocks y banners con contexto]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/dnsdumpster-osint-dns-subdominios-netblocks-banners-contexto</link>
@@ -2086,126 +2221,6 @@
             <category>Archivo</category>
             <category>Metodologia</category>
             <category>Datos</category>
-            <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[bgp.tools en OSINT: visibilidad de ASN, rutas y contexto antes de atribuir infraestructura]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto</guid>
-            <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando rutas BGP, ASN y relaciones de transitividad en un panel tecnico con mapas y grafos de red]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando rutas BGP, ASN y relaciones de transitividad en un panel tecnico con mapas y grafos de red" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-17-bgp-tools-osint-visibilidad-asn-rutas-contexto-b46b07a787d1aa2e5656913835e28c29.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion toca IPs, prefijos, <code>ASNs</code> o proveedores, el error mas caro suele ser narrar demasiado a partir de una sola vista de red. Una captura de <code>whois</code>, una resolucion DNS o un escaneo puntual pueden insinuar una relacion, pero rara vez bastan para explicar <strong>quien anuncia que, con cuanta visibilidad, a traves de que upstreams y con que limites de observacion publica</strong>. <code>bgp.tools</code> resulta util justo ahi, porque convierte tablas BGP, <code>whois</code>, rankings y politicas de anuncio en una lectura mas operativa para analistas que necesitan contexto sin vender certezas donde solo hay visibilidad parcial.</p>
-<p>La posicion correcta de la herramienta importa. En la pagina oficial de <code>features</code>, visible el 17 de mayo de 2026, <code>bgp.tools</code> mostraba <code>4035</code> sesiones BGP online de <code>4281</code>, <code>3.62 B</code> de rutas visibles y una tabla explicita de frescura donde admite, por ejemplo, <code>96</code> horas para <code>RIPE/ARIN/APNIC whois</code>, importes de <code>PeeringDB</code> cada <code>19</code> horas y capturas web en modo "best effort" de <code>7</code> dias. Traducido a trabajo serio: sirve para <strong>mapear visibilidad, relaciones y cambios aparentes</strong>, pero no para fingir que toda la red de Internet cabe completa y en tiempo real dentro de una unica interfaz.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>bgp.tools</code> es una plataforma publica de observacion de routing e inteligencia de red centrada en <code>ASNs</code>, prefijos, politicas visibles, relaciones de upstream/downstream, rankings y alertas operativas. Su propia base de conocimiento deja claro un punto clave: el sitio trabaja a partir de lo que puede ver mediante sus sesiones y fuentes, no a partir de una omnisciencia abstracta sobre todo el plano de control de Internet.</p>
-<p>En OSINT responsable encaja especialmente bien para:</p>
-<ul>
-<li class="">contextualizar que ASN parece originar un prefijo y con que visibilidad se observa;</li>
-<li class="">revisar relaciones aparentes de upstream, downstream y <code>peering</code> con cautela metodologica;</li>
-<li class="">detectar prefijos poco visibles, anuncios divergentes o politicas de red que merecen verificacion adicional;</li>
-<li class="">enriquecer investigaciones de infraestructura antes de saltar a conclusiones sobre propiedad, control o intencionalidad;</li>
-<li class="">y documentar mejor por que una IP o un bloque parecen conectados a cierto ecosistema tecnico.</li>
-</ul>
-<p>La ventaja real no es "descubrir al culpable", sino ordenar mejor la pregunta de infraestructura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision defensiva sobre <code>atlas-fabric.example</code>, una empresa ficticia que externaliza conectividad y alojamiento. El equipo ya ha visto:</p>
-<ul>
-<li class="">varias IPs asociadas al servicio web;</li>
-<li class="">un <code>ASN</code> repetido en capturas distintas;</li>
-<li class="">y un prefijo que aparece con visibilidad irregular segun la fuente consultada.</li>
-</ul>
-<p>Un flujo prudente con <code>bgp.tools</code> seria:</p>
-<ol>
-<li class="">abrir el <code>ASN</code> y los prefijos relevantes para entender como se ven desde la red publica;</li>
-<li class="">revisar si los upstreams visibles parecen estables o si solo se infieren desde una parte del grafo;</li>
-<li class="">comprobar si algun prefijo aparece oculto por baja visibilidad y, por tanto, exige mas cautela;</li>
-<li class="">observar si hay politicas de anuncio distintas dentro del mismo <code>ASN</code>;</li>
-<li class="">y anotar siempre que parte del relato proviene de observacion BGP, que parte sale de <code>whois</code> y que parte necesita corroboracion externa.</li>
-</ol>
-<p>La ganancia metodologica es clara: pasar de "esta IP me suena a este proveedor" a una cronologia y una topologia mas defendibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-correcta">1. Empieza por la pregunta correcta<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#1-empieza-por-la-pregunta-correcta" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta correcta" title="Enlace directo al 1. Empieza por la pregunta correcta" translate="no">​</a></h3>
-<p><code>bgp.tools</code> es mucho mas util cuando sabes que quieres responder:</p>
-<ul>
-<li class="">que red parece originar este prefijo;</li>
-<li class="">que transitividad visible conecta un origen con el resto de Internet;</li>
-<li class="">que parte del anuncio tiene visibilidad alta o baja;</li>
-<li class="">o si un cambio reciente justifica una hipotesis de migracion, filtrado o error operacional.</li>
-</ul>
-<p>Si entras solo a mirar rankings o grafos llamativos, es facil acabar sobreinterpretando ruido operacional como si fuese atribucion.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-lee-la-frescura-de-datos-antes-de-leer-la-historia">2. Lee la frescura de datos antes de leer la historia<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#2-lee-la-frescura-de-datos-antes-de-leer-la-historia" class="hash-link" aria-label="Enlace directo al 2. Lee la frescura de datos antes de leer la historia" title="Enlace directo al 2. Lee la frescura de datos antes de leer la historia" translate="no">​</a></h3>
-<p>La pagina <code>features</code> no es decorativa; es una advertencia metodologica. Si el <code>whois</code> puede ir con retraso de dias y ciertas capturas o escaneos dependen de ventanas mas largas, entonces no todos los campos del perfil de un <code>ASN</code> valen lo mismo para un caso sensible. En infraestructura viva, la diferencia entre "visible hace 19 horas" y "visible hace 96 horas" importa.</p>
-<p>Una rutina sana es separar:</p>
-<ul>
-<li class="">observacion casi en tiempo real de rutas visibles;</li>
-<li class="">datos registrales o descriptivos con actualizacion mas lenta;</li>
-<li class="">y metadatos auxiliares como capturas o etiquetas automaticas.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-interpreta-upstreams-y-downstreams-como-heuristica-visible">3. Interpreta upstreams y downstreams como heuristica visible<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#3-interpreta-upstreams-y-downstreams-como-heuristica-visible" class="hash-link" aria-label="Enlace directo al 3. Interpreta upstreams y downstreams como heuristica visible" title="Enlace directo al 3. Interpreta upstreams y downstreams como heuristica visible" translate="no">​</a></h3>
-<p>La propia explicacion oficial de <code>bgp.tools</code> reconoce que BGP no codifica directamente la relacion comercial entre redes, asi que la plataforma hace una estimacion a partir de caminos observados, <code>Tier 1s</code> y ciertos <code>route servers</code>. Eso vuelve la vista muy util, pero tambien obliga a no inflarla:</p>
-<ul>
-<li class="">un upstream visible no equivale necesariamente a la totalidad del transporte contratado;</li>
-<li class="">un <code>peer</code> no implica la misma relevancia desde todos los puntos de vista;</li>
-<li class="">y una relacion ausente puede deberse a falta de visibilidad, no a inexistencia real.</li>
-</ul>
-<p>En otras palabras: <code>bgp.tools</code> ayuda a formular hipotesis de conectividad, no a certificar contratos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-presta-atencion-a-prefijos-con-baja-visibilidad">4. Presta atencion a prefijos con baja visibilidad<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#4-presta-atencion-a-prefijos-con-baja-visibilidad" class="hash-link" aria-label="Enlace directo al 4. Presta atencion a prefijos con baja visibilidad" title="Enlace directo al 4. Presta atencion a prefijos con baja visibilidad" translate="no">​</a></h3>
-<p>La base de conocimiento explica que los prefijos visibles desde menos de <code>300</code> feeds o menos del <code>15%</code> de las fuentes se ocultan por defecto. Ese detalle es oro para OSINT, porque te recuerda que no todo lo que una herramienta "no ensena" esta ausente, y no todo lo que aparece poco visible implica automaticamente conducta sospechosa.</p>
-<p>Un prefijo poco visible puede reflejar:</p>
-<ul>
-<li class="">filtrado por parte de proveedores;</li>
-<li class="">anuncios mas especificos solo visibles para ciertos clientes;</li>
-<li class="">transiciones o cambios operativos;</li>
-<li class="">o simplemente limites de cobertura.</li>
-</ul>
-<p>El analista gana mucho si trata estos casos como senales para corroborar, no como pruebas concluyentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-usa-politicas-y-rankings-para-priorizar-no-para-sentenciar">5. Usa politicas y rankings para priorizar, no para sentenciar<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#5-usa-politicas-y-rankings-para-priorizar-no-para-sentenciar" class="hash-link" aria-label="Enlace directo al 5. Usa politicas y rankings para priorizar, no para sentenciar" title="Enlace directo al 5. Usa politicas y rankings para priorizar, no para sentenciar" translate="no">​</a></h3>
-<p>Las paginas de <code>network policy</code> y <code>peer ranking</code> dejan ver bien la filosofia del sitio: agrupar prefijos por perfil de anuncio y ordenar redes por rasgos observables como adyacencia, cono AS, espacio anunciado o dominios unicos. Eso sirve para priorizar revisiones, detectar outliers y comparar redes parecidas.</p>
-<p>Pero los rankings no sustituyen una investigacion. Un <code>ASN</code> muy alto en visibilidad, dominios o <code>eyeballs</code> no te dice por si solo quien opera un servicio concreto ni si una ruta anomala es accidental o deliberada. Solo te dice que merece leerse con mas contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>bgp.tools</code> es valioso precisamente porque explica varios de sus propios limites. Los mas importantes para un flujo OSINT son estos:</p>
-<ul>
-<li class="">depende de la cobertura real de sus sesiones BGP y fuentes auxiliares;</li>
-<li class="">algunas relaciones se infieren heuristica y visualmente, no desde datos contractuales;</li>
-<li class="">un prefijo puede tener mas de un <code>ASN</code> originador visible por migraciones, anycast o errores de datos;</li>
-<li class="">un prefijo oculto o poco visible no deja de existir por no aparecer en la vista principal;</li>
-<li class="">y el origen tecnico de una ruta no demuestra por si mismo propiedad corporativa, intencion o legitimidad de uso.</li>
-</ul>
-<p>La pagina oficial sobre prefijos con varios <code>ASNs</code> originadores es especialmente util como vacuna contra la sobreatribucion: la coexistencia puede venir de migraciones, despliegues anycast o anuncios defectuosos, no necesariamente de un caso anomalo malicioso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa <code>bgp.tools</code> para entender contexto de red publica, no para justificar senalamientos a personas.</li>
-<li class="">Separa observacion tecnica, inferencia analitica y corroboracion externa en tus notas.</li>
-<li class="">Conserva fecha y URL exacta de consulta cuando cites un <code>ASN</code>, prefijo o politica.</li>
-<li class="">Contrasta relaciones de red con <code>RDAP/WHOIS</code>, <code>PeeringDB</code>, DNS, historico web o telemetria propia si el caso lo permite.</li>
-<li class="">Evita convertir una anomalia de routing en una acusacion operativa sin mas evidencia.</li>
-</ul>
-<p>Esta disciplina es especialmente importante en periodismo tecnico, atribucion prudente y defensa de infraestructura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>bgp.tools</code> encaja muy bien cuando tu pregunta principal gira alrededor de visibilidad de rutas, <code>ASNs</code> y transitividad observable. Segun el caso, suele combinarse bien con:</p>
-<ul>
-<li class=""><code>RDAP</code> y <code>WHOIS</code>, para bajar de la topologia visible al registro;</li>
-<li class=""><code>PeeringDB</code>, para contrastar presencia declarada en <code>IXPs</code> e interconexion publica;</li>
-<li class=""><code>Netlas</code>, <code>Censys</code> o <code>ZoomEye</code>, si ademas necesitas exposicion de servicios y banners;</li>
-<li class=""><code>SecurityTrails</code> o <code>CT logs</code>, cuando el caso mezcla routing con DNS y certificados;</li>
-<li class="">y tus propias notas de caso o <code>Datasette</code>, si quieres dejar la cronologia consultable y revisable.</li>
-</ul>
-<p>La takeaway accionable es esta: usa <code>bgp.tools</code> para <strong>explicar mejor que parte de una relacion de red ves, con cuanta cobertura la ves y que preguntas abre</strong>, no para cerrar una atribucion antes de tiempo. En infraestructura, ver mas grafo no siempre significa saber mas verdad; a menudo solo significa que ya puedes hacer preguntas menos malas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/bgp-tools-osint-visibilidad-asn-rutas-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://bgp.tools/features" target="_blank" rel="noopener noreferrer" class="">bgp.tools Features</a></li>
-<li class=""><a href="https://bgp.tools/kb/what-is-a-upstream" target="_blank" rel="noopener noreferrer" class="">How do we calculate Down/Upstreams?</a></li>
-<li class=""><a href="https://bgp.tools/kb/low-vis-prefixes" target="_blank" rel="noopener noreferrer" class="">Understanding Low Visibility Prefixes</a></li>
-<li class=""><a href="https://bgp.tools/kb/more-than-one-asn-per-prefix" target="_blank" rel="noopener noreferrer" class="">How can a prefix have more than one ASN?</a></li>
-<li class=""><a href="https://bgp.tools/kb/network-policy" target="_blank" rel="noopener noreferrer" class="">Network Policies</a></li>
-<li class=""><a href="https://bgp.tools/kb/api" target="_blank" rel="noopener noreferrer" class="">Automated ways to query bgp.tools</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Tooling</category>
-            <category>Red</category>
-            <category>ASN</category>
-            <category>Metodologia</category>
             <category>Verificacion</category>
         </item>
     </channel>
