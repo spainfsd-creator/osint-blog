@@ -88,6 +88,16 @@ infrastructure:
   permalink: /infrastructure
   description: Activos expuestos, servicios, certificados y relaciones tecnicas visibles desde el exterior.
 
+rdap:
+  label: RDAP
+  permalink: /rdap
+  description: Consultas estandarizadas de datos registrales y referrals para dominios, IPs, ASN y entidades.
+
+whois:
+  label: WHOIS
+  permalink: /whois
+  description: Consultas registrales legacy, compatibilidad operativa y lectura prudente de datos textuales heterogeneos.
+
 network:
   label: Red
   permalink: /network
