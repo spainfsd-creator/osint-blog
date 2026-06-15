@@ -4,10 +4,129 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 14 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[ViewDNS.info en OSINT: reverse IP, WHOIS, NS y MX con contexto antes de unir puntos]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto</guid>
+            <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT cruzando reverse IP, WHOIS, nameservers y registros MX en un panel sobrio de investigacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando reverse IP, WHOIS, nameservers y registros MX en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-15-viewdns-osint-reverse-ip-whois-ns-mx-contexto-744c37000f0ce77c71cac1b45740634c.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion sobre infraestructura empieza a sacar dominios, <code>IPs</code>, <code>MX</code> y <code>nameservers</code>, el error mas comun no suele ser "no tener datos". El error suele ser <strong>atar relaciones demasiado pronto y convertir una coincidencia tecnica en una atribucion fuerte</strong>. <code>ViewDNS.info</code> resulta util justo en ese tramo intermedio: permite abrir pivotes rapidos sobre hosting compartido, historial de <code>IP</code>, huella de correo y patrones registrales sin olvidar que una relacion observada sigue siendo solo eso, una relacion observada.</p>
+<p>La documentacion oficial de <code>ViewDNS.info</code>, consultada el <strong>15 de junio de 2026</strong>, describe el servicio como un conjunto de herramientas de analisis web, monitorizacion e inteligencia de dominio pensado para hacer accesibles datos de internet y de nombres de dominio. Sus paginas publicas sobre <code>Reverse IP</code>, <code>Reverse WHOIS</code>, <code>Reverse NS</code>, <code>Reverse MX</code>, <code>IP History</code> y <code>Subdomain Discovery</code> dejan una idea metodologica clara: <strong>la plataforma es valiosa para abrir contexto y descubrir activos relacionados, pero cada pivote tiene limites y necesita validacion posterior</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>ViewDNS.info</code> es una coleccion de utilidades web centradas en <code>DNS</code>, <code>WHOIS</code>, <code>IP</code> e infraestructura relacionada. En vez de resolver por si sola una investigacion, te ayuda a contestar preguntas muy concretas:</p>
+<ul>
+<li class="">que otros dominios parecen convivir en una misma <code>IP</code>;</li>
+<li class="">que dominios comparten un <code>nameserver</code> o un <code>MX</code>;</li>
+<li class="">que historico de <code>IPs</code> ha tenido un dominio;</li>
+<li class="">que subdominios conocidos aparecen asociados a un dominio;</li>
+<li class="">que huella registral visible deja un dominio o un posible registrante.</li>
+</ul>
+<p>En terminos de flujo, encaja bien en revisiones de <code>due diligence</code>, triage de infraestructura, seguimiento de campañas de phishing, investigacion de activos olvidados o validacion de hipotesis preliminares antes de pasar a fuentes mas especializadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una empresa ficticia, <code>acme-demo.example</code>, que sospecha que varias webs de soporte y micrositios antiguos siguen expuestas sin inventario interno actualizado.</p>
+<p>Un analista responsable podria usar <code>ViewDNS.info</code> de esta forma:</p>
+<ol>
+<li class="">Consultar <code>IP History</code> del dominio principal para ver si hubo cambios de hosting, <code>CDN</code> o proveedor que ayuden a entender por que aparecen referencias antiguas en otras fuentes.</li>
+<li class="">Lanzar <code>Reverse IP</code> sobre una direccion observada recientemente para separar lo que parece convivir en el mismo servidor de lo que probablemente solo comparte una capa de alojamiento o <code>reverse proxy</code>.</li>
+<li class="">Revisar <code>Reverse NS</code> y <code>Reverse MX</code> para localizar dominios adicionales que reutilicen infraestructura de nombres o correo.</li>
+<li class="">Comprobar <code>Subdomain Discovery</code> para detectar subdominios visibles que merezcan revision adicional.</li>
+<li class="">Cerrar el bucle con <code>WHOIS</code> o <code>Reverse WHOIS</code> si hay datos publicos suficientes como para plantear una hipotesis sobre marca, tercero proveedor o registro historico.</li>
+</ol>
+<p>La clave no esta en "sumar coincidencias", sino en ordenarlas por fuerza explicativa. Compartir <code>MX</code> puede significar simplemente que varias marcas usan el mismo proveedor de correo. Compartir una <code>IP</code> puede ser ruido de hosting multi-tenant. Compartir patron registral puede ser mas interesante, pero tampoco basta por si solo para afirmar propiedad operativa actual.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-no-por-la-herramienta">1. Empieza por la pregunta, no por la herramienta<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#1-empieza-por-la-pregunta-no-por-la-herramienta" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta, no por la herramienta" title="Enlace directo al 1. Empieza por la pregunta, no por la herramienta" translate="no">​</a></h3>
+<p>Antes de abrir pestañas, conviene decidir que quieres aclarar:</p>
+<ul>
+<li class="">inventario tecnico visible;</li>
+<li class="">relacion entre dominios;</li>
+<li class="">cronologia de cambios de infraestructura;</li>
+<li class="">o posible vinculo registral.</li>
+</ul>
+<p>Eso evita mezclar pivotes incompatibles y leer de mas en una coincidencia debil.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-ip-history-para-introducir-tiempo">2. Usa <code>IP History</code> para introducir tiempo<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#2-usa-ip-history-para-introducir-tiempo" class="hash-link" aria-label="Enlace directo al 2-usa-ip-history-para-introducir-tiempo" title="Enlace directo al 2-usa-ip-history-para-introducir-tiempo" translate="no">​</a></h3>
+<p>La pagina <code>IP History</code> de <code>ViewDNS.info</code> indica que muestra una lista historica de direcciones <code>IP</code> en las que un dominio ha estado alojado, junto con localizacion geografica y propietario de esa <code>IP</code>. Ese detalle es util porque anade contexto temporal: una coincidencia de hoy no vale igual que una coincidencia de hace tres anos.</p>
+<p>Tambien deja un limite importante: el propio servicio aclara que su sistema rastrea dominios de nivel superior y no subdominios. Traducido a trabajo diario: si tu hipotesis depende de <code>app.ejemplo.com</code>, conviene no sobregeneralizar a partir de un historico que esta pensado para el dominio raiz.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-reverse-ip-con-prudencia">3. Usa <code>Reverse IP</code> con prudencia<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#3-usa-reverse-ip-con-prudencia" class="hash-link" aria-label="Enlace directo al 3-usa-reverse-ip-con-prudencia" title="Enlace directo al 3-usa-reverse-ip-con-prudencia" translate="no">​</a></h3>
+<p>La documentacion publica de <code>Reverse IP</code> explica que la herramienta encuentra dominios alojados en una misma <code>IP</code> y la presenta como util para localizar otros sitios en ese servidor. Es un pivote muy rapido, pero tambien uno de los mas faciles de malinterpretar.</p>
+<p>En entornos con <code>shared hosting</code>, <code>CDN</code>, balanceadores o proteccion perimetral, una <code>IP</code> compartida puede relacionar decenas o cientos de activos sin ningun nexo organizativo real. Por eso conviene tratar <code>Reverse IP</code> como generador de candidatos, no como prueba.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-reverse-ns-y-reverse-mx">4. Cruza <code>Reverse NS</code> y <code>Reverse MX</code><a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#4-cruza-reverse-ns-y-reverse-mx" class="hash-link" aria-label="Enlace directo al 4-cruza-reverse-ns-y-reverse-mx" title="Enlace directo al 4-cruza-reverse-ns-y-reverse-mx" translate="no">​</a></h3>
+<p><code>Reverse NS</code> permite encontrar dominios que usan el mismo <code>nameserver</code>, mientras que <code>Reverse MX</code> muestra dominios que usan el mismo servidor de correo. Ambos son pivotes excelentes para ampliar inventario o detectar despliegues olvidados, pero tienen contextos distintos:</p>
+<ul>
+<li class="">compartir <code>NS</code> puede sugerir una misma gestion <code>DNS</code> o un mismo proveedor;</li>
+<li class="">compartir <code>MX</code> puede sugerir un mismo ecosistema de correo o aliasing;</li>
+<li class="">ninguna de las dos coincidencias equivale por si sola a una misma organizacion operativa.</li>
+</ul>
+<p>Si varias coincidencias convergen en el mismo conjunto de dominios y, ademas, encajan con historico de <code>IP</code>, marca, certificados o registros mercantiles, la hipotesis gana fuerza. Si no, probablemente solo estas viendo infraestructura comun.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reserva-reverse-whois-para-hipotesis-bien-acotadas">5. Reserva <code>Reverse WHOIS</code> para hipotesis bien acotadas<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#5-reserva-reverse-whois-para-hipotesis-bien-acotadas" class="hash-link" aria-label="Enlace directo al 5-reserva-reverse-whois-para-hipotesis-bien-acotadas" title="Enlace directo al 5-reserva-reverse-whois-para-hipotesis-bien-acotadas" translate="no">​</a></h3>
+<p>La pagina <code>Reverse WHOIS</code> lo define como una busqueda para encontrar dominios registrados con el mismo nombre o correo de una persona u organizacion. En OSINT responsable, eso no es una invitacion a recolectar indiscriminadamente, sino una herramienta de contraste.</p>
+<p>Funciona mejor cuando ya tienes un dato registral visible y quieres responder una pregunta concreta, por ejemplo:</p>
+<ul>
+<li class="">si un tercero tecnico parece registrar varios dominios de una misma operacion;</li>
+<li class="">si una marca secundaria aparece vinculada a un registrante ya conocido;</li>
+<li class="">o si un conjunto de dominios sospechosos comparte una huella registral anomala.</li>
+</ul>
+<p>Con privacidad reforzada, <code>redaction</code>, datos de revendedor o cambios historicos, <code>Reverse WHOIS</code> puede quedarse corto. Ese limite no invalida la herramienta; solo recuerda que la ausencia de coincidencias no equivale a ausencia de relacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>ViewDNS.info</code> es rapido y practico, pero conviene asumir varios limites desde el principio:</p>
+<ul>
+<li class="">una <code>IP</code> compartida puede ser solo hosting multi-tenant;</li>
+<li class="">un <code>MX</code> compartido suele reflejar proveedor, no necesariamente propiedad;</li>
+<li class="">un <code>nameserver</code> compartido puede venir de una configuracion por defecto de registrador o <code>DNS manager</code>;</li>
+<li class="">los datos registrales visibles pueden estar incompletos, anonimizados o desfasados;</li>
+<li class="">el historico observado no sustituye a una fuente autoritativa ni cubre todos los cambios posibles;</li>
+<li class="">algunos resultados completos o formatos de exportacion dependen de autenticacion o plan de pago.</li>
+</ul>
+<p>La propia documentacion de la <code>API</code> tambien refleja esta realidad operativa: contempla errores <code>401</code>, <code>403</code> y <code>429</code>, lo que deja claro que hay controles de acceso y limites de uso. Para un analista, eso significa que merece la pena disenar consultas con criterio en vez de disparar pivotes sin priorizacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con objetivos legitimos y dentro del alcance autorizado de tu caso.</li>
+<li class="">Documenta de donde sale cada pivote y que nivel de confianza le das.</li>
+<li class="">Separa "mismo proveedor" de "misma entidad".</li>
+<li class="">No publiques correos, contactos registrales o relaciones societarias sin necesidad real.</li>
+<li class="">Guarda evidencia reproducible de las consultas que sustentan una conclusion.</li>
+<li class="">Si una relacion es solo tecnica y no atributiva, describela como tal.</li>
+</ul>
+<p>En otras palabras: <code>ViewDNS.info</code> es muy bueno para abrir mapas de relacion. La responsabilidad del analista consiste en <strong>no convertir el mapa en sentencia</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Segun la pregunta, puede tener sentido complementarlo con:</p>
+<ul>
+<li class=""><code>RDAP/WHOIS</code>, para contexto registral mas estructurado;</li>
+<li class=""><code>SecurityTrails</code> o <code>DNSDumpster</code>, si quieres otras lecturas de <code>DNS</code> e infraestructura;</li>
+<li class=""><code>crt.sh</code>, si buscas cronologia de certificados y subdominios observados;</li>
+<li class=""><code>MXToolbox</code>, si el foco esta en correo y reputacion tecnica;</li>
+<li class="">validacion manual en la web visible y archivo historico, si necesitas cerrar contexto.</li>
+</ul>
+<p>Como siguiente paso practico, un flujo robusto suele ser:</p>
+<ol>
+<li class="">pivotar en <code>ViewDNS.info</code>;</li>
+<li class="">cruzar solo las coincidencias prometedoras con otra fuente independiente;</li>
+<li class="">anotar incertidumbre antes de elevar una conclusion.</li>
+</ol>
+<p>Ese orden ahorra tiempo y reduce mucho el riesgo de sobreatribucion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class="">ViewDNS.info, <code>About Us</code>: <a href="https://viewdns.info/about-us/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/about-us/</a></li>
+<li class="">ViewDNS.info, <code>Reverse IP Lookup</code>: <a href="https://viewdns.info/reverseip/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reverseip/</a></li>
+<li class="">ViewDNS.info, <code>Reverse Whois Lookup</code>: <a href="https://viewdns.info/reversewhois/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversewhois/</a></li>
+<li class="">ViewDNS.info, <code>Reverse NS Lookup</code>: <a href="https://viewdns.info/reversens/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversens/</a></li>
+<li class="">ViewDNS.info, <code>Reverse MX Lookup</code>: <a href="https://viewdns.info/reversemx/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversemx/</a></li>
+<li class="">ViewDNS.info, <code>IP History</code>: <a href="https://viewdns.info/iphistory/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/iphistory/</a></li>
+<li class="">ViewDNS.info, <code>Subdomain Discovery</code>: <a href="https://viewdns.info/subdomains/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/subdomains/</a></li>
+<li class="">ViewDNS.info, <code>API Documentation</code>: <a href="https://viewdns.info/api/documentation/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/api/documentation/</a></li>
+<li class="">ViewDNS.info, <code>API Error Codes</code>: <a href="https://viewdns.info/api/documentation/errors/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/api/documentation/errors/</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>DNS</category>
+            <category>Infraestructura</category>
+            <category>Verificacion</category>
+            <category>Due Diligence</category>
+            <category>Tooling</category>
+        </item>
         <item>
             <title><![CDATA[RDAP y WHOIS en OSINT: propiedad aparente, contactos y contexto sin leer de mas]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto</link>
@@ -2103,125 +2222,6 @@
             <category>Verificacion</category>
             <category>Metodologia</category>
             <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Common Crawl en OSINT: indice web historico, WARC y contexto para investigar sin ahogarte en ruido]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto</guid>
-            <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT navegando indices web historicos, ficheros WARC y cronologias de cambios publicos en un panel de investigacion sobrio]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT navegando indices web historicos, ficheros WARC y cronologias de cambios publicos en un panel de investigacion sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-18-common-crawl-osint-indice-web-historico-contexto-e783250b189d293de679088089359939.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una web cambia deprisa, elimina una landing, rota un subdominio o deja de servir una pagina concreta, el problema no siempre es "encontrar mas herramientas". Muchas veces el problema real es <strong>tener memoria operacional suficiente para responder que version publica existia, cuando aparecio una URL y en que captura quedo rastro util</strong>. <code>Common Crawl</code> destaca justo ahi: no porque te entregue una conclusion, sino porque te da acceso a un corpus masivo de web publica y a indices que permiten preguntar mejor antes de improvisar una narrativa.</p>
-<p>La posicion correcta de la herramienta importa. A <code>18 de mayo de 2026</code>, la pagina principal de <code>Common Crawl</code> seguia describiendo el proyecto como un repositorio libre y abierto de datos de rastreo web, con mas de <code>300</code> mil millones de paginas en <code>15</code> anos y entre <code>3</code> y <code>5</code> mil millones de paginas nuevas al mes. Eso es potentisimo, pero tambien exige disciplina: <strong>mas volumen no equivale a mas verdad</strong>. En OSINT responsable, <code>Common Crawl</code> sirve para fechar presencia publica, reconstruir contexto web y preservar trazabilidad, no para vender certeza donde solo hay capturas parciales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Common Crawl</code> es una fundacion sin animo de lucro que publica corpus abiertos de rastreo web, junto con indices para consultar capturas y metadatos sin descargar el universo entero. Su documentacion oficial distingue varias piezas que conviene separar:</p>
-<ul>
-<li class=""><code>WARC</code>: la captura web completa, con cabeceras y contenido archivado;</li>
-<li class=""><code>WAT</code>: metadatos extraidos de esas capturas;</li>
-<li class=""><code>WET</code>: texto plano extraido para analisis mas ligeros;</li>
-<li class=""><code>CDXJ index</code>: indice orientado a localizar capturas concretas por URL;</li>
-<li class=""><code>columnar index</code>: indice columnar para consultas mas analiticas a escala.</li>
-</ul>
-<p>En OSINT, eso encaja especialmente bien para:</p>
-<ul>
-<li class="">comprobar si una URL o un subdominio aparecio en crawls anteriores;</li>
-<li class="">fechar cambios visibles en contenido, titulos o estructura publica;</li>
-<li class="">recuperar contexto cuando <code>Wayback Machine</code> no tiene una captura util o suficiente cobertura;</li>
-<li class="">extraer texto o enlaces a escala para luego filtrar con mas criterio;</li>
-<li class="">y documentar una cronologia web reproducible sin depender de una sola captura manual.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-reconstruir-la-huella-web-de-un-proveedor-ficticio">Caso de uso legitimo: reconstruir la huella web de un proveedor ficticio<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#caso-de-uso-legitimo-reconstruir-la-huella-web-de-un-proveedor-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: reconstruir la huella web de un proveedor ficticio" title="Enlace directo al Caso de uso legitimo: reconstruir la huella web de un proveedor ficticio" translate="no">​</a></h2>
-<p>Imagina que tu equipo revisa a <code>proveedor-ejemplo.test</code> tras detectar que ciertas paginas de producto y soporte desaparecieron entre dos reuniones. No necesitas "rascar internet entero". Necesitas responder preguntas concretas:</p>
-<ol>
-<li class="">que URLs publicas existian hace unos meses;</li>
-<li class="">si el subdominio de soporte aparecia ya en crawls anteriores;</li>
-<li class="">si el contenido visible hablaba de ciertos servicios o integraciones;</li>
-<li class="">y si esa cronologia encaja con el relato comercial actual.</li>
-</ol>
-<p>En ese escenario, <code>Common Crawl</code> no sustituye el analisis. Lo ordena. Puedes consultar el indice, localizar capturas de la URL o del patron de dominio, revisar texto extraido o decidir que <code>WARC</code> merece preservacion local. El valor esta en reducir incertidumbre con fechas y rutas observables, no en convertir un cambio web en acusacion automatica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-el-indice-no-por-descargar-warc-a-ciegas">1. Empezar por el indice, no por descargar WARC a ciegas<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#1-empezar-por-el-indice-no-por-descargar-warc-a-ciegas" class="hash-link" aria-label="Enlace directo al 1. Empezar por el indice, no por descargar WARC a ciegas" title="Enlace directo al 1. Empezar por el indice, no por descargar WARC a ciegas" translate="no">​</a></h3>
-<p>La propia documentacion de <code>CDXJ Index</code> explica que este indice sirve para consultar capturas individuales dentro del corpus y que se expone desde <code>index.commoncrawl.org</code>. Esa es la puerta correcta para casi cualquier analista: primero localizas si una URL o un host existe en el corpus y despues decides si merece la pena bajar datos mas pesados.</p>
-<p>Operativamente, eso ayuda a responder:</p>
-<ul>
-<li class="">hay capturas de esta URL;</li>
-<li class="">en que fechas aparecen;</li>
-<li class="">a que <code>WARC</code> apuntan;</li>
-<li class="">y si merece la pena pasar del indice al contenido archivado.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elegir-bien-el-nivel-de-detalle-warc-wat-o-wet">2. Elegir bien el nivel de detalle: WARC, WAT o WET<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#2-elegir-bien-el-nivel-de-detalle-warc-wat-o-wet" class="hash-link" aria-label="Enlace directo al 2. Elegir bien el nivel de detalle: WARC, WAT o WET" title="Enlace directo al 2. Elegir bien el nivel de detalle: WARC, WAT o WET" translate="no">​</a></h3>
-<p>La guia oficial <code>Get Started</code> y la explicacion de formatos recuerdan algo que ahorra mucho tiempo: no todos los casos necesitan el mismo artefacto.</p>
-<ul>
-<li class=""><code>WARC</code> tiene sentido cuando necesitas el registro archivistico mas completo.</li>
-<li class=""><code>WAT</code> encaja mejor si buscas metadatos, enlaces o estructura web.</li>
-<li class=""><code>WET</code> es util cuando la prioridad es texto extraido para cribado, busqueda o NLP ligero.</li>
-</ul>
-<p>En OSINT responsable, esta decision importa porque evita dos errores comunes:</p>
-<ul>
-<li class="">descargar demasiado y perderte en volumen innecesario;</li>
-<li class="">o quedarte con una capa demasiado resumida para una afirmacion que luego quieras sostener.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trabajar-con-cronologia-explicita">3. Trabajar con cronologia explicita<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#3-trabajar-con-cronologia-explicita" class="hash-link" aria-label="Enlace directo al 3. Trabajar con cronologia explicita" title="Enlace directo al 3. Trabajar con cronologia explicita" translate="no">​</a></h3>
-<p>La pagina <code>Get Started</code>, verificada el <code>18 de mayo de 2026</code>, listaba como crawl mas reciente visible <code>CC-MAIN-2026-17</code>, y el anuncio oficial del archivo de abril de 2026 situaba ese crawl en <code>crawl-data/CC-MAIN-2026-17/</code>. Ese detalle parece menor, pero metodologicamente es clave: siempre conviene anotar <strong>que crawl miraste</strong>, no solo "lo vi en Common Crawl".</p>
-<p>Si documentas un hallazgo, guarda como minimo:</p>
-<ul>
-<li class="">consulta usada;</li>
-<li class="">fecha de ejecucion;</li>
-<li class="">identificador del crawl;</li>
-<li class="">URL o patron buscado;</li>
-<li class="">y fichero de salida o referencia del <code>WARC</code>.</li>
-</ul>
-<p>Sin eso, la reproducibilidad cae en picado.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-combinar-common-crawl-con-otras-capas-no-usarlo-aislado">4. Combinar Common Crawl con otras capas, no usarlo aislado<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#4-combinar-common-crawl-con-otras-capas-no-usarlo-aislado" class="hash-link" aria-label="Enlace directo al 4. Combinar Common Crawl con otras capas, no usarlo aislado" title="Enlace directo al 4. Combinar Common Crawl con otras capas, no usarlo aislado" translate="no">​</a></h3>
-<p><code>Common Crawl</code> brilla cuando se cruza con otras fuentes:</p>
-<ul>
-<li class="">archivo web clasico para validacion visual rapida;</li>
-<li class=""><code>RDAP/WHOIS</code> o historico DNS para contexto de ownership aparente;</li>
-<li class=""><code>urlscan.io</code> si importa el DOM, las redirecciones o recursos cargados;</li>
-<li class="">y tus propias capturas fechadas si el caso puede escalar a informe o evidencia interna.</li>
-</ul>
-<p>La idea correcta no es "Common Crawl lo tiene todo". La idea correcta es: <strong>Common Crawl puede darte memoria longitudinal y cobertura adicional donde otras fuentes no llegan o no llegan igual</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Common Crawl</code> es valioso, pero conviene entrar con expectativas correctas:</p>
-<ul>
-<li class="">no es una copia completa ni perfecta de toda la web;</li>
-<li class="">una ausencia en el corpus no demuestra inexistencia;</li>
-<li class="">una presencia en una captura no valida por si sola autoria, intencion o continuidad;</li>
-<li class="">ciertas paginas dinamicas, bloqueadas o efimeras pueden aparecer mal o no aparecer;</li>
-<li class="">y la escala del dataset invita facilmente a sobreinterpretar ruido si no delimitas bien la pregunta.</li>
-</ul>
-<p>La propia fundacion presenta el corpus como rastreo abierto reutilizable, no como un sistema de veredictos. Para OSINT eso se traduce en una regla simple: <strong>usa las capturas para fijar contexto observable, no para sustituir corroboracion externa</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Delimita el alcance antes de consultar: dominio, subdominio, ruta o ventana temporal.</li>
-<li class="">Prioriza preguntas de interes legitimo, como verificacion de proveedores, analisis de superficie publica o reconstruccion cronologica.</li>
-<li class="">Evita convertir texto recuperado en una divulgacion innecesaria de datos personales.</li>
-<li class="">Conserva referencias tecnicas suficientes para reproducir el hallazgo sin rehacer toda la investigacion.</li>
-<li class="">Si un contenido parece sensible o ambiguo, corrobora con otra fuente antes de elevarlo.</li>
-</ul>
-<p>En investigaciones maduras, la diferencia entre memoria util y acopio irresponsable de datos esta en el criterio con que filtras y contextualizas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si solo necesitas una comprobacion puntual y visual, <code>Wayback Machine</code> o <code>Archive.today</code> pueden ser mas directos. Si quieres analizar una pagina concreta con recursos cargados y artefactos tecnicos, <code>urlscan.io</code> puede darte una vista mas comoda. Si la pregunta principal es infraestructura y no contenido web, conviene pivotar antes a DNS, <code>CT logs</code> o indices de servicios visibles.</p>
-<p><code>Common Crawl</code> destaca en otro punto del flujo: cuando necesitas <strong>escala, historico y trazabilidad por crawl</strong>. Ahi puede convertirse en una pieza muy seria del cuaderno metodologico del analista.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
-<p><code>Common Crawl</code> no es una herramienta para mirar "mas internet" por mirar mas. Es una herramienta para hacer mejores preguntas sobre memoria web publica: que existio, cuando aparecio, en que crawl quedo rastro y que capa del dataset conviene usar para no perder tiempo ni rigor.</p>
-<p>Como siguiente puente natural para el blog, tiene sentido bajar a una pieza muy practica del mismo ecosistema: por ejemplo, una guia responsable sobre <code>Hunter.io</code> o sobre como cruzar <code>Common Crawl</code>, historico web y <code>urlscan.io</code> sin confundir cobertura con evidencia cerrada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/common-crawl-osint-indice-web-historico-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">Common Crawl, portada: <a href="https://commoncrawl.org/" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/</a></li>
-<li class="">Common Crawl, <code>Get Started</code>: <a href="https://commoncrawl.org/get-started" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/get-started</a></li>
-<li class="">Common Crawl, <code>CDXJ Index</code>: <a href="https://commoncrawl.org/cdxj-index" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/cdxj-index</a></li>
-<li class="">Common Crawl, <code>Columnar Index</code>: <a href="https://commoncrawl.org/columnar-index" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/columnar-index</a></li>
-<li class="">Common Crawl, <code>About</code>: <a href="https://commoncrawl.org/about" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/about</a></li>
-<li class="">Common Crawl Blog, <code>April 2026 Crawl Archive Now Available</code>: <a href="https://commoncrawl.org/blog/april-2026-crawl-archive-now-available" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/blog/april-2026-crawl-archive-now-available</a></li>
-<li class="">Common Crawl Blog, <code>Web Archiving File Formats Explained</code>: <a href="https://commoncrawl.org/blog/web-archiving-file-formats-explained" target="_blank" rel="noopener noreferrer" class="">https://commoncrawl.org/blog/web-archiving-file-formats-explained</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Web</category>
-            <category>Archivo</category>
-            <category>Metodologia</category>
-            <category>Datos</category>
-            <category>Verificacion</category>
         </item>
     </channel>
 </rss>
