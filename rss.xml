@@ -4,10 +4,128 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 16 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 17 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Epieos en OSINT: busqueda inversa por correo y telefono con contexto, limites y criterio]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto</guid>
+            <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT correlacionando correo, telefono y perfiles publicos anonimizados en un panel de investigacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT correlacionando correo, telefono y perfiles publicos anonimizados en un panel de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-17-epieos-osint-busqueda-inversa-correo-telefono-contexto-137d0cf6ea077e6896c1ea0b7b481c85.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion legitima parte de un <strong>correo electronico</strong> o de un <strong>numero de telefono</strong>, el riesgo no suele ser "quedarse corto". El riesgo real es <strong>leer demasiado deprisa</strong>: confundir presencia con identidad, confundir una cuenta enlazada con control actual y convertir una coincidencia util en una atribucion que nadie ha verificado. <code>Epieos</code> encaja justo en esa fase intermedia. No te da una verdad final, pero si puede ayudarte a abrir contexto con rapidez sobre huella publica asociada a un correo o telefono, siempre que mantengas disciplina metodologica.</p>
+<p>La situacion actual importa. La pagina oficial de <code>Epieos</code>, consultada el <strong>17 de junio de 2026</strong>, presenta la plataforma como una herramienta OSINT de busqueda inversa por email y telefono, insiste en que no registra consultas y afirma que sus tecnicas no notifican al objetivo. Su guia oficial del <strong>10 de abril de 2026</strong> anade un matiz practico clave: la plataforma esta pensada para investigaciones basadas en correo y telefono, ofrece varios niveles de acceso y recomienda trabajar con cuentas de investigacion separadas cuando haga falta ampliar contexto manualmente. Y sus terminos publicados, consultados tambien el <strong>17 de junio de 2026</strong>, recuerdan algo que conviene no olvidar: <code>Epieos</code> muestra informacion obtenida de fuentes publicamente disponibles, no verifica por ti su exactitud y deja la responsabilidad de uso en manos del analista.</p>
+<p>Este contenido esta orientado a usos legitimos y proporcionales, como verificacion periodistica, due diligence, respuesta defensiva, prevencion de fraude e investigacion academica. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>Epieos</code> es una plataforma OSINT centrada en dos semillas de entrada muy concretas:</p>
+<ul>
+<li class="">un correo electronico;</li>
+<li class="">o un numero de telefono.</li>
+</ul>
+<p>Desde ahi intenta recuperar huella publica relacionada en multiples plataformas, redes y servicios. Segun la guia oficial publicada por el propio proveedor el <strong>10 de abril de 2026</strong>, el flujo base gira alrededor de:</p>
+<ul>
+<li class="">elegir si buscas por email o por telefono;</li>
+<li class="">seleccionar el nivel de servicio disponible;</li>
+<li class="">revisar resultados iniciales en segundos;</li>
+<li class="">y exportar la salida en formatos reutilizables como <code>JSON</code>, <code>CSV</code> o <code>PDF</code>.</li>
+</ul>
+<p>La pagina de precios consultada el <strong>17 de junio de 2026</strong> ayuda a entender el enfoque comercial y operativo actual:</p>
+<ul>
+<li class=""><code>member</code> mantiene acceso gratuito limitado;</li>
+<li class=""><code>Osinter</code> figura a <strong>29,99 EUR al mes</strong>;</li>
+<li class="">e incluye, en ese momento, <strong>30 consultas full-access al mes</strong> y acceso a todos los modulos listados en esa capa.</li>
+</ul>
+<p>La misma guia oficial del <strong>10 de abril de 2026</strong> describe ademas una capa <code>Private</code>, reservada a entidades gubernamentales, fuerzas del orden, investigadores profesionales y organizaciones de confianza, con una cobertura mayor. Eso no convierte la herramienta en una fuente infalible; solo indica que el producto esta pensado para flujos de investigacion serios y con segmentacion de acceso.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina un equipo de cumplimiento que revisa a un intermediario externo antes de compartir informacion sensible de un proyecto. En la documentacion aparece un correo <code>contacto@nexo-civico.example</code> y un telefono internacional de atencion comercial.</p>
+<p>Un uso prudente de <code>Epieos</code> seria este:</p>
+<ol>
+<li class="">lanzar primero una busqueda por el correo para ver si deja rastro en plataformas publicas compatibles con la identidad profesional alegada;</li>
+<li class="">repetir despues con el telefono solo para buscar coherencia adicional, no para inferir propiedad exclusiva;</li>
+<li class="">anotar que hallazgos parecen fuertes, cuales son ambiguos y cuales requieren comprobacion manual;</li>
+<li class="">salir de la herramienta y validar de forma independiente las coincidencias mas relevantes.</li>
+</ol>
+<p>La pregunta no es "quien es esta persona de una vez por todas". La pregunta correcta es mucho mas estrecha: <strong>si la huella publica visible parece coherente con la narrativa declarada y donde merece comprobar mejor antes de decidir</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-una-pregunta-corta-antes-de-consultar">1. Define una pregunta corta antes de consultar<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#1-define-una-pregunta-corta-antes-de-consultar" class="hash-link" aria-label="Enlace directo al 1. Define una pregunta corta antes de consultar" title="Enlace directo al 1. Define una pregunta corta antes de consultar" translate="no">​</a></h3>
+<p><code>Epieos</code> funciona mejor cuando la hipotesis ya esta acotada:</p>
+<ul>
+<li class="">quieres saber si un correo corporativo aparece asociado a servicios que no deberia tocar;</li>
+<li class="">quieres revisar si un telefono comercial deja huella publica coherente;</li>
+<li class="">o quieres priorizar que plataformas merecen inspeccion manual.</li>
+</ul>
+<p>Sin esa pregunta corta, cualquier lista de perfiles o modulos acaba pareciendo mas concluyente de lo que es.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-el-identificador-menos-ambiguo">2. Empieza por el identificador menos ambiguo<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#2-empieza-por-el-identificador-menos-ambiguo" class="hash-link" aria-label="Enlace directo al 2. Empieza por el identificador menos ambiguo" title="Enlace directo al 2. Empieza por el identificador menos ambiguo" translate="no">​</a></h3>
+<p>Si dispones de correo y telefono, el orden importa. Un correo corporativo o un alias tecnico suelen producir menos ruido inicial que un numero reciclado, compartido o historico. La propia guia oficial de <code>Epieos</code> separa claramente los dos vectores de entrada, y eso ya sugiere una buena practica: <strong>no mezclar semillas con fiabilidad distinta sin etiquetar la confianza de cada una</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-cobertura-como-capacidad-no-como-garantia">3. Lee la cobertura como capacidad, no como garantia<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#3-lee-la-cobertura-como-capacidad-no-como-garantia" class="hash-link" aria-label="Enlace directo al 3. Lee la cobertura como capacidad, no como garantia" title="Enlace directo al 3. Lee la cobertura como capacidad, no como garantia" translate="no">​</a></h3>
+<p>La documentacion comercial y la guia oficial hablan de modulos, plataformas cubiertas, exportes y distintos niveles de acceso. Eso es util, pero metodologicamente significa otra cosa: <code>Epieos</code> puede acelerar cribado y correlacion, no certificar identidad. Su propia documentacion legal indica que la plataforma no verifica la veracidad, exactitud ni completitud de la informacion mostrada.</p>
+<p>Traducido a trabajo diario:</p>
+<ul>
+<li class="">una coincidencia puede ser vieja;</li>
+<li class="">una cuenta puede estar abandonada;</li>
+<li class="">un telefono puede haber cambiado de titular;</li>
+<li class="">y un correo puede aparecer por recuperacion, menciones o rastros de terceros.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-exporta-solo-lo-necesario-y-documenta-la-duda">4. Exporta solo lo necesario y documenta la duda<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#4-exporta-solo-lo-necesario-y-documenta-la-duda" class="hash-link" aria-label="Enlace directo al 4. Exporta solo lo necesario y documenta la duda" title="Enlace directo al 4. Exporta solo lo necesario y documenta la duda" translate="no">​</a></h3>
+<p>La guia del <strong>10 de abril de 2026</strong> destaca exportacion <code>JSON</code>, <code>CSV</code>, <code>PDF</code> e incluso paquetes de imagenes. Eso encaja muy bien en un flujo profesional, pero tambien obliga a higiene:</p>
+<ul>
+<li class="">exporta solo lo relevante para la pregunta del caso;</li>
+<li class="">conserva fecha y contexto de consulta;</li>
+<li class="">separa hechos observables de inferencias;</li>
+<li class="">y evita crear un dossier mas amplio de lo necesario.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Epieos</code> tiene varias limitaciones que conviene asumir antes de la primera busqueda:</p>
+<ul>
+<li class="">depende de lo que siga siendo visible en fuentes publicas y de la disponibilidad de esas fuentes;</li>
+<li class="">no valida por ti que una coincidencia represente a la misma persona, entidad o titular actual;</li>
+<li class="">puede mostrar senales reales pero faciles de sobreinterpretar;</li>
+<li class="">y su mejor rendimiento no elimina el trabajo humano posterior.</li>
+</ul>
+<p>Sus propios terminos, consultados el <strong>17 de junio de 2026</strong>, dejan claro ademas que el servicio esta orientado a clientes profesionales y que el uso de la informacion debe respetar la ley aplicable. Ese marco importa porque pone una frontera metodologica y legal: <strong>buscar no equivale a estar autorizado a usar cualquier resultado de cualquier manera</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja solo con una finalidad legitima y proporcionada.</li>
+<li class="">No uses una coincidencia automatizada para etiquetar o senalar a una persona sin corroboracion externa.</li>
+<li class="">Si necesitas abrir perfiles enlazados, hazlo con cuentas de investigacion separadas y criterio, como recomienda la guia oficial al hablar de autenticacion previa en plataformas relevantes.</li>
+<li class="">Documenta siempre fecha, fuente, nivel de confianza y huecos de evidencia.</li>
+<li class="">Borra o minimiza datos que no aporten nada a la decision concreta del caso.</li>
+</ul>
+<p>Un detalle interesante de la comunicacion oficial de <code>Epieos</code> es su insistencia en que las consultas no se registran y en que los modulos no notifican al objetivo. Eso puede mejorar la OPSEC del analista, pero no te exime de tus propias obligaciones: buena trazabilidad interna, base legal, minimizacion y revision humana siguen siendo imprescindibles.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Epieos</code> no cubre todo el trabajo sobre identidades o contactos. Segun la pregunta, puede combinarse bien con:</p>
+<ul>
+<li class=""><code>Holehe</code>, si lo que buscas es una senal de presencia muy acotada alrededor del correo;</li>
+<li class=""><code>Maigret</code> o <code>Blackbird</code>, si el pivote principal es un alias o username;</li>
+<li class=""><code>GHunt</code>, si la pista util cae en ecosistema Google y el caso es legitimo;</li>
+<li class="">y revision manual de perfiles, paginas corporativas y archivo web para validar contexto.</li>
+</ul>
+<p>Como siguiente paso practico, la rutina sana seria:</p>
+<ol>
+<li class="">usar <code>Epieos</code> para recortar el espacio de busqueda;</li>
+<li class="">elegir unas pocas coincidencias realmente prometedoras;</li>
+<li class="">corroborarlas fuera de la plataforma;</li>
+<li class="">y cerrar con una nota de confianza explicita, no con una conclusion inflada.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>Epieos</code> aporta valor cuando lo usas como <strong>motor de cribado rapido y contextual</strong> sobre correos y telefonos, no como fabrica de certezas. Si te ayuda a decidir que comprobar despues y que descartar antes, ya esta haciendo el trabajo correcto. Si intentas convertir cada coincidencia en identidad demostrada, el problema deja de ser la herramienta y pasa a ser el metodo.</p>
+<p>Fuentes recomendadas:</p>
+<ul>
+<li class=""><a href="https://epieos.com/" target="_blank" rel="noopener noreferrer" class="">Epieos, pagina principal</a></li>
+<li class=""><a href="https://epieos.com/blog/features/how-to-use-epieos-for-your-osint-investigations" target="_blank" rel="noopener noreferrer" class="">How to Use Epieos for Your Investigations, Epieos Blog, 10 de abril de 2026</a></li>
+<li class=""><a href="https://epieos.com/pricing" target="_blank" rel="noopener noreferrer" class="">Pricing, Epieos</a></li>
+<li class=""><a href="https://epieos.com/aboutus" target="_blank" rel="noopener noreferrer" class="">About, Epieos</a></li>
+<li class=""><a href="https://epieos.com/terms/" target="_blank" rel="noopener noreferrer" class="">General Terms and Conditions, Epieos</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>SOCMINT</category>
+            <category>Verificacion</category>
+            <category>Privacidad</category>
+            <category>Due Diligence</category>
+            <category>Tooling</category>
+        </item>
         <item>
             <title><![CDATA[GDELT en OSINT: cobertura mediatica global, narrativas y contexto sin confundir volumen con verdad]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto</link>
@@ -2154,114 +2272,6 @@
             <category>Metodologia</category>
             <category>Verificacion</category>
             <category>Infraestructura</category>
-        </item>
-        <item>
-            <title><![CDATA[Historia OSINT: Skripal, identidades de cobertura y el momento en que dos turistas dejaron de parecer turistas]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint</guid>
-            <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una mesa de trabajo OSINT con billetes de tren, mapas de rutas, pantallas con registros publicos y siluetas difuminadas de documentos de identidad]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de trabajo OSINT con billetes de tren, mapas de rutas, pantallas con registros publicos y siluetas difuminadas de documentos de identidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-20-historia-skripal-identidades-cobertura-corrobacion-osint-8dbcdbf948c0b08aa5b6086ef7b2ed11.png" width="1376" height="768" class="img_ev3q"></p>
-<p>En las historias de espionaje hay un truco que casi siempre funciona en pantalla: el agente entra con nombre falso, hace su trabajo y desaparece antes de que nadie entienda que ha pasado. En el caso Skripal, la parte inquietante fue otra: <strong>durante unos dias, el relato oficial de dos supuestos turistas rusos parecia lo bastante simple como para sembrar duda, cansancio y ruido</strong>. Y justo ahi entro el OSINT.</p>
-<p>Lo que vino despues no fue magia ni una sola filtracion milagrosa. Fue algo mas util de aprender: una secuencia de comprobaciones abiertas, comparaciones de fechas, trazado de viajes, revision de documentos, contradicciones biograficas y corroboracion cruzada hasta que las identidades de cobertura empezaron a romperse por las costuras. Si alguna leccion deja Salisbury, no es que internet "resuelva" un caso penal por si sola. Es que <strong>una historia de tapadera aguanta poco cuando cada detalle publico se obliga a convivir con todos los demas</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contexto-minimo-salisbury-no-era-un-misterio-aislado">Contexto minimo: Salisbury no era un misterio aislado<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#contexto-minimo-salisbury-no-era-un-misterio-aislado" class="hash-link" aria-label="Enlace directo al Contexto minimo: Salisbury no era un misterio aislado" title="Enlace directo al Contexto minimo: Salisbury no era un misterio aislado" translate="no">​</a></h2>
-<p>El <code>4 de marzo de 2018</code>, Sergei Skripal y su hija Yulia fueron envenenados en Salisbury. La <code>OPCW</code> confirmo despues que el analisis independiente de muestras respaldaba la identificacion del toxico realizada por el Reino Unido. Ese detalle importa metodologicamente: antes de discutir nombres, rutas o motivaciones, el caso ya tenia una base forense externa sobre la naturaleza del agente.</p>
-<p>Meses mas tarde, el <code>5 de septiembre de 2018</code>, el gobierno britanico hizo publico que el <code>CPS</code> habia considerado que existia base suficiente para acusar a dos nacionales rusos que habian viajado bajo los nombres de <code>Alexander Petrov</code> y <code>Ruslan Boshirov</code>, considerados alias por la propia policia. Theresa May explico ese mismo dia en el Parlamento que la investigacion habia movilizado a unos <code>250</code> detectives, mas de <code>11.000</code> horas de <code>CCTV</code> y mas de <code>1.400</code> declaraciones.</p>
-<p>La escena, por tanto, no era "un rumor de redes". Era una investigacion criminal con una linea temporal fuerte, evidencia fisica, desplazamientos documentados y un relato oficial ruso que necesitaba sostener que aquellos dos hombres eran simples visitantes interesados en la catedral de Salisbury. El problema para esa version es que los datos abiertos empezaron a comportarse como una auditoria hostil.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-metodo-osint-no-perseguir-espias-desmontar-incoherencias">El metodo OSINT: no perseguir espias, desmontar incoherencias<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#el-metodo-osint-no-perseguir-espias-desmontar-incoherencias" class="hash-link" aria-label="Enlace directo al El metodo OSINT: no perseguir espias, desmontar incoherencias" title="Enlace directo al El metodo OSINT: no perseguir espias, desmontar incoherencias" translate="no">​</a></h2>
-<p>La parte mas interesante del caso no consiste en copiar un nombre famoso ni en jugar a detective heroico. Consiste en observar como una investigacion abierta puede avanzar sin reclamar omnisciencia.</p>
-<p>El flujo responsable fue, a grandes rasgos, este:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-una-cronologia-incontestable">1. Fijar una cronologia incontestable<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#1-fijar-una-cronologia-incontestable" class="hash-link" aria-label="Enlace directo al 1. Fijar una cronologia incontestable" title="Enlace directo al 1. Fijar una cronologia incontestable" translate="no">​</a></h3>
-<p>Antes de buscar "quienes eran", habia que fijar <strong>cuando estuvieron, por donde se movieron y que decian haber hecho</strong>. Las autoridades britanicas ya habian publicado el marco basico: llegada al Reino Unido, desplazamientos a Salisbury y salida de vuelta a Moscu. Esa cronologia publico-forense sirve como columna vertebral para evaluar despues cualquier coartada.</p>
-<p>Cuando un objetivo ofrece una explicacion retrospectiva, el analista no deberia empezar por la psicologia. Deberia empezar por algo mucho mas aburrido y mucho mas potente: comprobar si las horas, el trayecto, la meteorologia, la logistica y la duracion del viaje encajan con la historia que se pretende vender.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-tratar-los-alias-como-objetos-tecnicos-no-como-nombres">2. Tratar los alias como objetos tecnicos, no como nombres<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#2-tratar-los-alias-como-objetos-tecnicos-no-como-nombres" class="hash-link" aria-label="Enlace directo al 2. Tratar los alias como objetos tecnicos, no como nombres" title="Enlace directo al 2. Tratar los alias como objetos tecnicos, no como nombres" translate="no">​</a></h3>
-<p>Bellingcat y The Insider no partieron de "sabemos quienes son". Partieron de una pregunta mejor: <strong>que huella administrativa dejan esos alias si de verdad pertenecen a civiles corrientes?</strong> Su investigacion publicada el <code>14 de septiembre de 2018</code> explico que los dos nombres aparecian en bases de datos rusas, pero sin rastro previo a <code>2009</code>, y que al menos un expediente mostraba marcas asociadas a tratamiento restringido.</p>
-<p>Ese giro es crucial. En OSINT serio, un alias no se derriba solo porque "suene falso". Se derriba cuando:</p>
-<ul>
-<li class="">aparece demasiado tarde en la vida documental del individuo;</li>
-<li class="">conserva biografia incompleta o extrañamente limpia;</li>
-<li class="">se conecta con procedimientos administrativos anormales;</li>
-<li class="">y entra en conflicto con otros registros supuestamente civiles.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-explotar-la-consistencia-biografica-no-una-sola-foto">3. Explotar la consistencia biografica, no una sola foto<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#3-explotar-la-consistencia-biografica-no-una-sola-foto" class="hash-link" aria-label="Enlace directo al 3. Explotar la consistencia biografica, no una sola foto" title="Enlace directo al 3. Explotar la consistencia biografica, no una sola foto" translate="no">​</a></h3>
-<p>La identificacion de <code>Ruslan Boshirov</code> como <code>Anatoliy Chepiga</code>, publicada por Bellingcat el <code>26 de septiembre de 2018</code>, no descansaba en una comparacion facial aislada. El trabajo combinaba fotografia de expediente, lugar de residencia, unidad militar y referencias previas en distintas bases temporales. La logica era robusta: <strong>si varias capas independientes apuntan al mismo individuo, el alias deja de ser un paraguas fiable</strong>.</p>
-<p>Con <code>Alexander Petrov</code> ocurrio algo parecido. El informe de <code>8 de octubre de 2018</code> sobre <code>Alexander Mishkin</code> describia un patron distinto pero igual de revelador: la identidad de cobertura retenia rasgos biograficos parciales del individuo real, como nombre de pila, patronimico y fecha de nacimiento. Eso no parece un fallo pequeno. Parece una pista de fabricacion administrativa con reutilizacion selectiva de datos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-buscar-contradicciones-publicas-que-obliguen-a-corroborar">4. Buscar contradicciones publicas que obliguen a corroborar<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#4-buscar-contradicciones-publicas-que-obliguen-a-corroborar" class="hash-link" aria-label="Enlace directo al 4. Buscar contradicciones publicas que obliguen a corroborar" title="Enlace directo al 4. Buscar contradicciones publicas que obliguen a corroborar" translate="no">​</a></h3>
-<p>Las declaraciones publicas de los sospechosos a <code>RT</code> no cerraron el caso: lo abrieron todavia mas. En cuanto dos personas explican que volaron a otro pais para hacer turismo rapido y la reserva del viaje apunta a decisiones de ultima hora, el OSINT tiene un punto de apoyo muy concreto. Ya no compites contra un vacio. Compites contra una narrativa verificable.</p>
-<p>Esto enseña una regla util para otros casos: cuando una coartada esta en abierto, cada dato accesorio cuenta. Horarios de tren, patron de estancia, equipaje, mapas del recorrido, fotos turisticas esperables, rastros de planificacion y coherencia geografica dejan de ser detalles. Se convierten en test de estres para la historia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-giro-cuando-el-problema-deja-de-ser-quienes-son-y-pasa-a-ser-cuanta-coherencia-aguanta-la-tapadera">El giro: cuando el problema deja de ser "quienes son" y pasa a ser "cuanta coherencia aguanta la tapadera"<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#el-giro-cuando-el-problema-deja-de-ser-quienes-son-y-pasa-a-ser-cuanta-coherencia-aguanta-la-tapadera" class="hash-link" aria-label="Enlace directo al El giro: cuando el problema deja de ser &quot;quienes son&quot; y pasa a ser &quot;cuanta coherencia aguanta la tapadera&quot;" title="Enlace directo al El giro: cuando el problema deja de ser &quot;quienes son&quot; y pasa a ser &quot;cuanta coherencia aguanta la tapadera&quot;" translate="no">​</a></h2>
-<p>El caso engancha porque parece una historia de nombres secretos. Pero metodologicamente el giro real es otro: el momento en que el debate deja de girar en torno a una "gran revelacion" y pasa a girar sobre <strong>una acumulacion de pequenas incompatibilidades que ya no caben juntas</strong>.</p>
-<p>Si dos hombres son turistas, esperas una cierta normalidad documental. Si sus expedientes son raros, sus biografias aparecen tarde, sus viajes son anormalmente comprimidos y las identificaciones posteriores conectan con entornos militares, el trabajo OSINT no consiste en dramatizar. Consiste en decir algo mas sobrio: la hipotesis civil ordinaria pierde fuerza mucho antes de que puedas responderlo todo.</p>
-<p>Ese es el valor real del caso Skripal para quien investiga hoy. No demuestra que debas obsesionarte con "desanonimizar" personas. Demuestra que las coberturas defectuosas se delatan cuando el analista obliga a convivir:</p>
-<ul>
-<li class="">cronologia,</li>
-<li class="">datos administrativos,</li>
-<li class="">material visual,</li>
-<li class="">desplazamientos,</li>
-<li class="">declaraciones publicas,</li>
-<li class="">y corroboracion externa.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidencia-y-limites-que-si-puede-afirmarse-y-que-no">Evidencia y limites: que si puede afirmarse y que no<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#evidencia-y-limites-que-si-puede-afirmarse-y-que-no" class="hash-link" aria-label="Enlace directo al Evidencia y limites: que si puede afirmarse y que no" title="Enlace directo al Evidencia y limites: que si puede afirmarse y que no" translate="no">​</a></h2>
-<p>Con los materiales publicos hoy disponibles, hay varias afirmaciones fuertes que se sostienen bien:</p>
-<ul>
-<li class="">el <code>4 de marzo de 2018</code> hubo un envenenamiento en Salisbury y la <code>OPCW</code> confirmo de forma independiente la identificacion del toxico hecha por Reino Unido;</li>
-<li class="">el <code>5 de septiembre de 2018</code> el Reino Unido anuncio cargos contra dos hombres que viajaron como <code>Alexander Petrov</code> y <code>Ruslan Boshirov</code>;</li>
-<li class="">Bellingcat y The Insider publicaron investigaciones sucesivas que asociaron esos alias con <code>Anatoliy Chepiga</code> y <code>Alexander Mishkin</code>;</li>
-<li class="">el <code>21 de septiembre de 2021</code> el gobierno britanico comunico una tercera imputacion relacionada con el caso;</li>
-<li class="">y el <code>4 de diciembre de 2025</code> se publico el informe de la <code>Dawn Sturgess Inquiry</code>, que mantuvo el caso dentro de una cadena publica de escrutinio institucional incluso anos despues.</li>
-</ul>
-<p>Pero tambien hay limites que conviene respetar:</p>
-<ul>
-<li class="">OSINT no sustituye un tribunal ni una cadena de custodia penal completa.</li>
-<li class="">No toda base de datos filtrada es autentica por definicion; necesita contraste.</li>
-<li class="">Una coincidencia facial o biografica aislada no basta.</li>
-<li class="">Los investigadores externos no ven todo lo que ve la policia.</li>
-<li class="">Y una atribucion estatal requiere prudencia incluso cuando las piezas abiertas son muy fuertes.</li>
-</ul>
-<p>La tentacion de este tipo de relatos es caer en el tono "internet resolvio el caso". Es un mal resumen. Lo mas exacto seria esto: <strong>OSINT estrecho el espacio de negacion publica y documento contradicciones que resultaban cada vez mas dificiles de sostener</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolkit-metodologico-para-aprender-del-caso-sin-imitar-sus-riesgos">Toolkit metodologico para aprender del caso sin imitar sus riesgos<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#toolkit-metodologico-para-aprender-del-caso-sin-imitar-sus-riesgos" class="hash-link" aria-label="Enlace directo al Toolkit metodologico para aprender del caso sin imitar sus riesgos" title="Enlace directo al Toolkit metodologico para aprender del caso sin imitar sus riesgos" translate="no">​</a></h2>
-<p>No hace falta perseguir espias para extraer tecnica util de Salisbury. Lo replicable y legitimo es el metodo:</p>
-<ul>
-<li class="">construir una cronologia unica antes de interpretar;</li>
-<li class="">archivar declaraciones publicas y compararlas con datos objetivos;</li>
-<li class="">trabajar con identidades como conjuntos de atributos, no como un solo nombre;</li>
-<li class="">buscar coherencia administrativa a traves del tiempo;</li>
-<li class="">separar lo confirmado de lo plausible en cada nota;</li>
-<li class="">y mantener siempre una lista explicita de lagunas.</li>
-</ul>
-<p>Herramientas y recursos que ilustran bien esa forma de trabajar:</p>
-<ul>
-<li class="">archivo web para congelar declaraciones y paginas que pueden cambiar;</li>
-<li class="">hojas de cronologia o bases ligeras para ordenar eventos;</li>
-<li class=""><code>CCTV</code> o fotogramas publicados oficialmente para fijar presencia y secuencia;</li>
-<li class="">buscadores y registros publicos para contrastar biografias;</li>
-<li class="">y fuentes institucionales, no solo periodisticas, para el marco probatorio basico.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaways">Takeaways<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#takeaways" class="hash-link" aria-label="Enlace directo al Takeaways" title="Enlace directo al Takeaways" translate="no">​</a></h2>
-<ul>
-<li class="">Una cobertura aguanta peor cuanto mas obligas a que todos sus detalles convivan.</li>
-<li class="">La cronologia suele desmontar mas relatos que la intuicion.</li>
-<li class="">Un alias no se refuta por "parecer raro", sino por fallar en varias capas independientes.</li>
-<li class="">Las declaraciones publicas son evidencia util cuando puedes tensarlas contra hechos verificables.</li>
-<li class="">OSINT responsable sirve para reducir ambiguedad publica, no para fingir certeza absoluta.</li>
-</ul>
-<p>Como siguiente puente natural para el blog, tiene sentido bajar de esta historia a una tecnica muy concreta: <strong>preservacion y comparacion de cronologias publicas</strong>, por ejemplo con archivo web, capturas fechadas y reglas claras para no mezclar evidencia con interpretacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/historia-skripal-identidades-cobertura-corrobacion-osint#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>OPCW</code>, "Incident in Salisbury": <a href="https://www.opcw.org/media-centre/featured-topics/incident-salisbury" target="_blank" rel="noopener noreferrer" class="">https://www.opcw.org/media-centre/featured-topics/incident-salisbury</a></li>
-<li class=""><code>GOV.UK</code>, "PM statement on the Salisbury investigation", <code>5 de septiembre de 2018</code>: <a href="https://www.gov.uk/government/speeches/pm-statement-on-the-salisbury-investigation-5-september-2018" target="_blank" rel="noopener noreferrer" class="">https://www.gov.uk/government/speeches/pm-statement-on-the-salisbury-investigation-5-september-2018</a></li>
-<li class=""><code>Bellingcat</code>, "Skripal Poisoning Suspect's Passport Data Shows Link to Security Services", <code>14 de septiembre de 2018</code>: <a href="https://www.bellingcat.com/news/europe/2018/09/14/skripal-poisoning-suspects-passport-data-shows-link-security-services/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/europe/2018/09/14/skripal-poisoning-suspects-passport-data-shows-link-security-services/</a></li>
-<li class=""><code>Bellingcat</code>, "Skripal Suspect Boshirov Identified as GRU Colonel Anatoliy Chepiga", <code>26 de septiembre de 2018</code>: <a href="https://www.bellingcat.com/news/uk-and-europe/2018/09/26/skripal-suspect-boshirov-identified-gru-colonel-anatoliy-chepiga/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/uk-and-europe/2018/09/26/skripal-suspect-boshirov-identified-gru-colonel-anatoliy-chepiga/</a></li>
-<li class=""><code>Bellingcat</code>, "Full report: Skripal Poisoning Suspect Dr. Alexander Mishkin, Hero of Russia", <code>8 de octubre de 2018</code>: <a href="https://www.bellingcat.com/news/uk-and-europe/2018/10/09/full-report-skripal-poisoning-suspect-dr-alexander-mishkin-hero-russia/" target="_blank" rel="noopener noreferrer" class="">https://www.bellingcat.com/news/uk-and-europe/2018/10/09/full-report-skripal-poisoning-suspect-dr-alexander-mishkin-hero-russia/</a></li>
-<li class=""><code>GOV.UK</code>, "The new Salisbury charging decision", <code>21 de septiembre de 2021</code>: <a href="https://www.gov.uk/government/speeches/the-new-salisbury-charging-decision" target="_blank" rel="noopener noreferrer" class="">https://www.gov.uk/government/speeches/the-new-salisbury-charging-decision</a></li>
-<li class=""><code>GOV.UK</code>, "Dawn Sturgess Inquiry report", publicado el <code>4 de diciembre de 2025</code>: <a href="https://www.gov.uk/government/publications/dawn-sturgess-inquiry-report" target="_blank" rel="noopener noreferrer" class="">https://www.gov.uk/government/publications/dawn-sturgess-inquiry-report</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Historia</category>
-            <category>Verificacion</category>
-            <category>SOCMINT</category>
-            <category>Investigacion</category>
-            <category>Metodologia</category>
         </item>
     </channel>
 </rss>
