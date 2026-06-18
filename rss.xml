@@ -4,10 +4,116 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 17 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 18 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[IPinfo en OSINT: geolocalizacion, ASN y senales de privacidad con contexto]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto</guid>
+            <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT cruzando geolocalizacion de IP, ASN y senales de privacidad en un panel de investigacion sobrio]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando geolocalizacion de IP, ASN y senales de privacidad en un panel de investigacion sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-18-ipinfo-osint-geolocalizacion-asn-privacidad-contexto-a44a131857d8b43e80dab7a538bd9b10.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion tecnica arranca con una <code>IP</code>, el error mas comun no suele ser "no tener datos". El error suele ser <strong>pedirle demasiado a la primera respuesta</strong>: convertir una geolocalizacion en presencia fisica, un <code>ASN</code> en propiedad total o una bandera de <code>VPN</code> en una conclusion cerrada sobre intencion. <code>IPinfo</code> encaja bien justo en esa primera capa, porque ayuda a separar rapido tres preguntas distintas: <strong>donde parece estar una direccion, que red la anuncia y que senales de privacidad o tipo de red conviene tener en cuenta antes de seguir</strong>.</p>
+<p>La documentacion oficial de <code>IPinfo</code>, consultada el <strong>18 de junio de 2026</strong>, deja un marco bastante util para analistas. Su capa <code>Lite</code> ofrece datos basicos de pais y <code>ASN</code>; <code>Core</code> anade geolocalizacion mas granular y banderas de red como <code>anonymous</code>, <code>hosting</code>, <code>anycast</code>, <code>carrier</code> o <code>satellite</code>; y su <code>CLI</code> oficial permite consultar una sola <code>IP</code>, lotes y resumentes sin tener que montar una integracion completa desde el minuto uno. Traducido a trabajo real: <code>IPinfo</code> no te dice por si solo "quien esta detras", pero si te ayuda a abrir contexto tecnico con rapidez y a documentar mejor por que una pista merece comprobacion adicional.</p>
+<p>Este contenido esta orientado a usos legitimos y proporcionales, como respuesta defensiva, periodismo, <code>due diligence</code>, fraude, analisis de infraestructura expuesta e investigacion academica. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>IPinfo</code> es un servicio de inteligencia sobre direcciones <code>IP</code> orientado a <code>API</code>, <code>CLI</code> y descargas de datos. Su valor para OSINT responsable no esta en "adivinar personas", sino en devolver con rapidez varias capas tecnicas que suelen aparecer al principio de muchos casos:</p>
+<ul>
+<li class="">pais, continente y, segun el plan, ciudad, region, codigo postal y zona horaria;</li>
+<li class=""><code>ASN</code>, nombre del operador, dominio asociado y tipo de sistema autonomo;</li>
+<li class="">banderas de red como <code>is_anonymous</code>, <code>is_hosting</code>, <code>is_anycast</code>, <code>is_mobile</code> o <code>is_satellite</code>;</li>
+<li class="">y una forma bastante comoda de consultar una sola direccion, tu propia <code>IP</code> o lotes pequenos sin construir tooling propio desde cero.</li>
+</ul>
+<p>En la practica, eso lo vuelve util para triage de alertas, investigacion de proveedores, validacion de superficie externa, clasificacion inicial de trafico, revision de terceros y enriquecimiento de indicadores antes de cruzarlos con otras fuentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una empresa ficticia, <code>orion-logistics.example</code>, que detecta accesos repetidos a un portal expuesto desde varias <code>IPs</code> desconocidas. Antes de dramatizar el caso, un analista responsable quiere contestar preguntas basicas:</p>
+<ol>
+<li class="">si las direcciones parecen salir de redes residenciales, de hosting o de infraestructura anonimizada;</li>
+<li class="">si varias <code>IPs</code> caen en el mismo <code>ASN</code> o en operadores distintos;</li>
+<li class="">si la geolocalizacion visible sugiere una distribucion coherente o una lectura enganosa por <code>VPN</code>, <code>anycast</code> o <code>CDN</code>.</li>
+</ol>
+<p>Un flujo prudente con <code>IPinfo</code> podria ser este:</p>
+<ol>
+<li class="">consultar cada <code>IP</code> en <code>Lite</code> para obtener pais y <code>ASN</code> con una primera clasificacion muy barata;</li>
+<li class="">pasar las <code>IPs</code> prioritarias por <code>Core</code> para revisar <code>geo</code>, tipo de <code>ASN</code> y banderas de red;</li>
+<li class="">anotar por separado lo observado, la inferencia provisional y la comprobacion pendiente;</li>
+<li class="">cruzar despues con <code>RDAP</code>, <code>BGP</code>, historico DNS, <code>Netlas</code>, <code>Shodan</code>, <code>Censys</code> o registros internos autorizados;</li>
+<li class="">y dejar por escrito que una <code>IP</code> de hosting o una bandera de anonimato no equivalen por si mismas a malicia ni a identidad confirmada.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-minima">1. Empieza por la pregunta minima<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#1-empieza-por-la-pregunta-minima" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta minima" title="Enlace directo al 1. Empieza por la pregunta minima" translate="no">​</a></h3>
+<p>La capa <code>Lite</code> ya resuelve bastante bien una primera duda operacional: <strong>que pais y que <code>ASN</code> parecen asociados a esta direccion</strong>. Eso evita gastar tiempo o cuota premium cuando la pregunta todavia no exige ciudad, privacidad o detalle de red.</p>
+<p>En muchos casos, esa primera lectura ya te deja separar:</p>
+<ul>
+<li class="">una <code>IP</code> residencial de un proveedor conocido;</li>
+<li class="">una <code>IP</code> de cloud o <code>hosting</code>;</li>
+<li class="">una red movil;</li>
+<li class="">o una direccion que conviene revisar por <code>anycast</code> o por senales de anonimato.</li>
+</ul>
+<p>La disciplina buena aqui consiste en no convertir esa primera respuesta en una historia grande. Un pais visible no demuestra ubicacion fisica exacta. Un <code>ASN</code> conocido no prueba control exclusivo. Y una geolocalizacion de ciudad nunca deberia leerse como posicion precisa de una persona.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-sube-de-nivel-solo-cuando-la-pregunta-lo-pida">2. Sube de nivel solo cuando la pregunta lo pida<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#2-sube-de-nivel-solo-cuando-la-pregunta-lo-pida" class="hash-link" aria-label="Enlace directo al 2. Sube de nivel solo cuando la pregunta lo pida" title="Enlace directo al 2. Sube de nivel solo cuando la pregunta lo pida" translate="no">​</a></h3>
+<p>La documentacion actual de <code>Core</code> deja claro que ahi aparecen capas que si cambian la lectura del caso:</p>
+<ul>
+<li class="">geolocalizacion mas granular;</li>
+<li class="">datos de <code>ASN</code> con tipo de red;</li>
+<li class="">banderas para <code>anonymous</code>, <code>hosting</code>, <code>anycast</code>, <code>mobile</code> y <code>satellite</code>.</li>
+</ul>
+<p>Ese matiz importa mucho. Una <code>IP</code> con <code>is_hosting=true</code> o <code>is_anycast=true</code> cambia bastante la interpretacion de cualquier incidente, y una senal de anonimato obliga a ser prudente con la lectura geografica. Lo correcto no es "concluir mas", sino <strong>saber que parte de la respuesta merece mas escepticismo</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-el-cli-para-lotes-pequenos-y-trazabilidad-rapida">3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#3-aprovecha-el-cli-para-lotes-pequenos-y-trazabilidad-rapida" class="hash-link" aria-label="Enlace directo al 3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida" title="Enlace directo al 3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida" translate="no">​</a></h3>
+<p>El <code>CLI</code> oficial de <code>IPinfo</code> sigue siendo una pieza muy practica para trabajo de analista porque permite:</p>
+<ul>
+<li class="">consultar detalles de una <code>IP</code> una a una;</li>
+<li class="">resumir lotes;</li>
+<li class="">revisar <code>ASN</code>;</li>
+<li class="">y abrir mapas para conjuntos de direcciones cuando la geografia importa.</li>
+</ul>
+<p>Eso no sustituye una canalizacion completa, pero reduce mucha friccion en analisis exploratorio, validacion de hipotesis y anexos tecnicos para un informe.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>IPinfo</code> ahorra tiempo, pero conviene entrar con varias limitaciones claras:</p>
+<ul>
+<li class="">la geolocalizacion de <code>IP</code> es estimativa y depende del tipo de red;</li>
+<li class=""><code>VPN</code>, <code>relay</code>, <code>proxy</code>, <code>hosting</code>, <code>carrier</code> o <code>anycast</code> pueden deformar la lectura geografica;</li>
+<li class="">un <code>ASN</code> describe red y operador aparente, no intencion ni autoria;</li>
+<li class="">una ciudad visible no deberia usarse para atribucion personal;</li>
+<li class="">y una ausencia de bandera no demuestra ausencia real de anonimato o intermediacion.</li>
+</ul>
+<p>Tambien hay una trampa metodologica menos obvia: cuanto mas comoda es una <code>API</code>, mas facil resulta olvidar que estas mirando una <strong>capa de enrichment</strong>, no una verdad final. <code>IPinfo</code> sirve para ordenar preguntas, no para cerrar el caso antes de tiempo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">usa <code>IPinfo</code> para clasificar infraestructura y contexto tecnico, no para perseguir personas;</li>
+<li class="">minimiza la retencion de datos cuando una <code>IP</code> deja de ser relevante;</li>
+<li class="">documenta fecha y hora de la consulta, porque la realidad de red cambia;</li>
+<li class="">separa siempre observacion, inferencia e hipotesis pendiente;</li>
+<li class="">y si el caso tiene impacto alto, contrasta con otra fuente antes de escalar una conclusion.</li>
+</ul>
+<p>Un enfoque responsable en OSINT no consiste en acumular mas <code>APIs</code>. Consiste en <strong>saber cuando una respuesta es suficiente para priorizar y cuando todavia no alcanza para afirmar nada serio</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>IPinfo</code> rinde bien como capa inicial de enrichment. Segun la pregunta, suele complementarse con:</p>
+<ul>
+<li class=""><code>RDAP</code> o <code>WHOIS</code>, si la duda principal es ownership aparente o contacto registral;</li>
+<li class=""><code>PeeringDB</code> o <code>bgp.tools</code>, si lo importante es interconexion y visibilidad de red;</li>
+<li class=""><code>Shodan</code>, <code>Netlas</code>, <code>Censys</code> o <code>FOFA</code>, si la pregunta real es exposicion observable;</li>
+<li class=""><code>ViewDNS.info</code>, <code>SecurityTrails</code> o historicos DNS, si necesitas cronologia o relaciones de nombres;</li>
+<li class="">y <code>Maltiverse</code>, <code>AbuseIPDB</code> o <code>URLhaus</code>, si el foco se desplaza hacia reputacion o enrichment defensivo de <code>IoCs</code>.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>IPinfo</code> para <strong>bajar incertidumbre inicial y decidir mejor el siguiente pivote</strong>, no para vender atribuciones donde solo tienes una direccion y una respuesta de <code>API</code>. Si la siguiente pieza del blog sigue esta linea, un puente natural seria comparar como cambia una misma investigacion al cruzar <code>IPinfo</code>, <code>RDAP</code>, <code>bgp.tools</code> y un buscador de activos sin confundir contexto con certeza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><code>IPinfo</code>, Developer Resource: <a href="https://ipinfo.io/developers" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers</a></li>
+<li class=""><code>IPinfo</code>, Lite API: <a href="https://ipinfo.io/developers/lite-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/lite-api</a></li>
+<li class=""><code>IPinfo</code>, Core API: <a href="https://ipinfo.io/developers/core-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/core-api</a></li>
+<li class=""><code>IPinfo</code>, API Overview: <a href="https://ipinfo.io/developers/ipinfo-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/ipinfo-api</a></li>
+<li class=""><code>IPinfo</code>, Official CLI: <a href="https://ipinfo.io/blog/meet-the-official-ipinfo-cli" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/blog/meet-the-official-ipinfo-cli</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Infraestructura</category>
+            <category>Verificacion</category>
+            <category>Privacidad</category>
+            <category>Due Diligence</category>
+            <category>Tooling</category>
+        </item>
         <item>
             <title><![CDATA[Epieos en OSINT: busqueda inversa por correo y telefono con contexto, limites y criterio]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto</link>
@@ -2162,116 +2268,6 @@
             <category>Investigacion</category>
             <category>Verificacion</category>
             <category>OPSEC</category>
-        </item>
-        <item>
-            <title><![CDATA[Favicon hashing en OSINT: clusters visuales, infraestructura parecida y contexto antes de atribuir]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto</guid>
-            <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT agrupando sitios publicos por similitud de favicon mientras cruza grafo de infraestructura, pestanas del navegador y notas metodologicas]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT agrupando sitios publicos por similitud de favicon mientras cruza grafo de infraestructura, pestanas del navegador y notas metodologicas" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-21-favicon-hashing-osint-clusters-similares-contexto-4b45b4bc682448269cdaf52172bc87ec.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion pasa de "este panel me suena" a "quiero saber si hay mas activos publicos que se parecen", el instinto suele tirar de titulos HTML, textos visibles o capturas de pantalla. El problema es que esas capas cambian deprisa, se personalizan y a veces estan hechas precisamente para distraer. El <code>favicon hashing</code> resulta util porque baja un escalon: <strong>convierte un icono pequeno y aparentemente banal en un selector tecnico repetible para buscar parecidos sin depender solo de la vista</strong>.</p>
-<p>Eso no significa que un favicon compartido demuestre propiedad comun, ni que cada coincidencia esconda una operacion coordinada. Significa algo mas sobrio y mas practico: que puedes <strong>agrupar, priorizar y pedir corroboracion</strong> con menos intuicion y mas trazabilidad. En OSINT responsable, esa diferencia importa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Favicon hashing</code> consiste en calcular un hash del icono que una web publica expone normalmente en <code>/favicon.ico</code> y usar ese valor como pivote de busqueda. La idea es sencilla: si varios activos publicos sirven el mismo icono o uno muy parecido, puede haber una relacion operativa util que merezca revision.</p>
-<p>La utilidad real no esta en el hash aislado, sino en el tipo de preguntas que habilita:</p>
-<ul>
-<li class="">encontrar paneles clonados o instancias desplegadas con la misma plantilla visual;</li>
-<li class="">agrupar activos de una misma organizacion que comparten stack o proveedor;</li>
-<li class="">detectar software expuesto con iconos muy caracteristicos;</li>
-<li class="">separar coincidencias prometedoras de parecidos puramente cosmeticos.</li>
-</ul>
-<p>La documentacion oficial de <code>ProjectDiscovery</code> lo refleja de forma muy directa: <code>httpx</code> expone un modo <code>-favicon</code> para extraer el hash <code>mmh3</code> del <code>favicon.ico</code> y mostrarlo junto a cada URL. Y la documentacion de <code>Censys</code> deja claro que sus datasets web indexan hashes de favicon (<code>hash_md5</code> y <code>hash_sha256</code>) precisamente para encontrar activos que reutilizan ese mismo recurso visual.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-due-diligence-tecnica-sobre-un-proveedor">Caso de uso legitimo: due diligence tecnica sobre un proveedor<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#caso-de-uso-legitimo-due-diligence-tecnica-sobre-un-proveedor" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: due diligence tecnica sobre un proveedor" title="Enlace directo al Caso de uso legitimo: due diligence tecnica sobre un proveedor" translate="no">​</a></h2>
-<p>Escenario ficticio: una empresa va a integrar un proveedor SaaS pequeno. El equipo de riesgo ya conoce el dominio principal, pero quiere responder una pregunta muy terrenal antes de firmar nada: <strong>que otros paneles, entornos o subdominios publicos parecen desplegados con la misma huella visual y merecen una segunda mirada</strong>.</p>
-<p>Un flujo responsable seria:</p>
-<ol>
-<li class="">Partir de un dominio ya autorizado o publicamente relevante.</li>
-<li class="">Obtener el hash del favicon con una herramienta local como <code>httpx -favicon</code>.</li>
-<li class="">Buscar ese valor en indices externos que ya modelan favicons como propiedad consultable.</li>
-<li class="">Tratar los resultados como candidatos, no como conclusiones.</li>
-<li class="">Corroborar con hostname, certificado, tecnologias visibles, ASN, historico DNS o contexto organizativo.</li>
-</ol>
-<p>El objetivo no es "descubrir mas por descubrir". Es reducir el tiempo que tardas en pasar de una pista aislada a un <strong>cluster defendible</strong> de activos parecidos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-del-icono-al-cluster-sin-vender-certezas">Flujo recomendado: del icono al cluster sin vender certezas<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#flujo-recomendado-del-icono-al-cluster-sin-vender-certezas" class="hash-link" aria-label="Enlace directo al Flujo recomendado: del icono al cluster sin vender certezas" title="Enlace directo al Flujo recomendado: del icono al cluster sin vender certezas" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-calcula-el-selector-con-una-herramienta-que-deje-trazabilidad">1. Calcula el selector con una herramienta que deje trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#1-calcula-el-selector-con-una-herramienta-que-deje-trazabilidad" class="hash-link" aria-label="Enlace directo al 1. Calcula el selector con una herramienta que deje trazabilidad" title="Enlace directo al 1. Calcula el selector con una herramienta que deje trazabilidad" translate="no">​</a></h3>
-<p>La documentacion de <code>httpx</code> muestra el uso de <code>-favicon</code> para extraer el hash <code>mmh3</code> del <code>favicon.ico</code> de un conjunto de objetivos. Es una forma razonable de empezar porque:</p>
-<ul>
-<li class="">deja el selector por escrito;</li>
-<li class="">permite repetir el proceso sobre el mismo alcance;</li>
-<li class="">evita depender de una captura manual o de "me parecia el mismo icono".</li>
-</ul>
-<p>Practicamente, lo importante no es memorizar una receta, sino conservar tres datos: URL observada, fecha de observacion y hash obtenido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-en-un-indice-que-entienda-favicons-como-campo">2. Busca en un indice que entienda favicons como campo<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#2-busca-en-un-indice-que-entienda-favicons-como-campo" class="hash-link" aria-label="Enlace directo al 2. Busca en un indice que entienda favicons como campo" title="Enlace directo al 2. Busca en un indice que entienda favicons como campo" translate="no">​</a></h3>
-<p>En <code>Censys</code>, el dataset web documenta campos concretos para favicons, incluido su tamano y hashes <code>MD5</code> y <code>SHA256</code>. En la guia de lenguaje de consulta, esos campos aparecen como <code>web.endpoints.http.favicons.hash_sha256</code> y equivalentes relacionados. Esa combinacion te permite preguntar al indice por activos que comparten exactamente el mismo recurso.</p>
-<p>En <code>Shodan</code>, la documentacion de <code>property hashes</code> explica la logica de buscar por hashes numericos para recuperar banners o propiedades identicas sin depender de cadenas demasiado genericas. Aunque esa pagina se centra en <code>hash</code> y <code>http.html_hash</code>, metodologicamente encaja con la misma disciplina: cuando una propiedad es repetible, conviene buscar por esa propiedad y no por una intuicion textual.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-agrupa-pero-no-atribuyas-todavia">3. Agrupa, pero no atribuyas todavia<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#3-agrupa-pero-no-atribuyas-todavia" class="hash-link" aria-label="Enlace directo al 3. Agrupa, pero no atribuyas todavia" title="Enlace directo al 3. Agrupa, pero no atribuyas todavia" translate="no">​</a></h3>
-<p>Un cluster de favicons puede significar muchas cosas:</p>
-<ul>
-<li class="">la misma empresa despliega varias instancias del mismo producto;</li>
-<li class="">un tercero gestiona portales para varios clientes y reutiliza branding minimo;</li>
-<li class="">un panel por defecto mantiene el icono del fabricante;</li>
-<li class="">alguien clono una interfaz publica con fines legitimos o ilegitimos.</li>
-</ul>
-<p>Por eso el hash sirve muy bien para <strong>priorizar revision</strong>, pero muy mal para cerrar una historia por si solo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-con-senales-menos-fragiles">4. Cruza con senales menos fragiles<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#4-cruza-con-senales-menos-fragiles" class="hash-link" aria-label="Enlace directo al 4. Cruza con senales menos fragiles" title="Enlace directo al 4. Cruza con senales menos fragiles" translate="no">​</a></h3>
-<p>Antes de escribir una conclusion, cruza al menos algunas de estas capas:</p>
-<ul>
-<li class="">titulo HTML o <code>body</code> visible;</li>
-<li class="">certificado y nombres observables;</li>
-<li class="">ASN, hosting o rangos relacionados;</li>
-<li class="">stack tecnologico aparente;</li>
-<li class="">historial DNS o capturas web;</li>
-<li class="">contexto mercantil u organizativo si procede.</li>
-</ul>
-<p>Aqui <code>Censys</code> aporta una pista metodologica util: su propia documentacion de <code>software confidence</code> explica que coincidencias exactas en campos estructurados, como hashes de favicon o de cuerpo HTTP, pueden elevar la confianza de identificacion, pero no eliminan por si solas el riesgo de falsos positivos. La lectura correcta es clara: <strong>un hash fuerte mejora una hipotesis; no sustituye la corroboracion</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Favicon hashing</code> brilla cuando quieres pasar de un activo conocido a una familia de activos parecidos. Falla cuando olvidas lo comun que es reutilizar iconos.</p>
-<p>Los falsos positivos mas habituales son:</p>
-<ul>
-<li class="">productos muy extendidos con favicon por defecto;</li>
-<li class="">plantillas corporativas o portales de proveedores compartidos;</li>
-<li class="">CDNs o paneles multi-tenant que sirven el mismo recurso a muchos clientes;</li>
-<li class="">cambios de icono entre versiones, entornos o rutas;</li>
-<li class="">diferencias entre el icono descargado localmente y el que un indice externo proceso en otro momento.</li>
-</ul>
-<p>Tambien hay un limite temporal importante. Los indices no observan internet toda al mismo tiempo ni con la misma frescura. Igual que <code>Shodan</code> documenta ventanas de actualizacion distintas para varias fuentes y <code>Censys</code> explica que su modelado depende del recurso efectivamente observado, un hash debe leerse siempre con fecha y contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja sobre dominios, marcas o activos con finalidad legitima y documentable.</li>
-<li class="">Conserva selector, fecha, fuente y razon del pivot para que otro analista pueda revisar el proceso.</li>
-<li class="">Minimiza datos personales: el hallazgo principal aqui es tecnico, no identitario.</li>
-<li class="">No conviertas una similitud visual en acusacion publica.</li>
-<li class="">Si el hallazgo afecta a un tercero legitimo, escala primero por canal responsable y con evidencia reproducible.</li>
-</ul>
-<p>La propia documentacion de <code>httpx</code> incluye una advertencia simple y correcta: "Use with caution. You are responsible for your actions." Es una buena regla editorial tambien para OSINT.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>favicon hashing</code> se te queda corto, el siguiente escalon natural no es "forzar mas la conclusion", sino enriquecer el cluster con otras huellas:</p>
-<ul>
-<li class="">hash del cuerpo HTTP cuando el HTML es mas estable que el icono;</li>
-<li class="">certificados TLS y <code>CT logs</code> si el valor esta en nombres e historico;</li>
-<li class="">tecnologias detectadas, <code>headers</code> o rutas visibles;</li>
-<li class="">memoria web (<code>Common Crawl</code>, <code>Wayback Machine</code>, archivo propio) para saber desde cuando existe el parecido.</li>
-</ul>
-<p>La idea operativa es buena y modesta a la vez: usa el favicon para <strong>encontrar familia</strong>, y usa el resto de fuentes para <strong>entender parentesco</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cierre">Cierre<a href="https://spainfsd-creator.github.io/osint-blog/favicon-hashing-osint-clusters-similares-contexto#cierre" class="hash-link" aria-label="Enlace directo al Cierre" title="Enlace directo al Cierre" translate="no">​</a></h2>
-<p><code>Favicon hashing</code> no es una bala de plata ni una prueba de propiedad. Es una forma disciplinada de transformar un detalle visual pequeno en un pivote tecnico util. Bien usado, te ayuda a ver clusters donde antes solo habia intuicion. Mal usado, te empuja a sobreinterpretar plantillas compartidas.</p>
-<p>La takeaway accionable es sencilla: si ya tienes un activo web relevante y necesitas ampliar contexto sin salir disparado hacia la atribucion, empieza por una huella repetible como el favicon, documenta el selector y obliga a cada coincidencia a convivir con mas evidencia antes de escribir la historia.</p>
-<p>Fuentes:</p>
-<ul>
-<li class=""><a href="https://help.shodan.io/mastery/property-hashes" target="_blank" rel="noopener noreferrer" class="">Shodan Help Center: Pivoting with Property Hashes</a></li>
-<li class=""><a href="https://docs.censys.com/docs/platform-web-property-dataset" target="_blank" rel="noopener noreferrer" class="">Censys Docs: Platform Web Property Dataset</a></li>
-<li class=""><a href="https://docs.censys.com/docs/censys-query-language" target="_blank" rel="noopener noreferrer" class="">Censys Docs: Query Language</a></li>
-<li class=""><a href="https://docs.projectdiscovery.io/opensource/httpx/usage" target="_blank" rel="noopener noreferrer" class="">ProjectDiscovery Docs: httpx usage</a></li>
-<li class=""><a href="https://docs.projectdiscovery.io/opensource/httpx/running" target="_blank" rel="noopener noreferrer" class="">ProjectDiscovery Docs: Running httpx (<code>-favicon</code>)</a></li>
-<li class=""><a href="https://pypi.org/project/mmh3/" target="_blank" rel="noopener noreferrer" class="">PyPI: mmh3</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Tooling</category>
-            <category>Busqueda</category>
-            <category>Metodologia</category>
-            <category>Verificacion</category>
-            <category>Infraestructura</category>
         </item>
     </channel>
 </rss>
