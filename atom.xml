@@ -2,11 +2,148 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-18T00:00:00.000Z</updated>
+    <updated>2026-06-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenOwnership en OSINT: beneficiarios reales, estructuras societarias y contexto antes de atribuir control]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto"/>
+        <updated>2026-06-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT trazando beneficiarios reales, empresas interpuestas y relaciones de control con foco en trazabilidad]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT trazando beneficiarios reales, empresas interpuestas y relaciones de control con foco en trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-19-openownership-osint-beneficiarios-reales-estructuras-societarias-contexto-9162255e1fe4170224bce547b1ab8a5b.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion deja de girar solo alrededor de una marca y empieza a tocar sociedades, accionistas, control efectivo y jurisdicciones cruzadas, el ruido crece muy deprisa. El problema ya no es encontrar "otro nombre", sino <strong>explicar quien parece controlar que, con que grado de certeza y en base a que registro o modelo de datos</strong>. <code>OpenOwnership</code> resulta util justo ahi: no como sentencia automatica sobre una empresa, sino como una forma de pensar y trabajar mejor con datos de titularidad real, historicos societarios y estructuras que suelen volverse opacas en cuanto cruzan fronteras.</p>
+<p>La posicion correcta importa. Revisando sus materiales oficiales el <strong>19 de junio de 2026</strong>, <code>Open Ownership</code> ya no se presenta principalmente como un gran buscador transnacional listo para resolver casos por si solo, sino como una organizacion centrada en transparencia de beneficiarios reales, en su mapa mundial de reformas y en el <code>Beneficial Ownership Data Standard</code> (<code>BODS</code>). Ademas, su propia nota sobre la evolucion del antiguo <code>Open Ownership Register</code> explica que el registro prototipo dejo de estar accesible el <strong>29 de noviembre de 2024</strong>, mientras el trabajo siguio vivo a traves de datasets, estandares y apoyo tecnico. Traducido a lenguaje de analista: hoy <code>OpenOwnership</code> sirve sobre todo para <strong>entender el terreno, reutilizar datos estructurados y mejorar tus preguntas</strong>, no para sustituir la comprobacion final en cada registro primario.</p>
+<p>Este contenido esta orientado a usos legitimos y proporcionales, como <code>due diligence</code>, periodismo de datos, cumplimiento, investigacion academica, contratacion publica y analisis de riesgo. No incluye tacticas para acoso, doxxing, intrusiones ni persecucion de personas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>Open Ownership</code> impulsa transparencia y rendicion de cuentas sobre la propiedad y el control de sociedades y otras estructuras juridicas. Su capa mas reutilizable para OSINT no es una sola web de busqueda, sino un conjunto de piezas que encajan bastante bien entre si:</p>
+<ul>
+<li class="">un marco conceptual sobre que significa titularidad real y por que importa;</li>
+<li class="">el <code>Beneficial Ownership Data Standard</code> (<code>BODS</code>) para representar datos de propiedad y control de forma estructurada;</li>
+<li class="">un mapa global que deja ver que paises han planificado, implementado o lanzado registros;</li>
+<li class="">y herramientas de analisis y descarga para datasets publicados siguiendo ese modelo.</li>
+</ul>
+<p>El <code>primer</code> oficial de <code>BODS</code> deja una idea muy util para no simplificar de mas: la titularidad real no es solo "poseer acciones". Puede incluir <strong>propiedad, control o beneficio</strong> a traves de relaciones directas e indirectas. Ese matiz importa mucho en OSINT responsable, porque evita tratar una cadena societaria como si fuera una foto plana de accionariado.</p>
+<p>En la practica, <code>OpenOwnership</code> ayuda a responder preguntas como estas:</p>
+<ul>
+<li class="">que registros o reformas de titularidad real existen en una jurisdiccion concreta;</li>
+<li class="">si un pais publica datos estructurados o solo acceso limitado;</li>
+<li class="">como modelar relaciones entre persona, entidad, interes y fecha;</li>
+<li class="">y como mantener trazabilidad temporal cuando una estructura cambia.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de terceros sobre <code>Costa Delta Renewables</code>, una empresa ficticia que quiere entrar en una licitacion. El equipo ya sabe tres cosas:</p>
+<ul>
+<li class="">la sociedad matriz figura en un registro mercantil europeo;</li>
+<li class="">aparecen dos entidades interpuestas en jurisdicciones distintas;</li>
+<li class="">y un directivo afirma que la estructura final es "simple", aunque la documentacion publica no termina de cuadrar.</li>
+</ul>
+<p>Un enfoque prudente con <code>OpenOwnership</code> no seria "buscar un culpable", sino ordenar mejor el problema:</p>
+<ol>
+<li class="">comprobar en el mapa si las jurisdicciones implicadas tienen registro vivo, acceso publico o mejoras regulatorias recientes;</li>
+<li class="">revisar que entiende cada sistema por titularidad real y si trabaja con umbrales del <code>25%</code>, control por voto, control indirecto u otros mecanismos;</li>
+<li class="">usar el marco de <code>BODS</code> para separar entidades, personas, relaciones, fechas e identificadores;</li>
+<li class="">y anotar siempre que parte del analisis viene del registro oficial, que parte del modelo de datos y que parte sigue siendo inferencia pendiente de corroboracion.</li>
+</ol>
+<p>La ganancia real no es "cerrar el caso" mas deprisa. La ganancia real es <strong>bajar ambiguedad societaria sin confundir visualizacion con prueba</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-de-control-no-solo-por-el-nombre-de-la-empresa">1. Empieza por la pregunta de control, no solo por el nombre de la empresa<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#1-empieza-por-la-pregunta-de-control-no-solo-por-el-nombre-de-la-empresa" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta de control, no solo por el nombre de la empresa" title="Enlace directo al 1. Empieza por la pregunta de control, no solo por el nombre de la empresa" translate="no">​</a></h3>
+<p>En OSINT societario, buscar un nombre comercial suele ser el arranque menos fiable. El nombre cambia, se replica entre paises o se usa como marca de varias entidades distintas. Conviene empezar por una pregunta mas precisa:</p>
+<ul>
+<li class="">que entidad legal concreta estoy revisando;</li>
+<li class="">quien declara controlarla o beneficiarse de ella;</li>
+<li class="">en que fecha;</li>
+<li class="">y en que jurisdiccion queda esa declaracion registrada.</li>
+</ul>
+<p>El propio informe <code>Usable beneficial ownership data</code>, publicado por <code>Open Ownership</code> el <code>30 de septiembre de 2025</code>, remarca algo practico: un buen sistema deberia permitir buscar tanto por nombre o identificador de empresa como por nombre o identificador del beneficiario real. Para un analista, eso obliga a no quedarse en una sola entrada. Hay que poder ir <strong>de empresa a persona y de persona a empresa</strong> sin perder la referencia original.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-entidad-persona-relacion-e-identificador">2. Separa entidad, persona, relacion e identificador<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#2-separa-entidad-persona-relacion-e-identificador" class="hash-link" aria-label="Enlace directo al 2. Separa entidad, persona, relacion e identificador" title="Enlace directo al 2. Separa entidad, persona, relacion e identificador" translate="no">​</a></h3>
+<p>Una de las aportaciones mas utiles de <code>BODS</code> es que no trata toda la titularidad real como texto libre. El <code>primer</code> y los ejemplos oficiales dejan claro que el modelo separa:</p>
+<ul>
+<li class="">detalles de personas y entidades;</li>
+<li class="">identificadores de personas y entidades;</li>
+<li class="">tipos de interes;</li>
+<li class="">informacion de procedencia;</li>
+<li class="">y datos historicos ademas de los actuales.</li>
+</ul>
+<p>Esa disciplina evita uno de los vicios mas comunes del OSINT societario: meter en la misma frase una empresa, un apoderado, un beneficiario final, un accionista intermedio y una fuente secundaria como si fueran el mismo tipo de hecho.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-no-pierdas-la-dimension-temporal">3. No pierdas la dimension temporal<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#3-no-pierdas-la-dimension-temporal" class="hash-link" aria-label="Enlace directo al 3. No pierdas la dimension temporal" title="Enlace directo al 3. No pierdas la dimension temporal" translate="no">​</a></h3>
+<p>La pagina oficial sobre registros actualizados e historicos lo resume bien: un registro de titularidad real se acumula como una <strong>linea temporal</strong> de declaraciones sobre propiedad y control. Nuevas declaraciones sustituyen a otras, pero las anteriores siguen siendo analiticamente valiosas.</p>
+<p>Eso importa por varias razones:</p>
+<ul>
+<li class="">una estructura puede haber cambiado justo antes de una operacion sensible;</li>
+<li class="">un cambio breve puede ser relevante para <code>due diligence</code> aunque ya no aparezca como estado actual;</li>
+<li class="">y un nombre, una entidad o un intermediario pueden haber sido usados solo durante una ventana concreta.</li>
+</ul>
+<p>En investigaciones serias, la pregunta no deberia ser solo "quien controla esto ahora?", sino tambien <strong>quien aparecia controlandolo cuando se firmo el contrato, se creo la filial o se movio el activo</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-el-mapa-para-contexto-regulatorio-no-para-sobreprometer-cobertura">4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#4-usa-el-mapa-para-contexto-regulatorio-no-para-sobreprometer-cobertura" class="hash-link" aria-label="Enlace directo al 4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura" title="Enlace directo al 4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura" translate="no">​</a></h3>
+<p>El mapa de <code>Open Ownership</code>, consultado el <code>19 de junio de 2026</code>, clasifica actualmente <code>35</code> paises como <code>Planned</code>, <code>31</code> como <code>Implementing</code> y <code>104</code> como <code>Live register</code>. Ese dato es util, pero tiene un limite explicito: la propia pagina advierte que la informacion procede de fuentes publicas y puede no ser completa para todos los paises.</p>
+<p>Eso convierte el mapa en una herramienta excelente para:</p>
+<ul>
+<li class="">detectar rapido si una jurisdiccion tiene un registro vivo o solo compromisos;</li>
+<li class="">orientar expectativas sobre acceso, estructura y madurez del sistema;</li>
+<li class="">y decidir que registros primarios merece la pena revisar despues.</li>
+</ul>
+<p>Lo que no deberia hacerse es confundir "pais con live register" con "pais con datos perfectos, abiertos, estructurados y listos para correlacion masiva". En la pagina de Espana, por ejemplo, <code>Open Ownership</code> muestra que el <code>Registro Central de Titularidades Reales</code> (<code>RCTIR</code>) figura como lanzado en <code>2023</code>, pero tambien indica que el dato <strong>no</strong> aparece como estructurado publicamente, <strong>no</strong> publicado como <code>BODS</code> y <strong>no</strong> disponible via <code>API</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cuando-haya-datos-estructurados-aprovecha-la-forma-no-solo-el-contenido">5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#5-cuando-haya-datos-estructurados-aprovecha-la-forma-no-solo-el-contenido" class="hash-link" aria-label="Enlace directo al 5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido" title="Enlace directo al 5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido" translate="no">​</a></h3>
+<p>La pagina de herramientas de analisis de datos de <code>Open Ownership</code> es especialmente interesante para quien investiga con metodo. No se limita a decir que hay datos: ofrece ejemplos de datasets mapeados a <code>BODS</code>, con opciones de <code>CSV</code>, <code>JSON</code>, <code>SQLite</code>, <code>PostgreSQL</code>, <code>Parquet</code>, <code>BigQuery</code> o <code>Datasette</code>.</p>
+<p>Eso habilita un salto importante:</p>
+<ul>
+<li class="">pasar de consultas manuales a trabajo reproducible;</li>
+<li class="">versionar extracciones y notas;</li>
+<li class="">contrastar cambios temporales;</li>
+<li class="">y documentar exactamente que campos sostienen una conclusion.</li>
+</ul>
+<p>El propio sitio avisa, ademas, de que algunas transformaciones siguen siendo <code>work in progress</code> y deben tratarse con cautela. Ese aviso no es una molestia: es una pista metodologica. En OSINT responsable, un dataset transformado puede ser excelente para exploracion y cruce, pero la verificacion fuerte sigue reclamando el registro fuente cuando el hallazgo importa de verdad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>OpenOwnership</code> mejora mucho el trabajo con titularidad real, pero no neutraliza los problemas clasicos de este terreno:</p>
+<ul>
+<li class="">una misma persona puede aparecer con transliteraciones o identificadores incompletos;</li>
+<li class="">una participacion economica y una capacidad real de control no siempre coinciden;</li>
+<li class="">un umbral como el <code>25%</code> deja fuera situaciones de influencia relevante por otras vias;</li>
+<li class="">algunos paises publican poco, tarde o con acceso muy restringido;</li>
+<li class="">y varias capas intermedias pueden seguir ocultando a la persona fisica final.</li>
+</ul>
+<p>Tambien conviene recordar algo importante en 2026: <code>Open Ownership</code> ya no opera el antiguo registro transnacional como producto web abierto al publico. Si un analista trabaja como si siguiera existiendo una sola interfaz global con cobertura total, empezara el caso con expectativas equivocadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas">Buenas practicas<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#buenas-practicas" class="hash-link" aria-label="Enlace directo al Buenas practicas" title="Enlace directo al Buenas practicas" translate="no">​</a></h2>
+<ul>
+<li class="">Anota siempre la jurisdiccion, la fecha de consulta y el tipo de registro revisado.</li>
+<li class="">Distingue entre titularidad declarada, control presumido e inferencia analitica.</li>
+<li class="">Conserva enlaces o referencias al registro primario aunque trabajes con datos transformados.</li>
+<li class="">Usa historicos para entender cambios, no solo para adornar cronologias.</li>
+<li class="">Minimiza el tratamiento de datos personales cuando la pregunta pueda resolverse a nivel societario.</li>
+<li class="">Si la jurisdiccion exige interes legitimo o acceso restringido, no fuerces el alcance ni presentes huecos como si fueran evidencia negativa.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>OpenOwnership</code> encaja especialmente bien como capa de contexto y modelo. Segun la pregunta, puede combinarse con otras piezas ya tratadas en el blog:</p>
+<ul>
+<li class=""><code>OpenCorporates</code>, si necesitas una vista amplia de entidades legales y cargos;</li>
+<li class=""><code>OpenSanctions</code>, si quieres anadir listas de riesgo y entidades reguladas;</li>
+<li class=""><code>LittleSis</code> u <code>OpenAleph</code>, si el caso mezcla poder, documentos y relaciones complejas;</li>
+<li class="">y registros mercantiles nacionales, cuando la comprobacion definitiva exige leer la fuente primaria.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>OpenOwnership</code> para <strong>pensar mejor la titularidad real y documentarla mejor</strong>, no para vender una certeza que el registro aun no da. Si el proximo paso editorial sigue esta linea, tiene sentido bajar a un caso practico sobre como contrastar <code>beneficial ownership</code>, cargos mercantiles y sanciones sin mezclar control aparente con control probado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class=""><code>Open Ownership</code>, pagina principal y mapa global, consultados el <code>19 de junio de 2026</code>.</li>
+<li class=""><code>Beneficial Ownership Data Standard (BODS)</code>, <code>primer</code> y documentacion de la version <code>0.4</code>.</li>
+<li class=""><code>Open Ownership</code>, <code>Evolving from the Open Ownership Register to increase our impact</code>, <code>30 de octubre de 2024</code>.</li>
+<li class=""><code>Open Ownership</code>, <code>Features of better beneficial ownership data</code>, <code>30 de septiembre de 2025</code>.</li>
+<li class=""><code>Open Ownership</code>, <code>Verification</code> y <code>Up-to-date and historical records</code>.</li>
+<li class=""><code>Open Ownership</code>, <code>Beneficial ownership data analysis tools</code>, consultado el <code>19 de junio de 2026</code>.</li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Tradecraft" term="Tradecraft"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IPinfo en OSINT: geolocalizacion, ASN y senales de privacidad con contexto]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto</id>
@@ -2224,128 +2361,5 @@
         <category label="Infraestructura" term="Infraestructura"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Triage" term="Triage"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Ahmia en OSINT: buscar servicios .onion publicos con contexto y filtros]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros"/>
-        <updated>2026-05-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando resultados de busqueda de servicios .onion publicos, notas metodologicas y filtros de seguridad en un entorno de investigacion responsable]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando resultados de busqueda de servicios .onion publicos, notas metodologicas y filtros de seguridad en un entorno de investigacion responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-22-ahmia-osint-busqueda-onion-contexto-filtros-80f98c4e3503348e069860a4ae9fbcec.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion roza el ecosistema <code>.onion</code>, mucha gente se precipita en dos direcciones igual de malas: o trata cualquier referencia como si fuera automaticamente clandestina e interesante, o intenta entrar en todo sin pensar en seguridad, legalidad ni trazabilidad. <code>Ahmia</code> resulta util precisamente porque baja el volumen del mito y sube el del metodo: <strong>es un buscador orientado a servicios <code>.onion</code> publicamente accesibles, con capas de filtrado y con una interfaz que permite empezar a separar descubrimiento, contexto y cautela</strong>.</p>
-<p>Eso no vuelve legitimo todo lo que aparezca indexado, ni convierte una coincidencia de busqueda en prueba, ni autoriza a explorar sin control. Lo que si hace es ofrecer una forma mas disciplinada de responder a una pregunta bastante sobria: <strong>que servicios <code>.onion</code> publicos parecen relevantes para mi investigacion y como reduzco ruido antes de abrir una narrativa mas grande</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p>En su pagina principal y en su seccion "About", <code>Ahmia</code> se presenta como un motor de busqueda para servicios en la red de anonimato Tor. La propia web deja claras tres ideas que importan mucho en OSINT:</p>
-<ul>
-<li class="">busca servicios ocultos de Tor;</li>
-<li class="">para acceder a ellos necesitas <code>Tor Browser</code>;</li>
-<li class="">y el proyecto mantiene filtros y una blacklist para retirar material abusivo o ilegal.</li>
-</ul>
-<p>Su Terms of Service, actualizada el <strong>22 de agosto de 2025</strong>, aterriza aun mas el alcance: <code>Ahmia</code> es un buscador no comercial y centrado en privacidad que <strong>indexa y muestra enlaces a servicios <code>.onion</code> publicamente accesibles</strong>, ofrece funcionalidad de busqueda por palabras clave y no aloja ni distribuye el contenido de terceros.</p>
-<p>Traducido a trabajo analitico, eso lo hace util para:</p>
-<ul>
-<li class="">descubrir servicios <code>.onion</code> publicos relacionados con una marca, alias o tema;</li>
-<li class="">revisar si una referencia en un informe, filtracion o foro apunta a un servicio visible;</li>
-<li class="">contextualizar un dominio <code>.onion</code> antes de profundizar;</li>
-<li class="">documentar mejor que es observacion del indice y que es exploracion posterior.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-verificar-una-referencia-publica-a-un-servicio-onion">Caso de uso legitimo: verificar una referencia publica a un servicio <code>.onion</code><a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#caso-de-uso-legitimo-verificar-una-referencia-publica-a-un-servicio-onion" class="hash-link" aria-label="Enlace directo al caso-de-uso-legitimo-verificar-una-referencia-publica-a-un-servicio-onion" title="Enlace directo al caso-de-uso-legitimo-verificar-una-referencia-publica-a-un-servicio-onion" translate="no">​</a></h2>
-<p>Escenario ficticio: un equipo de investigacion revisa una serie de menciones publicas a un supuesto portal de filtraciones asociado a una campana de extorsion. En vez de lanzarse a abrir enlaces copiados de redes sociales o de directorios dudosos, decide empezar por una pregunta minima y defendible: <strong>existe un servicio <code>.onion</code> publicamente indexado que encaje con esa referencia y que merezca una revision posterior controlada</strong>.</p>
-<p>Un flujo responsable con <code>Ahmia</code> seria:</p>
-<ol>
-<li class="">Anotar el selector inicial: nombre de la marca, alias, fragmento unico o direccion <code>.onion</code> parcial si ya existe.</li>
-<li class="">Consultar <code>Ahmia</code> para ver si hay resultados publicamente indexados que encajen.</li>
-<li class="">Revisar la presencia en el indice como pista, no como validacion de autenticidad.</li>
-<li class="">Documentar la fecha de consulta, el termino usado y el resultado observado.</li>
-<li class="">Solo despues decidir si merece una comprobacion adicional con entorno y reglas de seguridad adecuados.</li>
-</ol>
-<p>El punto fuerte aqui no es "entrar antes". Es <strong>equivocarte menos en la fase de descubrimiento</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-del-termino-de-busqueda-a-una-hipotesis-mas-limpia">Flujo recomendado: del termino de busqueda a una hipotesis mas limpia<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#flujo-recomendado-del-termino-de-busqueda-a-una-hipotesis-mas-limpia" class="hash-link" aria-label="Enlace directo al Flujo recomendado: del termino de busqueda a una hipotesis mas limpia" title="Enlace directo al Flujo recomendado: del termino de busqueda a una hipotesis mas limpia" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-lo-que-el-servicio-promete-no-por-lo-que-imaginas">1. Empieza por lo que el servicio promete, no por lo que imaginas<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#1-empieza-por-lo-que-el-servicio-promete-no-por-lo-que-imaginas" class="hash-link" aria-label="Enlace directo al 1. Empieza por lo que el servicio promete, no por lo que imaginas" title="Enlace directo al 1. Empieza por lo que el servicio promete, no por lo que imaginas" translate="no">​</a></h3>
-<p>La pagina principal de <code>Ahmia</code> explica que el buscador sirve para localizar servicios ocultos de Tor y recuerda de forma explicita que para visitarlos hace falta <code>Tor Browser</code>. Parece obvio, pero metodologicamente evita un error comun: confundir el indice visible desde clearnet con la experiencia completa de navegacion dentro de Tor.</p>
-<p>Para OSINT, la distincion operativa es sencilla:</p>
-<ul>
-<li class=""><code>Ahmia</code> sirve para <strong>descubrir e indexar pistas visibles</strong>;</li>
-<li class=""><code>Tor Browser</code> sirve para <strong>acceder</strong>;</li>
-<li class="">y ninguna de las dos cosas sustituye criterio legal, tecnico ni de OPSEC.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-recuerda-que-el-indice-es-parcial-y-filtrado">2. Recuerda que el indice es parcial y filtrado<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#2-recuerda-que-el-indice-es-parcial-y-filtrado" class="hash-link" aria-label="Enlace directo al 2. Recuerda que el indice es parcial y filtrado" title="Enlace directo al 2. Recuerda que el indice es parcial y filtrado" translate="no">​</a></h3>
-<p>La propia pagina "About" explica que el proyecto mantiene una blacklist, un listado de servicios baneados y otro de dominios <code>.onion</code> conocidos no baneados. Sus Terms of Service tambien indican que el servicio filtra resultados y terminos de alto riesgo, y que el alcance de esos filtros puede crecer con el tiempo.</p>
-<p>Eso tiene dos lecturas utiles:</p>
-<ul>
-<li class="">si algo aparece en <code>Ahmia</code>, sigue sin equivaler a legitimidad;</li>
-<li class="">si algo no aparece, tampoco significa que "no exista".</li>
-</ul>
-<p>El indice ayuda a encontrar, no a cerrar el mapa entero.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-presencia-publica-de-confianza">3. Separa presencia publica de confianza<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#3-separa-presencia-publica-de-confianza" class="hash-link" aria-label="Enlace directo al 3. Separa presencia publica de confianza" title="Enlace directo al 3. Separa presencia publica de confianza" translate="no">​</a></h3>
-<p>La Terms of Service insiste en algo que conviene repetir fuera del texto legal: <code>Ahmia</code> no garantiza exactitud, legalidad ni seguridad de los resultados. Eso obliga a tratar cada hallazgo como una pista contextual.</p>
-<p>En practica, una presencia en <code>Ahmia</code> puede significar varias cosas:</p>
-<ul>
-<li class="">que el servicio ha sido descubierto e indexado por el proyecto;</li>
-<li class="">que alguien lo anadio para su indexacion;</li>
-<li class="">que el contenido era publicamente visible en el momento de la observacion;</li>
-<li class="">o que encaja con un patron de busqueda, sin que eso pruebe autoria ni relevancia real.</li>
-</ul>
-<p>La diferencia entre <strong>estar indexado</strong> y <strong>ser importante para tu caso</strong> la tienes que demostrar con trabajo adicional.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-el-proyecto-como-fuente-y-como-objeto-de-verificacion">4. Usa el proyecto como fuente y como objeto de verificacion<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#4-usa-el-proyecto-como-fuente-y-como-objeto-de-verificacion" class="hash-link" aria-label="Enlace directo al 4. Usa el proyecto como fuente y como objeto de verificacion" title="Enlace directo al 4. Usa el proyecto como fuente y como objeto de verificacion" translate="no">​</a></h3>
-<p>La seccion "About" y el repositorio <code>ahmia-site</code> dejan claro que <code>Ahmia</code> es un proyecto abierto y en desarrollo en GitHub. La organizacion publica muestra repositorios separados para <code>ahmia-site</code>, <code>ahmia-crawler</code> y <code>ahmia-index</code>, y el repositorio del sitio deja ver una base tecnica actual con <code>Python 3</code>, <code>Django 5</code> y <code>Elasticsearch 8</code>.</p>
-<p>Eso importa por dos razones:</p>
-<ul>
-<li class="">puedes entender mejor que parte del servicio corresponde al sitio, al crawler y al indice;</li>
-<li class="">y puedes evaluar el proyecto como infraestructura abierta, no como caja negra.</li>
-</ul>
-<p>Para un analista responsable, esa trazabilidad tecnica es una ventaja real: permite distinguir mejor entre afirmaciones del marketing, comportamiento observado y limitaciones razonables del sistema.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-no-conviertas-el-descubrimiento-en-exploracion-impulsiva">5. No conviertas el descubrimiento en exploracion impulsiva<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#5-no-conviertas-el-descubrimiento-en-exploracion-impulsiva" class="hash-link" aria-label="Enlace directo al 5. No conviertas el descubrimiento en exploracion impulsiva" title="Enlace directo al 5. No conviertas el descubrimiento en exploracion impulsiva" translate="no">​</a></h3>
-<p>El propio servicio avisa de material prohibido, blacklist y canales de reporte. Sus Terms prohiben usar la plataforma para buscar o promover contenido ilegal y aclaran que no hay cuentas, personalizacion ni almacenamiento de IPs.</p>
-<p>La conclusion metodologica es sobria: si una pista <code>.onion</code> parece relevante, el siguiente paso no deberia ser la curiosidad desordenada, sino un entorno de acceso planificado, minimizacion de riesgo y una pregunta muy concreta que quieras contestar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Ahmia</code> puede ser muy valioso como capa inicial, pero tiene limites claros:</p>
-<ul>
-<li class="">solo cubre una parte del ecosistema <code>.onion</code>;</li>
-<li class="">filtra y excluye contenido, por lo que su visibilidad no es neutra ni total;</li>
-<li class="">un resultado indexado no demuestra legitimidad, seguridad ni actualidad;</li>
-<li class="">un nombre, alias o termino comun puede generar ruido contextual enorme;</li>
-<li class="">y la propia plataforma reconoce que no garantiza exactitud ni disponibilidad continua.</li>
-</ul>
-<p>Tambien conviene fijarse en la operativa visible del proyecto. En GitHub, los repositorios oficiales del ecosistema <code>Ahmia</code> muestran actividad reciente en <strong>noviembre de 2025</strong>, lo cual sugiere mantenimiento vivo, pero no elimina por si solo lagunas de cobertura o de indexacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Formula la consulta con el selector minimo necesario y evita meter datos personales gratuitamente.</li>
-<li class="">Documenta fecha, termino y resultado de busqueda antes de abrir ningun enlace.</li>
-<li class="">No tomes el indice como una autorizacion moral o legal para explorar indiscriminadamente.</li>
-<li class="">Si encuentras contenido abusivo o ilegal, usa los canales de reporte del propio proyecto en lugar de amplificarlo.</li>
-<li class="">Distingue siempre entre lo que viste en el indice, lo que inferiste y lo que corroboraste despues.</li>
-</ul>
-<p>La mejor version de <code>Ahmia</code> en un flujo OSINT no es "una puerta a la darknet". Es un <strong>filtro inicial para trabajar con menos mito y mas metodo</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>Ahmia</code> te sirve para descubrir una pista pero necesitas mas contexto, el siguiente paso depende del problema:</p>
-<ul>
-<li class="">archivo propio y cronologia si necesitas conservar estados de una fuente a lo largo del tiempo;</li>
-<li class="">analisis textual y de infraestructura si el valor esta en las relaciones con el clearnet;</li>
-<li class="">comparacion con otras referencias publicas si sospechas reciclaje de alias, logos o textos;</li>
-<li class="">y siempre un entorno aislado y reglas claras si de verdad necesitas visitar un servicio <code>.onion</code>.</li>
-</ul>
-<p>Lo importante no es sumar herramientas exoticas, sino mantener una secuencia sana: <strong>descubrir, documentar, acotar y solo despues profundizar</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cierre">Cierre<a href="https://spainfsd-creator.github.io/osint-blog/ahmia-osint-busqueda-onion-contexto-filtros#cierre" class="hash-link" aria-label="Enlace directo al Cierre" title="Enlace directo al Cierre" translate="no">​</a></h2>
-<p><code>Ahmia</code> es util porque devuelve la investigacion sobre servicios <code>.onion</code> a un terreno menos teatral y mas verificable. Te da una capa de descubrimiento publico, filtrado y documentable. No promete certeza, no promete exhaustividad y no deberia usarse para romantizar riesgos ni saltarse controles.</p>
-<p>La takeaway accionable es sencilla: si tu caso roza el ecosistema <code>.onion</code>, empieza por una busqueda disciplinada y deja por escrito que viste realmente en el indice. En OSINT responsable, esa diferencia entre presencia publica y conclusion final sigue siendo la parte que mas protege tu analisis.</p>
-<p>Fuentes:</p>
-<ul>
-<li class=""><a href="https://ahmia.fi/" target="_blank" rel="noopener noreferrer" class="">Ahmia: pagina principal</a></li>
-<li class=""><a href="https://www.ahmia.fi/about/" target="_blank" rel="noopener noreferrer" class="">Ahmia: About</a></li>
-<li class=""><a href="https://www.ahmia.fi/terms/" target="_blank" rel="noopener noreferrer" class="">Ahmia: Terms of Service</a></li>
-<li class=""><a href="https://github.com/ahmia/ahmia-site" target="_blank" rel="noopener noreferrer" class="">GitHub: ahmia/ahmia-site</a></li>
-<li class=""><a href="https://github.com/ahmia" target="_blank" rel="noopener noreferrer" class="">GitHub: organizacion Ahmia</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Web" term="Web"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="OPSEC" term="OPSEC"/>
     </entry>
 </feed>
