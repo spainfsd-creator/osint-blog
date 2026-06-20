@@ -9,6 +9,9 @@ image: /img/blog/2026-06-20-google-alerts-osint-monitorizacion-menciones-cambios
 
 ![Ilustracion editorial de una analista OSINT configurando alertas de busqueda, operadores y bandejas de monitorizacion con foco en ruido y trazabilidad](/img/blog/2026-06-20-google-alerts-osint-monitorizacion-menciones-cambios-ruido.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-alerts-osint-monitorizacion-menciones-cambios-ruido.m4a)
+
+
 En OSINT hay un momento muy concreto en el que el problema deja de ser encontrar una pista y pasa a ser **no perder la siguiente cuando aparezca**. Un nombre de empresa, un portavoz, una URL, una linea de producto, una sentencia judicial, un proveedor o una filtracion menor pueden tardar dias o semanas en volver a asomar. `Google Alerts` encaja justo ahi: no como sistema magico de vigilancia, sino como una capa simple para **convertir una pregunta abierta en monitorizacion ligera y repetible**.
 
 La ayuda oficial de Google Search, consultada el **20 de junio de 2026**, sigue describiendo `Google Alerts` de una forma bastante sobria: permite recibir correos cuando aparecen nuevos resultados sobre un tema en Google Search y deja ajustar frecuencia, tipo de sitios, idioma, parte del mundo, volumen de resultados y cuenta de destino. Esa sobriedad es una virtud. Bien usado, `Google Alerts` no sustituye tu investigacion; te evita tener que rehacer manualmente la misma comprobacion cada manana.
