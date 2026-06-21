@@ -9,6 +9,9 @@ image: /img/blog/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-co
 
 ![Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela](/img/blog/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.m4a)
+
+
 Cuando una historia gira alrededor de censura, caidas selectivas, apps que "a veces cargan" o sitios que desaparecen solo en ciertas redes, el error mas comun no es mirar poco: es **confundir una queja aislada con una conclusion global**. `OONI Explorer` encaja justo en ese hueco porque permite trabajar con mediciones reales de red, series temporales y contexto por pais, operador y prueba, sin obligarte a convertir cada anomalia en una acusacion cerrada.
 
 Revisando la documentacion oficial de `OONI` el **21 de junio de 2026**, el proyecto sigue definiendose como software libre para medir censura en Internet y rendimiento de red; `OONI Probe` publica resultados como datos abiertos en tiempo real; y la propia documentacion de datos explica que esos resultados pueden consultarse via `OONI Explorer`, `API` y volcados de datos. Ademas, una entrada oficial publicada el **25 de septiembre de 2024** sobre el bloqueo de `OONI Explorer` en Rusia recordaba otra escala importante: la plataforma ya alojaba entonces **mas de 2.000 millones de mediciones**, recogidas en **27.000 redes distintas** de **242 paises y territorios** desde 2012. Traducido a lenguaje de analista: `OONI Explorer` no te da "la verdad final" sobre censura, pero si te da una base empirica mucho mejor para separar incidente, patron y narrativa.
