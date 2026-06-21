@@ -2,11 +2,114 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-20T00:00:00.000Z</updated>
+    <updated>2026-06-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OONI Explorer en OSINT: medir bloqueos, leer pruebas de red y no exagerar conclusiones]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto"/>
+        <updated>2026-06-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto-01d07b3593705acf71349c05f6545cd2.png" width="1672" height="941" class="img_ev3q"></p>
+<p>Cuando una historia gira alrededor de censura, caidas selectivas, apps que "a veces cargan" o sitios que desaparecen solo en ciertas redes, el error mas comun no es mirar poco: es <strong>confundir una queja aislada con una conclusion global</strong>. <code>OONI Explorer</code> encaja justo en ese hueco porque permite trabajar con mediciones reales de red, series temporales y contexto por pais, operador y prueba, sin obligarte a convertir cada anomalia en una acusacion cerrada.</p>
+<p>Revisando la documentacion oficial de <code>OONI</code> el <strong>21 de junio de 2026</strong>, el proyecto sigue definiendose como software libre para medir censura en Internet y rendimiento de red; <code>OONI Probe</code> publica resultados como datos abiertos en tiempo real; y la propia documentacion de datos explica que esos resultados pueden consultarse via <code>OONI Explorer</code>, <code>API</code> y volcados de datos. Ademas, una entrada oficial publicada el <strong>25 de septiembre de 2024</strong> sobre el bloqueo de <code>OONI Explorer</code> en Rusia recordaba otra escala importante: la plataforma ya alojaba entonces <strong>mas de 2.000 millones de mediciones</strong>, recogidas en <strong>27.000 redes distintas</strong> de <strong>242 paises y territorios</strong> desde 2012. Traducido a lenguaje de analista: <code>OONI Explorer</code> no te da "la verdad final" sobre censura, pero si te da una base empirica mucho mejor para separar incidente, patron y narrativa.</p>
+<p>Este contenido esta orientado a usos legitimos y proporcionales, como periodismo, investigacion academica, derechos digitales, verificacion tecnica, analisis de riesgo y <code>due diligence</code> geopolitico. No incluye tacticas de intrusion, evasion, hostigamiento ni persecucion de personas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>OONI</code> es un proyecto abierto centrado en medir interferencias y bloqueos en Internet. Su ecosistema tiene varias piezas, pero para OSINT la que mas valor aporta al principio suele ser <code>OONI Explorer</code>: una interfaz para buscar y visualizar mediciones publicas ya recogidas por usuarios de <code>OONI Probe</code>.</p>
+<p>Eso permite trabajar con preguntas bastante concretas:</p>
+<ul>
+<li class="">si una web parece inaccesible en un pais o red concreta;</li>
+<li class="">si una app de mensajeria muestra senales de bloqueo o degradacion;</li>
+<li class="">si una anomalia aparece en una sola red, en varias o en una ventana temporal precisa;</li>
+<li class="">y si conviene seguir tirando del hilo con <code>API</code>, dataset bruto o contraste manual adicional.</li>
+</ul>
+<p>La pagina oficial de pruebas de <code>OONI</code>, revisada el <strong>21 de junio de 2026</strong>, sigue presentando varios tests relevantes para este tipo de trabajo, entre ellos <code>Web Connectivity</code>, orientado a detectar bloqueo de sitios por <code>DNS tampering</code>, bloqueo <code>TCP/IP</code> o proxies <code>HTTP</code> transparentes. Ese detalle importa mucho: <code>OONI Explorer</code> no es solo un "mapa bonito", sino la capa donde terminas leyendo resultados tecnicos de pruebas concretas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina este escenario: un medio regional recibe avisos de lectores que no consiguen abrir la web de una organizacion civica desde ciertos proveedores moviles. Hay capturas, quejas en redes y algun mensaje alarmista sobre "censura total", pero todavia no hay una verificacion tecnica seria.</p>
+<p>Con <code>OONI Explorer</code>, un analista puede empezar por una pregunta mas humilde y mas util: <strong>que muestran las mediciones abiertas para ese dominio, en ese pais y en esas fechas?</strong></p>
+<p>Un flujo responsable podria ser:</p>
+<ol>
+<li class="">buscar el dominio en <code>Web Connectivity</code>;</li>
+<li class="">limitar por pais y ventana temporal;</li>
+<li class="">revisar si las anomalias se concentran en uno o varios <code>ASNs</code>;</li>
+<li class="">comprobar si la senal es estable o solo aparece en horas puntuales;</li>
+<li class="">contrastar si el fallo parece de <code>DNS</code>, de <code>TLS</code>, de transporte o de disponibilidad del propio servicio;</li>
+<li class="">cruzar el hallazgo con estado del sitio, incidentes del proveedor, otras mediciones y testimonios humanos.</li>
+</ol>
+<p>La clave no es "probar censura" en un clic. La clave es <strong>reducir ambiguedad</strong> y documentar mejor que parte del problema parece una interferencia de red y que parte sigue abierta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formular-una-hipotesis-pequena">1. Formular una hipotesis pequena<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#1-formular-una-hipotesis-pequena" class="hash-link" aria-label="Enlace directo al 1. Formular una hipotesis pequena" title="Enlace directo al 1. Formular una hipotesis pequena" translate="no">​</a></h3>
+<p>Empieza con una afirmacion verificable, no con una conclusion enorme. Mejor "este dominio parece inaccesible en operador X durante esta semana" que "el pais esta bloqueando Internet".</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elegir-bien-la-prueba">2. Elegir bien la prueba<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#2-elegir-bien-la-prueba" class="hash-link" aria-label="Enlace directo al 2. Elegir bien la prueba" title="Enlace directo al 2. Elegir bien la prueba" translate="no">​</a></h3>
+<p>Si el caso trata de webs, <code>Web Connectivity</code> suele ser el punto de entrada mas claro. Si gira alrededor de mensajeria o herramientas de circumvencion, conviene mirar las pruebas especificas disponibles en <code>OONI</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-series-y-distribucion-no-solo-un-resultado-suelto">3. Leer series y distribucion, no solo un resultado suelto<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#3-leer-series-y-distribucion-no-solo-un-resultado-suelto" class="hash-link" aria-label="Enlace directo al 3. Leer series y distribucion, no solo un resultado suelto" title="Enlace directo al 3. Leer series y distribucion, no solo un resultado suelto" translate="no">​</a></h3>
+<p>Una sola medicion puede estar afectada por ruido, caidas del destino, filtros locales o problemas pasajeros. Lo que interesa es el patron:</p>
+<ul>
+<li class="">cuantas mediciones muestran la anomalia;</li>
+<li class="">en que redes aparece;</li>
+<li class="">desde cuando;</li>
+<li class="">y si coincide con otros eventos tecnicos o politicos.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-bajar-de-explorer-a-api-o-datos-brutos-cuando-haga-falta">4. Bajar de Explorer a API o datos brutos cuando haga falta<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#4-bajar-de-explorer-a-api-o-datos-brutos-cuando-haga-falta" class="hash-link" aria-label="Enlace directo al 4. Bajar de Explorer a API o datos brutos cuando haga falta" title="Enlace directo al 4. Bajar de Explorer a API o datos brutos cuando haga falta" translate="no">​</a></h3>
+<p>La documentacion oficial de datos de <code>OONI</code>, revisada el <strong>21 de junio de 2026</strong>, explica tres vias principales: <code>OONI Explorer</code>, <code>OONI API</code> y dumps de datos. La <code>API</code> sirve para buscar metadatos, recuperar mediciones individuales y generar estadisticas, mientras que los volcados y el acceso en <code>AWS Open Data</code> encajan mejor cuando necesitas volumen, series largas o procesado propio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-escribir-con-grados-de-certeza">5. Escribir con grados de certeza<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#5-escribir-con-grados-de-certeza" class="hash-link" aria-label="Enlace directo al 5. Escribir con grados de certeza" title="Enlace directo al 5. Escribir con grados de certeza" translate="no">​</a></h3>
+<p>La salida ideal no es "bloqueado" o "no bloqueado" a secas. Es algo mas parecido a esto:</p>
+<blockquote>
+<p>Las mediciones abiertas de <code>OONI</code> sugieren una interferencia consistente con bloqueo en determinadas redes durante la ventana analizada, pero el hallazgo debe leerse junto a disponibilidad del destino, cobertura de muestras y validacion adicional.</p>
+</blockquote>
+<p>Ese matiz protege tanto la calidad del analisis como tu credibilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>OONI Explorer</code> es potentisimo, pero tiene limites claros:</p>
+<ul>
+<li class="">depende de donde haya usuarios ejecutando pruebas, asi que la cobertura no es uniforme;</li>
+<li class="">una ausencia de mediciones no demuestra ausencia de bloqueo;</li>
+<li class="">algunas anomalias pueden venir del servidor de destino, <code>CDN</code>, geofencing, antifraude o configuraciones rotas;</li>
+<li class="">ciertos resultados requieren entender bien la metodologia de la prueba para no sobrerreaccionar;</li>
+<li class="">y un patron tecnico no identifica automaticamente al responsable politico o institucional.</li>
+</ul>
+<p>Tambien conviene recordar algo basico: <code>OONI</code> publica datos abiertos en tiempo real, pero "abierto" no significa "autoexplicativo". Cuanto mas sensible sea el caso, mas importante es combinar <code>OONI Explorer</code> con contexto humano, cronologia publica y otras fuentes independientes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">No uses el dato tecnico para senalar personas concretas sin una base mucho mas fuerte.</li>
+<li class="">Evita publicar selectores sensibles o detalles innecesarios si el caso puede exponer a usuarios vulnerables.</li>
+<li class="">Distingue siempre entre interferencia observada, hipotesis causal y atribucion.</li>
+<li class="">Si citas mediciones publicas, guarda tambien fecha de consulta, filtros usados y URL exacta de la vista para favorecer reproducibilidad.</li>
+<li class="">Si el caso afecta a comunidades en riesgo, prioriza explicar el metodo y el patron antes que dramatizar.</li>
+</ul>
+<p>En OSINT responsable, <code>OONI Explorer</code> sirve mejor como herramienta de corroboracion y contexto que como martillo para cerrar cualquier relato de censura.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si <code>OONI Explorer</code> te abre una pista pero no la cierra, los siguientes pasos razonables suelen ser:</p>
+<ul>
+<li class="">consultar la <code>API</code> para extraer mediciones especificas;</li>
+<li class="">descargar datasets si necesitas analizar volumen o periodos largos;</li>
+<li class="">cruzar con <code>RIPE Atlas</code>, datos de resolucion <code>DNS</code>, estado del servicio o telemetria publica;</li>
+<li class="">y contrastar con informes tecnicos, periodisticos o de organizaciones de derechos digitales.</li>
+</ul>
+<p>Una buena secuencia practica es: <code>Explorer</code> para detectar senales, <code>API</code> para afinar, datos brutos para escalar y contraste externo para no sobreatribuir.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
+<p><code>OONI Explorer</code> aporta algo muy valioso a OSINT: <strong>evidencia tecnica abierta sobre conectividad y bloqueo, pero en un formato lo bastante legible como para pensar antes de automatizar</strong>. Si trabajas con censura, derechos digitales, reputacion geopolitica o verificacion de incidentes de red, merece un sitio estable en tu caja de herramientas.</p>
+<p>El siguiente paso natural, si este enfoque te resulta util, es bajar un nivel y trabajar con la <code>OONI API</code> o con datasets de mediciones para construir comparativas propias sin perder el rigor.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-consultadas">Fuentes oficiales consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#fuentes-oficiales-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales consultadas" title="Enlace directo al Fuentes oficiales consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://ooni.org/about/" target="_blank" rel="noopener noreferrer" class="">About OONI</a></li>
+<li class=""><a href="https://ooni.org/nettest/" target="_blank" rel="noopener noreferrer" class="">OONI Tests</a></li>
+<li class=""><a href="https://docs.ooni.org/data" target="_blank" rel="noopener noreferrer" class="">Accessing OONI data</a></li>
+<li class=""><a href="https://ooni.org/post/2024-russia-blocked-ooni-explorer/" target="_blank" rel="noopener noreferrer" class="">Russia blocked OONI Explorer, a large open dataset on Internet censorship</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Tooling" term="Tooling"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Alerts en OSINT: monitorizacion de menciones, cambios y ruido con criterio]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido</id>
@@ -2256,142 +2359,5 @@
         <category label="Investigacion" term="Investigacion"/>
         <category label="Tooling" term="Tooling"/>
         <category label="Triage" term="Triage"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[crt.sh en OSINT: CT logs, subdominios y cronologia de certificados con contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto"/>
-        <updated>2026-05-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando certificados TLS, subdominios y una cronologia de emision en una interfaz tipo ct log con notas metodologicas sobrias]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando certificados TLS, subdominios y una cronologia de emision en una interfaz tipo ct log con notas metodologicas sobrias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-05-24-crtsh-osint-ct-logs-subdominios-cronologia-contexto-65392886f2355e9be342a53094069810.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/crtsh-osint-ct-logs-subdominios-cronologia-contexto-c97452bc64abc29d7d50da5a84d97858.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Cuando una investigacion tecnica necesita responder que dominios han existido de verdad, cuando aparecieron y con que senales publicas se relacionan, mucha gente comete el mismo error: tratar un certificado TLS como si fuera una prueba cerrada de propiedad, actividad o intencion. <code>crt.sh</code> sirve precisamente para enfriar ese impulso. Te deja consultar datos de <code>Certificate Transparency</code> y observar emisiones historicas, nombres alternativos y pistas cronologicas que ayudan a abrir preguntas mejores, no a cerrarlas demasiado pronto.</p>
-<p>A fecha de <strong>24 de mayo de 2026</strong>, la documentacion publica del ecosistema CT sigue describiendo estos logs como registros publicos y auditables de certificados, pensados para detectar emisiones sospechosas y aumentar la transparencia del <code>Web PKI</code>. Y Sectigo sigue presentando <code>crt.sh</code> como su herramienta estandar de busqueda y reporte sobre esos logs. Traducido a trabajo OSINT serio: <code>crt.sh</code> no demuestra por si solo que un activo este vivo, que un subdominio siga resolviendo o que una organizacion controle hoy todo lo que aparece en un certificado. Pero si te da una de las cronologias publicas mas utiles para descubrir superficie web, revisar cambios y documentar por que una hipotesis merece mas comprobacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>crt.sh</code> es una interfaz publica de busqueda sobre datos de <code>Certificate Transparency</code> (<code>CT</code>). El ecosistema CT, descrito por la propia iniciativa <code>certificate.transparency.dev</code> y por la <code>RFC 9162</code>, existe para que los certificados TLS emitidos queden registrados en logs publicos, auditables y monitorizables. Eso permite que propietarios de dominios, navegadores, investigadores y operadores detecten emisiones no autorizadas o, como minimo, entiendan mejor que certificados han existido y cuando.</p>
-<p>Para una investigacion OSINT defensiva o de superficie externa, <code>crt.sh</code> resulta especialmente util en cuatro tareas:</p>
-<ul>
-<li class="">descubrir subdominios historicos o poco visibles que aparecen en <code>Subject Alternative Name</code>;</li>
-<li class="">observar cronologias de emision, renovacion o reemision de certificados;</li>
-<li class="">pivotar por dominio, organizacion, <code>SHA-1</code>, <code>SHA-256</code> o incluso por identificador concreto de certificado;</li>
-<li class="">y documentar una relacion tecnica publica antes de contrastarla con DNS, web visible, captura propia o contexto societario.</li>
-</ul>
-<p>La clave es colocar la herramienta en su sitio. Un certificado te habla de una emision registrada y de unos nombres incluidos en ese artefacto. No te garantiza servicio activo, no te demuestra uso malicioso y no convierte una coincidencia tecnica en atribucion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una empresa ficticia, <code>acme-ejemplo.com</code>, que esta revisando su superficie externa antes de una auditoria o despues de una adquisicion. El equipo cree tener inventariados todos sus subdominios publicos, pero sospecha que quedan restos de entornos antiguos, nombres de preproduccion o servicios heredados que todavia dejaron huella en certificados.</p>
-<p>Un flujo prudente con <code>crt.sh</code> podria ser:</p>
-<ol>
-<li class="">buscar el dominio base para identificar certificados emitidos historicamente;</li>
-<li class="">anotar <code>SANs</code> o nombres raros que no estaban en el inventario actual;</li>
-<li class="">separar enseguida lo historico de lo vigente, sin asumir que todo lo listado sigue expuesto;</li>
-<li class="">cruzar solo los candidatos utiles con DNS, HTTP, archivo web o escaneos autorizados;</li>
-<li class="">registrar fecha de consulta, consulta realizada y por que cada nombre paso o no a la siguiente fase.</li>
-</ol>
-<p>Lo importante no es "sacar muchos subdominios". Lo importante es <strong>convertir una lista tecnica en un mapa priorizado de hipotesis verificables</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-un-dominio-a-una-cronologia-que-no-te-haga-sobreactuar">Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#flujo-recomendado-de-un-dominio-a-una-cronologia-que-no-te-haga-sobreactuar" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar" title="Enlace directo al Flujo recomendado: de un dominio a una cronologia que no te haga sobreactuar" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-no-por-el-volumen">1. Empieza por la pregunta, no por el volumen<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#1-empieza-por-la-pregunta-no-por-el-volumen" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta, no por el volumen" title="Enlace directo al 1. Empieza por la pregunta, no por el volumen" translate="no">​</a></h3>
-<p>La tentacion con <code>crt.sh</code> es lanzar una busqueda amplia y asumir que mas resultados equivalen a mas verdad. Suele ser al reves. Antes de abrir la herramienta, conviene fijar que quieres resolver:</p>
-<ul>
-<li class="">descubrir activos externos olvidados;</li>
-<li class="">entender cambios de marca o de infraestructura;</li>
-<li class="">revisar si hubo emisiones inesperadas para un dominio;</li>
-<li class="">o preparar una comprobacion de terceros con mejor contexto tecnico.</li>
-</ul>
-<p>Si no haces esa distincion, acabaras mezclando certificados historicos, nombres de prueba, <code>wildcards</code>, emisiones repetidas y residuos operativos como si fueran una sola historia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-cronologia-como-pista-no-como-sentencia">2. Usa la cronologia como pista, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#2-usa-la-cronologia-como-pista-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 2. Usa la cronologia como pista, no como sentencia" title="Enlace directo al 2. Usa la cronologia como pista, no como sentencia" translate="no">​</a></h3>
-<p>La <code>RFC 9162</code> describe CT como un mecanismo para registrar la existencia de certificados emitidos u observados de forma que cualquiera pueda auditar la actividad de las autoridades de certificacion y detectar emisiones sospechosas. Ese detalle importa mucho en OSINT: el dato principal es la <strong>existencia registrada de un certificado en una ventana temporal</strong>, no una fotografia total de un servicio.</p>
-<p>Practicalmente, eso significa:</p>
-<ul>
-<li class="">una emision en CT puede apuntar a un activo legitimo ya retirado;</li>
-<li class="">una renovacion no te dice por si sola quien opera el servicio hoy;</li>
-<li class="">un nombre en <code>SAN</code> puede ser solo un alias tecnico o una fase temporal;</li>
-<li class="">y un subdominio en un certificado no implica que sea accesible, interesante o critico.</li>
-</ul>
-<p>La cronologia ayuda a ordenar preguntas como estas:</p>
-<ul>
-<li class="">cuando empezo a aparecer un nombre concreto;</li>
-<li class="">si hubo rotacion de certificados en momentos relevantes;</li>
-<li class="">si una familia de subdominios crecio, se simplifico o desaparecio;</li>
-<li class="">o si hay una emision que merece monitorizacion adicional.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-bien-los-selectores-de-entrada">3. Aprovecha bien los selectores de entrada<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#3-aprovecha-bien-los-selectores-de-entrada" class="hash-link" aria-label="Enlace directo al 3. Aprovecha bien los selectores de entrada" title="Enlace directo al 3. Aprovecha bien los selectores de entrada" translate="no">​</a></h3>
-<p>Sectigo explica en su material sobre <code>crt.sh</code> que la interfaz permite buscar por nombre de dominio, nombre de organizacion, huella <code>SHA-1</code>, huella <code>SHA-256</code> o identificador concreto del certificado. Esa variedad es util porque te deja entrar por distintas puertas segun el caso.</p>
-<p>En un flujo responsable, cada selector responde a una necesidad distinta:</p>
-<ul>
-<li class="">dominio: para descubrir cobertura y nombres relacionados;</li>
-<li class="">organizacion: para explorar emisiones asociadas a una entidad, con mucha mas cautela por homonimias;</li>
-<li class="">fingerprint: para validar o contextualizar un certificado ya observado en otro sitio;</li>
-<li class="">identificador: para fijar la referencia exacta cuando documentas evidencia.</li>
-</ul>
-<p>La disciplina aqui es simple: <strong>anota siempre que buscaste exactamente</strong>. Si luego necesitas reproducir tu hallazgo o explicarlo a otra persona, ese detalle vale mas que una captura sin contexto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante">4. Cruza fuera de <code>crt.sh</code> antes de afirmar nada importante<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" class="hash-link" aria-label="Enlace directo al 4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" title="Enlace directo al 4-cruza-fuera-de-crtsh-antes-de-afirmar-nada-importante" translate="no">​</a></h3>
-<p>El ecosistema <code>certificate.transparency.dev</code> recuerda que los monitores CT sirven para detectar certificados sospechosos y para avisar a operadores cuando aparecen emisiones nuevas para sus dominios. Eso deja clara una idea operativa: CT es una capa de visibilidad y alerta, no una respuesta completa.</p>
-<p>Despues de una consulta en <code>crt.sh</code>, lo razonable suele ser contrastar con:</p>
-<ul>
-<li class="">DNS o <code>RDAP</code> para ver si un nombre sigue teniendo vida util;</li>
-<li class="">web visible o captura propia si el problema es de contenido o branding;</li>
-<li class="">historicos web si necesitas relacion temporal con cambios publicos;</li>
-<li class="">y fuentes societarias o de terceros si la conclusion puede afectar a reputacion, riesgo o atribucion.</li>
-</ul>
-<p>Este cruce adicional evita uno de los errores mas comunes del OSINT tecnico: convertir un artefacto PKI en una narrativa corporativa demasiado ambiciosa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-piensa-en-monitoring-no-solo-en-busqueda-puntual">5. Piensa en <code>monitoring</code>, no solo en busqueda puntual<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#5-piensa-en-monitoring-no-solo-en-busqueda-puntual" class="hash-link" aria-label="Enlace directo al 5-piensa-en-monitoring-no-solo-en-busqueda-puntual" title="Enlace directo al 5-piensa-en-monitoring-no-solo-en-busqueda-puntual" translate="no">​</a></h3>
-<p>La documentacion publica de CT insiste en que los monitores revisan logs para ayudar a detectar emisiones no autorizadas y otras senales sospechosas. Incluso si usas <code>crt.sh</code> de forma manual, merece la pena adoptar esa mentalidad: no preguntarte solo "que hay ahora", sino "que deberia vigilar a partir de hoy".</p>
-<p>En entornos defensivos o de due diligence tecnica, eso se traduce en:</p>
-<ul>
-<li class="">registrar dominios clave y revisarlos periodicamente;</li>
-<li class="">prestar atencion a patrones nuevos, no solo a nombres aislados;</li>
-<li class="">documentar fechas de primera y ultima observacion;</li>
-<li class="">y separar claramente descubrimiento, validacion y escalado.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>crt.sh</code> es potentisimo, pero tiene limites que conviene escribir en mayusculas mentales:</p>
-<ul>
-<li class="">refleja emisiones registradas en CT, no la totalidad del estado operativo de una organizacion;</li>
-<li class="">puede devolver ruido historico, nombres de laboratorio o restos de migraciones;</li>
-<li class="">las busquedas por organizacion pueden mezclar entidades distintas con nombres parecidos;</li>
-<li class="">los <code>wildcards</code> reducen granularidad y pueden sugerir mas cobertura concreta de la que realmente ves;</li>
-<li class="">y un dominio en un certificado no demuestra control exclusivo, uso actual ni relevancia analitica.</li>
-</ul>
-<p>Tambien hay una limitacion metodologica menos obvia: <code>crt.sh</code> puede hacerte sentir que ya "entendiste" una superficie porque ves una tabla convincente. A menudo solo has encontrado el indice inicial.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Consulta con el selector minimo necesario y evita meter datos personales si el problema se resuelve por dominio o certificado.</li>
-<li class="">Distingue en tus notas entre <code>observado en CT</code>, <code>resuelve hoy</code>, <code>sirve contenido hoy</code> y <code>atribuido con evidencia adicional</code>.</li>
-<li class="">Si una emision parece sospechosa, trata la salida como senal de revision, no como acusacion publica.</li>
-<li class="">Preserva la trazabilidad: fecha, consulta, fila relevante y comprobaciones posteriores.</li>
-<li class="">Si el caso es sensible, cruza con una segunda fuente antes de compartir conclusiones fuera del equipo.</li>
-</ul>
-<p>La mejor forma de usar <code>crt.sh</code> no es como detector magico de subdominios, sino como <strong>registro publico que te obliga a pensar temporalmente</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>crt.sh</code> te aporta una pista pero necesitas mas contexto, estas combinaciones suelen funcionar bien:</p>
-<ul>
-<li class=""><code>SecurityTrails</code> o historicos DNS, si quieres relacionar certificados con cambios de resolucion;</li>
-<li class=""><code>urlscan.io</code>, si importa ver comportamiento web, recursos cargados o redirecciones;</li>
-<li class=""><code>Censys</code>, <code>Netlas</code> o buscadores de activos, si la pregunta principal es exposicion observable;</li>
-<li class="">y archivo web o captura propia, si necesitas sostener mejor la cronologia visible.</li>
-</ul>
-<p>Como siguiente tema natural, tiene sentido aterrizar esto en un flujo combinado de <code>crt.sh</code>, DNS y captura web para revisar superficie externa sin confundir descubrimiento con evidencia cerrada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cierre">Cierre<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-osint-ct-logs-subdominios-cronologia-contexto#cierre" class="hash-link" aria-label="Enlace directo al Cierre" title="Enlace directo al Cierre" translate="no">​</a></h2>
-<p><code>crt.sh</code> destaca porque convierte una parte muy tecnica del <code>Web PKI</code> en una fuente publica, consultable y sorprendentemente util para OSINT. Su valor real no esta en darte una lista enorme, sino en ayudarte a responder con mas rigor cuando aparecio un nombre, que relacion tecnica minima tuvo y que merece verificarse despues.</p>
-<p>La takeaway accionable es esta: usa <code>crt.sh</code> para abrir una cronologia, no para cerrarla. Si sales de la herramienta con tres hipotesis bien documentadas y no con treinta conclusiones grandilocuentes, la consulta ya ha valido la pena.</p>
-<p>Fuentes:</p>
-<ul>
-<li class=""><a href="https://certificate.transparency.dev/howctworks/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: How CT Works</a></li>
-<li class=""><a href="https://certificate.transparency.dev/monitors/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Monitors</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9162" target="_blank" rel="noopener noreferrer" class="">RFC 9162: Certificate Transparency Version 2.0</a></li>
-<li class=""><a href="https://www.sectigo.com/root-causes/root-causes-216-what-is-crt-sh" target="_blank" rel="noopener noreferrer" class="">Sectigo: Root Causes 216 - What is crt.sh?</a></li>
-<li class=""><a href="https://www.sectigo.com/pki-leadership" target="_blank" rel="noopener noreferrer" class="">Sectigo: WebPKI Standards, Open Source and PKI Ops</a></li>
-<li class=""><a href="https://github.com/crtsh" target="_blank" rel="noopener noreferrer" class="">GitHub: crt.sh organization</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Infraestructura" term="Infraestructura"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Web" term="Web"/>
-        <category label="Tradecraft" term="Tradecraft"/>
     </entry>
 </feed>
