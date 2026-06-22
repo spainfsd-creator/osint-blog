@@ -2,11 +2,139 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-21T00:00:00.000Z</updated>
+    <updated>2026-06-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[EDGAR en OSINT: filings, CIK y XBRL para investigar empresas con contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto"/>
+        <updated>2026-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando filings, cronologias corporativas y tablas financieras estructuradas con foco en trazabilidad]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando filings, cronologias corporativas y tablas financieras estructuradas con foco en trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-22-edgar-osint-filings-cik-xbrl-contexto-12ed9ad0452b0e68eb1a578397a94fe5.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Cuando una investigacion corporativa deja de girar solo alrededor de una web o una marca y pasa a exigir <strong>hechos fechados, documentos presentados y lenguaje regulatorio</strong>, la diferencia entre una intuicion y una conclusion defendible se vuelve enorme. <code>EDGAR</code>, el sistema publico de filings de la <code>SEC</code>, encaja justo en ese hueco: no porque "revele la verdad" por si solo, sino porque ofrece una base documental gratuita para revisar companias, cronologias, formularios y datos financieros estructurados con mucha mas disciplina.</p>
+<p>La posicion correcta importa. Revisando <code>SEC.gov</code> el <strong>22 de junio de 2026</strong>, la propia <code>SEC</code> sigue presentando <code>EDGAR</code> como acceso publico gratuito a millones de documentos informativos de empresas cotizadas y otros declarantes. Su buscador <code>Full Text Search</code> sigue ofreciendo texto completo de filings electronicos desde <strong>2001</strong>, y la documentacion oficial de <code>data.sec.gov</code> mantiene otro detalle muy util para analistas: las <code>APIs</code> publicas de submissions y <code>XBRL</code> <strong>no requieren clave ni autenticacion</strong>. Traducido a lenguaje de OSINT: <code>EDGAR</code> sirve para <strong>leer, fechar y corroborar</strong> mejor; no para saltarte el contexto empresarial ni para atribuir intencion a partir de un solo formulario.</p>
+<p>Este contenido esta orientado a usos legitimos y proporcionales, como <code>due diligence</code>, periodismo de datos, verificacion corporativa, investigacion academica y analisis de riesgo. No incluye tacticas para acoso, doxxing, abuso de datos personales ni intrusion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
+<p><code>EDGAR</code> significa <code>Electronic Data Gathering, Analysis, and Retrieval</code> y es el sistema de la <code>U.S. Securities and Exchange Commission</code> para recepcionar y publicar filings electronicos. La pagina oficial de <code>Search Filings</code>, revisada el <strong>22 de junio de 2026</strong>, resume bien su valor practico: acceso publico gratuito a millones de documentos presentados por empresas cotizadas y otros sujetos obligados.</p>
+<p>Para un flujo OSINT responsable, eso permite:</p>
+<ul>
+<li class="">buscar companias por nombre, ticker o <code>CIK</code>;</li>
+<li class="">localizar formularios concretos como <code>10-K</code>, <code>10-Q</code> u <code>8-K</code>;</li>
+<li class="">hacer busquedas por texto completo en filings desde 2001;</li>
+<li class="">seguir cronologias de eventos corporativos, cambios de ejecutivos y riesgos declarados;</li>
+<li class="">y descargar datos estructurados de submissions o estados financieros via <code>JSON</code> y <code>XBRL</code>.</li>
+</ul>
+<p>La ventaja real no es "tener mas papeles", sino trabajar sobre <strong>documentos fechados, clasificables y enlazados a un emisor concreto</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de terceros sobre <code>Northbridge Grid Systems</code>, una empresa ficticia que quiere cerrar un acuerdo con un proveedor europeo. El equipo ya tiene:</p>
+<ul>
+<li class="">una web corporativa muy pulida;</li>
+<li class="">una nota de prensa con promesas de expansion;</li>
+<li class="">y referencias vagas a adquisiciones recientes en Estados Unidos.</li>
+</ul>
+<p>Con <code>EDGAR</code>, un analista no tiene por que discutir primero sobre reputacion o narrativa. Puede empezar por preguntas mucho mas sobrias:</p>
+<ol>
+<li class="">que entidad concreta presenta filings y bajo que <code>CIK</code>;</li>
+<li class="">que formularios recientes existen y en que fechas;</li>
+<li class="">si los riesgos materiales, litigios o cambios de negocio aparecen reflejados en <code>10-K</code>, <code>10-Q</code> u <code>8-K</code>;</li>
+<li class="">y si los estados financieros estructurados respaldan de verdad el relato comercial.</li>
+</ol>
+<p>La ganancia metodologica no es "pillar a nadie", sino <strong>bajar incertidumbre documental antes de escalar una conclusion</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-identifica-bien-el-emisor-antes-de-leer-titulares">1. Identifica bien el emisor antes de leer titulares<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#1-identifica-bien-el-emisor-antes-de-leer-titulares" class="hash-link" aria-label="Enlace directo al 1. Identifica bien el emisor antes de leer titulares" title="Enlace directo al 1. Identifica bien el emisor antes de leer titulares" translate="no">​</a></h3>
+<p>La propia interfaz de <code>Search Filings</code> deja buscar por nombre de empresa, ticker y <code>CIK</code>. Ese detalle parece basico, pero evita uno de los errores mas caros en investigacion corporativa: mezclar filiales, homonimos o emisores con nombres parecidos.</p>
+<p>Si el caso toca una empresa conocida, conviene fijar primero tres anclas:</p>
+<ul>
+<li class="">nombre legal exacto;</li>
+<li class=""><code>CIK</code>;</li>
+<li class="">y tipos de formulario que importan para tu hipotesis.</li>
+</ul>
+<p>La pagina de <code>CIK Lookup</code> y el buscador general ayudan a que el trabajo no empiece con una marca ambigua.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-full-text-search-para-preguntas-no-solo-para-nombres">2. Usa <code>Full Text Search</code> para preguntas, no solo para nombres<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#2-usa-full-text-search-para-preguntas-no-solo-para-nombres" class="hash-link" aria-label="Enlace directo al 2-usa-full-text-search-para-preguntas-no-solo-para-nombres" title="Enlace directo al 2-usa-full-text-search-para-preguntas-no-solo-para-nombres" translate="no">​</a></h3>
+<p>La <code>SEC</code> sigue indicando que <code>EDGAR Full Text Search</code> permite buscar palabras y frases en mas de 20 anos de filings electronicos y filtrar por fecha, empresa, categoria de filing y localizacion. Eso cambia mucho la calidad de una investigacion porque te deja pasar de "encuentra la empresa" a "encuentra que dijo sobre este riesgo, esta subsidiaria o este cambio".</p>
+<p>En la practica, eso sirve para preguntas como:</p>
+<ul>
+<li class="">cuando aparece por primera vez una linea de negocio concreta;</li>
+<li class="">si un litigio fue reconocido formalmente y en que formulario;</li>
+<li class="">cuando se menciona una adquisicion, una desinversion o un factor de riesgo;</li>
+<li class="">y si ciertas afirmaciones publicas tienen reflejo documental.</li>
+</ul>
+<p>La disciplina importante es no leer una coincidencia textual como si fuera evidencia suficiente. Un termino puede aparecer en un contexto preventivo, historico o irrelevante para tu hipotesis.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-datasecgov-para-estructurar-cronologia-y-comparacion">3. Usa <code>data.sec.gov</code> para estructurar cronologia y comparacion<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" class="hash-link" aria-label="Enlace directo al 3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" title="Enlace directo al 3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" translate="no">​</a></h3>
+<p>La pagina oficial de <code>EDGAR APIs</code>, publicada el <strong>6 de junio de 2024</strong> y vigente al revisar el flujo el <strong>22 de junio de 2026</strong>, deja dos ideas especialmente utiles:</p>
+<ul>
+<li class=""><code>data.sec.gov</code> ofrece <code>APIs</code> <code>REST</code> en <code>JSON</code> para historial de submissions y datos <code>XBRL</code>;</li>
+<li class="">y esas <code>APIs</code> no requieren autenticacion ni clave.</li>
+</ul>
+<p>Para OSINT serio eso importa porque permite ordenar mejor lo que ves en web. En lugar de navegar filing a filing sin estructura, puedes tratar el historial del emisor como una cronologia consultable: formularios recientes, fechas, accesiones y enlaces a documentos asociados.</p>
+<p>El mismo documento oficial explica ademas que los <code>JSON</code> se actualizan a lo largo del dia en tiempo real segun se difunden los filings, y que existe un ZIP nocturno con el conjunto de estructuras publicadas. No convierte <code>EDGAR</code> en un sistema magico, pero si en una base muy util para analisis repetibles.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-narrativa-filing-y-dato-financiero">4. Separa narrativa, filing y dato financiero<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#4-separa-narrativa-filing-y-dato-financiero" class="hash-link" aria-label="Enlace directo al 4. Separa narrativa, filing y dato financiero" title="Enlace directo al 4. Separa narrativa, filing y dato financiero" translate="no">​</a></h3>
+<p>No todos los hallazgos en <code>EDGAR</code> viven en la misma capa:</p>
+<ul>
+<li class="">la interfaz web te ayuda a localizar filings y leer texto;</li>
+<li class="">los metadatos de submissions te ordenan la cronologia del emisor;</li>
+<li class="">y <code>XBRL</code> te deja trabajar con cifras estructuradas de ciertos formularios financieros.</li>
+</ul>
+<p>La pagina de <code>Developer Resources</code>, revisada el <strong>22 de junio de 2026</strong>, mantiene precisamente esa separacion: filings accesibles por el sistema <code>HTTPS</code> de la <code>SEC</code>, <code>APIs</code> en <code>data.sec.gov</code> y <code>RSS</code> para seguir resultados de ciertas busquedas. Para un analista, eso ayuda a no confundir una frase llamativa del <code>10-K</code> con todo el cuadro financiero o societario.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-respeta-la-politica-de-acceso-justo">5. Respeta la politica de acceso justo<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#5-respeta-la-politica-de-acceso-justo" class="hash-link" aria-label="Enlace directo al 5. Respeta la politica de acceso justo" title="Enlace directo al 5. Respeta la politica de acceso justo" translate="no">​</a></h3>
+<p>La ayuda oficial <code>Accessing EDGAR Data</code>, consultada el <strong>22 de junio de 2026</strong>, es muy clara: la <code>SEC</code> fija una tasa maxima actual de <strong>10 solicitudes por segundo</strong>, pide descargar solo lo necesario y solicita declarar un <code>User-Agent</code> identificable en las cabeceras. Tambien advierte que no permite <code>botnets</code> ni automatizaciones fuera de su politica aceptable.</p>
+<p>Ese punto no es solo tecnico. En OSINT responsable significa dos cosas:</p>
+<ul>
+<li class="">si automatizas consultas, hazlo con moderacion y trazabilidad;</li>
+<li class="">y no conviertas una fuente publica en una excusa para scraping agresivo o indiscriminado.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>EDGAR</code> es potentisimo, pero no resuelve por si solo los problemas clasicos de interpretacion:</p>
+<ul>
+<li class="">una empresa puede usar un lenguaje juridico deliberadamente amplio;</li>
+<li class="">un filing describe lo que debe declararse, no necesariamente todo el contexto operativo;</li>
+<li class="">no todas las entidades relevantes para un caso estaran bajo el mismo perimetro regulatorio;</li>
+<li class="">una coincidencia en texto completo no prueba materialidad;</li>
+<li class="">y una cifra <code>XBRL</code> sin su nota o sin comparativa temporal puede inducir lecturas pobres.</li>
+</ul>
+<p>Tambien conviene recordar algo basico: <code>EDGAR</code> es una fuente primaria buenisima para filings de la <code>SEC</code>, pero no sustituye registros mercantiles estatales, litigios locales, contratacion publica, prensa sectorial o evidencia tecnica externa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Trabajar con filings publicos no elimina la necesidad de criterio:</p>
+<ul>
+<li class="">define antes que pregunta legitima intentas responder;</li>
+<li class="">minimiza la recogida de datos personales no necesarios;</li>
+<li class="">separa con claridad observacion documental, inferencia y corroboracion externa;</li>
+<li class="">no confundas una declaracion regulatoria con prueba de fraude o intencion;</li>
+<li class="">y si automatizas, respeta limites y deja rastro reproducible de lo consultado.</li>
+</ul>
+<p>En investigaciones corporativas, un analista mejora mucho cuando deja de perseguir frases sueltas y empieza a documentar <strong>que filing leyo, de que fecha, de que emisor y para sostener que afirmacion exacta</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>EDGAR</code> encaja especialmente bien cuando la pregunta toca emisores expuestos al perimetro de la <code>SEC</code>. Segun el caso, suele combinarse bien con:</p>
+<ul>
+<li class="">registros mercantiles y beneficiarios reales para contrastar estructura juridica;</li>
+<li class=""><code>OpenCorporates</code> o <code>OpenOwnership</code> para contexto societario transfronterizo;</li>
+<li class="">historicos web y archivo para revisar como cambia el relato publico;</li>
+<li class="">buscadores de noticias o bases de litigios para ver impacto externo;</li>
+<li class="">y fuentes tecnicas como <code>SecurityTrails</code>, <code>CT logs</code> o <code>urlscan.io</code> si la empresa ademas necesita ser entendida como superficie digital.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>EDGAR</code> para <strong>anclar una investigacion corporativa en documentos, fechas y datos estructurados</strong>, no para endurecer un relato antes de tiempo. Si el primer hallazgo parece importante, el siguiente paso sano no es dramatizarlo, sino cruzarlo con mas filings, mas fechas y mas contexto fuera del propio expediente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.sec.gov/search-filings" target="_blank" rel="noopener noreferrer" class="">SEC Search Filings</a></li>
+<li class=""><a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener noreferrer" class="">SEC EDGAR Full Text Search</a></li>
+<li class=""><a href="https://www.sec.gov/search-filings/edgar-application-programming-interfaces" target="_blank" rel="noopener noreferrer" class="">SEC EDGAR Application Programming Interfaces</a></li>
+<li class=""><a href="https://www.sec.gov/about/developer-resources" target="_blank" rel="noopener noreferrer" class="">SEC Developer Resources</a></li>
+<li class=""><a href="https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data" target="_blank" rel="noopener noreferrer" class="">SEC Accessing EDGAR Data</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Tradecraft" term="Tradecraft"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OONI Explorer en OSINT: medir bloqueos, leer pruebas de red y no exagerar conclusiones]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto</id>
@@ -2247,118 +2375,5 @@
         <category label="Tooling" term="Tooling"/>
         <category label="Investigacion" term="Investigacion"/>
         <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Maltiverse en OSINT: enriquecer IoCs, filtrar ruido y decidir con mas contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido"/>
-        <updated>2026-06-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analista con paneles de IoCs, nodos de infraestructura, etiquetas de amenazas y un flujo de triage defensivo sin logos]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analista con paneles de IoCs, nodos de infraestructura, etiquetas de amenazas y un flujo de triage defensivo sin logos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-02-maltiverse-osint-iocs-contexto-ruido-c9ba9e093d23cc9d5e5bc46c1fb2982b.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/maltiverse-osint-iocs-contexto-ruido-9b14ec5ebd0372d020bdf2096c0251b4.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Hay herramientas que no te dan "la respuesta" y precisamente por eso merecen un sitio en un flujo OSINT serio. <code>Maltiverse</code> entra en esa categoria. Si te llega una <code>IP</code>, un <code>dominio</code>, una <code>URL</code> o un <code>hash</code> sospechoso, el problema no suele ser no encontrar datos: el problema real es <strong>separar senales utiles de ruido, etiquetas heredadas y reputacion mal interpretada</strong>.</p>
-<p>Por eso <code>Maltiverse</code> resulta interesante para analistas, equipos de respuesta y perfiles de threat intel con sensibilidad OSINT. No porque sustituya la verificacion, sino porque ayuda a centralizar <code>IoCs</code>, enriquecerlos con contexto y cruzarlos con clasificaciones, referencias externas y consultas repetibles. Bien usado, te acelera el triage. Mal usado, te empuja a tomar un score o una etiqueta como si fueran verdad final. Y ese es justo el error que conviene evitar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Maltiverse</code> se presenta como una plataforma cloud de threat intelligence centrada en la gestion y enriquecimiento de <code>Indicators of Compromise</code>. En su propia documentacion describe funciones de plataforma, feeds, analizador de amenazas y una sintaxis de consulta para buscar y filtrar indicadores con mas precision.</p>
-<p>Traducido al trabajo real: sirve para recibir un indicador suelto y contestar preguntas utiles sin improvisar demasiado:</p>
-<ul>
-<li class="">este <code>IOC</code> aparece clasificado como <code>phishing</code>, <code>malware</code>, <code>botnet</code> u otra categoria?;</li>
-<li class="">que metadatos lo acompanan?;</li>
-<li class="">cuando fue visto o actualizado?;</li>
-<li class="">que referencias externas o contexto adicional arrastra?;</li>
-<li class="">y como puedo acotar una consulta para no perderme en una lista infinita de coincidencias pobres?</li>
-</ul>
-<p>No es una navaja suiza universal. Es mas bien una capa de contexto para priorizar mejor que mirar primero.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-una-alerta-de-phishing-que-no-quieres-sobrerreaccionar">Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#caso-de-uso-legitimo-una-alerta-de-phishing-que-no-quieres-sobrerreaccionar" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar" title="Enlace directo al Caso de uso legitimo: una alerta de phishing que no quieres sobrerreaccionar" translate="no">​</a></h2>
-<p>Imagina un escenario defensivo corriente. Llega una alerta de correo sospechoso y dentro aparece una <code>URL</code> acortada que termina resolviendo a un dominio recien visto por tu equipo. El error habitual es elegir uno de estos dos extremos:</p>
-<ul>
-<li class="">dar por hecho que es malicioso solo porque "suena raro";</li>
-<li class="">o ignorarlo porque todavia no tienes una prueba perfecta.</li>
-</ul>
-<p>Con <code>Maltiverse</code>, el trabajo responsable seria otro:</p>
-<ol>
-<li class="">Consultar el dominio o la <code>URL</code>.</li>
-<li class="">Revisar clasificacion, tags, timestamps y cualquier descripcion disponible.</li>
-<li class="">Mirar si el indicador enlaza con otras piezas de infraestructura que merezcan revision.</li>
-<li class="">Tomar la informacion como una pista priorizada, no como sentencia.</li>
-<li class="">Corroborar fuera: <code>DNS</code>, captura web, historico, sandbox o tus propias telemetrias.</li>
-</ol>
-<p>Ese flujo no solo ahorra tiempo. Tambien protege contra dos vicios comunes del OSINT tecnico: enamorarse de una etiqueta y confundir enrichment con evidencia suficiente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-un-indicador-concreto">1. Empezar por un indicador concreto<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#1-empezar-por-un-indicador-concreto" class="hash-link" aria-label="Enlace directo al 1. Empezar por un indicador concreto" title="Enlace directo al 1. Empezar por un indicador concreto" translate="no">​</a></h3>
-<p><code>Maltiverse</code> trabaja bien cuando entras con una pieza definida: <code>IP</code>, dominio, hostname, <code>URL</code> o fichero. Su documentacion sobre tipos de <code>IoC</code> explica precisamente esa idea: varios tipos de artefacto, cada uno con sus propios campos y contexto asociado.</p>
-<p>Esto es importante porque obliga a preguntar primero "que estoy observando?" antes de preguntar "quien esta detras?". Para OSINT responsable, ese orden salva mucho analisis malo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usar-la-consulta-como-filtro-no-como-oraculo">2. Usar la consulta como filtro, no como oraculo<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#2-usar-la-consulta-como-filtro-no-como-oraculo" class="hash-link" aria-label="Enlace directo al 2. Usar la consulta como filtro, no como oraculo" title="Enlace directo al 2. Usar la consulta como filtro, no como oraculo" translate="no">​</a></h3>
-<p>La <code>Maltiverse Query Language</code> esta pensada para combinar texto libre y campos concretos. Eso, en la practica, te deja hacer algo muy util: refinar rapidamente busquedas y quedarte con subconjuntos manejables.</p>
-<p>La ventaja operativa no es solo velocidad. Es trazabilidad. Si tu filtro queda escrito, otro analista puede repetirlo, discutirlo o mejorarlo. Esa reproducibilidad vale mas que una intuicion brillante pero irrepetible.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-bien-la-clasificacion-y-los-metadatos">3. Leer bien la clasificacion y los metadatos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#3-leer-bien-la-clasificacion-y-los-metadatos" class="hash-link" aria-label="Enlace directo al 3. Leer bien la clasificacion y los metadatos" title="Enlace directo al 3. Leer bien la clasificacion y los metadatos" translate="no">​</a></h3>
-<p>Una plataforma de inteligencia tiende a devolver scores, tags, descripciones y relaciones. La tentacion es mirar solo el semaforo final. Mejor hacer lo contrario:</p>
-<ul>
-<li class="">revisar la categoria asignada;</li>
-<li class="">comprobar fecha de creacion y ultima actualizacion;</li>
-<li class="">mirar que etiquetas acompanan el <code>IoC</code>;</li>
-<li class="">y separar que viene de enrichment automatico y que parece validacion mas fuerte.</li>
-</ul>
-<p>En otras palabras: no uses el color del tablero como atajo mental para saltarte el contexto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-aprovechar-el-enrichment-pero-con-cautela">4. Aprovechar el enrichment, pero con cautela<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#4-aprovechar-el-enrichment-pero-con-cautela" class="hash-link" aria-label="Enlace directo al 4. Aprovechar el enrichment, pero con cautela" title="Enlace directo al 4. Aprovechar el enrichment, pero con cautela" translate="no">​</a></h3>
-<p>Una parte interesante de la documentacion oficial es el enriquecimiento automatico con <code>MITRE ATT&amp;CK</code>. <code>Maltiverse</code> explica que puede etiquetar <code>IoCs</code> en tiempo real a partir del campo <code>blacklist.description</code>, anadiendo referencias externas como identificadores y enlaces al conocimiento de <code>MITRE</code>.</p>
-<p>Esto es util para hablar un lenguaje comun con defensa y respuesta a incidentes. Pero tambien tiene una trampa sutil: si la descripcion de origen es pobre o ambigua, el enrichment no crea certeza de la nada. Solo organiza mejor lo que ya venia insinuado por los datos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cerrar-siempre-fuera-de-la-plataforma">5. Cerrar siempre fuera de la plataforma<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#5-cerrar-siempre-fuera-de-la-plataforma" class="hash-link" aria-label="Enlace directo al 5. Cerrar siempre fuera de la plataforma" title="Enlace directo al 5. Cerrar siempre fuera de la plataforma" translate="no">​</a></h3>
-<p><code>Maltiverse</code> puede ayudarte a priorizar que mirar, pero no deberia ser tu ultima parada. El cierre razonable suele venir de fuera:</p>
-<ul>
-<li class="">resolver <code>DNS</code> y revisar cambios;</li>
-<li class="">capturar la pagina o <code>URL</code> en un entorno seguro;</li>
-<li class="">contrastar con otras fuentes de reputacion;</li>
-<li class="">revisar <code>WHOIS</code> o <code>RDAP</code> cuando aporte contexto;</li>
-<li class="">y guardar una nota clara de que parte del juicio sale de inteligencia externa y que parte sale de observacion propia.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Las plataformas de <code>IoCs</code> son utiles precisamente porque reducen friccion. Y por eso mismo pueden introducir una pereza peligrosa.</p>
-<p>Riesgos tipicos:</p>
-<ul>
-<li class=""><code>IP</code> compartidas o recicladas que heredan mala reputacion ajena;</li>
-<li class="">dominios comprometidos temporalmente que despues cambian de estado;</li>
-<li class="">etiquetas demasiado amplias que mezclan spam, phishing, malware o abuso generico;</li>
-<li class="">y analistas que saltan de "esta marcado" a "ya esta demostrado".</li>
-</ul>
-<p>Si un <code>IOC</code> aparece con contexto escaso, piensa en <code>Maltiverse</code> como una herramienta de triage, no como sustituto de atribucion o analisis forense.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque este tipo de plataforma se mueve en contexto defensivo, sigue siendo buena idea imponer limites claros:</p>
-<ul>
-<li class="">no compartas datos internos innecesarios si el caso exige minima exposicion;</li>
-<li class="">evita enriquecer automaticamente cualquier hallazgo sensible sin revisar primero su legitimidad;</li>
-<li class="">no confundas infraestructura comprometida con operador responsable;</li>
-<li class="">y documenta tus inferencias para que otro analista entienda donde acababa el dato y donde empezaba tu lectura.</li>
-</ul>
-<p>La disciplina etica aqui no es abstracta. Es practica. Evita errores de atribucion y respuestas desproporcionadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Maltiverse</code> no vive solo. Dependiendo del caso, puedes complementarlo con:</p>
-<ul>
-<li class=""><code>AbuseIPDB</code> para reputacion comunitaria muy orientada a <code>IP</code>;</li>
-<li class=""><code>VirusTotal</code> para relaciones y contexto multifuente;</li>
-<li class=""><code>urlscan.io</code> si necesitas ver comportamiento y recursos cargados por una <code>URL</code>;</li>
-<li class=""><code>SecurityTrails</code>, <code>crt.sh</code> o <code>RDAP</code> si el problema exige mas profundidad historica e infraestructura;</li>
-<li class="">y tus propias fuentes internas si trabajas con telemetria operativa.</li>
-</ul>
-<p>La decision madura no es "que herramienta gana". Es "que capa me falta todavia para sostener una conclusion razonable".</p>
-<p>Takeaway final: <code>Maltiverse</code> es mas valioso cuando lo usas para ordenar incertidumbre, no para fingir que la incertidumbre ya no existe. Si quieres seguir por esta linea en el blog, un puente natural seria un post practico sobre <strong>como comparar varias fuentes de reputacion y enrichment sin mezclar severidad con certeza</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/maltiverse-osint-iocs-contexto-ruido#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>Maltiverse</code>, vision general de la plataforma y su documentacion: <a href="https://whatis.maltiverse.com/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/</a></li>
-<li class=""><code>Maltiverse Docs</code>, <code>Maltiverse Query Language</code>: <a href="https://whatis.maltiverse.com/docs/search-engine-query-syntax/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/search-engine-query-syntax/</a></li>
-<li class=""><code>Maltiverse Docs</code>, <code>Types of Indicators of Compromise (IoCs) in Maltiverse</code>: <a href="https://whatis.maltiverse.com/docs/ioc-types/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/ioc-types/</a></li>
-<li class=""><code>Maltiverse Docs</code>, <code>MITRE ATT&amp;CK Enrichment</code>: <a href="https://whatis.maltiverse.com/docs/mitre-attck-enrichment/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/mitre-attck-enrichment/</a></li>
-<li class=""><code>Maltiverse Docs</code>, <code>Creating a Threat Intelligence Feed in Maltiverse Platform</code>: <a href="https://whatis.maltiverse.com/docs/create-threat-intelligence-feed/" target="_blank" rel="noopener noreferrer" class="">https://whatis.maltiverse.com/docs/create-threat-intelligence-feed/</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Threat Intelligence" term="Threat Intelligence"/>
-        <category label="IoC" term="IoC"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Triage" term="Triage"/>
     </entry>
 </feed>
