@@ -4,10 +4,147 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 23 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[crt.sh en OSINT: Certificate Transparency para descubrir nombres sin confundirlos con activos]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto</guid>
+            <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de un analista OSINT revisando certificados TLS, una cronología y relaciones entre dominios con criterio defensivo]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista OSINT revisando certificados TLS, una cronología y relaciones entre dominios con criterio defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-23-crtsh-certificate-transparency-osint-contexto-9291382dc9dbdc9f98a5611f3ce63f7b.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una empresa asegura que ya ha retirado un entorno antiguo, pero en su inventario aparece un nombre que nadie reconoce: <code>proveedores.empresa-ejemplo.test</code>. No figura en la web pública, no está en la documentación reciente y buscarlo a ciegas solo añade ruido. En un caso así, <code>crt.sh</code> puede abrir una pista útil al consultar registros públicos de <strong>Certificate Transparency</strong> (<code>CT</code>): qué nombres aparecieron en certificados o precertificados, cuándo se observaron y qué autoridad certificadora intervino.</p>
+<p>La clave está en no pedirle más de lo que sabe. Un registro <code>CT</code> demuestra que un nombre quedó incluido en material de certificado; <strong>no demuestra por sí solo que el host siga activo, que resuelva hoy, que pertenezca todavía a la misma organización ni que esté expuesto de forma insegura</strong>. Este artículo propone un flujo para inventario defensivo, <code>due diligence</code> técnica y verificación responsable, no para intrusión, acoso ni ampliación abusiva de objetivos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-certificate-transparency-y-dónde-encaja-crtsh">Qué es Certificate Transparency y dónde encaja crt.sh<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#qu%C3%A9-es-certificate-transparency-y-d%C3%B3nde-encaja-crtsh" class="hash-link" aria-label="Enlace directo al Qué es Certificate Transparency y dónde encaja crt.sh" title="Enlace directo al Qué es Certificate Transparency y dónde encaja crt.sh" translate="no">​</a></h2>
+<p>Certificate Transparency es un sistema de registros públicos y auditables para certificados TLS. El <a href="https://www.rfc-editor.org/rfc/rfc9162.html" target="_blank" rel="noopener noreferrer" class="">RFC 9162</a>, publicado en diciembre de 2021, describe <code>CT v2</code> como un protocolo para registrar públicamente certificados de servidor TLS conforme se emiten u observan. Su objetivo es que la actividad de las autoridades certificadoras pueda auditarse y que resulte posible detectar emisiones sospechosas.</p>
+<p>Los logs funcionan como árboles de Merkle <strong>append-only</strong>: se pueden añadir entradas, pero su diseño permite comprobar criptográficamente que el historial no se ha reescrito en silencio. Una autoridad certificadora, el titular o un tercero puede presentar un certificado; el log devuelve un <code>Signed Certificate Timestamp</code> (<code>SCT</code>) como compromiso de incorporarlo dentro de su plazo máximo de integración.</p>
+<p>En ese ecosistema hay tres piezas distintas:</p>
+<ul>
+<li class="">los <strong>logs</strong> reciben certificados y precertificados y mantienen el historial auditable;</li>
+<li class="">los <strong>monitores</strong> revisan esos logs en busca de emisiones relevantes o sospechosas;</li>
+<li class="">herramientas de búsqueda como <strong>crt.sh</strong> hacen que ese corpus sea consultable para un analista.</li>
+</ul>
+<p><code>crt.sh</code> no es “el log” ni una prueba de disponibilidad. Es una interfaz de búsqueda sobre datos de certificados. Su organización pública mantiene, entre otros componentes, un monitor de logs, el esquema de la base de datos y utilidades de procesamiento de certificados.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-reconciliar-el-inventario-de-una-empresa-ficticia">Caso de uso legítimo: reconciliar el inventario de una empresa ficticia<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#caso-de-uso-leg%C3%ADtimo-reconciliar-el-inventario-de-una-empresa-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: reconciliar el inventario de una empresa ficticia" title="Enlace directo al Caso de uso legítimo: reconciliar el inventario de una empresa ficticia" translate="no">​</a></h2>
+<p>Imagina que el equipo de seguridad de <code>Northbridge Foods</code>, una compañía ficticia, prepara una auditoría de su superficie externa. El inventario aprobado contiene <code>www</code>, <code>clientes</code> y <code>correo</code>, pero una consulta por el dominio corporativo devuelve también estos nombres históricos:</p>
+<table><thead><tr><th>Nombre observado</th><th>Primera pregunta</th><th>Evidencia adicional necesaria</th></tr></thead><tbody><tr><td><code>clientes.northbridge.example</code></td><td>¿Es un portal vigente?</td><td>DNS actual, inventario y responsable interno</td></tr><tr><td><code>vpn-antigua.northbridge.example</code></td><td>¿Se retiró realmente?</td><td>DNS histórico, ticket de baja y comprobación autorizada</td></tr><tr><td><code>*.laboratorio.northbridge.example</code></td><td>¿Qué cubría el comodín?</td><td>Emisión del certificado y alcance documentado; no enumera cada host</td></tr></tbody></table>
+<p>El objetivo no es “encontrar algo vulnerable”. Es comparar tres listas: <strong>lo documentado, lo observado históricamente y lo que sigue validado hoy</strong>. Esa diferencia puede revelar deuda de inventario, nombres olvidados, proveedores que ya no deberían emitir certificados o simplemente residuos históricos sin relevancia operativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-y-pregunta">1. Define alcance y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#1-define-alcance-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Define alcance y pregunta" title="Enlace directo al 1. Define alcance y pregunta" translate="no">​</a></h3>
+<p>Empieza por un dominio que la organización controla o que está expresamente dentro de una revisión autorizada. Anota antes de buscar:</p>
+<ul>
+<li class="">quién ha solicitado la comprobación;</li>
+<li class="">qué dominio o unidad de negocio entra en alcance;</li>
+<li class="">qué periodo interesa;</li>
+<li class="">y qué decisión dependerá del resultado.</li>
+</ul>
+<p>Una pregunta útil sería: “¿Qué nombres incluidos en certificados durante los últimos doce meses no aparecen en el inventario aprobado?”. “Descubrir todo lo posible” no es una pregunta: es una receta para acumular datos sin criterio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-crtsh-y-conserva-la-búsqueda">2. Consulta crt.sh y conserva la búsqueda<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#2-consulta-crtsh-y-conserva-la-b%C3%BAsqueda" class="hash-link" aria-label="Enlace directo al 2. Consulta crt.sh y conserva la búsqueda" title="Enlace directo al 2. Consulta crt.sh y conserva la búsqueda" translate="no">​</a></h3>
+<p>En la interfaz web, busca el dominio y revisa los nombres incluidos en el <code>Common Name</code> y en los <code>Subject Alternative Names</code> (<code>SAN</code>). Para una revisión reproducible, conserva:</p>
+<ul>
+<li class="">la consulta exacta;</li>
+<li class="">la fecha y zona horaria;</li>
+<li class="">el identificador de la entrada o certificado;</li>
+<li class="">el emisor;</li>
+<li class="">las fechas <code>Not Before</code> y <code>Not After</code>;</li>
+<li class="">y los nombres observados.</li>
+</ul>
+<p>Si usas una salida estructurada para un volumen moderado, documenta igualmente el origen y limita la automatización. Un ejemplo con un dominio reservado para documentación sería:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://crt.sh/?q=%25.example.com&amp;output=json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -o crtsh-example-com.json</span><br></span></code></pre></div></div>
+<p>El comodín codificado <code>%25</code> amplía la búsqueda a nombres que terminan en el dominio. Eso puede generar duplicados: un mismo certificado puede aparecer en más de una entrada y <code>name_value</code> puede contener varios nombres separados por saltos de línea. Deduplicar ayuda a ordenar; <strong>no convierte los resultados en activos confirmados</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-sin-borrar-el-tiempo">3. Normaliza sin borrar el tiempo<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#3-normaliza-sin-borrar-el-tiempo" class="hash-link" aria-label="Enlace directo al 3. Normaliza sin borrar el tiempo" title="Enlace directo al 3. Normaliza sin borrar el tiempo" translate="no">​</a></h3>
+<p>Crea una tabla de trabajo con, al menos:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">nombre_observado | primera_observacion | not_before | not_after | emisor | id_fuente | estado_validacion</span><br></span></code></pre></div></div>
+<p>Normaliza mayúsculas, elimina el prefijo <code>*.</code> solo en una columna derivada y conserva siempre el valor original. Un comodín como <code>*.laboratorio.example</code> no enumera automáticamente todos los subdominios posibles: solo indica el alcance nominal que cubre ese certificado.</p>
+<p>Tampoco mezcles “fecha del certificado” y “momento en que tu equipo lo consultó”. La primera ayuda a reconstruir una cronología; la segunda asegura trazabilidad de tu informe.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-valida-cada-nombre-con-otra-capa">4. Valida cada nombre con otra capa<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#4-valida-cada-nombre-con-otra-capa" class="hash-link" aria-label="Enlace directo al 4. Valida cada nombre con otra capa" title="Enlace directo al 4. Valida cada nombre con otra capa" translate="no">​</a></h3>
+<p>Antes de elevar una pista a hallazgo, contrástala con fuentes que respondan preguntas diferentes:</p>
+<ol>
+<li class=""><strong>DNS actual:</strong> ¿el nombre resuelve ahora? Guarda tipo de registro, respuesta y hora.</li>
+<li class=""><strong>DNS histórico o archivo web:</strong> ¿resolvía o mostraba contenido durante el periodo relevante?</li>
+<li class=""><strong>Inventario autorizado:</strong> ¿hay propietario, proveedor, servicio y fecha de retirada?</li>
+<li class=""><strong>Certificado servido actualmente:</strong> ¿coincide con el registro histórico o se ha sustituido?</li>
+<li class=""><strong>Contexto documental:</strong> ¿un ticket, contrato o cambio de infraestructura explica la relación?</li>
+</ol>
+<p>Que un nombre no resuelva hoy no invalida el registro histórico. Que resuelva tampoco prueba control organizativo: puede apuntar a alojamiento compartido, un servicio gestionado o infraestructura reutilizada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-clasifica-la-certeza-no-solo-el-resultado">5. Clasifica la certeza, no solo el resultado<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#5-clasifica-la-certeza-no-solo-el-resultado" class="hash-link" aria-label="Enlace directo al 5. Clasifica la certeza, no solo el resultado" title="Enlace directo al 5. Clasifica la certeza, no solo el resultado" translate="no">​</a></h3>
+<p>Una escala sencilla evita conclusiones infladas:</p>
+<ul>
+<li class=""><strong>Observado:</strong> el nombre figura en un certificado o precertificado registrado.</li>
+<li class=""><strong>Corroborado:</strong> otra fuente independiente sitúa el nombre en una fecha o contexto compatible.</li>
+<li class=""><strong>Activo validado:</strong> el equipo confirma que forma parte del inventario vigente.</li>
+<li class=""><strong>Pendiente:</strong> hay una pista, pero falta información suficiente.</li>
+<li class=""><strong>Descartado con motivo:</strong> duplicado, comodín mal interpretado, nombre de tercero o residuo explicado.</li>
+</ul>
+<p>El informe debe poder mostrar cómo pasó cada fila de una categoría a otra.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-puede-salir-mal-limitaciones-y-falsos-positivos">Qué puede salir mal: limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#qu%C3%A9-puede-salir-mal-limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Qué puede salir mal: limitaciones y falsos positivos" title="Enlace directo al Qué puede salir mal: limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-certificado-no-equivale-a-un-servidor-vivo">Un certificado no equivale a un servidor vivo<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#un-certificado-no-equivale-a-un-servidor-vivo" class="hash-link" aria-label="Enlace directo al Un certificado no equivale a un servidor vivo" title="Enlace directo al Un certificado no equivale a un servidor vivo" translate="no">​</a></h3>
+<p>Los certificados pueden caducar, renovarse, reemplazarse o emitirse antes de que un servicio llegue a producción. Los precertificados también forman parte del sistema. Por eso, una coincidencia es evidencia sobre <strong>emisión u observación</strong>, no una sonda de disponibilidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-nombres-pueden-revelar-más-contexto-del-previsto">Los nombres pueden revelar más contexto del previsto<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#los-nombres-pueden-revelar-m%C3%A1s-contexto-del-previsto" class="hash-link" aria-label="Enlace directo al Los nombres pueden revelar más contexto del previsto" title="Enlace directo al Los nombres pueden revelar más contexto del previsto" translate="no">​</a></h3>
+<p>El propio RFC dedica una consideración de seguridad a la posible filtración de información DNS. Nombres internos trasladados por error a certificados públicamente confiables, etiquetas de proyecto o referencias a proveedores pueden quedar visibles. Esa visibilidad justifica revisar las prácticas de nomenclatura y emisión; no autoriza a explotar el hallazgo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-comodines-crean-una-falsa-sensación-de-cobertura">Los comodines crean una falsa sensación de cobertura<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#los-comodines-crean-una-falsa-sensaci%C3%B3n-de-cobertura" class="hash-link" aria-label="Enlace directo al Los comodines crean una falsa sensación de cobertura" title="Enlace directo al Los comodines crean una falsa sensación de cobertura" translate="no">​</a></h3>
+<p><code>*.example.com</code> indica que un certificado puede cubrir determinados nombres bajo ese nivel, pero no lista cuáles existen. Tratar el comodín como un inventario de hosts produce conclusiones ficticias.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-cronología-tiene-varios-relojes">La cronología tiene varios relojes<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#la-cronolog%C3%ADa-tiene-varios-relojes" class="hash-link" aria-label="Enlace directo al La cronología tiene varios relojes" title="Enlace directo al La cronología tiene varios relojes" translate="no">​</a></h3>
+<p>Conviene separar al menos:</p>
+<ul>
+<li class="">timestamp de entrada o precertificado;</li>
+<li class=""><code>Not Before</code> y <code>Not After</code>;</li>
+<li class="">momento de primera observación por tu equipo;</li>
+<li class="">y fecha de cualquier comprobación DNS o web.</li>
+</ul>
+<p>Ordenar mal esos relojes puede convertir una migración normal en una supuesta anomalía.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crtsh-y-cualquier-agregador-tienen-límites-operativos">crt.sh y cualquier agregador tienen límites operativos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#crtsh-y-cualquier-agregador-tienen-l%C3%ADmites-operativos" class="hash-link" aria-label="Enlace directo al crt.sh y cualquier agregador tienen límites operativos" title="Enlace directo al crt.sh y cualquier agregador tienen límites operativos" translate="no">​</a></h3>
+<p>Una interfaz de búsqueda puede responder lentamente, aplicar límites o devolver resultados repetidos. Para monitorización continua de activos propios, no dependas de una única consulta ocasional: combina alertas de emisión, inventario y revisión periódica.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con activos propios, encargos documentados o preguntas de interés público legítimo y proporcional.</li>
+<li class="">Evita incluir nombres personales, correos o etiquetas sensibles en capturas compartidas si no son necesarios.</li>
+<li class="">No abras hosts desconocidos desde el navegador de trabajo; valida primero DNS, alcance y procedimiento interno.</li>
+<li class="">Limita frecuencia y volumen de consultas. Conserva resultados suficientes para reproducir el análisis, no un volcado indiscriminado.</li>
+<li class="">Separa datos brutos, notas analíticas y conclusiones. Una cadena de custodia ligera —URL, timestamp, hash del fichero y capturas— mejora la auditabilidad.</li>
+<li class="">Informa de un certificado inesperado al propietario o al equipo de seguridad por un canal responsable; no lo presentes públicamente como brecha sin corroboración.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-una-revisión-defendible">Checklist para una revisión defendible<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#checklist-para-una-revisi%C3%B3n-defendible" class="hash-link" aria-label="Enlace directo al Checklist para una revisión defendible" title="Enlace directo al Checklist para una revisión defendible" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El dominio está autorizado y la pregunta está escrita.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La consulta, la fecha y el identificador de cada entrada se han conservado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los nombres originales y normalizados están en columnas distintas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los comodines no se han tratado como hosts enumerados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada nombre relevante tiene al menos una validación independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->“Observado”, “corroborado” y “activo” no se usan como sinónimos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las fechas del certificado, del log y de la comprobación están separadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los datos personales o etiquetas sensibles se han minimizado en el informe.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las conclusiones incluyen límites y una acción concreta para el propietario.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>crt.sh</code> es una entrada cómoda, pero no cubre todas las preguntas:</p>
+<ul>
+<li class="">los monitores de <code>Certificate Transparency</code> encajan mejor cuando necesitas alertas continuas sobre dominios propios;</li>
+<li class=""><code>Censys</code> permite relacionar certificados con servicios observados, con sus propios tiempos y límites de cobertura;</li>
+<li class=""><code>RDAP/WHOIS</code> aporta contexto registral, no prueba de operación;</li>
+<li class="">DNS histórico ayuda a reconstruir resoluciones pasadas;</li>
+<li class=""><code>urlscan.io</code> y el archivo web aportan comportamiento o contenido observado, siempre con cuidado de no enviar URLs sensibles a servicios públicos.</li>
+</ul>
+<p>El takeaway práctico es este: usa <code>crt.sh</code> para <strong>generar una lista de nombres y momentos que merecen validación</strong>, no para declarar activos, propietarios o incidentes. La calidad del análisis aparece cuando el registro del certificado se cruza con DNS, inventario y contexto temporal, y cuando cada conclusión conserva el grado de certeza que realmente soportan las fuentes.</p>
+<p>Como siguiente tema, tendría sentido comparar monitorización continua de <code>CT</code> con revisiones puntuales de DNS histórico: qué detecta antes cada capa, qué omite y cómo evitar alertas sin contexto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://certificate.transparency.dev/howctworks/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: How CT Works</a></li>
+<li class=""><a href="https://certificate.transparency.dev/logs" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Logs</a></li>
+<li class=""><a href="https://certificate.transparency.dev/monitors" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Monitors</a></li>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9162.html" target="_blank" rel="noopener noreferrer" class="">RFC 9162: Certificate Transparency Version 2.0</a></li>
+<li class=""><a href="https://github.com/crtsh" target="_blank" rel="noopener noreferrer" class="">Organización oficial de crt.sh en GitHub</a></li>
+<li class=""><a href="https://googlechrome.github.io/CertificateTransparency/ct_policy.html" target="_blank" rel="noopener noreferrer" class="">Chrome Certificate Transparency Policy</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>TLS</category>
+            <category>Infraestructura</category>
+            <category>Metodologia</category>
+        </item>
         <item>
             <title><![CDATA[EDGAR en OSINT: filings, CIK y XBRL para investigar empresas con contexto]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto</link>
@@ -2192,110 +2329,6 @@
             <category>Phishing</category>
             <category>Investigacion</category>
             <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[TinEye en OSINT: verificar imagenes, rastrear origen y poner contexto antes de concluir]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto</guid>
-            <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT comparando versiones de una misma imagen, fechas de rastreo y origenes web en un tablero de verificacion visual]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando versiones de una misma imagen, fechas de rastreo y origenes web en un tablero de verificacion visual" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-03-tineye-osint-verificar-imagenes-origen-contexto-e539c8806aaa27a301ee5d56e1880c4b.png" width="1600" height="900" class="img_ev3q"></p>
-<p>Cuando una foto aparece en una alerta, en un perfil dudoso o en un mensaje que intenta forzar una reaccion rapida, el error mas comun no es tecnico: es emocional. Mucha gente mira la imagen, siente que "ya la ha visto" y se lanza a concluir que es autentica, reciente o unica. <code>TinEye</code> sirve precisamente para enfriar ese impulso. No te dice quien sale en la foto ni te regala una atribucion cerrada, pero te ayuda a comprobar si esa misma imagen ya circulaba antes, si existe en otras resoluciones o si ha sido reutilizada en contextos distintos.</p>
-<p>En un flujo OSINT responsable, eso importa mucho. Una busqueda inversa bien hecha puede desmontar una falsa exclusividad, reubicar una foto en otra cronologia y abrir mejores preguntas sobre origen, reuso y edicion. Lo importante es no pedirle mas de lo que realmente hace.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>TinEye</code> es un motor de busqueda inversa por imagen. Su documentacion oficial explica que trabaja con reconocimiento visual y huellas digitales de la imagen, no con nombres de archivo, metadatos o marcas de agua. Tambien aclara que esta orientado a encontrar coincidencias de la misma imagen, incluidas versiones recortadas, redimensionadas o editadas, no "imagenes parecidas" en sentido semantico.</p>
-<p>Traducido al trabajo real de OSINT, resulta util para tareas como estas:</p>
-<ul>
-<li class="">comprobar si una foto de perfil ya estaba publicada en otros sitios;</li>
-<li class="">encontrar versiones anteriores o de mayor resolucion de una imagen;</li>
-<li class="">detectar reutilizaciones de una misma foto en contextos incompatibles;</li>
-<li class="">revisar que dominios o colecciones la publicaron;</li>
-<li class="">y abrir una cronologia aproximada de rastreo sin confundirla con la fecha real de origen.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que una periodista recibe un mensaje de una supuesta fuente que incluye la foto de una manifestacion "ocurrida hoy mismo" en una capital europea. La imagen parece plausible, pero nadie deberia publicarla solo por intuicion visual.</p>
-<p>Con <code>TinEye</code>, el flujo prudente seria:</p>
-<ul>
-<li class="">lanzar una busqueda con la imagen recibida;</li>
-<li class="">revisar si aparecen coincidencias anteriores en otros dominios;</li>
-<li class="">ordenar resultados por <code>oldest</code> y por <code>newest</code> para entender la ventana de rastreo observada;</li>
-<li class="">comparar si la imagen actual es un recorte o una version modificada de otra mas antigua;</li>
-<li class="">y anotar que parte de la historia es observable y que parte sigue siendo inferencia.</li>
-</ul>
-<p>Si los primeros resultados muestran que la misma foto ya estaba rastreada meses antes en otro contexto, ya no tienes una primicia: tienes una reutilizacion. Ese hallazgo no resuelve por si solo quien la reutilizo ni con que intencion, pero evita publicar una mentira con apariencia de urgencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-modesta">1. Empieza por una pregunta modesta<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#1-empieza-por-una-pregunta-modesta" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta modesta" title="Enlace directo al 1. Empieza por una pregunta modesta" translate="no">​</a></h3>
-<p>La mejor pregunta inicial no es "quien hizo esta foto" ni "es esta persona quien dice ser". La pregunta sensata es mucho mas estrecha: "esta misma imagen, o una version alterada de ella, ya aparecio antes en la web rastreada por TinEye?".</p>
-<p>Ese recorte de ambicion mejora el metodo. La propia ayuda oficial insiste en que <code>TinEye</code> busca coincidencias visuales de la imagen y que no hace reconocimiento facial ni devuelve, por regla general, imagenes simplemente similares.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-sube-la-imagen-correcta-y-cuida-el-ruido">2. Sube la imagen correcta y cuida el ruido<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#2-sube-la-imagen-correcta-y-cuida-el-ruido" class="hash-link" aria-label="Enlace directo al 2. Sube la imagen correcta y cuida el ruido" title="Enlace directo al 2. Sube la imagen correcta y cuida el ruido" translate="no">​</a></h3>
-<p>La ayuda oficial indica que <code>TinEye</code> acepta varios formatos comunes y funciona mejor con imagenes de al menos 300 pixeles por lado, aunque puede aceptar tamanos menores. Tambien advierte que las marcas de agua visibles pueden perjudicar la busqueda, porque el sistema puede terminar priorizando esa capa por encima de la escena.</p>
-<p>En practica:</p>
-<ul>
-<li class="">evita capturas con bordes, marcos o textos anadidos si tienes acceso a una version mas limpia;</li>
-<li class="">guarda la copia original antes de recortarla para poder repetir la prueba;</li>
-<li class="">y si sospechas edicion fuerte, prueba tambien con detalles parciales de la imagen para comprobar si el reuso afecta solo a una zona.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-ordena-resultados-con-intencion-analitica">3. Ordena resultados con intencion analitica<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#3-ordena-resultados-con-intencion-analitica" class="hash-link" aria-label="Enlace directo al 3. Ordena resultados con intencion analitica" title="Enlace directo al 3. Ordena resultados con intencion analitica" translate="no">​</a></h3>
-<p>Una parte muy aprovechable de <code>TinEye</code> es el ordenado de resultados. La documentacion explica que puedes clasificarlos por <code>best match</code>, <code>biggest image</code>, <code>most changed</code>, <code>newest</code> y <code>oldest</code>. Esa variedad no es decorativa: cambia la lectura metodologica.</p>
-<ul>
-<li class=""><code>best match</code> ayuda a encontrar la version mas cercana a tu muestra;</li>
-<li class=""><code>most changed</code> puede sacar a la luz copias con ediciones fuertes;</li>
-<li class=""><code>biggest image</code> sirve para localizar versiones con mas detalle;</li>
-<li class=""><code>oldest</code> y <code>newest</code> ayudan a acotar cuando encontro TinEye una coincidencia en su propio indice.</li>
-</ul>
-<p>Aqui conviene una cautela importante: la propia plataforma advierte que la fecha de rastreo en <code>oldest</code> o <code>newest</code> no equivale a la fecha en que la imagen aparecio por primera vez en Internet. Solo te dice cuando su crawler la encontro.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-indice-como-cobertura-parcial-no-como-universo-total">4. Lee el indice como cobertura parcial, no como universo total<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#4-lee-el-indice-como-cobertura-parcial-no-como-universo-total" class="hash-link" aria-label="Enlace directo al 4. Lee el indice como cobertura parcial, no como universo total" title="Enlace directo al 4. Lee el indice como cobertura parcial, no como universo total" translate="no">​</a></h3>
-<p>La ayuda sobre el indice de <code>TinEye</code> explica que rastrean miles de millones de imagenes en la web y que prestan especial atencion a colecciones curadas y bancos de imagenes. Tambien indica que normalmente no indexan imagenes de muchas redes sociales porque esas plataformas suelen prohibir ese rastreo.</p>
-<p>Esto cambia bastante la interpretacion:</p>
-<ul>
-<li class="">si encuentras coincidencias, tienes senal util;</li>
-<li class="">si no encuentras ninguna, no has demostrado unicidad;</li>
-<li class="">y si buscas contenido nacido o encerrado en plataformas sociales, la cobertura puede ser incompleta por diseno.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-separa-coincidencia-visual-de-atribucion-personal">5. Separa coincidencia visual de atribucion personal<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#5-separa-coincidencia-visual-de-atribucion-personal" class="hash-link" aria-label="Enlace directo al 5. Separa coincidencia visual de atribucion personal" title="Enlace directo al 5. Separa coincidencia visual de atribucion personal" translate="no">​</a></h3>
-<p>La ayuda oficial es clara en dos limites que conviene repetir. Primero, <code>TinEye</code> no hace reconocimiento facial. Segundo, aunque encuentre la misma foto, eso no significa que conozca la identidad de la persona retratada.</p>
-<p>En OSINT responsable, esta distincion protege de dos errores habituales:</p>
-<ul>
-<li class="">convertir una coincidencia de imagen en una identificacion personal apresurada;</li>
-<li class="">asumir que la pagina donde aparece la imagen es necesariamente la fuente original o el titular legitimo.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-de-resultados-no-demuestra-nada-por-si-sola">La ausencia de resultados no demuestra nada por si sola<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#la-ausencia-de-resultados-no-demuestra-nada-por-si-sola" class="hash-link" aria-label="Enlace directo al La ausencia de resultados no demuestra nada por si sola" title="Enlace directo al La ausencia de resultados no demuestra nada por si sola" translate="no">​</a></h3>
-<p>Puede no haber coincidencias porque la imagen sea nueva, porque este fuera del indice, porque proceda de una red no rastreada o porque la copia disponible tenga demasiada compresion, texto o recorte. Una busqueda sin resultados cierra muy pocas preguntas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-origen-suele-ser-una-hipotesis-no-una-sentencia">El "origen" suele ser una hipotesis, no una sentencia<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#el-origen-suele-ser-una-hipotesis-no-una-sentencia" class="hash-link" aria-label="Enlace directo al El &quot;origen&quot; suele ser una hipotesis, no una sentencia" title="Enlace directo al El &quot;origen&quot; suele ser una hipotesis, no una sentencia" translate="no">​</a></h3>
-<p>Aunque <code>TinEye</code> ayude a encontrar versiones antiguas o de mayor resolucion, el primer match visible no siempre es el creador original. Puede ser un republicador temprano, un banco de imagenes o un mirror.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-fechas-del-crawler-no-sustituyen-una-cronologia-externa">Las fechas del crawler no sustituyen una cronologia externa<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#las-fechas-del-crawler-no-sustituyen-una-cronologia-externa" class="hash-link" aria-label="Enlace directo al Las fechas del crawler no sustituyen una cronologia externa" title="Enlace directo al Las fechas del crawler no sustituyen una cronologia externa" translate="no">​</a></h3>
-<p>Si necesitas sostener una cronologia, cruza <code>TinEye</code> con archivo web, contexto de publicacion, metadatos disponibles, texto acompananante y otras fuentes documentales. La fecha observada por un crawler solo es una pieza de la historia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">usa <code>TinEye</code> para verificar autenticidad contextual de una imagen, no para hostigar a personas;</li>
-<li class="">evita convertir una foto de perfil en una cadena de conclusiones identitarias que la herramienta no puede sostener;</li>
-<li class="">documenta siempre que resultado observaste, en que fecha hiciste la consulta y que limitaciones de cobertura tenia el indice;</li>
-<li class="">si el caso implica derechos de autor, recuerda que encontrar una imagen no equivale a tener permiso para reutilizarla;</li>
-<li class="">y si estas trabajando con material sensible, conserva la copia consultada y las capturas de resultados con fecha.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>TinEye</code> funciona especialmente bien como capa de verificacion de reuso. Si el problema principal es archivo historico, conviene anadir <code>Wayback Machine</code> o capturas propias. Si lo que necesitas es lectura forense del archivo, <code>ExifTool</code> o <code>InVID</code> pueden aportar otra capa. Y si tu objetivo es entender quien publica una imagen y con que narrativa, toca cruzar resultados con contexto editorial, dominio, fecha y reputacion de la fuente.</p>
-<p>El takeaway practico es simple: usa <code>TinEye</code> para rebajar incertidumbre, no para sobreactuar. Cuando una imagen dudosa aparezca en un entorno sensible, lo primero no es interpretarla; lo primero es comprobar si ya habia vivido otra vida en la web.</p>
-<p>Como siguiente tema del blog, el puente natural seria una pieza metodologica sobre <code>TinEye</code> combinado con <code>Wayback Machine</code> e <code>InVID</code> para reconstruir cronologias visuales con mas rigor.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/tineye-osint-verificar-imagenes-origen-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
-<ul>
-<li class="">TinEye, What is TinEye?: <a href="https://help.tineye.com/article/231-what-is-tineye" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/231-what-is-tineye</a></li>
-<li class="">TinEye, How does TinEye work?: <a href="https://help.tineye.com/article/233-how-does-tineye-work" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/233-how-does-tineye-work</a></li>
-<li class="">TinEye, TinEye Tutorial: <a href="https://help.tineye.com/article/265-tineye-tutorial" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/265-tineye-tutorial</a></li>
-<li class="">TinEye, About the TinEye index: <a href="https://help.tineye.com/article/177-about-the-tineye-index" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/177-about-the-tineye-index</a></li>
-<li class="">TinEye, Can TinEye find similar images? Does TinEye do facial recognition?: <a href="https://help.tineye.com/article/235-can-tineye-find-similar-images-does-tineye-do-facial-recognition" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/235-can-tineye-find-similar-images-does-tineye-do-facial-recognition</a></li>
-<li class="">TinEye, Can I sort my results?: <a href="https://help.tineye.com/article/246-can-i-sort-my-results" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/246-can-i-sort-my-results</a></li>
-<li class="">TinEye, What kinds of images can I search on TinEye?: <a href="https://help.tineye.com/article/243-what-kinds-of-images-can-i-search-on-tineye" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/243-what-kinds-of-images-can-i-search-on-tineye</a></li>
-<li class="">TinEye, Does TinEye keep images I upload during a search?: <a href="https://help.tineye.com/article/244-does-tineye-keep-images-i-upload-during-a-search" target="_blank" rel="noopener noreferrer" class="">https://help.tineye.com/article/244-does-tineye-keep-images-i-upload-during-a-search</a></li>
-<li class="">TinEye Blog, Using TinEye to find the copyright owner of an image (5 de mayo de 2026): <a href="https://blog.tineye.com/find-copyright-owner-using-tineye/" target="_blank" rel="noopener noreferrer" class="">https://blog.tineye.com/find-copyright-owner-using-tineye/</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Verificacion</category>
-            <category>IMINT</category>
-            <category>Tooling</category>
-            <category>Investigacion</category>
-            <category>Privacidad</category>
         </item>
     </channel>
 </rss>
