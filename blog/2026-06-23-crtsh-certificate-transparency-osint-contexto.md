@@ -9,6 +9,9 @@ image: /img/blog/2026-06-23-crtsh-certificate-transparency-osint-contexto.png
 
 ![Ilustración editorial de un analista OSINT revisando certificados TLS, una cronología y relaciones entre dominios con criterio defensivo](/img/blog/2026-06-23-crtsh-certificate-transparency-osint-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/crtsh-certificate-transparency-osint-contexto.m4a)
+
+
 Una empresa asegura que ya ha retirado un entorno antiguo, pero en su inventario aparece un nombre que nadie reconoce: `proveedores.empresa-ejemplo.test`. No figura en la web pública, no está en la documentación reciente y buscarlo a ciegas solo añade ruido. En un caso así, `crt.sh` puede abrir una pista útil al consultar registros públicos de **Certificate Transparency** (`CT`): qué nombres aparecieron en certificados o precertificados, cuándo se observaron y qué autoridad certificadora intervino.
 
 La clave está en no pedirle más de lo que sabe. Un registro `CT` demuestra que un nombre quedó incluido en material de certificado; **no demuestra por sí solo que el host siga activo, que resuelva hoy, que pertenezca todavía a la misma organización ni que esté expuesto de forma insegura**. Este artículo propone un flujo para inventario defensivo, `due diligence` técnica y verificación responsable, no para intrusión, acoso ni ampliación abusiva de objetivos.
