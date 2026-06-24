@@ -2,11 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-23T00:00:00.000Z</updated>
+    <updated>2026-06-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Cloudflare Radar en OSINT: tendencias, cortes de Internet y contexto sin confundir señal con causa]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto"/>
+        <updated>2026-06-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando un mapa mundial, series temporales y una caída de conectividad con criterio metodológico]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando un mapa mundial, series temporales y una caída de conectividad con criterio metodológico" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-24-cloudflare-radar-osint-tendencias-cortes-internet-contexto-3a9cba5f41f1f3f1632be41f8a9f0d1b.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una región deja de responder durante una noche electoral. En redes sociales se habla de censura, el proveedor culpa a una avería y varias gráficas muestran una caída brusca. El problema no es encontrar otra captura: es separar <strong>qué cambió, dónde se observó, durante cuánto tiempo y qué evidencia permitiría explicar la causa</strong>. <code>Cloudflare Radar</code> puede aportar señales valiosas para ordenar esa investigación, pero no convierte una curva descendente en una atribución automática.</p>
+<p>Radar reúne vistas sobre tráfico de Internet, consultas DNS, rutas BGP, tecnologías, ataques y anomalías. Su utilidad OSINT está en comparar tendencias agregadas y construir una cronología verificable. Su límite también es importante: observa el mundo desde fuentes concretas, normaliza buena parte de los valores y no sustituye los datos del operador, las mediciones independientes ni la documentación local.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-cloudflare-radar-y-para-qué-sirve">Qué es Cloudflare Radar y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#qu%C3%A9-es-cloudflare-radar-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Cloudflare Radar y para qué sirve" title="Enlace directo al Qué es Cloudflare Radar y para qué sirve" translate="no">​</a></h2>
+<p><a href="https://radar.cloudflare.com/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar</a> es un portal público de tendencias e información sobre Internet. Según su <a href="https://radar.cloudflare.com/about" target="_blank" rel="noopener noreferrer" class="">descripción oficial</a>, combina datos de la red global de Cloudflare con datos agregados y anonimizados del resolvedor DNS público <code>1.1.1.1</code>. Algunas secciones incorporan además fuentes externas: por ejemplo, la vista de routing utiliza datos de <code>RIPE RIS</code>, mientras que determinados metadatos proceden de <code>PeeringDB</code> o <code>APNIC</code>.</p>
+<p>La distinción entre fuentes no es un detalle menor. Cada panel responde a una pregunta diferente:</p>
+<ul>
+<li class=""><strong>HTTP</strong> ayuda a observar cambios relativos en tráfico, protocolos, dispositivos o sistemas operativos vistos por Cloudflare;</li>
+<li class=""><strong>DNS</strong> resume patrones de consultas recibidas por <code>1.1.1.1</code>;</li>
+<li class=""><strong>NetFlows</strong> aporta otra señal sobre cambios de tráfico de red;</li>
+<li class=""><strong>BGP</strong> permite estudiar anuncios, rutas, fugas o secuestros potenciales desde la visibilidad disponible;</li>
+<li class=""><strong>anomalías y cortes</strong> organizan descensos de conectividad detectados y revisados;</li>
+<li class=""><strong>datasets y API</strong> permiten repetir consultas y conservar resultados estructurados.</li>
+</ul>
+<p>Esto hace que Radar sea útil en periodismo de datos, respuesta ante incidentes, análisis de políticas públicas, investigación de apagones y verificación de afirmaciones sobre conectividad. No es un medidor universal de “todo Internet” ni una prueba directa de intención.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-un-corte-en-una-región-ficticia">Caso de uso legítimo: verificar un corte en una región ficticia<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#caso-de-uso-leg%C3%ADtimo-verificar-un-corte-en-una-regi%C3%B3n-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar un corte en una región ficticia" title="Enlace directo al Caso de uso legítimo: verificar un corte en una región ficticia" translate="no">​</a></h2>
+<p>Imagina que una organización de observación electoral estudia una interrupción en <code>Monteluz</code>, un país ficticio. Entre las <code>20:10</code> y las <code>23:40</code> del día de votación, usuarios de dos provincias notifican pérdida de acceso. La hipótesis inicial es abierta: podría tratarse de un apagón eléctrico, una avería de fibra, un problema en un proveedor o una medida deliberada.</p>
+<p>El equipo crea una tabla antes de mirar gráficas:</p>
+<table><thead><tr><th>Pregunta</th><th>Señal en Radar</th><th>Corroboración necesaria</th></tr></thead><tbody><tr><td>¿Cayó el tráfico agregado?</td><td>Serie HTTP o NetFlows por ubicación</td><td>Mediciones de otras redes y testimonios fechados</td></tr><tr><td>¿Afectó a todo el país?</td><td>Comparación nacional, regional y por ASN</td><td>Datos de operadores y cobertura local</td></tr><tr><td>¿Cambió el routing?</td><td>Eventos y rutas BGP</td><td><code>RIPE RIS</code>, <code>RouteViews</code> y análisis técnico</td></tr><tr><td>¿Cuándo empezó y terminó?</td><td>Anotación de anomalía y series temporales</td><td>Timestamps de sondas, prensa local y avisos oficiales</td></tr><tr><td>¿Por qué ocurrió?</td><td>Posible causa publicada en el centro de cortes</td><td>Fuentes documentales independientes</td></tr></tbody></table>
+<p>Radar puede ayudar a confirmar que hubo una señal temporal y a acotar su alcance. Para atribuir la causa hacen falta capas adicionales. La metodología mejora cuando la conclusión final puede distinguir entre “caída observada”, “alcance corroborado” y “causa documentada”.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-la-pregunta-y-fija-el-marco-temporal">1. Formula la pregunta y fija el marco temporal<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#1-formula-la-pregunta-y-fija-el-marco-temporal" class="hash-link" aria-label="Enlace directo al 1. Formula la pregunta y fija el marco temporal" title="Enlace directo al 1. Formula la pregunta y fija el marco temporal" translate="no">​</a></h3>
+<p>Evita empezar con “demostrar que hubo censura”. Formula una pregunta que pueda fallar: “¿Qué señales abiertas muestran una reducción de conectividad en Monteluz entre las 18:00 y las 02:00 UTC, y qué explicaciones son compatibles con ellas?”.</p>
+<p>Registra:</p>
+<ul>
+<li class="">zona horaria original y conversión a <code>UTC</code>;</li>
+<li class="">ubicación y, si procede, <code>ASN</code> bajo estudio;</li>
+<li class="">periodo principal y periodo de referencia;</li>
+<li class="">fuentes que podrían refutar la hipótesis;</li>
+<li class="">y nivel de precisión que permite cada dataset.</li>
+</ul>
+<p>Una semana comparable suele ser más útil que una captura aislada. Los ciclos diarios, festivos y cambios de uso pueden parecer anomalías si la línea base está mal elegida.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-el-centro-de-cortes-no-por-la-explicación">2. Empieza por el centro de cortes, no por la explicación<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#2-empieza-por-el-centro-de-cortes-no-por-la-explicaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 2. Empieza por el centro de cortes, no por la explicación" title="Enlace directo al 2. Empieza por el centro de cortes, no por la explicación" translate="no">​</a></h3>
+<p>El <a href="https://radar.cloudflare.com/outage-center" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar Outage Center</a> reúne cortes y anomalías de conectividad. Para cada evento pueden aparecer ubicación, <code>ASN</code>, tipo, alcance, comienzo, final y una causa probable basada en información pública.</p>
+<p>Conserva la URL, la hora de consulta, el identificador del evento y el texto exacto que describe su estado. Una anomalía es una pista priorizada: incluso cuando ha sido revisada por el equipo de Radar, la causa publicada debe contrastarse con comunicados del operador, autoridades, prensa local fiable o mediciones técnicas independientes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-compara-series-dentro-de-la-misma-consulta">3. Compara series dentro de la misma consulta<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#3-compara-series-dentro-de-la-misma-consulta" class="hash-link" aria-label="Enlace directo al 3. Compara series dentro de la misma consulta" title="Enlace directo al 3. Compara series dentro de la misma consulta" translate="no">​</a></h3>
+<p>La <a href="https://developers.cloudflare.com/radar/concepts/normalization/" target="_blank" rel="noopener noreferrer" class="">documentación de normalización</a> advierte de que Radar normalmente no devuelve valores brutos. Puede expresar datos como porcentajes, cambio porcentual o escalas <code>min-max</code>. Si un endpoint normaliza con <code>min-max</code>, dos series obtenidas en peticiones separadas pueden no compartir escala.</p>
+<p>Por eso, cuando quieras comparar dos ubicaciones, redes o periodos:</p>
+<ol>
+<li class="">solicita las series en la misma petición siempre que el endpoint lo permita;</li>
+<li class="">revisa <code>result.meta.normalization</code>;</li>
+<li class="">guarda también <code>dateRange</code>, <code>lastUpdated</code>, unidades e intervalo de agregación;</li>
+<li class="">evita presentar el eje normalizado como volumen absoluto;</li>
+<li class="">y documenta cualquier tratamiento posterior.</li>
+</ol>
+<p>La <a href="https://developers.cloudflare.com/radar/get-started/making-comparisons/" target="_blank" rel="noopener noreferrer" class="">guía oficial de comparaciones</a> insiste en este punto: la comparabilidad depende de cómo se solicitaron y normalizaron los datos, no solo de que las líneas aparezcan juntas en un informe.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-automatiza-solo-lo-necesario-y-conserva-la-respuesta">4. Automatiza solo lo necesario y conserva la respuesta<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#4-automatiza-solo-lo-necesario-y-conserva-la-respuesta" class="hash-link" aria-label="Enlace directo al 4. Automatiza solo lo necesario y conserva la respuesta" title="Enlace directo al 4. Automatiza solo lo necesario y conserva la respuesta" translate="no">​</a></h3>
+<p>La <a href="https://developers.cloudflare.com/radar/" target="_blank" rel="noopener noreferrer" class="">API de Radar</a> es gratuita y está disponible para investigar datos globales de Internet mediante un token de Cloudflare. Un ejemplo responsable para recuperar una lista pequeña de cortes recientes sería:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://api.cloudflare.com/client/v4/radar/annotations/outages?limit=5&amp;offset=0&amp;dateRange=7d&amp;format=json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -o radar-outages-7d.json</span><br></span></code></pre></div></div>
+<p>No incrustes tokens en scripts, capturas ni repositorios. Guarda junto al JSON la consulta, un timestamp <code>UTC</code>, el hash del fichero y una nota sobre el endpoint. Si el análisis se publicará, revisa también la licencia: los datos descargados o servidos por la API se ofrecen, salvo indicación distinta, bajo <code>CC BY-NC 4.0</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-lee-la-confianza-y-las-anotaciones-antes-de-concluir">5. Lee la confianza y las anotaciones antes de concluir<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#5-lee-la-confianza-y-las-anotaciones-antes-de-concluir" class="hash-link" aria-label="Enlace directo al 5. Lee la confianza y las anotaciones antes de concluir" title="Enlace directo al 5. Lee la confianza y las anotaciones antes de concluir" translate="no">​</a></h3>
+<p>Las respuestas pueden incluir <code>result.meta.confidenceInfo</code>. La <a href="https://developers.cloudflare.com/radar/concepts/confidence-levels/" target="_blank" rel="noopener noreferrer" class="">escala de confianza oficial</a> va de niveles con pocos datos o patrones erráticos a un nivel <code>5</code>, que indica que no se conocen problemas de calidad. El nivel <code>4</code> figura como no asignado.</p>
+<p>Esto no es una probabilidad de que tu hipótesis sea cierta. Describe la confianza de Cloudflare en la calidad del dato devuelto. Anota además las incidencias de pipeline, proyecciones parciales y otras anotaciones presentes en los metadatos: una gráfica limpia puede ocultar que parte del intervalo requiere cautela.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-triangula-con-señales-independientes">6. Triangula con señales independientes<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#6-triangula-con-se%C3%B1ales-independientes" class="hash-link" aria-label="Enlace directo al 6. Triangula con señales independientes" title="Enlace directo al 6. Triangula con señales independientes" translate="no">​</a></h3>
+<p>Para un corte de conectividad, un mínimo razonable sería cruzar:</p>
+<ul>
+<li class=""><code>OONI Explorer</code> para mediciones de accesibilidad y posibles bloqueos;</li>
+<li class="">sondas de <code>RIPE Atlas</code> para alcance y latencia desde puntos independientes;</li>
+<li class="">datos de routing de <code>RIPE RIS</code> o <code>RouteViews</code>;</li>
+<li class="">avisos públicos del proveedor y del regulador;</li>
+<li class="">información meteorológica, eléctrica o sobre cables cuando sea pertinente;</li>
+<li class="">y testimonios locales con hora, lugar y método de conexión claramente documentados.</li>
+</ul>
+<p>La convergencia de señales aumenta la confianza. Las discrepancias también informan: una caída visible en tráfico HTTP pero no en BGP podría apuntar a un problema distinto de una retirada masiva de rutas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-visibilidad-de-cloudflare-no-es-todo-internet">La visibilidad de Cloudflare no es todo Internet<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#la-visibilidad-de-cloudflare-no-es-todo-internet" class="hash-link" aria-label="Enlace directo al La visibilidad de Cloudflare no es todo Internet" title="Enlace directo al La visibilidad de Cloudflare no es todo Internet" translate="no">​</a></h3>
+<p>Radar observa una muestra amplia, pero condicionada por la red de Cloudflare, el uso de <code>1.1.1.1</code> y las fuentes integradas. Un país, proveedor o protocolo puede estar sobrerrepresentado o infrarrepresentado. “No aparece en Radar” no equivale a “no ocurrió”.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-caída-no-explica-su-causa">Una caída no explica su causa<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#una-ca%C3%ADda-no-explica-su-causa" class="hash-link" aria-label="Enlace directo al Una caída no explica su causa" title="Enlace directo al Una caída no explica su causa" translate="no">​</a></h3>
+<p>El mismo patrón aparente puede ser compatible con un apagón, mantenimiento, rotura física, fallo de configuración, desastre natural o intervención deliberada. La atribución exige documentos, contexto y, con frecuencia, conocimiento local.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="porcentajes-y-valores-normalizados-se-sobreinterpretan">Porcentajes y valores normalizados se sobreinterpretan<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#porcentajes-y-valores-normalizados-se-sobreinterpretan" class="hash-link" aria-label="Enlace directo al Porcentajes y valores normalizados se sobreinterpretan" title="Enlace directo al Porcentajes y valores normalizados se sobreinterpretan" translate="no">​</a></h3>
+<p>Un descenso del <code>50 %</code> puede referirse a un cambio respecto a una línea base, no a la mitad de todos los usuarios del país. Antes de escribir una cifra, identifica qué mide el numerador, qué referencia usa y qué normalización se aplicó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-límites-geográficos-y-temporales-importan">Los límites geográficos y temporales importan<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#los-l%C3%ADmites-geogr%C3%A1ficos-y-temporales-importan" class="hash-link" aria-label="Enlace directo al Los límites geográficos y temporales importan" title="Enlace directo al Los límites geográficos y temporales importan" translate="no">​</a></h3>
+<p>Una etiqueta nacional puede ocultar afectación regional o concentrada en un <code>ASN</code>. Los intervalos agregados también pueden suavizar un corte breve. Expón la resolución real del dato y no prometas una precisión que el endpoint no ofrece.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="correlación-temporal-no-implica-coordinación">Correlación temporal no implica coordinación<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#correlaci%C3%B3n-temporal-no-implica-coordinaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Correlación temporal no implica coordinación" title="Enlace directo al Correlación temporal no implica coordinación" translate="no">​</a></h3>
+<p>Que una caída coincida con una protesta o una elección justifica investigar la relación, no afirmarla. La cronología es una herramienta para generar y descartar hipótesis, no un sustituto de la causalidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con datos agregados y minimiza información personal en notas y capturas.</li>
+<li class="">No publiques ubicaciones precisas de testigos ni detalles que puedan exponerles.</li>
+<li class="">Separa datos brutos, transformaciones y conclusiones; conserva siempre la consulta original.</li>
+<li class="">Usa tokens de solo lectura y alcance mínimo, almacenados fuera del repositorio.</li>
+<li class="">Respeta licencias, atribución y límites de uso de la API.</li>
+<li class="">Evita sondear infraestructura ajena para “confirmar” un corte. Prioriza mediciones pasivas, fuentes autorizadas y plataformas diseñadas para investigación abierta.</li>
+<li class="">Describe hipótesis alternativas y qué evidencia permitiría distinguirlas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-un-análisis-defendible">Checklist para un análisis defendible<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#checklist-para-un-an%C3%A1lisis-defendible" class="hash-link" aria-label="Enlace directo al Checklist para un análisis defendible" title="Enlace directo al Checklist para un análisis defendible" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta puede confirmarse o refutarse.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Todas las horas están normalizadas a <code>UTC</code> sin perder la zona original.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El periodo principal tiene una línea base comparable.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La fuente de cada panel o endpoint está identificada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La normalización, unidades e intervalo de agregación están documentados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El nivel de confianza y las anotaciones de calidad se han revisado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las series comparadas comparten escala o se solicitaron conjuntamente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay al menos dos fuentes independientes de corroboración.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->“Anomalía”, “corte”, “bloqueo” y “causa” no se usan como sinónimos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe conserva consultas, timestamps, ficheros y hashes.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Cloudflare Radar</code> encaja bien para una primera vista agregada y para construir cronologías. Según la pregunta, otras fuentes aportan perspectivas distintas:</p>
+<ul>
+<li class=""><code>OONI Explorer</code> se centra en mediciones abiertas de interferencia y accesibilidad;</li>
+<li class=""><code>RIPE Atlas</code> permite analizar mediciones desde sondas distribuidas;</li>
+<li class=""><code>RIPE RIS</code> y <code>RouteViews</code> ofrecen datos específicos de routing BGP;</li>
+<li class=""><code>IODA</code> combina señales para estudiar conectividad a escala de país, región y red;</li>
+<li class="">los comunicados del operador, regulador o proveedor eléctrico pueden sostener la explicación causal.</li>
+</ul>
+<p>El takeaway práctico es sencillo: usa Radar para <strong>detectar cambios, acotar tiempo y alcance, y formular mejores preguntas</strong>. Antes de hablar de causa, comprueba la fuente del dato, su normalización y su confianza; después, busca una señal independiente que pueda contradecirte.</p>
+<p>Como siguiente tema, merece la pena comparar <code>Cloudflare Radar</code>, <code>OONI Explorer</code> y <code>RIPE Atlas</code> ante un mismo corte ficticio: qué ve cada plataforma, qué no ve y cómo cambia la conclusión cuando sus señales no coinciden.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/cloudflare-radar-osint-tendencias-cortes-internet-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://radar.cloudflare.com/about" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: About</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/" target="_blank" rel="noopener noreferrer" class="">Documentación general de Cloudflare Radar</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/investigate/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: tipos de datos para investigar</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/investigate/outages/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: investigación de cortes</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/concepts/normalization/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: métodos de normalización</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/concepts/confidence-levels/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: niveles de confianza</a></li>
+<li class=""><a href="https://developers.cloudflare.com/radar/get-started/making-comparisons/" target="_blank" rel="noopener noreferrer" class="">Cloudflare Radar: comparación de series</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[crt.sh en OSINT: Certificate Transparency para descubrir nombres sin confundirlos con activos]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto</id>
@@ -2304,110 +2440,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Tradecraft" term="Tradecraft"/>
         <category label="Automatizacion" term="Automatizacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[urlquery en OSINT: analizar URLs, redirecciones y carga web con contexto de sandbox]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto"/>
-        <updated>2026-06-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando una URL en un sandbox, con cadenas de redireccion, peticiones HTTP y capturas de pagina en un tablero tecnico sobrio]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando una URL en un sandbox, con cadenas de redireccion, peticiones HTTP y capturas de pagina en un tablero tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-04-urlquery-osint-analizar-urls-redirecciones-sandbox-contexto-dac45eca8ed1871b1de1bf6d59ae98a4.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Hay enlaces que parecen triviales hasta que los abres en el sitio equivocado, con la cuenta equivocada o en el momento equivocado. En una alerta de <code>phishing</code>, en una investigacion de infraestructura web o en un simple proceso de verificacion, el problema no suele ser "tener una URL". El problema real es <strong>entender que hace esa URL sin regalarle contexto, cookies o confianza antes de tiempo</strong>.</p>
-<p><code>urlquery</code> resulta util precisamente por eso. No te pide que adivines a ojo si una pagina parece maliciosa o sospechosa. Te ofrece una forma bastante mas ordenada de observar como carga una web, que redirecciones encadena, que recursos solicita y que artefactos deja, todo dentro de un entorno instrumentado y aislado. Bien usado, acelera triage y verificacion. Mal usado, puede empujarte a tratar cualquier score o captura como si fuera una conclusion cerrada. Conviene evitar ese salto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p>En su pagina <code>About</code>, <code>urlquery.net</code> se presenta como un proyecto pensado para ayudar a investigadores y analistas a entender amenazas basadas en web. Describe la plataforma como un entorno controlado para analizar URLs, registrar comportamiento de red, capturar redirecciones, descargas y posibles indicadores de compromiso.</p>
-<p>Traducido a trabajo OSINT responsable, eso sirve para tareas como estas:</p>
-<ul>
-<li class="">comprobar si una URL rebota por varios dominios antes de mostrar contenido;</li>
-<li class="">ver que recursos de terceros se cargan realmente en la pagina;</li>
-<li class="">observar certificados, resoluciones, <code>IPs</code> y respuestas <code>HTTP/HTTPS</code>;</li>
-<li class="">revisar capturas de la pagina renderizada sin abrirla en tu navegador habitual;</li>
-<li class="">y priorizar que enlaces merecen mas analisis manual o contraste adicional.</li>
-</ul>
-<p>No es una bola de cristal. Es una capa de observacion tecnica sobre comportamiento web.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-validar-una-url-sospechosa-antes-de-escalar">Caso de uso legitimo: validar una URL sospechosa antes de escalar<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#caso-de-uso-legitimo-validar-una-url-sospechosa-antes-de-escalar" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo: validar una URL sospechosa antes de escalar" title="Enlace directo al Caso de uso legitimo: validar una URL sospechosa antes de escalar" translate="no">​</a></h2>
-<p>Imagina un escenario sobrio y bastante habitual. A un equipo de seguridad o a una redaccion le reenvian un enlace que supuestamente apunta a un portal de acceso de un proveedor. A primera vista, la <code>URL</code> podria parecer solo "rara". El error clasico seria abrirla directamente con sesion iniciada, confiar en la apariencia visual o limitarse a un <code>screenshot</code> compartido por terceros.</p>
-<p>Con <code>urlquery</code>, el enfoque prudente cambia:</p>
-<ol>
-<li class="">enviar la URL a analisis en un entorno aislado;</li>
-<li class="">revisar si hay redirecciones hacia otros dominios;</li>
-<li class="">comprobar si se descargan scripts, <code>iframes</code> o recursos inesperados;</li>
-<li class="">mirar la captura renderizada para entender la narrativa visual;</li>
-<li class="">cruzar el resultado con reputacion, <code>WHOIS/RDAP</code>, archivo web o registros propios.</li>
-</ol>
-<p>La leccion no es "si urlquery lo marca, ya esta". La leccion es mas modesta y mucho mas util: <strong>te ayuda a convertir un enlace en una secuencia observable de comportamiento tecnico</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<p>La propia descripcion tecnica de <code>urlquery</code> deja bastante claro que el valor no esta solo en el <code>screenshot</code>, sino en la combinacion de varias capas. Un flujo razonable seria este:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-la-url-y-no-por-la-narrativa">1. Empezar por la URL y no por la narrativa<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#1-empezar-por-la-url-y-no-por-la-narrativa" class="hash-link" aria-label="Enlace directo al 1. Empezar por la URL y no por la narrativa" title="Enlace directo al 1. Empezar por la URL y no por la narrativa" translate="no">​</a></h3>
-<p>Antes de interpretar intenciones, conviene mirar que hace el enlace. <code>urlquery</code> indica que abre las URLs enviadas en un navegador instrumentado dentro de un <code>sandbox</code> aislado y registra actividad para dar una lectura mas realista de lo que ocurre al cargar la pagina.</p>
-<p>Eso importa porque muchas webs sospechosas no se comportan igual si solo haces una resolucion DNS o una peticion <code>HEAD</code>. A veces la historia aparece cuando la pagina ejecuta <code>JavaScript</code>, tira de recursos remotos o pasa por varias redirecciones.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-leer-la-cadena-de-carga-no-solo-el-destino-final">2. Leer la cadena de carga, no solo el destino final<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#2-leer-la-cadena-de-carga-no-solo-el-destino-final" class="hash-link" aria-label="Enlace directo al 2. Leer la cadena de carga, no solo el destino final" title="Enlace directo al 2. Leer la cadena de carga, no solo el destino final" translate="no">​</a></h3>
-<p>Uno de los usos mas practicos es observar si una URL aparentemente inocua hace algo mas complejo:</p>
-<ul>
-<li class="">redirige varias veces;</li>
-<li class="">cambia de dominio en mitad de la carga;</li>
-<li class="">incrusta recursos desde infraestructura externa;</li>
-<li class="">o intenta entregar descargas o contenido embebido que no aparecia en la URL original.</li>
-</ul>
-<p>Esa parte es especialmente util en triage de <code>phishing</code>, fraude o suplantacion de marca, porque separa "texto visible" de "comportamiento de carga".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-artefactos-como-pistas-no-como-veredicto">3. Usar artefactos como pistas, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#3-usar-artefactos-como-pistas-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 3. Usar artefactos como pistas, no como veredicto" title="Enlace directo al 3. Usar artefactos como pistas, no como veredicto" translate="no">​</a></h3>
-<p>Segun su pagina <code>About</code>, <code>urlquery</code> recopila durante el escaneo elementos como:</p>
-<ul>
-<li class="">peticiones y respuestas <code>HTTP/HTTPS</code>;</li>
-<li class="">resoluciones de dominio e <code>IP</code>;</li>
-<li class="">informacion de certificados <code>SSL/TLS</code>;</li>
-<li class="">actividad <code>JavaScript</code> y de red;</li>
-<li class="">capturas de la pagina renderizada;</li>
-<li class="">y metadatos de archivos descargados o embebidos.</li>
-</ul>
-<p>Ademas, explica que ciertos artefactos se procesan automaticamente, incluyendo extraccion de archivos, parseo de <code>PDF</code>, analisis de <code>LNK</code> y escaneo con patrones <code>YARA</code>.</p>
-<p>Eso da mucho contexto, pero no deberia usarse sin freno. Que aparezca una alerta, un script opaco o una infraestructura poco conocida no prueba por si solo una campana concreta ni una autoria.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruzar-siempre-fuera-de-la-plataforma">4. Cruzar siempre fuera de la plataforma<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#4-cruzar-siempre-fuera-de-la-plataforma" class="hash-link" aria-label="Enlace directo al 4. Cruzar siempre fuera de la plataforma" title="Enlace directo al 4. Cruzar siempre fuera de la plataforma" translate="no">​</a></h3>
-<p>El informe de <code>urlquery</code> gana valor cuando lo sacas de la burbuja:</p>
-<ul>
-<li class=""><code>RDAP</code> o <code>WHOIS</code>, si importa contexto registral;</li>
-<li class=""><code>crt.sh</code> o <code>CT logs</code>, si necesitas cronologia de certificados;</li>
-<li class="">archivo web, si quieres saber si la pagina o el dominio ya existian con otra funcion;</li>
-<li class=""><code>urlscan.io</code>, si buscas otra perspectiva de carga web;</li>
-<li class="">y captura propia o analisis manual, si el hallazgo parece realmente relevante.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>urlquery</code> puede ser muy util, pero conviene no pedirle mas de lo que promete.</p>
-<p>Primero, una carga en <code>sandbox</code> no equivale a lo que veria cualquier victima real en cualquier pais, idioma o contexto tecnico. Algunas paginas adaptan contenido por <code>IP</code>, agente de usuario, cabeceras, hora o reputacion del visitante.</p>
-<p>Segundo, una pagina puede cargar recursos de terceros perfectamente legitimos y aun asi parecer "ruidosa". Lo contrario tambien pasa: una web muy limpia visualmente puede ocultar intencion maliciosa fuera de la muestra que has visto.</p>
-<p>Tercero, la propia plataforma indica que retiene resultados durante un tiempo limitado para soporte operativo y de investigacion. Eso significa que no deberias tratarla como archivo eterno ni como sustituto de tu propia preservacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Hay una regla sencilla que aqui importa mucho: <strong>no subas a terceros lo que no deberias externalizar</strong>.</p>
-<p>En practica:</p>
-<ul>
-<li class="">no envies URLs internas, privadas o con credenciales;</li>
-<li class="">no uses selectores que revelen datos personales innecesarios;</li>
-<li class="">no confundas un servicio publico de analisis con un contenedor de evidencia definitivo;</li>
-<li class="">y documenta siempre que parte del hallazgo viene de <code>urlquery</code> y que parte viene de tu contraste posterior.</li>
-</ul>
-<p>Tambien conviene recordar que un servicio de este tipo esta mas orientado a analisis, investigacion y educacion que a sentencia final. Su propia pagina <code>About</code> lo formula en esos terminos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si lo que necesitas es otra lectura de comportamiento web, <code>urlscan.io</code> puede complementar bastante bien. Si tu foco esta mas en reputacion o enriquecimiento de <code>IoCs</code>, herramientas como <code>Maltiverse</code>, <code>ThreatFox</code> o <code>URLhaus</code> cubren otra parte del problema. Y si lo critico es infraestructura, certificados o historico DNS, el camino suele pasar por <code>CT logs</code>, <code>RDAP</code>, <code>SecurityTrails</code> o fuentes equivalentes.</p>
-<p>La clave es no convertir <code>urlquery</code> en martillo universal. Encaja muy bien cuando la pregunta central es: <strong>que hace de verdad esta URL cuando la dejo cargar en un entorno controlado</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
-<p><code>urlquery</code> no sustituye criterio, pero si reduce trabajo ciego. Te ayuda a ver redirecciones, recursos, capturas y artefactos sin exponer tu navegador principal, y eso ya mejora mucho el triage. El paso serio sigue siendo el de siempre: corroborar, preservar y explicar con calma por que un enlace merece confianza, bloqueo o mas investigacion.</p>
-<p>Como siguiente puente editorial para el blog, tendria sentido bajar de esta pieza a una comparativa practica entre <code>urlquery</code> y <code>urlscan.io</code>: mismas preguntas, distinta cobertura y diferentes limites.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-lecturas-recomendadas">Fuentes y lecturas recomendadas<a href="https://spainfsd-creator.github.io/osint-blog/urlquery-osint-analizar-urls-redirecciones-sandbox-contexto#fuentes-y-lecturas-recomendadas" class="hash-link" aria-label="Enlace directo al Fuentes y lecturas recomendadas" title="Enlace directo al Fuentes y lecturas recomendadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>urlquery</code>, pagina principal: <a href="https://search.urlquery.net/" target="_blank" rel="noopener noreferrer" class="">https://search.urlquery.net/</a></li>
-<li class=""><code>urlquery</code>, <code>About</code>: <a href="https://www.urlquery.net/about" target="_blank" rel="noopener noreferrer" class="">https://www.urlquery.net/about</a></li>
-<li class=""><code>urlquery</code>, <code>Search</code>: <a href="https://www.urlquery.net/search" target="_blank" rel="noopener noreferrer" class="">https://www.urlquery.net/search</a></li>
-<li class=""><code>urlquery</code>, <code>FAQ</code>: <a href="https://urlquery.net/faq" target="_blank" rel="noopener noreferrer" class="">https://urlquery.net/faq</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Web" term="Web"/>
-        <category label="Phishing" term="Phishing"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
     </entry>
 </feed>
