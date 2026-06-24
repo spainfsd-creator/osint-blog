@@ -9,6 +9,9 @@ image: /img/blog/2026-06-24-cloudflare-radar-osint-tendencias-cortes-internet-co
 
 ![Ilustración editorial de una analista OSINT revisando un mapa mundial, series temporales y una caída de conectividad con criterio metodológico](/img/blog/2026-06-24-cloudflare-radar-osint-tendencias-cortes-internet-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/cloudflare-radar-osint-tendencias-cortes-internet-contexto.m4a)
+
+
 Una región deja de responder durante una noche electoral. En redes sociales se habla de censura, el proveedor culpa a una avería y varias gráficas muestran una caída brusca. El problema no es encontrar otra captura: es separar **qué cambió, dónde se observó, durante cuánto tiempo y qué evidencia permitiría explicar la causa**. `Cloudflare Radar` puede aportar señales valiosas para ordenar esa investigación, pero no convierte una curva descendente en una atribución automática.
 
 Radar reúne vistas sobre tráfico de Internet, consultas DNS, rutas BGP, tecnologías, ataques y anomalías. Su utilidad OSINT está en comparar tendencias agregadas y construir una cronología verificable. Su límite también es importante: observa el mundo desde fuentes concretas, normaliza buena parte de los valores y no sustituye los datos del operador, las mediciones independientes ni la documentación local.
