@@ -9,6 +9,9 @@ image: /img/blog/2026-06-25-misp-osint-indicadores-taxonomias-contexto.png
 
 ![Ilustración editorial de una analista OSINT organizando indicadores, eventos, taxonomías y listas de aviso en una investigación defensiva](/img/blog/2026-06-25-misp-osint-indicadores-taxonomias-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/misp-osint-indicadores-taxonomias-contexto.m4a)
+
+
 Un indicador aislado parece una pista; cien indicadores sin contexto parecen una verdad por volumen. Ahí empieza el problema: un dominio, una IP o un hash pueden ser útiles para investigar, pero también pueden arrastrar falsos positivos, caducidad, atribuciones débiles y datos personales innecesarios. `MISP` ayuda a ordenar esa conversación cuando el objetivo es compartir inteligencia técnica de forma estructurada, trazable y proporcional.
 
 Revisando la documentación oficial el **25 de junio de 2026**, el proyecto describe `MISP` como una solución de código abierto para recopilar, almacenar, distribuir y compartir indicadores y amenazas de ciberseguridad, pensada para analistas de incidentes, profesionales de seguridad y equipos que necesitan intercambiar información estructurada. Su valor OSINT no está en "tener más IoCs", sino en poder explicar **qué se observó, por qué importa, con qué confianza se comparte y qué límites tiene**.
