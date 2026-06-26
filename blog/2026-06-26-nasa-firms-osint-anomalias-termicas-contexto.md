@@ -9,6 +9,9 @@ image: /img/blog/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto.png
 
 ![Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación](/img/blog/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/nasa-firms-osint-anomalias-termicas-contexto.m4a)
+
+
 Una columna de humo aparece en redes, una cuenta local habla de una explosión y un mapa satelital muestra varios puntos rojos cerca de la zona. El salto tentador es convertir esos puntos en una causa: ataque, sabotaje, incendio industrial, accidente. El salto correcto es más lento: **una anomalía térmica indica calor observado por un sensor, no explica por sí sola qué ocurrió ni quién lo provocó**.
 
 `NASA FIRMS` es útil precisamente cuando se usa con esa disciplina. Revisando la documentación oficial el **26 de junio de 2026**, FIRMS distribuye datos de incendios activos y anomalías térmicas en tiempo casi real a partir de observaciones `MODIS` y `VIIRS`, con visualización en mapas, alertas, descargas y servicios web. Para OSINT responsable, su valor no está en señalar culpables, sino en ayudar a construir una cronología verificable y a decidir qué evidencia falta.
