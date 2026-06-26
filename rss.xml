@@ -4,10 +4,126 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Thu, 25 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[NASA FIRMS en OSINT: anomalías térmicas, incendios y contexto antes de atribuir causas]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto</guid>
+            <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto-0ca19d6e2a8b6749787f7e441d7cee8c.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una columna de humo aparece en redes, una cuenta local habla de una explosión y un mapa satelital muestra varios puntos rojos cerca de la zona. El salto tentador es convertir esos puntos en una causa: ataque, sabotaje, incendio industrial, accidente. El salto correcto es más lento: <strong>una anomalía térmica indica calor observado por un sensor, no explica por sí sola qué ocurrió ni quién lo provocó</strong>.</p>
+<p><code>NASA FIRMS</code> es útil precisamente cuando se usa con esa disciplina. Revisando la documentación oficial el <strong>26 de junio de 2026</strong>, FIRMS distribuye datos de incendios activos y anomalías térmicas en tiempo casi real a partir de observaciones <code>MODIS</code> y <code>VIIRS</code>, con visualización en mapas, alertas, descargas y servicios web. Para OSINT responsable, su valor no está en señalar culpables, sino en ayudar a construir una cronología verificable y a decidir qué evidencia falta.</p>
+<p>Este artículo está pensado para verificación, periodismo, análisis humanitario, gestión de crisis y contexto defensivo. No sirve para acosar personas, dirigir acciones sobre objetivos ni presentar una lectura técnica como prueba cerrada sin corroboración.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-nasa-firms-y-para-qué-sirve">Qué es NASA FIRMS y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#qu%C3%A9-es-nasa-firms-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es NASA FIRMS y para qué sirve" title="Enlace directo al Qué es NASA FIRMS y para qué sirve" translate="no">​</a></h2>
+<p><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener noreferrer" class=""><code>FIRMS</code></a> significa <code>Fire Information for Resource Management System</code>. Es un sistema de NASA/LANCE orientado a distribuir datos de incendios activos y anomalías térmicas observadas desde satélites. La página oficial resume el núcleo operativo: datos <code>NRT</code> de <code>MODIS</code> a bordo de los satélites <code>Aqua</code> y <code>Terra</code>, y de <code>VIIRS</code> a bordo de <code>S-NPP</code>, <code>NOAA-20</code> y <code>NOAA-21</code>.</p>
+<p>La diferencia práctica para un analista es sencilla:</p>
+<ul>
+<li class=""><code>MODIS</code> ofrece continuidad histórica y una lectura amplia del fenómeno;</li>
+<li class=""><code>VIIRS</code> aporta detecciones con mejor detalle espacial para muchos usos operativos;</li>
+<li class="">el mapa permite explorar puntos, capas y ventanas temporales;</li>
+<li class="">las descargas (<code>SHP</code>, <code>KML</code>, <code>TXT</code>) y los servicios web facilitan reproducir el análisis;</li>
+<li class="">las alertas sirven para monitorizar un área cuando hay interés legítimo y proporcional.</li>
+</ul>
+<p>NASA indica que los datos globales están disponibles normalmente dentro de unas <code>3</code> horas desde la observación satelital, mientras que para Estados Unidos y Canadá algunas detecciones se ofrecen en tiempo real. Esa frase debe leerse con cuidado: "casi en tiempo real" no significa "instantáneo", "completo" ni "sin incertidumbre".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una ONG ambiental investiga un incendio en una planta de reciclaje ficticia cerca de <code>Puerto Claro</code>. Hay tres piezas abiertas:</p>
+<table><thead><tr><th>Evidencia inicial</th><th>Qué aporta</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>Vídeos locales con humo</td><td>Existencia visual de un evento y posible dirección de la columna</td><td>Causa, hora exacta o foco inicial</td></tr><tr><td>Detecciones en FIRMS</td><td>Señales térmicas con coordenadas, hora de observación, sensor y confianza</td><td>Que el punto sea el origen del incendio o que haya una acción deliberada</td></tr><tr><td>Comunicados oficiales</td><td>Cronología declarada y respuesta institucional</td><td>Independencia, precisión completa o ausencia de omisiones</td></tr></tbody></table>
+<p>El equipo no empieza preguntando "quién lo hizo". Empieza con preguntas observables:</p>
+<ol>
+<li class="">¿Qué detecciones aparecen en un radio razonable alrededor de la planta?</li>
+<li class="">¿Qué sensor las observó y a qué hora UTC?</li>
+<li class="">¿La señal aparece antes, durante o después de los primeros vídeos públicos?</li>
+<li class="">¿Hay fuentes alternativas que corroboren humo, actividad de bomberos, cortes de carretera o imágenes satelitales posteriores?</li>
+<li class="">¿El punto cae sobre la planta, sobre vegetación cercana, sobre una chimenea, sobre una zona industrial caliente o sobre otro elemento plausible?</li>
+</ol>
+<p>Ese flujo evita dos errores habituales: convertir el mapa en sentencia y tratar una publicación viral como reloj fiable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-área-ventana-y-pregunta">1. Define área, ventana y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#1-define-%C3%A1rea-ventana-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Define área, ventana y pregunta" title="Enlace directo al 1. Define área, ventana y pregunta" translate="no">​</a></h3>
+<p>Antes de abrir el mapa, escribe la hipótesis mínima: "verificar si hubo actividad térmica compatible con un incendio cerca de <code>X</code> entre <code>T1</code> y <code>T2</code>". Si la pregunta es demasiado grande, FIRMS devuelve ruido; si es demasiado estrecha, puedes descartar señales útiles por una geolocalización inicial imprecisa.</p>
+<p>Trabaja siempre con hora <code>UTC</code> y conserva la zona horaria local por separado. Muchas confusiones nacen de mezclar hora de publicación, hora local del testigo, hora de adquisición satelital y hora de descarga del dato.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-el-mapa-y-descarga-los-datos">2. Consulta el mapa y descarga los datos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#2-consulta-el-mapa-y-descarga-los-datos" class="hash-link" aria-label="Enlace directo al 2. Consulta el mapa y descarga los datos" title="Enlace directo al 2. Consulta el mapa y descarga los datos" translate="no">​</a></h3>
+<p>El <a href="https://firms.modaps.eosdis.nasa.gov/map/" target="_blank" rel="noopener noreferrer" class=""><code>FIRMS Fire Map</code></a> es suficiente para una primera lectura visual, pero una investigación revisable necesita exportar datos o documentar la consulta. La <a href="https://firms.modaps.eosdis.nasa.gov/api/" target="_blank" rel="noopener noreferrer" class=""><code>API de FIRMS</code></a> expone servicios por área, país, disponibilidad de datos, huellas <code>KML</code> y configuración de <code>MAP_KEY</code>.</p>
+<p>Para una nota de caso, conserva como mínimo:</p>
+<ul>
+<li class="">URL o parámetros de consulta;</li>
+<li class="">fecha y hora de descarga;</li>
+<li class="">sensor (<code>MODIS</code>, <code>VIIRS</code> u otro producto disponible);</li>
+<li class="">coordenadas;</li>
+<li class="">hora de observación;</li>
+<li class="">valor de confianza o clasificación que muestre el producto;</li>
+<li class="">captura o exportación usada en el análisis;</li>
+<li class="">explicación de por qué el área de búsqueda es proporcional.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-observación-inferencia-y-conclusión">3. Separa observación, inferencia y conclusión<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#3-separa-observaci%C3%B3n-inferencia-y-conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Separa observación, inferencia y conclusión" title="Enlace directo al 3. Separa observación, inferencia y conclusión" translate="no">​</a></h3>
+<p>Una buena tabla de análisis distingue tres capas:</p>
+<table><thead><tr><th>Capa</th><th>Ejemplo prudente</th><th>Ejemplo problemático</th></tr></thead><tbody><tr><td>Observación</td><td>"VIIRS muestra una anomalía térmica cerca de la zona a las 19:24 UTC"</td><td>"VIIRS prueba que explotó la planta"</td></tr><tr><td>Inferencia</td><td>"La señal es compatible con calor intenso en la ventana analizada"</td><td>"La señal confirma un ataque"</td></tr><tr><td>Conclusión</td><td>"Debe corroborarse con vídeo, respuesta local e imagen posterior"</td><td>"Caso cerrado"</td></tr></tbody></table>
+<p>La palabra clave es <strong>compatible</strong>. En OSINT serio, muchas piezas son compatibles con una hipótesis sin demostrarla por completo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corrobora-con-fuentes-independientes">4. Corrobora con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#4-corrobora-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 4. Corrobora con fuentes independientes" title="Enlace directo al 4. Corrobora con fuentes independientes" translate="no">​</a></h3>
+<p>FIRMS encaja bien con:</p>
+<ul>
+<li class="">imágenes satelitales ópticas posteriores para evaluar cambio visible;</li>
+<li class=""><code>Sentinel Hub EO Browser</code>, <code>NASA Worldview</code> o servicios equivalentes para contexto visual;</li>
+<li class="">vídeos y fotografías geolocalizadas;</li>
+<li class="">comunicados de bomberos, protección civil o autoridades locales;</li>
+<li class="">sensores de calidad del aire, si la pregunta es ambiental;</li>
+<li class="">tráfico marítimo, aéreo o terrestre cuando el evento afecta logística;</li>
+<li class="">archivo web y medios locales para reconstruir la cronología pública.</li>
+</ul>
+<p>La guía de <a href="https://www.bellingcat.com/resources/2022/10/04/scorched-earth-using-nasa-fire-data-to-monitor-war-zones/" target="_blank" rel="noopener noreferrer" class="">Bellingcat sobre NASA FIRMS en zonas de guerra</a> es útil como recordatorio metodológico: las firmas térmicas pueden aportar pistas en contextos complejos, pero deben tratarse con cautela porque no toda fuente de calor tiene el mismo significado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>El error más peligroso es olvidar que FIRMS detecta <strong>anomalías térmicas</strong>. Un hotspot puede corresponder a un incendio forestal, una quema agrícola, una antorcha industrial, actividad volcánica, un incendio urbano, una explosión, calor persistente de una instalación o un artefacto de observación. Sin contexto, el punto es una pista.</p>
+<p>Hay límites técnicos y metodológicos que conviene escribir en el informe:</p>
+<ul>
+<li class=""><strong>Resolución espacial</strong>: la coordenada no siempre equivale al foco exacto del evento; representa una detección asociada a un píxel o producto.</li>
+<li class=""><strong>Revisita temporal</strong>: el satélite observa cuando pasa; puede perder eventos breves o ver solo una fase.</li>
+<li class=""><strong>Nubes, humo y ángulo de observación</strong>: las condiciones atmosféricas y geométricas afectan la lectura.</li>
+<li class=""><strong>Saturación y brillo</strong>: una señal intensa no ordena por sí sola causas ni daños.</li>
+<li class=""><strong>Confianza</strong>: los campos de confianza ayudan a priorizar, pero no sustituyen la corroboración.</li>
+<li class=""><strong>Cambios de producto</strong>: compara sensores y versiones con cuidado, especialmente si mezclas histórico y tiempo casi real.</li>
+</ul>
+<p>La propia <a href="https://www.earthdata.nasa.gov/data/tools/firms/faq" target="_blank" rel="noopener noreferrer" class="">FAQ de NASA FIRMS</a> explica conceptos como <code>FRP</code> (<code>Fire Radiative Power</code>) y recuerda que factores como resolución del sensor, temperatura de saturación, ángulo de visión y hora de observación influyen en la interpretación. Es material que merece leerse antes de convertir una captura de mapa en afirmación fuerte.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>FIRMS suele tratar fenómenos físicos, pero las investigaciones alrededor de incendios, ataques o accidentes pueden afectar a personas concretas. La ética no desaparece porque la fuente sea satelital.</p>
+<p>Aplica estas reglas:</p>
+<ul>
+<li class="">no publiques coordenadas sensibles si pueden exponer víctimas, equipos de emergencia o infraestructuras críticas;</li>
+<li class="">no atribuyas intención a partir de calor observado;</li>
+<li class="">no mezcles rumores de redes con datos satelitales como si tuvieran el mismo peso;</li>
+<li class="">conserva capturas, exportaciones y notas de consulta para que otra persona pueda revisar el razonamiento;</li>
+<li class="">minimiza datos personales en vídeos, testimonios y capturas;</li>
+<li class="">marca incertidumbre de forma explícita: "compatible con", "no descarta", "no permite concluir".</li>
+</ul>
+<p>El estándar sano es que una persona externa pueda reconstruir por qué miraste esa zona, qué viste, qué descartaste y qué queda sin probar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>FIRMS no vive solo. Según la pregunta, puede tener más sentido empezar por otra capa:</p>
+<ul>
+<li class=""><code>NASA Worldview</code>, si necesitas revisar imagen satelital contextual y no solo puntos de calor;</li>
+<li class=""><code>Sentinel Hub EO Browser</code>, si buscas comparativas visuales antes/después con sensores concretos;</li>
+<li class="">sistemas nacionales o regionales de incendios, si la prioridad es respuesta local;</li>
+<li class=""><code>EFFIS</code>, para contexto europeo de incendios forestales;</li>
+<li class=""><code>GDELT</code> o medios locales, si el objetivo es rastrear narrativa pública;</li>
+<li class=""><code>Datasette</code> o <code>SQLite</code>, si quieres conservar una cronología consultable de detecciones, fuentes y decisiones.</li>
+</ul>
+<p>El siguiente paso práctico es crear una plantilla de caso con cuatro bloques: <code>consulta FIRMS</code>, <code>corroboración visual</code>, <code>cronología pública</code> y <code>conclusiones con incertidumbre</code>. Si una anomalía térmica no puede pasar por esos cuatro filtros, probablemente todavía no es una conclusión: es una pista que merece más trabajo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener noreferrer" class="">NASA FIRMS</a></li>
+<li class=""><a href="https://www.earthdata.nasa.gov/data/tools/firms" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: FIRMS</a></li>
+<li class=""><a href="https://www.earthdata.nasa.gov/data/tools/firms/faq" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: FIRMS FAQ</a></li>
+<li class=""><a href="https://firms.modaps.eosdis.nasa.gov/api/" target="_blank" rel="noopener noreferrer" class="">NASA FIRMS API</a></li>
+<li class=""><a href="https://www.bellingcat.com/resources/2022/10/04/scorched-earth-using-nasa-fire-data-to-monitor-war-zones/" target="_blank" rel="noopener noreferrer" class="">Bellingcat: Scorched Earth, Using NASA Fire Data to Monitor War Zones</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>GEOINT</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Metodologia</category>
+            <category>Investigacion</category>
+        </item>
         <item>
             <title><![CDATA[MISP en OSINT: indicadores, taxonomías y contexto para compartir inteligencia sin crear ruido]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto</link>
@@ -2296,111 +2412,6 @@
             <category>Web</category>
             <category>Verificacion</category>
             <category>Tradecraft</category>
-            <category>Automatizacion</category>
-        </item>
-        <item>
-            <title><![CDATA[Subfinder en OSINT: subdominios pasivos, fuentes y contexto antes de ampliar alcance]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto</guid>
-            <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT ordenando subdominios publicos, fuentes pasivas y validaciones DNS en un panel tecnico sobrio]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT ordenando subdominios publicos, fuentes pasivas y validaciones DNS en un panel tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-06-subfinder-osint-subdominios-pasivos-fuentes-contexto-887951dc0620298d62d273841c36be4e.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica arranca con un dominio, el error mas comun no es "mirar poco". El error real suele ser <strong>mezclar demasiado pronto hallazgos pasivos, resoluciones activas, infraestructura de terceros y subdominios heredados</strong>, hasta que el mapa deja de servir para tomar decisiones. <code>Subfinder</code> resulta util precisamente porque obliga a empezar por una pregunta modesta y util: que nombres publicos aparecen asociados a este dominio segun fuentes pasivas, y cuales merecen verificacion posterior.</p>
-<p>Segun la documentacion oficial consultada el <strong>6 de junio de 2026</strong>, <code>Subfinder</code> es una herramienta de ProjectDiscovery centrada en descubrimiento pasivo de subdominios validos. Su propuesta es bastante concreta: consultar fuentes publicas y <code>APIs</code> compatibles, devolver resultados estructurados y dejar que el analista decida despues que merece resolucion adicional, contraste historico o escalado metodologico. Ese orden importa. En OSINT responsable, descubrir superficie no equivale a atribuir propiedad ni a justificar mas alcance del necesario.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Subfinder</code> es una utilidad de linea de comandos pensada para enumerar subdominios mediante fuentes pasivas. La pagina oficial de vision general insiste en cinco rasgos que importan de verdad en el trabajo diario:</p>
-<ul>
-<li class="">se centra en descubrimiento pasivo de subdominios validos;</li>
-<li class="">usa una arquitectura modular optimizada para velocidad;</li>
-<li class="">incorpora resolucion y eliminacion de <code>wildcards</code>;</li>
-<li class="">soporta salida por <code>stdout</code>, fichero y <code>JSONL</code>;</li>
-<li class="">respeta las licencias y restricciones de uso de las fuentes pasivas que integra.</li>
-</ul>
-<p>Traducido a trabajo real, eso convierte a <code>Subfinder</code> en una buena primera capa para preguntas como estas:</p>
-<ul>
-<li class="">que partes visibles del espacio DNS publico de una organizacion conviene revisar primero;</li>
-<li class="">que nombres aparecen repetidos por varias fuentes y merecen confirmacion adicional;</li>
-<li class="">que activos historicos o de terceros conviene separar del nucleo actual antes de redactar un informe.</li>
-</ul>
-<p>No es una herramienta para "demostrar" pertenencia por si sola. Es una herramienta para <strong>formular mejor el siguiente paso</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision defensiva sobre <code>acme-industrial.es</code>, una empresa ficticia que ha crecido con filiales, micrositios y varios proveedores externos. El objetivo no es escalar privilegios ni hacer escaneo agresivo, sino responder algo mucho mas util:</p>
-<ul>
-<li class="">que subdominios publicos aparecen asociados al dominio principal;</li>
-<li class="">cuales parecen parte del perimetro actual y cuales huelen a legado, terceros o ruido;</li>
-<li class="">que nombres deberian pasar a una segunda fase de validacion con <code>DNS</code>, archivo web o inventario interno.</li>
-</ul>
-<p>En ese escenario, <code>Subfinder</code> encaja bien porque no te obliga a tocar el objetivo para empezar. Puedes obtener una primera lista de candidatos desde fuentes pasivas, comparar patrones de nomenclatura y decidir despues si merece la pena resolver, archivar o correlacionar cada hallazgo con otras capas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-semilla-clara">1. Empieza por una semilla clara<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#1-empieza-por-una-semilla-clara" class="hash-link" aria-label="Enlace directo al 1. Empieza por una semilla clara" title="Enlace directo al 1. Empieza por una semilla clara" translate="no">​</a></h3>
-<p>La ayuda oficial muestra dos entradas basicas: <code>-d</code> para un dominio concreto y <code>-dL</code> para una lista de dominios. Eso ya da una pista metodologica importante: define bien la semilla antes de ampliar el caso. Si el dominio inicial esta mal delimitado, el ruido posterior tambien lo estara.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prioriza-una-primera-pasada-pasiva-y-trazable">2. Prioriza una primera pasada pasiva y trazable<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#2-prioriza-una-primera-pasada-pasiva-y-trazable" class="hash-link" aria-label="Enlace directo al 2. Prioriza una primera pasada pasiva y trazable" title="Enlace directo al 2. Prioriza una primera pasada pasiva y trazable" translate="no">​</a></h3>
-<p>La vision general de ProjectDiscovery define <code>Subfinder</code> como herramienta de enumeracion pasiva. Ese matiz no es cosmetico. Conviene conservarlo en la primera iteracion para:</p>
-<ul>
-<li class="">reducir friccion operativa;</li>
-<li class="">evitar mezclar demasiado pronto descubrimiento con validacion activa;</li>
-<li class="">documentar con claridad que parte del resultado vino de fuentes publicas y que parte vino despues de resolucion propia.</li>
-</ul>
-<p>Una ejecucion sencilla suele bastar para abrir el mapa:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">subfinder -d acme-industrial.es -o subdominios.txt</span><br></span></code></pre></div></div>
-<p>Si necesitas controlar mejor el origen de los resultados, la ayuda tambien permite fijar fuentes concretas con <code>-s</code>, excluir otras con <code>-es</code> y listar las disponibles con <code>-ls</code>. Eso resulta util cuando el caso exige reproducibilidad o cuando una fuente concreta produce demasiado ruido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-enumeracion-de-validacion">3. Separa enumeracion de validacion<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#3-separa-enumeracion-de-validacion" class="hash-link" aria-label="Enlace directo al 3. Separa enumeracion de validacion" title="Enlace directo al 3. Separa enumeracion de validacion" translate="no">​</a></h3>
-<p>La pagina de uso distingue claramente opciones de salida, filtros y configuracion, y tambien separa el modo <code>-nW</code> para mostrar solo subdominios activos. Esa separacion conviene respetarla en el metodo:</p>
-<ul>
-<li class="">primero enumera y conserva el bruto pasivo;</li>
-<li class="">despues filtra y agrupa por patrones utiles;</li>
-<li class="">por ultimo decide que nombres merecen validacion activa o contraste adicional.</li>
-</ul>
-<p>Si inviertes ese orden, es facil perder trazabilidad sobre que hallazgo era publico, cual fue resuelto despues y cual aparece solo porque un proveedor concreto tenia mejor cobertura ese dia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-las-fuentes-como-cobertura-no-como-verdad-total">4. Trata las fuentes como cobertura, no como verdad total<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#4-trata-las-fuentes-como-cobertura-no-como-verdad-total" class="hash-link" aria-label="Enlace directo al 4. Trata las fuentes como cobertura, no como verdad total" title="Enlace directo al 4. Trata las fuentes como cobertura, no como verdad total" translate="no">​</a></h3>
-<p>La documentacion de instalacion deja claro que varias integraciones dependen de <code>API keys</code> en <code>provider-config.yaml</code>, y que distintas fuentes aportan cobertura desigual. Eso obliga a una lectura prudente:</p>
-<ul>
-<li class="">ausencia de un subdominio no equivale a inexistencia;</li>
-<li class="">presencia en una sola fuente no equivale a relevancia operativa;</li>
-<li class="">mejor cobertura no equivale automaticamente a mejor contexto.</li>
-</ul>
-<p>En OSINT serio, un subdominio interesante gana peso cuando encaja con otras capas: resolucion coherente, huella web, archivo historico, certificados o conocimiento previo del objetivo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Subfinder</code> es util, pero sus bordes son bastante claros:</p>
-<ul>
-<li class="">depende de la disponibilidad y limites de las fuentes pasivas conectadas;</li>
-<li class="">algunas integraciones solo aportan valor real si configuras credenciales de terceros;</li>
-<li class="">un nombre descubierto puede apuntar a infraestructura compartida, aparcada o heredada;</li>
-<li class="">la eliminacion de <code>wildcards</code> ayuda, pero no elimina por si sola todos los problemas de contexto.</li>
-</ul>
-<p>Tambien conviene recordar algo sencillo: un subdominio puede existir y seguir sin ser relevante para tu pregunta investigativa. Si lo importante es exposicion actual, tendras que contrastar despues con resolucion, servicio visible, contenido, cronologia o inventario.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja sobre activos propios, autorizados o dentro de una investigacion legitima y proporcionada.</li>
-<li class="">Conserva una copia del resultado bruto antes de filtrar para no perder trazabilidad.</li>
-<li class="">Anota que fuentes o configuraciones especiales usaste si el caso exige reproducibilidad.</li>
-<li class="">No conviertas un subdominio en atribucion de propiedad sin corroboracion adicional.</li>
-<li class="">Minimiza datos personales si algun host expone nombres, correos o paneles con informacion sensible.</li>
-<li class="">Si vas a pasar a resolucion activa o a otra herramienta, deja claro donde termina el trabajo pasivo y donde empieza otra fase.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Subfinder</code> brilla cuando necesitas una primera enumeracion pasiva de subdominios con buena integracion en flujos de consola. Aun asi, no deberia trabajar solo:</p>
-<ul>
-<li class=""><code>crt.sh</code>, <code>CT logs</code> y <code>SecurityTrails</code> aportan mejor contexto temporal cuando importa el historico;</li>
-<li class=""><code>Amass</code> puede encajar mejor si el caso exige un mapa mas amplio de superficie y mas pivotes;</li>
-<li class=""><code>theHarvester</code> sirve bien cuando quieres mezclar dominio, correos y otras huellas en una fase temprana;</li>
-<li class=""><code>httpx</code>, <code>urlscan.io</code> o archivo web ayudan despues a decidir que nombres merecen observacion mas profunda.</li>
-</ul>
-<p>La lectura correcta es esta: usa <code>Subfinder</code> para <strong>reducir incertidumbre inicial sobre el espacio DNS visible</strong>, no para cerrar conclusiones antes de tiempo. Un buen hallazgo en subdominios no termina la investigacion; la ordena.</p>
-<p>Como siguiente puente editorial del blog, tendria sentido bajar un nivel mas y explicar como validar una lista de subdominios pasivos sin mezclar cobertura, actualidad y propiedad aparente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/subfinder-osint-subdominios-pasivos-fuentes-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">ProjectDiscovery Docs, <code>Subfinder Overview</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/overview" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/overview</a></li>
-<li class="">ProjectDiscovery Docs, <code>Subfinder Usage</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/usage" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/usage</a></li>
-<li class="">ProjectDiscovery Docs, <code>Installing Subfinder</code>: <a href="https://docs.projectdiscovery.io/opensource/subfinder/install" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/subfinder/install</a></li>
-<li class="">ProjectDiscovery GitHub organization (<code>subfinder</code> repositorio listado): <a href="https://github.com/projectdiscovery" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery</a></li>
-<li class="">ProjectDiscovery GitHub repository: <a href="https://github.com/projectdiscovery/subfinder" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery/subfinder</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Tooling</category>
-            <category>Reconocimiento</category>
-            <category>DNS</category>
-            <category>Verificacion</category>
             <category>Automatizacion</category>
         </item>
     </channel>
