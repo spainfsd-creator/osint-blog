@@ -2,11 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-26T00:00:00.000Z</updated>
+    <updated>2026-06-27T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[GreyHatWarfare en OSINT: buckets cloud expuestos, contexto y verificación responsable]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto"/>
+        <updated>2026-06-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando buckets cloud, permisos públicos, listas de archivos redactadas y notas de verificación responsable]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando buckets cloud, permisos públicos, listas de archivos redactadas y notas de verificación responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-27-greyhatwarfare-osint-buckets-cloud-expuestos-contexto-caa33cc9b0e4c9282b053364006da078.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una organización puede tener su web impecable, su <code>DNS</code> ordenado y sus comunicados muy medidos, pero dejar años de documentos, copias o ficheros de integración en un almacenamiento cloud mal configurado. El error metodológico no es mirar esa superficie: es tratar un nombre de bucket, una ruta o un fichero indexado como prueba automática de propiedad, impacto o negligencia. <code>GreyHatWarfare</code> sirve para formular mejores preguntas sobre exposición pública, siempre que se use con alcance legítimo y sin convertir la búsqueda en saqueo.</p>
+<p>Revisando la documentación pública el <strong>27 de junio de 2026</strong>, <code>GreyHatWarfare Buckets</code> ofrece un buscador de buckets públicos y una <code>API v2</code> para buscar ficheros indexados con filtros como palabras clave, ruta completa, extensiones, tamaño, fecha de modificación, tipo de almacenamiento y ordenación. La propia web presenta su propósito como concienciar sobre el problema de los buckets abiertos y ofrece contacto para retirar resultados dañinos para una organización. Esa frontera importa: el valor OSINT está en detectar, contextualizar y notificar exposición; no en descargar material sensible ni amplificarlo.</p>
+<p>Este artículo está pensado para equipos defensivos, periodistas de datos, responsables de cumplimiento y analistas que trabajan con autorización o interés público claro. No incluye instrucciones para robar datos, explotar accesos, acosar personas ni publicar secretos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-greyhatwarfare-y-para-qué-sirve">Qué es GreyHatWarfare y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#qu%C3%A9-es-greyhatwarfare-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es GreyHatWarfare y para qué sirve" title="Enlace directo al Qué es GreyHatWarfare y para qué sirve" translate="no">​</a></h2>
+<p><a href="https://buckets.grayhatwarfare.com/" target="_blank" rel="noopener noreferrer" class=""><code>GreyHatWarfare Buckets</code></a> es un índice consultable de buckets y objetos cloud que aparecen públicamente accesibles o listados por el servicio. En la práctica, ayuda a responder preguntas iniciales como:</p>
+<ul>
+<li class="">si hay nombres de bucket parecidos a una organización, marca o proveedor;</li>
+<li class="">si aparecen ficheros con extensiones sensibles, por ejemplo <code>pdf</code>, <code>xlsx</code>, <code>sql</code>, <code>json</code>, <code>env</code> o <code>key</code>;</li>
+<li class="">si una ruta sugiere entorno de pruebas, backups, exports o activos de marketing;</li>
+<li class="">si la exposición parece reciente o histórica según la fecha indexada o modificada disponible;</li>
+<li class="">y si conviene abrir un proceso de verificación y notificación responsable.</li>
+</ul>
+<p>La <a href="https://buckets.grayhatwarfare.com/docs/api/v2" target="_blank" rel="noopener noreferrer" class=""><code>API v2</code></a> separa búsquedas de ficheros y de buckets, y permite filtrar por proveedor, extensión, ruta, tamaño y fechas. Eso la convierte en una herramienta cómoda para auditorías defensivas repetibles, pero también obliga a documentar muy bien qué se consultó y por qué. Si no anotas filtros, fecha y alcance, después será difícil distinguir un hallazgo serio de una coincidencia ruidosa.</p>
+<p>Hay una idea que debe quedar clara desde el principio: un bucket público no equivale siempre a incidente grave. Puede contener recursos deliberadamente públicos, assets estáticos, datasets abiertos, documentación comercial o réplicas sin valor sensible. El trabajo del analista no es dramatizar el hallazgo, sino clasificarlo con precisión.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que <code>IberAtlas Clinics</code>, una red sanitaria ficticia, encarga una revisión externa de exposición pública. El alcance autorizado incluye dominios corporativos, marcas registradas, proveedores críticos y patrones de naming ya conocidos por el equipo interno. El objetivo no es buscar "cualquier cosa interesante", sino contestar una pregunta concreta: <strong>¿hay almacenamiento cloud público que parezca relacionado con la organización y que pueda contener material no destinado a publicación?</strong></p>
+<p>Un flujo prudente empezaría con una tabla de hipótesis:</p>
+<table><thead><tr><th>Señal</th><th>Ejemplo ficticio</th><th>Riesgo metodológico</th></tr></thead><tbody><tr><td>Nombre parecido</td><td><code>iberatlas-public-assets</code></td><td>Puede ser bucket legítimo de contenido público</td></tr><tr><td>Ruta sensible</td><td><code>/exports/old-crm/</code></td><td>La ruta puede estar vacía, obsoleta o no ser de la entidad</td></tr><tr><td>Extensión delicada</td><td><code>.sql</code>, <code>.xlsx</code>, <code>.env</code></td><td>La extensión no demuestra contenido sensible</td></tr><tr><td>Marca de proveedor</td><td><code>iberatlas-vendor-demo</code></td><td>Puede pertenecer a un tercero o a una prueba comercial</td></tr></tbody></table>
+<p>El equipo no descarga ficheros privados ni explora material personal. Primero valida si el bucket parece realmente relacionado con el alcance, si el objeto está destinado a publicación y si existe un canal de notificación. Solo si la revisión está autorizada y es proporcional se conserva la evidencia mínima necesaria: URL del resultado, metadatos visibles, fecha de consulta, captura redactada y razonamiento.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-antes-de-buscar">1. Define alcance antes de buscar<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#1-define-alcance-antes-de-buscar" class="hash-link" aria-label="Enlace directo al 1. Define alcance antes de buscar" title="Enlace directo al 1. Define alcance antes de buscar" translate="no">​</a></h3>
+<p>Escribe el alcance en términos verificables: dominios, marcas, nombres legales, proveedores incluidos, idiomas, países y patrones de naming permitidos. La búsqueda abierta de palabras genéricas suele producir ruido y tentaciones malas.</p>
+<p>Un buen alcance defensivo podría incluir:</p>
+<ul>
+<li class="">dominios propios y subdominios conocidos;</li>
+<li class="">nombres de producto o marca registrados;</li>
+<li class="">prefijos internos aprobados por el cliente;</li>
+<li class="">proveedores dentro del contrato;</li>
+<li class="">extensiones de riesgo definidas de antemano;</li>
+<li class="">ventana temporal de interés.</li>
+</ul>
+<p>Si no puedes explicar por qué una consulta pertenece al caso, probablemente no deberías hacerla.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-metadatos-no-por-contenido">2. Empieza por metadatos, no por contenido<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#2-empieza-por-metadatos-no-por-contenido" class="hash-link" aria-label="Enlace directo al 2. Empieza por metadatos, no por contenido" title="Enlace directo al 2. Empieza por metadatos, no por contenido" translate="no">​</a></h3>
+<p>En <code>GreyHatWarfare</code>, la primera lectura debería centrarse en metadatos visibles: nombre del bucket, ruta, extensión, tamaño aproximado, fecha de modificación, proveedor y coincidencia con el alcance. Eso basta para decidir si hay que escalar una revisión interna.</p>
+<p>Evita convertir la herramienta en una sesión de descarga. En una investigación responsable, la pregunta inicial no es "qué puedo abrir", sino:</p>
+<ol>
+<li class="">¿La ruta parece relacionada con la organización o es una coincidencia?</li>
+<li class="">¿El tipo de fichero sería problemático si estuviera expuesto?</li>
+<li class="">¿Hay señales de que el contenido estaba destinado a ser público?</li>
+<li class="">¿Qué otra fuente puede corroborar propiedad o contexto?</li>
+<li class="">¿Cuál es el canal correcto para notificar sin difundir el hallazgo?</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-corrobora-propiedad-y-propósito">3. Corrobora propiedad y propósito<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#3-corrobora-propiedad-y-prop%C3%B3sito" class="hash-link" aria-label="Enlace directo al 3. Corrobora propiedad y propósito" title="Enlace directo al 3. Corrobora propiedad y propósito" translate="no">​</a></h3>
+<p>La atribución de un bucket requiere más que una cadena de texto. Antes de escribir "este bucket pertenece a X", busca señales independientes:</p>
+<ul>
+<li class="">enlaces desde la web oficial o <code>CDN</code> hacia ese bucket;</li>
+<li class="">nombres de dominio, certificados o cabeceras relacionados;</li>
+<li class="">documentación pública que mencione el recurso;</li>
+<li class="">históricos web que expliquen campañas o micrositios antiguos;</li>
+<li class="">registros de proveedores o repositorios donde aparezca el naming;</li>
+<li class="">confirmación interna si trabajas con autorización.</li>
+</ul>
+<p>La frase prudente suele ser "el nombre y la ruta son compatibles con una relación con la organización", no "la organización ha filtrado datos" sin más evidencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-clasifica-severidad-sin-abrir-más-de-lo-necesario">4. Clasifica severidad sin abrir más de lo necesario<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#4-clasifica-severidad-sin-abrir-m%C3%A1s-de-lo-necesario" class="hash-link" aria-label="Enlace directo al 4. Clasifica severidad sin abrir más de lo necesario" title="Enlace directo al 4. Clasifica severidad sin abrir más de lo necesario" translate="no">​</a></h3>
+<p>Una matriz simple ayuda a no sobrerreaccionar:</p>
+<table><thead><tr><th>Categoría</th><th>Ejemplo</th><th>Acción razonable</th></tr></thead><tbody><tr><td>Público esperado</td><td>imágenes de marketing, assets web</td><td>Documentar y cerrar salvo anomalías</td></tr><tr><td>Exposición dudosa</td><td>informes antiguos, exports genéricos</td><td>Verificación interna o notificación responsable</td></tr><tr><td>Alto riesgo</td><td>secretos, backups, datos personales aparentes</td><td>No descargar, preservar mínimo, escalar de inmediato</td></tr><tr><td>No atribuible</td><td>nombre parecido sin más señales</td><td>Registrar como ruido o hipótesis débil</td></tr></tbody></table>
+<p>La severidad depende del contexto, no solo de la extensión. Un <code>.pdf</code> puede ser un folleto público; un <code>.json</code> puede ser configuración inocua o contener credenciales. El punto responsable es no aumentar el daño para averiguarlo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cierra-con-remediación-no-con-espectáculo">5. Cierra con remediación, no con espectáculo<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#5-cierra-con-remediaci%C3%B3n-no-con-espect%C3%A1culo" class="hash-link" aria-label="Enlace directo al 5. Cierra con remediación, no con espectáculo" title="Enlace directo al 5. Cierra con remediación, no con espectáculo" translate="no">​</a></h3>
+<p>Si el hallazgo afecta a tu organización o a un cliente autorizado, el siguiente paso no es publicar capturas. Es activar controles:</p>
+<ul>
+<li class="">revisar políticas de buckets y objetos;</li>
+<li class="">habilitar bloqueos de acceso público donde proceda;</li>
+<li class="">auditar cuentas, proyectos y permisos heredados;</li>
+<li class="">rotar secretos si hay indicios de exposición;</li>
+<li class="">revisar logs de acceso y ventanas temporales;</li>
+<li class="">retirar o reubicar datos que no debían estar en abierto;</li>
+<li class="">dejar una lección de naming y clasificación de datos.</li>
+</ul>
+<p>Para terceros, aplica disclosure responsable: contacto de seguridad, <code>security.txt</code>, canal de abuso del proveedor o formulario oficial. No incluyas muestras sensibles si bastan metadatos redactados para que el propietario localice el problema.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>GreyHatWarfare</code> es útil porque reduce fricción, pero no elimina incertidumbre:</p>
+<ul>
+<li class="">puede mostrar buckets o ficheros que ya no son accesibles;</li>
+<li class="">puede indexar nombres sin que el contenido sea sensible;</li>
+<li class="">puede mezclar recursos deliberadamente públicos con errores reales;</li>
+<li class="">la coincidencia por marca o palabra clave puede afectar a entidades distintas;</li>
+<li class="">la fecha de modificación de un objeto no siempre equivale a fecha de exposición;</li>
+<li class="">la ausencia de resultados no prueba ausencia de buckets públicos;</li>
+<li class="">y los límites de cuenta, filtros y cobertura pueden cambiar lo que ve cada analista.</li>
+</ul>
+<p>También hay una limitación ética: que algo sea técnicamente accesible no significa que sea apropiado abrirlo, copiarlo o difundirlo. En OSINT profesional, minimizar daño es parte de la metodología, no una nota decorativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>Trabajar con exposición cloud exige una disciplina más estricta que otras búsquedas abiertas:</p>
+<ul>
+<li class="">usa cuentas y entornos separados para auditorías autorizadas;</li>
+<li class="">no mezcles búsquedas de clientes, casos personales y navegación cotidiana;</li>
+<li class="">conserva solo evidencia mínima y redactada;</li>
+<li class="">no descargues datos personales o secretos salvo autorización explícita y necesidad documentada;</li>
+<li class="">no pruebes escritura, modificación ni borrado;</li>
+<li class="">no publiques nombres de buckets sensibles antes de remediación;</li>
+<li class="">separa hallazgo, hipótesis, verificación y conclusión en tus notas;</li>
+<li class="">y respeta peticiones de retirada o canales de reporte cuando el objetivo sea reducir daño.</li>
+</ul>
+<p>Si el caso implica datos personales, la regla práctica es sencilla: cuanto menos contenido abras, mejor. Muchas veces basta con demostrar la existencia del riesgo al propietario legítimo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="controles-defensivos-que-conviene-conocer">Controles defensivos que conviene conocer<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#controles-defensivos-que-conviene-conocer" class="hash-link" aria-label="Enlace directo al Controles defensivos que conviene conocer" title="Enlace directo al Controles defensivos que conviene conocer" translate="no">​</a></h2>
+<p>La investigación responsable debe terminar en controles concretos. En <code>Amazon S3</code>, la documentación oficial de <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html" target="_blank" rel="noopener noreferrer" class="">Block Public Access</a> explica que existen ajustes a nivel de cuenta, bucket y puntos de acceso para limitar acceso público, y que AWS recomienda activar los cuatro ajustes de bloqueo para cuentas, buckets y objetos cuando no deben ser públicos.</p>
+<p>En <code>Google Cloud Storage</code>, la documentación de <a href="https://docs.cloud.google.com/storage/docs/public-access-prevention" target="_blank" rel="noopener noreferrer" class="">Public Access Prevention</a> describe un ajuste de bucket y una restricción de organización para impedir que se conceda acceso público por Internet. La recomendación oficial es aplicarlo al nivel más alto posible cuando sabes que los datos nunca deben exponerse públicamente.</p>
+<p>En términos de operación, eso se traduce en una lista breve:</p>
+<ul>
+<li class="">bloquear acceso público por defecto;</li>
+<li class="">revisar excepciones legítimas con caducidad y propietario;</li>
+<li class="">usar políticas de organización cuando existan múltiples cuentas o proyectos;</li>
+<li class="">etiquetar buckets por sensibilidad;</li>
+<li class="">monitorizar cambios de permisos;</li>
+<li class="">buscar secretos en pipelines internos antes de publicar artefactos;</li>
+<li class="">y educar a equipos de producto para diferenciar <code>public assets</code> de <code>public data</code>.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>GreyHatWarfare</code> encaja bien como primera capa de visibilidad sobre buckets públicos, pero rara vez debería trabajar sola. Según la pregunta, puede combinarse con:</p>
+<ul>
+<li class=""><code>AWS IAM Access Analyzer</code>, <code>S3 Storage Lens</code> o herramientas internas de cloud posture para revisión propia;</li>
+<li class=""><code>Google Cloud Asset Inventory</code> y políticas de organización si el entorno es <code>GCP</code>;</li>
+<li class=""><code>SpiderFoot</code>, si necesitas correlacionar buckets con dominios, correos y otros pivotes autorizados;</li>
+<li class=""><code>urlscan.io</code>, <code>BuiltWith</code> o <code>Wappalyzer</code>, si quieres entender cómo una web carga assets públicos;</li>
+<li class=""><code>GitHub</code> y gestores de secretos defensivos, si el riesgo está en credenciales expuestas por despliegues;</li>
+<li class="">y un proceso de disclosure, si el hallazgo afecta a terceros.</li>
+</ul>
+<p>La idea accionable es simple: usa <code>GreyHatWarfare</code> para <strong>detectar y priorizar exposición pública de almacenamiento cloud</strong>, no para convertir un índice en una investigación invasiva. El siguiente paso sano del blog sería una plantilla de informe de exposición cloud que separe metadatos visibles, atribución, riesgo, remediación y evidencia mínima.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://buckets.grayhatwarfare.com/" target="_blank" rel="noopener noreferrer" class="">GreyHatWarfare Buckets</a></li>
+<li class=""><a href="https://buckets.grayhatwarfare.com/docs/api/v2" target="_blank" rel="noopener noreferrer" class="">GreyHatWarfare Buckets API v2</a></li>
+<li class=""><a href="https://buckets.grayhatwarfare.com/docs/regex" target="_blank" rel="noopener noreferrer" class="">GreyHatWarfare: Regular Expression Search Documentation</a></li>
+<li class=""><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html" target="_blank" rel="noopener noreferrer" class="">AWS: Blocking public access to your Amazon S3 storage</a></li>
+<li class=""><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html" target="_blank" rel="noopener noreferrer" class="">AWS: Configuring block public access settings for your S3 buckets</a></li>
+<li class=""><a href="https://docs.cloud.google.com/storage/docs/public-access-prevention" target="_blank" rel="noopener noreferrer" class="">Google Cloud: Public access prevention</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NASA FIRMS en OSINT: anomalías térmicas, incendios y contexto antes de atribuir causas]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto</id>
@@ -2379,119 +2524,6 @@
         <category label="Web" term="Web"/>
         <category label="Reconocimiento" term="Reconocimiento"/>
         <category label="Verificacion" term="Verificacion"/>
-        <category label="Automatizacion" term="Automatizacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WAFW00F en OSINT: identificar WAF, entender respuestas y no sobreinterpretar el perimetro web]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto"/>
-        <updated>2026-06-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT comparando respuestas HTTP, cabeceras y patrones de un WAF sobre un tablero web tecnico sobrio]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando respuestas HTTP, cabeceras y patrones de un WAF sobre un tablero web tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-07-wafw00f-osint-identificar-waf-fingerprinting-web-contexto-09c64510c08e4812ea29471f1e8c7b1c.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica toca una web publica, mucha gente mira el dominio, ve un error <code>403</code>, un <code>challenge</code> o una cabecera rara y salta demasiado pronto a conclusiones sobre proteccion, madurez o incluso atribucion. Ese salto suele ser un error. <code>WAFW00F</code> resulta util precisamente porque convierte esa intuicion difusa en una pregunta mas concreta: que senales publicas sugieren que hay un <code>Web Application Firewall</code> delante, y hasta donde merece fiarse uno de esa lectura.</p>
-<p>Segun la documentacion oficial consultada el <strong>7 de junio de 2026</strong>, <code>WAFW00F</code> es una herramienta de <code>Enable Security</code> para identificar y perfilar productos <code>WAF</code> que protegen un sitio web. Su propuesta es clara: enviar unas pocas peticiones controladas, observar respuestas, cabeceras y patrones conocidos, y sugerir que solucion podria estar filtrando el trafico. En trabajo OSINT responsable eso sirve para contextualizar una superficie web, no para convertir un hallazgo de fingerprinting en una conclusion cerrada sobre el entorno.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>WAFW00F</code> es una utilidad especializada en <code>fingerprinting</code> de <code>Web Application Firewalls</code>. La descripcion oficial del proyecto y la pagina de <code>PyPI</code> coinciden en lo esencial: intenta identificar si un sitio esta protegido por un <code>WAF</code> concreto y, si no puede hacerlo por firma exacta, aplica una deteccion mas generica basada en como responde el objetivo a distintas peticiones.</p>
-<p>Traducido a preguntas utiles dentro de OSINT defensivo, ayuda a:</p>
-<ul>
-<li class="">detectar si una web publica parece estar delante de un <code>WAF</code> conocido;</li>
-<li class="">separar respuestas del origen y respuestas de una capa intermedia;</li>
-<li class="">entender por que un sitio devuelve bloqueos, retos o variaciones de cabeceras;</li>
-<li class="">documentar contexto tecnico antes de correlacionar tecnologias, superficie y exposicion;</li>
-<li class="">y decidir que parte del comportamiento observado merece comprobacion manual adicional.</li>
-</ul>
-<p>No sirve para demostrar por si solo la arquitectura completa del objetivo. Tampoco prueba que una organizacion gestione bien su seguridad. Sirve para <strong>describir mejor el borde visible del caso</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de terceros sobre <code>portal.acme-ejemplo.test</code>, un dominio ficticio usado por el equipo de riesgo de una empresa que va a integrar un proveedor. El objetivo no es romper nada ni forzar el sitio, sino entender si las respuestas visibles vienen del servidor origen, de una <code>CDN</code>, de un <code>reverse proxy</code> o de una capa <code>WAF</code> que puede alterar banners, errores y comportamiento.</p>
-<p>En ese escenario, <code>WAFW00F</code> encaja bien como paso corto y acotado:</p>
-<ol>
-<li class="">se toma la <code>URL</code> publica del portal;</li>
-<li class="">se observa si la herramienta detecta un <code>WAF</code> concreto o una proteccion generica;</li>
-<li class="">se comparan las respuestas con otras pistas, como cabeceras <code>HTTP</code>, certificados, tecnologias aparentes y rutas visibles;</li>
-<li class="">y se documenta la incertidumbre en vez de dar por hecho que el sitio "esta detras de X" con certeza absoluta.</li>
-</ol>
-<p>Ese orden importa. Si primero te enamoras de una hipotesis sobre el proveedor de seguridad y luego lees los datos para confirmarla, acabaras sobreinterpretando ruido tecnico.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-lectura-pequena-y-trazable">1. Empieza por una lectura pequena y trazable<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#1-empieza-por-una-lectura-pequena-y-trazable" class="hash-link" aria-label="Enlace directo al 1. Empieza por una lectura pequena y trazable" title="Enlace directo al 1. Empieza por una lectura pequena y trazable" translate="no">​</a></h3>
-<p>La documentacion de uso de <code>WAFW00F</code> muestra un modo sencillo: pasar una <code>URL</code> y observar el resultado. Para un analista OSINT, esa modestia inicial es una ventaja. Te obliga a registrar que has consultado, contra que punto publico y con que salida.</p>
-<p>Un ejemplo ficticio y prudente seria:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">wafw00f https://portal.acme-ejemplo.test -v</span><br></span></code></pre></div></div>
-<p>La opcion <code>-v</code> aumenta la verbosidad, lo que ayuda a entender mejor que esta viendo la herramienta sin convertirla en una caja negra.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-interpreta-la-deteccion-como-hipotesis-no-como-veredicto">2. Interpreta la deteccion como hipotesis, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#2-interpreta-la-deteccion-como-hipotesis-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 2. Interpreta la deteccion como hipotesis, no como veredicto" title="Enlace directo al 2. Interpreta la deteccion como hipotesis, no como veredicto" translate="no">​</a></h3>
-<p>La propia descripcion oficial explica que <code>WAFW00F</code> combina una peticion normal, peticiones que buscan provocar respuestas caracteristicas y una deteccion generica cuando no hay coincidencia exacta. Eso ya deja clara una idea metodologica: el resultado es una <strong>lectura de comportamiento</strong>, no una verdad interior del stack.</p>
-<p>En la practica conviene anotar:</p>
-<ul>
-<li class="">si hubo coincidencia con un producto concreto;</li>
-<li class="">si la deteccion fue solo generica;</li>
-<li class="">si el sitio redirigia, filtraba o alteraba rutas;</li>
-<li class="">y si el resultado depende demasiado de una ruta, cabecera o momento concreto.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-opciones-de-control-cuando-el-caso-exige-reproducibilidad">3. Usa opciones de control cuando el caso exige reproducibilidad<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#3-usa-opciones-de-control-cuando-el-caso-exige-reproducibilidad" class="hash-link" aria-label="Enlace directo al 3. Usa opciones de control cuando el caso exige reproducibilidad" title="Enlace directo al 3. Usa opciones de control cuando el caso exige reproducibilidad" translate="no">​</a></h3>
-<p>La wiki de uso documenta opciones utiles como <code>--findall</code>, <code>--noredirect</code>, <code>--headers</code>, <code>--proxy</code> y <code>--list</code>. No hacen la investigacion "mas potente" por si mismas; la hacen mas legible cuando necesitas repetirla o explicar mejor por que viste lo que viste.</p>
-<ul>
-<li class=""><code>--noredirect</code> ayuda a no mezclar la deteccion con cadenas de redireccion;</li>
-<li class=""><code>--findall</code> permite revisar varias coincidencias posibles en lugar de parar en la primera;</li>
-<li class=""><code>--headers</code> sirve para controlar el juego de cabeceras enviado;</li>
-<li class=""><code>--proxy</code> resulta util si el flujo defensivo exige observacion instrumentada;</li>
-<li class="">y <code>--list</code> deja claro el universo de productos que la herramienta sabe detectar.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-el-hallazgo-con-otras-capas-antes-de-escribir-conclusiones">4. Cruza el hallazgo con otras capas antes de escribir conclusiones<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#4-cruza-el-hallazgo-con-otras-capas-antes-de-escribir-conclusiones" class="hash-link" aria-label="Enlace directo al 4. Cruza el hallazgo con otras capas antes de escribir conclusiones" title="Enlace directo al 4. Cruza el hallazgo con otras capas antes de escribir conclusiones" translate="no">​</a></h3>
-<p>Un <code>WAF</code> aparente no invalida el resto del trabajo OSINT, pero si condiciona como deberias leerlo. Si ves un bloqueo, un error raro o una cabecera genérica, conviene cruzarlo con:</p>
-<ul>
-<li class="">fingerprinting tecnologico del sitio;</li>
-<li class="">certificados y <code>CT logs</code>;</li>
-<li class="">capturas o analisis web en sandbox;</li>
-<li class="">historial de DNS o <code>CDN</code>;</li>
-<li class="">y documentacion publica del proveedor o de la propia organizacion.</li>
-</ul>
-<p><code>WAFW00F</code> te ayuda a no atribuir demasiado rapido una respuesta al servidor origen. Ese es su valor real.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Aqui es donde conviene ser especialmente disciplinado:</p>
-<ul>
-<li class="">una deteccion puede cambiar segun la ruta consultada o el momento;</li>
-<li class="">una <code>CDN</code>, un <code>reverse proxy</code> o un proveedor gestionado puede parecer un <code>WAF</code> o esconderlo;</li>
-<li class="">las firmas pueden quedarse cortas ante despliegues personalizados;</li>
-<li class="">una deteccion generica no basta para afirmar que conoces el producto concreto;</li>
-<li class="">y las peticiones enviadas para identificar comportamiento pueden activar protecciones, retos o respuestas no reproducibles.</li>
-</ul>
-<p>Ademas, que un sitio tenga <code>WAF</code> no dice casi nada por si solo sobre calidad defensiva, exposicion real o madurez operacional. Solo describe una capa visible del borde web.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo sobre activos propios, autorizados o dentro de una investigacion legitima y proporcionada.</li>
-<li class="">Limita el alcance a lo necesario para responder la pregunta investigativa.</li>
-<li class="">Registra fecha, <code>URL</code>, opciones usadas y contexto de red para poder explicar el hallazgo.</li>
-<li class="">No conviertas una coincidencia tecnica en una afirmacion de proveedor, contrato o arquitectura interna sin corroboracion.</li>
-<li class="">Si el objetivo expone datos personales o mensajes de error sensibles, minimiza su reproduccion en notas e informes.</li>
-<li class="">Separa claramente observacion publica, inferencia tecnica y conclusiones finales.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>WAFW00F</code> encaja bien cuando necesitas una lectura rapida y razonada del borde web. Aun asi, no deberia trabajar aislado:</p>
-<ul>
-<li class=""><code>BuiltWith</code> o <code>Wappalyzer</code> ayudan a comparar huella tecnologica visible;</li>
-<li class=""><code>urlquery</code> o <code>urlscan.io</code> sirven mejor para entender carga web, redirecciones y recursos;</li>
-<li class=""><code>crt.sh</code> y otros <code>CT logs</code> aportan contexto temporal sobre certificados y dominios;</li>
-<li class="">y una comprobacion manual de cabeceras y respuestas sigue siendo necesaria cuando el caso importa de verdad.</li>
-</ul>
-<p>Tambien merece la pena tener presente el estado del proyecto. El repositorio oficial muestra como ultima version <code>v2.4.2</code>, publicada el <strong>26 de enero de 2026</strong>, y el historial de <code>releases</code> deja constancia de mejoras recientes como nuevos detectores y, desde <code>v2.1.0</code>, entrada y salida estructurada por fichero. Para un flujo de analista eso significa algo simple: la herramienta sigue viva, pero tu interpretacion debe seguir siendo conservadora.</p>
-<p>La idea accionable no es "averigua el <code>WAF</code> y ya esta". La idea util es otra: <strong>usa <code>WAFW00F</code> para saber si una capa intermedia esta moldeando lo que ves, y documenta ese hecho antes de atribuir comportamiento al origen</strong>.</p>
-<p>Como siguiente paso editorial del blog, tendria sentido bajar un nivel mas y explicar como combinar fingerprinting de <code>WAF</code>, analisis de redirecciones y <code>CT logs</code> sin confundir proteccion visible con arquitectura real.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/wafw00f-osint-identificar-waf-fingerprinting-web-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">Enable Security, repositorio oficial <code>WAFW00F</code>: <a href="https://github.com/EnableSecurity/wafw00f" target="_blank" rel="noopener noreferrer" class="">https://github.com/EnableSecurity/wafw00f</a></li>
-<li class="">Enable Security, <code>PyPI</code> de <code>wafw00f</code>: <a href="https://pypi.org/project/wafw00f/" target="_blank" rel="noopener noreferrer" class="">https://pypi.org/project/wafw00f/</a></li>
-<li class="">Enable Security, wiki <code>Getting Started</code>: <a href="https://github.com/EnableSecurity/wafw00f/wiki/Getting-Started" target="_blank" rel="noopener noreferrer" class="">https://github.com/EnableSecurity/wafw00f/wiki/Getting-Started</a></li>
-<li class="">Enable Security, wiki <code>Usage</code>: <a href="https://github.com/EnableSecurity/wafw00f/wiki/Usage" target="_blank" rel="noopener noreferrer" class="">https://github.com/EnableSecurity/wafw00f/wiki/Usage</a></li>
-<li class="">Enable Security, <code>Releases</code> de <code>WAFW00F</code>: <a href="https://github.com/EnableSecurity/wafw00f/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/EnableSecurity/wafw00f/releases</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Web" term="Web"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Tradecraft" term="Tradecraft"/>
         <category label="Automatizacion" term="Automatizacion"/>
     </entry>
 </feed>
