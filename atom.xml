@@ -2,11 +2,137 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-27T00:00:00.000Z</updated>
+    <updated>2026-06-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[BinaryEdge en OSINT: superficie externa, servicios expuestos y contexto antes de priorizar]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto"/>
+        <updated>2026-06-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando resultados de escaneo de superficie externa, puertos abiertos, banners de servicio y notas de riesgo defensivo]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando resultados de escaneo de superficie externa, puertos abiertos, banners de servicio y notas de riesgo defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-28-binaryedge-osint-superficie-externa-contexto-337722995822deae941a0ad02e1a95b0.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una IP responde en Internet, un banner sugiere una version antigua y un panel aparece en un puerto que nadie recordaba. La tentacion es escribir "vulnerable" demasiado pronto. El trabajo correcto es mas sobrio: <strong>convertir lo visible desde fuera en un inventario verificable, fechar la observacion y decidir si merece accion defensiva</strong>. <code>BinaryEdge</code> encaja en ese punto cuando se usa para entender exposicion publica, no para ampliar objetivos sin permiso.</p>
+<p>Revisando documentacion publica el <strong>28 de junio de 2026</strong>, Coalition explica que usa tecnologia de escaneo de <code>BinaryEdge</code> para recoger informacion sobre servicios publicamente alcanzables, identificar puertos abiertos, servicios expuestos, metadatos de servicio e indicadores de tecnologia o version cuando estan disponibles. La documentacion publica historica de la API de <code>BinaryEdge</code> tambien describe flujos de datos, tareas de escaneo, modulos de captura y consultas sobre resultados. Eso basta para una leccion OSINT importante: un escaneo externo aporta <strong>senales tecnicas</strong>, no conclusiones automaticas sobre propiedad, explotabilidad o impacto.</p>
+<p>Este articulo esta pensado para equipos defensivos, analistas de exposicion externa, respuesta a incidentes, <code>due diligence</code> tecnica y verificacion responsable. No contiene instrucciones para intrusion, explotacion, acoso, doxxing ni busqueda indiscriminada de sistemas ajenos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-binaryedge-y-para-que-sirve">Que es BinaryEdge y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#que-es-binaryedge-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es BinaryEdge y para que sirve" title="Enlace directo al Que es BinaryEdge y para que sirve" translate="no">​</a></h2>
+<p><code>BinaryEdge</code> es una tecnologia orientada a observar servicios expuestos en Internet y producir inteligencia sobre superficie externa. En la practica, ayuda a responder preguntas como:</p>
+<ul>
+<li class="">que servicios parecen visibles desde fuera;</li>
+<li class="">que puertos y protocolos responden en una IP o rango autorizado;</li>
+<li class="">que metadatos devuelve un servicio, por ejemplo banner, protocolo o indicios de tecnologia;</li>
+<li class="">que exposiciones se repiten en el tiempo;</li>
+<li class="">que hallazgos necesitan verificacion manual antes de convertirse en riesgo.</li>
+</ul>
+<p>La pagina de ayuda de Coalition publicada en abril de 2026 aclara un matiz util: ser escaneado no implica que una organizacion este comprometida. Normalmente significa que sus sistemas son alcanzables desde Internet y que se esta recogiendo el mismo tipo de datos externos que un equipo de seguridad necesita para entender que ve cualquiera desde fuera.</p>
+<p>La documentacion publica de API conservada en GitHub muestra ademas la logica tecnica del ecosistema: flujos de datos, tareas bajo demanda, tipos <code>scan</code> y <code>grab</code>, modulos para protocolos como <code>http</code>, <code>https</code>, <code>ssh</code>, <code>ssl</code>, <code>rdp</code>, <code>vnc</code>, <code>mongodb</code>, <code>redis</code> o <code>mqtt</code>, y endpoints de consulta historica o remota. Para un analista OSINT responsable, el valor no esta en "mirar mas", sino en <strong>mirar con alcance, fecha y criterio</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que <code>Litoral Pharma</code>, una empresa ficticia, encarga una revision externa de exposicion. El alcance autorizado incluye sus dominios corporativos, rangos propios confirmados por el equipo de red y proveedores criticos documentados. La pregunta no es "que encuentro por ahi", sino:</p>
+<p><strong>¿Que servicios publicos parecen formar parte de nuestra superficie externa y cuales requieren revision prioritaria?</strong></p>
+<p>Un primer inventario podria verse asi:</p>
+<table><thead><tr><th>Observacion</th><th>Ejemplo ficticio</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Puerto abierto</td><td><code>203.0.113.42:8443</code></td><td>Servicio visible, no necesariamente vulnerable</td></tr><tr><td>Banner</td><td><code>nginx</code> con pista de version</td><td>Indicio tecnico que requiere comprobacion local</td></tr><tr><td>Servicio remoto</td><td><code>RDP</code> detectado en una IP autorizada</td><td>Hallazgo sensible que debe validarse con el equipo propietario</td></tr><tr><td>Certificado</td><td>CN o SAN asociado a subdominio antiguo</td><td>Posible activo olvidado, no prueba de control actual</td></tr><tr><td>Pais/ASN</td><td>Hosting externo conocido</td><td>Contexto de infraestructura, no atribucion por si solo</td></tr></tbody></table>
+<p>El resultado util no es una lista larga. Es una cola de verificacion:</p>
+<ol>
+<li class="">confirmar si el activo pertenece al alcance;</li>
+<li class="">comprobar si el servicio sigue vivo desde una fuente interna o autorizada;</li>
+<li class="">distinguir exposicion intencional, legado olvidado y falso positivo;</li>
+<li class="">priorizar segun criticidad del servicio, sensibilidad del entorno y evidencia corroborada;</li>
+<li class="">documentar fecha, fuente, consulta, limites y decision.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-alcance-antes-de-consultar">1. Fijar alcance antes de consultar<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#1-fijar-alcance-antes-de-consultar" class="hash-link" aria-label="Enlace directo al 1. Fijar alcance antes de consultar" title="Enlace directo al 1. Fijar alcance antes de consultar" translate="no">​</a></h3>
+<p>La superficie externa es peligrosa de interpretar si empiezas por la herramienta. Empieza por el alcance:</p>
+<ul>
+<li class="">dominios propiedad de la organizacion;</li>
+<li class="">rangos IP confirmados por fuentes internas o registros tecnicos;</li>
+<li class="">activos de terceros solo si hay autorizacion o necesidad legitima clara;</li>
+<li class="">exclusiones, por ejemplo sistemas personales, clientes finales o entornos no cubiertos.</li>
+</ul>
+<p>Sin ese marco, una coincidencia tecnica puede convertirse en una conclusion injusta. Un banner compartido, un proveedor comun o un certificado historico no demuestran propiedad actual.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-inventario-enrichment-y-riesgo">2. Separar inventario, enrichment y riesgo<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#2-separar-inventario-enrichment-y-riesgo" class="hash-link" aria-label="Enlace directo al 2. Separar inventario, enrichment y riesgo" title="Enlace directo al 2. Separar inventario, enrichment y riesgo" translate="no">​</a></h3>
+<p>Un buen flujo defensivo trata los datos en capas:</p>
+<ul>
+<li class=""><strong>inventario</strong>: que IP, puerto, protocolo y host se observaron;</li>
+<li class=""><strong>enrichment</strong>: que metadatos, tecnologias o relaciones visibles aparecen;</li>
+<li class=""><strong>validacion</strong>: que parte se confirma con DNS, RDAP, certificados, logs internos o propietarios del servicio;</li>
+<li class=""><strong>riesgo</strong>: que exposicion merece accion, con que urgencia y por que.</li>
+</ul>
+<p>Ese orden evita un error muy comun: llamar "critico" a cualquier servicio que resulte llamativo. Un panel de administracion visible puede ser grave, pero tambien puede estar protegido, filtrado, aislado o ser un falso positivo de deteccion.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-fechar-todo">3. Fechar todo<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#3-fechar-todo" class="hash-link" aria-label="Enlace directo al 3. Fechar todo" title="Enlace directo al 3. Fechar todo" translate="no">​</a></h3>
+<p>La observacion externa caduca. Coalition indica que su programa de escaneo es efectivamente continuo, con refresco completo aproximado de datos IP publicos cada <code>30</code> dias y rescaneos mas frecuentes para algunos puertos segun actividad de amenazas, vulnerabilidades o necesidades de investigacion. Esa periodicidad no debe leerse como garantia universal de frescura para cada conclusion operativa.</p>
+<p>En una nota de caso, deja siempre:</p>
+<ul>
+<li class="">fecha y hora de consulta;</li>
+<li class="">fuente usada;</li>
+<li class="">selector consultado;</li>
+<li class="">resultado bruto minimo necesario;</li>
+<li class="">verificacion posterior;</li>
+<li class="">decision tomada.</li>
+</ul>
+<p>Si manana el servicio desaparece, esa trazabilidad permite explicar si se corrigio, si el dato estaba obsoleto o si el analisis confundio dos activos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-con-fuentes-independientes">4. Corroborar con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#4-corroborar-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 4. Corroborar con fuentes independientes" title="Enlace directo al 4. Corroborar con fuentes independientes" translate="no">​</a></h3>
+<p><code>BinaryEdge</code> puede orientar, pero conviene cruzar hallazgos con capas distintas:</p>
+<ul>
+<li class=""><code>RDAP</code> o datos de red para propiedad aparente de rangos;</li>
+<li class=""><code>DNS</code> y <code>CT logs</code> para nombres y cronologia;</li>
+<li class=""><code>urlscan.io</code>, <code>Netcraft</code>, <code>Shodan</code>, <code>Censys</code> o <code>FullHunt</code> para contraste externo;</li>
+<li class="">inventario interno, CMDB o responsables de servicio cuando haya autorizacion;</li>
+<li class="">tickets de remediacion y evidencias de cierre.</li>
+</ul>
+<p>El objetivo no es que todas las fuentes digan lo mismo, sino entender por que discrepan. Diferentes motores escanean en momentos distintos, con modulos distintos y desde redes distintas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>BinaryEdge</code> no elimina los problemas clasicos de la inteligencia tecnica abierta:</p>
+<ul>
+<li class="">un servicio visible no equivale a explotable;</li>
+<li class="">un banner puede estar manipulado, incompleto o cacheado;</li>
+<li class="">una IP puede estar detras de CDN, hosting compartido, NAT, cloud o proveedor gestionado;</li>
+<li class="">un certificado historico puede sobrevivir a la migracion de un activo;</li>
+<li class="">una deteccion puede estar desactualizada cuando llega al informe;</li>
+<li class="">el dato externo no siempre ve controles internos, segmentacion, autenticacion o reglas de acceso.</li>
+</ul>
+<p>Tambien hay una limitacion etica: que algo sea tecnicamente visible no significa que sea proporcional investigarlo en profundidad. Para OSINT responsable, la pregunta no es solo "puedo verlo", sino "tengo motivo legitimo, alcance y una forma segura de documentarlo sin causar dano".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Usa <code>BinaryEdge</code> como una capa de contexto defensivo:</p>
+<ul>
+<li class="">trabaja con activos propios, autorizados o de interes publico claro;</li>
+<li class="">minimiza datos personales y evita publicar identificadores innecesarios;</li>
+<li class="">redacta IPs, dominios internos, rutas y banners sensibles en informes publicos;</li>
+<li class="">no descargues, pruebes credenciales ni interactues con servicios ajenos;</li>
+<li class="">si detectas exposicion sensible, usa canales de notificacion responsable;</li>
+<li class="">conserva el resultado minimo necesario para reproducir la conclusion;</li>
+<li class="">separa observacion, inferencia y recomendacion.</li>
+</ul>
+<p>La pagina de Coalition tambien explica vias de exclusion y bloqueo de escaneos, incluyendo contacto de soporte y listas de rangos de escaneo. Eso recuerda algo importante: la observacion masiva de Internet puede ser legitima para seguridad, pero no deja de afectar a organizaciones reales. Documentar limites y ofrecer contexto reduce friccion y mejora la calidad del trabajo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Segun la pregunta, <code>BinaryEdge</code> puede complementarse con:</p>
+<ul>
+<li class=""><code>Shodan</code> o <code>Censys</code>, si necesitas comparar visibilidad de servicios y banners;</li>
+<li class=""><code>FullHunt</code>, si el foco es superficie externa asociada a dominios;</li>
+<li class=""><code>GreyNoise</code>, si quieres separar ruido de escaneo comun y actividad potencialmente interesante;</li>
+<li class=""><code>urlscan.io</code>, si necesitas observar carga web, redirecciones y artefactos del navegador;</li>
+<li class=""><code>RDAP</code>, <code>WHOIS</code>, <code>CT logs</code> y passive DNS para validar propiedad aparente y cronologia.</li>
+</ul>
+<p>La takeaway practica es sencilla: <strong>usa <code>BinaryEdge</code> para convertir exposicion externa en preguntas verificables, no para convertir banners en veredictos</strong>. Un buen hallazgo defensivo no es el que suena mas grave, sino el que permite al propietario del activo reproducir, priorizar y corregir con confianza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://help.coalitioninc.com/hc/en-us/articles/48928737389979-What-the-BinaryEdge-scanner-does-and-why-Coalition-may-scan-your-internet-facing-systems" target="_blank" rel="noopener noreferrer" class="">Coalition Help Center: What the BinaryEdge scanner does and why Coalition may scan your internet-facing systems</a></li>
+<li class=""><a href="https://github.com/binaryedge/api-publicdoc" target="_blank" rel="noopener noreferrer" class="">BinaryEdge API public documentation, GitHub</a></li>
+<li class=""><a href="https://www.greynoise.io/blog/checking-it-twice-profiling-benign-internet-scanners----2024-edition" target="_blank" rel="noopener noreferrer" class="">GreyNoise: Checking It Twice, Profiling Benign Internet Scanners - 2024 Edition</a></li>
+<li class=""><a href="https://www.paloaltonetworks.com/cyberpedia/what-is-attack-surface-management" target="_blank" rel="noopener noreferrer" class="">Palo Alto Networks Cyberpedia: What Is Attack Surface and Attack Surface Management?</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Infraestructura" term="Infraestructura"/>
+        <category label="Reconocimiento" term="Reconocimiento"/>
+        <category label="Triage" term="Triage"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Defensa" term="Defensa"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GreyHatWarfare en OSINT: buckets cloud expuestos, contexto y verificación responsable]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/greyhatwarfare-osint-buckets-cloud-expuestos-contexto</id>
@@ -2402,129 +2528,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Datos" term="Datos"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[httpx en OSINT: sondear servicios web, priorizar hosts vivos y mantener contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto"/>
-        <updated>2026-06-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT priorizando hosts web vivos, tecnologias visibles y respuestas HTTP en un panel tecnico sobrio]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT priorizando hosts web vivos, tecnologias visibles y respuestas HTTP en un panel tecnico sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-08-httpx-osint-sondear-servicios-web-contexto-61087d42815c992904dd348db4dcc0ac.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/httpx-osint-sondear-servicios-web-contexto-cf493f464d3a858bbcb13810d298990b.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Cuando una investigacion tecnica pasa de "tengo una lista de nombres o URLs" a "que merece mirarse primero", el problema rara vez es la falta de targets. El problema real suele ser <strong>separar hosts vivos, respuestas utiles, ruido repetido y falsas pistas</strong> sin convertir la fase de comprobacion en una carrera ciega. <code>httpx</code> resulta especialmente valioso justo ahi: convierte un inventario bruto en una lectura mas util de que servicios web responden, como responden y que contexto tecnico merece verificacion posterior.</p>
-<p>Segun la documentacion oficial de <code>ProjectDiscovery</code> consultada el <strong>8 de junio de 2026</strong>, <code>httpx</code> es un <code>HTTP toolkit</code> rapido y multiproposito pensado para lanzar varias sondas sobre servicios web, URLs y otros elementos <code>HTTP</code>, manteniendo fiabilidad incluso con alto paralelismo. En practica OSINT responsable eso no significa "dispara a todo". Significa algo mucho mas util: <strong>probar superficie web visible con preguntas concretas y salida trazable</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>httpx</code> ocupa una capa muy concreta dentro de un flujo OSINT tecnico. No descubre por si solo toda la superficie ni explica toda la historia del objetivo. Lo que hace muy bien es <strong>sondear</strong> hosts, dominios, URLs o rangos que ya tienes sobre la mesa y devolverte metadatos que ayudan a priorizar.</p>
-<p>La pagina de uso oficial deja claro el abanico de probes disponibles. Entre otras cosas, <code>httpx</code> puede mostrar:</p>
-<ul>
-<li class="">codigo de estado, longitud y tipo de contenido;</li>
-<li class="">cabecera <code>Location</code> en redirecciones;</li>
-<li class="">hash <code>mmh3</code> del <code>favicon</code>;</li>
-<li class="">huella <code>JARM</code>;</li>
-<li class="">titulo de pagina y tecnologias visibles basadas en <code>Wappalyzer</code>;</li>
-<li class="">IP, <code>CNAME</code>, <code>ASN</code> y deteccion de <code>CDN/WAF</code>;</li>
-<li class="">soporte de <code>HTTP/2</code>, <code>websocket</code>, <code>VHOST</code> o captura de pantalla.</li>
-</ul>
-<p>Traducido a lenguaje de analista, sirve para responder preguntas pequenas pero muy rentables:</p>
-<ul>
-<li class="">que hosts de una lista responden de verdad por <code>HTTP</code> o <code>HTTPS</code>;</li>
-<li class="">cuales parecen meros espejos o respuestas casi duplicadas;</li>
-<li class="">donde hay redirecciones, banners, titulos o tecnologias que justifican mas contexto;</li>
-<li class="">y que resultados conviene cruzar despues con <code>CT logs</code>, DNS, archivo web o analisis manual.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision defensiva sobre <code>acme-ejemplo.test</code>, un dominio ficticio usado por un equipo de riesgo que quiere entender mejor la huella web publica de un proveedor antes de una integracion. Ya tienes una lista pasiva de subdominios obtenida por fuentes abiertas. El siguiente paso no deberia ser abrirlos todos a mano ni tratar cada nombre como si fuera igual de importante.</p>
-<p>En ese escenario, <code>httpx</code> encaja bien como capa de triage:</p>
-<ol>
-<li class="">recibe la lista de hosts ya descubiertos por un metodo previo;</li>
-<li class="">comprueba cuales responden por web;</li>
-<li class="">anota titulo, <code>status code</code>, tecnologias aparentes o <code>CNAME</code>;</li>
-<li class="">filtra respuestas repetidas o paginas de error obvias;</li>
-<li class="">y deja una salida estructurada para decidir que merece investigacion adicional.</li>
-</ol>
-<p>Ese orden importa porque reduce dos errores muy comunes: asumir que un subdominio resoluble tiene una web interesante, y asumir que una web viva pertenece funcionalmente al mismo entorno que el resto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-con-una-pregunta-modesta-esta-vivo-y-que-devuelve">1. Empieza con una pregunta modesta: esta vivo y que devuelve<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#1-empieza-con-una-pregunta-modesta-esta-vivo-y-que-devuelve" class="hash-link" aria-label="Enlace directo al 1. Empieza con una pregunta modesta: esta vivo y que devuelve" title="Enlace directo al 1. Empieza con una pregunta modesta: esta vivo y que devuelve" translate="no">​</a></h3>
-<p>La documentacion de <code>httpx</code> muestra ejemplos basicos con <code>-sc</code>, <code>-title</code>, <code>-tech-detect</code>, <code>-ip</code>, <code>-asn</code> o <code>-cdn</code>. No hace falta activar veinte cosas a la vez. Un arranque prudente seria pedir unas pocas senales que te ayuden a ordenar.</p>
-<p>Sobre una lista ficticia de subdominios, un ejemplo razonable seria:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">subfinder -d acme-ejemplo.test -silent | httpx -sc -title -tech-detect -ip -cname</span><br></span></code></pre></div></div>
-<p>La idea no es "hacer mas". La idea es obtener una tabla corta que te permita ver que hosts redirigen, que titulo muestran, si parecen compartir infraestructura y cuales merecen una segunda pasada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-aprovecha-el-comportamiento-por-defecto-sin-olvidar-lo-que-implica">2. Aprovecha el comportamiento por defecto sin olvidar lo que implica<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#2-aprovecha-el-comportamiento-por-defecto-sin-olvidar-lo-que-implica" class="hash-link" aria-label="Enlace directo al 2. Aprovecha el comportamiento por defecto sin olvidar lo que implica" title="Enlace directo al 2. Aprovecha el comportamiento por defecto sin olvidar lo que implica" translate="no">​</a></h3>
-<p>La propia pagina de uso recuerda una nota importante: por defecto <code>httpx</code> prueba primero <code>HTTPS</code> y solo cae a <code>HTTP</code> si <code>HTTPS</code> no responde. Tambien explica que <code>-no-fallback</code> permite mostrar ambos resultados.</p>
-<p>Metodologicamente eso importa mucho. Si un host responde por <code>HTTP</code> y <code>HTTPS</code> con diferencias relevantes, conviene saberlo y anotarlo. Si no, puedes estar leyendo solo una parte del borde visible del servicio.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-filtra-ruido-antes-de-interpretar">3. Filtra ruido antes de interpretar<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#3-filtra-ruido-antes-de-interpretar" class="hash-link" aria-label="Enlace directo al 3. Filtra ruido antes de interpretar" title="Enlace directo al 3. Filtra ruido antes de interpretar" translate="no">​</a></h3>
-<p>La pagina de uso documenta varios filtros utiles: <code>-filter-error-page</code>, <code>-filter-duplicates</code>, filtros por codigo, longitud, palabras o <code>favicon</code>. En investigaciones reales, ese bloque vale oro porque evita que confundas volumen con cobertura.</p>
-<p>Dos ejemplos practicos:</p>
-<ul>
-<li class=""><code>-fep</code> ayuda a apartar paginas de error detectadas por el clasificador;</li>
-<li class=""><code>-fd</code> conserva solo la primera respuesta de respuestas casi duplicadas.</li>
-</ul>
-<p>Eso no sustituye el juicio humano, pero reduce bastante el problema de acabar revisando veinte clones del mismo <code>landing</code>, <code>default page</code> o mensaje de bloqueo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-probes-pesados-solo-cuando-aportan-una-pregunta-clara">4. Usa probes "pesados" solo cuando aportan una pregunta clara<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#4-usa-probes-pesados-solo-cuando-aportan-una-pregunta-clara" class="hash-link" aria-label="Enlace directo al 4. Usa probes &quot;pesados&quot; solo cuando aportan una pregunta clara" title="Enlace directo al 4. Usa probes &quot;pesados&quot; solo cuando aportan una pregunta clara" translate="no">​</a></h3>
-<p>La misma documentacion advierte que ciertas banderas conviene usarlas para casos concretos y no activarlas por defecto junto al resto: <code>-ports</code>, <code>-path</code>, <code>-vhost</code>, <code>-screenshot</code>, <code>-csp-probe</code>, <code>-tls-probe</code>, <code>-favicon</code>, <code>-http2</code>, <code>-pipeline</code> o <code>-tls-impersonate</code>.</p>
-<p>Ese detalle tecnico es tambien una buena norma editorial. En OSINT responsable, no se lanza todo porque exista. Se activa cada probe cuando responde una pregunta legitima:</p>
-<ul>
-<li class=""><code>-favicon</code> si buscas agrupar superficies por huella visual;</li>
-<li class=""><code>-screenshot</code> si necesitas una captura comparativa de interfaces visibles;</li>
-<li class=""><code>-path</code> si el caso ya justifica revisar una ruta concreta;</li>
-<li class=""><code>-http2</code> o <code>-pipeline</code> si la duda es el comportamiento del servicio, no solo su mera presencia.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-encadena-con-otras-herramientas-sin-perder-trazabilidad">5. Encadena con otras herramientas sin perder trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#5-encadena-con-otras-herramientas-sin-perder-trazabilidad" class="hash-link" aria-label="Enlace directo al 5. Encadena con otras herramientas sin perder trazabilidad" title="Enlace directo al 5. Encadena con otras herramientas sin perder trazabilidad" translate="no">​</a></h3>
-<p>ProjectDiscovery muestra de forma explicita un encadenado sencillo: <code>subfinder -d example.com | httpx -screenshot</code>. La idea general es solida: una herramienta descubre, otra sonda y una tercera profundiza si hace falta.</p>
-<p>Para OSINT, la lectura correcta es esta:</p>
-<ul>
-<li class=""><code>subfinder</code>, <code>Amass</code> o una fuente pasiva te dan candidatos;</li>
-<li class=""><code>httpx</code> te dice que capa web visible merece tiempo;</li>
-<li class="">y luego cruzas con archivo web, <code>CT logs</code>, <code>urlscan.io</code>, <code>Wappalyzer</code>, <code>RDAP/WHOIS</code> o revision manual.</li>
-</ul>
-<p><code>httpx</code> no deberia cerrar la conclusion. Deberia <strong>mejorar la cola de prioridades</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>httpx</code> es util, pero conviene no pedirle mas de lo que da:</p>
-<ul>
-<li class="">un <code>title</code> sugerente no demuestra funcion real del activo;</li>
-<li class=""><code>tech-detect</code> trabaja sobre huellas visibles y puede acertar a medias o quedarse corto;</li>
-<li class="">una respuesta viva no implica propiedad clara ni criticidad;</li>
-<li class="">una coincidencia de <code>favicon</code>, <code>CNAME</code> o <code>ASN</code> abre hipotesis, no pruebas definitivas;</li>
-<li class="">y filtros o deduplicacion pueden ocultar matices si los aplicas demasiado pronto.</li>
-</ul>
-<p>Ademas, la documentacion oficial insiste en un aviso simple: "Use with caution. You are responsible for your actions." Bien leido, no es solo una advertencia legal. Es una pauta metodologica sensata.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja sobre activos propios, autorizados o dentro de una investigacion legitima y proporcionada.</li>
-<li class="">Deja por escrito fecha, lista de entrada y flags usados para que el resultado sea reproducible.</li>
-<li class="">No confundas una sonda web ligera con permiso para ampliar alcance sin justificarlo.</li>
-<li class="">Minimiza probes costosos o intrusivos si una lectura mas simple ya responde la pregunta.</li>
-<li class="">Separa siempre observacion, inferencia y conclusion para no sobreatribuir.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>httpx</code> brilla cuando la pregunta es: "de todo esto, que capa web visible tengo delante y por donde empiezo". Si tu problema es otro, quizas convenga otra pieza:</p>
-<ul>
-<li class=""><code>subfinder</code> o <code>Amass</code> para descubrimiento inicial de superficie;</li>
-<li class=""><code>urlscan.io</code> o <code>urlquery</code> si importa mas el comportamiento de navegador y las redirecciones;</li>
-<li class=""><code>Wappalyzer</code> o <code>BuiltWith</code> para otra lectura de huella tecnologica;</li>
-<li class=""><code>crt.sh</code> y otros <code>CT logs</code> si la clave es cronologia de certificados y nombres;</li>
-<li class=""><code>RDAP/WHOIS</code> o historicos DNS si necesitas ownership aparente y contexto temporal.</li>
-</ul>
-<p>Tambien conviene mirar el estado actual del proyecto. La pagina de <code>releases</code> de GitHub muestra <code>v1.9.0</code> como version publicada el <strong>9 de marzo de 2026</strong>. Y el changelog de <code>v1.8.0</code>, publicado el <strong>21 de enero de 2026</strong>, anadio soporte de entrada <code>Burp XML</code> (<code>-im</code>), autenticacion con fichero secreto (<code>-sf</code>) y deteccion pasiva de <code>CPE</code> y <code>WordPress</code>, ademas de corregir problemas como la extraccion de <code>favicon</code> con redirecciones. Traducido a trabajo diario: el proyecto sigue evolucionando, pero <strong>tu disciplina de alcance y contexto sigue siendo mas importante que la lista de flags</strong>.</p>
-<p>La takeaway accionable es simple: usa <code>httpx</code> para <strong>reducir incertidumbre operativa sobre que web responde y como responde</strong>, no para saltar demasiado pronto de una respuesta <code>HTTP</code> a una narrativa cerrada sobre el objetivo.</p>
-<p>Como siguiente puente editorial del blog, tendria sentido bajar a una comparativa practica entre <code>httpx</code>, <code>urlscan.io</code> y archivo web: misma lista de hosts, preguntas distintas y limites distintos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/httpx-osint-sondear-servicios-web-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">ProjectDiscovery Docs, <code>httpx Overview</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/overview" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/overview</a></li>
-<li class="">ProjectDiscovery Docs, <code>Installing httpx</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/install" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/install</a></li>
-<li class="">ProjectDiscovery Docs, <code>Httpx Usage</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/usage" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/usage</a></li>
-<li class="">ProjectDiscovery Docs, <code>Running httpx</code>: <a href="https://docs.projectdiscovery.io/opensource/httpx/running" target="_blank" rel="noopener noreferrer" class="">https://docs.projectdiscovery.io/opensource/httpx/running</a></li>
-<li class="">GitHub, <code>projectdiscovery/httpx</code> releases: <a href="https://github.com/projectdiscovery/httpx/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/projectdiscovery/httpx/releases</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Web" term="Web"/>
-        <category label="Reconocimiento" term="Reconocimiento"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Automatizacion" term="Automatizacion"/>
     </entry>
 </feed>
