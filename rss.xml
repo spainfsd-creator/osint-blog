@@ -4,10 +4,119 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 28 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[ThreatFox en OSINT: IOCs de malware, contexto y caducidad antes de bloquear]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto</guid>
+            <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando indicadores de compromiso de malware, hashes redactados, dominios ficticios, marcas temporales y notas de verificacion responsable]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando indicadores de compromiso de malware, hashes redactados, dominios ficticios, marcas temporales y notas de verificacion responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-29-threatfox-osint-iocs-malware-contexto-fa56a7a6931c95b612fc7628b005096a.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un dominio aparece en una alerta, una IP llega en un feed comunitario y un hash coincide con una familia de malware conocida. La tentacion es bloquearlo todo y escribir un informe contundente. El trabajo serio es mas lento: <strong>comprobar de donde viene el indicador, que significa exactamente, cuanto tiempo lleva vivo y si encaja con tu telemetria propia</strong>.</p>
+<p><code>ThreatFox</code>, de <code>abuse.ch</code> y <code>Spamhaus</code>, encaja en esa parte del flujo. Revisando sus paginas publicas el <strong>29 de junio de 2026</strong>, la plataforma se presenta como un espacio para compartir indicadores de compromiso asociados a malware, consultar la base de datos, usar una <code>API</code>, descargar exportaciones y automatizar consultas. Su valor no esta en sustituir el juicio del analista, sino en aportar senales externas con procedencia, etiquetas, familia de malware y contexto temporal.</p>
+<p>Este articulo esta escrito para equipos defensivos, analistas SOC, <code>CERT/CSIRT</code>, investigacion de amenazas y respuesta a incidentes. No contiene instrucciones para intrusion, despliegue de malware, doxxing, acoso ni uso de indicadores contra terceros sin autorizacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-threatfox-y-para-que-sirve">Que es ThreatFox y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#que-es-threatfox-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es ThreatFox y para que sirve" title="Enlace directo al Que es ThreatFox y para que sirve" translate="no">​</a></h2>
+<p><a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer" class=""><code>ThreatFox</code></a> es una plataforma comunitaria de inteligencia de amenazas centrada en <code>IOCs</code> relacionados con malware. Permite buscar y compartir indicadores como dominios, IPs, URLs, direcciones de correo o hashes cuando esos datos estan asociados a actividad maliciosa verificable.</p>
+<p>En un flujo OSINT defensivo, ayuda a responder preguntas practicas:</p>
+<ul>
+<li class="">si un indicador observado en tu entorno aparece relacionado con malware;</li>
+<li class="">que familia o etiqueta se le atribuye en la plataforma;</li>
+<li class="">cuando fue visto o compartido;</li>
+<li class="">que confianza o contexto acompana al dato;</li>
+<li class="">si existe una exportacion o integracion que permita incorporarlo a controles defensivos;</li>
+<li class="">que parte del hallazgo necesita verificacion adicional antes de bloquear, escalar o reportar.</li>
+</ul>
+<p>La FAQ de ThreatFox marca un limite metodologico importante: la plataforma pide indicadores relacionados con malware, no cualquier dato sospechoso. Tambien insiste en escoger bien el nivel de confianza y en compartir indicadores frescos, no listas obsoletas. Esa disciplina es clave porque los <code>IOCs</code> envejecen rapido: un dominio puede cambiar de manos, una IP puede ser reasignada y un hash puede seguir siendo util como referencia historica aunque ya no represente riesgo operativo inmediato.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que el SOC de <code>NorteFabril</code>, una empresa ficticia, detecta conexiones salientes hacia <code>update-check.example</code> desde tres equipos internos. El equipo no quiere acusar a nadie ni publicar el dominio en redes. Quiere responder una pregunta concreta:</p>
+<p><strong>¿Ese indicador tiene contexto publico suficiente para priorizar una investigacion defensiva?</strong></p>
+<p>Un registro inicial podria quedar asi:</p>
+<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Indicador</td><td><code>update-check.example</code></td><td>Selector tecnico, no prueba completa</td></tr><tr><td>Fuente interna</td><td>Proxy corporativo</td><td>Necesita hora, usuario tecnico y equipo</td></tr><tr><td>Fuente externa</td><td>Coincidencia en ThreatFox</td><td>Senal comunitaria que hay que leer con contexto</td></tr><tr><td>Etiqueta</td><td><code>botnet-c2</code> ficticia</td><td>Hipotesis de funcion, no atribucion final</td></tr><tr><td>Accion inicial</td><td>Aislar muestra de logs y revisar endpoints afectados</td><td>Medida proporcional y defensiva</td></tr></tbody></table>
+<p>El analista no deberia saltar de "aparece en un feed" a "tenemos una intrusion confirmada por X grupo". Lo correcto es separar tres capas: indicador observado, contexto externo y evidencia interna. Si las tres convergen, el caso sube de prioridad. Si solo existe una coincidencia debil, conviene tratarlo como pista.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-indicador-y-su-fecha">1. Empieza por el indicador y su fecha<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#1-empieza-por-el-indicador-y-su-fecha" class="hash-link" aria-label="Enlace directo al 1. Empieza por el indicador y su fecha" title="Enlace directo al 1. Empieza por el indicador y su fecha" translate="no">​</a></h3>
+<p>Antes de consultar nada, documenta el selector exacto y la hora de observacion:</p>
+<ul>
+<li class="">dominio, IP, URL, hash o correo;</li>
+<li class="">sistema que lo observo;</li>
+<li class="">zona horaria;</li>
+<li class="">frecuencia;</li>
+<li class="">muestra de logs suficiente para reproducir la consulta;</li>
+<li class="">alcance autorizado de la investigacion.</li>
+</ul>
+<p>La fecha importa tanto como el valor. Un <code>IOC</code> de hace seis meses puede ser util para entender una campana, pero peligroso como regla de bloqueo si el activo ha cambiado de propietario o funcion.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-threatfox-como-capa-de-contexto">2. Consulta ThreatFox como capa de contexto<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#2-consulta-threatfox-como-capa-de-contexto" class="hash-link" aria-label="Enlace directo al 2. Consulta ThreatFox como capa de contexto" title="Enlace directo al 2. Consulta ThreatFox como capa de contexto" translate="no">​</a></h3>
+<p>La <a href="https://threatfox.abuse.ch/api/" target="_blank" rel="noopener noreferrer" class=""><code>API comunitaria</code></a> permite buscar, recuperar IOCs recientes, consultar tipos admitidos y trabajar con etiquetas o familias de malware. No hace falta convertir el articulo en un manual de automatizacion agresiva: la idea sana es usar la API para reducir trabajo manual y mantener trazabilidad.</p>
+<p>Un pseudo-flujo defensivo seria:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada: dominio observado en logs propios</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta: buscar el indicador exacto en ThreatFox</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">salida esperada: estado, familia/etiquetas, fechas, confianza y referencias</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">decision: enriquecer el ticket, no cerrar el caso automaticamente</span><br></span></code></pre></div></div>
+<p>Si trabajas con SIEM, SOAR o MISP, lo importante no es "meter mas feeds", sino registrar de donde procede cada dato, cuando se consulto y que accion genero.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruza-con-telemetria-propia">3. Cruza con telemetria propia<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#3-cruza-con-telemetria-propia" class="hash-link" aria-label="Enlace directo al 3. Cruza con telemetria propia" title="Enlace directo al 3. Cruza con telemetria propia" translate="no">​</a></h3>
+<p>Un indicador externo gana valor cuando encaja con evidencias internas:</p>
+<ul>
+<li class="">varios endpoints lo contactan en una ventana corta;</li>
+<li class="">el proceso que origina la conexion no encaja con el uso normal;</li>
+<li class="">hay resoluciones DNS cercanas a otros indicadores;</li>
+<li class="">aparece una descarga, proceso hijo o persistencia asociada;</li>
+<li class="">el hash de una muestra local coincide con otra fuente independiente.</li>
+</ul>
+<p>Si no existe telemetria propia, ThreatFox sigue siendo util como contexto, pero no deberia convertirse en acusacion ni en bloqueo masivo sin pruebas adicionales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-las-exportaciones-como-material-vivo">4. Trata las exportaciones como material vivo<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#4-trata-las-exportaciones-como-material-vivo" class="hash-link" aria-label="Enlace directo al 4. Trata las exportaciones como material vivo" title="Enlace directo al 4. Trata las exportaciones como material vivo" translate="no">​</a></h3>
+<p>La pagina de <a href="https://threatfox.abuse.ch/export/" target="_blank" rel="noopener noreferrer" class=""><code>Export IOCs</code></a> ofrece formatos pensados para consumo defensivo, incluyendo reglas y listas. Tambien deja claro un principio sano: los indicadores caducan. ThreatFox limita ciertas exportaciones a ventanas recientes para reducir falsos positivos, y su FAQ indica que desde el <strong>1 de mayo de 2025</strong> expira IOCs antiguos de mas de seis meses en API y exportaciones, aunque sigan visibles en la interfaz.</p>
+<p>Esa politica es una pista operativa: si tu organizacion importa feeds, debe tener caducidad, revision y excepciones. Una lista que solo crece se convierte en ruido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>ThreatFox</code> es potente, pero no elimina problemas clasicos de inteligencia de amenazas:</p>
+<ul>
+<li class=""><strong>Reasignacion de infraestructura</strong>: una IP marcada ayer puede pertenecer manana a otro cliente.</li>
+<li class=""><strong>Dominios recuperados o aparcados</strong>: un dominio historicamente malicioso puede dejar de servir malware.</li>
+<li class=""><strong>Etiquetas incompletas</strong>: una familia de malware puede estar mal nombrada, ser generica o cambiar con nueva informacion.</li>
+<li class=""><strong>Sesgo comunitario</strong>: se ve mejor lo que la comunidad reporta, no todo lo que existe.</li>
+<li class=""><strong>Contexto operativo ausente</strong>: un indicador publico no sabe como funciona tu red.</li>
+<li class=""><strong>Automatizacion excesiva</strong>: bloquear sin revisar puede romper servicios legitimos o generar fatiga de alertas.</li>
+</ul>
+<p>La pregunta clave no es "aparece o no aparece", sino "que peso tiene esta senal dentro de mi caso".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Trabajar con <code>IOCs</code> no autoriza a investigar personas, publicar datos privados ni contactar con terceros de forma imprudente. Algunas reglas simples ayudan:</p>
+<ul>
+<li class="">usa datos internos solo con autorizacion y minimizacion;</li>
+<li class="">no pegues logs sensibles completos en servicios externos;</li>
+<li class="">redacta usuarios, tokens, rutas internas y datos personales antes de compartir;</li>
+<li class="">comparte indicadores de malware con contexto suficiente y confianza honesta;</li>
+<li class="">evita atribuir a actores concretos si solo tienes infraestructura o un hash;</li>
+<li class="">conserva enlaces, hora de consulta y version de la fuente;</li>
+<li class="">revisa caducidad antes de convertir un indicador en regla persistente.</li>
+</ul>
+<p>La propia FAQ de ThreatFox pide no mezclar amenazas no cubiertas por su politica de envio. Si el caso es phishing, spam, fraude o abuso no relacionado con malware, busca una fuente mas adecuada en lugar de forzar la herramienta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>ThreatFox encaja especialmente bien para <code>IOCs</code> de malware. Segun la pregunta, puedes combinarlo con otras capas:</p>
+<ul>
+<li class=""><code>URLhaus</code>, para URLs de distribucion de malware;</li>
+<li class=""><code>MalwareBazaar</code>, para contexto de muestras y hashes;</li>
+<li class=""><code>MISP</code>, si necesitas compartir eventos estructurados con una comunidad cerrada;</li>
+<li class=""><code>AlienVault OTX</code>, si buscas pulsos comunitarios mas amplios;</li>
+<li class=""><code>VirusTotal</code>, cuando necesitas relaciones entre muestras, URLs, dominios y detecciones;</li>
+<li class="">telemetria propia de DNS, proxy, EDR y firewall, que siempre debe pesar mas que un feed externo aislado.</li>
+</ul>
+<p>El takeaway practico es sencillo: <code>ThreatFox</code> sirve para <strong>poner contexto y caducidad a indicadores de malware</strong>, no para sustituir investigacion. Si un <code>IOC</code> aparece en la plataforma, abre una hipotesis. Si ademas encaja con tus logs, tiempos y sistemas afectados, entonces tienes una pista defendible para priorizar respuesta.</p>
+<p>Como siguiente paso natural del blog, tendria sentido comparar <code>ThreatFox</code>, <code>URLhaus</code> y <code>MalwareBazaar</code> sobre un caso ficticio de triage de malware, separando bien URL, muestra, hash, dominio e infraestructura.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, pagina principal</a></li>
+<li class=""><a href="https://threatfox.abuse.ch/api/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, Community API</a></li>
+<li class=""><a href="https://threatfox.abuse.ch/faq/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, FAQ</a></li>
+<li class=""><a href="https://threatfox.abuse.ch/export/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, Export IOCs</a></li>
+<li class=""><a href="https://abuse.ch/blog/introducing-threatfox/" target="_blank" rel="noopener noreferrer" class="">abuse.ch, Introducing ThreatFox</a></li>
+<li class=""><a href="https://github.com/abusech/ThreatFox" target="_blank" rel="noopener noreferrer" class="">Repositorio abusech/ThreatFox</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Threat Intelligence</category>
+            <category>Malware</category>
+            <category>IoC</category>
+            <category>Defensa</category>
+            <category>Verificacion</category>
+        </item>
         <item>
             <title><![CDATA[BinaryEdge en OSINT: superficie externa, servicios expuestos y contexto antes de priorizar]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto</link>
@@ -2326,130 +2435,6 @@
             <category>Web</category>
             <category>Due Diligence</category>
             <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[OpenAlex en OSINT: autores, instituciones, financiacion y trazabilidad academica]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad</guid>
-            <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT cruzando autores, instituciones, financiacion y redes de publicaciones academicas en un panel de investigacion sobrio]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando autores, instituciones, financiacion y redes de publicaciones academicas en un panel de investigacion sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-09-openalex-osint-autores-instituciones-financiacion-trazabilidad-840090343d24485533d9f04199121658.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion toca una universidad, un laboratorio, una <code>spin-off</code>, un proveedor con discurso cientifico o una red de colaboracion que presume de impacto, el error habitual no suele ser "mirar poco". Suele ser <strong>mezclar perfiles, papers, afiliaciones viejas, coautorias ruidosas y nombres parecidos</strong> hasta que la historia deja de sostenerse. <code>OpenAlex</code> resulta util justo porque ordena esa maraña en un grafo de entidades publicas: obras, autores, instituciones, fuentes, temas, editoriales y financiadores.</p>
-<p>Segun la documentacion oficial de <code>OpenAlex Developers</code> consultada el <strong>9 de junio de 2026</strong>, <code>OpenAlex</code> se presenta como un catalogo abierto del sistema global de investigacion, con cientos de millones de trabajos academicos y conexiones entre entidades. En clave OSINT responsable eso importa por una razon sencilla: no te entrega una conclusion, pero si una estructura muy buena para <strong>preguntar mejor, corroborar mejor y documentar mejor</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>OpenAlex</code> es una base de conocimiento academica abierta con <code>API</code> y snapshots descargables. La documentacion tecnica explica dos rasgos que, para OSINT, son mas importantes que cualquier promesa comercial:</p>
-<ul>
-<li class="">modela el ecosistema academico como entidades conectadas;</li>
-<li class="">y expone filtros, busquedas y agrupaciones sobre esas entidades para trabajar con trazabilidad.</li>
-</ul>
-<p>La pagina principal de desarrolladores destaca que el dataset enlaza <code>works</code>, <code>authors</code>, <code>sources</code>, <code>institutions</code>, <code>topics</code>, <code>publishers</code> y <code>funders</code>. Las paginas de esquema de <code>Authors</code> e <code>Institutions</code> anaden ademas un matiz util: los autores aparecen como perfiles desambiguados y las instituciones como universidades u otras organizaciones a las que los autores afirman afiliacion.</p>
-<p>Traducido a preguntas OSINT, sirve para:</p>
-<ul>
-<li class="">verificar si una persona investigada tiene huella academica visible y coherente;</li>
-<li class="">mapear con que instituciones, financiadores o temas aparece conectada una linea de trabajo;</li>
-<li class="">revisar si una organizacion publica investigacion real, con que frecuencia y en que revistas o repositorios;</li>
-<li class="">detectar cambios de afiliacion o colaboraciones que merecen contexto adicional;</li>
-<li class="">y enriquecer debida diligencia, inteligencia competitiva o verificacion de expertos sin depender de una sola web corporativa.</li>
-</ul>
-<p>No sustituye una comprobacion juridica, biografica o mercantil. Lo que hace muy bien es darte un <strong>mapa consultable del discurso academico publico</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que tu equipo evalua a <code>Helix Quantum Analytics</code>, una empresa ficticia que asegura colaborar con varios grupos universitarios y haber recibido apoyo de programas de investigacion europeos. La pregunta correcta no es "a ver si pillamos una contradiccion". La pregunta seria otra:</p>
-<ul>
-<li class="">que autores aparecen vinculados a la empresa o a sus fundadores;</li>
-<li class="">con que instituciones publicaron antes y despues de crear la compania;</li>
-<li class="">si existen trabajos visibles que respalden las capacidades que anuncian;</li>
-<li class="">y si las redes de colaboracion y financiacion que mencionan dejan rastro publico coherente.</li>
-</ul>
-<p>En ese escenario, <code>OpenAlex</code> funciona muy bien como capa intermedia entre una busqueda web general y una revision mas profunda de <code>ORCID</code>, repositorios, perfiles institucionales, subvenciones y registros mercantiles. Si ves autores con produccion consistente, afiliaciones claras y lineas tematicas estables, ganas contexto. Si solo aparece ruido, homonimos o una huella academica inflada por menciones indirectas, bajas la confianza y documentas la incertidumbre.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-entidad-estable-no-por-una-narrativa">1. Empieza por una entidad estable, no por una narrativa<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#1-empieza-por-una-entidad-estable-no-por-una-narrativa" class="hash-link" aria-label="Enlace directo al 1. Empieza por una entidad estable, no por una narrativa" title="Enlace directo al 1. Empieza por una entidad estable, no por una narrativa" translate="no">​</a></h3>
-<p>La tentacion habitual es entrar con una historia ya cerrada: "esta persona trabaja para esta institucion" o "esta empresa sale de este laboratorio". <code>OpenAlex</code> empuja a hacerlo mejor: empezar por una entidad y seguir relaciones observables.</p>
-<p>En practica, suele ser mas fiable arrancar por:</p>
-<ul>
-<li class="">una institucion concreta;</li>
-<li class="">un autor con suficientes senales de identidad;</li>
-<li class="">una obra ya conocida;</li>
-<li class="">o un financiador que quieras contextualizar.</li>
-</ul>
-<p>Ese orden reduce el riesgo de contaminar la busqueda con nombres ambiguos o afiliaciones asumidas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-desambiguacion-como-ayuda-no-como-verdad-revelada">2. Usa la desambiguacion como ayuda, no como verdad revelada<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#2-usa-la-desambiguacion-como-ayuda-no-como-verdad-revelada" class="hash-link" aria-label="Enlace directo al 2. Usa la desambiguacion como ayuda, no como verdad revelada" title="Enlace directo al 2. Usa la desambiguacion como ayuda, no como verdad revelada" translate="no">​</a></h3>
-<p>La documentacion de <code>Authors</code> insiste en que <code>OpenAlex</code> indexa decenas de millones de perfiles de autor desambiguados. Eso es muy util, pero no elimina el problema del todo. En OSINT, la desambiguacion ayuda a recortar ruido; no convierte automaticamente un nombre comun en identidad confirmada.</p>
-<p>Antes de dar por buena una coincidencia, conviene revisar:</p>
-<ul>
-<li class="">variantes del nombre visible;</li>
-<li class="">instituciones conocidas o mas recientes;</li>
-<li class="">temas de trabajo predominantes;</li>
-<li class="">identificadores externos cuando existan;</li>
-<li class="">y la cronologia general de publicaciones.</li>
-</ul>
-<p>Si dos o tres de esas capas no encajan, lo prudente es tratar el perfil como hipotesis de trabajo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruza-autores-instituciones-trabajos-y-financiadores">3. Cruza autores, instituciones, trabajos y financiadores<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#3-cruza-autores-instituciones-trabajos-y-financiadores" class="hash-link" aria-label="Enlace directo al 3. Cruza autores, instituciones, trabajos y financiadores" title="Enlace directo al 3. Cruza autores, instituciones, trabajos y financiadores" translate="no">​</a></h3>
-<p>La fuerza real de <code>OpenAlex</code> no esta en una ficha aislada, sino en el cruce entre entidades. La pagina principal de desarrolladores y la ayuda sobre el dataset describen precisamente ese valor: una gran red de conexiones entre tipos de entidad.</p>
-<p>Para un analista, las preguntas rentables suelen ser:</p>
-<ul>
-<li class="">que trabajos salen asociados a un autor o grupo;</li>
-<li class="">en que instituciones se concentran sus afiliaciones recientes;</li>
-<li class="">que temas dominan su produccion;</li>
-<li class="">que fuentes o revistas publican esa linea;</li>
-<li class="">y si hay financiadores visibles que aporten contexto.</li>
-</ul>
-<p>Eso permite construir cronologias y relaciones sin depender solo de la biografia oficial que una organizacion publica de si misma.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-aprovecha-filtros-y-agrupaciones-para-pasar-de-la-anecdota-al-patron">4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#4-aprovecha-filtros-y-agrupaciones-para-pasar-de-la-anecdota-al-patron" class="hash-link" aria-label="Enlace directo al 4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron" title="Enlace directo al 4. Aprovecha filtros y agrupaciones para pasar de la anecdota al patron" translate="no">​</a></h3>
-<p>Las paginas de esquema de <code>Authors</code> e <code>Institutions</code> indican que la <code>API</code> soporta <code>filter</code>, <code>sort</code> y <code>group_by</code> sobre muchos campos. Ese detalle merece mas atencion de la que suele recibir, porque marca la diferencia entre "he visto un ejemplo" y "he visto un patron".</p>
-<p>En OSINT responsable, esa capacidad sirve para:</p>
-<ul>
-<li class="">agrupar por pais, tema o institucion;</li>
-<li class="">filtrar por fechas para separar etapas de carrera;</li>
-<li class="">ordenar por volumen o impacto visible para priorizar revision;</li>
-<li class="">y detectar si una relacion es marginal o sostenida.</li>
-</ul>
-<p>No hace falta obsesionarse con la sintaxis para entender la idea: <strong>primero miras la red; luego intentas medir que nodos y relaciones pesan de verdad</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-documenta-tambien-los-limites-de-acceso-y-cobertura">5. Documenta tambien los limites de acceso y cobertura<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#5-documenta-tambien-los-limites-de-acceso-y-cobertura" class="hash-link" aria-label="Enlace directo al 5. Documenta tambien los limites de acceso y cobertura" title="Enlace directo al 5. Documenta tambien los limites de acceso y cobertura" translate="no">​</a></h3>
-<p>La pagina de acceso de <code>OpenAlex Developers</code> indica que la <code>API</code> es gratuita con clave gratuita, con un limite diario gratuito expresado como <code>$1/day</code>, y que el snapshot libre se actualiza trimestralmente. Eso no es un detalle administrativo menor: afecta a la forma de trabajar y al tipo de afirmaciones que puedes sostener.</p>
-<p>Si trabajas con la <code>API</code>, anota:</p>
-<ul>
-<li class="">fecha de consulta;</li>
-<li class="">entidad de partida;</li>
-<li class="">filtros aplicados;</li>
-<li class="">y si te apoyaste en <code>API</code>, interfaz web o snapshot.</li>
-</ul>
-<p>Si trabajas con snapshot, deja por escrito de que corte temporal partes. En investigaciones academicas o de <code>due diligence</code>, la cronologia de los datos importa tanto como el hallazgo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>OpenAlex</code> es potente, pero conviene entrar con varias precauciones:</p>
-<ul>
-<li class="">una coautoria no demuestra una relacion operativa fuerte fuera del paper;</li>
-<li class="">una afiliacion historica no implica vinculo actual;</li>
-<li class="">temas, impacto o volumen de obra no sustituyen la lectura del contenido;</li>
-<li class="">la desambiguacion puede fallar en nombres muy comunes o trayectorias fragmentadas;</li>
-<li class="">y la ausencia de una entidad en <code>OpenAlex</code> no prueba que no exista actividad academica real.</li>
-</ul>
-<p>Tambien hay un limite metodologico importante: una red academica visible puede sobrevalorar a quien publica mucho y dejar fuera trabajo industrial, tecnico o interno que no pasa por canales academicos abiertos. Si no explicitas ese sesgo, corres el riesgo de interpretar silencio como inexistencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque <code>OpenAlex</code> trabaja sobre informacion academica publica, sigue siendo buena idea mantener disciplina:</p>
-<ul>
-<li class="">minimiza datos personales irrelevantes cuando el objetivo real es institucional o tematico;</li>
-<li class="">no confundas analisis de colaboracion con perfilado invasivo de personas;</li>
-<li class="">corrobora hallazgos sensibles con fuentes adicionales antes de elevar una conclusion;</li>
-<li class="">separa claramente hechos observados, inferencias probables e hipotesis abiertas;</li>
-<li class="">y evita convertir metrica academica en atajo para reputacion o intencion.</li>
-</ul>
-<p>El mejor uso de <code>OpenAlex</code> en OSINT no es "descubrir a alguien". Es <strong>entender mejor como se relacionan produccion cientifica, instituciones y financiacion visibles</strong> dentro de una investigacion legitima.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-autores-instituciones-financiacion-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>OpenAlex</code> te da una pista buena, el siguiente movimiento no suele ser pedirle mas a la misma herramienta. Suele ser salir a corroborar:</p>
-<ul>
-<li class=""><code>ORCID</code> para perfiles de investigador y trayectorias declaradas;</li>
-<li class="">webs institucionales y repositorios para confirmar afiliaciones y proyectos;</li>
-<li class=""><code>Crossref</code> o paginas de DOI para validar metadatos y ediciones;</li>
-<li class="">registros mercantiles, subvenciones o bases de datos publicas si el caso es corporativo;</li>
-<li class="">y lectura manual de varios trabajos para no quedarte solo con metadatos.</li>
-</ul>
-<p>Como takeaway practico, <code>OpenAlex</code> merece un hueco claro en el kit OSINT de <code>research</code>, <code>due diligence</code> y verificacion de expertos. No porque resuelva solo el caso, sino porque ayuda a pasar de nombres sueltos a <strong>estructuras verificables de autores, instituciones, temas y financiacion</strong>.</p>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Research</category>
-            <category>Due Diligence</category>
-            <category>Verificacion</category>
-            <category>Datos</category>
-            <category>Metodologia</category>
         </item>
     </channel>
 </rss>
