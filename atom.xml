@@ -2,11 +2,129 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-06-29T00:00:00.000Z</updated>
+    <updated>2026-06-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Tranco en OSINT: rankings de dominios reproducibles sin convertir popularidad en evidencia]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto"/>
+        <updated>2026-06-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-30-tranco-osint-rankings-dominios-reproducibles-contexto-d2a88f152de942b2019da405fd40b6b7.png" width="1376" height="768" class="img_ev3q"></p>
+<p>En una investigacion web, decir que un dominio es "popular" puede parecer un dato menor. No lo es. Ese ranking puede decidir que muestras analizas, que dominios excluyes como ruido, que infraestructura consideras normal y que conclusiones acabas defendiendo. Si la lista cambia cada dia, no puedes reproducir tu trabajo; si la lista se manipula con facilidad, puedes construir un informe sobre arena.</p>
+<p><code>Tranco</code> encaja justo en ese punto: no sirve para descubrir secretos ni para atribuir actores, sino para trabajar con rankings publicos de dominios de forma mas estable, citable y reproducible. Revisando su web y documentacion el <strong>30 de junio de 2026</strong>, el proyecto recomienda usar su lista estandar mas reciente: un millon de dominios obtenidos promediando rankings durante los ultimos 30 dias, con identificadores permanentes, descargas historicas, consulta de ranking por dominio, <code>API</code>, paquetes de codigo y acceso mediante <code>BigQuery</code>.</p>
+<p>Este articulo esta escrito para analistas defensivos, investigadores, periodistas de datos y equipos que necesitan muestrear o contextualizar dominios sin exagerar lo que un ranking puede demostrar. No contiene instrucciones para intrusiones, doxxing, acoso ni automatizacion contra terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-tranco-y-para-que-sirve">Que es Tranco y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#que-es-tranco-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es Tranco y para que sirve" title="Enlace directo al Que es Tranco y para que sirve" translate="no">​</a></h2>
+<p><a href="https://tranco-list.eu/" target="_blank" rel="noopener noreferrer" class=""><code>Tranco</code></a> es un ranking de sitios web orientado a investigacion. Nacio como respuesta a problemas clasicos de listas de popularidad: volatilidad, poca transparencia, dificultad para citar una version concreta y riesgo de manipulacion. El paper original, publicado en <code>NDSS 2019</code>, explicaba que las listas populares usadas en estudios de seguridad y privacidad podian discrepar mucho entre si y alterar resultados si no se controlaban bien.</p>
+<p>La idea practica es sencilla: si vas a medir algo sobre la web, necesitas saber exactamente que dominios entraron en la muestra y por que. <code>Tranco</code> ayuda a responder preguntas como estas:</p>
+<ul>
+<li class="">que version concreta de una lista de dominios use;</li>
+<li class="">si mi muestra es de dominios raiz o incluye subdominios;</li>
+<li class="">durante que ventana temporal se agrego el ranking;</li>
+<li class="">como citar la lista para que otro analista pueda repetir el trabajo;</li>
+<li class="">si un dominio aparece en una posicion aproximada o ha variado con el tiempo;</li>
+<li class="">que limites metodologicos debo explicar antes de convertir "popular" en "importante".</li>
+</ul>
+<p>Para OSINT, el valor no esta en tratar el ranking como verdad absoluta. Esta en usarlo como una capa de contexto cuando necesitas priorizar, muestrear o comparar dominios publicos con trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que el equipo de seguridad de <code>Liria Seguros</code>, una empresa ficticia, quiere revisar la exposicion de formularios de contacto en webs de su sector. No quiere rastrear personas ni forzar servicios. Quiere construir una muestra defendible de dominios para una revision pasiva y documentada.</p>
+<p>Un planteamiento prudente podria ser:</p>
+<table><thead><tr><th>Decision</th><th>Ejemplo ficticio</th><th>Por que importa</th></tr></thead><tbody><tr><td>Lista base</td><td><code>Tranco Top 100k</code> de una fecha concreta</td><td>Evita una muestra improvisada</td></tr><tr><td>Version</td><td>ID permanente de la lista</td><td>Permite reproducir el estudio</td></tr><tr><td>Alcance</td><td>Dominios raiz, sin subdominios</td><td>Reduce ruido y ambiguedad</td></tr><tr><td>Observacion</td><td>Cabeceras, tecnologias visibles, enlaces publicos</td><td>Mantiene el flujo pasivo</td></tr><tr><td>Conclusion</td><td>Tendencias agregadas, no acusaciones por dominio</td><td>Evita sobreatribuir</td></tr></tbody></table>
+<p>El resultado sano no seria "estos dominios son seguros" ni "estos dominios son sospechosos". Seria algo mas humilde: "en esta muestra reproducible, con esta fecha y estas reglas, observamos estos patrones visibles".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-antes-de-descargar-la-lista">1. Define la pregunta antes de descargar la lista<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#1-define-la-pregunta-antes-de-descargar-la-lista" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta antes de descargar la lista" title="Enlace directo al 1. Define la pregunta antes de descargar la lista" translate="no">​</a></h3>
+<p><code>Tranco</code> no arregla una pregunta mal formulada. Antes de tocar datos, escribe que intentas medir:</p>
+<ul>
+<li class="">prevalencia de una tecnologia visible;</li>
+<li class="">comparacion de respuestas HTTP entre dominios populares;</li>
+<li class="">validacion de un conjunto de dominios frente a una referencia estable;</li>
+<li class="">seleccion de una muestra para revision manual;</li>
+<li class="">exclusion razonada de dominios muy populares en un flujo de triage.</li>
+</ul>
+<p>Si la pregunta es sobre riesgo, propiedad, intencion o impacto, un ranking de popularidad solo aporta contexto. No demuestra ninguna de esas cosas por si solo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elige-configuracion-y-fecha-con-cuidado">2. Elige configuracion y fecha con cuidado<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#2-elige-configuracion-y-fecha-con-cuidado" class="hash-link" aria-label="Enlace directo al 2. Elige configuracion y fecha con cuidado" title="Enlace directo al 2. Elige configuracion y fecha con cuidado" translate="no">​</a></h3>
+<p>La web de <code>Tranco</code> permite recuperar la lista estandar, listas con subdominios, versiones pasadas y listas personalizadas. Su metodologia explica que la configuracion estandar busca mejorar acuerdo y estabilidad agregando rankings durante una ventana temporal y aplicando una regla de puntuacion.</p>
+<p>En un informe OSINT, deja por escrito:</p>
+<ul>
+<li class="">fecha de descarga;</li>
+<li class="">ID permanente de la lista;</li>
+<li class="">si incluye subdominios;</li>
+<li class="">tamano usado: <code>Top 10k</code>, <code>Top 100k</code>, <code>Top 1M</code> u otro corte;</li>
+<li class="">motivo del corte;</li>
+<li class="">cualquier filtro adicional aplicado despues.</li>
+</ul>
+<p>Ese detalle puede parecer burocratico, pero es lo que separa una muestra defendible de una captura imposible de repetir.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-el-ranking-como-contexto-no-como-veredicto">3. Usa el ranking como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#3-usa-el-ranking-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 3. Usa el ranking como contexto, no como veredicto" title="Enlace directo al 3. Usa el ranking como contexto, no como veredicto" translate="no">​</a></h3>
+<p>Un dominio alto en <code>Tranco</code> suele indicar visibilidad o uso amplio, no legitimidad. Un dominio bajo o ausente no implica malicia, irrelevancia ni abandono. La lectura correcta depende de la pregunta:</p>
+<ul>
+<li class="">para muestreo web, puede ayudarte a evitar sesgos de seleccion;</li>
+<li class="">para triage defensivo, puede explicar por que un dominio aparece en muchos entornos;</li>
+<li class="">para investigacion de infraestructura, puede ayudarte a distinguir servicios muy comunes de hallazgos raros;</li>
+<li class="">para periodismo de datos, puede dar un marco reproducible a una medicion agregada.</li>
+</ul>
+<p>Pero no conviene usarlo como whitelist ciega. El propio paper de <code>Tranco</code> nacio, en parte, del problema de usar rankings populares sin entender su estabilidad, representatividad y manipulabilidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-documenta-cada-transformacion">4. Documenta cada transformacion<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#4-documenta-cada-transformacion" class="hash-link" aria-label="Enlace directo al 4. Documenta cada transformacion" title="Enlace directo al 4. Documenta cada transformacion" translate="no">​</a></h3>
+<p>Una lista descargada rara vez se usa tal cual. Normalmente se corta, se cruza, se filtra o se enriquece. Cada transformacion debe quedar registrada:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada: Tranco list ID concreto</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">corte: primeros 100.000 dominios</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">normalizacion: dominios en minusculas, sin esquema ni ruta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">exclusion: dominios internos de prueba y duplicados</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">enrichment: tecnologia visible mediante fuente pasiva</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">salida: tabla agregada sin datos personales</span><br></span></code></pre></div></div>
+<p>Si otro analista no puede reconstruir el camino desde la lista original hasta tu tabla final, el ranking ya no aporta reproducibilidad real.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Tranco</code> mejora varias debilidades de rankings anteriores, pero no elimina los problemas de interpretacion:</p>
+<ul>
+<li class=""><strong>Popularidad no es legitimidad</strong>: un dominio muy visitado puede alojar contenido comprometido, abusado o simplemente irrelevante para tu caso.</li>
+<li class=""><strong>Ausencia no es prueba</strong>: dominios nuevos, regionales, nicho o internos pueden no aparecer aunque sean importantes.</li>
+<li class=""><strong>El corte importa</strong>: <code>Top 10k</code> y <code>Top 1M</code> responden preguntas muy distintas.</li>
+<li class=""><strong>Subdominios cambian el significado</strong>: incluirlos puede ser util para ciertos estudios, pero tambien aumenta ruido y mezcla capas.</li>
+<li class=""><strong>Los rankings tienen sesgos de fuente</strong>: cualquier agregacion depende de los proveedores y senales disponibles.</li>
+<li class=""><strong>La estabilidad tiene coste</strong>: suavizar fluctuaciones ayuda a reproducir, pero puede retrasar cambios bruscos de popularidad.</li>
+</ul>
+<p>La mejor practica es no presentar <code>Tranco</code> como "la web". Presentalo como una muestra concreta, con configuracion, fecha y limites.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Trabajar con rankings de dominios no autoriza a rastrear usuarios, perfilar personas ni lanzar escaneos agresivos. Algunas reglas ayudan a mantener el trabajo en una zona responsable:</p>
+<ul>
+<li class="">usa dominios publicos como unidades de analisis, no personas;</li>
+<li class="">evita publicar listas de objetivos sensibles si no hay interes publico claro;</li>
+<li class="">no conviertas un ranking en una lista de ataque;</li>
+<li class="">respeta <code>robots.txt</code>, terminos de uso y limites de consulta cuando hagas mediciones;</li>
+<li class="">separa muestreo, observacion, inferencia y conclusion;</li>
+<li class="">anonimiza resultados cuando el analisis agregado sea suficiente;</li>
+<li class="">conserva el ID de lista, fecha y scripts para auditoria interna.</li>
+</ul>
+<p>La disciplina clave es proporcionalidad. Si tu pregunta puede responderse con agregados, no necesitas exponer dominios concretos ni ampliar el tratamiento de datos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Tranco</code> funciona bien cuando necesitas una referencia reproducible de popularidad web. Segun el caso, puede combinarse con:</p>
+<ul>
+<li class=""><code>Common Crawl</code>, si necesitas contenido web historico o corpus amplio;</li>
+<li class=""><code>HTTP Archive</code>, si buscas mediciones tecnicas agregadas de la web;</li>
+<li class=""><code>urlscan.io</code>, para observacion puntual de carga, redirecciones y recursos;</li>
+<li class=""><code>BuiltWith</code> o <code>Wappalyzer</code>, si el foco es huella tecnologica visible;</li>
+<li class=""><code>Datasette</code> o <code>SQLite</code>, si quieres convertir mediciones en una base consultable;</li>
+<li class="">notas metodologicas propias, porque ninguna lista sustituye el diseno de investigacion.</li>
+</ul>
+<p>El takeaway practico es este: <code>Tranco</code> sirve para <strong>hacer mas reproducibles tus muestras de dominios</strong>, no para decidir que es verdad, seguro o malicioso. Si lo citas con fecha, ID, corte y limites, mejora la calidad de tus informes. Si lo usas como oraculo, solo cambia una intuicion fragil por otra con apariencia de tabla.</p>
+<p>Como siguiente paso natural del blog, tendria sentido publicar un flujo comparado para construir una muestra web reproducible con <code>Tranco</code>, guardar resultados en <code>SQLite</code> y documentar cada transformacion sin perder trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://tranco-list.eu/" target="_blank" rel="noopener noreferrer" class="">Tranco, pagina principal</a></li>
+<li class=""><a href="https://tranco-list.eu/methodology" target="_blank" rel="noopener noreferrer" class="">Tranco, metodologia</a></li>
+<li class=""><a href="https://arxiv.org/abs/1806.01156" target="_blank" rel="noopener noreferrer" class="">Tranco, paper en arXiv</a></li>
+<li class=""><a href="https://www.ndss-symposium.org/ndss-paper/tranco-a-research-oriented-top-sites-ranking-hardened-against-manipulation/" target="_blank" rel="noopener noreferrer" class="">Tranco, paper NDSS 2019</a></li>
+<li class=""><a href="https://github.com/DistriNet/tranco-list" target="_blank" rel="noopener noreferrer" class="">Repositorio DistriNet/tranco-list</a></li>
+<li class=""><a href="https://tranco-list.eu/assets/tranco-ndss19.pdf" target="_blank" rel="noopener noreferrer" class="">Tranco, PDF del paper</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Research" term="Research"/>
+        <category label="Investigacion" term="Investigacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ThreatFox en OSINT: IOCs de malware, contexto y caducidad antes de bloquear]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto</id>
@@ -2395,125 +2513,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Automatizacion" term="Automatizacion"/>
         <category label="Tradecraft" term="Tradecraft"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Netcraft Site Report en OSINT: infraestructura, cronologia y contexto antes de atribuir]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto"/>
-        <updated>2026-06-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando hosting, ASN, DNS y cronologia web en un panel sobrio de investigacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando hosting, ASN, DNS y cronologia web en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-10-netcraft-site-report-osint-infraestructura-cronologia-contexto-bc2988fec435e94c6db6c2c717c12ba2.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica arranca con un dominio, el error habitual no es quedarse corto. Suele ser lo contrario: <strong>mezclar hosting actual, reputacion heredada, tecnologia visible, DNS, certificados y popularidad sin separar observacion de inferencia</strong>. <code>Netcraft Site Report</code> resulta util justo antes de caer en esa trampa, porque condensa varias senales publicas en una sola vista y obliga a formular mejor las preguntas.</p>
-<p>La propia pagina de <code>Research Tools</code> de Netcraft presenta <code>site report</code> como una forma de averiguar la infraestructura y las tecnologias de cualquier sitio a partir de su mineria de datos de internet. Y un detalle metodologico de mucho peso aparece en su politica de privacidad: cuando consultas un <code>hostname</code>, dominio o <code>URL</code> en <code>sitereport.netcraft.com</code> o <code>searchdns.netcraft.com</code>, Netcraft puede visitar ese recurso para recopilar la informacion solicitada, comprobar contenido malicioso y alimentar su <code>Web Server Survey</code>. Traducido a OSINT serio: <strong>es una herramienta muy util, pero no conviene usarla con URLs sensibles, tokens, rutas privadas o identificadores personales incrustados</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Netcraft Site Report</code> es un informe web sobre una pagina o dominio que agrega senales visibles sobre red, <code>hosting</code>, DNS, delegacion IP y, segun el caso, capas adicionales como <code>SSL/TLS</code>, <code>SPF</code>, <code>DMARC</code>, <code>web trackers</code> y tecnologia del sitio.</p>
-<p>La pagina publica del servicio resume su propuesta con claridad: mostrar la infraestructura y las tecnologias utilizadas por cualquier sitio a partir de los resultados de su <code>internet data mining</code>. En la practica, para un flujo OSINT responsable, eso sirve para:</p>
-<ul>
-<li class="">ubicar rapidamente un activo en su contexto tecnico visible;</li>
-<li class="">fechar una presencia publica con el campo <code>Date first seen</code>;</li>
-<li class="">detectar proveedor de <code>hosting</code>, pais de alojamiento, IP y <code>ASN</code> observados;</li>
-<li class="">revisar <code>nameservers</code>, registrador y senales basicas de configuracion DNS como <code>DNSSEC</code>;</li>
-<li class="">abrir pivotes prudentes hacia otras fuentes como <code>RDAP</code>, <code>CT logs</code>, archivo web o buscadores de infraestructura;</li>
-<li class="">y documentar mejor que parte de una conclusion proviene de observacion directa y que parte es inferencia.</li>
-</ul>
-<p>Tambien ayuda a evitar una pereza analitica bastante comun: asumir que una IP, un <code>reverse DNS</code> o un proveedor compartido bastan para atribuir propiedad, relacion operativa o intencion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que tu equipo de <code>due diligence</code> revisa a <code>Northbridge Health Systems</code>, una empresa ficticia que acaba de absorber varias marcas regionales. El equipo quiere responder una pregunta razonable: que parte de la superficie web visible parece propia, que parte parece heredada y que parte merece validacion adicional antes de sacar conclusiones.</p>
-<p>Un paso prudente con <code>Netcraft Site Report</code> podria ser:</p>
-<ol>
-<li class="">consultar el dominio principal y dos o tres subdominios conocidos;</li>
-<li class="">anotar <code>Date first seen</code>, <code>hosting company</code>, IP, <code>ASN</code>, <code>nameservers</code> y registrador;</li>
-<li class="">comparar si las piezas criticas viven en el mismo proveedor o si hay mezcla de legado, <code>CDN</code>, terceros y micrositios;</li>
-<li class="">cruzar los activos dudosos con <code>RDAP</code>, <code>crt.sh</code>, archivo web o inventario propio autorizado.</li>
-</ol>
-<p>La gracia no esta en "demostrar" algo desde la primera pantalla. La gracia esta en detectar preguntas mejores:</p>
-<ul>
-<li class="">este subdominio parece corporativo o podria ser un servicio externo?</li>
-<li class="">el proveedor de <code>hosting</code> coincide con una migracion reciente o con un rastro mas antiguo?</li>
-<li class="">el <code>ASN</code> observado apunta a infraestructura propia, <code>cloud</code> compartida o una capa de <code>CDN</code>?</li>
-<li class="">el dominio fue visto hace anos o acaba de aparecer?</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-selector-menos-sensible-posible">1. Empieza por el selector menos sensible posible<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#1-empieza-por-el-selector-menos-sensible-posible" class="hash-link" aria-label="Enlace directo al 1. Empieza por el selector menos sensible posible" title="Enlace directo al 1. Empieza por el selector menos sensible posible" translate="no">​</a></h3>
-<p>Si solo necesitas contexto de infraestructura, introduce antes un dominio o <code>hostname</code> que una <code>URL</code> completa. La politica de privacidad de Netcraft explica que los dominios, <code>hostnames</code> y <code>URLs</code> consultados pueden ser visitados por sus sistemas. Eso vuelve razonable una regla simple: <strong>no pegues rutas con <code>tokens</code>, identificadores de usuario, parametros de recuperacion, paneles internos o cualquier <code>URL</code> que no querrias reenviar a un tercero</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-observacion-de-interpretacion">2. Separa observacion de interpretacion<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#2-separa-observacion-de-interpretacion" class="hash-link" aria-label="Enlace directo al 2. Separa observacion de interpretacion" title="Enlace directo al 2. Separa observacion de interpretacion" translate="no">​</a></h3>
-<p>En un informe tipico puedes encontrar:</p>
-<ul>
-<li class="">fecha de primera observacion;</li>
-<li class="">ranking del sitio;</li>
-<li class="">proveedor de <code>hosting</code> y pais;</li>
-<li class="">direcciones <code>IPv4</code> e <code>IPv6</code>;</li>
-<li class=""><code>ASN</code>;</li>
-<li class=""><code>reverse DNS</code>;</li>
-<li class="">dominio, <code>nameserver</code>, registrador y <code>DNSSEC</code>;</li>
-<li class="">y un arbol de delegacion IP.</li>
-</ul>
-<p>Eso es muy valioso, pero no todo significa lo mismo. Una IP actual es una observacion. Que esa IP "prueba propiedad" ya es otra afirmacion y necesita corroboracion.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-la-cronologia-para-ordenar-la-historia">3. Usa la cronologia para ordenar la historia<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#3-usa-la-cronologia-para-ordenar-la-historia" class="hash-link" aria-label="Enlace directo al 3. Usa la cronologia para ordenar la historia" title="Enlace directo al 3. Usa la cronologia para ordenar la historia" translate="no">​</a></h3>
-<p>El campo <code>Date first seen</code> suele ser mas util de lo que parece. No convierte el informe en archivo web, pero ayuda a decidir si estas mirando:</p>
-<ul>
-<li class="">una presencia antigua y estable;</li>
-<li class="">un dominio relativamente reciente;</li>
-<li class="">o una pieza que merece contraste temporal con otras fuentes.</li>
-</ul>
-<p>Si el caso es sensible, ese dato deberia llevarte a contrastar con <code>Wayback Machine</code>, <code>Common Crawl</code>, <code>CT logs</code> o historicos DNS, no a cerrar la narrativa en la misma herramienta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-mira-el-hosting-como-contexto-no-como-veredicto">4. Mira el hosting como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#4-mira-el-hosting-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 4. Mira el hosting como contexto, no como veredicto" title="Enlace directo al 4. Mira el hosting como contexto, no como veredicto" translate="no">​</a></h3>
-<p>La documentacion de <code>Internet Data and Research</code> explica que Netcraft asigna sitios a proveedores de alojamiento o <code>cloud</code> usando <code>reverse DNS</code> e informacion de delegacion IP, y que rastrea sitios web, direcciones IP, equipos expuestos y certificados <code>SSL</code> a escala de internet. Eso hace muy util la vista de <code>hosting</code>, pero tambien recuerda una limitacion obvia: mucha infraestructura moderna es compartida.</p>
-<p>Ver <code>Cloudflare</code>, <code>AWS</code>, <code>Azure</code>, <code>Fastly</code> o cualquier otro gran proveedor puede servir para contextualizar despliegue, <code>CDN</code>, geografia operativa o madurez tecnica. Lo que no deberia hacer es empujarte a confundir un proveedor comun con una relacion exclusiva.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-aprovecha-los-pivotes-secundarios">5. Aprovecha los pivotes secundarios<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#5-aprovecha-los-pivotes-secundarios" class="hash-link" aria-label="Enlace directo al 5. Aprovecha los pivotes secundarios" title="Enlace directo al 5. Aprovecha los pivotes secundarios" translate="no">​</a></h3>
-<p>El ecosistema publico de Netcraft no se queda en <code>Site Report</code>. Su pagina de <code>Research Tools</code> lista tambien <code>Search DNS</code>, <code>Most Popular Sites</code>, <code>Cybercrime Trends</code> y <code>Threat Map</code>. Y la pagina de la extension del navegador indica que esta ofrece acceso rapido a un informe detallado sobre la tecnologia y el proveedor de <code>hosting</code> del sitio consultado.</p>
-<p>Eso sugiere un flujo sano:</p>
-<ul>
-<li class=""><code>Site Report</code> para contexto puntual del activo;</li>
-<li class=""><code>Search DNS</code> para ampliar nombres o popularidad relativa cuando proceda;</li>
-<li class="">y otras fuentes externas para comprobar si el hallazgo se sostiene fuera del ecosistema Netcraft.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Netcraft Site Report</code> es muy bueno para resumir senales visibles, pero tiene limites claros:</p>
-<ul>
-<li class="">una capa de <code>CDN</code> puede ocultar parte de la topologia real;</li>
-<li class="">el proveedor observado no equivale necesariamente al operador final;</li>
-<li class=""><code>reverse DNS</code> y etiquetas de red ayudan, pero no bastan para atribuir;</li>
-<li class="">algunas secciones dependen de carga adicional o del estado actual del sitio;</li>
-<li class="">y una observacion puntual puede quedarse corta frente a un caso que requiera historia, muestreo o varias fuentes.</li>
-</ul>
-<p>Tambien conviene entender de donde sale parte de la popularidad en el ecosistema Netcraft. Su politica de privacidad y la FAQ de la extension explican que recogen <code>hostnames</code> visitados por usuarios de la extension, no <code>URLs</code> completas, y que esa informacion agregada y anonimizada se usa para rankings y datasets externos. Ese diseno es razonable para privacidad, pero al analista le deja una conclusion simple: <strong>la popularidad es una pista contextual, no una medida universal del trafico real ni una prueba de legitimidad</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Evita consultar <code>URLs</code> sensibles; prioriza dominio o <code>hostname</code>.</li>
-<li class="">Documenta por separado hechos observados e inferencias analiticas.</li>
-<li class="">No atribuyas propiedad solo por compartir IP, <code>hosting</code> o <code>ASN</code>.</li>
-<li class="">Cruza activos importantes con al menos una fuente externa independiente.</li>
-<li class="">Si el caso afecta a personas, minimiza datos y no amplifiques paneles, correos o rutas expuestas sin justificacion legitima.</li>
-<li class="">Si el informe sugiere contenido fraudulento o phishing, trata la herramienta como apoyo de validacion, no como sustituto de un proceso de respuesta.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>Netcraft Site Report</code> te aporta una buena foto inicial, las siguientes piezas suelen complementar bien:</p>
-<ul>
-<li class=""><code>RDAP</code> y <code>WHOIS</code>, para registro y contexto administrativo;</li>
-<li class=""><code>crt.sh</code> o <code>Censys</code>, para certificados y huellas visibles;</li>
-<li class=""><code>SecurityTrails</code> o historicos DNS, para continuidad temporal;</li>
-<li class=""><code>urlscan.io</code> o <code>urlquery</code>, si lo importante es el comportamiento web;</li>
-<li class=""><code>Wayback Machine</code>, si necesitas reconstruccion cronologica de contenido.</li>
-</ul>
-<p>La takeaway practica es esta: <strong>usa <code>Netcraft Site Report</code> para ordenar contexto tecnico visible y abrir pivotes prudentes, no para convertir coincidencias de infraestructura en atribuciones rapidas</strong>. Si en el siguiente post seguimos esta linea, una buena continuacion seria comparar cuando conviene empezar por <code>Netcraft</code>, cuando por <code>RDAP</code> y cuando por historico DNS.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/netcraft-site-report-osint-infraestructura-cronologia-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.netcraft.com/resources/research-tools" target="_blank" rel="noopener noreferrer" class="">Netcraft Research Tools</a></li>
-<li class=""><a href="https://sitereport.netcraft.com/" target="_blank" rel="noopener noreferrer" class="">Netcraft Site Report</a></li>
-<li class=""><a href="https://www.netcraft.com/solutions/other-solutions/internet-data-research" target="_blank" rel="noopener noreferrer" class="">Netcraft Internet Data and Research</a></li>
-<li class=""><a href="https://www.netcraft.com/legal/privacy" target="_blank" rel="noopener noreferrer" class="">Netcraft Privacy Policy</a></li>
-<li class=""><a href="https://www.netcraft.com/resources/apps-and-extensions/browser-extension" target="_blank" rel="noopener noreferrer" class="">Netcraft Browser Extension</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Infraestructura" term="Infraestructura"/>
-        <category label="Web" term="Web"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Verificacion" term="Verificacion"/>
     </entry>
 </feed>
