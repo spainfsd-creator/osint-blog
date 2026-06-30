@@ -9,6 +9,9 @@ image: /img/blog/2026-06-30-tranco-osint-rankings-dominios-reproducibles-context
 
 ![Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales](/img/blog/2026-06-30-tranco-osint-rankings-dominios-reproducibles-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/tranco-osint-rankings-dominios-reproducibles-contexto.m4a)
+
+
 En una investigacion web, decir que un dominio es "popular" puede parecer un dato menor. No lo es. Ese ranking puede decidir que muestras analizas, que dominios excluyes como ruido, que infraestructura consideras normal y que conclusiones acabas defendiendo. Si la lista cambia cada dia, no puedes reproducir tu trabajo; si la lista se manipula con facilidad, puedes construir un informe sobre arena.
 
 `Tranco` encaja justo en ese punto: no sirve para descubrir secretos ni para atribuir actores, sino para trabajar con rankings publicos de dominios de forma mas estable, citable y reproducible. Revisando su web y documentacion el **30 de junio de 2026**, el proyecto recomienda usar su lista estandar mas reciente: un millon de dominios obtenidos promediando rankings durante los ultimos 30 dias, con identificadores permanentes, descargas historicas, consulta de ranking por dominio, `API`, paquetes de codigo y acceso mediante `BigQuery`.
