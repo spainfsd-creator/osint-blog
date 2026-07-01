@@ -9,6 +9,9 @@ image: /img/blog/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto.png
 
 ![Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo](/img/blog/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/opencti-osint-grafo-conocimiento-cti-contexto.m4a)
+
+
 Un feed de indicadores puede parecer inteligencia hasta que intentas explicar de donde salio cada dato, que confianza tiene, que relacion guarda con tu caso y cuando deja de ser util. El problema no es tener pocos datos: es tener demasiados sin estructura. `OpenCTI` encaja en ese punto porque ayuda a convertir observables, informes, relaciones y contexto en un grafo consultable, sin prometer que una plataforma pueda sustituir el juicio del analista.
 
 Revisando documentacion publica el **1 de julio de 2026**, el proyecto `OpenCTI` se presenta como una plataforma abierta para gestionar conocimiento de ciberinteligencia y observables, estructurando informacion tecnica y no tecnica sobre amenazas. Sus documentos explican que el diseno gira alrededor de un grafo de conocimiento, objetos, relaciones, observables, indicadores, conectores y flujos de entrada y salida. Para OSINT responsable, la leccion practica es clara: una buena plataforma no "descubre la verdad"; te obliga a registrar mejor que sabes, por que lo crees y que parte sigue siendo hipotesis.
