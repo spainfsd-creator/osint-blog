@@ -4,10 +4,139 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 30 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[OpenCTI en OSINT: grafo de conocimiento, observables y contexto antes de automatizar inteligencia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto</guid>
+            <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto-d931f04289b5741b97bc81289eb4d9bc.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un feed de indicadores puede parecer inteligencia hasta que intentas explicar de donde salio cada dato, que confianza tiene, que relacion guarda con tu caso y cuando deja de ser util. El problema no es tener pocos datos: es tener demasiados sin estructura. <code>OpenCTI</code> encaja en ese punto porque ayuda a convertir observables, informes, relaciones y contexto en un grafo consultable, sin prometer que una plataforma pueda sustituir el juicio del analista.</p>
+<p>Revisando documentacion publica el <strong>1 de julio de 2026</strong>, el proyecto <code>OpenCTI</code> se presenta como una plataforma abierta para gestionar conocimiento de ciberinteligencia y observables, estructurando informacion tecnica y no tecnica sobre amenazas. Sus documentos explican que el diseno gira alrededor de un grafo de conocimiento, objetos, relaciones, observables, indicadores, conectores y flujos de entrada y salida. Para OSINT responsable, la leccion practica es clara: una buena plataforma no "descubre la verdad"; te obliga a registrar mejor que sabes, por que lo crees y que parte sigue siendo hipotesis.</p>
+<p>Este articulo esta pensado para analistas defensivos, equipos <code>SOC</code>, <code>CERT/CSIRT</code>, investigacion corporativa y periodistas tecnicos que necesitan ordenar inteligencia abierta sin amplificar ruido. No contiene instrucciones para intrusion, doxxing, acoso, explotacion ni automatizacion contra terceros sin autorizacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-opencti-y-para-que-sirve">Que es OpenCTI y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#que-es-opencti-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenCTI y para que sirve" title="Enlace directo al Que es OpenCTI y para que sirve" translate="no">​</a></h2>
+<p><a href="https://github.com/OpenCTI-Platform/opencti" target="_blank" rel="noopener noreferrer" class=""><code>OpenCTI</code></a> es una plataforma de codigo abierto para gestionar conocimiento de ciberinteligencia. Su repositorio oficial la describe como una herramienta para estructurar, almacenar, organizar y visualizar informacion tecnica y no tecnica sobre amenazas.</p>
+<p>En un flujo OSINT, su valor aparece cuando necesitas responder preguntas como estas:</p>
+<ul>
+<li class="">que observables has recogido y de donde proceden;</li>
+<li class="">que indicadores tienen patron de deteccion y cuales son solo datos crudos;</li>
+<li class="">que informes, incidentes, campanas o familias de malware estan relacionados;</li>
+<li class="">que confianza, marcado, fecha y fuente acompana a cada elemento;</li>
+<li class="">que informacion debe quedarse como contexto y que parte puede alimentar controles defensivos;</li>
+<li class="">que integraciones pueden mover datos sin perder trazabilidad.</li>
+</ul>
+<p>La <a href="https://docs.opencti.io/latest/usage/getting-started/" target="_blank" rel="noopener noreferrer" class="">documentacion de introduccion</a> explica que la plataforma esta disenada como un grafo de conocimiento que toma entradas, por ejemplo feeds de inteligencia, avistamientos, alertas, vulnerabilidades, activos o artefactos, y genera salidas mediante capacidades internas o conectores. Esa idea es importante: <code>OpenCTI</code> no es solo un almacen de IOCs, sino una forma de ordenar relaciones entre entidades.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que el equipo de seguridad de <code>Northbridge.example</code> recibe tres senales abiertas:</p>
+<ul>
+<li class="">un dominio parecido a la marca, <code>northbrldge-login.example</code>;</li>
+<li class="">una URL mencionada en un informe publico de phishing;</li>
+<li class="">un hash de adjunto compartido por un proveedor de inteligencia.</li>
+</ul>
+<p>El error rapido seria meter los tres elementos en una lista de bloqueo y escribir "campana atribuida". Un flujo mas responsable con <code>OpenCTI</code> haria algo distinto:</p>
+<ol>
+<li class="">Registrar el dominio, la URL y el hash como observaciones separadas.</li>
+<li class="">Anotar fuente, fecha de consulta, autor, licencia o restricciones de uso.</li>
+<li class="">Diferenciar observable de indicador: el dominio existe como dato; un indicador exige patron, contexto de deteccion y finalidad defensiva.</li>
+<li class="">Relacionar los elementos con un informe o incidente interno sin atribuir actor si no hay evidencia suficiente.</li>
+<li class="">Marcar confianza y sensibilidad antes de exportar nada a un <code>SIEM</code> o a una comunidad externa.</li>
+</ol>
+<p>La <a href="https://docs.opencti.io/latest/usage/exploring-observations/" target="_blank" rel="noopener noreferrer" class="">documentacion sobre observaciones</a> separa <code>Observables</code>, <code>Artefacts</code> e <code>Indicators</code>: un observable puede ser una IP, dominio, correo u otro dato tecnico, pero no implica por si mismo intencion maliciosa; un indicador es un objeto de deteccion expresado mediante patrones como <code>STIX</code>, <code>Sigma</code> o <code>YARA</code>. Esa distincion evita muchos falsos positivos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-definir-alcance-y-pregunta">1. Definir alcance y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#1-definir-alcance-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Definir alcance y pregunta" title="Enlace directo al 1. Definir alcance y pregunta" translate="no">​</a></h3>
+<p>Antes de importar nada, escribe la pregunta analitica. No es lo mismo investigar una alerta de phishing, documentar una campana publica, enriquecer un incidente propio o preparar un informe de exposicion para direccion.</p>
+<p>Una pregunta util suena asi: "Que evidencias abiertas conectan estos dominios ficticios con una campana de suplantacion contra nuestra organizacion entre el 20 y el 30 de junio?". Una pregunta mala suena asi: "Que mas encontramos sobre este objetivo?". La primera limita alcance, fechas y finalidad. La segunda invita a acumular ruido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-datos-crudos-indicadores-e-informes">2. Separar datos crudos, indicadores e informes<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#2-separar-datos-crudos-indicadores-e-informes" class="hash-link" aria-label="Enlace directo al 2. Separar datos crudos, indicadores e informes" title="Enlace directo al 2. Separar datos crudos, indicadores e informes" translate="no">​</a></h3>
+<p>El <a href="https://docs.opencti.io/latest/usage/data-model/" target="_blank" rel="noopener noreferrer" class="">modelo de datos</a> de <code>OpenCTI</code> se apoya en nodos y relaciones. Los nodos describen entidades; las relaciones conectan entidades y tambien tienen propiedades. Eso permite modelar una investigacion sin mezclarlo todo en una tabla plana.</p>
+<p>En la practica:</p>
+<ul>
+<li class="">un dominio observado es un dato;</li>
+<li class="">una regla de deteccion o patron <code>STIX</code> es otra cosa;</li>
+<li class="">un informe que interpreta varios elementos tiene otra capa;</li>
+<li class="">una relacion entre una campana y una infraestructura debe explicar fuente, confianza y fecha;</li>
+<li class="">una atribucion fuerte requiere mas que proximidad tecnica.</li>
+</ul>
+<p>Esta disciplina es aburrida hasta que alguien pregunta "por que bloqueamos esto" o "como sabemos que esta relacion existe". Entonces se vuelve esencial.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-importar-con-conectores-pero-revisar-antes-de-confiar">3. Importar con conectores, pero revisar antes de confiar<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#3-importar-con-conectores-pero-revisar-antes-de-confiar" class="hash-link" aria-label="Enlace directo al 3. Importar con conectores, pero revisar antes de confiar" title="Enlace directo al 3. Importar con conectores, pero revisar antes de confiar" translate="no">​</a></h3>
+<p>La documentacion de <a href="https://docs.opencti.io/latest/deployment/connectors/" target="_blank" rel="noopener noreferrer" class="">conectores</a> los define como una pieza central para ingerir, enriquecer o exportar datos. Tambien existen conectores concretos, como el de <a href="https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md" target="_blank" rel="noopener noreferrer" class=""><code>MISP</code></a>, que importa eventos y atributos y los convierte a objetos <code>STIX 2.1</code>.</p>
+<p>El riesgo esta en confundir integracion con validacion. Un conector puede traer datos muy utiles, pero tambien arrastra sesgos, duplicados, caducidad, fuentes poco claras o indicadores demasiado genericos. La regla practica:</p>
+<ul>
+<li class="">importa menos al principio;</li>
+<li class="">conserva procedencia y marcas de tiempo;</li>
+<li class="">deduplica con criterio;</li>
+<li class="">revisa muestras manuales;</li>
+<li class="">documenta por que una fuente es apta para tu caso;</li>
+<li class="">separa lo que sirve para contexto de lo que puede disparar alertas.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usar-stix-y-taxii-como-lenguaje-comun-no-como-garantia">4. Usar STIX y TAXII como lenguaje comun, no como garantia<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#4-usar-stix-y-taxii-como-lenguaje-comun-no-como-garantia" class="hash-link" aria-label="Enlace directo al 4. Usar STIX y TAXII como lenguaje comun, no como garantia" title="Enlace directo al 4. Usar STIX y TAXII como lenguaje comun, no como garantia" translate="no">​</a></h3>
+<p><code>OpenCTI</code> encaja especialmente bien cuando necesitas trabajar con formatos interoperables. <code>STIX</code> ayuda a representar objetos de ciberinteligencia y <code>TAXII</code> facilita el intercambio sobre <code>HTTPS</code>. La documentacion de <a href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener noreferrer" class="">OASIS CTI</a> resume <code>TAXII</code> como un protocolo para intercambiar ciberinteligencia representada en <code>STIX</code>.</p>
+<p>Eso no convierte automaticamente un dato en fiable. Solo hace que viaje mejor. Si el contenido original es debil, <code>STIX</code> lo serializa con elegancia, pero no lo mejora.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-exportar-solo-lo-que-tenga-uso-defensivo-claro">5. Exportar solo lo que tenga uso defensivo claro<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#5-exportar-solo-lo-que-tenga-uso-defensivo-claro" class="hash-link" aria-label="Enlace directo al 5. Exportar solo lo que tenga uso defensivo claro" title="Enlace directo al 5. Exportar solo lo que tenga uso defensivo claro" translate="no">​</a></h3>
+<p>Cuando <code>OpenCTI</code> se conecta a un <code>SIEM</code>, <code>SOAR</code>, plataforma <code>EDR</code> o repositorio compartido, el coste de equivocarse aumenta. Un dominio popular, una IP compartida o un hash sin contexto pueden generar alertas inutiles o bloqueos desproporcionados.</p>
+<p>Antes de exportar, comprueba:</p>
+<ul>
+<li class="">si el indicador sigue vivo o si ya caduco;</li>
+<li class="">si el patron es especifico o demasiado amplio;</li>
+<li class="">si la fuente permite redistribucion;</li>
+<li class="">si el dato contiene informacion personal innecesaria;</li>
+<li class="">si hay warninglists, allowlists o contexto propio que reduzca falsos positivos;</li>
+<li class="">si la accion recomendada es monitorizar, enriquecer, alertar o bloquear.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>OpenCTI</code> no arregla una mala metodologia. Puede hacer visibles relaciones, pero no decide por ti si son significativas.</p>
+<p>Los falsos positivos suelen entrar por cinco vias:</p>
+<ul>
+<li class=""><strong>Coincidencia tecnica debil</strong>: dos dominios comparten proveedor, CDN, registrador o plantilla.</li>
+<li class=""><strong>Feeds sin curacion suficiente</strong>: muchos indicadores entran con poca explicacion o sin caducidad clara.</li>
+<li class=""><strong>Atribucion prematura</strong>: una herramienta, infraestructura o tecnica aparece en varios grupos y no identifica a nadie por si sola.</li>
+<li class=""><strong>Automatizacion sin revision</strong>: un pipeline convierte contexto en bloqueo sin una capa humana o reglas de calidad.</li>
+<li class=""><strong>Datos personales innecesarios</strong>: el sistema acaba almacenando mas informacion de la que la pregunta justifica.</li>
+</ul>
+<p>La solucion no es dejar de usar plataformas CTI, sino obligarlas a trabajar con notas, confianza, fuentes, marcados y expiracion. Si una relacion no puede explicarse en lenguaje claro, probablemente no deberia sostener una conclusion fuerte.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p><code>OpenCTI</code> puede concentrar informacion sensible. Eso exige disciplina:</p>
+<ul>
+<li class="">define roles y permisos con el minimo acceso necesario;</li>
+<li class="">no importes datos personales si no son imprescindibles para una finalidad legitima;</li>
+<li class="">marca sensibilidad, restricciones de distribucion y licencias de fuentes;</li>
+<li class="">evita copiar informes completos si basta con una referencia y una nota verificable;</li>
+<li class="">no uses conectores para recolectar mas alla de tu alcance autorizado;</li>
+<li class="">registra fechas de consulta, versiones de fuentes y razon de inclusion;</li>
+<li class="">separa laboratorio, produccion y exportaciones automatizadas;</li>
+<li class="">revisa que los indicadores compartidos no danen a terceros inocentes.</li>
+</ul>
+<p>La pregunta etica basica es: "si otro equipo consume este dato sin contexto, que decision peligrosa podria tomar?". Si la respuesta te incomoda, anade contexto o no lo compartas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>OpenCTI</code> no sustituye a todo el ecosistema. Segun el problema, puede convivir con:</p>
+<ul>
+<li class=""><code>MISP</code>, si el foco es intercambio comunitario granular de eventos, atributos, taxonomias y warninglists;</li>
+<li class=""><code>TheHive</code> o herramientas de gestion de casos, si necesitas coordinar respuesta a incidentes;</li>
+<li class=""><code>Elastic Security</code>, <code>Microsoft Sentinel</code> u otros <code>SIEM</code>, si la prioridad es deteccion y correlacion operacional;</li>
+<li class=""><code>Yeti</code>, notebooks o bases de datos internas, si el equipo necesita un flujo mas ligero;</li>
+<li class="">hojas controladas y repositorios versionados, si el caso es pequeno y la trazabilidad pesa mas que la automatizacion.</li>
+</ul>
+<p>La takeaway practica: usa <code>OpenCTI</code> para <strong>ordenar conocimiento, preservar procedencia y separar observacion de conclusion</strong>. No lo uses como una aspiradora de feeds ni como una maquina de atribucion. El siguiente paso natural seria comparar <code>OpenCTI</code> y <code>MISP</code> en un flujo defensivo pequeno: que dato entra en cada uno, que contexto se conserva y donde conviene automatizar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class="">OpenCTI, repositorio oficial: <a href="https://github.com/OpenCTI-Platform/opencti" target="_blank" rel="noopener noreferrer" class="">https://github.com/OpenCTI-Platform/opencti</a></li>
+<li class="">OpenCTI Documentation, <code>Getting started</code>: <a href="https://docs.opencti.io/latest/usage/getting-started/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/getting-started/</a></li>
+<li class="">OpenCTI Documentation, <code>Data model</code>: <a href="https://docs.opencti.io/latest/usage/data-model/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/data-model/</a></li>
+<li class="">OpenCTI Documentation, <code>Observations</code>: <a href="https://docs.opencti.io/latest/usage/exploring-observations/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/exploring-observations/</a></li>
+<li class="">OpenCTI Documentation, <code>Connectors</code>: <a href="https://docs.opencti.io/latest/deployment/connectors/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/deployment/connectors/</a></li>
+<li class="">OpenCTI Connectors, <code>MISP Connector</code>: <a href="https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md</a></li>
+<li class="">OASIS Open, <code>Cyber Threat Intelligence Technical Committee</code>: <a href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener noreferrer" class="">https://oasis-open.github.io/cti-documentation/</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Threat Intelligence</category>
+            <category>Datos</category>
+            <category>Automatizacion</category>
+            <category>Verificacion</category>
+            <category>Defensa</category>
+        </item>
         <item>
             <title><![CDATA[Tranco en OSINT: rankings de dominios reproducibles sin convertir popularidad en evidencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto</link>
@@ -2329,112 +2458,6 @@
             <category>Federacion</category>
             <category>Verificacion</category>
             <category>Metodologia</category>
-        </item>
-        <item>
-            <title><![CDATA[gowitness en OSINT: capturas visuales, priorizar superficie web y mantener contexto]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto</guid>
-            <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando capturas web, titulos, cabeceras y relaciones entre activos visibles en un panel sobrio de investigacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando capturas web, titulos, cabeceras y relaciones entre activos visibles en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-11-gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto-251d2442758296c677088f192ba1db15.png" width="744" height="416" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica reune decenas o cientos de dominios, subdominios o servicios web visibles, el cuello de botella rara vez es encontrar mas superficie. Lo dificil suele ser <strong>ver rapido que pantallas importan, cuales son clones, donde hay portales olvidados y que merece validacion manual antes de sacar conclusiones</strong>. <code>gowitness</code> encaja bien justo en ese punto porque convierte una lista de URLs publicas en una vista visual consultable, con metadatos utiles para priorizar.</p>
-<p>Segun la documentacion oficial de <code>sensepost</code> consultada el <strong>11 de junio de 2026</strong>, <code>gowitness</code> es una utilidad en <code>Golang</code> para capturar pantallas de interfaces web usando <code>Chrome Headless</code>, guardar evidencias relacionadas y revisar los resultados desde un visor web. En OSINT responsable eso no significa "automatiza todo y ya". Significa algo bastante mas util: <strong>tomar capturas reproducibles de superficie ya visible, enlazarlas con contexto tecnico y trabajar despues con mas criterio</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>gowitness</code> es una herramienta de captura visual y triage web. El <code>README</code> oficial y la wiki de funcionalidades coinciden en el nucleo: su objetivo principal es tomar capturas de sitios web y hacerlo bien, pero puede guardar bastante mas informacion por el camino.</p>
-<p>Traducido a preguntas utiles dentro de OSINT defensivo, ayuda a:</p>
-<ul>
-<li class="">convertir una lista de activos web visibles en una galeria revisable;</li>
-<li class="">detectar paneles, portales, <code>login pages</code>, aplicaciones internas expuestas por error o entornos heredados todavia accesibles desde internet;</li>
-<li class="">guardar contexto adicional como titulo, cabeceras, cookies, logs de consola o datos de red cuando se habilitan sus escritores;</li>
-<li class="">exportar resultados a <code>SQLite</code>, <code>JSON Lines</code>, <code>CSV</code> o salida estandar para cruzarlos despues con otras fuentes;</li>
-<li class="">y revisar hallazgos desde un visor web local con <code>API</code>, util cuando el volumen de resultados ya no cabe bien en una terminal.</li>
-</ul>
-<p>No es una herramienta de atribucion. Tampoco demuestra por si sola propiedad, criticidad o exposicion real. Sirve para <strong>ordenar mejor lo que ya es visible publicamente</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de terceros sobre <code>grupo-norte.test</code>, una empresa ficticia que acaba de absorber varias filiales. El equipo ya ha reunido dominios y subdominios visibles a partir de <code>RDAP</code>, <code>CT logs</code>, historico DNS y algunas menciones en buscadores. El problema ahora no es descubrir mas. El problema es decidir:</p>
-<ul>
-<li class="">que activos parecen realmente vivos;</li>
-<li class="">cuales muestran marca actual, marca heredada o un proveedor externo;</li>
-<li class="">donde hay <code>logins</code>, paneles administrativos o aplicaciones verticales que merecen validacion;</li>
-<li class="">y que resultados son simples duplicados visuales de la misma plataforma.</li>
-</ul>
-<p>En ese escenario, <code>gowitness</code> puede encajar como paso de triage prudente:</p>
-<ol>
-<li class="">partir de una lista ya acotada y legitimamente obtenida de <code>URLs</code> o hosts visibles;</li>
-<li class="">generar capturas de esas interfaces y guardar salida estructurada;</li>
-<li class="">revisar visualmente titulos, respuestas finales y elementos repetidos;</li>
-<li class="">cruzar despues lo observado con <code>httpx</code>, <code>Netcraft</code>, <code>Wappalyzer</code>, <code>Wayback Machine</code> o comprobacion manual.</li>
-</ol>
-<p>Lo importante no es "sacar muchas capturas". Lo importante es <strong>reducir el coste de leer superficie web heterogenea sin perder trazabilidad</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-con-alcance-ya-decidido">1. Empieza con alcance ya decidido<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#1-empieza-con-alcance-ya-decidido" class="hash-link" aria-label="Enlace directo al 1. Empieza con alcance ya decidido" title="Enlace directo al 1. Empieza con alcance ya decidido" translate="no">​</a></h3>
-<p>La documentacion oficial muestra que <code>gowitness</code> acepta desde una sola <code>URL</code> hasta listas, <code>CIDRs</code> y resultados de <code>Nmap</code>. En OSINT responsable eso no deberia interpretarse como permiso para ampliar alcance sin criterio. Lo sensato es entrar con una lista de activos publicos ya justificada por el caso y, si hace falta, documentar de donde sale cada objetivo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-captura-como-indice-visual-no-como-prueba-final">2. Usa la captura como indice visual, no como prueba final<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#2-usa-la-captura-como-indice-visual-no-como-prueba-final" class="hash-link" aria-label="Enlace directo al 2. Usa la captura como indice visual, no como prueba final" title="Enlace directo al 2. Usa la captura como indice visual, no como prueba final" translate="no">​</a></h3>
-<p>La fortaleza real de <code>gowitness</code> no es solo el <code>PNG</code>. Es el conjunto captura + metadatos + persistencia. La wiki de <code>Features</code> destaca que puede escribir a <code>SQLite</code>, <code>JSON Lines</code>, <code>CSV</code> y <code>stdout</code>, mientras que el <code>README</code> anade logs de peticiones, cabeceras, cookies y consola entre los datos opcionales que puede guardar.</p>
-<p>Eso permite un enfoque bastante sano:</p>
-<ul>
-<li class="">mirar primero la galeria para detectar rarezas o prioridades;</li>
-<li class="">consultar despues los detalles tecnicos de los resultados relevantes;</li>
-<li class="">y dejar por escrito que parte del analisis proviene de observacion visual y que parte de datos estructurados.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-el-visor-web-local-para-revisar-volumen">3. Aprovecha el visor web local para revisar volumen<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#3-aprovecha-el-visor-web-local-para-revisar-volumen" class="hash-link" aria-label="Enlace directo al 3. Aprovecha el visor web local para revisar volumen" title="Enlace directo al 3. Aprovecha el visor web local para revisar volumen" translate="no">​</a></h3>
-<p>La documentacion del <code>Report Server</code> indica que, una vez recogidos los datos, puede levantarse un visor interactivo en <code>localhost:7171</code> para trabajar los resultados. Y la documentacion del <code>API</code> deja claro que ese servidor permite consultar listados, detalles, capturas y disparar screenshots de forma programatica.</p>
-<p>Para el analista eso tiene una traduccion practica: cuando el lote crece, conviene dejar de pensar en <code>gowitness</code> como una carpeta de imagenes sueltas y empezar a verlo como un pequeño repositorio local de evidencia navegable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ten-presente-su-modelo-de-seguridad">4. Ten presente su modelo de seguridad<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#4-ten-presente-su-modelo-de-seguridad" class="hash-link" aria-label="Enlace directo al 4. Ten presente su modelo de seguridad" title="Enlace directo al 4. Ten presente su modelo de seguridad" translate="no">​</a></h3>
-<p>La propia wiki advierte de algo importante: el servidor de reportes y su <code>API</code> se pensaron para servirse en <code>localhost</code> y <strong>no llevan autenticacion integrada</strong>. Si alguien decide exponerlo a una red mas amplia, la documentacion recomienda poner autenticacion delante mediante un proxy como <code>Traefik</code>.</p>
-<p>En un flujo OSINT serio esto importa por dos razones:</p>
-<ul>
-<li class="">evita abrir sin querer una interfaz con capturas y metadatos a terceros;</li>
-<li class="">y recuerda que la comodidad del visor no debe degradar la custodia minima de la evidencia.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-distingue-bien-entre-parecido-visual-y-relacion-real">5. Distingue bien entre parecido visual y relacion real<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#5-distingue-bien-entre-parecido-visual-y-relacion-real" class="hash-link" aria-label="Enlace directo al 5. Distingue bien entre parecido visual y relacion real" title="Enlace directo al 5. Distingue bien entre parecido visual y relacion real" translate="no">​</a></h3>
-<p>Las capturas ayudan mucho a detectar plantillas repetidas, marcas compartidas, <code>favicons</code> parecidos o paneles que parecen pertenecer a la misma familia. Pero una similitud visual no equivale automaticamente a misma propiedad, misma operacion ni misma criticidad.</p>
-<p>Un <code>single sign-on</code> comun, un proveedor <code>SaaS</code>, una <code>white-label platform</code> o una aplicacion revendida pueden producir pantallas casi iguales. La captura es una pista buena para abrir pivotes, no para cerrarlos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>gowitness</code> es muy util, pero conviene entrar con varias cautelas:</p>
-<ul>
-<li class="">una captura fija no resume toda la logica de una aplicacion;</li>
-<li class="">contenidos dinamicos, <code>A/B tests</code>, geolocalizacion, idioma o sesiones pueden cambiar la vista;</li>
-<li class="">muchos paneles solo muestran su valor real tras autenticacion, asi que la portada publica puede quedarse corta;</li>
-<li class="">respuestas de <code>WAF</code>, <code>CDN</code> o <code>reverse proxy</code> pueden homogeneizar interfaces distintas;</li>
-<li class="">y una interfaz visualmente anodina puede ser mas relevante que una portada llamativa.</li>
-</ul>
-<p>Tambien hay un riesgo metodologico clasico: enamorarse de la galeria. Ver treinta capturas juntas ayuda mucho a priorizar, pero tambien puede empujar a decidir demasiado pronto que algo "parece" viejo, abandonado, interno o mal configurado. Sin contraste adicional, esa conclusion sigue siendo debil.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo con activos publicos y dentro del alcance legitimo del caso.</li>
-<li class="">Minimiza coleccion de datos personales si la interfaz muestra nombres, correos o identificadores irrelevantes para la investigacion.</li>
-<li class="">No expongas el visor ni la <code>API</code> a terceros sin una capa de autenticacion delante.</li>
-<li class="">Conserva fecha de captura, fuente del target y contexto de cada lote para mantener reproducibilidad.</li>
-<li class="">Separa en tus notas lo observado directamente en la imagen de lo inferido despues.</li>
-<li class="">Si una captura sugiere un hallazgo sensible, corroboralo con al menos otra fuente antes de elevarlo.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>gowitness</code> no sustituye otras piezas del flujo. Suele complementar bien a:</p>
-<ul>
-<li class=""><code>httpx</code>, para priorizar hosts vivos y metadatos <code>HTTP</code>;</li>
-<li class=""><code>Netcraft Site Report</code>, para contexto de infraestructura y cronologia visible;</li>
-<li class=""><code>Wappalyzer</code>, si interesa perfilar tecnologias aparentes;</li>
-<li class=""><code>Wayback Machine</code> o <code>Archive.today</code>, cuando la pregunta es temporal;</li>
-<li class="">y revision manual en navegador, cuando un hallazgo visual merece lectura fina.</li>
-</ul>
-<p>La takeaway practica es esta: <strong>usa <code>gowitness</code> para bajar el coste de mirar mucha superficie web visible con orden y trazabilidad, no para convertir una captura bonita en una conclusion prematura</strong>. Si el siguiente paso va en esta linea, una continuacion natural seria comparar cuando conviene empezar por <code>httpx</code>, cuando por <code>gowitness</code> y cuando por archivo web.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/gowitness-osint-capturas-visuales-priorizar-superficie-web-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://github.com/sensepost/gowitness" target="_blank" rel="noopener noreferrer" class="">sensepost/gowitness README</a></li>
-<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Features" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Features</a></li>
-<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Usage" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Usage</a></li>
-<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Installation" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Installation</a></li>
-<li class=""><a href="https://github.com/sensepost/gowitness/wiki/Report-Server" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: Report Server</a></li>
-<li class=""><a href="https://github.com/sensepost/gowitness/wiki/API" target="_blank" rel="noopener noreferrer" class="">gowitness Wiki: API</a></li>
-<li class=""><a href="https://www.kali.org/tools/gowitness/" target="_blank" rel="noopener noreferrer" class="">Kali Linux Tools: gowitness</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Tooling</category>
-            <category>Web</category>
-            <category>Verificacion</category>
-            <category>Automatizacion</category>
-            <category>Tradecraft</category>
         </item>
     </channel>
 </rss>
