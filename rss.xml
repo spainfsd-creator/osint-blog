@@ -4,10 +4,161 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[CISA KEV en OSINT: vulnerabilidades explotadas, prioridad y contexto antes de parchear]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto</guid>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto-04d2ab507d790c289a6c2abf72656d40.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una lista de vulnerabilidades criticas no te dice por si sola que debes arreglar primero. Algunas tienen <code>CVSS</code> alto pero no estan siendo explotadas; otras parecen menos espectaculares y, sin embargo, ya aparecen en campanas reales. El trabajo serio consiste en cruzar la senal publica con tu inventario, tu exposicion y tus ventanas de cambio. Ahi es donde el catalogo <code>CISA KEV</code> resulta especialmente util.</p>
+<p>Revisando el feed publico el <strong>2 de julio de 2026</strong>, el <code>CISA Known Exploited Vulnerabilities Catalog</code> publicaba la version <code>2026.07.01</code>, liberada el <code>2026-07-01T19:00:06.9016Z</code>, con <code>1.631</code> vulnerabilidades. La entrada mas reciente visible en el feed era <code>CVE-2026-45659</code>, asociada a <code>Microsoft SharePoint Server</code>, anadida el <code>1 de julio de 2026</code> y con fecha de accion el <code>4 de julio de 2026</code>. Ese dato no es una invitacion a correr detras del ultimo titular: es una forma de ordenar una conversacion defensiva con evidencia de explotacion, fechas y acciones recomendadas.</p>
+<p>Este articulo esta escrito para equipos defensivos, responsables de vulnerabilidades, <code>SOC</code>, <code>CERT/CSIRT</code>, auditoria tecnica y periodistas que necesitan entender como usar una fuente abierta sin convertirla en una lista de sustos. No contiene instrucciones de explotacion, intrusiones, doxxing, acoso ni escaneo contra terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-cisa-kev-y-para-que-sirve">Que es CISA KEV y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#que-es-cisa-kev-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es CISA KEV y para que sirve" title="Enlace directo al Que es CISA KEV y para que sirve" translate="no">​</a></h2>
+<p><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class=""><code>CISA KEV</code></a> es el catalogo publico de vulnerabilidades conocidas y explotadas que mantiene la Cybersecurity and Infrastructure Security Agency de Estados Unidos. En la practica, es una lista curada de <code>CVE</code> para las que CISA ha reunido evidencia de explotacion real y una accion de remediacion clara.</p>
+<p>Para un flujo OSINT defensivo, su valor aparece cuando necesitas responder preguntas concretas:</p>
+<ul>
+<li class="">que <code>CVE</code> tienen evidencia publica de explotacion, no solo gravedad teorica;</li>
+<li class="">que producto y proveedor estan asociados a cada entrada;</li>
+<li class="">cuando se anadio la vulnerabilidad al catalogo;</li>
+<li class="">que fecha de accion marca CISA para entornos sujetos a sus directivas;</li>
+<li class="">si CISA conoce uso en campanas de ransomware;</li>
+<li class="">que notas enlazan a advisories de proveedor, NVD u otras guias oficiales;</li>
+<li class="">como priorizar el trabajo sin confundir "nuevo", "critico" y "explotado".</li>
+</ul>
+<p>La parte metodologica importa. <code>KEV</code> no sustituye un inventario de activos ni una herramienta de gestion de vulnerabilidades. Sirve como senal externa de explotacion observada. Si tu organizacion no tiene el producto afectado, la entrada es contexto. Si lo tiene, pero no esta expuesto y esta segmentado, la prioridad puede ser distinta. Si lo tiene expuesto a internet y sin mitigacion, la conversacion cambia por completo.</p>
+<p>Tambien conviene actualizar el contexto normativo. <code>BOD 22-01</code> fue la directiva que establecio el catalogo como pieza central de reduccion de riesgo federal, pero CISA la marca ahora como revocada y sustituida por <a href="https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk" target="_blank" rel="noopener noreferrer" class=""><code>BOD 26-04</code></a>. La pagina de <code>BOD 26-04</code> explica que consolida y aclara las guias de remediacion, y que la urgencia debe leerse combinando exposicion del activo, presencia en <code>KEV</code> y otros factores de riesgo. Para analistas fuera del gobierno federal estadounidense, la leccion sigue siendo util: <code>KEV</code> es una entrada de priorizacion, no una decision automatica.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que <code>Meridiano Salud</code>, una organizacion ficticia, recibe un informe mensual de vulnerabilidades con 4.000 hallazgos. El informe esta ordenado por severidad tecnica, asi que los equipos se atascan en una pila enorme de "criticos" y "altos". El responsable de riesgo quiere separar tres cosas:</p>
+<ul>
+<li class="">que vulnerabilidades estan en productos realmente presentes;</li>
+<li class="">cuales afectan a activos publicamente expuestos;</li>
+<li class="">cuales aparecen en <code>CISA KEV</code> con evidencia de explotacion.</li>
+</ul>
+<p>Un registro inicial podria quedar asi:</p>
+<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Por que importa</th></tr></thead><tbody><tr><td><code>cve_id</code></td><td><code>CVE-20XX-12345</code></td><td>Selector comun para cruzar fuentes</td></tr><tr><td>Producto afectado</td><td><code>Servidor documental interno</code></td><td>Evita trabajar sobre activos inexistentes</td></tr><tr><td>Exposicion</td><td><code>VPN / intranet / internet</code></td><td>Cambia la urgencia operativa</td></tr><tr><td><code>KEV</code></td><td><code>si / no</code></td><td>Indica explotacion observada por CISA</td></tr><tr><td>Fecha anadida</td><td><code>2026-07-01</code></td><td>Ayuda a construir cronologia</td></tr><tr><td>Accion recomendada</td><td><code>Mitigar segun proveedor</code></td><td>Conecta inteligencia con remediacion</td></tr><tr><td>Evidencia interna</td><td><code>scanner, CMDB, ticket</code></td><td>Evita depender solo de una fuente externa</td></tr></tbody></table>
+<p>La conclusion responsable no seria "todo lo que esta en <code>KEV</code> se parchea antes que cualquier otra cosa". Seria mas concreta:</p>
+<ol>
+<li class="">Si el <code>CVE</code> esta en <code>KEV</code>, el producto existe en el inventario y el activo esta expuesto, escalar prioridad.</li>
+<li class="">Si el <code>CVE</code> esta en <code>KEV</code>, pero el producto no existe en el entorno, documentar descarte.</li>
+<li class="">Si el producto existe, pero el hallazgo viene de un scanner antiguo, validar version y configuracion antes de abrir una crisis.</li>
+<li class="">Si no hay parche inmediato, registrar mitigacion compensatoria, responsable y fecha de revision.</li>
+<li class="">Si se detecta exposicion publica, coordinar con respuesta a incidentes antes de publicar ningun detalle.</li>
+</ol>
+<p>Ese flujo ensena una idea basica del OSINT serio: la fuente abierta acelera la pregunta, pero la evidencia local decide la accion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-descargar-la-fuente-canónica">1. Descargar la fuente canónica<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#1-descargar-la-fuente-can%C3%B3nica" class="hash-link" aria-label="Enlace directo al 1. Descargar la fuente canónica" title="Enlace directo al 1. Descargar la fuente canónica" translate="no">​</a></h3>
+<p>CISA publica el catalogo en la web y tambien como feed <code>JSON</code>. El repositorio oficial <a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener noreferrer" class=""><code>cisagov/kev-data</code></a> actua como espejo de los ficheros de datos y explica que el origen canonico sigue siendo <code>cisa.gov/kev</code>. El espejo aporta una ventaja practica: historial de commits para ver cambios con mas transparencia.</p>
+<p>Un flujo prudente empieza guardando metadatos de consulta:</p>
+<ul>
+<li class="">URL consultada;</li>
+<li class="">fecha y hora en UTC;</li>
+<li class=""><code>catalogVersion</code>;</li>
+<li class=""><code>dateReleased</code>;</li>
+<li class=""><code>count</code>;</li>
+<li class="">hash del fichero descargado si el caso exige trazabilidad.</li>
+</ul>
+<p>No hace falta automatizar nada agresivo. Basta con tratar el feed como una fuente documental que puede cambiar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-entender-el-esquema-antes-de-filtrar">2. Entender el esquema antes de filtrar<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#2-entender-el-esquema-antes-de-filtrar" class="hash-link" aria-label="Enlace directo al 2. Entender el esquema antes de filtrar" title="Enlace directo al 2. Entender el esquema antes de filtrar" translate="no">​</a></h3>
+<p>El esquema <code>JSON</code> oficial define campos como <code>cveID</code>, <code>vendorProject</code>, <code>product</code>, <code>vulnerabilityName</code>, <code>dateAdded</code>, <code>shortDescription</code>, <code>requiredAction</code>, <code>dueDate</code>, <code>knownRansomwareCampaignUse</code>, <code>notes</code> y <code>cwes</code>. Esa estructura es mas util que una captura de pantalla porque permite filtrar, auditar y repetir el analisis.</p>
+<p>Para una revision defensiva, las preguntas minimas son:</p>
+<ul>
+<li class="">que entradas nuevas hay desde la ultima revision;</li>
+<li class="">que entradas tienen fecha de accion cercana;</li>
+<li class="">que proveedores aparecen en mi inventario;</li>
+<li class="">que productos son internet-facing o sostienen procesos criticos;</li>
+<li class="">que notas enlazan a advisories de proveedor que debo leer completos;</li>
+<li class="">que entradas tienen posible uso en ransomware y requieren coordinacion adicional.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruzar-con-inventario-propio">3. Cruzar con inventario propio<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#3-cruzar-con-inventario-propio" class="hash-link" aria-label="Enlace directo al 3. Cruzar con inventario propio" title="Enlace directo al 3. Cruzar con inventario propio" translate="no">​</a></h3>
+<p>El error habitual es leer <code>KEV</code> como si fuera un ranking universal. No lo es. Una vulnerabilidad explotada contra un producto que no usas no tiene prioridad operativa para ti. Una vulnerabilidad explotada contra un producto que usas en un activo aislado puede requerir accion, pero no necesariamente la misma urgencia que un servicio expuesto.</p>
+<p>Un cruce defensivo puede separar tres listas:</p>
+<ul>
+<li class=""><strong>accion inmediata</strong>: producto presente, version afectada probable, activo expuesto o critico;</li>
+<li class=""><strong>validacion tecnica</strong>: producto presente, pero version, configuracion o exposicion dudosa;</li>
+<li class=""><strong>contexto/documentacion</strong>: producto no presente o entrada no aplicable al entorno.</li>
+</ul>
+<p>La diferencia entre esas listas reduce ruido y evita dos fallos simetricos: ignorar una senal real o saturar al equipo con falsos positivos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-verificar-con-fuentes-primarias">4. Verificar con fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#4-verificar-con-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 4. Verificar con fuentes primarias" title="Enlace directo al 4. Verificar con fuentes primarias" translate="no">​</a></h3>
+<p>Cuando una entrada importa, no te quedes solo con el resumen. Lee el advisory del proveedor, la entrada de <code>NVD</code> si aporta contexto, notas de CISA y documentacion interna. El campo <code>requiredAction</code> suele resumir la accion, pero la implementacion real depende del producto, version, arquitectura y dependencias.</p>
+<p>En informes, conviene separar:</p>
+<ul>
+<li class="">dato de <code>KEV</code>;</li>
+<li class="">dato del proveedor;</li>
+<li class="">dato del scanner;</li>
+<li class="">dato del inventario;</li>
+<li class="">inferencia del analista.</li>
+</ul>
+<p>Esa separacion protege el informe cuando alguien pregunte "de donde sale esta conclusion".</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-convertirlo-en-rutina-no-en-alarma-puntual">5. Convertirlo en rutina, no en alarma puntual<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#5-convertirlo-en-rutina-no-en-alarma-puntual" class="hash-link" aria-label="Enlace directo al 5. Convertirlo en rutina, no en alarma puntual" title="Enlace directo al 5. Convertirlo en rutina, no en alarma puntual" translate="no">​</a></h3>
+<p>El catalogo se actualiza cuando CISA incorpora entradas nuevas o modifica datos. El repositorio espejo indica que se sincroniza poco despues del origen canonico, normalmente en dias laborables y horario laboral de la costa este de Estados Unidos cuando hay cambios. Para un equipo defensivo, lo util no es mirar la pagina cuando hay ruido en redes, sino crear una rutina:</p>
+<ul>
+<li class="">revision diaria o semanal del feed;</li>
+<li class="">diff contra la version anterior;</li>
+<li class="">cruce con inventario;</li>
+<li class="">apertura de tickets solo cuando hay aplicabilidad;</li>
+<li class="">cierre documentado cuando no aplica;</li>
+<li class="">metrica de tiempo desde entrada en <code>KEV</code> hasta decision interna.</li>
+</ul>
+<p>Ese ultimo dato es mas valioso que una presentacion llena de CVEs: mide si la organizacion convierte inteligencia abierta en accion verificable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>CISA KEV</code> es una fuente fuerte, pero tiene limites claros:</p>
+<ul>
+<li class="">no contiene todas las vulnerabilidades explotadas del mundo;</li>
+<li class="">requiere <code>CVE</code> y guia de remediacion clara para incorporar una entrada;</li>
+<li class="">no prueba que tu organizacion este afectada;</li>
+<li class="">no sustituye telemetria interna ni respuesta a incidentes;</li>
+<li class="">no ordena automaticamente por impacto local;</li>
+<li class="">puede apuntar a productos que aparecen en tu inventario de forma incorrecta o desactualizada;</li>
+<li class="">la fecha de accion de CISA no siempre coincide con tus ventanas de cambio, contratos o restricciones operativas.</li>
+</ul>
+<p>Tambien hay que evitar la lectura inversa: que una vulnerabilidad no este en <code>KEV</code> no significa que sea segura, irrelevante o no explotable. Significa que no cumple, o aun no cumple, los criterios de inclusion del catalogo. En gestion de riesgo, ausencia de una senal no equivale a ausencia de riesgo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Usar <code>KEV</code> de forma responsable exige disciplina:</p>
+<ul>
+<li class="">no publiques listas de activos propios afectados sin necesidad;</li>
+<li class="">no uses el catalogo para buscar victimas ajenas;</li>
+<li class="">no combines <code>KEV</code> con escaneos contra terceros sin autorizacion;</li>
+<li class="">no conviertas una coincidencia de scanner en acusacion o atribucion;</li>
+<li class="">limita los detalles tecnicos en informes externos cuando puedan facilitar abuso;</li>
+<li class="">conserva evidencias de consulta, version del feed y razonamiento;</li>
+<li class="">prioriza remediacion, mitigacion y comunicacion interna sobre ruido publico.</li>
+</ul>
+<p>Para periodistas o investigadores externos, la regla es todavia mas estricta: <code>KEV</code> puede explicar por que una vulnerabilidad merece atencion, pero no justifica identificar sistemas vulnerables de terceros ni publicar rutas de explotacion. La historia responsable habla de riesgo, contexto, mitigacion y rendicion de cuentas, no de convertir la fuente publica en municion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>CISA KEV</code> funciona mejor como capa de priorizacion junto a otras fuentes:</p>
+<ul>
+<li class=""><code>NVD</code>, para contexto general de <code>CVE</code>, <code>CWE</code>, referencias y metadatos;</li>
+<li class="">advisories del proveedor, para versiones afectadas, parches y mitigaciones reales;</li>
+<li class=""><code>Vulnrichment</code>, si necesitas enriquecimiento estructurado del ecosistema CISA;</li>
+<li class="">inventario interno, para saber si el producto existe y donde;</li>
+<li class="">scanners de vulnerabilidades, para validar presencia tecnica;</li>
+<li class=""><code>OpenCTI</code> o una plataforma similar, si quieres convertir observables, informes y decisiones en grafo trazable;</li>
+<li class=""><code>MISP</code>, si el equipo comparte inteligencia y necesita taxonomias, distribucion y control de contexto.</li>
+</ul>
+<p>El takeaway practico es sencillo: trata <code>CISA KEV</code> como una senal OSINT de explotacion real que debe pasar por inventario, exposicion y verificacion. Bien usado, ayuda a priorizar con criterio. Mal usado, solo cambia una lista enorme por otra lista con mas urgencia aparente.</p>
+<p>Como siguiente paso editorial, tendria sentido comparar <code>CISA KEV</code>, <code>NVD</code> y advisories de proveedor sobre un mismo caso ficticio para ver que aporta cada capa y donde empieza el trabajo propio del analista.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="">CISA Known Exploited Vulnerabilities Catalog</a></li>
+<li class=""><a href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json" target="_blank" rel="noopener noreferrer" class="">CISA KEV JSON feed</a></li>
+<li class=""><a href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities_schema.json" target="_blank" rel="noopener noreferrer" class="">CISA KEV JSON schema</a></li>
+<li class=""><a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener noreferrer" class="">cisagov/kev-data en GitHub</a></li>
+<li class=""><a href="https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk" target="_blank" rel="noopener noreferrer" class="">BOD 26-04: Prioritizing Security Updates Based on Risk</a></li>
+<li class=""><a href="https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities-revoked" target="_blank" rel="noopener noreferrer" class="">BOD 22-01 revocada y sustituida por BOD 26-04</a></li>
+<li class=""><a href="https://nvd.nist.gov/general/news/cisa-exploit-catalog" target="_blank" rel="noopener noreferrer" class="">NVD: Known Exploited Vulnerabilities</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Gestion de vulnerabilidades</category>
+            <category>Threat Intelligence</category>
+            <category>CVE</category>
+            <category>Defensa</category>
+            <category>Verificacion</category>
+        </item>
         <item>
             <title><![CDATA[OpenCTI en OSINT: grafo de conocimiento, observables y contexto antes de automatizar inteligencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto</link>
@@ -2349,116 +2500,6 @@
             <category>Reconocimiento</category>
             <category>Tooling</category>
             <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[Mastodon en OSINT: busqueda federada, hashtags y contexto sin confundir alcance con evidencia]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto</guid>
-            <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando perfiles federados, hashtags y servidores de Mastodon en un panel sobrio de investigacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando perfiles federados, hashtags y servidores de Mastodon en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-12-mastodon-osint-busqueda-federada-hashtags-contexto-65e11bcccb155990cbde82ca7f6e85a1.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una historia salta del entorno de plataformas centralizadas al fediverso, el error habitual no es "no encontrar nada". El error suele ser <strong>dar por hecho que una busqueda incompleta equivale a ausencia, o que una coincidencia en un servidor concreto equivale a identidad verificada</strong>. <code>Mastodon</code> resulta util para OSINT justo por lo contrario: te obliga a pensar en instancia, federacion, visibilidad, perfil y contexto antes de sacar conclusiones.</p>
-<p>La documentacion oficial de Mastodon, consultada el <strong>12 de junio de 2026</strong>, deja dos ideas metodologicas muy claras. La primera: la federacion significa que no existe un unico servicio central, sino multiples servidores que se conectan entre si. La segunda: la busqueda esta limitada por diseno para reducir abuso; por defecto, las cuentas y hashtags suelen ser localizables, pero el texto libre no funciona como un buscador universal de toda la red. Traducido a lenguaje de analista: <strong>Mastodon sirve muy bien para descubrir contexto visible y pivotes publicos, pero no para fingir cobertura total</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Mastodon</code> es software de red social federada basado en <code>ActivityPub</code>. En la practica, eso significa que cada cuenta vive en un servidor concreto, con sus propias reglas, politicas de moderacion y capacidades de busqueda, pero puede interactuar con cuentas de otros servidores.</p>
-<p>Para OSINT responsable, esta arquitectura aporta valor en al menos cuatro frentes:</p>
-<ul>
-<li class="">revisar perfiles publicos con su servidor de origen, biografia, enlaces y metadatos visibles;</li>
-<li class="">seguir hashtags y conversaciones publicas sin depender de una sola empresa centralizada;</li>
-<li class="">comprobar como cambia la visibilidad segun la instancia desde la que observas;</li>
-<li class="">documentar mejor que parte de un hallazgo es observacion directa y que parte es inferencia.</li>
-</ul>
-<p>La propia documentacion de usuario explica un matiz crucial: buscar una URL completa de una cuenta o de una publicacion remota puede hacer que el servidor local la recupere para mostrarla si todavia no estaba en su base de datos. Eso convierte a Mastodon en una herramienta interesante para <strong>traer a contexto local un artefacto publico remoto</strong>, pero tambien obliga a anotar desde que instancia se hizo la consulta y en que momento.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una verificacion de contexto sobre una asociacion profesional que afirma coordinar una red europea de expertos en privacidad digital. En su web enlaza a una cuenta de Mastodon, varios portavoces mencionan hashtags sectoriales y una tercera entidad asegura que cierto perfil federado "no es oficial".</p>
-<p>En un caso asi, <code>Mastodon</code> puede ayudarte a ordenar preguntas utiles:</p>
-<ul>
-<li class="">que servidor aloja cada cuenta y que reputacion comunitaria aparente tiene;</li>
-<li class="">si el perfil usa metadatos, enlaces y hashtags destacados coherentes con la organizacion;</li>
-<li class="">si las publicaciones visibles mantienen cronologia, tono y relaciones plausibles;</li>
-<li class="">y si los enlaces entre web, perfil y conversaciones publicas se sostienen sin saltos raros.</li>
-</ul>
-<p>No hace falta invadir nada ni forzar acceso. La capa util esta en lo publico: perfiles, hashtags, publicaciones abiertas, paginas de servidor y trazas de federacion visibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-cuenta-completa-no-por-el-alias-suelto">1. Empieza por la cuenta completa, no por el alias suelto<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#1-empieza-por-la-cuenta-completa-no-por-el-alias-suelto" class="hash-link" aria-label="Enlace directo al 1. Empieza por la cuenta completa, no por el alias suelto" title="Enlace directo al 1. Empieza por la cuenta completa, no por el alias suelto" translate="no">​</a></h3>
-<p>En Mastodon, <code>ana</code> no es una identidad suficiente. <code>@ana@ejemplo.social</code> ya es otra cosa: combina alias y servidor. Si trabajas solo con el nombre corto, multiplicas el ruido y reduces trazabilidad.</p>
-<p>La buena practica inicial es anotar:</p>
-<ul>
-<li class=""><code>handle</code> completo;</li>
-<li class="">URL del perfil;</li>
-<li class="">servidor de origen;</li>
-<li class="">fecha y hora de observacion;</li>
-<li class="">y si el hallazgo llego por busqueda, enlace externo o mencion cruzada.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-la-busqueda-sabiendo-lo-que-no-promete">2. Usa la busqueda sabiendo lo que no promete<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#2-usa-la-busqueda-sabiendo-lo-que-no-promete" class="hash-link" aria-label="Enlace directo al 2. Usa la busqueda sabiendo lo que no promete" title="Enlace directo al 2. Usa la busqueda sabiendo lo que no promete" translate="no">​</a></h3>
-<p>La documentacion oficial sobre funciones de red y la referencia de <code>GET /api/v2/search</code> coinciden en lo importante: cuentas y hashtags suelen estar disponibles, pero la busqueda de texto completo depende de configuracion del servidor y, en muchos casos, de autenticacion. Ademas, esta deliberadamente limitada por razones de seguridad y prevencion de acoso.</p>
-<p>Metodologicamente esto importa mucho. Si no encuentras una palabra o una publicacion concreta, no puedes concluir que "no existe en Mastodon". Solo puedes concluir que <strong>no aparecio en ese servidor, con esa configuracion y en ese momento</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-pivota-por-hashtags-no-solo-por-nombres">3. Pivota por hashtags, no solo por nombres<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#3-pivota-por-hashtags-no-solo-por-nombres" class="hash-link" aria-label="Enlace directo al 3. Pivota por hashtags, no solo por nombres" title="Enlace directo al 3. Pivota por hashtags, no solo por nombres" translate="no">​</a></h3>
-<p>Mastodon da bastante peso a los hashtags para descubrimiento. La documentacion de usuario explica que pueden volver una publicacion mas localizable, y la documentacion de perfiles anade que un usuario puede destacar hashtags frecuentes en su propia ficha.</p>
-<p>Eso los vuelve utiles para OSINT por dos razones:</p>
-<ul>
-<li class="">ayudan a seguir comunidades tematicas sin depender de un motor global;</li>
-<li class="">y permiten comparar si un perfil realmente participa en un ambito o solo intenta parecer parte de el.</li>
-</ul>
-<p>Un hashtag destacado no prueba legitimidad, claro. Pero si varios perfiles enlazados entre si usan los mismos temas, con historial coherente y presencia en instancias relacionadas, ya tienes una base mejor para validar contexto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-perfil-como-una-ficha-no-como-una-biografia-aspiracional">4. Lee el perfil como una ficha, no como una biografia aspiracional<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#4-lee-el-perfil-como-una-ficha-no-como-una-biografia-aspiracional" class="hash-link" aria-label="Enlace directo al 4. Lee el perfil como una ficha, no como una biografia aspiracional" title="Enlace directo al 4. Lee el perfil como una ficha, no como una biografia aspiracional" translate="no">​</a></h3>
-<p>La documentacion oficial de perfil recuerda que Mastodon permite rellenar campos de metadatos visibles. En una investigacion responsable, esos campos sirven como inventario inicial de reclamaciones publicas:</p>
-<ul>
-<li class="">sitio web;</li>
-<li class="">afiliacion declarada;</li>
-<li class="">localizacion autodescrita;</li>
-<li class="">enlaces a proyectos;</li>
-<li class="">hashtags destacados.</li>
-</ul>
-<p>La disciplina buena consiste en separar siempre dos capas:</p>
-<ul>
-<li class="">lo que el perfil afirma;</li>
-<li class="">y lo que puedes corroborar fuera del propio perfil.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-documenta-diferencias-entre-instancias">5. Documenta diferencias entre instancias<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#5-documenta-diferencias-entre-instancias" class="hash-link" aria-label="Enlace directo al 5. Documenta diferencias entre instancias" title="Enlace directo al 5. Documenta diferencias entre instancias" translate="no">​</a></h3>
-<p>Como Mastodon es federado, una cuenta o conversacion puede verse de forma distinta segun la instancia, el momento y el estado de federacion. Un post remoto puede no estar cargado todavia, un servidor puede limitar indexacion o una instancia puede operar con reglas mas cerradas.</p>
-<p>Por eso conviene dejar constancia de:</p>
-<ul>
-<li class="">instancia desde la que observaste;</li>
-<li class="">URL exacta usada;</li>
-<li class="">si la cuenta o publicacion se cargo por URL completa;</li>
-<li class="">y que partes eran visibles publicamente en ese instante.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Mastodon</code> aporta contexto, pero tiene limites serios que conviene asumir desde el principio:</p>
-<ul>
-<li class="">una busqueda negativa no demuestra ausencia global;</li>
-<li class="">un alias parecido en otra instancia no demuestra relacion;</li>
-<li class="">la federacion puede ser parcial, intermitente o estar limitada por politicas del servidor;</li>
-<li class="">perfiles con metadatos completos pueden seguir siendo parodias, cuentas inactivas o identidades mal atribuidas;</li>
-<li class="">y una conversacion visible en una instancia puede no reflejar toda la red alrededor.</li>
-</ul>
-<p>El falso positivo clasico aqui es confundir <strong>descubribilidad</strong> con <strong>representatividad</strong>. Ver una cuenta, un hashtag o una publicacion no significa estar viendo "la realidad completa" del caso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo con contenido publico y con un objetivo legitimo de verificacion, contexto o due diligence.</li>
-<li class="">No fuerces atribuciones personales a partir de biografias, pronombres, localizaciones o redes de contactos.</li>
-<li class="">Anota siempre la instancia y el momento de observacion para que otro analista pueda reproducir la consulta.</li>
-<li class="">Si una cuenta pertenece a una persona no publica, minimiza identificadores innecesarios en tus notas y capturas.</li>
-<li class="">No conviertas las limitaciones de busqueda de Mastodon en excusa para rastrear personas por vias invasivas fuera de alcance.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si tu prioridad es descubrir presencia por alias a gran escala, herramientas como <code>Maigret</code>, <code>Sherlock</code> o <code>WhatsMyName</code> pueden servir mejor como primer barrido. Si lo importante es conservar evidencia de navegacion y cronologia, conviene sumar archivo web, capturas fechadas o herramientas de custodia como <code>Hunchly</code> o <code>ArchiveBox</code>. Y si el problema es mas bien geolocalizar, verificar multimedia o reconstruir infraestructura, toca cambiar de capa metodologica en vez de forzar Mastodon fuera de su zona fuerte.</p>
-<p>La takeaway accionable es sencilla: usa <code>Mastodon</code> para <strong>situar conversaciones, perfiles y comunidades dentro de un contexto federado verificable</strong>, no para vender una falsa sensacion de cobertura total. En el fediverso, pensar en servidor, visibilidad y trazabilidad suele valer mas que cualquier busqueda rapida.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/mastodon-osint-busqueda-federada-hashtags-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://docs.joinmastodon.org/" target="_blank" rel="noopener noreferrer" class="">Mastodon documentation: What is federation?</a></li>
-<li class=""><a href="https://docs.joinmastodon.org/user/network/" target="_blank" rel="noopener noreferrer" class="">Mastodon documentation: Using the network features</a></li>
-<li class=""><a href="https://docs.joinmastodon.org/methods/search/" target="_blank" rel="noopener noreferrer" class="">Mastodon documentation: search API methods</a></li>
-<li class=""><a href="https://docs.joinmastodon.org/user/profile/" target="_blank" rel="noopener noreferrer" class="">Mastodon documentation: Setting up your profile</a></li>
-<li class=""><a href="https://docs.joinmastodon.org/user/discoverability/" target="_blank" rel="noopener noreferrer" class="">Mastodon documentation: Promoting yourself and others</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>SOCMINT</category>
-            <category>Mastodon</category>
-            <category>Federacion</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
         </item>
     </channel>
 </rss>
