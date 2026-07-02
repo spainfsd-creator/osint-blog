@@ -9,6 +9,9 @@ image: /img/blog/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad
 
 ![Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos](/img/blog/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.m4a)
+
+
 Una lista de vulnerabilidades criticas no te dice por si sola que debes arreglar primero. Algunas tienen `CVSS` alto pero no estan siendo explotadas; otras parecen menos espectaculares y, sin embargo, ya aparecen en campanas reales. El trabajo serio consiste en cruzar la senal publica con tu inventario, tu exposicion y tus ventanas de cambio. Ahi es donde el catalogo `CISA KEV` resulta especialmente util.
 
 Revisando el feed publico el **2 de julio de 2026**, el `CISA Known Exploited Vulnerabilities Catalog` publicaba la version `2026.07.01`, liberada el `2026-07-01T19:00:06.9016Z`, con `1.631` vulnerabilidades. La entrada mas reciente visible en el feed era `CVE-2026-45659`, asociada a `Microsoft SharePoint Server`, anadida el `1 de julio de 2026` y con fecha de accion el `4 de julio de 2026`. Ese dato no es una invitacion a correr detras del ultimo titular: es una forma de ordenar una conversacion defensiva con evidencia de explotacion, fechas y acciones recomendadas.
