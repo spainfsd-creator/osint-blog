@@ -123,6 +123,16 @@ threat-intelligence:
   permalink: /threat-intelligence
   description: Contexto sobre infraestructura, actores y comportamientos observables para enriquecer analisis defensivo sin sobreatribuir.
 
+vulnerability-management:
+  label: Gestion de vulnerabilidades
+  permalink: /vulnerability-management
+  description: Priorizacion, validacion y remediacion de vulnerabilidades con inventario, contexto y trazabilidad.
+
+cve:
+  label: CVE
+  permalink: /cve
+  description: Identificadores CVE, advisories y contexto publico de vulnerabilidades para investigacion defensiva.
+
 malware:
   label: Malware
   permalink: /malware
