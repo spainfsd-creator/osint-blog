@@ -2,11 +2,147 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-03T00:00:00.000Z</updated>
+    <updated>2026-07-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenPhish en OSINT: feeds de phishing, verificacion y contexto antes de bloquear URLs]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto"/>
+        <updated>2026-07-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando feeds de URLs de phishing, lineas temporales, fuentes verificadas y notas de triage defensivo]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando feeds de URLs de phishing, lineas temporales, fuentes verificadas y notas de triage defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-04-openphish-osint-feeds-phishing-verificacion-contexto-8abd80928f0b6a1edeeead7a85888ce5.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un enlace sospechoso llega por correo, otro aparece en un ticket de marca suplantada y un tercero lo recoge un feed publico. La tentacion es meter todas las URLs en una lista de bloqueo y dar el caso por cerrado. El trabajo responsable es mas incomodo: <strong>distinguir URL activa, pagina retirada, marca suplantada, falso positivo, infraestructura compartida y evidencia suficiente para actuar</strong>.</p>
+<p><code>OpenPhish</code> encaja en esa parte del flujo OSINT defensivo. Revisando sus paginas publicas el <strong>4 de julio de 2026</strong>, el servicio se presenta como una fuente de inteligencia sobre amenazas de phishing activas, con feeds, base de datos historica, metadatos de red y mecanismos de reporte. Su valor no esta en "cazar enlaces" por curiosidad, sino en aportar una senal externa que permita priorizar respuesta, proteger usuarios y documentar mejor una investigacion.</p>
+<p>Este articulo esta escrito para equipos defensivos, <code>SOC</code>, <code>CERT/CSIRT</code>, analistas de abuso, equipos de marca, periodistas tecnicos y responsables de seguridad que investigan phishing con autorizacion. No contiene instrucciones para crear paginas falsas, recolectar credenciales, acosar personas, doxxear victimas ni explotar infraestructura de terceros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-openphish-y-para-que-sirve">Que es OpenPhish y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#que-es-openphish-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenPhish y para que sirve" title="Enlace directo al Que es OpenPhish y para que sirve" translate="no">​</a></h2>
+<p><a href="https://openphish.com/" target="_blank" rel="noopener noreferrer" class=""><code>OpenPhish</code></a> es un proveedor de inteligencia de phishing centrado en URLs activas. Su documentacion explica que analiza grandes volumenes de URLs, detecta paginas de phishing y extrae contexto como ubicacion de red, geografia, posibles objetivos, kits de phishing y otros metadatos utiles para respuesta defensiva.</p>
+<p>En un flujo OSINT, puede ayudar a responder preguntas practicas:</p>
+<ul>
+<li class="">si una URL observada aparece en un feed de phishing;</li>
+<li class="">si la amenaza sigue activa o ya esta retirada;</li>
+<li class="">que marca o sector podria estar siendo suplantado, cuando el dato esta disponible;</li>
+<li class="">que host, ruta, certificado, IP, ASN o pais aparecen asociados a la URL;</li>
+<li class="">que nivel de frescura tiene la fuente consultada;</li>
+<li class="">que informacion se puede usar en controles defensivos sin perder contexto;</li>
+<li class="">y que parte del hallazgo necesita validacion adicional antes de bloquear o notificar.</li>
+</ul>
+<p>La pagina de <a href="https://openphish.com/phishing_feeds.html" target="_blank" rel="noopener noreferrer" class=""><code>Phishing Feeds</code></a> distingue una capa comunitaria limitada, con actualizacion cada 12 horas y fichero de texto, de capas comerciales con actualizacion mas frecuente y formatos como <code>CSV</code> o <code>JSON</code>. Esa diferencia importa: no todas las vistas de un mismo proveedor tienen la misma frescura, cobertura ni metadatos.</p>
+<p>Tambien conviene leer la <a href="https://openphish.com/kb.html" target="_blank" rel="noopener noreferrer" class=""><code>Knowledge Base</code></a> con cuidado. OpenPhish afirma que no funciona como simple agregador, que usa sistemas autonomos de deteccion y que aplica vetting para reducir falsos positivos. A la vez, reconoce una limitacion basica de cualquier fuente de inteligencia: los falsos positivos pueden existir. Para el analista, esa es la frase que impide convertir el feed en veredicto automatico.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que <code>Banco Norte Demo</code>, una organizacion ficticia, recibe varias alertas de clientes sobre un SMS con un enlace acortado. El equipo de abuso expande el enlace en un entorno controlado y obtiene una URL ficticia:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">https://login-bnorte-demo.example/secure/update</span><br></span></code></pre></div></div>
+<p>La pregunta no es "como perseguimos a quien lo hizo". La pregunta defensiva es mas concreta:</p>
+<p><strong>Que evidencia abierta y propia justifica proteger usuarios, pedir retirada y documentar el incidente sin sobreatribuir?</strong></p>
+<p>Un registro prudente podria quedar asi:</p>
+<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Lectura responsable</th></tr></thead><tbody><tr><td>URL observada</td><td><code>login-bnorte-demo.example/secure/update</code></td><td>Selector tecnico, no conclusion completa</td></tr><tr><td>Fuente interna</td><td>Ticket de abuso y correo de cliente</td><td>Hay que preservar hora, canal y contexto</td></tr><tr><td>Fuente externa</td><td>Coincidencia o no coincidencia en OpenPhish</td><td>Senal de priorizacion, no prueba absoluta</td></tr><tr><td>Estado</td><td>Activa, retirada o inaccesible</td><td>Cambia la urgencia y el tipo de evidencia</td></tr><tr><td>Marca aparente</td><td>Banco ficticio</td><td>Requiere confirmacion visual y juridica</td></tr><tr><td>Accion</td><td>Bloqueo, aviso, takedown o monitorizacion</td><td>Debe ser proporcional y trazable</td></tr></tbody></table>
+<p>Si la URL aparece en un feed, el equipo puede acelerar bloqueo interno, enriquecer el ticket y preparar una peticion de retirada. Si no aparece, no significa que sea legitima: puede ser nueva, estar fuera de cobertura, haber cambiado de ruta o estar protegida por filtros. La ausencia de resultado es un dato, no una absolucion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-captura-el-selector-exacto-sin-ampliar-danos">1. Captura el selector exacto sin ampliar danos<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#1-captura-el-selector-exacto-sin-ampliar-danos" class="hash-link" aria-label="Enlace directo al 1. Captura el selector exacto sin ampliar danos" title="Enlace directo al 1. Captura el selector exacto sin ampliar danos" translate="no">​</a></h3>
+<p>Antes de consultar fuentes externas, documenta lo minimo necesario:</p>
+<ul>
+<li class="">URL completa, si procede, con parametros sensibles redactados;</li>
+<li class="">origen de la alerta;</li>
+<li class="">fecha y hora con zona horaria;</li>
+<li class="">captura o cabecera preservada cuando sea legal y proporcionado;</li>
+<li class="">estado observado desde un entorno seguro;</li>
+<li class="">alcance autorizado de la investigacion.</li>
+</ul>
+<p>No pegues credenciales, tokens, identificadores de victimas ni rutas internas en servicios de terceros. Si la URL incluye datos personales o parametros de sesion, guarda una version protegida para el expediente y consulta una forma minimizada cuando sea posible.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-openphish-como-senal-no-como-juez">2. Consulta OpenPhish como senal, no como juez<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#2-consulta-openphish-como-senal-no-como-juez" class="hash-link" aria-label="Enlace directo al 2. Consulta OpenPhish como senal, no como juez" title="Enlace directo al 2. Consulta OpenPhish como senal, no como juez" translate="no">​</a></h3>
+<p>OpenPhish puede servir como capa de enriquecimiento. El objetivo sano no es coleccionar URLs peligrosas, sino comprobar si una URL sospechosa ya fue detectada y que contexto acompana al hallazgo.</p>
+<p>Un pseudo-flujo defensivo seria:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada: URL sospechosa observada en un caso propio</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta: comprobar coincidencia exacta o contexto en fuente de phishing</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">salida: estado, frescura, metadatos y fuente consultada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">decision: enriquecer el ticket y definir una accion proporcional</span><br></span></code></pre></div></div>
+<p>Si la fuente usada es la comunidad gratuita, anota su limitacion de frescura y metadatos. Si se usa una capa de pago o una base local, anota version, ventana historica y licencia de uso. La trazabilidad de la consulta es tan importante como el resultado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-frescura-como-parte-de-la-evidencia">3. Lee la frescura como parte de la evidencia<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#3-lee-la-frescura-como-parte-de-la-evidencia" class="hash-link" aria-label="Enlace directo al 3. Lee la frescura como parte de la evidencia" title="Enlace directo al 3. Lee la frescura como parte de la evidencia" translate="no">​</a></h3>
+<p>El phishing envejece deprisa. Una pagina puede durar horas, cambiar de dominio, rotar ruta, pasar por un acortador o desaparecer antes de que llegue el analista. Por eso conviene separar tres tiempos:</p>
+<ul>
+<li class="">hora en que el usuario recibio el enlace;</li>
+<li class="">hora en que tu organizacion lo observo;</li>
+<li class="">hora en que el feed lo publico o actualizo.</li>
+</ul>
+<p>La <a href="https://openphish.com/phishing_database.html" target="_blank" rel="noopener noreferrer" class=""><code>OpenPhish Database</code></a> se presenta como un archivo estructurado con metadatos consultables sobre sitios detectados, incluyendo hostname, pagina, ruta, idioma, certificado, IP, ASN, pais, marca suplantada y otros datos cuando existen. Esa estructura ayuda a buscar patrones, pero no sustituye la cronologia propia del incidente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-con-otra-fuente-independiente">4. Cruza con otra fuente independiente<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#4-cruza-con-otra-fuente-independiente" class="hash-link" aria-label="Enlace directo al 4. Cruza con otra fuente independiente" title="Enlace directo al 4. Cruza con otra fuente independiente" translate="no">​</a></h3>
+<p>Una coincidencia en un feed gana fuerza cuando encaja con otras capas:</p>
+<ul>
+<li class="">reporte de usuarios o equipo de abuso;</li>
+<li class="">logs de proxy, DNS o correo;</li>
+<li class="">captura preservada de la pagina;</li>
+<li class="">reputacion en otra fuente, como <code>PhishTank</code>, <code>urlscan.io</code> o telemetria interna;</li>
+<li class="">metadatos de certificado, hosting o ASN;</li>
+<li class="">confirmacion de la marca afectada o de su equipo de seguridad.</li>
+</ul>
+<p><a href="https://www.phishtank.net/faq.php" target="_blank" rel="noopener noreferrer" class=""><code>PhishTank</code></a>, operado por Cisco Talos, se describe como una comunidad gratuita para enviar, verificar, rastrear y compartir datos de phishing. Su pagina para desarrolladores documenta bases descargables en formatos como <code>XML</code>, <code>CSV</code>, <code>PHP serializado</code> y <code>JSON</code>, con datos de URLs verificadas y online. Esa capa comunitaria puede complementar a OpenPhish, siempre que se anote quien verifica, cuando se actualiza y que significa exactamente el campo consultado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-decide-acciones-proporcionales">5. Decide acciones proporcionales<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#5-decide-acciones-proporcionales" class="hash-link" aria-label="Enlace directo al 5. Decide acciones proporcionales" title="Enlace directo al 5. Decide acciones proporcionales" translate="no">​</a></h3>
+<p>No todas las URLs sospechosas requieren la misma respuesta:</p>
+<ul>
+<li class="">si afecta a tu marca y esta activa, prioriza proteccion de usuarios, takedown y comunicacion interna;</li>
+<li class="">si aparece en un feed pero no afecta a tu entorno, puede ser solo contexto de amenaza;</li>
+<li class="">si la pagina esta retirada, conserva evidencia y revisa si hubo clics antes de cerrar;</li>
+<li class="">si solo hay parecido visual o dominio parecido, busca corroboracion antes de etiquetar phishing;</li>
+<li class="">si el proveedor marca falso positivo, actualiza controles y documenta la rectificacion.</li>
+</ul>
+<p>El objetivo no es bloquear mas, sino bloquear mejor: menos ruido, mas trazabilidad y menos impacto colateral.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Los feeds de phishing son utiles, pero tienen limites claros:</p>
+<ul>
+<li class=""><strong>Cobertura incompleta</strong>: ningun proveedor ve todo el phishing activo.</li>
+<li class=""><strong>Ventanas cortas</strong>: muchas paginas desaparecen antes de ser indexadas o verificadas.</li>
+<li class=""><strong>URLs parametrizadas</strong>: el mismo sitio puede generar muchas variantes.</li>
+<li class=""><strong>Infraestructura compartida</strong>: una IP o ASN no convierte todo lo alojado alli en malicioso.</li>
+<li class=""><strong>Marcas ambiguas</strong>: una pagina puede imitar estilos genericos sin suplantar una entidad concreta.</li>
+<li class=""><strong>Falsos positivos</strong>: un formulario legitimo, una campana de pruebas o una pagina comprometida ya recuperada pueden contaminar la lectura.</li>
+<li class=""><strong>Licencia y redistribucion</strong>: los terminos de uso importan cuando se automatiza o se comparte informacion.</li>
+</ul>
+<p>La pagina de <a href="https://openphish.com/terms.html" target="_blank" rel="noopener noreferrer" class=""><code>Terms of Use</code></a> de OpenPhish recuerda que los servicios se usan bajo condiciones concretas y que la informacion no viene con garantia absoluta. En OSINT profesional, respetar licencias y registrar incertidumbre forma parte del metodo, no de la burocracia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Investigar phishing implica tratar datos sensibles. Algunas reglas evitan danos:</p>
+<ul>
+<li class="">no abras URLs sospechosas desde tu navegador personal ni desde cuentas reales;</li>
+<li class="">no introduzcas credenciales, numeros de tarjeta ni datos ficticios que puedan activar flujos reales;</li>
+<li class="">no publiques URLs vivas sin neutralizarlas o contextualizarlas;</li>
+<li class="">no compartas capturas con datos de victimas, tokens o identificadores internos;</li>
+<li class="">no atribuyas a un actor solo por hosting, idioma, kit o marca suplantada;</li>
+<li class="">respeta terminos de uso, limites de API y condiciones de redistribucion;</li>
+<li class="">registra hora de consulta, fuente, resultado y accion derivada;</li>
+<li class="">elimina o corrige bloqueos cuando una fuente confirma falso positivo.</li>
+</ul>
+<p>La investigacion responsable protege usuarios y organizaciones sin convertir el analisis en amplificacion del ataque.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>OpenPhish encaja especialmente bien como fuente de URLs de phishing activas y contexto asociado. Segun la pregunta, puede combinarse con:</p>
+<ul>
+<li class=""><code>PhishTank</code>, para una capa comunitaria de verificacion;</li>
+<li class=""><code>urlscan.io</code>, para capturas, redirecciones y comportamiento web observado;</li>
+<li class=""><code>dnstwist</code>, para vigilar dominios parecidos a activos propios;</li>
+<li class=""><code>crt.sh</code> o logs de Certificate Transparency, para detectar certificados recientes;</li>
+<li class=""><code>Google Safe Browsing</code> u otros controles de navegacion, si el objetivo es proteccion de usuarios;</li>
+<li class="">telemetria propia de correo, DNS, proxy, EDR y formularios de abuso.</li>
+</ul>
+<p>El takeaway practico es sencillo: <code>OpenPhish</code> sirve para <strong>priorizar y contextualizar URLs de phishing</strong>, no para reemplazar verificacion. Si una URL aparece en un feed, abre una pista defendible. Si ademas encaja con cronologia, telemetria propia y evidencia preservada, entonces tienes una base mucho mas solida para bloquear, reportar y comunicar.</p>
+<p>Como siguiente paso editorial, tendria sentido comparar un caso ficticio de phishing con <code>OpenPhish</code>, <code>PhishTank</code>, <code>urlscan.io</code> y logs internos, mostrando que aporta cada capa y donde empieza la decision del analista.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://openphish.com/" target="_blank" rel="noopener noreferrer" class="">OpenPhish, pagina principal</a></li>
+<li class=""><a href="https://openphish.com/phishing_feeds.html" target="_blank" rel="noopener noreferrer" class="">OpenPhish, Phishing Feeds</a></li>
+<li class=""><a href="https://openphish.com/kb.html" target="_blank" rel="noopener noreferrer" class="">OpenPhish, Knowledge Base</a></li>
+<li class=""><a href="https://openphish.com/phishing_database.html" target="_blank" rel="noopener noreferrer" class="">OpenPhish, OpenPhish Database</a></li>
+<li class=""><a href="https://openphish.com/terms.html" target="_blank" rel="noopener noreferrer" class="">OpenPhish, Terms of Use</a></li>
+<li class=""><a href="https://www.phishtank.net/faq.php" target="_blank" rel="noopener noreferrer" class="">PhishTank, FAQ</a></li>
+<li class=""><a href="https://www.phishtank.com/developer_info.php" target="_blank" rel="noopener noreferrer" class="">PhishTank, Developer Information</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Phishing" term="Phishing"/>
+        <category label="Threat Intelligence" term="Threat Intelligence"/>
+        <category label="Web" term="Web"/>
+        <category label="Defensa" term="Defensa"/>
+        <category label="Verificacion" term="Verificacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MalwareBazaar en OSINT: muestras, hashes y contexto defensivo antes de bloquear]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo</id>
@@ -2482,144 +2618,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Due Diligence" term="Due Diligence"/>
         <category label="Tooling" term="Tooling"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[RDAP y WHOIS en OSINT: propiedad aparente, contactos y contexto sin leer de mas]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto"/>
-        <updated>2026-06-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT comparando respuestas RDAP y WHOIS sobre dominios, ASN e IPs con notas de contexto y cautela atributiva]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT comparando respuestas RDAP y WHOIS sobre dominios, ASN e IPs con notas de contexto y cautela atributiva" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-14-rdap-whois-osint-propiedad-aparente-contactos-contexto-d43ba47e11210489a8cd73f63a26da48.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica ya sabe <strong>que dominio, IP o ASN merece atencion</strong>, la pregunta siguiente suele sonar enganosamente simple: "de quien parece ser esto y que contacto o contexto registral deja a la vista?". Ahi es donde mucha gente se precipita. Un registro no equivale a control real, un contacto historico no equivale a responsabilidad actual y una coincidencia de proveedor no equivale a atribucion. <code>RDAP</code> y <code>WHOIS</code> siguen siendo utiles precisamente cuando se usan para <strong>bajar ambiguedad</strong>, no para fabricar certezas.</p>
-<p>La situacion actual importa. Segun <code>ICANN</code>, desde el <strong>28 de enero de 2025</strong> <code>RDAP</code> es la fuente definitiva para la informacion de registro de <code>gTLDs</code> en lugar de los servicios <code>WHOIS</code> retirados en ese ambito. Y segun <code>RFC 9082</code>, <code>RDAP</code> define patrones uniformes de consulta <code>HTTP</code> para recuperar informacion de registro sobre dominios, entidades, redes IP, <code>ASN</code> y <code>nameservers</code>. Traducido a trabajo diario de OSINT: <strong>ya no basta con lanzar un whois textual y copiar lo que salga; conviene entender que parte viene de <code>RDAP</code>, que parte sigue siendo legada y que limites tiene cada respuesta</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>WHOIS</code> y <code>RDAP</code> sirven para consultar datos de registro y contexto administrativo o tecnico sobre recursos de internet. Pero no juegan exactamente en la misma liga.</p>
-<p>La explicacion tecnica de <code>ARIN</code>, consultada el <strong>14 de junio de 2026</strong>, resume bien la diferencia:</p>
-<ul>
-<li class=""><code>RDAP</code> es un protocolo <code>REST</code> sobre <code>HTTP/HTTPS</code> con respuestas estandarizadas en <code>JSON</code>;</li>
-<li class=""><code>WHOIS</code> es un protocolo de texto con salidas menos uniformes;</li>
-<li class=""><code>RDAP</code> soporta internacionalizacion y derivacion hacia la fuente autoritativa;</li>
-<li class="">y los resultados pueden variar segun el <code>RIR</code>, el registro o el registrador que realmente posea los datos.</li>
-</ul>
-<p>Para un analista, eso se traduce en preguntas concretas:</p>
-<ul>
-<li class="">que organizacion o proveedor parece vinculado al recurso;</li>
-<li class="">que registrador, registro o <code>RIR</code> devuelve la informacion;</li>
-<li class="">que fechas, estados o contactos visibles ayudan a entender contexto;</li>
-<li class="">y que partes del dato requieren contraste adicional antes de concluir.</li>
-</ul>
-<p>La utilidad real no esta en "saber el nombre del propietario" como si fuera una verdad final. Esta en <strong>entender la capa registral visible</strong> y documentar con cuidado su grado de fiabilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de terceros sobre <code>acme-proveedor.example</code>. Tu equipo ya ha encontrado varios subdominios, una <code>IP</code> visible y un <code>ASN</code> relacionado con el proveedor de conectividad. El objetivo no es invadir nada ni ampliar alcance a ciegas. El objetivo es ordenar mejor la huella publica.</p>
-<p>En ese escenario, <code>RDAP/WHOIS</code> encaja para:</p>
-<ol>
-<li class="">confirmar que registrador y <code>TLD registry</code> aparecen asociados al dominio;</li>
-<li class="">ver estados de dominio, fechas visibles y <code>nameservers</code>;</li>
-<li class="">revisar que <code>RIR</code> responde por la <code>IP</code> o por el <code>ASN</code>;</li>
-<li class="">anotar contactos o entidades cuando sean publicos y realmente pertinentes;</li>
-<li class="">separar propiedad aparente, proveedor de infraestructura y operacion efectiva.</li>
-</ol>
-<p>Ese ultimo punto es el mas importante. Una <code>IP</code> puede corresponder al <code>RIR</code> y al proveedor de red, no a la empresa investigada. Un dominio puede estar registrado via un tercero o un reseller. Y un contacto visible puede ser juridico, tecnico o historico, no operativo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-fuente-mas-autoritativa-disponible">1. Empieza por la fuente mas autoritativa disponible<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#1-empieza-por-la-fuente-mas-autoritativa-disponible" class="hash-link" aria-label="Enlace directo al 1. Empieza por la fuente mas autoritativa disponible" title="Enlace directo al 1. Empieza por la fuente mas autoritativa disponible" translate="no">​</a></h3>
-<p>En dominios <code>gTLD</code>, <code>ICANN</code> recomienda usar su servicio <code>Lookup</code> basado en <code>RDAP</code>. En numeracion y direccionamiento, cada <code>RIR</code> mantiene sus propios servicios.</p>
-<p>Metodologicamente conviene empezar asi:</p>
-<ul>
-<li class="">dominio: <code>RDAP</code> del registrador, del registro o <code>ICANN Lookup</code>;</li>
-<li class=""><code>IP</code> o <code>ASN</code>: <code>RDAP</code> del <code>RIR</code> correspondiente;</li>
-<li class=""><code>WHOIS</code> textual: como apoyo, compatibilidad o contraste, no como unica verdad.</li>
-</ul>
-<p>Ese orden reduce bastante un error comun: tratar una respuesta heredada y poco uniforme como si tuviera mas autoridad que la fuente <code>RDAP</code> actual.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-lee-la-respuesta-como-contexto-no-como-veredicto">2. Lee la respuesta como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#2-lee-la-respuesta-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 2. Lee la respuesta como contexto, no como veredicto" title="Enlace directo al 2. Lee la respuesta como contexto, no como veredicto" translate="no">​</a></h3>
-<p><code>RFC 9082</code> deja claro que <code>RDAP</code> puede devolver dominios, redes <code>IP</code>, <code>ASN</code>, <code>nameservers</code> y entidades, pero tambien recuerda que los servidores pueden soportar solo un subconjunto y responder <code>501 Not Implemented</code> a tipos no soportados. En la practica eso obliga a no sobreinterpretar ausencias.</p>
-<p>Si falta algo, las posibilidades incluyen:</p>
-<ul>
-<li class="">el servidor no publica ese campo;</li>
-<li class="">el tipo de consulta no esta soportado;</li>
-<li class="">el dato esta redactado o restringido;</li>
-<li class="">o simplemente estas consultando una capa equivocada.</li>
-</ul>
-<p>La lectura sana es: "esto es lo que esta fuente publica hoy", no "esto es todo lo que existe".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-rdap-para-seguir-la-pista-correcta">3. Aprovecha <code>RDAP</code> para seguir la pista correcta<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#3-aprovecha-rdap-para-seguir-la-pista-correcta" class="hash-link" aria-label="Enlace directo al 3-aprovecha-rdap-para-seguir-la-pista-correcta" title="Enlace directo al 3-aprovecha-rdap-para-seguir-la-pista-correcta" translate="no">​</a></h3>
-<p>Una ventaja operativa real de <code>RDAP</code>, destacada por <code>ARIN</code>, es el sistema de referrals y <code>bootstrapping</code>. <code>IANA</code> publica registros bootstrap para espacio <code>IPv4</code>, <code>IPv6</code>, <code>ASN</code> y dominios, de modo que el cliente pueda localizar el servidor autoritativo adecuado.</p>
-<p>Para OSINT responsable esto vale mucho mas de lo que parece. Significa que puedes:</p>
-<ul>
-<li class="">evitar consultas ciegas a servidores <code>WHOIS</code> equivocados;</li>
-<li class="">documentar mejor de que fuente salio cada dato;</li>
-<li class="">y distinguir entre un dato de agregador y un dato del servicio autoritativo.</li>
-</ul>
-<p>Cuando el caso importa, anota siempre el origen exacto de la respuesta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-la-capa-registral-con-otras-capas-antes-de-atribuir">4. Cruza la capa registral con otras capas antes de atribuir<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#4-cruza-la-capa-registral-con-otras-capas-antes-de-atribuir" class="hash-link" aria-label="Enlace directo al 4. Cruza la capa registral con otras capas antes de atribuir" title="Enlace directo al 4. Cruza la capa registral con otras capas antes de atribuir" translate="no">​</a></h3>
-<p><code>RDAP/WHOIS</code> rara vez deberia cerrar una historia por si solo. Funciona mejor cuando llega a mitad del flujo:</p>
-<ul>
-<li class=""><code>DNSDumpster</code>, <code>Subfinder</code> o <code>Amass</code> descubren superficie;</li>
-<li class=""><code>httpx</code> o <code>Netcraft</code> ayudan a leer servicio y comportamiento visible;</li>
-<li class=""><code>RDAP/WHOIS</code> aporta propiedad aparente, registrador, <code>RIR</code> y contexto administrativo;</li>
-<li class="">y archivo web, <code>CT logs</code>, <code>SecurityTrails</code> o revisiones documentales bajan la ambiguedad historica.</li>
-</ul>
-<p>Ese encadenado evita confundir tres cosas distintas: quien aloja, quien registra y quien opera.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-usa-ejemplos-pequeños-y-trazables">5. Usa ejemplos pequeños y trazables<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#5-usa-ejemplos-peque%C3%B1os-y-trazables" class="hash-link" aria-label="Enlace directo al 5. Usa ejemplos pequeños y trazables" title="Enlace directo al 5. Usa ejemplos pequeños y trazables" translate="no">​</a></h3>
-<p>Un ejemplo inocuo con dominio ficticio podria ser:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -s https://rdap.org/domain/acme-proveedor.example</span><br></span></code></pre></div></div>
-<p>Y para una <code>IP</code> de documentacion:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -s https://rdap.org/ip/203.0.113.42</span><br></span></code></pre></div></div>
-<p>No hace falta convertir el post en una lista de trucos. Lo importante es la disciplina posterior:</p>
-<ul>
-<li class="">guardar fecha y URL consultada;</li>
-<li class="">anotar que servidor respondio realmente;</li>
-<li class="">separar campos observados de inferencias;</li>
-<li class="">y registrar que dudas quedan abiertas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>RDAP</code> mejora mucho la consulta, pero no resuelve por arte de magia los problemas clasicos:</p>
-<ul>
-<li class="">un registrante visible puede ser un proveedor, un agente o un dato desactualizado;</li>
-<li class="">muchos datos pueden venir redactados o reducidos por politicas de privacidad y acceso;</li>
-<li class=""><code>WHOIS</code> puede mostrar formatos heterogeneos o campos ambiguos;</li>
-<li class="">registros historicos o caches de terceros pueden contradecir la fuente actual;</li>
-<li class="">y un <code>ASN</code> o netblock asociado describe contexto de red, no autoria del contenido o del servicio.</li>
-</ul>
-<p>Tambien conviene recordar algo que <code>ICANN</code> explica expresamente: para datos <code>gTLD</code> no publicos existe <code>RDRS</code>, pensado para solicitantes con interes legitimo. Ese detalle importa porque subraya un limite de metodo: <strong>si un dato no aparece publicamente, no deberias fingir que la ausencia demuestra inocencia ni que tienes derecho automatico a obtenerlo</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Consulta solo recursos dentro de un caso legitimo, proporcionado y documentable.</li>
-<li class="">No publiques contactos personales, correos o telefonos si no son necesarios para el analisis.</li>
-<li class="">Separa siempre <code>ownership</code> aparente, operacion tecnica y responsabilidad real.</li>
-<li class="">Guarda el <code>timestamp</code>, la URL o comando exacto y la fuente autoritativa que respondio.</li>
-<li class="">Si una conclusion depende demasiado de un solo registro, frena y corrobora con otra capa.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>RDAP/WHOIS</code> brilla cuando la pregunta es "que contexto registral visible acompana a este recurso?". Si el problema es otro, conviene cambiar de herramienta:</p>
-<ul>
-<li class=""><code>SecurityTrails</code> o historicos DNS si importa mas el cambio en el tiempo;</li>
-<li class=""><code>CT logs</code> si el pivote es cronologia de certificados y nombres;</li>
-<li class=""><code>PeeringDB</code> o <code>bgp.tools</code> si la duda gira alrededor de interconexion y red;</li>
-<li class=""><code>OpenCorporates</code> o registros mercantiles si necesitas estructura societaria y no solo registro tecnico;</li>
-<li class=""><code>httpx</code>, <code>urlscan.io</code> o <code>gowitness</code> si lo prioritario es la capa de servicio visible.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>RDAP</code> para <strong>preguntar mejor</strong> por propiedad aparente, origen registral y contexto administrativo. Usa <code>WHOIS</code> cuando aporte compatibilidad o contraste. Y no conviertas ninguna de las dos cosas en atajo narrativo.</p>
-<p>Como siguiente puente editorial del blog, tiene sentido bajar un nivel mas practico: una comparativa entre <code>RDAP/WHOIS</code>, <code>SecurityTrails</code> y <code>CT logs</code> sobre el mismo caso ficticio para ver que responde cada capa y donde empiezan sus limites.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/rdap-whois-osint-propiedad-aparente-contactos-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">ICANN, <code>ICANN Update: Launching RDAP; Sunsetting WHOIS</code> (27 de enero de 2025): <a href="https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en" target="_blank" rel="noopener noreferrer" class="">https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en</a></li>
-<li class="">ICANN, <code>WHOIS and Registration Data Directory Services</code>: <a href="https://www.icann.org/resources/pages/whois-rdds-2023-11-02-en" target="_blank" rel="noopener noreferrer" class="">https://www.icann.org/resources/pages/whois-rdds-2023-11-02-en</a></li>
-<li class="">ICANN Lookup: <a href="https://lookup.icann.org/en" target="_blank" rel="noopener noreferrer" class="">https://lookup.icann.org/en</a></li>
-<li class="">IETF, <code>RFC 9082: Registration Data Access Protocol (RDAP) Query Format</code>: <a href="https://datatracker.ietf.org/doc/html/rfc9082" target="_blank" rel="noopener noreferrer" class="">https://datatracker.ietf.org/doc/html/rfc9082</a></li>
-<li class="">IETF, <code>RFC 9083: JSON Responses for the Registration Data Access Protocol (RDAP)</code>: <a href="https://datatracker.ietf.org/doc/rfc9083/" target="_blank" rel="noopener noreferrer" class="">https://datatracker.ietf.org/doc/rfc9083/</a></li>
-<li class="">ARIN, <code>Whois/Registration Data Access Protocol (RDAP)</code>: <a href="https://www.arin.net/resources/registry/whois/rdap/" target="_blank" rel="noopener noreferrer" class="">https://www.arin.net/resources/registry/whois/rdap/</a></li>
-<li class="">IANA, <code>Bootstrap Service Registry for Domain Name Space</code>: <a href="https://www.iana.org/assignments/rdap-dns/rdap-dns.xhtml" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-dns/rdap-dns.xhtml</a></li>
-<li class="">IANA, <code>Bootstrap Service Registry for IPv4 Address Space</code>: <a href="https://www.iana.org/assignments/rdap-ipv4" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-ipv4</a></li>
-<li class="">IANA, <code>Bootstrap Service Registry for AS Number Space</code>: <a href="https://www.iana.org/assignments/rdap-asn" target="_blank" rel="noopener noreferrer" class="">https://www.iana.org/assignments/rdap-asn</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="RDAP" term="RDAP"/>
-        <category label="WHOIS" term="WHOIS"/>
-        <category label="Infraestructura" term="Infraestructura"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Due Diligence" term="Due Diligence"/>
     </entry>
 </feed>
