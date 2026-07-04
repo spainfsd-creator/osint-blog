@@ -9,7 +9,7 @@ image: /img/blog/2026-05-07-archivebox-osint-archivo-web-autocustodiado-evidenci
 
 ![Ilustracion editorial de una analista OSINT preservando paginas web, capturas, PDF y WARC en un archivo autocustodiado con trazabilidad local](/img/blog/2026-05-07-archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible.m4a)
+**Descargar el podcast!**: <a href="/podcasts/archivebox-osint-archivo-web-autocustodiado-evidencia-reproducible.m4a">Descargar el podcast</a>
 
 
 Cuando una pagina delicada cambia, desaparece o empieza a devolver otra cosa, el error no siempre es "no haberla visto". Muchas veces el error serio es haber confiado en que **algun tercero la conservaria por ti**. En ese hueco entra `ArchiveBox`: no como oraculo magico, sino como una forma de **preservar contenido web bajo tu propio control**, con varias salidas revisables y sin depender por completo de un servicio ajeno que mañana puede fallar, limitarte o cambiar de politica.

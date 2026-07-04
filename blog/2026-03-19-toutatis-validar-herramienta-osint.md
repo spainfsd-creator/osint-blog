@@ -9,7 +9,7 @@ image: /img/blog/2026-03-19-toutatis-validar-herramienta-osint.png
 
 ![Ilustracion editorial de un analista OSINT contrastando el repositorio de una herramienta, metadatos de paquete y notas de verificacion antes de incorporarla a una investigacion](/img/blog/2026-03-19-toutatis-validar-herramienta-osint.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/toutatis-validar-herramienta-osint.m4a)
+**Descargar el podcast!**: <a href="/podcasts/toutatis-validar-herramienta-osint.m4a">Descargar el podcast</a>
 
 
 Hay una escena muy comun en equipos de investigacion: alguien deja en el backlog el nombre de una herramienta, otro la repite en una reunion y, unas semanas despues, medio flujo de trabajo ya se ha construido sobre una descripcion que nadie verifico. `Toutatis` es un buen recordatorio de por que eso es peligroso. Si solo te quedas con un resumen informal, puedes acabar creyendo que sirve para TikTok; si miras las fuentes primarias el 19 de marzo de 2026, lo que encuentras es otra cosa: un proyecto de Python orientado a cuentas de Instagram que presume de extraer senales como correo, telefono e identificadores a partir de una sesion valida.

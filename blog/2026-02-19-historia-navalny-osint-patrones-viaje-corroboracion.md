@@ -9,7 +9,7 @@ image: /img/blog/2026-02-19-historia-navalny-osint-patrones-viaje-corroboracion.
 
 ![Mesa de investigacion OSINT con cronologia de viajes, mapas y evidencia tecnica anonimizada](/img/blog/2026-02-19-historia-navalny-osint-patrones-viaje-corroboracion.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-navalny-osint-patrones-viaje-corroboracion.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-navalny-osint-patrones-viaje-corroboracion.m4a">Descargar el podcast</a>
 
 
 Cuando un caso cruza fronteras, versiones oficiales y ruido mediatico, el reto OSINT no es "encontrar un dato impactante": el reto real es **conectar senales independientes sin romper el metodo**. En 2020, la investigacion publica sobre el envenenamiento de Alexei Navalny se convirtio en un ejemplo de ese oficio: patrones de viaje, metadatos abiertos y corroboracion tecnica en capas.

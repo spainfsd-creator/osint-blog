@@ -9,7 +9,7 @@ image: /img/blog/2026-06-08-httpx-osint-sondear-servicios-web-contexto.png
 
 ![Ilustracion editorial de una analista OSINT priorizando hosts web vivos, tecnologias visibles y respuestas HTTP en un panel tecnico sobrio](/img/blog/2026-06-08-httpx-osint-sondear-servicios-web-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/httpx-osint-sondear-servicios-web-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/httpx-osint-sondear-servicios-web-contexto.m4a">Descargar el podcast</a>
 
 
 Cuando una investigacion tecnica pasa de "tengo una lista de nombres o URLs" a "que merece mirarse primero", el problema rara vez es la falta de targets. El problema real suele ser **separar hosts vivos, respuestas utiles, ruido repetido y falsas pistas** sin convertir la fase de comprobacion en una carrera ciega. `httpx` resulta especialmente valioso justo ahi: convierte un inventario bruto en una lectura mas util de que servicios web responden, como responden y que contexto tecnico merece verificacion posterior.

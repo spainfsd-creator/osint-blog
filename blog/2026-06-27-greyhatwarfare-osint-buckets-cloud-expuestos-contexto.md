@@ -9,7 +9,7 @@ image: /img/blog/2026-06-27-greyhatwarfare-osint-buckets-cloud-expuestos-context
 
 ![Ilustración editorial de una analista OSINT revisando buckets cloud, permisos públicos, listas de archivos redactadas y notas de verificación responsable](/img/blog/2026-06-27-greyhatwarfare-osint-buckets-cloud-expuestos-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/greyhatwarfare-osint-buckets-cloud-expuestos-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/greyhatwarfare-osint-buckets-cloud-expuestos-contexto.m4a">Descargar el podcast</a>
 
 
 Una organización puede tener su web impecable, su `DNS` ordenado y sus comunicados muy medidos, pero dejar años de documentos, copias o ficheros de integración en un almacenamiento cloud mal configurado. El error metodológico no es mirar esa superficie: es tratar un nombre de bucket, una ruta o un fichero indexado como prueba automática de propiedad, impacto o negligencia. `GreyHatWarfare` sirve para formular mejores preguntas sobre exposición pública, siempre que se use con alcance legítimo y sin convertir la búsqueda en saqueo.

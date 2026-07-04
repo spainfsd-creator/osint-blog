@@ -9,7 +9,7 @@ image: /img/blog/2026-03-05-historia-ngarbuh-2020-osint-satelite-corroboracion.p
 
 ![Ilustracion editorial de analisis OSINT con comparativa satelital, linea temporal y notas anonimizadas para corroborar hechos en una investigacion humanitaria](/img/blog/2026-03-05-historia-ngarbuh-2020-osint-satelite-corroboracion.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-ngarbuh-2020-osint-satelite-corroboracion.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-ngarbuh-2020-osint-satelite-corroboracion.m4a">Descargar el podcast</a>
 
 
 En una investigacion de violencia masiva, el error mas caro no siempre es "no encontrar una prueba": muchas veces es forzar una narrativa antes de ordenar bien **que paso, cuando paso y que puede afirmar cada fuente**. El caso de Ngarbuh (Camerun), ocurrido el **14 de febrero de 2020**, se estudio en abierto precisamente por eso: combinar testimonios, analisis remoto y cronologia para acercarse a los hechos sin convertir hipotesis en certeza absoluta.

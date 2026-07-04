@@ -9,7 +9,7 @@ image: /img/blog/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad
 
 ![Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos](/img/blog/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.m4a">Descargar el podcast</a>
 
 
 Una lista de vulnerabilidades criticas no te dice por si sola que debes arreglar primero. Algunas tienen `CVSS` alto pero no estan siendo explotadas; otras parecen menos espectaculares y, sin embargo, ya aparecen en campanas reales. El trabajo serio consiste en cruzar la senal publica con tu inventario, tu exposicion y tus ventanas de cambio. Ahi es donde el catalogo `CISA KEV` resulta especialmente util.

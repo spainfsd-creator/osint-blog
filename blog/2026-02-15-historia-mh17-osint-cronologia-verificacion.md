@@ -9,7 +9,7 @@ image: /img/blog/2026-02-15-mh17-osint-cronologia-verificacion.png
 
 ![Ilustracion editorial sobre OSINT: cronologia, geolocalizacion y verificacion de evidencias (caso MH17)](/img/blog/2026-02-15-mh17-osint-cronologia-verificacion.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-mh17-osint-cronologia-verificacion.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-mh17-osint-cronologia-verificacion.m4a">Descargar el podcast</a>
 
 
 Hay investigaciones donde el reto no es encontrar una pieza, sino **demostrar que un conjunto de piezas encaja** sin forzar la historia. En el derribo del vuelo **MH17** (17 de julio de 2014), el mundo vio un alud de imagenes, declaraciones, trazas tecnicas, rumores y "evidencias" parciales. El trabajo OSINT responsable no consiste en ganar un debate en redes: consiste en **convertir informacion publica en una cronologia auditable**, con margenes de incertidumbre claros y con una disciplina feroz frente a los sesgos.

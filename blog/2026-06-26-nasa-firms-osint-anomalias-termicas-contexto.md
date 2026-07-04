@@ -9,7 +9,7 @@ image: /img/blog/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto.png
 
 ![Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación](/img/blog/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/nasa-firms-osint-anomalias-termicas-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/nasa-firms-osint-anomalias-termicas-contexto.m4a">Descargar el podcast</a>
 
 
 Una columna de humo aparece en redes, una cuenta local habla de una explosión y un mapa satelital muestra varios puntos rojos cerca de la zona. El salto tentador es convertir esos puntos en una causa: ataque, sabotaje, incendio industrial, accidente. El salto correcto es más lento: **una anomalía térmica indica calor observado por un sensor, no explica por sí sola qué ocurrió ni quién lo provocó**.

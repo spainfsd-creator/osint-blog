@@ -9,7 +9,7 @@ image: /img/blog/2026-03-26-urlscan-osint-capturas-dom-redirecciones-contexto-we
 
 ![Ilustracion editorial de un analista OSINT investigando una web con urlscan.io, cadena de redirecciones, artefactos DOM y evidencias visuales](/img/blog/2026-03-26-urlscan-osint-capturas-dom-redirecciones-contexto-web.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/urlscan-osint-capturas-dom-redirecciones-contexto-web.m4a)
+**Descargar el podcast!**: <a href="/podcasts/urlscan-osint-capturas-dom-redirecciones-contexto-web.m4a">Descargar el podcast</a>
 
 
 Cuando una URL sospechosa aparece en un correo, en una alerta o en una conversacion interna, el problema rara vez es solo "abrirla". El problema real es **entender que hizo, con quien hablo, a donde redirigio y que artefactos dejo** sin convertir el analisis en una improvisacion peligrosa. `urlscan.io` destaca precisamente ahi: te deja observar una pagina como si un navegador la visitara y te devuelve contexto util para investigar con mas rigor.

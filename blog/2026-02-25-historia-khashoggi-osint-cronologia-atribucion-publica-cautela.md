@@ -9,7 +9,7 @@ image: /img/blog/2026-02-25-historia-khashoggi-osint-cronologia-atribucion-publi
 
 ![Ilustracion editorial de analista OSINT construyendo una cronologia de evidencias abiertas sobre un caso diplomatico con mapas, rutas y documentos anonimizados](/img/blog/2026-02-25-historia-khashoggi-osint-cronologia-atribucion-publica-cautela.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-khashoggi-osint-cronologia-atribucion-publica-cautela.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-khashoggi-osint-cronologia-atribucion-publica-cautela.m4a">Descargar el podcast</a>
 
 
 Cuando una desaparicion ocurre en un entorno diplomatico, el error mas peligroso no es "tener pocas pistas": es **confundir filtraciones, rumores y hallazgos parciales con una conclusion cerrada**. El caso de Jamal Khashoggi (2018-2021) se convirtio en una leccion dura para el oficio OSINT: la inteligencia abierta puede fijar cronologias, detectar contradicciones y elevar el estandar de escrutinio publico, pero la atribucion final exige separar con disciplina lo observado, lo corroborado y lo inferido.

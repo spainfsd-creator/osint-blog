@@ -9,7 +9,7 @@ image: /img/blog/2026-05-24-crtsh-osint-ct-logs-subdominios-cronologia-contexto.
 
 ![Ilustracion editorial de una analista OSINT revisando certificados TLS, subdominios y una cronologia de emision en una interfaz tipo ct log con notas metodologicas sobrias](/img/blog/2026-05-24-crtsh-osint-ct-logs-subdominios-cronologia-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/crtsh-osint-ct-logs-subdominios-cronologia-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/crtsh-osint-ct-logs-subdominios-cronologia-contexto.m4a">Descargar el podcast</a>
 
 
 Cuando una investigacion tecnica necesita responder que dominios han existido de verdad, cuando aparecieron y con que senales publicas se relacionan, mucha gente comete el mismo error: tratar un certificado TLS como si fuera una prueba cerrada de propiedad, actividad o intencion. `crt.sh` sirve precisamente para enfriar ese impulso. Te deja consultar datos de `Certificate Transparency` y observar emisiones historicas, nombres alternativos y pistas cronologicas que ayudan a abrir preguntas mejores, no a cerrarlas demasiado pronto.

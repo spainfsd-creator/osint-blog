@@ -9,7 +9,7 @@ image: /img/blog/2026-03-07-exiftool-invid-osint-verificacion-multimedia-metodo.
 
 ![Ilustracion editorial de un analista OSINT revisando metadatos, fotogramas clave y evidencias visuales con una mesa de trabajo forense](/img/blog/2026-03-07-exiftool-invid-osint-verificacion-multimedia-metodo.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/exiftool-invid-osint-verificacion-multimedia-metodo.m4a)
+**Descargar el podcast!**: <a href="/podcasts/exiftool-invid-osint-verificacion-multimedia-metodo.m4a">Descargar el podcast</a>
 
 
 Cuando una imagen o un video aparece justo en el momento mas sensible de una investigacion, la tentacion es agarrarse a cualquier pista tecnica y declararla definitiva. Ahi es donde muchos equipos se equivocan: **un metadato aislado no demuestra autenticidad y un filtro visual llamativo no demuestra manipulacion**. `ExifTool` e `InVID/WeVerify` funcionan mejor como pareja metodologica: uno te ayuda a leer lo que el archivo todavia conserva; el otro te obliga a mirar el contenido, fragmentarlo y contrastarlo con otras fuentes abiertas.

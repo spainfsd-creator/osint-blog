@@ -9,7 +9,7 @@ image: /img/blog/2026-03-10-verificacion-contacto-correo-osint-metodo-responsabl
 
 ![Ilustracion editorial de verificacion OSINT de correos y telefonos con checklist metodologico, paneles anonimizados y contexto legal](/img/blog/2026-03-10-verificacion-contacto-correo-osint-metodo-responsable.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/verificacion-contacto-correo-osint-metodo-responsable.m4a)
+**Descargar el podcast!**: <a href="/podcasts/verificacion-contacto-correo-osint-metodo-responsable.m4a">Descargar el podcast</a>
 
 
 Cuando una investigacion depende de un email o de un telefono, el riesgo no es solo perder tiempo: tambien puedes atribuir mal una identidad y arrastrar al equipo a conclusiones fragiles. La verificacion de contacto en OSINT no va de "adivinar personas", sino de construir confianza incremental con evidencia publica, contexto y limites claros.

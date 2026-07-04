@@ -9,7 +9,7 @@ image: /img/blog/2026-04-20-rdap-whois-osint-registro-contexto-fechas.png
 
 ![Ilustracion editorial de una analista OSINT contrastando respuestas RDAP y WHOIS sobre dominios, IPs y ASNs en un tablero de investigacion](/img/blog/2026-04-20-rdap-whois-osint-registro-contexto-fechas.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/rdap-whois-osint-registro-contexto-fechas.m4a)
+**Descargar el podcast!**: <a href="/podcasts/rdap-whois-osint-registro-contexto-fechas.m4a">Descargar el podcast</a>
 
 
 Cuando una investigacion tecnica toca un dominio, una IP o un `ASN`, mucha gente sigue haciendo la misma pregunta de hace quince anos: "que dice el WHOIS". El problema es que en 2026 esa pregunta, por si sola, ya llega tarde. En el espacio de `gTLD`, `ICANN` dejo claro que desde el **28 de enero de 2025** el `RDAP` es la fuente definitiva para entregar datos de registro, mientras que `WHOIS` ha quedado como tecnologia heredada o paralela segun el caso. Para un analista OSINT, esto cambia menos el objetivo que el metodo: **ya no basta con leer un bloque de texto; hay que entender de que registro procede, que parte es actual, que parte esta redactada o limitada, y que inferencias no debes hacer**.

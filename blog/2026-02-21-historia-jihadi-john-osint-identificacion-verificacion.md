@@ -9,7 +9,7 @@ image: /img/blog/2026-02-21-historia-jihadi-john-osint-identificacion-verificaci
 
 ![Ilustracion editorial de investigacion OSINT con cronologia, analisis de voz e imagen y verificacion multifuente](/img/blog/2026-02-21-historia-jihadi-john-osint-identificacion-verificacion.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-jihadi-john-osint-identificacion-verificacion.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-jihadi-john-osint-identificacion-verificacion.m4a">Descargar el podcast</a>
 
 
 En los casos con alto impacto mediatico, el mayor riesgo no es "quedarse corto": es **cerrar conclusiones antes de tiempo**. La identificacion publica de "Jihadi John" en 2015 es una leccion util para cualquier analista OSINT: combinar fuentes abiertas, separar hechos de inferencias y mantener trazabilidad cuando la presion informativa aprieta.

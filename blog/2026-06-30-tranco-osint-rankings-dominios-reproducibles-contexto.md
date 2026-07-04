@@ -9,7 +9,7 @@ image: /img/blog/2026-06-30-tranco-osint-rankings-dominios-reproducibles-context
 
 ![Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales](/img/blog/2026-06-30-tranco-osint-rankings-dominios-reproducibles-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/tranco-osint-rankings-dominios-reproducibles-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/tranco-osint-rankings-dominios-reproducibles-contexto.m4a">Descargar el podcast</a>
 
 
 En una investigacion web, decir que un dominio es "popular" puede parecer un dato menor. No lo es. Ese ranking puede decidir que muestras analizas, que dominios excluyes como ruido, que infraestructura consideras normal y que conclusiones acabas defendiendo. Si la lista cambia cada dia, no puedes reproducir tu trabajo; si la lista se manipula con facilidad, puedes construir un informe sobre arena.

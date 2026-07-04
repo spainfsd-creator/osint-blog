@@ -9,7 +9,7 @@ image: /img/blog/2026-06-28-binaryedge-osint-superficie-externa-contexto.png
 
 ![Ilustracion editorial de una analista OSINT revisando resultados de escaneo de superficie externa, puertos abiertos, banners de servicio y notas de riesgo defensivo](/img/blog/2026-06-28-binaryedge-osint-superficie-externa-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/binaryedge-osint-superficie-externa-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/binaryedge-osint-superficie-externa-contexto.m4a">Descargar el podcast</a>
 
 
 Una IP responde en Internet, un banner sugiere una version antigua y un panel aparece en un puerto que nadie recordaba. La tentacion es escribir "vulnerable" demasiado pronto. El trabajo correcto es mas sobrio: **convertir lo visible desde fuera en un inventario verificable, fechar la observacion y decidir si merece accion defensiva**. `BinaryEdge` encaja en ese punto cuando se usa para entender exposicion publica, no para ampliar objetivos sin permiso.

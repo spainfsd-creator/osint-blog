@@ -9,7 +9,7 @@ image: /img/blog/2026-04-23-historia-strava-heatmap-osint-privacidad-opsec.png
 
 ![Ilustracion editorial de una investigadora OSINT revisando rutas GPS agregadas sobre un mapa oscuro con notas redactadas y enfoque de privacidad operacional](/img/blog/2026-04-23-historia-strava-heatmap-osint-privacidad-opsec.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/historia-strava-heatmap-osint-privacidad-opsec.m4a)
+**Descargar el podcast!**: <a href="/podcasts/historia-strava-heatmap-osint-privacidad-opsec.m4a">Descargar el podcast</a>
 
 
 En enero de 2018, una visualizacion deportiva se convirtio en una leccion mundial de seguridad operacional. `Strava` habia publicado su `Global Heatmap`, un mapa precioso de rutas de carrera y ciclismo agregadas. En ciudades llenas de usuarios aquello parecia casi arte urbano: avenidas iluminadas, parques marcados por miles de entrenamientos, rios de actividad humana. Pero en zonas remotas, donde casi nadie corria salvo personal desplegado, unas pocas lineas brillantes podian contar demasiado.

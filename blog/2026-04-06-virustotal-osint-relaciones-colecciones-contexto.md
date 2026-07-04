@@ -9,7 +9,7 @@ image: /img/blog/2026-04-06-virustotal-osint-relaciones-colecciones-contexto.png
 
 ![Ilustracion editorial de un analista OSINT usando relaciones y colecciones para contextualizar indicadores publicos sin precipitar conclusiones](/img/blog/2026-04-06-virustotal-osint-relaciones-colecciones-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/virustotal-osint-relaciones-colecciones-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/virustotal-osint-relaciones-colecciones-contexto.m4a">Descargar el podcast</a>
 
 
 En muchas investigaciones tecnicas el error caro no es "no encontrar el indicador". El error caro es **ver un dominio, una URL o un hash marcado por terceros y saltar demasiado rapido de "aparece en VirusTotal" a "ya se lo que significa"**. `VirusTotal` aporta mucho valor justo en esa zona gris: no como oraculo de atribucion, sino como capa de contexto para entender que relaciones publicas rodean a un artefacto y que preguntas conviene hacer despues.

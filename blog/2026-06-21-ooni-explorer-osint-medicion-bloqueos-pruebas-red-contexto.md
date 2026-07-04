@@ -9,7 +9,7 @@ image: /img/blog/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-co
 
 ![Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela](/img/blog/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.m4a">Descargar el podcast</a>
 
 
 Cuando una historia gira alrededor de censura, caidas selectivas, apps que "a veces cargan" o sitios que desaparecen solo en ciertas redes, el error mas comun no es mirar poco: es **confundir una queja aislada con una conclusion global**. `OONI Explorer` encaja justo en ese hueco porque permite trabajar con mediciones reales de red, series temporales y contexto por pais, operador y prueba, sin obligarte a convertir cada anomalia en una acusacion cerrada.

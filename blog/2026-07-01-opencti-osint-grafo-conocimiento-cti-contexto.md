@@ -9,7 +9,7 @@ image: /img/blog/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto.png
 
 ![Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo](/img/blog/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/opencti-osint-grafo-conocimiento-cti-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/opencti-osint-grafo-conocimiento-cti-contexto.m4a">Descargar el podcast</a>
 
 
 Un feed de indicadores puede parecer inteligencia hasta que intentas explicar de donde salio cada dato, que confianza tiene, que relacion guarda con tu caso y cuando deja de ser util. El problema no es tener pocos datos: es tener demasiados sin estructura. `OpenCTI` encaja en ese punto porque ayuda a convertir observables, informes, relaciones y contexto en un grafo consultable, sin prometer que una plataforma pueda sustituir el juicio del analista.

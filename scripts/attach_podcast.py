@@ -9,7 +9,7 @@ PODCAST_LINE_PREFIX = "**Descargar el podcast!**:"
 
 
 def _ensure_podcast_line(md_text: str, podcast_filename: str) -> str:
-    line = f"**Descargar el podcast!**: [Descargar el podcast](/podcasts/{podcast_filename})"
+    line = f'**Descargar el podcast!**: <a href="/podcasts/{podcast_filename}">Descargar el podcast</a>'
     if line in md_text:
         return md_text
 
@@ -70,4 +70,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

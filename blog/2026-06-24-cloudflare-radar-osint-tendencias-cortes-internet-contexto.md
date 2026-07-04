@@ -9,7 +9,7 @@ image: /img/blog/2026-06-24-cloudflare-radar-osint-tendencias-cortes-internet-co
 
 ![Ilustración editorial de una analista OSINT revisando un mapa mundial, series temporales y una caída de conectividad con criterio metodológico](/img/blog/2026-06-24-cloudflare-radar-osint-tendencias-cortes-internet-contexto.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/cloudflare-radar-osint-tendencias-cortes-internet-contexto.m4a)
+**Descargar el podcast!**: <a href="/podcasts/cloudflare-radar-osint-tendencias-cortes-internet-contexto.m4a">Descargar el podcast</a>
 
 
 Una región deja de responder durante una noche electoral. En redes sociales se habla de censura, el proveedor culpa a una avería y varias gráficas muestran una caída brusca. El problema no es encontrar otra captura: es separar **qué cambió, dónde se observó, durante cuánto tiempo y qué evidencia permitiría explicar la causa**. `Cloudflare Radar` puede aportar señales valiosas para ordenar esa investigación, pero no convierte una curva descendente en una atribución automática.

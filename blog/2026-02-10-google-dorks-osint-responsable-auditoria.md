@@ -9,7 +9,7 @@ image: /img/blog/2026-02-10-google-dorks-osint-responsable.png
 
 ![Ilustracion sobre busqueda avanzada para OSINT responsable](/img/blog/2026-02-10-google-dorks-osint-responsable.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-dorks-osint-responsable-auditoria.m4a)
+**Descargar el podcast!**: <a href="/podcasts/google-dorks-osint-responsable-auditoria.m4a">Descargar el podcast</a>
 
 
 La busqueda avanzada (lo que popularmente se llama "Google Dorks") no es magia ni "hacking": es **saber formular preguntas** con operadores para encontrar informacion ya publica y ya indexada. Bien usada, es una tecnica defensiva excelente para **auditar exposicion**, verificar afirmaciones y reducir sorpresas en una investigacion OSINT.

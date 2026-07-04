@@ -9,7 +9,7 @@ image: /img/blog/2026-03-02-blackbird-osint-busqueda-username-email-perfiles-ver
 
 ![Ilustracion editorial de un analista OSINT correlacionando usernames y correos entre perfiles publicos con grafos y tarjetas anonimizadas](/img/blog/2026-03-02-blackbird-osint-busqueda-username-email-perfiles-verificacion.png)
 
-**Descargar el podcast!**: [Descargar el podcast](/podcasts/blackbird-osint-busqueda-username-email-perfiles-verificacion.m4a)
+**Descargar el podcast!**: <a href="/podcasts/blackbird-osint-busqueda-username-email-perfiles-verificacion.m4a">Descargar el podcast</a>
 
 
 Cuando una investigacion arranca con un alias repetido en foros, una bio reciclada o un correo que aparece en varias pistas, el peligro no es solo perder tiempo: el peligro es **forzar coincidencias debiles y convertir ruido en una falsa identidad**. `Blackbird` sirve precisamente para la fase inicial de cribado rapido: localizar presencia publica de un `username` o un correo en muchas plataformas, priorizar donde merece mirar y documentar que sigue siendo solo una hipotesis hasta que haya corroboracion.
