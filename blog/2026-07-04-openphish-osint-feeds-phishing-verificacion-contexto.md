@@ -9,6 +9,9 @@ image: /img/blog/2026-07-04-openphish-osint-feeds-phishing-verificacion-contexto
 
 ![Ilustracion editorial de una analista OSINT revisando feeds de URLs de phishing, lineas temporales, fuentes verificadas y notas de triage defensivo](/img/blog/2026-07-04-openphish-osint-feeds-phishing-verificacion-contexto.png)
 
+**Descargar el podcast!**: <a href="/podcasts/openphish-osint-feeds-phishing-verificacion-contexto.m4a">Descargar el podcast</a>
+
+
 Un enlace sospechoso llega por correo, otro aparece en un ticket de marca suplantada y un tercero lo recoge un feed publico. La tentacion es meter todas las URLs en una lista de bloqueo y dar el caso por cerrado. El trabajo responsable es mas incomodo: **distinguir URL activa, pagina retirada, marca suplantada, falso positivo, infraestructura compartida y evidencia suficiente para actuar**.
 
 `OpenPhish` encaja en esa parte del flujo OSINT defensivo. Revisando sus paginas publicas el **4 de julio de 2026**, el servicio se presenta como una fuente de inteligencia sobre amenazas de phishing activas, con feeds, base de datos historica, metadatos de red y mecanismos de reporte. Su valor no esta en "cazar enlaces" por curiosidad, sino en aportar una senal externa que permita priorizar respuesta, proteger usuarios y documentar mejor una investigacion.
