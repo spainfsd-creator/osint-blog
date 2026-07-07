@@ -9,6 +9,9 @@ image: /img/blog/2026-07-07-openrefine-osint-limpieza-datos-reconciliacion-conte
 
 ![Ilustracion editorial de un analista OSINT limpiando datasets publicos, agrupando nombres duplicados y reconciliando entidades con fuentes de confianza](/img/blog/2026-07-07-openrefine-osint-limpieza-datos-reconciliacion-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openrefine-osint-limpieza-datos-reconciliacion-contexto.m4a)
+
+
 Una investigacion OSINT rara vez se rompe por falta de datos. Se rompe cuando una misma empresa aparece con cinco nombres, una direccion cambia de formato, una fecha viene como texto, un CSV mezcla codificaciones y alguien decide que dos entidades "seguro que son la misma" porque se parecen. `OpenRefine` encaja justo en ese punto incomodo: no encuentra secretos, pero ayuda a **limpiar, normalizar y reconciliar datos abiertos sin convertir el ruido en certeza**.
 
 Revisando la documentacion publica el **7 de julio de 2026**, `OpenRefine` se presenta como una herramienta libre y de codigo abierto para trabajar con datos desordenados: limpiarlos, transformarlos entre formatos y extenderlos con servicios web y datos externos. Su pagina oficial destaca facetas, clustering, reconciliacion, historial de operaciones, trabajo local y soporte de Wikibase/Wikidata. La lista de releases de GitHub mostraba `OpenRefine 3.10.1` como version estable mas reciente, publicada el `4 de marzo de 2026`.
