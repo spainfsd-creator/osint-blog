@@ -2,11 +2,160 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-04T00:00:00.000Z</updated>
+    <updated>2026-07-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenRefine en OSINT: limpiar datasets, reconciliar entidades y no fabricar certezas]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto"/>
+        <updated>2026-07-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de un analista OSINT limpiando datasets publicos, agrupando nombres duplicados y reconciliando entidades con fuentes de confianza]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT limpiando datasets publicos, agrupando nombres duplicados y reconciliando entidades con fuentes de confianza" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-07-openrefine-osint-limpieza-datos-reconciliacion-contexto-10306967df546eb1dafc6ddaaec69c62.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una investigacion OSINT rara vez se rompe por falta de datos. Se rompe cuando una misma empresa aparece con cinco nombres, una direccion cambia de formato, una fecha viene como texto, un CSV mezcla codificaciones y alguien decide que dos entidades "seguro que son la misma" porque se parecen. <code>OpenRefine</code> encaja justo en ese punto incomodo: no encuentra secretos, pero ayuda a <strong>limpiar, normalizar y reconciliar datos abiertos sin convertir el ruido en certeza</strong>.</p>
+<p>Revisando la documentacion publica el <strong>7 de julio de 2026</strong>, <code>OpenRefine</code> se presenta como una herramienta libre y de codigo abierto para trabajar con datos desordenados: limpiarlos, transformarlos entre formatos y extenderlos con servicios web y datos externos. Su pagina oficial destaca facetas, clustering, reconciliacion, historial de operaciones, trabajo local y soporte de Wikibase/Wikidata. La lista de releases de GitHub mostraba <code>OpenRefine 3.10.1</code> como version estable mas reciente, publicada el <code>4 de marzo de 2026</code>.</p>
+<p>Este articulo esta escrito para analistas, periodistas de datos, equipos de cumplimiento, investigadores defensivos y personas que necesitan ordenar datasets publicos con trazabilidad. No contiene tecnicas para doxxing, stalking, enriquecimiento invasivo de personas ni scraping abusivo. El foco es metodologico: reducir errores antes de escribir conclusiones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-openrefine-y-para-que-sirve">Que es OpenRefine y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#que-es-openrefine-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenRefine y para que sirve" title="Enlace directo al Que es OpenRefine y para que sirve" translate="no">​</a></h2>
+<p><a href="https://openrefine.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenRefine</code></a> es una aplicacion local, manejada desde navegador, orientada a preparar y transformar datos tabulares. En OSINT resulta especialmente util cuando trabajas con:</p>
+<ul>
+<li class="">listados de sociedades, cargos, licitaciones o sanciones;</li>
+<li class="">CSV exportados de registros publicos;</li>
+<li class="">dominios, URLs, IPs o certificados recogidos desde varias fuentes;</li>
+<li class="">nombres de personas juridicas con variantes ortograficas;</li>
+<li class="">ubicaciones, fechas y codigos administrativos inconsistentes;</li>
+<li class="">tablas que necesitan pasar de "legibles a mano" a "consultables con criterio".</li>
+</ul>
+<p>Su valor no esta en hacer magia. Esta en obligarte a mirar la calidad del dato antes de pivotar. Las facetas te muestran patrones y rarezas; el clustering agrupa valores parecidos para corregir variantes; las transformaciones permiten normalizar campos; la reconciliacion ayuda a enlazar valores con entidades externas; y el historial permite revisar que operaciones aplicaste.</p>
+<p>En una investigacion seria, eso cambia mucho la conversacion. En vez de decir "he unido estos registros porque se parecen", puedes decir: "he normalizado mayusculas, espacios y puntuacion; he revisado clusters manualmente; he separado coincidencias fuertes de dudosas; y he dejado el proceso documentado".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de proveedores para una ONG ficticia, <code>Puentes Civicos</code>. El equipo tiene tres fuentes abiertas:</p>
+<table><thead><tr><th>Fuente</th><th>Campo problematico</th><th>Riesgo metodologico</th></tr></thead><tbody><tr><td>Registro mercantil</td><td><code>Nombre legal</code></td><td>Variantes con siglas, acentos y formas societarias</td></tr><tr><td>Portal de contratacion</td><td><code>Adjudicatario</code></td><td>Nombres comerciales mezclados con entidades legales</td></tr><tr><td>Lista de donantes</td><td><code>Organizacion</code></td><td>Errores de escritura y abreviaturas internas</td></tr></tbody></table>
+<p>El objetivo legitimo no es "perfilar a todo el mundo", sino responder una pregunta limitada:</p>
+<p><strong>Que entidades aparecen en mas de una fuente y cuales requieren verificacion documental antes de cerrar una conclusion?</strong></p>
+<p>Un flujo prudente con <code>OpenRefine</code> seria:</p>
+<ol>
+<li class="">importar cada tabla conservando una copia bruta;</li>
+<li class="">crear columnas normalizadas para comparar sin destruir el dato original;</li>
+<li class="">usar facetas para localizar valores vacios, formatos raros y categorias inesperadas;</li>
+<li class="">aplicar clustering sobre nombres de organizaciones;</li>
+<li class="">aceptar solo merges revisados manualmente;</li>
+<li class="">reconciliar contra una fuente externa cuando tenga sentido, por ejemplo Wikidata o una base propia;</li>
+<li class="">exportar una tabla con <code>valor original</code>, <code>valor normalizado</code>, <code>decision</code>, <code>fuente</code> y <code>nota</code>.</li>
+</ol>
+<p>La salida correcta no es una lista de acusaciones. Es una tabla de trabajo con tres niveles: coincidencia confirmada, coincidencia plausible y coincidencia descartada o pendiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-conserva-el-dato-bruto">1. Conserva el dato bruto<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#1-conserva-el-dato-bruto" class="hash-link" aria-label="Enlace directo al 1. Conserva el dato bruto" title="Enlace directo al 1. Conserva el dato bruto" translate="no">​</a></h3>
+<p>Antes de tocar nada, guarda el fichero original y anota origen, fecha de descarga, URL, licencia y cualquier filtro aplicado. En <code>OpenRefine</code>, crea nuevas columnas para normalizar en vez de sobrescribir el campo original demasiado pronto.</p>
+<p>Una regla practica:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">nombre_original -&gt; nombre_limpio -&gt; nombre_canonico -&gt; decision_analitica</span><br></span></code></pre></div></div>
+<p>Si solo conservas <code>nombre_canonico</code>, pierdes la capacidad de explicar por que <code>Iber Atlas SL</code>, <code>IberAtlas S.L.</code> e <code>IBER ATLAS SOCIEDAD LIMITADA</code> acabaron juntos o separados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-facetas-para-entender-el-dataset-antes-de-limpiar">2. Usa facetas para entender el dataset antes de limpiar<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#2-usa-facetas-para-entender-el-dataset-antes-de-limpiar" class="hash-link" aria-label="Enlace directo al 2. Usa facetas para entender el dataset antes de limpiar" title="Enlace directo al 2. Usa facetas para entender el dataset antes de limpiar" translate="no">​</a></h3>
+<p>Las facetas son una de las mejores defensas contra el exceso de confianza. La documentacion de <code>OpenRefine</code> las presenta como una forma de explorar patrones, filtrar filas y aplicar operaciones sobre vistas filtradas. En OSINT, eso sirve para preguntas muy concretas:</p>
+<ul>
+<li class="">cuantos valores estan vacios;</li>
+<li class="">que categorias aparecen una sola vez;</li>
+<li class="">si una columna mezcla fechas, textos y numeros;</li>
+<li class="">que dominios, paises o tipos de entidad dominan la muestra;</li>
+<li class="">donde hay outliers que merecen revision manual.</li>
+</ul>
+<p>No empieces corrigiendo. Empieza mirando distribuciones. Muchas decisiones malas nacen de arreglar una fila llamativa sin entender el conjunto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-con-transformaciones-pequeñas-y-auditables">3. Normaliza con transformaciones pequeñas y auditables<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#3-normaliza-con-transformaciones-peque%C3%B1as-y-auditables" class="hash-link" aria-label="Enlace directo al 3. Normaliza con transformaciones pequeñas y auditables" title="Enlace directo al 3. Normaliza con transformaciones pequeñas y auditables" translate="no">​</a></h3>
+<p><code>OpenRefine</code> permite transformar celdas con expresiones. Su lenguaje <code>GREL</code> se parece a JavaScript y trabaja con variables como <code>value</code>. Para OSINT basta con expresiones sencillas:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.trim()</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.toLowercase()</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.replace(".", "")</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.replace(" sociedad limitada", " sl")</span><br></span></code></pre></div></div>
+<p>El punto no es escribir formulas brillantes. Es hacer operaciones pequeñas, revisar la previsualizacion y dejar claro que ha cambiado. Si normalizas demasiado agresivamente, puedes unir cosas que no son iguales. Si normalizas demasiado poco, puedes perder relaciones evidentes.</p>
+<p>Una buena practica es crear columnas intermedias:</p>
+<table><thead><tr><th>Columna</th><th>Proposito</th></tr></thead><tbody><tr><td><code>nombre_original</code></td><td>Lo que venia en la fuente</td></tr><tr><td><code>nombre_limpio</code></td><td>Espacios, mayusculas y signos normalizados</td></tr><tr><td><code>nombre_sin_forma</code></td><td>Variante sin <code>sl</code>, <code>sa</code>, <code>ltd</code>, etc., si procede</td></tr><tr><td><code>decision_cluster</code></td><td>Merge aceptado, pendiente o rechazado</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-el-clustering-como-propuesta-no-como-veredicto">4. Trata el clustering como propuesta, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#4-trata-el-clustering-como-propuesta-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 4. Trata el clustering como propuesta, no como veredicto" title="Enlace directo al 4. Trata el clustering como propuesta, no como veredicto" translate="no">​</a></h3>
+<p>El clustering de <code>OpenRefine</code> agrupa valores parecidos para corregir inconsistencias. La documentacion tecnica distingue familias como <code>key collision</code>, rapidas pero a veces demasiado estrictas o laxas, y metodos de vecino mas cercano, que introducen umbrales de distancia. Traducido a investigacion: el algoritmo sugiere, el analista decide.</p>
+<p>Ejemplo ficticio:</p>
+<table><thead><tr><th>Cluster sugerido</th><th>Decision responsable</th></tr></thead><tbody><tr><td><code>Iber Atlas SL</code> / <code>IberAtlas S.L.</code></td><td>Probable misma entidad, revisar numero registral</td></tr><tr><td><code>Atlas Iberia SL</code> / <code>Iber Atlas SL</code></td><td>No fusionar sin otra evidencia</td></tr><tr><td><code>Juan A. Martin</code> / <code>Juan Martin</code></td><td>Pendiente: puede ser la misma persona o no</td></tr><tr><td><code>Acme Logistics Ltd</code> / <code>Acme Logistic Limited</code></td><td>Revisar jurisdiccion y numero de compania</td></tr></tbody></table>
+<p>El error mas peligroso es aceptar merges en masa porque "parecen razonables". En nombres de personas, empresas y lugares, una letra puede separar dos entidades reales. Y en OSINT, una fusion mala contamina todas las conclusiones posteriores.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reconciliar-no-es-identificar-automaticamente">5. Reconciliar no es identificar automaticamente<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#5-reconciliar-no-es-identificar-automaticamente" class="hash-link" aria-label="Enlace directo al 5. Reconciliar no es identificar automaticamente" title="Enlace directo al 5. Reconciliar no es identificar automaticamente" translate="no">​</a></h3>
+<p>La reconciliacion permite enlazar valores de una columna con entidades de servicios externos. La documentacion de <code>OpenRefine</code> explica que, tras reconciliar, aparecen facetas como puntuacion del mejor candidato y juicio de coincidencia; tambien recomienda trabajar por lotes y reconciliar contra tipos especificos, de lo concreto a lo amplio.</p>
+<p>Ese consejo es oro. Si tienes una columna de organizaciones, no reconcilies contra "cualquier cosa" y aceptes el primer candidato bonito. Acota el tipo, revisa puntuacion, mira candidatos alternativos y conserva el juicio humano.</p>
+<p>Una lectura sana:</p>
+<ul>
+<li class=""><strong>match fuerte</strong>: nombre, identificador y contexto encajan;</li>
+<li class=""><strong>match plausible</strong>: hay similitud, pero falta confirmar jurisdiccion, fecha o fuente;</li>
+<li class=""><strong>no match</strong>: el servicio no encontro entidad fiable;</li>
+<li class=""><strong>nuevo o pendiente</strong>: puede ser entidad real no cubierta por la fuente externa.</li>
+</ul>
+<p>Reconciliar contra Wikidata, Wikibase u otro servicio puede aportar contexto, pero tambien arrastra cobertura desigual, sesgos de idioma, entidades incompletas y homonimias. En informes sensibles, el enlace externo abre una pista; no sustituye al documento primario.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-exporta-decisiones-no-solo-datos-limpios">6. Exporta decisiones, no solo datos limpios<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#6-exporta-decisiones-no-solo-datos-limpios" class="hash-link" aria-label="Enlace directo al 6. Exporta decisiones, no solo datos limpios" title="Enlace directo al 6. Exporta decisiones, no solo datos limpios" translate="no">​</a></h3>
+<p>Una tabla final que solo contiene el dato "bonito" oculta el trabajo. En investigaciones revisables conviene exportar tambien:</p>
+<ul>
+<li class="">fuente original;</li>
+<li class="">valor original;</li>
+<li class="">valor normalizado;</li>
+<li class="">regla o operacion aplicada;</li>
+<li class="">cluster aceptado o rechazado;</li>
+<li class="">identificador externo si existe;</li>
+<li class="">confianza;</li>
+<li class="">nota breve;</li>
+<li class="">fecha de revision.</li>
+</ul>
+<p>Esto permite que otra persona audite el camino. Tambien te protege de ti mismo: dentro de dos semanas no recordaras por que aceptaste un cluster concreto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>OpenRefine</code> mejora el control del dato, pero no convierte datos sucios en verdad.</p>
+<ul>
+<li class=""><strong>Cobertura externa</strong>: la reconciliacion depende del servicio usado y de sus sesgos.</li>
+<li class=""><strong>Homonimias</strong>: dos personas o empresas pueden compartir nombre.</li>
+<li class=""><strong>Cambios temporales</strong>: una entidad puede cambiar de nombre, fusionarse o desaparecer.</li>
+<li class=""><strong>Normalizacion excesiva</strong>: borrar signos, sufijos o palabras puede unir entidades distintas.</li>
+<li class=""><strong>Campos incompletos</strong>: sin pais, fecha, identificador o fuente, la confianza baja.</li>
+<li class=""><strong>Automatizacion tentadora</strong>: aceptar clusters o matches en bloque puede multiplicar errores.</li>
+<li class=""><strong>Privacidad</strong>: limpiar datos personales no justifica conservarlos si no son necesarios.</li>
+</ul>
+<p>La regla editorial es sencilla: cuanto mas sensible sea la conclusion, menos debes depender de una coincidencia de texto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Aunque <code>OpenRefine</code> trabaje localmente, el dataset puede contener informacion sensible. Trata el proyecto como parte del expediente:</p>
+<ul>
+<li class="">separa datos publicos, notas internas y datos personales;</li>
+<li class="">minimiza columnas que no necesitas;</li>
+<li class="">no subas datos personales a servicios de reconciliacion sin base legitima;</li>
+<li class="">revisa licencias y terminos de uso de cada fuente;</li>
+<li class="">evita enriquecer identidades individuales si la pregunta puede resolverse a nivel organizacion;</li>
+<li class="">guarda operaciones y decisiones junto con el dataset;</li>
+<li class="">cifra o restringe proyectos cuando haya datos sensibles;</li>
+<li class="">elimina exportaciones intermedias que ya no necesites.</li>
+</ul>
+<p>La privacidad no empieza cuando publicas. Empieza cuando decides que columnas importas y que campos conservas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>OpenRefine</code> encaja especialmente bien entre la descarga de datos y el analisis final. Segun el caso, puede combinarse con:</p>
+<ul>
+<li class=""><code>SQLite</code> y <code>Datasette</code>, para publicar o consultar tablas ya normalizadas;</li>
+<li class=""><code>OpenAleph</code>, si el problema es documental y relacional;</li>
+<li class=""><code>Wikidata</code> o un <code>Wikibase</code> propio, si necesitas reconciliacion estructurada;</li>
+<li class="">hojas de calculo, cuando el volumen es pequeno y el equipo no necesita historial complejo;</li>
+<li class="">scripts reproducibles en Python o <code>jq</code>, si el flujo debe ejecutarse de forma automatica;</li>
+<li class="">registros primarios, siempre que una conclusion dependa de identidad legal o vigencia.</li>
+</ul>
+<p>El takeaway accionable: usa <code>OpenRefine</code> para <strong>hacer visible la calidad del dato antes de analizarlo</strong>. Un buen cluster no es una prueba; una buena reconciliacion no es identidad confirmada; una tabla limpia no borra la incertidumbre. Pero si documentas origen, transformaciones, decisiones y limites, tu investigacion sera mucho mas defendible.</p>
+<p>Como siguiente paso natural del blog, tendria sentido bajar a un caso practico comparando <code>OpenRefine</code>, <code>SQLite</code> y <code>Datasette</code>: mismo CSV publico, tres capas distintas para limpiar, consultar y publicar resultados sin perder trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://openrefine.org/" target="_blank" rel="noopener noreferrer" class="">OpenRefine, pagina principal</a></li>
+<li class=""><a href="https://github.com/OpenRefine/OpenRefine/releases" target="_blank" rel="noopener noreferrer" class="">OpenRefine, releases en GitHub</a></li>
+<li class=""><a href="https://openrefine.org/docs/manual/facets" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Exploring facets</a></li>
+<li class=""><a href="https://openrefine.org/docs/manual/cellediting" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Cell editing</a></li>
+<li class=""><a href="https://openrefine.org/docs/manual/grel" target="_blank" rel="noopener noreferrer" class="">OpenRefine, General Refine Expression Language</a></li>
+<li class=""><a href="https://openrefine.org/docs/technical-reference/clustering-in-depth" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Clustering Methods In-depth</a></li>
+<li class=""><a href="https://openrefine.org/docs/manual/reconciling" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Reconciling</a></li>
+<li class=""><a href="https://openrefine.org/docs/manual/wikibase/reconciling" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Reconciling with Wikibase</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenPhish en OSINT: feeds de phishing, verificacion y contexto antes de bloquear URLs]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/openphish-osint-feeds-phishing-verificacion-contexto</id>
@@ -2495,129 +2644,6 @@
         <category label="Investigacion" term="Investigacion"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Tradecraft" term="Tradecraft"/>
-        <category label="Tooling" term="Tooling"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ViewDNS.info en OSINT: reverse IP, WHOIS, NS y MX con contexto antes de unir puntos]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto"/>
-        <updated>2026-06-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT cruzando reverse IP, WHOIS, nameservers y registros MX en un panel sobrio de investigacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando reverse IP, WHOIS, nameservers y registros MX en un panel sobrio de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-15-viewdns-osint-reverse-ip-whois-ns-mx-contexto-744c37000f0ce77c71cac1b45740634c.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion sobre infraestructura empieza a sacar dominios, <code>IPs</code>, <code>MX</code> y <code>nameservers</code>, el error mas comun no suele ser "no tener datos". El error suele ser <strong>atar relaciones demasiado pronto y convertir una coincidencia tecnica en una atribucion fuerte</strong>. <code>ViewDNS.info</code> resulta util justo en ese tramo intermedio: permite abrir pivotes rapidos sobre hosting compartido, historial de <code>IP</code>, huella de correo y patrones registrales sin olvidar que una relacion observada sigue siendo solo eso, una relacion observada.</p>
-<p>La documentacion oficial de <code>ViewDNS.info</code>, consultada el <strong>15 de junio de 2026</strong>, describe el servicio como un conjunto de herramientas de analisis web, monitorizacion e inteligencia de dominio pensado para hacer accesibles datos de internet y de nombres de dominio. Sus paginas publicas sobre <code>Reverse IP</code>, <code>Reverse WHOIS</code>, <code>Reverse NS</code>, <code>Reverse MX</code>, <code>IP History</code> y <code>Subdomain Discovery</code> dejan una idea metodologica clara: <strong>la plataforma es valiosa para abrir contexto y descubrir activos relacionados, pero cada pivote tiene limites y necesita validacion posterior</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>ViewDNS.info</code> es una coleccion de utilidades web centradas en <code>DNS</code>, <code>WHOIS</code>, <code>IP</code> e infraestructura relacionada. En vez de resolver por si sola una investigacion, te ayuda a contestar preguntas muy concretas:</p>
-<ul>
-<li class="">que otros dominios parecen convivir en una misma <code>IP</code>;</li>
-<li class="">que dominios comparten un <code>nameserver</code> o un <code>MX</code>;</li>
-<li class="">que historico de <code>IPs</code> ha tenido un dominio;</li>
-<li class="">que subdominios conocidos aparecen asociados a un dominio;</li>
-<li class="">que huella registral visible deja un dominio o un posible registrante.</li>
-</ul>
-<p>En terminos de flujo, encaja bien en revisiones de <code>due diligence</code>, triage de infraestructura, seguimiento de campañas de phishing, investigacion de activos olvidados o validacion de hipotesis preliminares antes de pasar a fuentes mas especializadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una empresa ficticia, <code>acme-demo.example</code>, que sospecha que varias webs de soporte y micrositios antiguos siguen expuestas sin inventario interno actualizado.</p>
-<p>Un analista responsable podria usar <code>ViewDNS.info</code> de esta forma:</p>
-<ol>
-<li class="">Consultar <code>IP History</code> del dominio principal para ver si hubo cambios de hosting, <code>CDN</code> o proveedor que ayuden a entender por que aparecen referencias antiguas en otras fuentes.</li>
-<li class="">Lanzar <code>Reverse IP</code> sobre una direccion observada recientemente para separar lo que parece convivir en el mismo servidor de lo que probablemente solo comparte una capa de alojamiento o <code>reverse proxy</code>.</li>
-<li class="">Revisar <code>Reverse NS</code> y <code>Reverse MX</code> para localizar dominios adicionales que reutilicen infraestructura de nombres o correo.</li>
-<li class="">Comprobar <code>Subdomain Discovery</code> para detectar subdominios visibles que merezcan revision adicional.</li>
-<li class="">Cerrar el bucle con <code>WHOIS</code> o <code>Reverse WHOIS</code> si hay datos publicos suficientes como para plantear una hipotesis sobre marca, tercero proveedor o registro historico.</li>
-</ol>
-<p>La clave no esta en "sumar coincidencias", sino en ordenarlas por fuerza explicativa. Compartir <code>MX</code> puede significar simplemente que varias marcas usan el mismo proveedor de correo. Compartir una <code>IP</code> puede ser ruido de hosting multi-tenant. Compartir patron registral puede ser mas interesante, pero tampoco basta por si solo para afirmar propiedad operativa actual.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-no-por-la-herramienta">1. Empieza por la pregunta, no por la herramienta<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#1-empieza-por-la-pregunta-no-por-la-herramienta" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta, no por la herramienta" title="Enlace directo al 1. Empieza por la pregunta, no por la herramienta" translate="no">​</a></h3>
-<p>Antes de abrir pestañas, conviene decidir que quieres aclarar:</p>
-<ul>
-<li class="">inventario tecnico visible;</li>
-<li class="">relacion entre dominios;</li>
-<li class="">cronologia de cambios de infraestructura;</li>
-<li class="">o posible vinculo registral.</li>
-</ul>
-<p>Eso evita mezclar pivotes incompatibles y leer de mas en una coincidencia debil.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-ip-history-para-introducir-tiempo">2. Usa <code>IP History</code> para introducir tiempo<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#2-usa-ip-history-para-introducir-tiempo" class="hash-link" aria-label="Enlace directo al 2-usa-ip-history-para-introducir-tiempo" title="Enlace directo al 2-usa-ip-history-para-introducir-tiempo" translate="no">​</a></h3>
-<p>La pagina <code>IP History</code> de <code>ViewDNS.info</code> indica que muestra una lista historica de direcciones <code>IP</code> en las que un dominio ha estado alojado, junto con localizacion geografica y propietario de esa <code>IP</code>. Ese detalle es util porque anade contexto temporal: una coincidencia de hoy no vale igual que una coincidencia de hace tres anos.</p>
-<p>Tambien deja un limite importante: el propio servicio aclara que su sistema rastrea dominios de nivel superior y no subdominios. Traducido a trabajo diario: si tu hipotesis depende de <code>app.ejemplo.com</code>, conviene no sobregeneralizar a partir de un historico que esta pensado para el dominio raiz.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-reverse-ip-con-prudencia">3. Usa <code>Reverse IP</code> con prudencia<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#3-usa-reverse-ip-con-prudencia" class="hash-link" aria-label="Enlace directo al 3-usa-reverse-ip-con-prudencia" title="Enlace directo al 3-usa-reverse-ip-con-prudencia" translate="no">​</a></h3>
-<p>La documentacion publica de <code>Reverse IP</code> explica que la herramienta encuentra dominios alojados en una misma <code>IP</code> y la presenta como util para localizar otros sitios en ese servidor. Es un pivote muy rapido, pero tambien uno de los mas faciles de malinterpretar.</p>
-<p>En entornos con <code>shared hosting</code>, <code>CDN</code>, balanceadores o proteccion perimetral, una <code>IP</code> compartida puede relacionar decenas o cientos de activos sin ningun nexo organizativo real. Por eso conviene tratar <code>Reverse IP</code> como generador de candidatos, no como prueba.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-reverse-ns-y-reverse-mx">4. Cruza <code>Reverse NS</code> y <code>Reverse MX</code><a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#4-cruza-reverse-ns-y-reverse-mx" class="hash-link" aria-label="Enlace directo al 4-cruza-reverse-ns-y-reverse-mx" title="Enlace directo al 4-cruza-reverse-ns-y-reverse-mx" translate="no">​</a></h3>
-<p><code>Reverse NS</code> permite encontrar dominios que usan el mismo <code>nameserver</code>, mientras que <code>Reverse MX</code> muestra dominios que usan el mismo servidor de correo. Ambos son pivotes excelentes para ampliar inventario o detectar despliegues olvidados, pero tienen contextos distintos:</p>
-<ul>
-<li class="">compartir <code>NS</code> puede sugerir una misma gestion <code>DNS</code> o un mismo proveedor;</li>
-<li class="">compartir <code>MX</code> puede sugerir un mismo ecosistema de correo o aliasing;</li>
-<li class="">ninguna de las dos coincidencias equivale por si sola a una misma organizacion operativa.</li>
-</ul>
-<p>Si varias coincidencias convergen en el mismo conjunto de dominios y, ademas, encajan con historico de <code>IP</code>, marca, certificados o registros mercantiles, la hipotesis gana fuerza. Si no, probablemente solo estas viendo infraestructura comun.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reserva-reverse-whois-para-hipotesis-bien-acotadas">5. Reserva <code>Reverse WHOIS</code> para hipotesis bien acotadas<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#5-reserva-reverse-whois-para-hipotesis-bien-acotadas" class="hash-link" aria-label="Enlace directo al 5-reserva-reverse-whois-para-hipotesis-bien-acotadas" title="Enlace directo al 5-reserva-reverse-whois-para-hipotesis-bien-acotadas" translate="no">​</a></h3>
-<p>La pagina <code>Reverse WHOIS</code> lo define como una busqueda para encontrar dominios registrados con el mismo nombre o correo de una persona u organizacion. En OSINT responsable, eso no es una invitacion a recolectar indiscriminadamente, sino una herramienta de contraste.</p>
-<p>Funciona mejor cuando ya tienes un dato registral visible y quieres responder una pregunta concreta, por ejemplo:</p>
-<ul>
-<li class="">si un tercero tecnico parece registrar varios dominios de una misma operacion;</li>
-<li class="">si una marca secundaria aparece vinculada a un registrante ya conocido;</li>
-<li class="">o si un conjunto de dominios sospechosos comparte una huella registral anomala.</li>
-</ul>
-<p>Con privacidad reforzada, <code>redaction</code>, datos de revendedor o cambios historicos, <code>Reverse WHOIS</code> puede quedarse corto. Ese limite no invalida la herramienta; solo recuerda que la ausencia de coincidencias no equivale a ausencia de relacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>ViewDNS.info</code> es rapido y practico, pero conviene asumir varios limites desde el principio:</p>
-<ul>
-<li class="">una <code>IP</code> compartida puede ser solo hosting multi-tenant;</li>
-<li class="">un <code>MX</code> compartido suele reflejar proveedor, no necesariamente propiedad;</li>
-<li class="">un <code>nameserver</code> compartido puede venir de una configuracion por defecto de registrador o <code>DNS manager</code>;</li>
-<li class="">los datos registrales visibles pueden estar incompletos, anonimizados o desfasados;</li>
-<li class="">el historico observado no sustituye a una fuente autoritativa ni cubre todos los cambios posibles;</li>
-<li class="">algunos resultados completos o formatos de exportacion dependen de autenticacion o plan de pago.</li>
-</ul>
-<p>La propia documentacion de la <code>API</code> tambien refleja esta realidad operativa: contempla errores <code>401</code>, <code>403</code> y <code>429</code>, lo que deja claro que hay controles de acceso y limites de uso. Para un analista, eso significa que merece la pena disenar consultas con criterio en vez de disparar pivotes sin priorizacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con objetivos legitimos y dentro del alcance autorizado de tu caso.</li>
-<li class="">Documenta de donde sale cada pivote y que nivel de confianza le das.</li>
-<li class="">Separa "mismo proveedor" de "misma entidad".</li>
-<li class="">No publiques correos, contactos registrales o relaciones societarias sin necesidad real.</li>
-<li class="">Guarda evidencia reproducible de las consultas que sustentan una conclusion.</li>
-<li class="">Si una relacion es solo tecnica y no atributiva, describela como tal.</li>
-</ul>
-<p>En otras palabras: <code>ViewDNS.info</code> es muy bueno para abrir mapas de relacion. La responsabilidad del analista consiste en <strong>no convertir el mapa en sentencia</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Segun la pregunta, puede tener sentido complementarlo con:</p>
-<ul>
-<li class=""><code>RDAP/WHOIS</code>, para contexto registral mas estructurado;</li>
-<li class=""><code>SecurityTrails</code> o <code>DNSDumpster</code>, si quieres otras lecturas de <code>DNS</code> e infraestructura;</li>
-<li class=""><code>crt.sh</code>, si buscas cronologia de certificados y subdominios observados;</li>
-<li class=""><code>MXToolbox</code>, si el foco esta en correo y reputacion tecnica;</li>
-<li class="">validacion manual en la web visible y archivo historico, si necesitas cerrar contexto.</li>
-</ul>
-<p>Como siguiente paso practico, un flujo robusto suele ser:</p>
-<ol>
-<li class="">pivotar en <code>ViewDNS.info</code>;</li>
-<li class="">cruzar solo las coincidencias prometedoras con otra fuente independiente;</li>
-<li class="">anotar incertidumbre antes de elevar una conclusion.</li>
-</ol>
-<p>Ese orden ahorra tiempo y reduce mucho el riesgo de sobreatribucion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/viewdns-osint-reverse-ip-whois-ns-mx-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">ViewDNS.info, <code>About Us</code>: <a href="https://viewdns.info/about-us/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/about-us/</a></li>
-<li class="">ViewDNS.info, <code>Reverse IP Lookup</code>: <a href="https://viewdns.info/reverseip/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reverseip/</a></li>
-<li class="">ViewDNS.info, <code>Reverse Whois Lookup</code>: <a href="https://viewdns.info/reversewhois/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversewhois/</a></li>
-<li class="">ViewDNS.info, <code>Reverse NS Lookup</code>: <a href="https://viewdns.info/reversens/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversens/</a></li>
-<li class="">ViewDNS.info, <code>Reverse MX Lookup</code>: <a href="https://viewdns.info/reversemx/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/reversemx/</a></li>
-<li class="">ViewDNS.info, <code>IP History</code>: <a href="https://viewdns.info/iphistory/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/iphistory/</a></li>
-<li class="">ViewDNS.info, <code>Subdomain Discovery</code>: <a href="https://viewdns.info/subdomains/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/subdomains/</a></li>
-<li class="">ViewDNS.info, <code>API Documentation</code>: <a href="https://viewdns.info/api/documentation/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/api/documentation/</a></li>
-<li class="">ViewDNS.info, <code>API Error Codes</code>: <a href="https://viewdns.info/api/documentation/errors/" target="_blank" rel="noopener noreferrer" class="">https://viewdns.info/api/documentation/errors/</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="DNS" term="DNS"/>
-        <category label="Infraestructura" term="Infraestructura"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Due Diligence" term="Due Diligence"/>
         <category label="Tooling" term="Tooling"/>
     </entry>
 </feed>
