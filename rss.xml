@@ -4,10 +4,156 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 07 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 08 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Companies House en OSINT: registro societario, PSC y filings con contexto]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto</guid>
+            <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando documentos societarios publicos, historial de filings, personas con control significativo y una linea temporal de verificacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando documentos societarios publicos, historial de filings, personas con control significativo y una linea temporal de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-08-companies-house-osint-registro-societario-psc-filings-contexto-c6d4ca4e86c2e3af911e482f34a284d2.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una sociedad puede parecer limpia en una web corporativa, pero cambiar de forma cuando lees su numero registral, sus cuentas, sus cargos, sus personas con control significativo, sus direcciones historicas y sus documentos presentados. <code>Companies House</code> es una de esas fuentes que obligan a bajar del relato comercial al registro primario: no resuelve una investigacion por si sola, pero ayuda a convertir sospechas vagas en preguntas verificables.</p>
+<p>Revisando la documentacion publica el <strong>8 de julio de 2026</strong>, el servicio <code>Find and update company information</code> permite buscar gratis datos publicos de empresas britanicas, ver documentos, cargos, personas descalificadas, informacion de hipotecas/charges, insolvencia y seguir empresas para recibir alertas. La guia oficial fue actualizada el <strong>9 de junio de 2026</strong> y recuerda un limite clave: la informacion disponible no debe tratarse como fuente completa de derecho societario ni como sustituto de asesoramiento profesional. Ademas, las reformas de la <code>Economic Crime and Corporate Transparency Act</code> han introducido verificaciones de identidad, nuevos poderes de comprobacion y cambios en la calidad del registro.</p>
+<p>Este articulo esta escrito para analistas OSINT, equipos de compliance, periodistas, investigadores corporativos y defensores que trabajan con fuentes abiertas de forma proporcionada. No contiene instrucciones para acosar personas, perfilar vidas privadas, doxxing ni automatizacion abusiva contra servicios publicos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-companies-house-y-para-que-sirve">Que es Companies House y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#que-es-companies-house-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es Companies House y para que sirve" title="Enlace directo al Que es Companies House y para que sirve" translate="no">​</a></h2>
+<p><a href="https://www.gov.uk/government/organisations/companies-house" target="_blank" rel="noopener noreferrer" class=""><code>Companies House</code></a> es el registro mercantil del Reino Unido para sociedades constituidas bajo el marco correspondiente de Inglaterra y Gales, Escocia o Irlanda del Norte. Su funcion practica para OSINT es permitir que una investigacion societaria empiece por una entidad legal concreta, no solo por una marca, dominio o nombre comercial.</p>
+<p>El servicio publico <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class=""><code>Find and update company information</code></a> permite buscar por nombre de empresa, numero societario u oficial. La pagina de busqueda muestra funciones como ver datos y documentos, buscar directores descalificados, seguir empresas, consultar busqueda avanzada y acceder a registros disueltos.</p>
+<p>Para un flujo de investigacion responsable, Companies House ayuda a responder preguntas como estas:</p>
+<ul>
+<li class="">que entidad legal concreta existe detras de un nombre;</li>
+<li class="">cual es su numero de compania y su estado actual;</li>
+<li class="">cuando se incorporo, si esta activa, disuelta, en liquidacion o con otra situacion;</li>
+<li class="">que direccion registrada declara y como ha cambiado;</li>
+<li class="">que <code>SIC codes</code> usa para describir su actividad;</li>
+<li class="">que cuentas, confirmation statements y otros documentos ha presentado;</li>
+<li class="">que cargos actuales o historicos aparecen;</li>
+<li class="">que personas con control significativo (<code>PSC</code>) declara;</li>
+<li class="">que cargas, hipotecas o insolvencias figuran cuando aplica;</li>
+<li class="">que fechas de proximas cuentas o declaraciones conviene vigilar.</li>
+</ul>
+<p>La guia oficial de busqueda explica que los datos publicos pueden verse gratis sin registrarse y que tambien existe una <code>API</code> para acceder a actualizaciones en tiempo real. Esa combinacion es potente: interfaz web para revision humana, <code>API</code> para flujos documentados y alertas de seguimiento para cambios relevantes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una ONG ficticia, <code>Puente Claro</code>, evalua un proveedor britanico que ofrece servicios de verificacion documental. La web habla de "grupo internacional", "oficinas en Londres" y "decadas de experiencia", pero el equipo de due diligence necesita separar tres planos:</p>
+<table><thead><tr><th>Pregunta</th><th>Dato que buscaria</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Identidad legal</td><td>Numero de compania, estado y fecha de incorporacion</td><td>Confirma que entidad estas investigando, no si es fiable</td></tr><tr><td>Continuidad</td><td>Filing history, cuentas y confirmation statements</td><td>Muestra habitos de presentacion, no calidad operativa</td></tr><tr><td>Control</td><td>PSC y cargos</td><td>Sugiere estructura formal, no control real fuera del registro</td></tr><tr><td>Actividad</td><td>SIC codes y cuentas</td><td>Ayuda a contextualizar, pero puede ser generico</td></tr><tr><td>Riesgo temporal</td><td>cambios recientes de direccion, cargos o nombre</td><td>Senala preguntas, no culpabilidad</td></tr></tbody></table>
+<p>Un flujo sano no empezaria con una acusacion. Empezaria con una ficha de entidad:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Entidad: Northbridge Verification Services Ltd (ficticia)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Numero: 00000000 (ficticio)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Estado: active / dissolved / liquidation, segun registro</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de consulta: 2026-07-08</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente primaria: URL de Companies House</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Hipotesis: comprobar si el proveedor real coincide con la entidad legal citada</span><br></span></code></pre></div></div>
+<p>Despues vendria la trazabilidad: capturar la URL consultada, anotar fecha y hora, descargar solo documentos necesarios, guardar hashes de los documentos relevantes y separar hechos registrales de inferencias analiticas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-identificador-estable">1. Empieza por el identificador estable<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#1-empieza-por-el-identificador-estable" class="hash-link" aria-label="Enlace directo al 1. Empieza por el identificador estable" title="Enlace directo al 1. Empieza por el identificador estable" translate="no">​</a></h3>
+<p>El nombre de una empresa puede tener variantes, errores, marcas comerciales o traducciones. El numero de compania es mucho mas estable. Si partes de una web, factura o nota de prensa, busca:</p>
+<ul>
+<li class="">razon social exacta;</li>
+<li class="">numero de compania;</li>
+<li class="">direccion registrada;</li>
+<li class="">nombres anteriores;</li>
+<li class="">dominios o marcas que la propia entidad declare.</li>
+</ul>
+<p>Si varias empresas se parecen, no las fusiones deprisa. Crea una tabla de candidatos y descarta con evidencia: jurisdiccion, fecha, direccion, cargos, documento fuente y relacion declarada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-lee-el-perfil-como-una-linea-temporal">2. Lee el perfil como una linea temporal<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#2-lee-el-perfil-como-una-linea-temporal" class="hash-link" aria-label="Enlace directo al 2. Lee el perfil como una linea temporal" title="Enlace directo al 2. Lee el perfil como una linea temporal" translate="no">​</a></h3>
+<p>El error habitual es abrir el perfil actual y copiar tres campos. En investigacion, la pregunta suele ser temporal:</p>
+<ul>
+<li class="">cuando se creo la sociedad;</li>
+<li class="">cuando cambio de nombre;</li>
+<li class="">cuando cambio de direccion;</li>
+<li class="">cuando entraron o salieron cargos;</li>
+<li class="">cuando se presentaron cuentas;</li>
+<li class="">si hubo periodos de retraso, strike off, disolucion o restauracion;</li>
+<li class="">que documentos explican cada cambio.</li>
+</ul>
+<p>La <code>filing history</code> es el hilo conductor. No todos los documentos tienen el mismo peso, y muchos solo registran una declaracion formal. Aun asi, ordenarlos por fecha permite detectar cambios que merecen verificacion adicional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trata-los-psc-como-senal-no-como-sentencia">3. Trata los PSC como senal, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#3-trata-los-psc-como-senal-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 3. Trata los PSC como senal, no como sentencia" title="Enlace directo al 3. Trata los PSC como senal, no como sentencia" translate="no">​</a></h3>
+<p>Las personas con control significativo (<code>PSC</code>) son una pieza central de transparencia societaria, pero conviene leerlas con cuidado. Un PSC puede aparecer por porcentaje de acciones, derechos de voto, capacidad de nombrar directores u otras formas de influencia significativa. La ausencia, el cambio o la naturaleza de una declaracion PSC no deberian convertirse automaticamente en acusacion.</p>
+<p>Desde el <strong>18 de noviembre de 2025</strong>, la verificacion de identidad paso a ser requisito legal para directores y PSC dentro de un periodo transitorio de 12 meses, segun la pagina oficial de cambios de Companies House. Para OSINT, esto no significa que todo dato historico sea perfecto ni que la verificacion resuelva estructuras complejas. Significa que el contexto normativo esta cambiando y que los informes deben fechar claramente la consulta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-con-fuentes-primarias-no-solo-agregadores">4. Cruza con fuentes primarias, no solo agregadores<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#4-cruza-con-fuentes-primarias-no-solo-agregadores" class="hash-link" aria-label="Enlace directo al 4. Cruza con fuentes primarias, no solo agregadores" title="Enlace directo al 4. Cruza con fuentes primarias, no solo agregadores" translate="no">​</a></h3>
+<p><code>OpenCorporates</code>, bases de sanciones, prensa, webs corporativas, dominios, registros de contratacion y archivos web pueden ayudar a encontrar pistas. Pero cuando investigas una sociedad britanica, Companies House debe funcionar como fuente primaria para los datos registrales britanicos.</p>
+<p>Un cruce razonable seria:</p>
+<ul>
+<li class="">Companies House para entidad, filings, cargos, PSC y cambios;</li>
+<li class="">web corporativa para afirmaciones comerciales;</li>
+<li class="">Wayback Machine o Archive.today para versiones historicas de la web;</li>
+<li class="">OpenSanctions si hay coincidencias de sanciones o PEP que deban verificarse;</li>
+<li class="">OpenCorporates si necesitas ampliar a otras jurisdicciones;</li>
+<li class="">registros de contratacion o licitaciones si el caso trata de proveedor publico;</li>
+<li class="">prensa y comunicados solo como contexto, nunca como sustituto del documento registral.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-usa-la-api-con-moderacion-y-trazabilidad">5. Usa la API con moderacion y trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#5-usa-la-api-con-moderacion-y-trazabilidad" class="hash-link" aria-label="Enlace directo al 5. Usa la API con moderacion y trazabilidad" title="Enlace directo al 5. Usa la API con moderacion y trazabilidad" translate="no">​</a></h3>
+<p>El <code>Developer Hub</code> de Companies House describe una <code>REST API</code> que devuelve datos en <code>JSON</code> y una lista de especificaciones <code>OpenAPI</code>. La autenticacion de API usa una clave mediante autenticacion basica; algunas funciones requieren <code>OAuth 2.0</code>.</p>
+<p>Para un flujo OSINT responsable, la API tiene sentido cuando:</p>
+<ul>
+<li class="">necesitas revisar cambios de una lista acotada de entidades;</li>
+<li class="">quieres construir una tabla reproducible con campos concretos;</li>
+<li class="">vas a documentar consultas y fechas;</li>
+<li class="">respetas limites, terminos y uso aceptable;</li>
+<li class="">evitas descargar mas informacion personal de la necesaria.</li>
+</ul>
+<p>No uses automatizacion para degradar el servicio, hacer scraping masivo innecesario ni construir bases de datos de personas sin base legitima. La propia guia de servicio advierte que las bases de datos buscables no estan pensadas como fuente de descargas masivas y que el uso que degrade el servicio puede ser bloqueado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Companies House es fuerte porque es una fuente primaria, pero no es infalible. La guia oficial incluye varios matices que deberian aparecer en cualquier informe serio:</p>
+<ul>
+<li class="">el servicio no pretende ser una fuente completa de derecho societario;</li>
+<li class="">puede haber errores u omisiones;</li>
+<li class="">algunos documentos se revisan con comprobaciones basicas, no con auditoria sustantiva completa;</li>
+<li class="">el registro puede contener informacion que despues se corrige, elimina o anota;</li>
+<li class="">los enlaces externos dentro de documentos no implican respaldo;</li>
+<li class="">los datos personales publicados deben tratarse con minimizacion y proporcionalidad.</li>
+</ul>
+<p>Tambien hay falsos positivos tipicos:</p>
+<ul>
+<li class="">dos personas con el mismo nombre tratadas como una sola;</li>
+<li class="">empresas con nombres parecidos mezcladas por error;</li>
+<li class="">direccion de agente o proveedor leida como oficina operativa;</li>
+<li class="">SIC code generico tratado como descripcion exacta del negocio;</li>
+<li class="">PSC formal interpretado como beneficiario real absoluto;</li>
+<li class="">documento presentado tarde interpretado automaticamente como fraude;</li>
+<li class="">sociedad disuelta confundida con actividad actual.</li>
+</ul>
+<p>La buena practica es escribir en condicional cuando toca. "Figura como director" no es lo mismo que "controla". "Comparte direccion registrada" no es lo mismo que "opera desde el mismo lugar". "Cambio de nombre" no es lo mismo que "intento de ocultacion".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Trabajar con registros societarios no elimina la obligacion de cuidar a personas reales. Algunas recomendaciones practicas:</p>
+<ul>
+<li class="">minimiza datos personales en notas, capturas y entregables;</li>
+<li class="">evita publicar fechas de nacimiento parciales o direcciones si no aportan valor proporcional;</li>
+<li class="">separa empresas, cargos y personas en entidades distintas;</li>
+<li class="">documenta fuentes, fechas y capturas sin crear expedientes innecesarios;</li>
+<li class="">no contactes a domicilios, familiares ni terceros no relacionados;</li>
+<li class="">no uses la investigacion para acoso, exposicion publica o presion personal;</li>
+<li class="">da derecho de replica o verificacion adicional cuando el contexto lo exija;</li>
+<li class="">conserva evidencias de forma segura y con control de acceso.</li>
+</ul>
+<p>En due diligence, la pregunta no es "cuanto puedo encontrar", sino "que necesito saber para tomar una decision proporcionada y verificable".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Companies House funciona muy bien para entidades britanicas. Si el caso cruza fronteras o sectores, conviene combinarlo con:</p>
+<ul>
+<li class=""><code>OpenCorporates</code>, para descubrir entidades en varias jurisdicciones y llegar a registros primarios;</li>
+<li class=""><code>OpenOwnership</code>, para modelos de beneficiarios reales cuando existan datos estructurados;</li>
+<li class=""><code>OpenSanctions</code>, para revisar coincidencias de sanciones, PEP y listas relevantes con cautela;</li>
+<li class=""><code>EDGAR</code>, si hay companias cotizadas o filings estadounidenses;</li>
+<li class="">registros mercantiles nacionales, cuando la entidad no sea britanica;</li>
+<li class="">herramientas de limpieza como <code>OpenRefine</code>, si vas a reconciliar muchas variantes de nombres.</li>
+</ul>
+<p>El takeaway accionable es sencillo: usa Companies House como <strong>registro primario fechado</strong>, no como maquina de conclusiones. Primero identifica la entidad correcta, luego ordena documentos en una linea temporal, despues cruza con fuentes independientes y solo al final formula hipotesis. En investigacion societaria, la precision suele venir de escribir menos y comprobar mas.</p>
+<p>Como siguiente paso editorial, tendria sentido construir una plantilla de due diligence OSINT para entidades legales: campos minimos, fuentes primarias, criterios de incertidumbre y un ejemplo ficticio completo de informe.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://find-and-update.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class="">Companies House: Find and update company information</a></li>
+<li class=""><a href="https://www.gov.uk/guidance/searching-the-companies-house-register" target="_blank" rel="noopener noreferrer" class="">Searching the Companies House register - GOV.UK</a></li>
+<li class=""><a href="https://developer.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class="">Companies House API overview</a></li>
+<li class=""><a href="https://developer.company-information.service.gov.uk/overview" target="_blank" rel="noopener noreferrer" class="">Companies House REST API</a></li>
+<li class=""><a href="https://developer.company-information.service.gov.uk/authentication" target="_blank" rel="noopener noreferrer" class="">API authentication - Companies House Developer Hub</a></li>
+<li class=""><a href="https://changestoukcompanylaw.campaign.gov.uk/identity-verification/" target="_blank" rel="noopener noreferrer" class="">Identity verification - Changes to UK company law</a></li>
+<li class=""><a href="https://changestoukcompanylaw.campaign.gov.uk/changes-at-a-glance/" target="_blank" rel="noopener noreferrer" class="">Changes at a glance - Changes to UK company law</a></li>
+<li class=""><a href="https://www.gov.uk/government/news/progress-made-in-cleaning-up-companies-house-register-as-further-steps-taken-to-tackle-economic-crime" target="_blank" rel="noopener noreferrer" class="">Progress made in cleaning up Companies House register - GOV.UK</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Due Diligence</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Privacidad</category>
+            <category>Investigacion</category>
+        </item>
         <item>
             <title><![CDATA[OpenRefine en OSINT: limpiar datasets, reconciliar entidades y no fabricar certezas]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto</link>
@@ -2440,132 +2586,6 @@
             <category>Verificacion</category>
             <category>Privacidad</category>
             <category>Due Diligence</category>
-            <category>Tooling</category>
-        </item>
-        <item>
-            <title><![CDATA[GDELT en OSINT: cobertura mediatica global, narrativas y contexto sin confundir volumen con verdad]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto</guid>
-            <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT leyendo mapas, titulares y lineas temporales globales para separar cobertura, narrativa y hecho]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT leyendo mapas, titulares y lineas temporales globales para separar cobertura, narrativa y hecho" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-16-gdelt-osint-cobertura-mediatica-narrativas-contexto-2d6553d6acc9f57e67efa00d27fe98ce.png" width="1376" height="768" class="img_ev3q"></p>
-<p>En muchas investigaciones OSINT llega un momento incomodo: ya no faltan senales, faltan criterios para leerlas. Hay demasiados titulares, demasiados paises hablando a la vez y demasiada tentacion de usar el volumen como si fuera una prueba. <code>GDELT</code> resulta util justo ahi, cuando lo que necesitas no es "otra noticia mas", sino una forma estructurada de mirar <strong>quien esta hablando de que, desde donde, con que tono y con que cambios de intensidad a lo largo del tiempo</strong>.</p>
-<p>La pagina principal del proyecto, consultada el <strong>16 de junio de 2026</strong>, lo presenta como una base de datos abierta y en tiempo casi real sobre la sociedad humana vista a traves de los medios de comunicacion del mundo. Su documentacion publica deja una idea metodologica muy valiosa para OSINT: <code>GDELT</code> no sustituye la verificacion, pero si ayuda a detectar <strong>patrones de cobertura, cambios narrativos, picos temporales y relaciones entre entidades</strong> que merecen revision adicional en fuentes primarias.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>GDELT</code> (<code>Global Database of Events, Language, and Tone</code>) combina varias capas utiles para analistas:</p>
-<ul>
-<li class="">una base de eventos estructurados, georreferenciados y clasificados;</li>
-<li class="">una capa de entidades, temas y emociones (<code>GKG</code>, <code>Global Knowledge Graph</code>);</li>
-<li class="">herramientas de consulta y exportacion para navegar resultados sin descargarlo todo;</li>
-<li class="">APIs orientadas a buscar documentos, contexto textual y senales geograficas.</li>
-</ul>
-<p>La web oficial afirma que el proyecto monitoriza medios impresos, web y broadcast de practicamente todo el mundo, en mas de <code>100</code> idiomas, con archivo historico desde el <code>1 de enero de 1979</code> y actualizaciones cada <code>15 minutos</code>. Esa escala no convierte a <code>GDELT</code> en una "verdad global", pero si lo vuelve muy util para preguntas como estas:</p>
-<ul>
-<li class="">donde esta apareciendo una narrativa y como crece o se enfria;</li>
-<li class="">que actores, lugares u organizaciones quedan asociados de forma repetida;</li>
-<li class="">si un supuesto incidente parece local, regional o ya esta siendo amplificado fuera;</li>
-<li class="">que ventanas temporales conviene revisar despues con hemeroteca, satelite, registros o fuentes oficiales.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una investigacion defensiva sobre una empresa ficticia, <code>acme-logistics.example</code>, que opera en varios paises y detecta rumores online sobre bloqueos en una cadena de suministro. Antes de movilizar a media organizacion, un analista responsable quiere saber tres cosas:</p>
-<ol>
-<li class="">si la conversacion esta realmente creciendo o solo se concentra en unas pocas piezas repetidas;</li>
-<li class="">si la cobertura se limita a un pais o ya salto a medios de otras regiones;</li>
-<li class="">que entidades, puertos, ciudades o proveedores aparecen unidos con mayor frecuencia.</li>
-</ol>
-<p>Un flujo prudente con <code>GDELT</code> podria ser este:</p>
-<ol>
-<li class="">Lanzar una consulta inicial en la <code>DOC 2.0 API</code> para reunir titulares recientes sobre la compania, el puerto o el incidente.</li>
-<li class="">Comparar el resultado con una consulta mas cerrada en <code>Context 2.0</code> para reducir menciones superficiales y quedarte con frases donde los terminos realmente conviven.</li>
-<li class="">Mirar la distribucion temporal para detectar si el pico es organico, sostenido o fruto de una sola oleada de republicacion.</li>
-<li class="">Usar <code>GKG</code> o visualizaciones de entidades para ver que lugares, organizaciones o temas aparecen cerca del caso.</li>
-<li class="">Salir de <code>GDELT</code> y validar con fuentes de mas peso: autoridad portuaria, comunicados empresariales, prensa local original, registros maritimos o satelite si aplica.</li>
-</ol>
-<p>La ganancia no esta en "resolver" la investigacion desde un panel, sino en <strong>priorizar donde mirar despues</strong> y en documentar por que una hipotesis merece mas recursos que otra.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-no-por-un-dashboard">1. Empieza por una pregunta, no por un dashboard<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#1-empieza-por-una-pregunta-no-por-un-dashboard" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta, no por un dashboard" title="Enlace directo al 1. Empieza por una pregunta, no por un dashboard" translate="no">​</a></h3>
-<p><code>GDELT</code> impresiona mucho visualmente, pero usarlo sin pregunta concreta lleva a conclusiones huecas. Formula algo verificable:</p>
-<ul>
-<li class="">"Ha aumentado la cobertura sobre cortes logistico-portuarios en las ultimas 72 horas?"</li>
-<li class="">"Que paises y medios estan amplificando esta narrativa?"</li>
-<li class="">"Se habla del incidente como hecho confirmado o como posibilidad?"</li>
-</ul>
-<p>Si no defines la pregunta, cualquier nube de palabras te parecera inteligencia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-doc-20-para-abrir-cobertura">2. Usa <code>DOC 2.0</code> para abrir cobertura<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#2-usa-doc-20-para-abrir-cobertura" class="hash-link" aria-label="Enlace directo al 2-usa-doc-20-para-abrir-cobertura" title="Enlace directo al 2-usa-doc-20-para-abrir-cobertura" translate="no">​</a></h3>
-<p>El anuncio oficial de <code>DOC 2.0</code> explica que esta API de texto completo permite buscar en una ventana movil de los ultimos <code>3</code> meses y que trabaja sobre traducciones al ingles de la monitorizacion online en <code>65</code> idiomas. Para OSINT eso es muy practico cuando necesitas:</p>
-<ul>
-<li class="">ver rapido que titulares existen sobre un tema;</li>
-<li class="">detectar medios recurrentes;</li>
-<li class="">encontrar terminologia equivalente en varios idiomas;</li>
-<li class="">identificar imagenes o piezas visuales asociadas a una cobertura.</li>
-</ul>
-<p>Es una gran puerta de entrada, pero no confundas "resultado devuelto" con "articulo central". Un medio puede mencionar tu termino de paso y aun asi entrar en la lista.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-context-20-cuando-la-relevancia-importa-mas-que-la-cantidad">3. Usa <code>Context 2.0</code> cuando la relevancia importa mas que la cantidad<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#3-usa-context-20-cuando-la-relevancia-importa-mas-que-la-cantidad" class="hash-link" aria-label="Enlace directo al 3-usa-context-20-cuando-la-relevancia-importa-mas-que-la-cantidad" title="Enlace directo al 3-usa-context-20-cuando-la-relevancia-importa-mas-que-la-cantidad" translate="no">​</a></h3>
-<p>La <code>Context 2.0 API</code> nacio para resolver un problema clasico: un documento puede contener dos palabras clave muy alejadas entre si y seguir apareciendo como coincidencia. Su enfoque es mas estricto, porque busca a nivel de frase y devuelve un fragmento contextual. Eso ayuda a separar:</p>
-<ul>
-<li class="">menciones de pasada;</li>
-<li class="">articulos que realmente tratan la relacion entre dos terminos;</li>
-<li class="">narrativas disputadas donde la misma combinacion verbal aparece con sentidos distintos.</li>
-</ul>
-<p>En investigaciones sobre empresas, conflictos, desinformacion o reputacion, esta capa suele ahorrar bastante ruido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-la-capa-de-eventos-y-entidades-para-abrir-pivotes">4. Usa la capa de eventos y entidades para abrir pivotes<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#4-usa-la-capa-de-eventos-y-entidades-para-abrir-pivotes" class="hash-link" aria-label="Enlace directo al 4. Usa la capa de eventos y entidades para abrir pivotes" title="Enlace directo al 4. Usa la capa de eventos y entidades para abrir pivotes" translate="no">​</a></h3>
-<p>La pagina principal de <code>GDELT</code> describe tres corrientes principales: base de eventos, <code>GKG</code> y una capa visual. En terminos practicos:</p>
-<ul>
-<li class="">la base de eventos sirve para leer acciones codificadas y su dimension temporal;</li>
-<li class=""><code>GKG</code> sirve para relacionar personas, organizaciones, lugares, temas y emociones;</li>
-<li class="">la capa visual puede ayudarte a entender como se ilustra una historia en medios.</li>
-</ul>
-<p>Ese cruce es el punto fuerte de <code>GDELT</code>: no solo pregunta "quien publico algo", sino tambien "que mas aparece alrededor".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-sal-pronto-a-validacion-externa">5. Sal pronto a validacion externa<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#5-sal-pronto-a-validacion-externa" class="hash-link" aria-label="Enlace directo al 5. Sal pronto a validacion externa" title="Enlace directo al 5. Sal pronto a validacion externa" translate="no">​</a></h3>
-<p>Un buen uso de <code>GDELT</code> dura poco y empuja hacia fuera. Cuando ya has detectado entidades relevantes, picos de tiempo y cobertura geografica, toca contrastar:</p>
-<ul>
-<li class="">hemeroteca original y paginas archivadas;</li>
-<li class="">registros mercantiles o sanciones, si la pieza es societaria;</li>
-<li class=""><code>AIS</code>, <code>ADS-B</code>, satelite o mapas, si la historia tiene geografia operativa;</li>
-<li class="">comunicados oficiales, si necesitas fijar cronologia o desmentidos.</li>
-</ul>
-<p><code>GDELT</code> es muy bueno para orientar. Es mucho peor para cerrar solo una historia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Aqui es donde mas se equivoca la gente:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-no-equivale-a-verdad">Cobertura no equivale a verdad<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#cobertura-no-equivale-a-verdad" class="hash-link" aria-label="Enlace directo al Cobertura no equivale a verdad" title="Enlace directo al Cobertura no equivale a verdad" translate="no">​</a></h3>
-<p>Que un tema aparezca mucho no significa que este bien confirmado. Puede reflejar amplificacion, sindicación, interes editorial o ruido coordinado.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-heredan-sesgos-de-la-cobertura">Los datos heredan sesgos de la cobertura<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#los-datos-heredan-sesgos-de-la-cobertura" class="hash-link" aria-label="Enlace directo al Los datos heredan sesgos de la cobertura" title="Enlace directo al Los datos heredan sesgos de la cobertura" translate="no">​</a></h3>
-<p><code>GDELT</code> observa el mundo a traves de medios. Si una region tiene poca cobertura, si un idioma queda peor traducido o si cierto ecosistema mediatico replica la misma pieza cientos de veces, tu lectura puede quedar torcida.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-tono-y-las-emociones-no-son-diagnosticos-perfectos">El tono y las emociones no son diagnosticos perfectos<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#el-tono-y-las-emociones-no-son-diagnosticos-perfectos" class="hash-link" aria-label="Enlace directo al El tono y las emociones no son diagnosticos perfectos" title="Enlace directo al El tono y las emociones no son diagnosticos perfectos" translate="no">​</a></h3>
-<p>Las capas de <code>tone</code>, temas o emociones sirven como orientacion. No conviene tratarlas como si fueran una lectura semantica definitiva, especialmente en ironia, ambiguedad o traducciones complejas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-asociacion-entre-entidades-pide-corroboracion">La asociacion entre entidades pide corroboracion<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#la-asociacion-entre-entidades-pide-corroboracion" class="hash-link" aria-label="Enlace directo al La asociacion entre entidades pide corroboracion" title="Enlace directo al La asociacion entre entidades pide corroboracion" translate="no">​</a></h3>
-<p>Que una empresa, una ciudad y una persona aparezcan cerca dentro de una misma cobertura no demuestra relacion operativa fuerte. A veces solo comparten contexto narrativo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con ejemplos ficticios o con casos publicos de interes legitimo.</li>
-<li class="">No uses <code>GDELT</code> para perseguir personas privadas ni para construir perfiles invasivos.</li>
-<li class="">Documenta siempre que una observacion viene de cobertura mediatica agregada, no de evidencia primaria.</li>
-<li class="">Guarda capturas, consultas y fechas para que otro analista pueda repetir tu camino.</li>
-<li class="">Si detectas una narrativa sensible, busca fuentes locales y originales antes de resumirla para terceros.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>GDELT</code> no vive solo. Suele combinar bien con:</p>
-<ul>
-<li class=""><code>Wayback Machine</code> o <code>Archive.today</code>, si quieres preservar piezas concretas;</li>
-<li class=""><code>OpenAlex</code>, si el tema exige contexto academico o expertos citados;</li>
-<li class=""><code>Wikidata</code>, si necesitas desambiguar entidades antes de consultar;</li>
-<li class=""><code>OpenSanctions</code> u otros registros, si una narrativa toca personas juridicas o listas de riesgo;</li>
-<li class=""><code>Overpass Turbo</code> o fuentes geograficas, si la historia necesita mapa y terreno.</li>
-</ul>
-<p>La takeaway accionable es esta: usa <code>GDELT</code> para <strong>detectar patron, contexto y geografia de cobertura</strong>, no para coronar una conclusion deprisa. Si una historia crece en varios idiomas, cambia de tono en pocas horas o empieza a juntar entidades nuevas, ahi tienes una pista fuerte para profundizar. Pero la prueba sigue estando fuera del agregador.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/gdelt-osint-cobertura-mediatica-narrativas-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.gdeltproject.org/" target="_blank" rel="noopener noreferrer" class="">The GDELT Project</a></li>
-<li class=""><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener noreferrer" class="">Data: Querying, Analyzing and Downloading</a></li>
-<li class=""><a href="https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/" target="_blank" rel="noopener noreferrer" class="">GDELT DOC 2.0 API Debuts!</a></li>
-<li class=""><a href="https://blog.gdeltproject.org/announcing-the-gdelt-context-2-0-api/" target="_blank" rel="noopener noreferrer" class="">Announcing The GDELT Context 2.0 API</a></li>
-<li class=""><a href="https://blog.gdeltproject.org/gdelt-2-0-our-global-world-in-realtime/" target="_blank" rel="noopener noreferrer" class="">GDELT 2.0: Our Global World in Realtime</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Datos</category>
-            <category>Investigacion</category>
-            <category>Verificacion</category>
-            <category>Tradecraft</category>
             <category>Tooling</category>
         </item>
     </channel>
