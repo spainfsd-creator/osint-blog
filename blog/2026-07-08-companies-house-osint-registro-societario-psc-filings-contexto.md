@@ -9,6 +9,9 @@ image: /img/blog/2026-07-08-companies-house-osint-registro-societario-psc-filing
 
 ![Ilustracion editorial de una analista OSINT revisando documentos societarios publicos, historial de filings, personas con control significativo y una linea temporal de verificacion](/img/blog/2026-07-08-companies-house-osint-registro-societario-psc-filings-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/companies-house-osint-registro-societario-psc-filings-contexto.m4a)
+
+
 Una sociedad puede parecer limpia en una web corporativa, pero cambiar de forma cuando lees su numero registral, sus cuentas, sus cargos, sus personas con control significativo, sus direcciones historicas y sus documentos presentados. `Companies House` es una de esas fuentes que obligan a bajar del relato comercial al registro primario: no resuelve una investigacion por si sola, pero ayuda a convertir sospechas vagas en preguntas verificables.
 
 Revisando la documentacion publica el **8 de julio de 2026**, el servicio `Find and update company information` permite buscar gratis datos publicos de empresas britanicas, ver documentos, cargos, personas descalificadas, informacion de hipotecas/charges, insolvencia y seguir empresas para recibir alertas. La guia oficial fue actualizada el **9 de junio de 2026** y recuerda un limite clave: la informacion disponible no debe tratarse como fuente completa de derecho societario ni como sustituto de asesoramiento profesional. Ademas, las reformas de la `Economic Crime and Corporate Transparency Act` han introducido verificaciones de identidad, nuevos poderes de comprobacion y cambios en la calidad del registro.
