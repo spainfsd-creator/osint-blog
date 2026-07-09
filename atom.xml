@@ -2,11 +2,186 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-08T00:00:00.000Z</updated>
+    <updated>2026-07-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Google Fact Check Explorer en OSINT: verificar afirmaciones sin delegar el análisis]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto"/>
+        <updated>2026-07-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando una afirmación pública con verificaciones independientes, fuentes y una línea temporal]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando una afirmación pública con verificaciones independientes, fuentes y una línea temporal" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-09-google-fact-check-explorer-osint-verificar-afirmaciones-contexto-3c3c57381ec294dd887750ed85b6d63a.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una afirmación viral llega acompañada de una captura, una fecha y miles de interacciones. Parece nueva, pero quizá circuló hace tres años con otro país, otra fotografía o una cifra ligeramente distinta. Antes de reconstruir toda la historia desde cero, conviene preguntar algo más básico: <strong>¿ha verificado ya esta afirmación una organización especializada y qué evidencia utilizó?</strong></p>
+<p><a href="https://toolbox.google.com/factcheck/explorer" target="_blank" rel="noopener noreferrer" class=""><code>Google Fact Check Explorer</code></a> sirve para localizar verificaciones publicadas por organizaciones independientes. No decide qué es verdad, no sustituye la lectura de las fuentes y tampoco convierte una etiqueta en prueba. Su utilidad OSINT es más concreta: encontrar antecedentes, descubrir formulaciones alternativas de una afirmación y abrir nuevas rutas de verificación.</p>
+<p>Revisando la documentación oficial el <strong>9 de julio de 2026</strong>, Google mantiene el explorador y una <code>Fact Check Tools API</code> capaz de buscar afirmaciones verificadas mediante texto o imagen. Hay, sin embargo, un cambio que no debe pasar desapercibido: Google está retirando gradualmente el soporte de <code>ClaimReview</code> en los resultados de Search, aunque confirma que ese marcado continúa siendo compatible con Fact Check Explorer.</p>
+<p>Este artículo está dirigido a periodistas, analistas, equipos de verificación, investigadores académicos y organizaciones que trabajan con información pública. El objetivo es evaluar afirmaciones de interés público, no perfilar personas, amplificar rumores ni señalar a particulares.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-google-fact-check-explorer-y-para-qué-sirve">Qué es Google Fact Check Explorer y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#qu%C3%A9-es-google-fact-check-explorer-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Google Fact Check Explorer y para qué sirve" title="Enlace directo al Qué es Google Fact Check Explorer y para qué sirve" translate="no">​</a></h2>
+<p>Fact Check Explorer es un buscador especializado sobre verificaciones ya publicadas. Sus resultados pueden mostrar la afirmación revisada, quién la formuló cuando ese dato está disponible, la organización que hizo la comprobación, la fecha, la valoración textual y el enlace al artículo original.</p>
+<p>Buena parte de esa estructura se apoya en <a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class=""><code>ClaimReview</code></a>, un tipo de dato de <code>Schema.org</code> diseñado para describir una revisión factual. La documentación de la <a href="https://developers.google.com/fact-check/tools/api/reference/rest/" target="_blank" rel="noopener noreferrer" class=""><code>Fact Check Tools API</code></a> expone dos vías de consulta sobre afirmaciones:</p>
+<ul>
+<li class="">búsqueda textual mediante <code>claims.search</code>;</li>
+<li class="">búsqueda a partir de una imagen mediante <code>claims.imageSearch</code>.</li>
+</ul>
+<p>La API también dispone de operaciones para gestionar marcado <code>ClaimReview</code> en páginas, pero esa función está orientada a quienes publican verificaciones. Para una investigación OSINT, la parte relevante suele ser la búsqueda y la lectura crítica de los resultados.</p>
+<p>El explorador resulta útil para:</p>
+<ul>
+<li class="">comprobar si una afirmación o imagen ya circuló en otro contexto;</li>
+<li class="">localizar distintas redacciones de un mismo rumor;</li>
+<li class="">comparar verificaciones de varios medios y países;</li>
+<li class="">identificar fuentes primarias citadas por los verificadores;</li>
+<li class="">reconstruir cuándo empezó a documentarse una narrativa;</li>
+<li class="">detectar que una pieza antigua se presenta como actual.</li>
+</ul>
+<p>No es una base de datos universal. Que no aparezca un resultado no demuestra que nadie haya verificado la afirmación, y mucho menos que esta sea verdadera.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una asociación vecinal recibe una imagen compartida por mensajería. El texto afirma que una supuesta normativa europea obligará a cerrar todos los mercados municipales a partir del mes siguiente. La captura no enlaza a ningún documento oficial.</p>
+<p>El equipo de comunicación quiere responder sin agrandar el rumor. Plantea una investigación mínima:</p>
+<ol>
+<li class="">conservar la imagen y anotar cuándo y por qué canal llegó;</li>
+<li class="">transcribir literalmente la afirmación, separándola de comentarios y emojis;</li>
+<li class="">buscar la frase completa y después sus conceptos distintivos;</li>
+<li class="">consultar Fact Check Explorer en castellano y en otros idiomas relevantes;</li>
+<li class="">abrir las verificaciones encontradas y seguir sus enlaces hasta normas, comunicados o registros oficiales;</li>
+<li class="">comprobar si la supuesta fecha, institución y alcance territorial coinciden;</li>
+<li class="">redactar una conclusión limitada a lo demostrado.</li>
+</ol>
+<p>Supongamos que aparecen dos verificaciones antiguas sobre un rumor parecido, pero referido a otro país. Ese hallazgo no resuelve el caso. Sí aporta tres pistas: el rumor tiene antecedentes, la imagen puede estar reciclada y quizá existe una fuente normativa concreta que conviene consultar.</p>
+<p>La conclusión responsable no sería «Fact Check Explorer dice que es falso». Sería algo parecido a esto:</p>
+<blockquote>
+<p>Hemos encontrado antecedentes de una afirmación similar, pero no idéntica. La normativa citada no contiene el cierre descrito y el organismo competente no ha publicado esa medida. Conservamos las diferencias de fecha y territorio como límites de la comparación.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-verificación">Flujo recomendado de verificación<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#flujo-recomendado-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de verificación" title="Enlace directo al Flujo recomendado de verificación" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-convertir-el-contenido-en-una-afirmación-comprobable">1. Convertir el contenido en una afirmación comprobable<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#1-convertir-el-contenido-en-una-afirmaci%C3%B3n-comprobable" class="hash-link" aria-label="Enlace directo al 1. Convertir el contenido en una afirmación comprobable" title="Enlace directo al 1. Convertir el contenido en una afirmación comprobable" translate="no">​</a></h3>
+<p>Una publicación puede mezclar hechos, opiniones, predicciones y acusaciones. Separa la proposición factual:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Afirmación ficticia:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">"La norma X cerrará todos los mercados municipales el 1 de agosto".</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Elementos comprobables:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- existe una norma X;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- la norma afecta a mercados municipales;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- ordena cierres;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- entra en vigor el 1 de agosto;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- su alcance es general.</span><br></span></code></pre></div></div>
+<p>Esta descomposición evita buscar un párrafo emocional entero y ayuda a localizar variantes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-diseñar-varias-consultas">2. Diseñar varias consultas<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#2-dise%C3%B1ar-varias-consultas" class="hash-link" aria-label="Enlace directo al 2. Diseñar varias consultas" title="Enlace directo al 2. Diseñar varias consultas" translate="no">​</a></h3>
+<p>Empieza por una frase distintiva entre comillas. Si no funciona, reduce la consulta a sujeto, acción y cifra o fecha. Prueba sinónimos y traducciones cuando la afirmación pueda haber cruzado fronteras.</p>
+<p>Una secuencia razonable para el ejemplo sería:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">"cerrar todos los mercados municipales"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">"markets must close" regulation</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">mercados municipales norma agosto</span><br></span></code></pre></div></div>
+<p>No fuerces la coincidencia. Dos afirmaciones que comparten palabras pueden referirse a medidas, lugares o periodos diferentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-el-resultado-como-índice-no-como-sentencia">3. Leer el resultado como índice, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#3-leer-el-resultado-como-%C3%ADndice-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 3. Leer el resultado como índice, no como sentencia" title="Enlace directo al 3. Leer el resultado como índice, no como sentencia" translate="no">​</a></h3>
+<p>Abre el artículo de verificación. Comprueba:</p>
+<ul>
+<li class="">qué formulación exacta revisa;</li>
+<li class="">dónde y cuándo apareció;</li>
+<li class="">qué fuentes primarias aporta;</li>
+<li class="">qué metodología explica;</li>
+<li class="">cuándo fue actualizado;</li>
+<li class="">qué significa su escala de valoración;</li>
+<li class="">si distingue hechos comprobados de inferencias.</li>
+</ul>
+<p>La etiqueta «falso», «engañoso» o «sin contexto» solo tiene sentido dentro del análisis y de la escala editorial de cada organización.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-volver-a-las-fuentes-primarias">4. Volver a las fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#4-volver-a-las-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 4. Volver a las fuentes primarias" title="Enlace directo al 4. Volver a las fuentes primarias" translate="no">​</a></h3>
+<p>La propia guía de Google para <code>ClaimReview</code> exige atribuir claramente la afirmación y pide análisis trazables, transparentes y respaldados con referencias a fuentes primarias. Esa exigencia editorial también es una buena regla para el analista.</p>
+<p>Según el caso, vuelve a:</p>
+<ul>
+<li class="">boletines y diarios oficiales;</li>
+<li class="">sentencias o expedientes públicos;</li>
+<li class="">estadísticas con metodología;</li>
+<li class="">transcripciones y vídeos completos;</li>
+<li class="">archivos web;</li>
+<li class="">imágenes originales o de mayor calidad;</li>
+<li class="">comunicados de los organismos competentes.</li>
+</ul>
+<p>Una verificación previa acelera el trabajo, pero no hereda automáticamente autoridad sobre un caso nuevo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-registrar-coincidencias-y-diferencias">5. Registrar coincidencias y diferencias<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#5-registrar-coincidencias-y-diferencias" class="hash-link" aria-label="Enlace directo al 5. Registrar coincidencias y diferencias" title="Enlace directo al 5. Registrar coincidencias y diferencias" translate="no">​</a></h3>
+<p>Usa una tabla sencilla:</p>
+<table><thead><tr><th>Elemento</th><th>Afirmación investigada</th><th>Verificación encontrada</th><th>Coincide</th></tr></thead><tbody><tr><td>Acción</td><td>Cierre obligatorio</td><td>Restricción horaria</td><td>No</td></tr><tr><td>Territorio</td><td>Toda la UE</td><td>Un municipio</td><td>No</td></tr><tr><td>Fecha</td><td>Agosto de 2026</td><td>Enero de 2024</td><td>No</td></tr><tr><td>Imagen</td><td>Captura sin fuente</td><td>Fotograma archivado</td><td>Parcial</td></tr></tbody></table>
+<p>Las diferencias suelen ser más informativas que la semejanza general.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-conservar-una-conclusión-proporcional">6. Conservar una conclusión proporcional<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#6-conservar-una-conclusi%C3%B3n-proporcional" class="hash-link" aria-label="Enlace directo al 6. Conservar una conclusión proporcional" title="Enlace directo al 6. Conservar una conclusión proporcional" translate="no">​</a></h3>
+<p>Clasifica internamente el resultado como confirmado, refutado, no demostrado o pendiente, pero explica siempre por qué. Si falta el documento original o no puedes fijar la fecha, dilo. Una conclusión estrecha y reproducible vale más que una etiqueta contundente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-con-la-api-sin-convertirla-en-oráculo">Automatización con la API, sin convertirla en oráculo<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#automatizaci%C3%B3n-con-la-api-sin-convertirla-en-or%C3%A1culo" class="hash-link" aria-label="Enlace directo al Automatización con la API, sin convertirla en oráculo" title="Enlace directo al Automatización con la API, sin convertirla en oráculo" translate="no">​</a></h2>
+<p>La documentación de <a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims/search" target="_blank" rel="noopener noreferrer" class=""><code>claims.search</code></a> describe filtros por consulta textual, idioma, sitio del editor, antigüedad máxima y paginación. La respuesta puede incluir texto de la afirmación, autor atribuido, fecha y una o varias revisiones con editor, URL, título, fecha, valoración e idioma.</p>
+<p>Esto permite construir un monitor para asuntos de interés público o ayudar a un equipo a encontrar antecedentes. Un esquema de trabajo prudente sería:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada -&gt; normalizar consulta -&gt; buscar candidatos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        -&gt; deduplicar URLs -&gt; revisión humana</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        -&gt; abrir fuentes primarias -&gt; documentar conclusión</span><br></span></code></pre></div></div>
+<p>La API requiere credenciales y sus resultados deben tratarse como candidatos. No conviene:</p>
+<ul>
+<li class="">asignar automáticamente una valoración a contenido nuevo;</li>
+<li class="">bloquear una URL o cuenta solo por semejanza textual;</li>
+<li class="">mezclar escalas editoriales como si fueran equivalentes;</li>
+<li class="">guardar datos personales que no sean necesarios;</li>
+<li class="">publicar acusaciones generadas por una coincidencia aproximada.</li>
+</ul>
+<p>Además, la documentación denomina <code>v1alpha1</code> a los recursos actuales. Ese identificador y cualquier límite operativo deben comprobarse antes de integrar la API en producción; no hay que asumir estabilidad contractual por el mero hecho de que el servicio esté documentado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
+<p>Los resultados dependen de las verificaciones publicadas, del marcado que pueda interpretar el servicio y de la indexación. Habrá más cobertura en unos idiomas, países y asuntos que en otros.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-resultado">Ausencia de resultado<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#ausencia-de-resultado" class="hash-link" aria-label="Enlace directo al Ausencia de resultado" title="Enlace directo al Ausencia de resultado" translate="no">​</a></h3>
+<p>No encontrar nada solo significa que la consulta no devolvió una coincidencia útil. Puede fallar por idioma, redacción, fecha, cobertura o porque nadie haya publicado una verificación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="afirmaciones-parecidas-hechos-distintos">Afirmaciones parecidas, hechos distintos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#afirmaciones-parecidas-hechos-distintos" class="hash-link" aria-label="Enlace directo al Afirmaciones parecidas, hechos distintos" title="Enlace directo al Afirmaciones parecidas, hechos distintos" translate="no">​</a></h3>
+<p>Un rumor se adapta. Cambian el lugar, la cifra o el protagonista mientras conserva la misma imagen. La coincidencia temática es una pista, no identidad factual.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="escalas-editoriales-incompatibles">Escalas editoriales incompatibles<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#escalas-editoriales-incompatibles" class="hash-link" aria-label="Enlace directo al Escalas editoriales incompatibles" title="Enlace directo al Escalas editoriales incompatibles" translate="no">​</a></h3>
+<p>«Falso», «mayormente falso» y «engañoso» no son valores universales. Cada publicación puede definirlos de forma diferente. Lee la metodología y la explicación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-actualidad-cambia-la-respuesta">La actualidad cambia la respuesta<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#la-actualidad-cambia-la-respuesta" class="hash-link" aria-label="Enlace directo al La actualidad cambia la respuesta" title="Enlace directo al La actualidad cambia la respuesta" translate="no">​</a></h3>
+<p>Una verificación correcta en 2024 puede no resolver una afirmación sobre 2026. Revisa fecha, jurisdicción y vigencia de las fuentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-en-el-ecosistema">Cambios en el ecosistema<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#cambios-en-el-ecosistema" class="hash-link" aria-label="Enlace directo al Cambios en el ecosistema" title="Enlace directo al Cambios en el ecosistema" translate="no">​</a></h3>
+<p>Google indica que está retirando el soporte de <code>ClaimReview</code> en los resultados de Google Search, pero mantiene su compatibilidad con Fact Check Explorer. Son superficies distintas. Un artículo que confunda ambas puede describir una capacidad que ya no funciona como antes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Busca afirmaciones de interés público, no excusas para investigar la vida privada de alguien.</li>
+<li class="">No subas documentos sensibles ni material innecesario a servicios externos.</li>
+<li class="">Recorta o redacta datos personales antes de trabajar con capturas cuando no sean relevantes.</li>
+<li class="">Evita repetir literalmente contenido dañino más veces de las necesarias; una investigación también puede amplificarlo.</li>
+<li class="">Conserva URL, fecha de acceso, consulta utilizada y una copia o referencia archivada cuando sea legal.</li>
+<li class="">Distingue al autor de la afirmación, quien la comparte y quien aparece en la pieza: pueden ser personas distintas.</li>
+<li class="">No publiques una atribución basada solo en nombres, fotografías o cuentas parecidas.</li>
+<li class="">Ofrece mecanismo de corrección y deja trazable qué evidencia cambiaría tu conclusión.</li>
+</ul>
+<p>La verificación responsable no consiste en ganar una discusión. Consiste en producir una explicación que otra persona pueda revisar sin confiar ciegamente en ti.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Fact Check Explorer debe convivir con otras capas:</p>
+<ul>
+<li class="">buscadores generales para localizar la circulación abierta;</li>
+<li class="">búsqueda inversa de imágenes y análisis de fotogramas;</li>
+<li class=""><code>Wayback Machine</code> para contexto histórico;</li>
+<li class="">registros y portales oficiales para evidencia primaria;</li>
+<li class="">hemerotecas para reconstruir cronologías;</li>
+<li class="">bases de verificadores y medios especializados;</li>
+<li class="">herramientas locales para ordenar notas, hashes y capturas.</li>
+</ul>
+<p>Si publicas verificaciones, estudia también la definición de <a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class=""><code>ClaimReview</code></a> y las <a href="https://developers.google.com/search/docs/appearance/structured-data/factcheck" target="_blank" rel="noopener noreferrer" class="">directrices de Google</a>. Estas últimas subrayan transparencia, atribución, política de correcciones y coherencia entre el marcado y el contenido visible.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<p>Antes de cerrar una investigación:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He aislado la afirmación factual.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He buscado variantes, traducciones y fechas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He abierto los artículos completos, no solo las etiquetas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He identificado coincidencias y diferencias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He vuelto a las fuentes primarias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado vigencia, territorio y contexto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He registrado consultas, URLs y fechas de acceso.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He limitado los datos personales recopilados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión explica la evidencia y sus límites.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La ausencia de resultados no se presenta como prueba.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://toolbox.google.com/factcheck/explorer" target="_blank" rel="noopener noreferrer" class="">Google Fact Check Explorer</a>.</li>
+<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/" target="_blank" rel="noopener noreferrer" class="">Referencia de la Fact Check Tools API</a>.</li>
+<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims/search" target="_blank" rel="noopener noreferrer" class="">Método <code>claims.search</code> y sus filtros</a>.</li>
+<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims" target="_blank" rel="noopener noreferrer" class="">Modelo de datos del recurso <code>Claim</code></a>.</li>
+<li class=""><a href="https://developers.google.com/search/docs/appearance/structured-data/factcheck" target="_blank" rel="noopener noreferrer" class="">Directrices de Google para <code>ClaimReview</code></a>.</li>
+<li class=""><a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class="">Definición de <code>ClaimReview</code> en Schema.org</a>.</li>
+<li class=""><a href="https://support.google.com/websearch/answer/12003459" target="_blank" rel="noopener noreferrer" class="">Guía de Google para evaluar información encontrada en la web</a>.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
+<p>Google Fact Check Explorer aporta velocidad y memoria: ayuda a saber si una afirmación, una imagen o una narrativa ya fueron examinadas. Su límite es igualmente importante: <strong>recupera verificaciones; no verifica por ti</strong>.</p>
+<p>La próxima vez que una captura viral parezca urgente, extrae primero la afirmación, busca antecedentes, compara contexto y vuelve a la fuente primaria. Como siguiente tema, merece la pena profundizar en una técnica complementaria: construir una cronología reproducible de un rumor sin amplificarlo.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Research" term="Research"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Companies House en OSINT: registro societario, PSC y filings con contexto]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto</id>
@@ -2541,128 +2716,6 @@
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Infraestructura" term="Infraestructura"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Tooling" term="Tooling"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Epieos en OSINT: busqueda inversa por correo y telefono con contexto, limites y criterio]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto"/>
-        <updated>2026-06-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT correlacionando correo, telefono y perfiles publicos anonimizados en un panel de investigacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT correlacionando correo, telefono y perfiles publicos anonimizados en un panel de investigacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-17-epieos-osint-busqueda-inversa-correo-telefono-contexto-137d0cf6ea077e6896c1ea0b7b481c85.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion legitima parte de un <strong>correo electronico</strong> o de un <strong>numero de telefono</strong>, el riesgo no suele ser "quedarse corto". El riesgo real es <strong>leer demasiado deprisa</strong>: confundir presencia con identidad, confundir una cuenta enlazada con control actual y convertir una coincidencia util en una atribucion que nadie ha verificado. <code>Epieos</code> encaja justo en esa fase intermedia. No te da una verdad final, pero si puede ayudarte a abrir contexto con rapidez sobre huella publica asociada a un correo o telefono, siempre que mantengas disciplina metodologica.</p>
-<p>La situacion actual importa. La pagina oficial de <code>Epieos</code>, consultada el <strong>17 de junio de 2026</strong>, presenta la plataforma como una herramienta OSINT de busqueda inversa por email y telefono, insiste en que no registra consultas y afirma que sus tecnicas no notifican al objetivo. Su guia oficial del <strong>10 de abril de 2026</strong> anade un matiz practico clave: la plataforma esta pensada para investigaciones basadas en correo y telefono, ofrece varios niveles de acceso y recomienda trabajar con cuentas de investigacion separadas cuando haga falta ampliar contexto manualmente. Y sus terminos publicados, consultados tambien el <strong>17 de junio de 2026</strong>, recuerdan algo que conviene no olvidar: <code>Epieos</code> muestra informacion obtenida de fuentes publicamente disponibles, no verifica por ti su exactitud y deja la responsabilidad de uso en manos del analista.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como verificacion periodistica, due diligence, respuesta defensiva, prevencion de fraude e investigacion academica. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Epieos</code> es una plataforma OSINT centrada en dos semillas de entrada muy concretas:</p>
-<ul>
-<li class="">un correo electronico;</li>
-<li class="">o un numero de telefono.</li>
-</ul>
-<p>Desde ahi intenta recuperar huella publica relacionada en multiples plataformas, redes y servicios. Segun la guia oficial publicada por el propio proveedor el <strong>10 de abril de 2026</strong>, el flujo base gira alrededor de:</p>
-<ul>
-<li class="">elegir si buscas por email o por telefono;</li>
-<li class="">seleccionar el nivel de servicio disponible;</li>
-<li class="">revisar resultados iniciales en segundos;</li>
-<li class="">y exportar la salida en formatos reutilizables como <code>JSON</code>, <code>CSV</code> o <code>PDF</code>.</li>
-</ul>
-<p>La pagina de precios consultada el <strong>17 de junio de 2026</strong> ayuda a entender el enfoque comercial y operativo actual:</p>
-<ul>
-<li class=""><code>member</code> mantiene acceso gratuito limitado;</li>
-<li class=""><code>Osinter</code> figura a <strong>29,99 EUR al mes</strong>;</li>
-<li class="">e incluye, en ese momento, <strong>30 consultas full-access al mes</strong> y acceso a todos los modulos listados en esa capa.</li>
-</ul>
-<p>La misma guia oficial del <strong>10 de abril de 2026</strong> describe ademas una capa <code>Private</code>, reservada a entidades gubernamentales, fuerzas del orden, investigadores profesionales y organizaciones de confianza, con una cobertura mayor. Eso no convierte la herramienta en una fuente infalible; solo indica que el producto esta pensado para flujos de investigacion serios y con segmentacion de acceso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina un equipo de cumplimiento que revisa a un intermediario externo antes de compartir informacion sensible de un proyecto. En la documentacion aparece un correo <code>contacto@nexo-civico.example</code> y un telefono internacional de atencion comercial.</p>
-<p>Un uso prudente de <code>Epieos</code> seria este:</p>
-<ol>
-<li class="">lanzar primero una busqueda por el correo para ver si deja rastro en plataformas publicas compatibles con la identidad profesional alegada;</li>
-<li class="">repetir despues con el telefono solo para buscar coherencia adicional, no para inferir propiedad exclusiva;</li>
-<li class="">anotar que hallazgos parecen fuertes, cuales son ambiguos y cuales requieren comprobacion manual;</li>
-<li class="">salir de la herramienta y validar de forma independiente las coincidencias mas relevantes.</li>
-</ol>
-<p>La pregunta no es "quien es esta persona de una vez por todas". La pregunta correcta es mucho mas estrecha: <strong>si la huella publica visible parece coherente con la narrativa declarada y donde merece comprobar mejor antes de decidir</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-una-pregunta-corta-antes-de-consultar">1. Define una pregunta corta antes de consultar<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#1-define-una-pregunta-corta-antes-de-consultar" class="hash-link" aria-label="Enlace directo al 1. Define una pregunta corta antes de consultar" title="Enlace directo al 1. Define una pregunta corta antes de consultar" translate="no">​</a></h3>
-<p><code>Epieos</code> funciona mejor cuando la hipotesis ya esta acotada:</p>
-<ul>
-<li class="">quieres saber si un correo corporativo aparece asociado a servicios que no deberia tocar;</li>
-<li class="">quieres revisar si un telefono comercial deja huella publica coherente;</li>
-<li class="">o quieres priorizar que plataformas merecen inspeccion manual.</li>
-</ul>
-<p>Sin esa pregunta corta, cualquier lista de perfiles o modulos acaba pareciendo mas concluyente de lo que es.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-el-identificador-menos-ambiguo">2. Empieza por el identificador menos ambiguo<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#2-empieza-por-el-identificador-menos-ambiguo" class="hash-link" aria-label="Enlace directo al 2. Empieza por el identificador menos ambiguo" title="Enlace directo al 2. Empieza por el identificador menos ambiguo" translate="no">​</a></h3>
-<p>Si dispones de correo y telefono, el orden importa. Un correo corporativo o un alias tecnico suelen producir menos ruido inicial que un numero reciclado, compartido o historico. La propia guia oficial de <code>Epieos</code> separa claramente los dos vectores de entrada, y eso ya sugiere una buena practica: <strong>no mezclar semillas con fiabilidad distinta sin etiquetar la confianza de cada una</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-cobertura-como-capacidad-no-como-garantia">3. Lee la cobertura como capacidad, no como garantia<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#3-lee-la-cobertura-como-capacidad-no-como-garantia" class="hash-link" aria-label="Enlace directo al 3. Lee la cobertura como capacidad, no como garantia" title="Enlace directo al 3. Lee la cobertura como capacidad, no como garantia" translate="no">​</a></h3>
-<p>La documentacion comercial y la guia oficial hablan de modulos, plataformas cubiertas, exportes y distintos niveles de acceso. Eso es util, pero metodologicamente significa otra cosa: <code>Epieos</code> puede acelerar cribado y correlacion, no certificar identidad. Su propia documentacion legal indica que la plataforma no verifica la veracidad, exactitud ni completitud de la informacion mostrada.</p>
-<p>Traducido a trabajo diario:</p>
-<ul>
-<li class="">una coincidencia puede ser vieja;</li>
-<li class="">una cuenta puede estar abandonada;</li>
-<li class="">un telefono puede haber cambiado de titular;</li>
-<li class="">y un correo puede aparecer por recuperacion, menciones o rastros de terceros.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-exporta-solo-lo-necesario-y-documenta-la-duda">4. Exporta solo lo necesario y documenta la duda<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#4-exporta-solo-lo-necesario-y-documenta-la-duda" class="hash-link" aria-label="Enlace directo al 4. Exporta solo lo necesario y documenta la duda" title="Enlace directo al 4. Exporta solo lo necesario y documenta la duda" translate="no">​</a></h3>
-<p>La guia del <strong>10 de abril de 2026</strong> destaca exportacion <code>JSON</code>, <code>CSV</code>, <code>PDF</code> e incluso paquetes de imagenes. Eso encaja muy bien en un flujo profesional, pero tambien obliga a higiene:</p>
-<ul>
-<li class="">exporta solo lo relevante para la pregunta del caso;</li>
-<li class="">conserva fecha y contexto de consulta;</li>
-<li class="">separa hechos observables de inferencias;</li>
-<li class="">y evita crear un dossier mas amplio de lo necesario.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Epieos</code> tiene varias limitaciones que conviene asumir antes de la primera busqueda:</p>
-<ul>
-<li class="">depende de lo que siga siendo visible en fuentes publicas y de la disponibilidad de esas fuentes;</li>
-<li class="">no valida por ti que una coincidencia represente a la misma persona, entidad o titular actual;</li>
-<li class="">puede mostrar senales reales pero faciles de sobreinterpretar;</li>
-<li class="">y su mejor rendimiento no elimina el trabajo humano posterior.</li>
-</ul>
-<p>Sus propios terminos, consultados el <strong>17 de junio de 2026</strong>, dejan claro ademas que el servicio esta orientado a clientes profesionales y que el uso de la informacion debe respetar la ley aplicable. Ese marco importa porque pone una frontera metodologica y legal: <strong>buscar no equivale a estar autorizado a usar cualquier resultado de cualquier manera</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja solo con una finalidad legitima y proporcionada.</li>
-<li class="">No uses una coincidencia automatizada para etiquetar o senalar a una persona sin corroboracion externa.</li>
-<li class="">Si necesitas abrir perfiles enlazados, hazlo con cuentas de investigacion separadas y criterio, como recomienda la guia oficial al hablar de autenticacion previa en plataformas relevantes.</li>
-<li class="">Documenta siempre fecha, fuente, nivel de confianza y huecos de evidencia.</li>
-<li class="">Borra o minimiza datos que no aporten nada a la decision concreta del caso.</li>
-</ul>
-<p>Un detalle interesante de la comunicacion oficial de <code>Epieos</code> es su insistencia en que las consultas no se registran y en que los modulos no notifican al objetivo. Eso puede mejorar la OPSEC del analista, pero no te exime de tus propias obligaciones: buena trazabilidad interna, base legal, minimizacion y revision humana siguen siendo imprescindibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Epieos</code> no cubre todo el trabajo sobre identidades o contactos. Segun la pregunta, puede combinarse bien con:</p>
-<ul>
-<li class=""><code>Holehe</code>, si lo que buscas es una senal de presencia muy acotada alrededor del correo;</li>
-<li class=""><code>Maigret</code> o <code>Blackbird</code>, si el pivote principal es un alias o username;</li>
-<li class=""><code>GHunt</code>, si la pista util cae en ecosistema Google y el caso es legitimo;</li>
-<li class="">y revision manual de perfiles, paginas corporativas y archivo web para validar contexto.</li>
-</ul>
-<p>Como siguiente paso practico, la rutina sana seria:</p>
-<ol>
-<li class="">usar <code>Epieos</code> para recortar el espacio de busqueda;</li>
-<li class="">elegir unas pocas coincidencias realmente prometedoras;</li>
-<li class="">corroborarlas fuera de la plataforma;</li>
-<li class="">y cerrar con una nota de confianza explicita, no con una conclusion inflada.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/epieos-osint-busqueda-inversa-correo-telefono-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
-<p><code>Epieos</code> aporta valor cuando lo usas como <strong>motor de cribado rapido y contextual</strong> sobre correos y telefonos, no como fabrica de certezas. Si te ayuda a decidir que comprobar despues y que descartar antes, ya esta haciendo el trabajo correcto. Si intentas convertir cada coincidencia en identidad demostrada, el problema deja de ser la herramienta y pasa a ser el metodo.</p>
-<p>Fuentes recomendadas:</p>
-<ul>
-<li class=""><a href="https://epieos.com/" target="_blank" rel="noopener noreferrer" class="">Epieos, pagina principal</a></li>
-<li class=""><a href="https://epieos.com/blog/features/how-to-use-epieos-for-your-osint-investigations" target="_blank" rel="noopener noreferrer" class="">How to Use Epieos for Your Investigations, Epieos Blog, 10 de abril de 2026</a></li>
-<li class=""><a href="https://epieos.com/pricing" target="_blank" rel="noopener noreferrer" class="">Pricing, Epieos</a></li>
-<li class=""><a href="https://epieos.com/aboutus" target="_blank" rel="noopener noreferrer" class="">About, Epieos</a></li>
-<li class=""><a href="https://epieos.com/terms/" target="_blank" rel="noopener noreferrer" class="">General Terms and Conditions, Epieos</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="SOCMINT" term="SOCMINT"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Privacidad" term="Privacidad"/>
         <category label="Due Diligence" term="Due Diligence"/>
