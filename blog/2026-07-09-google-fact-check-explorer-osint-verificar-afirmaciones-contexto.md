@@ -9,6 +9,9 @@ image: /img/blog/2026-07-09-google-fact-check-explorer-osint-verificar-afirmacio
 
 ![Ilustración editorial de una analista OSINT comparando una afirmación pública con verificaciones independientes, fuentes y una línea temporal](/img/blog/2026-07-09-google-fact-check-explorer-osint-verificar-afirmaciones-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-fact-check-explorer-osint-verificar-afirmaciones-contexto.m4a)
+
+
 Una afirmación viral llega acompañada de una captura, una fecha y miles de interacciones. Parece nueva, pero quizá circuló hace tres años con otro país, otra fotografía o una cifra ligeramente distinta. Antes de reconstruir toda la historia desde cero, conviene preguntar algo más básico: **¿ha verificado ya esta afirmación una organización especializada y qué evidencia utilizó?**
 
 [`Google Fact Check Explorer`](https://toolbox.google.com/factcheck/explorer) sirve para localizar verificaciones publicadas por organizaciones independientes. No decide qué es verdad, no sustituye la lectura de las fuentes y tampoco convierte una etiqueta en prueba. Su utilidad OSINT es más concreta: encontrar antecedentes, descubrir formulaciones alternativas de una afirmación y abrir nuevas rutas de verificación.
