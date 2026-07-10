@@ -4,10 +4,162 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Thu, 09 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 10 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[ICIJ Offshore Leaks Database en OSINT: grafos societarios, contexto y cautela antes de atribuir]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto</guid>
+            <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una mesa de investigación OSINT con un grafo abstracto de entidades offshore, documentos redactados, mapa de jurisdicciones y notas de verificación]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una mesa de investigación OSINT con un grafo abstracto de entidades offshore, documentos redactados, mapa de jurisdicciones y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-10-icij-offshore-leaks-osint-grafos-societarios-contexto-d652cfb6315585844be58816b3b5499d.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una coincidencia en una base offshore puede parecer una revelación inmediata: un nombre, una sociedad, una dirección, una jurisdicción y una línea que une dos nodos. El problema es que en investigación societaria <strong>una coincidencia no es una atribución</strong>. Puede ser una pista excelente, pero también un homónimo, un dato viejo, una relación administrativa o una estructura legítima que exige contexto antes de escribir una sola frase contundente.</p>
+<p>La <a href="https://offshoreleaks.icij.org/" target="_blank" rel="noopener noreferrer" class=""><code>ICIJ Offshore Leaks Database</code></a> sirve justo para ese primer mapa prudente. Reúne información publicada por el Consorcio Internacional de Periodistas de Investigación a partir de investigaciones como <code>Offshore Leaks</code>, <code>Panama Papers</code>, <code>Bahamas Leaks</code>, <code>Paradise Papers</code> y <code>Pandora Papers</code>. Revisando su documentación el <strong>10 de julio de 2026</strong>, la base afirma cubrir más de <code>810.000</code> entidades offshore, con registros que abarcan más de <code>80</code> años hasta <code>2020</code> y vínculos con personas y compañías en más de <code>200</code> países y territorios.</p>
+<p>Este artículo está escrito para periodistas, analistas de cumplimiento, investigadores corporativos, equipos anticorrupción y personas que necesitan trabajar con indicios societarios de forma proporcionada. No es una guía para señalar personas por homonimia, acosar, doxxear ni convertir filtraciones en acusaciones automáticas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-icij-offshore-leaks-database-y-para-qué-sirve">Qué es ICIJ Offshore Leaks Database y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#qu%C3%A9-es-icij-offshore-leaks-database-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es ICIJ Offshore Leaks Database y para qué sirve" title="Enlace directo al Qué es ICIJ Offshore Leaks Database y para qué sirve" translate="no">​</a></h2>
+<p><code>Offshore Leaks Database</code> es una base consultable y descargable de entidades, intermediarios, oficiales, direcciones y relaciones extraídas de varias investigaciones periodísticas de ICIJ. Su valor OSINT no está en “encontrar culpables”, sino en abrir preguntas verificables:</p>
+<ul>
+<li class="">qué entidades aparecen asociadas a un nombre o dirección;</li>
+<li class="">qué jurisdicción y fuente de filtración aporta cada registro;</li>
+<li class="">qué intermediarios o direcciones conectan sociedades aparentemente separadas;</li>
+<li class="">qué relaciones merecen contraste en registros mercantiles, sanciones, prensa, tribunales o documentos corporativos;</li>
+<li class="">qué parte del grafo es dato publicado y qué parte es inferencia del analista.</li>
+</ul>
+<p>La propia página de ICIJ incluye una advertencia metodológica esencial: hay usos legítimos para sociedades y trusts offshore, y aparecer en la base no implica por sí mismo conducta ilegal o impropia. También recuerda que muchas personas y entidades comparten nombres similares, por lo que la identidad debe confirmarse con direcciones u otros datos distinguibles.</p>
+<p>La base puede usarse de tres formas principales:</p>
+<ul>
+<li class="">interfaz web, para búsquedas puntuales y exploración visual;</li>
+<li class="">descarga en <code>CSV</code>, con archivos por tipo de nodo y relaciones;</li>
+<li class="">trabajo en grafo, con guías y paquetes para <code>Neo4j</code>;</li>
+<li class=""><code>Reconciliation API</code>, para comparar datasets propios contra entidades de la base.</li>
+</ul>
+<p>Esta variedad importa porque no todas las investigaciones necesitan el mismo nivel técnico. Un caso pequeño puede resolverse con lectura manual y buenas notas. Un proyecto de datos, en cambio, puede necesitar limpieza, reconciliación, grafo y revisión por pares.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una redacción investiga contratos públicos adjudicados a varias empresas de consultoría en distintos países. En una memoria anual aparece una sociedad llamada <code>Blue Harbor Advisory Ltd.</code> y una dirección postal en una jurisdicción offshore. El nombre no prueba nada, pero el equipo quiere saber si existe una pista documental que merezca atención.</p>
+<p>Un flujo responsable empezaría así:</p>
+<ol>
+<li class="">anotar la fuente original donde aparece <code>Blue Harbor Advisory Ltd.</code>;</li>
+<li class="">buscar el nombre exacto y variantes razonables en Offshore Leaks;</li>
+<li class="">separar coincidencias por jurisdicción, dirección, intermediario y fuente de filtración;</li>
+<li class="">descartar homónimos obvios;</li>
+<li class="">contrastar la entidad candidata en registros oficiales y documentos públicos;</li>
+<li class="">revisar si la relación está vigente, histórica, administrativa o ambigua;</li>
+<li class="">formular una hipótesis limitada, no una acusación.</li>
+</ol>
+<p>La conclusión provisional no debería ser “esta empresa está en los papeles offshore”. Una redacción rigurosa escribiría algo más estrecho:</p>
+<blockquote>
+<p>Hemos localizado una entidad con nombre coincidente y dirección compatible en la base de ICIJ. La relación procede de una filtración concreta y debe contrastarse con el registro mercantil, documentos societarios y respuesta de las partes antes de extraer conclusiones.</p>
+</blockquote>
+<p>Ese matiz cambia todo. Convierte una coincidencia llamativa en una pista verificable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-definir-el-sujeto-exacto">1. Definir el sujeto exacto<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#1-definir-el-sujeto-exacto" class="hash-link" aria-label="Enlace directo al 1. Definir el sujeto exacto" title="Enlace directo al 1. Definir el sujeto exacto" translate="no">​</a></h3>
+<p>Antes de buscar, escribe qué entidad estás investigando y de dónde sale:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Sujeto ficticio: Blue Harbor Advisory Ltd.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente inicial: memoria anual 2025 de una empresa contratista</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Dato distinguible: dirección postal parcial y país de incorporación declarado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: ¿hay registros offshore publicados que apunten a una entidad compatible?</span><br></span></code></pre></div></div>
+<p>La base contiene nombres repetidos, transliteraciones, abreviaturas y direcciones incompletas. Si no defines el sujeto, acabarás adaptando la hipótesis al resultado más interesante.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-buscar-por-capas-no-por-ansiedad">2. Buscar por capas, no por ansiedad<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#2-buscar-por-capas-no-por-ansiedad" class="hash-link" aria-label="Enlace directo al 2. Buscar por capas, no por ansiedad" title="Enlace directo al 2. Buscar por capas, no por ansiedad" translate="no">​</a></h3>
+<p>Empieza por el nombre exacto. Luego prueba variantes razonables:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Blue Harbor Advisory Ltd</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Blue Harbor Advisory Limited</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">"Blue Harbor" offshore</span><br></span></code></pre></div></div>
+<p>Después usa atributos secundarios: dirección, jurisdicción, intermediario o nombre de oficial. No mezcles todo desde el principio. Cada capa debe responder una pregunta concreta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-el-nodo-y-la-relación">3. Leer el nodo y la relación<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#3-leer-el-nodo-y-la-relaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Leer el nodo y la relación" title="Enlace directo al 3. Leer el nodo y la relación" translate="no">​</a></h3>
+<p>En un grafo societario, el error común es mirar solo el nodo más visible. La relación importa igual o más:</p>
+<ul>
+<li class=""><code>officer_of</code> no significa necesariamente propietario real;</li>
+<li class=""><code>registered_address</code> puede ser un proveedor compartido;</li>
+<li class="">un <code>intermediary</code> puede actuar para miles de sociedades;</li>
+<li class="">una dirección puede representar despacho, agente registrado o buzón;</li>
+<li class="">una fecha histórica puede no describir el estado actual.</li>
+</ul>
+<p>El dato debe conservar su etiqueta original. Si la base dice “oficial”, no lo conviertas en “dueño” salvo que otra fuente lo demuestre.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-volver-a-fuentes-primarias">4. Volver a fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#4-volver-a-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 4. Volver a fuentes primarias" title="Enlace directo al 4. Volver a fuentes primarias" translate="no">​</a></h3>
+<p>ICIJ recomienda verificar la información contra otras fuentes. En un caso societario, eso suele significar:</p>
+<ul>
+<li class="">registro mercantil de la jurisdicción;</li>
+<li class="">documentos de incorporación, disolución, cambios de dirección o cargos;</li>
+<li class="">litigios y expedientes administrativos;</li>
+<li class="">sanciones, PEP y listas de cumplimiento cuando sean relevantes;</li>
+<li class="">hemeroteca y comunicados oficiales;</li>
+<li class="">sitios corporativos archivados;</li>
+<li class="">documentos de contratación o subvenciones;</li>
+<li class="">respuesta de la entidad investigada si el hallazgo va a publicarse.</li>
+</ul>
+<p>La base sirve para encontrar rutas. La evidencia publicable suele estar en la corroboración.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-registrar-incertidumbre">5. Registrar incertidumbre<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#5-registrar-incertidumbre" class="hash-link" aria-label="Enlace directo al 5. Registrar incertidumbre" title="Enlace directo al 5. Registrar incertidumbre" translate="no">​</a></h3>
+<p>Una tabla pequeña ayuda más que un grafo bonito:</p>
+<table><thead><tr><th>Elemento</th><th>Resultado</th><th>Riesgo</th></tr></thead><tbody><tr><td>Nombre</td><td>Coincidencia exacta</td><td>Puede haber homónimos</td></tr><tr><td>Dirección</td><td>Compatible, no idéntica</td><td>Puede ser agente registrado</td></tr><tr><td>Jurisdicción</td><td>Coincide con otra fuente</td><td>No prueba control</td></tr><tr><td>Relación</td><td>Oficial de entidad</td><td>No equivale a beneficiario real</td></tr><tr><td>Fecha</td><td>Registro histórico</td><td>Puede estar desactualizado</td></tr></tbody></table>
+<p>Si una pieza es débil, márcala como débil. La trazabilidad no consiste en llenar una tabla; consiste en no esconder dónde el caso todavía se mueve.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="descarga-csv-neo4j-y-reconciliación">Descarga, CSV, Neo4j y reconciliación<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#descarga-csv-neo4j-y-reconciliaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Descarga, CSV, Neo4j y reconciliación" title="Enlace directo al Descarga, CSV, Neo4j y reconciliación" translate="no">​</a></h2>
+<p>La página de descarga de ICIJ explica que la base funciona sobre <code>Neo4j</code>, pero que el equipo convirtió los datos en varios <code>CSV</code>: uno por tipo de nodo y uno para relaciones. Eso permite trabajar con herramientas más sencillas antes de saltar a un grafo completo.</p>
+<p>Un flujo técnico prudente sería:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">CSV de ICIJ -&gt; OpenRefine o SQLite -&gt; normalización mínima</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">             -&gt; revisión de coincidencias -&gt; grafo solo para relaciones relevantes</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">             -&gt; fuentes primarias -&gt; informe con límites</span><br></span></code></pre></div></div>
+<p>No hace falta cargar todo en <code>Neo4j</code> para cada caso. El grafo es útil cuando hay muchas relaciones, pero puede crear una falsa sensación de patrón si los datos no están limpios.</p>
+<p>La documentación de la <code>Reconciliation API</code> añade otra capa: permite comparar nombres, direcciones, entidades, intermediarios, oficiales y otros tipos contra la base. ICIJ la presentó en enero de 2025 como una forma de ayudar a usuarios a cruzar sus propios datos con más de <code>810.000</code> entidades offshore. La API puede acelerar proyectos grandes, pero no elimina revisión humana. Un “match” es candidato, no conclusión.</p>
+<p>Buenas prácticas para reconciliación:</p>
+<ul>
+<li class="">normaliza mayúsculas, sufijos societarios y espacios, pero conserva el valor original;</li>
+<li class="">separa coincidencias exactas de aproximadas;</li>
+<li class="">no fusiones personas solo por nombre;</li>
+<li class="">usa dirección, jurisdicción y fuente como desempate;</li>
+<li class="">conserva el identificador del nodo y la URL consultada;</li>
+<li class="">revisa manualmente los casos que vayan a aparecer en un informe.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-base-no-es-un-registro-universal">La base no es un registro universal<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#la-base-no-es-un-registro-universal" class="hash-link" aria-label="Enlace directo al La base no es un registro universal" title="Enlace directo al La base no es un registro universal" translate="no">​</a></h3>
+<p>Offshore Leaks contiene datos publicados a partir de investigaciones concretas. No cubre todas las jurisdicciones, todas las entidades offshore ni todos los periodos. La ausencia de resultado no demuestra ausencia de estructura.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-pueden-estar-desactualizados">Los datos pueden estar desactualizados<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#los-datos-pueden-estar-desactualizados" class="hash-link" aria-label="Enlace directo al Los datos pueden estar desactualizados" title="Enlace directo al Los datos pueden estar desactualizados" translate="no">​</a></h3>
+<p>ICIJ indica que los registros cubren periodos definidos y que parte de la información puede haber cambiado. Una entidad activa en una filtración histórica puede estar disuelta, renombrada o transferida.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-dirección-compartida-no-prueba-coordinación">Una dirección compartida no prueba coordinación<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#una-direcci%C3%B3n-compartida-no-prueba-coordinaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Una dirección compartida no prueba coordinación" title="Enlace directo al Una dirección compartida no prueba coordinación" translate="no">​</a></h3>
+<p>Agentes registrados, despachos y proveedores fiduciarios pueden aparecer en miles de entidades. Esa relación abre una vía, pero no prueba control común.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="offshore-no-equivale-automáticamente-a-ilegal">Offshore no equivale automáticamente a ilegal<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#offshore-no-equivale-autom%C3%A1ticamente-a-ilegal" class="hash-link" aria-label="Enlace directo al Offshore no equivale automáticamente a ilegal" title="Enlace directo al Offshore no equivale automáticamente a ilegal" translate="no">​</a></h3>
+<p>Existen usos legítimos para estructuras offshore. El análisis debe distinguir entre secreto, planificación fiscal, cumplimiento, conflicto de interés, sanciones, fraude y simple formalidad societaria.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-todo-el-material-original-es-público">No todo el material original es público<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#no-todo-el-material-original-es-p%C3%BAblico" class="hash-link" aria-label="Enlace directo al No todo el material original es público" title="Enlace directo al No todo el material original es público" translate="no">​</a></h3>
+<p>La base pública no es una entrega masiva de documentos originales. ICIJ ha explicado históricamente que publica información corporativa limitada de interés público, no todos los correos, pasaportes, cuentas bancarias o archivos internos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-coincidencia-de-nombres-es-peligrosa">La coincidencia de nombres es peligrosa<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#la-coincidencia-de-nombres-es-peligrosa" class="hash-link" aria-label="Enlace directo al La coincidencia de nombres es peligrosa" title="Enlace directo al La coincidencia de nombres es peligrosa" translate="no">​</a></h3>
+<p>En bases internacionales, los homónimos son inevitables. Si no hay fecha, dirección, documento o identificador robusto, la atribución debe quedarse en hipótesis o descartarse.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga entidades y hechos de interés público, no la vida privada por curiosidad.</li>
+<li class="">Minimiza datos personales en notas, capturas y exports.</li>
+<li class="">No publiques direcciones personales si no son indispensables y ya están justificadas por interés público.</li>
+<li class="">No confundas un intermediario administrativo con una red criminal.</li>
+<li class="">Conserva fecha de consulta, URL, nodo, relación y fuente de filtración.</li>
+<li class="">Distingue dato, inferencia y valoración editorial.</li>
+<li class="">Busca derecho de respuesta cuando el hallazgo pueda afectar reputaciones.</li>
+<li class="">No automatices acusaciones a partir de la <code>Reconciliation API</code>.</li>
+<li class="">Documenta qué evidencia podría refutar tu hipótesis.</li>
+</ul>
+<p>La ética en OSINT societario no consiste en evitar hallazgos incómodos. Consiste en no dañar a alguien por una lectura perezosa de un grafo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Offshore Leaks encaja mejor como una capa dentro de un flujo más amplio:</p>
+<ul>
+<li class=""><code>OpenCorporates</code>, para descubrir entidades y llegar a registros primarios;</li>
+<li class=""><code>Companies House</code>, cuando el caso toca sociedades británicas;</li>
+<li class=""><code>OpenOwnership</code>, para modelos y datos de beneficiario real cuando existan;</li>
+<li class=""><code>OpenSanctions</code>, para revisar coincidencias de sanciones y PEP con cautela;</li>
+<li class=""><code>EDGAR</code>, si hay compañías cotizadas o filings estadounidenses;</li>
+<li class=""><code>OpenRefine</code>, para limpiar nombres y reconciliar datasets;</li>
+<li class=""><code>Datasette</code> o <code>SQLite</code>, para hacer consultas reproducibles;</li>
+<li class=""><code>Maltego</code> o <code>Neo4j</code>, cuando el grafo aporte claridad real y no decoración.</li>
+</ul>
+<p>El takeaway práctico es sencillo: usa <code>ICIJ Offshore Leaks Database</code> como <strong>motor de hipótesis verificables</strong>, no como veredicto. Primero identifica el nodo correcto, después entiende la relación, luego contrasta en fuentes primarias y solo al final decide qué puede afirmarse. En investigación offshore, el hallazgo más valioso suele ser una frase con límites bien escritos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://offshoreleaks.icij.org/" target="_blank" rel="noopener noreferrer" class="">ICIJ Offshore Leaks Database</a></li>
+<li class=""><a href="https://offshoreleaks.icij.org/pages/database" target="_blank" rel="noopener noreferrer" class="">ICIJ Offshore Leaks Database: How to download this database</a></li>
+<li class=""><a href="https://offshoreleaks.icij.org/docs/reconciliation" target="_blank" rel="noopener noreferrer" class="">ICIJ Offshore Leaks Database: Reconciliation API</a></li>
+<li class=""><a href="https://www.icij.org/inside-icij/2025/01/explore-the-latest-tool-to-power-up-investigations-via-the-offshore-leaks-database/" target="_blank" rel="noopener noreferrer" class="">ICIJ: Explore the latest tool to power up investigations via the Offshore Leaks database</a></li>
+<li class=""><a href="https://github.com/ICIJ/offshoreleaks-data-packages" target="_blank" rel="noopener noreferrer" class="">ICIJ/offshoreleaks-data-packages</a></li>
+<li class=""><a href="https://www.icij.org/inside-icij/2013/06/offshore-leaks-database-faqs/" target="_blank" rel="noopener noreferrer" class="">ICIJ Offshore Leaks Database FAQs</a></li>
+<li class=""><a href="https://publicintegrity.org/accountability/coming-soon-icij-to-release-panama-papers-data/" target="_blank" rel="noopener noreferrer" class="">Center for Public Integrity: ICIJ to release Panama Papers offshore companies data</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Due Diligence</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Investigacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Google Fact Check Explorer en OSINT: verificar afirmaciones sin delegar el análisis]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto</link>
@@ -2536,112 +2688,6 @@
             <category>Verificacion</category>
             <category>Datos</category>
             <category>Tradecraft</category>
-        </item>
-        <item>
-            <title><![CDATA[IPinfo en OSINT: geolocalizacion, ASN y senales de privacidad con contexto]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto</guid>
-            <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT cruzando geolocalizacion de IP, ASN y senales de privacidad en un panel de investigacion sobrio]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT cruzando geolocalizacion de IP, ASN y senales de privacidad en un panel de investigacion sobrio" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-18-ipinfo-osint-geolocalizacion-asn-privacidad-contexto-a44a131857d8b43e80dab7a538bd9b10.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion tecnica arranca con una <code>IP</code>, el error mas comun no suele ser "no tener datos". El error suele ser <strong>pedirle demasiado a la primera respuesta</strong>: convertir una geolocalizacion en presencia fisica, un <code>ASN</code> en propiedad total o una bandera de <code>VPN</code> en una conclusion cerrada sobre intencion. <code>IPinfo</code> encaja bien justo en esa primera capa, porque ayuda a separar rapido tres preguntas distintas: <strong>donde parece estar una direccion, que red la anuncia y que senales de privacidad o tipo de red conviene tener en cuenta antes de seguir</strong>.</p>
-<p>La documentacion oficial de <code>IPinfo</code>, consultada el <strong>18 de junio de 2026</strong>, deja un marco bastante util para analistas. Su capa <code>Lite</code> ofrece datos basicos de pais y <code>ASN</code>; <code>Core</code> anade geolocalizacion mas granular y banderas de red como <code>anonymous</code>, <code>hosting</code>, <code>anycast</code>, <code>carrier</code> o <code>satellite</code>; y su <code>CLI</code> oficial permite consultar una sola <code>IP</code>, lotes y resumentes sin tener que montar una integracion completa desde el minuto uno. Traducido a trabajo real: <code>IPinfo</code> no te dice por si solo "quien esta detras", pero si te ayuda a abrir contexto tecnico con rapidez y a documentar mejor por que una pista merece comprobacion adicional.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como respuesta defensiva, periodismo, <code>due diligence</code>, fraude, analisis de infraestructura expuesta e investigacion academica. No incluye tacticas para acoso, doxxing, intrusiones ni vigilancia abusiva.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>IPinfo</code> es un servicio de inteligencia sobre direcciones <code>IP</code> orientado a <code>API</code>, <code>CLI</code> y descargas de datos. Su valor para OSINT responsable no esta en "adivinar personas", sino en devolver con rapidez varias capas tecnicas que suelen aparecer al principio de muchos casos:</p>
-<ul>
-<li class="">pais, continente y, segun el plan, ciudad, region, codigo postal y zona horaria;</li>
-<li class=""><code>ASN</code>, nombre del operador, dominio asociado y tipo de sistema autonomo;</li>
-<li class="">banderas de red como <code>is_anonymous</code>, <code>is_hosting</code>, <code>is_anycast</code>, <code>is_mobile</code> o <code>is_satellite</code>;</li>
-<li class="">y una forma bastante comoda de consultar una sola direccion, tu propia <code>IP</code> o lotes pequenos sin construir tooling propio desde cero.</li>
-</ul>
-<p>En la practica, eso lo vuelve util para triage de alertas, investigacion de proveedores, validacion de superficie externa, clasificacion inicial de trafico, revision de terceros y enriquecimiento de indicadores antes de cruzarlos con otras fuentes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una empresa ficticia, <code>orion-logistics.example</code>, que detecta accesos repetidos a un portal expuesto desde varias <code>IPs</code> desconocidas. Antes de dramatizar el caso, un analista responsable quiere contestar preguntas basicas:</p>
-<ol>
-<li class="">si las direcciones parecen salir de redes residenciales, de hosting o de infraestructura anonimizada;</li>
-<li class="">si varias <code>IPs</code> caen en el mismo <code>ASN</code> o en operadores distintos;</li>
-<li class="">si la geolocalizacion visible sugiere una distribucion coherente o una lectura enganosa por <code>VPN</code>, <code>anycast</code> o <code>CDN</code>.</li>
-</ol>
-<p>Un flujo prudente con <code>IPinfo</code> podria ser este:</p>
-<ol>
-<li class="">consultar cada <code>IP</code> en <code>Lite</code> para obtener pais y <code>ASN</code> con una primera clasificacion muy barata;</li>
-<li class="">pasar las <code>IPs</code> prioritarias por <code>Core</code> para revisar <code>geo</code>, tipo de <code>ASN</code> y banderas de red;</li>
-<li class="">anotar por separado lo observado, la inferencia provisional y la comprobacion pendiente;</li>
-<li class="">cruzar despues con <code>RDAP</code>, <code>BGP</code>, historico DNS, <code>Netlas</code>, <code>Shodan</code>, <code>Censys</code> o registros internos autorizados;</li>
-<li class="">y dejar por escrito que una <code>IP</code> de hosting o una bandera de anonimato no equivalen por si mismas a malicia ni a identidad confirmada.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-minima">1. Empieza por la pregunta minima<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#1-empieza-por-la-pregunta-minima" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta minima" title="Enlace directo al 1. Empieza por la pregunta minima" translate="no">​</a></h3>
-<p>La capa <code>Lite</code> ya resuelve bastante bien una primera duda operacional: <strong>que pais y que <code>ASN</code> parecen asociados a esta direccion</strong>. Eso evita gastar tiempo o cuota premium cuando la pregunta todavia no exige ciudad, privacidad o detalle de red.</p>
-<p>En muchos casos, esa primera lectura ya te deja separar:</p>
-<ul>
-<li class="">una <code>IP</code> residencial de un proveedor conocido;</li>
-<li class="">una <code>IP</code> de cloud o <code>hosting</code>;</li>
-<li class="">una red movil;</li>
-<li class="">o una direccion que conviene revisar por <code>anycast</code> o por senales de anonimato.</li>
-</ul>
-<p>La disciplina buena aqui consiste en no convertir esa primera respuesta en una historia grande. Un pais visible no demuestra ubicacion fisica exacta. Un <code>ASN</code> conocido no prueba control exclusivo. Y una geolocalizacion de ciudad nunca deberia leerse como posicion precisa de una persona.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-sube-de-nivel-solo-cuando-la-pregunta-lo-pida">2. Sube de nivel solo cuando la pregunta lo pida<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#2-sube-de-nivel-solo-cuando-la-pregunta-lo-pida" class="hash-link" aria-label="Enlace directo al 2. Sube de nivel solo cuando la pregunta lo pida" title="Enlace directo al 2. Sube de nivel solo cuando la pregunta lo pida" translate="no">​</a></h3>
-<p>La documentacion actual de <code>Core</code> deja claro que ahi aparecen capas que si cambian la lectura del caso:</p>
-<ul>
-<li class="">geolocalizacion mas granular;</li>
-<li class="">datos de <code>ASN</code> con tipo de red;</li>
-<li class="">banderas para <code>anonymous</code>, <code>hosting</code>, <code>anycast</code>, <code>mobile</code> y <code>satellite</code>.</li>
-</ul>
-<p>Ese matiz importa mucho. Una <code>IP</code> con <code>is_hosting=true</code> o <code>is_anycast=true</code> cambia bastante la interpretacion de cualquier incidente, y una senal de anonimato obliga a ser prudente con la lectura geografica. Lo correcto no es "concluir mas", sino <strong>saber que parte de la respuesta merece mas escepticismo</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprovecha-el-cli-para-lotes-pequenos-y-trazabilidad-rapida">3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#3-aprovecha-el-cli-para-lotes-pequenos-y-trazabilidad-rapida" class="hash-link" aria-label="Enlace directo al 3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida" title="Enlace directo al 3. Aprovecha el CLI para lotes pequenos y trazabilidad rapida" translate="no">​</a></h3>
-<p>El <code>CLI</code> oficial de <code>IPinfo</code> sigue siendo una pieza muy practica para trabajo de analista porque permite:</p>
-<ul>
-<li class="">consultar detalles de una <code>IP</code> una a una;</li>
-<li class="">resumir lotes;</li>
-<li class="">revisar <code>ASN</code>;</li>
-<li class="">y abrir mapas para conjuntos de direcciones cuando la geografia importa.</li>
-</ul>
-<p>Eso no sustituye una canalizacion completa, pero reduce mucha friccion en analisis exploratorio, validacion de hipotesis y anexos tecnicos para un informe.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>IPinfo</code> ahorra tiempo, pero conviene entrar con varias limitaciones claras:</p>
-<ul>
-<li class="">la geolocalizacion de <code>IP</code> es estimativa y depende del tipo de red;</li>
-<li class=""><code>VPN</code>, <code>relay</code>, <code>proxy</code>, <code>hosting</code>, <code>carrier</code> o <code>anycast</code> pueden deformar la lectura geografica;</li>
-<li class="">un <code>ASN</code> describe red y operador aparente, no intencion ni autoria;</li>
-<li class="">una ciudad visible no deberia usarse para atribucion personal;</li>
-<li class="">y una ausencia de bandera no demuestra ausencia real de anonimato o intermediacion.</li>
-</ul>
-<p>Tambien hay una trampa metodologica menos obvia: cuanto mas comoda es una <code>API</code>, mas facil resulta olvidar que estas mirando una <strong>capa de enrichment</strong>, no una verdad final. <code>IPinfo</code> sirve para ordenar preguntas, no para cerrar el caso antes de tiempo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">usa <code>IPinfo</code> para clasificar infraestructura y contexto tecnico, no para perseguir personas;</li>
-<li class="">minimiza la retencion de datos cuando una <code>IP</code> deja de ser relevante;</li>
-<li class="">documenta fecha y hora de la consulta, porque la realidad de red cambia;</li>
-<li class="">separa siempre observacion, inferencia e hipotesis pendiente;</li>
-<li class="">y si el caso tiene impacto alto, contrasta con otra fuente antes de escalar una conclusion.</li>
-</ul>
-<p>Un enfoque responsable en OSINT no consiste en acumular mas <code>APIs</code>. Consiste en <strong>saber cuando una respuesta es suficiente para priorizar y cuando todavia no alcanza para afirmar nada serio</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>IPinfo</code> rinde bien como capa inicial de enrichment. Segun la pregunta, suele complementarse con:</p>
-<ul>
-<li class=""><code>RDAP</code> o <code>WHOIS</code>, si la duda principal es ownership aparente o contacto registral;</li>
-<li class=""><code>PeeringDB</code> o <code>bgp.tools</code>, si lo importante es interconexion y visibilidad de red;</li>
-<li class=""><code>Shodan</code>, <code>Netlas</code>, <code>Censys</code> o <code>FOFA</code>, si la pregunta real es exposicion observable;</li>
-<li class=""><code>ViewDNS.info</code>, <code>SecurityTrails</code> o historicos DNS, si necesitas cronologia o relaciones de nombres;</li>
-<li class="">y <code>Maltiverse</code>, <code>AbuseIPDB</code> o <code>URLhaus</code>, si el foco se desplaza hacia reputacion o enrichment defensivo de <code>IoCs</code>.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>IPinfo</code> para <strong>bajar incertidumbre inicial y decidir mejor el siguiente pivote</strong>, no para vender atribuciones donde solo tienes una direccion y una respuesta de <code>API</code>. Si la siguiente pieza del blog sigue esta linea, un puente natural seria comparar como cambia una misma investigacion al cruzar <code>IPinfo</code>, <code>RDAP</code>, <code>bgp.tools</code> y un buscador de activos sin confundir contexto con certeza.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ipinfo-osint-geolocalizacion-asn-privacidad-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><code>IPinfo</code>, Developer Resource: <a href="https://ipinfo.io/developers" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers</a></li>
-<li class=""><code>IPinfo</code>, Lite API: <a href="https://ipinfo.io/developers/lite-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/lite-api</a></li>
-<li class=""><code>IPinfo</code>, Core API: <a href="https://ipinfo.io/developers/core-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/core-api</a></li>
-<li class=""><code>IPinfo</code>, API Overview: <a href="https://ipinfo.io/developers/ipinfo-api" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/developers/ipinfo-api</a></li>
-<li class=""><code>IPinfo</code>, Official CLI: <a href="https://ipinfo.io/blog/meet-the-official-ipinfo-cli" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io/blog/meet-the-official-ipinfo-cli</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Infraestructura</category>
-            <category>Verificacion</category>
-            <category>Privacidad</category>
-            <category>Due Diligence</category>
-            <category>Tooling</category>
         </item>
     </channel>
 </rss>
