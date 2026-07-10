@@ -9,6 +9,9 @@ image: /img/blog/2026-07-10-icij-offshore-leaks-osint-grafos-societarios-context
 
 ![Ilustración editorial de una mesa de investigación OSINT con un grafo abstracto de entidades offshore, documentos redactados, mapa de jurisdicciones y notas de verificación](/img/blog/2026-07-10-icij-offshore-leaks-osint-grafos-societarios-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/icij-offshore-leaks-osint-grafos-societarios-contexto.m4a)
+
+
 Una coincidencia en una base offshore puede parecer una revelación inmediata: un nombre, una sociedad, una dirección, una jurisdicción y una línea que une dos nodos. El problema es que en investigación societaria **una coincidencia no es una atribución**. Puede ser una pista excelente, pero también un homónimo, un dato viejo, una relación administrativa o una estructura legítima que exige contexto antes de escribir una sola frase contundente.
 
 La [`ICIJ Offshore Leaks Database`](https://offshoreleaks.icij.org/) sirve justo para ese primer mapa prudente. Reúne información publicada por el Consorcio Internacional de Periodistas de Investigación a partir de investigaciones como `Offshore Leaks`, `Panama Papers`, `Bahamas Leaks`, `Paradise Papers` y `Pandora Papers`. Revisando su documentación el **10 de julio de 2026**, la base afirma cubrir más de `810.000` entidades offshore, con registros que abarcan más de `80` años hasta `2020` y vínculos con personas y compañías en más de `200` países y territorios.
