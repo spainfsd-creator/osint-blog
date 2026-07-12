@@ -2,11 +2,149 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-10T00:00:00.000Z</updated>
+    <updated>2026-07-12T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Global Fishing Watch en OSINT: actividad marítima, AIS y SAR con contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto"/>
+        <updated>2026-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando actividad marítima abierta, trazas AIS, detecciones SAR, notas de verificación y un mapa oceánico sin embarcaciones identificables]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando actividad marítima abierta, trazas AIS, detecciones SAR, notas de verificación y un mapa oceánico sin embarcaciones identificables" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-12-global-fishing-watch-osint-actividad-maritima-ais-sar-contexto-b1f88a3c07fca17a517844993e70b584.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una mancha de calor sobre el océano puede parecer una historia cerrada: barcos, ruta, zona protegida y una hora aproximada. En investigación marítima responsable, sin embargo, esa imagen solo abre una pregunta: <strong>qué actividad pública se observa, con qué datos, con qué retraso y con qué nivel de incertidumbre</strong>. <code>Global Fishing Watch</code> ayuda justo ahí, no como radar infalible, sino como una capa abierta para estudiar actividad humana en el mar con método.</p>
+<p>Revisando su documentación oficial el <strong>12 de julio de 2026</strong>, la plataforma combina datos de seguimiento de embarcaciones, modelos de aprendizaje automático, capas ambientales, detecciones satelitales y APIs para explorar actividad pesquera aparente, presencia de buques, encuentros, eventos AIS apagado y detecciones SAR. La palabra clave es "aparente": el dato puede orientar una investigación, pero no sustituye la corroboración con registros, autorizaciones, imágenes, contexto local y fuentes primarias.</p>
+<p>Este artículo está escrito para analistas OSINT, periodistas, equipos ambientales, investigadores académicos y organizaciones que trabajan con fuentes abiertas de forma proporcionada. No es una guía para perseguir tripulaciones, acosar armadores, exponer rutas sensibles ni convertir una coincidencia algorítmica en acusación.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-global-fishing-watch-y-para-qué-sirve">Qué es Global Fishing Watch y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#qu%C3%A9-es-global-fishing-watch-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Global Fishing Watch y para qué sirve" title="Enlace directo al Qué es Global Fishing Watch y para qué sirve" translate="no">​</a></h2>
+<p><a href="https://globalfishingwatch.org/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch</code></a> es una organización y plataforma de datos orientada a hacer más transparente la actividad humana en el océano. Su mapa público permite visualizar capas como esfuerzo pesquero aparente, presencia de embarcaciones, encuentros, eventos de apagado AIS, detecciones nocturnas, capas de referencia y zonas marítimas.</p>
+<p>Su valor OSINT no está en "verlo todo". Está en formular preguntas mejores:</p>
+<ul>
+<li class="">dónde se concentra actividad pesquera aparente en una zona y periodo;</li>
+<li class="">qué diferencias hay entre presencia de buques y actividad clasificada como pesca;</li>
+<li class="">si una zona protegida, EEZ o área de gestión merece una revisión temporal;</li>
+<li class="">qué eventos podrían requerir contraste documental, como encuentros o apagados AIS;</li>
+<li class="">qué parte del análisis procede de AIS, VMS, SAR, VIIRS, modelos o capas de referencia;</li>
+<li class="">qué límites de cobertura, latencia, identidad y clasificación afectan a la lectura.</li>
+</ul>
+<p>La guía de usuario explica que el esfuerzo pesquero aparente se calcula analizando datos AIS de buques conocidos o posibles pesqueros y aplicando un algoritmo basado en cambios de velocidad y dirección. Esa distinción importa: el sistema clasifica puntos de transmisión como aparentemente pescando o no pescando, pero no observa directamente una red, una captura ni una infracción.</p>
+<p>La documentación de APIs, por su parte, muestra una plataforma más amplia que el mapa. En la versión 3 aparecen endpoints y datasets para visualización, presencia AIS, esfuerzo pesquero aparente, detecciones SAR, eventos, buques, insights, datasets y descargas masivas. Para un analista, esto permite pasar de una exploración manual a un flujo reproducible, siempre que se respeten licencias, límites y finalidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una ONG ficticia, <code>Costa Clara</code>, que prepara un informe sobre presión pesquera alrededor de una reserva marina. El objetivo no es identificar personas ni señalar a una embarcación concreta en redes sociales. El objetivo es construir una pregunta verificable:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: ¿hubo concentración anómala de actividad pesquera aparente cerca del límite exterior de la reserva?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Zona: polígono público de la reserva y franja de 20 millas náuticas alrededor</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Periodo: enero a marzo de 2026</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Unidad de análisis: celdas/agregados y eventos para revisión, no acusaciones individuales</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuentes auxiliares: normativa de la reserva, autorizaciones públicas, comunicados, imágenes satelitales y entrevistas autorizadas</span><br></span></code></pre></div></div>
+<p>Un primer mapa puede revelar horas de actividad aparente cerca del límite. Eso no prueba pesca ilegal. Puede tratarse de tránsito, actividad permitida, errores de clasificación, desfases temporales, cobertura desigual o límites geográficos mal entendidos. La utilidad real consiste en ordenar qué merece revisión:</p>
+<table><thead><tr><th>Señal</th><th>Lectura prudente</th><th>Siguiente comprobación</th></tr></thead><tbody><tr><td>Alta actividad aparente en una celda</td><td>Posible concentración de esfuerzo</td><td>Comparar fechas, artes, bandera y límites oficiales</td></tr><tr><td>Presencia sin pesca aparente</td><td>Tránsito, espera u otra actividad</td><td>Contrastar con rutas, puertos y condiciones</td></tr><tr><td>Encuentros entre buques</td><td>Indicador para revisar, no prueba de transbordo</td><td>Mirar duración, distancia a puerto, tipo de buque y contexto</td></tr><tr><td>AIS apagado</td><td>Hueco de señal, intencional o técnico</td><td>Corroborar con SAR, historial y explicación plausible</td></tr><tr><td>Detección SAR no emparejada</td><td>Posible buque sin AIS visible</td><td>Revisar resolución, confianza, climatología y fuentes externas</td></tr></tbody></table>
+<p>El resultado defendible no sería "estos barcos cometieron una infracción". Sería algo más estrecho:</p>
+<blockquote>
+<p>Entre enero y marzo se observa actividad pesquera aparente agregada en varias celdas próximas al límite de la reserva. Recomendamos contrastar esas fechas con autorizaciones, normativa aplicable y observaciones independientes antes de atribuir conducta irregular.</p>
+</blockquote>
+<p>Ese matiz protege la investigación y a las personas afectadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-una-pregunta-geográfica-y-temporal">1. Empezar por una pregunta geográfica y temporal<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#1-empezar-por-una-pregunta-geogr%C3%A1fica-y-temporal" class="hash-link" aria-label="Enlace directo al 1. Empezar por una pregunta geográfica y temporal" title="Enlace directo al 1. Empezar por una pregunta geográfica y temporal" translate="no">​</a></h3>
+<p>No abras el mapa para "buscar cosas raras". Define zona, periodo y decisión analítica:</p>
+<ul>
+<li class="">zona exacta: EEZ, área marina protegida, puerto, corredor o polígono propio;</li>
+<li class="">periodo: fechas cerradas y zona horaria documentada;</li>
+<li class="">métrica: horas de esfuerzo aparente, presencia, eventos, detecciones o comparación entre capas;</li>
+<li class="">hipótesis: qué esperas comprobar y qué dato la refutaría.</li>
+</ul>
+<p>En OSINT marítimo, una mala geometría contamina todo. Si el polígono de una reserva, una frontera marítima o un buffer no corresponde a la fuente oficial adecuada, el análisis puede parecer preciso y estar desplazado desde el primer paso.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-presencia-pesca-aparente-y-detección">2. Separar presencia, pesca aparente y detección<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#2-separar-presencia-pesca-aparente-y-detecci%C3%B3n" class="hash-link" aria-label="Enlace directo al 2. Separar presencia, pesca aparente y detección" title="Enlace directo al 2. Separar presencia, pesca aparente y detección" translate="no">​</a></h3>
+<p><code>Global Fishing Watch</code> distingue capas con significados diferentes. Conviene escribirlos en tus notas:</p>
+<ul>
+<li class=""><code>AIS vessel presence</code>: presencia derivada de posiciones AIS, no limitada a pesca;</li>
+<li class=""><code>AIS apparent fishing effort</code>: clasificación de posible actividad pesquera por patrones de movimiento;</li>
+<li class=""><code>SAR vessel detections</code>: detecciones en imágenes radar, útiles también cuando no hay AIS visible;</li>
+<li class=""><code>VMS</code>: datos de sistemas de seguimiento pesquero cuando están disponibles para países o acuerdos concretos;</li>
+<li class="">eventos: encuentros, loitering, visitas a puerto, actividad pesquera aparente o apagados AIS, según cobertura.</li>
+</ul>
+<p>Mezclar esas capas en una sola frase suele producir conclusiones exageradas. "Había presencia de buques" no es lo mismo que "había pesca aparente", y "SAR detectó un objeto compatible" no es lo mismo que "identificamos un buque concreto".</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trabajar-primero-en-agregado">3. Trabajar primero en agregado<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#3-trabajar-primero-en-agregado" class="hash-link" aria-label="Enlace directo al 3. Trabajar primero en agregado" title="Enlace directo al 3. Trabajar primero en agregado" translate="no">​</a></h3>
+<p>Para un informe responsable, empieza por patrones:</p>
+<ol>
+<li class="">selecciona el área y el rango temporal;</li>
+<li class="">compara actividad antes, durante y después del periodo de interés;</li>
+<li class="">revisa si el patrón se concentra en el borde de una zona, en rutas conocidas o en puntos aislados;</li>
+<li class="">documenta capas activas, filtros y fecha de consulta;</li>
+<li class="">exporta solo lo necesario para replicar el análisis;</li>
+<li class="">pasa a eventos o buques concretos solo cuando exista una razón legítima y proporcionada.</li>
+</ol>
+<p>La propia disponibilidad de datos indica que muchos productos son dinámicos y de "near real time" con retrasos como 72 horas, mientras otros son datasets estables actualizados diaria, mensual o históricamente. Esa mezcla obliga a anotar qué versión o estado se consultó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-tratar-eventos-como-indicadores-de-revisión">4. Tratar eventos como indicadores de revisión<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#4-tratar-eventos-como-indicadores-de-revisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 4. Tratar eventos como indicadores de revisión" title="Enlace directo al 4. Tratar eventos como indicadores de revisión" translate="no">​</a></h3>
+<p>Los eventos son atractivos porque parecen narrativos: dos buques se encuentran, una señal desaparece, una embarcación entra o sale de puerto. Pero son salidas de modelos o reglas aplicadas a datos imperfectos.</p>
+<p>Por ejemplo, la FAQ de encuentros explica que un evento se clasifica cuando dos embarcaciones aparecen dentro de 500 metros durante al menos dos horas, a baja velocidad y lejos de un fondeadero costero. La misma página advierte que los encuentros pueden deberse a transbordo, suministros, cambios de tripulación, seguridad u otros motivos, y que la proximidad se calcula con posiciones estimadas en una malla temporal.</p>
+<p>La forma sana de escribirlo es:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Correcto: "El sistema marca un evento de encuentro que requiere revisión."</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Incorrecto: "El mapa demuestra un transbordo ilegal."</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corroborar-antes-de-atribuir">5. Corroborar antes de atribuir<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#5-corroborar-antes-de-atribuir" class="hash-link" aria-label="Enlace directo al 5. Corroborar antes de atribuir" title="Enlace directo al 5. Corroborar antes de atribuir" translate="no">​</a></h3>
+<p>Una línea de evidencia no basta. Según el caso, combina:</p>
+<ul>
+<li class="">normativa y límites oficiales de la zona;</li>
+<li class="">registros de autorizaciones, licencias o listas RFMO;</li>
+<li class="">información de puertos y escalas;</li>
+<li class="">imágenes SAR o ópticas cuando sean pertinentes;</li>
+<li class="">meteorología, estado de mar y visibilidad;</li>
+<li class="">registros corporativos o de propiedad cuando el análisis sea societario;</li>
+<li class="">respuesta de las partes afectadas si se va a publicar una conclusión sensible.</li>
+</ul>
+<p>La pregunta no es "qué puedo inferir". La pregunta es "qué inferencia sobreviviría a una revisión técnica y legal".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p><code>Global Fishing Watch</code> es potente precisamente porque hace visibles patrones que antes estaban dispersos. Pero sus límites son parte del dato:</p>
+<ul>
+<li class=""><code>AIS</code> nació como sistema de seguridad y evitación de colisiones, no como registro forense universal;</li>
+<li class="">no todos los buques están obligados a emitir AIS en todos los contextos;</li>
+<li class="">las señales pueden faltar, ser irregulares, estar mal configuradas o cambiar de identidad aparente;</li>
+<li class="">la clasificación de pesca depende de modelos que interpretan movimiento, no capturas reales;</li>
+<li class="">la cobertura SAR ayuda a detectar buques sin AIS visible, pero también requiere lectura de confianza, fecha, resolución y contexto;</li>
+<li class="">los límites marítimos, áreas protegidas y autorizaciones pueden variar por fuente;</li>
+<li class="">el dato bruto AIS usado por la plataforma no está disponible libremente, aunque existan datasets derivados y muestras anonimizadas;</li>
+<li class="">una ausencia en el mapa no demuestra ausencia de actividad en el mar.</li>
+</ul>
+<p>La documentación técnica también recuerda problemas de identidad: una búsqueda de buque puede devolver varios identificadores porque las transmisiones AIS y los registros no siempre encajan limpiamente. Un cambio real de bandera, nombre o puerto puede parecerse a una transmisión incompleta; una transmisión incompleta puede crear registros separados para el mismo buque.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>El OSINT marítimo toca actividades económicas, tripulaciones, comunidades costeras, investigación ambiental, cumplimiento regulatorio y, a veces, conflictos. Esa combinación exige prudencia:</p>
+<ul>
+<li class="">evita publicar rutas operativas recientes si no hay interés público claro;</li>
+<li class="">trabaja con agregados cuando baste para responder la pregunta;</li>
+<li class="">no conviertas nombres de buques, banderas o empresas en acusaciones sin contraste;</li>
+<li class="">separa dato observado, salida de modelo, inferencia y conclusión;</li>
+<li class="">respeta términos de uso, límites de API y licencias de datos;</li>
+<li class="">documenta capturas, consultas, fechas y filtros;</li>
+<li class="">minimiza datos personales y evita señalar tripulantes;</li>
+<li class="">si el caso puede tener consecuencias legales, pide revisión especializada antes de publicar.</li>
+</ul>
+<p>La transparencia no consiste en exponerlo todo. Consiste en que el análisis sea verificable, proporcional y honesto sobre sus incertidumbres.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>Global Fishing Watch</code> encaja especialmente bien cuando la pregunta es marítima, espacial y temporal. Según el caso, puede complementarse con:</p>
+<ul>
+<li class="">registros oficiales de buques y autorizaciones pesqueras;</li>
+<li class=""><code>MarineTraffic</code>, <code>VesselFinder</code> u otros servicios AIS comerciales, teniendo en cuenta licencias y cobertura;</li>
+<li class=""><code>Sentinel Hub EO Browser</code> o <code>Copernicus Browser</code> para imágenes satelitales;</li>
+<li class=""><code>NASA FIRMS</code> si la investigación toca incendios, anomalías térmicas o actividad costera;</li>
+<li class=""><code>OpenStreetMap</code> y cartas náuticas para contexto geográfico;</li>
+<li class="">registros societarios y sanciones cuando el análisis se mueva de actividad marítima a propiedad, control o cumplimiento.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>Global Fishing Watch</code> para <strong>convertir actividad marítima visible en preguntas reproducibles</strong>, no para cerrar casos por intuición. Si una señal parece importante, el siguiente paso no es endurecer el titular, sino comprobar fuente, modelo, zona, fecha, autorización y explicación alternativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://globalfishingwatch.org/user-guide/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch</code>, mapa y guía de usuario</a>, consultado el <code>12 de julio de 2026</code>.</li>
+<li class=""><a href="https://globalfishingwatch.org/our-apis/documentation" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch API Documentation</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
+<li class=""><a href="https://globalfishingwatch.org/global-fishing-watch-data-availability/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch Data Availability</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
+<li class=""><a href="https://globalfishingwatch.org/faqs/can-i-download-raw-ais-data/" target="_blank" rel="noopener noreferrer" class=""><code>Can I download raw AIS data?</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
+<li class=""><a href="https://globalfishingwatch.org/faqs/what-is-a-vessel-encounter/" target="_blank" rel="noopener noreferrer" class=""><code>What is a vessel encounter?</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
+<li class=""><a href="https://globalfishingwatch.org/article/journal-article-clarifies-how-global-fishing-watch-fishing-data-is-generated/" target="_blank" rel="noopener noreferrer" class=""><code>Journal article clarifies how Global Fishing Watch fishing data is generated</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Maritimo" term="Maritimo"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Investigacion" term="Investigacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ICIJ Offshore Leaks Database en OSINT: grafos societarios, contexto y cautela antes de atribuir]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/icij-offshore-leaks-osint-grafos-societarios-contexto</id>
@@ -2631,142 +2769,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Tooling" term="Tooling"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OpenOwnership en OSINT: beneficiarios reales, estructuras societarias y contexto antes de atribuir control]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto"/>
-        <updated>2026-06-19T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT trazando beneficiarios reales, empresas interpuestas y relaciones de control con foco en trazabilidad]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT trazando beneficiarios reales, empresas interpuestas y relaciones de control con foco en trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-19-openownership-osint-beneficiarios-reales-estructuras-societarias-contexto-9162255e1fe4170224bce547b1ab8a5b.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion deja de girar solo alrededor de una marca y empieza a tocar sociedades, accionistas, control efectivo y jurisdicciones cruzadas, el ruido crece muy deprisa. El problema ya no es encontrar "otro nombre", sino <strong>explicar quien parece controlar que, con que grado de certeza y en base a que registro o modelo de datos</strong>. <code>OpenOwnership</code> resulta util justo ahi: no como sentencia automatica sobre una empresa, sino como una forma de pensar y trabajar mejor con datos de titularidad real, historicos societarios y estructuras que suelen volverse opacas en cuanto cruzan fronteras.</p>
-<p>La posicion correcta importa. Revisando sus materiales oficiales el <strong>19 de junio de 2026</strong>, <code>Open Ownership</code> ya no se presenta principalmente como un gran buscador transnacional listo para resolver casos por si solo, sino como una organizacion centrada en transparencia de beneficiarios reales, en su mapa mundial de reformas y en el <code>Beneficial Ownership Data Standard</code> (<code>BODS</code>). Ademas, su propia nota sobre la evolucion del antiguo <code>Open Ownership Register</code> explica que el registro prototipo dejo de estar accesible el <strong>29 de noviembre de 2024</strong>, mientras el trabajo siguio vivo a traves de datasets, estandares y apoyo tecnico. Traducido a lenguaje de analista: hoy <code>OpenOwnership</code> sirve sobre todo para <strong>entender el terreno, reutilizar datos estructurados y mejorar tus preguntas</strong>, no para sustituir la comprobacion final en cada registro primario.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como <code>due diligence</code>, periodismo de datos, cumplimiento, investigacion academica, contratacion publica y analisis de riesgo. No incluye tacticas para acoso, doxxing, intrusiones ni persecucion de personas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Open Ownership</code> impulsa transparencia y rendicion de cuentas sobre la propiedad y el control de sociedades y otras estructuras juridicas. Su capa mas reutilizable para OSINT no es una sola web de busqueda, sino un conjunto de piezas que encajan bastante bien entre si:</p>
-<ul>
-<li class="">un marco conceptual sobre que significa titularidad real y por que importa;</li>
-<li class="">el <code>Beneficial Ownership Data Standard</code> (<code>BODS</code>) para representar datos de propiedad y control de forma estructurada;</li>
-<li class="">un mapa global que deja ver que paises han planificado, implementado o lanzado registros;</li>
-<li class="">y herramientas de analisis y descarga para datasets publicados siguiendo ese modelo.</li>
-</ul>
-<p>El <code>primer</code> oficial de <code>BODS</code> deja una idea muy util para no simplificar de mas: la titularidad real no es solo "poseer acciones". Puede incluir <strong>propiedad, control o beneficio</strong> a traves de relaciones directas e indirectas. Ese matiz importa mucho en OSINT responsable, porque evita tratar una cadena societaria como si fuera una foto plana de accionariado.</p>
-<p>En la practica, <code>OpenOwnership</code> ayuda a responder preguntas como estas:</p>
-<ul>
-<li class="">que registros o reformas de titularidad real existen en una jurisdiccion concreta;</li>
-<li class="">si un pais publica datos estructurados o solo acceso limitado;</li>
-<li class="">como modelar relaciones entre persona, entidad, interes y fecha;</li>
-<li class="">y como mantener trazabilidad temporal cuando una estructura cambia.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de terceros sobre <code>Costa Delta Renewables</code>, una empresa ficticia que quiere entrar en una licitacion. El equipo ya sabe tres cosas:</p>
-<ul>
-<li class="">la sociedad matriz figura en un registro mercantil europeo;</li>
-<li class="">aparecen dos entidades interpuestas en jurisdicciones distintas;</li>
-<li class="">y un directivo afirma que la estructura final es "simple", aunque la documentacion publica no termina de cuadrar.</li>
-</ul>
-<p>Un enfoque prudente con <code>OpenOwnership</code> no seria "buscar un culpable", sino ordenar mejor el problema:</p>
-<ol>
-<li class="">comprobar en el mapa si las jurisdicciones implicadas tienen registro vivo, acceso publico o mejoras regulatorias recientes;</li>
-<li class="">revisar que entiende cada sistema por titularidad real y si trabaja con umbrales del <code>25%</code>, control por voto, control indirecto u otros mecanismos;</li>
-<li class="">usar el marco de <code>BODS</code> para separar entidades, personas, relaciones, fechas e identificadores;</li>
-<li class="">y anotar siempre que parte del analisis viene del registro oficial, que parte del modelo de datos y que parte sigue siendo inferencia pendiente de corroboracion.</li>
-</ol>
-<p>La ganancia real no es "cerrar el caso" mas deprisa. La ganancia real es <strong>bajar ambiguedad societaria sin confundir visualizacion con prueba</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-la-pregunta-de-control-no-solo-por-el-nombre-de-la-empresa">1. Empieza por la pregunta de control, no solo por el nombre de la empresa<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#1-empieza-por-la-pregunta-de-control-no-solo-por-el-nombre-de-la-empresa" class="hash-link" aria-label="Enlace directo al 1. Empieza por la pregunta de control, no solo por el nombre de la empresa" title="Enlace directo al 1. Empieza por la pregunta de control, no solo por el nombre de la empresa" translate="no">​</a></h3>
-<p>En OSINT societario, buscar un nombre comercial suele ser el arranque menos fiable. El nombre cambia, se replica entre paises o se usa como marca de varias entidades distintas. Conviene empezar por una pregunta mas precisa:</p>
-<ul>
-<li class="">que entidad legal concreta estoy revisando;</li>
-<li class="">quien declara controlarla o beneficiarse de ella;</li>
-<li class="">en que fecha;</li>
-<li class="">y en que jurisdiccion queda esa declaracion registrada.</li>
-</ul>
-<p>El propio informe <code>Usable beneficial ownership data</code>, publicado por <code>Open Ownership</code> el <code>30 de septiembre de 2025</code>, remarca algo practico: un buen sistema deberia permitir buscar tanto por nombre o identificador de empresa como por nombre o identificador del beneficiario real. Para un analista, eso obliga a no quedarse en una sola entrada. Hay que poder ir <strong>de empresa a persona y de persona a empresa</strong> sin perder la referencia original.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-entidad-persona-relacion-e-identificador">2. Separa entidad, persona, relacion e identificador<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#2-separa-entidad-persona-relacion-e-identificador" class="hash-link" aria-label="Enlace directo al 2. Separa entidad, persona, relacion e identificador" title="Enlace directo al 2. Separa entidad, persona, relacion e identificador" translate="no">​</a></h3>
-<p>Una de las aportaciones mas utiles de <code>BODS</code> es que no trata toda la titularidad real como texto libre. El <code>primer</code> y los ejemplos oficiales dejan claro que el modelo separa:</p>
-<ul>
-<li class="">detalles de personas y entidades;</li>
-<li class="">identificadores de personas y entidades;</li>
-<li class="">tipos de interes;</li>
-<li class="">informacion de procedencia;</li>
-<li class="">y datos historicos ademas de los actuales.</li>
-</ul>
-<p>Esa disciplina evita uno de los vicios mas comunes del OSINT societario: meter en la misma frase una empresa, un apoderado, un beneficiario final, un accionista intermedio y una fuente secundaria como si fueran el mismo tipo de hecho.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-no-pierdas-la-dimension-temporal">3. No pierdas la dimension temporal<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#3-no-pierdas-la-dimension-temporal" class="hash-link" aria-label="Enlace directo al 3. No pierdas la dimension temporal" title="Enlace directo al 3. No pierdas la dimension temporal" translate="no">​</a></h3>
-<p>La pagina oficial sobre registros actualizados e historicos lo resume bien: un registro de titularidad real se acumula como una <strong>linea temporal</strong> de declaraciones sobre propiedad y control. Nuevas declaraciones sustituyen a otras, pero las anteriores siguen siendo analiticamente valiosas.</p>
-<p>Eso importa por varias razones:</p>
-<ul>
-<li class="">una estructura puede haber cambiado justo antes de una operacion sensible;</li>
-<li class="">un cambio breve puede ser relevante para <code>due diligence</code> aunque ya no aparezca como estado actual;</li>
-<li class="">y un nombre, una entidad o un intermediario pueden haber sido usados solo durante una ventana concreta.</li>
-</ul>
-<p>En investigaciones serias, la pregunta no deberia ser solo "quien controla esto ahora?", sino tambien <strong>quien aparecia controlandolo cuando se firmo el contrato, se creo la filial o se movio el activo</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-el-mapa-para-contexto-regulatorio-no-para-sobreprometer-cobertura">4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#4-usa-el-mapa-para-contexto-regulatorio-no-para-sobreprometer-cobertura" class="hash-link" aria-label="Enlace directo al 4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura" title="Enlace directo al 4. Usa el mapa para contexto regulatorio, no para sobreprometer cobertura" translate="no">​</a></h3>
-<p>El mapa de <code>Open Ownership</code>, consultado el <code>19 de junio de 2026</code>, clasifica actualmente <code>35</code> paises como <code>Planned</code>, <code>31</code> como <code>Implementing</code> y <code>104</code> como <code>Live register</code>. Ese dato es util, pero tiene un limite explicito: la propia pagina advierte que la informacion procede de fuentes publicas y puede no ser completa para todos los paises.</p>
-<p>Eso convierte el mapa en una herramienta excelente para:</p>
-<ul>
-<li class="">detectar rapido si una jurisdiccion tiene un registro vivo o solo compromisos;</li>
-<li class="">orientar expectativas sobre acceso, estructura y madurez del sistema;</li>
-<li class="">y decidir que registros primarios merece la pena revisar despues.</li>
-</ul>
-<p>Lo que no deberia hacerse es confundir "pais con live register" con "pais con datos perfectos, abiertos, estructurados y listos para correlacion masiva". En la pagina de Espana, por ejemplo, <code>Open Ownership</code> muestra que el <code>Registro Central de Titularidades Reales</code> (<code>RCTIR</code>) figura como lanzado en <code>2023</code>, pero tambien indica que el dato <strong>no</strong> aparece como estructurado publicamente, <strong>no</strong> publicado como <code>BODS</code> y <strong>no</strong> disponible via <code>API</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-cuando-haya-datos-estructurados-aprovecha-la-forma-no-solo-el-contenido">5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#5-cuando-haya-datos-estructurados-aprovecha-la-forma-no-solo-el-contenido" class="hash-link" aria-label="Enlace directo al 5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido" title="Enlace directo al 5. Cuando haya datos estructurados, aprovecha la forma, no solo el contenido" translate="no">​</a></h3>
-<p>La pagina de herramientas de analisis de datos de <code>Open Ownership</code> es especialmente interesante para quien investiga con metodo. No se limita a decir que hay datos: ofrece ejemplos de datasets mapeados a <code>BODS</code>, con opciones de <code>CSV</code>, <code>JSON</code>, <code>SQLite</code>, <code>PostgreSQL</code>, <code>Parquet</code>, <code>BigQuery</code> o <code>Datasette</code>.</p>
-<p>Eso habilita un salto importante:</p>
-<ul>
-<li class="">pasar de consultas manuales a trabajo reproducible;</li>
-<li class="">versionar extracciones y notas;</li>
-<li class="">contrastar cambios temporales;</li>
-<li class="">y documentar exactamente que campos sostienen una conclusion.</li>
-</ul>
-<p>El propio sitio avisa, ademas, de que algunas transformaciones siguen siendo <code>work in progress</code> y deben tratarse con cautela. Ese aviso no es una molestia: es una pista metodologica. En OSINT responsable, un dataset transformado puede ser excelente para exploracion y cruce, pero la verificacion fuerte sigue reclamando el registro fuente cuando el hallazgo importa de verdad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>OpenOwnership</code> mejora mucho el trabajo con titularidad real, pero no neutraliza los problemas clasicos de este terreno:</p>
-<ul>
-<li class="">una misma persona puede aparecer con transliteraciones o identificadores incompletos;</li>
-<li class="">una participacion economica y una capacidad real de control no siempre coinciden;</li>
-<li class="">un umbral como el <code>25%</code> deja fuera situaciones de influencia relevante por otras vias;</li>
-<li class="">algunos paises publican poco, tarde o con acceso muy restringido;</li>
-<li class="">y varias capas intermedias pueden seguir ocultando a la persona fisica final.</li>
-</ul>
-<p>Tambien conviene recordar algo importante en 2026: <code>Open Ownership</code> ya no opera el antiguo registro transnacional como producto web abierto al publico. Si un analista trabaja como si siguiera existiendo una sola interfaz global con cobertura total, empezara el caso con expectativas equivocadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas">Buenas practicas<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#buenas-practicas" class="hash-link" aria-label="Enlace directo al Buenas practicas" title="Enlace directo al Buenas practicas" translate="no">​</a></h2>
-<ul>
-<li class="">Anota siempre la jurisdiccion, la fecha de consulta y el tipo de registro revisado.</li>
-<li class="">Distingue entre titularidad declarada, control presumido e inferencia analitica.</li>
-<li class="">Conserva enlaces o referencias al registro primario aunque trabajes con datos transformados.</li>
-<li class="">Usa historicos para entender cambios, no solo para adornar cronologias.</li>
-<li class="">Minimiza el tratamiento de datos personales cuando la pregunta pueda resolverse a nivel societario.</li>
-<li class="">Si la jurisdiccion exige interes legitimo o acceso restringido, no fuerces el alcance ni presentes huecos como si fueran evidencia negativa.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>OpenOwnership</code> encaja especialmente bien como capa de contexto y modelo. Segun la pregunta, puede combinarse con otras piezas ya tratadas en el blog:</p>
-<ul>
-<li class=""><code>OpenCorporates</code>, si necesitas una vista amplia de entidades legales y cargos;</li>
-<li class=""><code>OpenSanctions</code>, si quieres anadir listas de riesgo y entidades reguladas;</li>
-<li class=""><code>LittleSis</code> u <code>OpenAleph</code>, si el caso mezcla poder, documentos y relaciones complejas;</li>
-<li class="">y registros mercantiles nacionales, cuando la comprobacion definitiva exige leer la fuente primaria.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>OpenOwnership</code> para <strong>pensar mejor la titularidad real y documentarla mejor</strong>, no para vender una certeza que el registro aun no da. Si el proximo paso editorial sigue esta linea, tiene sentido bajar a un caso practico sobre como contrastar <code>beneficial ownership</code>, cargos mercantiles y sanciones sin mezclar control aparente con control probado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/openownership-osint-beneficiarios-reales-estructuras-societarias-contexto#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><code>Open Ownership</code>, pagina principal y mapa global, consultados el <code>19 de junio de 2026</code>.</li>
-<li class=""><code>Beneficial Ownership Data Standard (BODS)</code>, <code>primer</code> y documentacion de la version <code>0.4</code>.</li>
-<li class=""><code>Open Ownership</code>, <code>Evolving from the Open Ownership Register to increase our impact</code>, <code>30 de octubre de 2024</code>.</li>
-<li class=""><code>Open Ownership</code>, <code>Features of better beneficial ownership data</code>, <code>30 de septiembre de 2025</code>.</li>
-<li class=""><code>Open Ownership</code>, <code>Verification</code> y <code>Up-to-date and historical records</code>.</li>
-<li class=""><code>Open Ownership</code>, <code>Beneficial ownership data analysis tools</code>, consultado el <code>19 de junio de 2026</code>.</li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Tradecraft" term="Tradecraft"/>
     </entry>
 </feed>
