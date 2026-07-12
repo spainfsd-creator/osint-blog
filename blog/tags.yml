@@ -163,6 +163,11 @@ geoint:
   permalink: /geoint
   description: Inteligencia geoespacial y analisis de imagenes satelitales.
 
+maritime:
+  label: Maritimo
+  permalink: /maritime
+  description: Actividad maritima, buques, rutas y contexto oceanico en investigaciones OSINT responsables.
+
 imint:
   label: IMINT
   permalink: /imint
