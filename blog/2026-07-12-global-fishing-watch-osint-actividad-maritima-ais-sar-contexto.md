@@ -9,6 +9,9 @@ image: /img/blog/2026-07-12-global-fishing-watch-osint-actividad-maritima-ais-sa
 
 ![Ilustración editorial de una analista OSINT revisando actividad marítima abierta, trazas AIS, detecciones SAR, notas de verificación y un mapa oceánico sin embarcaciones identificables](/img/blog/2026-07-12-global-fishing-watch-osint-actividad-maritima-ais-sar-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto.m4a)
+
+
 Una mancha de calor sobre el océano puede parecer una historia cerrada: barcos, ruta, zona protegida y una hora aproximada. En investigación marítima responsable, sin embargo, esa imagen solo abre una pregunta: **qué actividad pública se observa, con qué datos, con qué retraso y con qué nivel de incertidumbre**. `Global Fishing Watch` ayuda justo ahí, no como radar infalible, sino como una capa abierta para estudiar actividad humana en el mar con método.
 
 Revisando su documentación oficial el **12 de julio de 2026**, la plataforma combina datos de seguimiento de embarcaciones, modelos de aprendizaje automático, capas ambientales, detecciones satelitales y APIs para explorar actividad pesquera aparente, presencia de buques, encuentros, eventos AIS apagado y detecciones SAR. La palabra clave es "aparente": el dato puede orientar una investigación, pero no sustituye la corroboración con registros, autorizaciones, imágenes, contexto local y fuentes primarias.
