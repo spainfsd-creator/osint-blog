@@ -9,6 +9,9 @@ image: /img/blog/2026-07-13-openaq-osint-calidad-aire-datos-abiertos-contexto.pn
 
 ![Ilustracion editorial de una analista OSINT revisando datos abiertos de calidad del aire, sensores, series temporales, mapas y notas de verificacion](/img/blog/2026-07-13-openaq-osint-calidad-aire-datos-abiertos-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openaq-osint-calidad-aire-datos-abiertos-contexto.m4a)
+
+
 Un pico de contaminacion en una grafica puede parecer una acusacion lista para publicar: una fabrica cercana, una carretera saturada, una columna de humo y una hora concreta. En OSINT ambiental responsable, sin embargo, el primer deber no es senalar un culpable, sino preguntar **que midio realmente el sensor, de donde procede el dato, que licencia lo cubre y que explicaciones alternativas siguen abiertas**.
 
 [`OpenAQ`](https://openaq.org/) ayuda en esa fase de contexto. Agrega y armoniza datos abiertos de calidad del aire de muchas fuentes, los expone mediante una plataforma web y una API, y permite trabajar con mediciones historicas o recientes sin depender solo de una captura aislada. Revisando su documentacion oficial el **13 de julio de 2026**, la API publica recursos para ubicaciones, sensores, mediciones, ultimos valores, parametros, proveedores, propietarios y licencias; usa `X-API-Key` para autenticar peticiones; y documenta limites generales de `60` solicitudes por minuto y `2.000` por hora para uso gratuito.
