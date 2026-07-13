@@ -4,10 +4,138 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 12 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[OpenAQ en OSINT: calidad del aire, sensores y contexto antes de atribuir causas]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto</guid>
+            <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando datos abiertos de calidad del aire, sensores, series temporales, mapas y notas de verificacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando datos abiertos de calidad del aire, sensores, series temporales, mapas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-13-openaq-osint-calidad-aire-datos-abiertos-contexto-b919c0339f75d466a3006dcc0f8e1461.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un pico de contaminacion en una grafica puede parecer una acusacion lista para publicar: una fabrica cercana, una carretera saturada, una columna de humo y una hora concreta. En OSINT ambiental responsable, sin embargo, el primer deber no es senalar un culpable, sino preguntar <strong>que midio realmente el sensor, de donde procede el dato, que licencia lo cubre y que explicaciones alternativas siguen abiertas</strong>.</p>
+<p><a href="https://openaq.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenAQ</code></a> ayuda en esa fase de contexto. Agrega y armoniza datos abiertos de calidad del aire de muchas fuentes, los expone mediante una plataforma web y una API, y permite trabajar con mediciones historicas o recientes sin depender solo de una captura aislada. Revisando su documentacion oficial el <strong>13 de julio de 2026</strong>, la API publica recursos para ubicaciones, sensores, mediciones, ultimos valores, parametros, proveedores, propietarios y licencias; usa <code>X-API-Key</code> para autenticar peticiones; y documenta limites generales de <code>60</code> solicitudes por minuto y <code>2.000</code> por hora para uso gratuito.</p>
+<p>Este articulo esta escrito para periodistas de datos, analistas OSINT, equipos ambientales, investigadores academicos y organizaciones que necesitan contrastar informacion publica sobre calidad del aire. No es una guia para acosar instalaciones, exponer domicilios, fabricar alarmas sanitarias ni convertir una correlacion temporal en atribucion causal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-openaq-y-para-que-sirve">Que es OpenAQ y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#que-es-openaq-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenAQ y para que sirve" title="Enlace directo al Que es OpenAQ y para que sirve" translate="no">​</a></h2>
+<p><code>OpenAQ</code> es una plataforma abierta de datos de calidad del aire. Su objetivo practico es reunir datos de distintas fuentes, armonizarlos y hacerlos consultables con una estructura comun. Para una investigacion OSINT, eso permite pasar de "he visto una grafica" a preguntas mas defendibles:</p>
+<ul>
+<li class="">que sensores existen cerca de una zona;</li>
+<li class="">que parametros mide cada sensor;</li>
+<li class="">quien es el proveedor y, cuando consta, quien gestiona la estacion;</li>
+<li class="">que unidades y contaminantes se estan observando;</li>
+<li class="">que mediciones recientes o historicas hay para un periodo;</li>
+<li class="">que licencia y condiciones de atribucion afectan al uso del dato;</li>
+<li class="">si una senal aparece en un sensor aislado o se repite en estaciones cercanas.</li>
+</ul>
+<p>La documentacion de la API describe un enfoque <code>REST</code> con respuestas <code>JSON</code> y recursos orientados a entidades. Tambien acota el tipo de datos que conviene esperar: OpenAQ se centra sobre todo en contaminantes criterio como <code>PM2.5</code>, <code>PM10</code>, <code>SO2</code>, <code>NO2</code>, <code>CO</code>, <code>O3</code>, carbono negro, humedad relativa y temperatura, con cobertura limitada para otros parametros como <code>PM1</code>, <code>PM4</code>, <code>CO2</code>, <code>NO</code>, <code>NOx</code>, <code>CH4</code> y particulas ultrafinas.</p>
+<p>Ese matiz importa. OpenAQ no es un laboratorio forense, no reemplaza a las autoridades ambientales y no observa causas. Es una capa de datos para formular mejores hipotesis, detectar huecos y decidir que corroboracion hace falta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una redaccion local recibe quejas por olor y particulas en el barrio ficticio de <code>Ribera Norte</code>. En redes circula una captura que acusa directamente a una planta industrial. La redaccion quiere comprobar si hubo una anomalia ambiental real sin amplificar una acusacion que todavia no esta probada.</p>
+<p>Un flujo prudente podria empezar asi:</p>
+<ol>
+<li class="">delimitar la zona y la ventana temporal de la queja;</li>
+<li class="">buscar ubicaciones de OpenAQ dentro de un radio razonable;</li>
+<li class="">identificar que sensores miden <code>PM2.5</code>, <code>PM10</code>, <code>NO2</code> u otros parametros relevantes;</li>
+<li class="">anotar proveedor, propietario, zona horaria, licencia y estado activo de cada ubicacion;</li>
+<li class="">comparar la serie del sensor cercano con estaciones de referencia y estaciones de fondo;</li>
+<li class="">contrastar meteorologia, direccion del viento, trafico, obras, incendios, avisos oficiales y comunicados;</li>
+<li class="">escribir una conclusion limitada a lo observado.</li>
+</ol>
+<p>El resultado responsable no seria "OpenAQ demuestra que la planta X contamino". Seria algo mas estrecho:</p>
+<blockquote>
+<p>En la tarde del 12 de julio se observa un aumento de PM2.5 en dos sensores cercanos a Ribera Norte. La senal coincide con viento del oeste y no basta para atribuir causa. Hemos pedido datos oficiales, revisado estaciones de referencia y conservado el rango horario para contraste.</p>
+</blockquote>
+<p>La diferencia es clave: el dato abre una investigacion, no condena a nadie.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-ubicaciones-no-por-conclusiones">1. Empezar por ubicaciones, no por conclusiones<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#1-empezar-por-ubicaciones-no-por-conclusiones" class="hash-link" aria-label="Enlace directo al 1. Empezar por ubicaciones, no por conclusiones" title="Enlace directo al 1. Empezar por ubicaciones, no por conclusiones" translate="no">​</a></h3>
+<p>Antes de buscar mediciones, localiza las estaciones o sensores que cubren la zona. El recurso de <code>locations</code> documenta nombres, coordenadas, zona horaria, proveedor, propietario cuando existe, sensores asociados y detalles como si una estacion es movil o fija.</p>
+<p>En un cuaderno de investigacion, conviene registrar:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Zona ficticia: Ribera Norte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: hubo una anomalia de PM2.5 o PM10 durante la tarde del 12 de julio?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente base: OpenAQ locations y measurements</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Radio inicial: 5 km, ampliable si hay pocos sensores</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Unidad temporal: hora local documentada y UTC cuando se exporte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: detectar senal ambiental que merezca contraste, no atribuir causa</span><br></span></code></pre></div></div>
+<p>Una ausencia de sensores cercanos no significa ausencia de contaminacion. Significa ausencia de observacion en esa capa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-parametro-sensor-y-proveedor">2. Separar parametro, sensor y proveedor<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#2-separar-parametro-sensor-y-proveedor" class="hash-link" aria-label="Enlace directo al 2. Separar parametro, sensor y proveedor" title="Enlace directo al 2. Separar parametro, sensor y proveedor" translate="no">​</a></h3>
+<p>No mezcles todo bajo la etiqueta "contaminacion". <code>PM2.5</code>, <code>PM10</code>, <code>NO2</code> y <code>O3</code> cuentan historias diferentes. Tambien cambia mucho si el dato procede de una estacion regulatoria, una red universitaria, un sensor comunitario o un proveedor privado.</p>
+<p>OpenAQ ayuda a separar esas piezas con recursos como:</p>
+<table><thead><tr><th>Recurso</th><th>Utilidad OSINT</th><th>Riesgo si lo ignoras</th></tr></thead><tbody><tr><td><code>parameters</code></td><td>Entender contaminante, unidad y descripcion</td><td>Comparar cosas que no son equivalentes</td></tr><tr><td><code>locations</code></td><td>Situar estaciones, zona horaria y sensores</td><td>Creer que un punto cubre toda una ciudad</td></tr><tr><td><code>sensors</code></td><td>Ver que mide cada instrumento</td><td>Tratar un valor como si viniera de cualquier sensor</td></tr><tr><td><code>providers</code></td><td>Saber quien suministra el dato</td><td>Perder trazabilidad de origen</td></tr><tr><td><code>owners</code></td><td>Identificar quien gestiona la estacion cuando consta</td><td>Atribuir mal la responsabilidad del dato</td></tr><tr><td><code>licenses</code></td><td>Comprobar permisos y atribucion</td><td>Reutilizar datos incumpliendo condiciones</td></tr></tbody></table>
+<p>La trazabilidad no es burocracia. Es lo que permite que otro analista revise tu lectura.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-latest-solo-para-triage-rapido">3. Usar <code>latest</code> solo para triage rapido<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#3-usar-latest-solo-para-triage-rapido" class="hash-link" aria-label="Enlace directo al 3-usar-latest-solo-para-triage-rapido" title="Enlace directo al 3-usar-latest-solo-para-triage-rapido" translate="no">​</a></h3>
+<p>El recurso <code>latest</code> sirve para ver mediciones recientes y ubicacion geografica. Es util para una primera orientacion, pero no deberia cerrar una historia sensible. Un valor reciente puede estar afectado por latencia, calibracion, mantenimiento, condiciones meteorologicas o ruido local.</p>
+<p>Para una pieza publicable, pasa cuanto antes a mediciones por sensor y a agregaciones adecuadas. La propia documentacion de <code>measurements</code> distingue valores originales y distintos niveles de agregacion. Decide si necesitas dato puntual, media horaria, comparacion diaria o contexto historico.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-documentar-la-api-y-sus-limites">4. Documentar la API y sus limites<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#4-documentar-la-api-y-sus-limites" class="hash-link" aria-label="Enlace directo al 4. Documentar la API y sus limites" title="Enlace directo al 4. Documentar la API y sus limites" translate="no">​</a></h3>
+<p>La API requiere clave en la cabecera <code>X-API-Key</code>. Los ejemplos oficiales usan un placeholder que no funciona por si solo, y la documentacion indica que hay que registrarse en OpenAQ Explorer para obtener una clave propia.</p>
+<p>Un ejemplo responsable, con coordenadas ficticias, seria:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --request GET \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --url "https://api.openaq.org/v3/locations?coordinates=-3.7038,40.4168&amp;radius=5000&amp;limit=100" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --header "X-API-Key: TU_CLAVE_OPENAQ"</span><br></span></code></pre></div></div>
+<p>No automatices a ciegas. Si tu flujo necesita volumen, respeta los limites, pagina resultados, cachea respuestas y registra que endpoints consultaste. En julio de 2026, la documentacion de rate limits indica <code>60</code> peticiones por minuto y <code>2.000</code> por hora para el uso gratuito general.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corroborar-fuera-de-openaq">5. Corroborar fuera de OpenAQ<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#5-corroborar-fuera-de-openaq" class="hash-link" aria-label="Enlace directo al 5. Corroborar fuera de OpenAQ" title="Enlace directo al 5. Corroborar fuera de OpenAQ" translate="no">​</a></h3>
+<p>Una serie ambiental nunca deberia interpretarse sola. Como minimo, contrasta:</p>
+<ul>
+<li class="">estaciones oficiales cercanas y de fondo urbano;</li>
+<li class="">meteorologia, especialmente viento, lluvia e inversiones termicas;</li>
+<li class="">mapas de trafico, obras y actividad portuaria o industrial cuando sea pertinente;</li>
+<li class="">avisos de autoridades ambientales;</li>
+<li class="">imagenes satelitales o datos de incendios si el caso apunta a humo;</li>
+<li class="">cronologia de quejas, comunicados y observaciones sobre el terreno autorizadas.</li>
+</ul>
+<p>Si la senal solo aparece en un sensor y no en otros, no la descartes ni la conviertas en titular. Tratarla como pista aislada suele ser mas honesto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>OpenAQ es valioso precisamente porque reduce friccion, pero tiene limites que deben aparecer en cualquier analisis serio:</p>
+<ul>
+<li class="">la cobertura geografica es desigual;</li>
+<li class="">no todos los sensores miden todos los parametros;</li>
+<li class="">los sensores de bajo coste pueden necesitar calibracion y contexto;</li>
+<li class="">una estacion puede estar fuera de servicio, moverse o cambiar de proveedor;</li>
+<li class="">los datos pueden llegar con retraso o correcciones posteriores;</li>
+<li class="">las unidades y agregaciones deben leerse con cuidado;</li>
+<li class="">una correlacion temporal no prueba fuente, intencion ni responsabilidad;</li>
+<li class="">la licencia puede exigir atribucion o limitar ciertos usos;</li>
+<li class="">el dato ambiental puede afectar a comunidades reales, por lo que el lenguaje importa.</li>
+</ul>
+<p>El falso positivo clasico es confundir proximidad con causalidad: "el sensor esta cerca de una instalacion, luego la instalacion causo el pico". En realidad pueden intervenir viento, trafico, obras, polvo sahariano, incendios, calefaccion residencial, mantenimiento del sensor o un error de lectura.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Aunque la calidad del aire parezca un tema menos sensible que personas o infraestructura critica, el dano por mala atribucion puede ser real. Un informe precipitado puede alarmar a vecinos, perjudicar a trabajadores, estigmatizar una zona o acusar a una organizacion sin base suficiente.</p>
+<p>Buenas practicas:</p>
+<ul>
+<li class="">trabaja con datos agregados cuando no necesites granularidad extrema;</li>
+<li class="">evita publicar coordenadas de sensores privados o comunitarios si pueden identificar domicilios;</li>
+<li class="">no presentes sensores ciudadanos como equivalentes automaticos a estaciones regulatorias;</li>
+<li class="">conserva consultas, fechas, zona horaria, endpoint, parametros y version de salida;</li>
+<li class="">cita proveedor, propietario y licencia cuando el dataset lo indique;</li>
+<li class="">separa observacion, hipotesis y conclusion;</li>
+<li class="">ofrece derecho de respuesta cuando una pieza mencione a una entidad concreta;</li>
+<li class="">deja claro que OpenAQ aporta mediciones, no atribucion causal.</li>
+</ul>
+<p>En OSINT responsable, la prudencia no rebaja el trabajo: lo hace mas util.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>OpenAQ encaja bien cuando necesitas datos abiertos de calidad del aire con API y trazabilidad. Segun la pregunta, puede combinarse con:</p>
+<ul>
+<li class="">portales oficiales de calidad del aire de administraciones nacionales, regionales o municipales;</li>
+<li class=""><code>NASA FIRMS</code>, si el contexto apunta a incendios o anomalias termicas;</li>
+<li class="">meteorologia oficial y reanalisis atmosfericos para viento y dispersion;</li>
+<li class=""><code>Overpass Turbo</code> u <code>OpenStreetMap</code> para contexto territorial;</li>
+<li class=""><code>GDELT</code> o hemerotecas si quieres mapear cobertura mediatica de un episodio;</li>
+<li class=""><code>Datasette</code>, <code>SQLite</code> u <code>OpenRefine</code> para limpiar y auditar series descargadas.</li>
+</ul>
+<p>La takeaway accionable es simple: usa <code>OpenAQ</code> para <strong>convertir una sospecha ambiental en una pregunta verificable</strong>, no para saltar de una grafica a una acusacion. Si detectas una senal, guarda la consulta, compara sensores, revisa licencias y busca corroboracion independiente antes de publicar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://openaq.org/" target="_blank" rel="noopener noreferrer" class="">OpenAQ</a></li>
+<li class=""><a href="https://docs.openaq.org/about/about" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: About the API</a></li>
+<li class=""><a href="https://docs.openaq.org/api" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: API overview</a></li>
+<li class=""><a href="https://docs.openaq.org/resources/locations" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Locations</a></li>
+<li class=""><a href="https://docs.openaq.org/resources/measurements" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Measurements</a></li>
+<li class=""><a href="https://docs.openaq.org/resources/latest" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Latest</a></li>
+<li class=""><a href="https://docs.openaq.org/using-the-api/api-key" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: API key</a></li>
+<li class=""><a href="https://docs.openaq.org/using-the-api/rate-limits" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Rate limits</a></li>
+<li class=""><a href="https://docs.openaq.org/resources/licenses" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Licenses</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>GEOINT</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Metodologia</category>
+            <category>Herramientas</category>
+        </item>
         <item>
             <title><![CDATA[Global Fishing Watch en OSINT: actividad marítima, AIS y SAR con contexto]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto</link>
@@ -2562,134 +2690,6 @@
             <category>Verificacion</category>
             <category>Metodologia</category>
             <category>Datos</category>
-            <category>Tooling</category>
-        </item>
-        <item>
-            <title><![CDATA[Google Alerts en OSINT: monitorizacion de menciones, cambios y ruido con criterio]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido</guid>
-            <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT configurando alertas de busqueda, operadores y bandejas de monitorizacion con foco en ruido y trazabilidad]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT configurando alertas de busqueda, operadores y bandejas de monitorizacion con foco en ruido y trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-20-google-alerts-osint-monitorizacion-menciones-cambios-ruido-4a36d7283cba94ca28da6e56e1e3fa09.png" width="708" height="396" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/google-alerts-osint-monitorizacion-menciones-cambios-ruido.m4a">Descargar el podcast</a></p>
-<p>En OSINT hay un momento muy concreto en el que el problema deja de ser encontrar una pista y pasa a ser <strong>no perder la siguiente cuando aparezca</strong>. Un nombre de empresa, un portavoz, una URL, una linea de producto, una sentencia judicial, un proveedor o una filtracion menor pueden tardar dias o semanas en volver a asomar. <code>Google Alerts</code> encaja justo ahi: no como sistema magico de vigilancia, sino como una capa simple para <strong>convertir una pregunta abierta en monitorizacion ligera y repetible</strong>.</p>
-<p>La ayuda oficial de Google Search, consultada el <strong>20 de junio de 2026</strong>, sigue describiendo <code>Google Alerts</code> de una forma bastante sobria: permite recibir correos cuando aparecen nuevos resultados sobre un tema en Google Search y deja ajustar frecuencia, tipo de sitios, idioma, parte del mundo, volumen de resultados y cuenta de destino. Esa sobriedad es una virtud. Bien usado, <code>Google Alerts</code> no sustituye tu investigacion; te evita tener que rehacer manualmente la misma comprobacion cada manana.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como periodismo, verificacion, investigacion academica, seguimiento reputacional, analisis de proveedores y <code>due diligence</code>. No incluye tacticas para acoso, doxxing, vigilancia invasiva ni recopilacion abusiva de datos personales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>Google Alerts</code> es una capa de notificaciones por correo construida sobre consultas de <code>Google Search</code>. Su valor practico para OSINT responsable no esta en "buscar mas", sino en <strong>mantener vivas ciertas preguntas</strong> sin depender de memoria, pestañas abiertas o revisitas manuales.</p>
-<p>Segun la documentacion oficial de Google Search consultada el <strong>20 de junio de 2026</strong>, al crear una alerta puedes ajustar:</p>
-<ul>
-<li class="">la frecuencia de los avisos;</li>
-<li class="">el tipo de sitios que quieres ver;</li>
-<li class="">el idioma;</li>
-<li class="">la parte del mundo de la que quieres informacion;</li>
-<li class="">cuantos resultados prefieres recibir;</li>
-<li class="">y la cuenta que recibira la alerta.</li>
-</ul>
-<p>Traducido a trabajo real, eso permite montar capas de seguimiento bastante utiles para preguntas como estas:</p>
-<ul>
-<li class="">si vuelve a mencionarse una marca en medios o blogs;</li>
-<li class="">si aparece una nueva referencia publica a un directivo, una filial o un proveedor;</li>
-<li class="">si un dominio concreto publica una nota, PDF o pagina nueva sobre un asunto sensible;</li>
-<li class="">o si una historia que parecia dormida empieza a recuperar traccion.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una <code>due diligence</code> sobre la empresa ficticia <code>Nerthus Biologics</code>. Ya has revisado su web, registros visibles, perfiles y algunas menciones de prensa. El problema no es la foto de hoy. El problema es <strong>detectar si mañana aparece algo nuevo</strong>: una licitacion, una sancion, una nota de retirada de producto, un cambio societario o una entrevista con un portavoz.</p>
-<p>En ese escenario, <code>Google Alerts</code> no reemplaza fuentes primarias ni bases especializadas. Lo que hace bien es dejar preparadas varias preguntas persistentes:</p>
-<ul>
-<li class=""><code>"Nerthus Biologics"</code></li>
-<li class=""><code>"Nerthus Biologics" site:boe.es</code></li>
-<li class=""><code>"Nerthus Biologics" filetype:pdf</code></li>
-<li class=""><code>"Nerthus Biologics" -jobs -empleo</code></li>
-<li class=""><code>"Laura Santisteban" "Nerthus"</code></li>
-</ul>
-<p>La utilidad no esta en crear cien alertas. Esta en construir unas pocas consultas defensibles que respondan a hipotesis distintas: menciones generales, documentos, regulacion, personal clave y exclusiones basicas de ruido.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-no-por-una-marca-sola">1. Empieza por una pregunta, no por una marca sola<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#1-empieza-por-una-pregunta-no-por-una-marca-sola" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta, no por una marca sola" title="Enlace directo al 1. Empieza por una pregunta, no por una marca sola" translate="no">​</a></h3>
-<p>Una alerta demasiado amplia se vuelve inutil muy deprisa. Antes de crearla, conviene decidir que quieres detectar exactamente:</p>
-<ul>
-<li class="">menciones generales;</li>
-<li class="">cambios documentales;</li>
-<li class="">cobertura de prensa;</li>
-<li class="">contexto regulatorio;</li>
-<li class="">o reaparicion de una persona o entidad en un entorno muy concreto.</li>
-</ul>
-<p>Si no defines esa pregunta, acabas con una bandeja llena de repeticiones irrelevantes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-disena-la-consulta-como-si-fueras-a-repetirla-durante-meses">2. Disena la consulta como si fueras a repetirla durante meses<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#2-disena-la-consulta-como-si-fueras-a-repetirla-durante-meses" class="hash-link" aria-label="Enlace directo al 2. Disena la consulta como si fueras a repetirla durante meses" title="Enlace directo al 2. Disena la consulta como si fueras a repetirla durante meses" translate="no">​</a></h3>
-<p>La pagina oficial <code>Refine Google searches</code>, consultada tambien el <strong>20 de junio de 2026</strong>, recuerda varios operadores de Search que siguen siendo muy utiles para estructurar alertas: comillas para frases exactas, <code>site:</code> para limitar a un dominio, <code>-</code> para excluir terminos, <code>before:</code> y <code>after:</code> para acotar por fecha y <code>filetype:</code> para tipos de documento.</p>
-<p>Eso permite transformar una alerta vaga en algo mucho mas util:</p>
-<ul>
-<li class="">de <code>acme</code> a <code>"Acme Iberia"</code>;</li>
-<li class="">de <code>proveedor energia</code> a <code>"Proveedor Energia Norte" site:cnmv.es</code>;</li>
-<li class="">de un nombre ambiguo a <code>"Carlos Vega" "Acme Iberia" -linkedin</code>;</li>
-<li class="">o de un seguimiento general a <code>"Acme Iberia" filetype:pdf</code>.</li>
-</ul>
-<p>Inferencia razonable a partir de la ayuda oficial: como <code>Google Alerts</code> nace de una consulta de <code>Google Search</code>, cuanto mejor formulada este la busqueda base, mejor control tendras luego sobre el ruido de los avisos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-alertas-de-descubrimiento-y-alertas-de-confirmacion">3. Separa alertas de descubrimiento y alertas de confirmacion<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#3-separa-alertas-de-descubrimiento-y-alertas-de-confirmacion" class="hash-link" aria-label="Enlace directo al 3. Separa alertas de descubrimiento y alertas de confirmacion" title="Enlace directo al 3. Separa alertas de descubrimiento y alertas de confirmacion" translate="no">​</a></h3>
-<p>No todas las alertas sirven para lo mismo. Una practica sana es dividirlas en dos familias:</p>
-<ul>
-<li class="">alertas amplias para no perder menciones nuevas;</li>
-<li class="">y alertas estrechas para confirmar cambios dentro de dominios, personas o documentos concretos.</li>
-</ul>
-<p>Por ejemplo, una alerta amplia puede avisarte de que un nombre vuelve a circular. Otra mucho mas cerrada puede limitarse a <code>site:empresa-ejemplo.test filetype:pdf</code> para detectar publicaciones documentales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ajusta-opciones-antes-de-saturar-tu-inbox">4. Ajusta opciones antes de saturar tu inbox<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#4-ajusta-opciones-antes-de-saturar-tu-inbox" class="hash-link" aria-label="Enlace directo al 4. Ajusta opciones antes de saturar tu inbox" title="Enlace directo al 4. Ajusta opciones antes de saturar tu inbox" translate="no">​</a></h3>
-<p>La ayuda oficial de Google destaca seis palancas operativas: frecuencia, tipos de sitio, idioma, zona geografica, numero de resultados y cuenta receptora. En OSINT eso importa mucho porque la diferencia entre utilidad y fatiga suele estar en esos detalles.</p>
-<p>Un ajuste prudente suele implicar:</p>
-<ul>
-<li class="">reducir frecuencia cuando la consulta es amplia;</li>
-<li class="">limitar por idioma o region si el caso lo permite;</li>
-<li class="">reservar <code>Only the best results</code> para temas muy ruidosos;</li>
-<li class="">y separar, cuando tenga sentido, las alertas de investigacion en una cuenta o carpeta propia.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-registra-que-pregunta-genero-cada-aviso">5. Registra que pregunta genero cada aviso<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#5-registra-que-pregunta-genero-cada-aviso" class="hash-link" aria-label="Enlace directo al 5. Registra que pregunta genero cada aviso" title="Enlace directo al 5. Registra que pregunta genero cada aviso" translate="no">​</a></h3>
-<p><code>Google Alerts</code> te ayuda a recibir senales, pero no documenta por ti la interpretacion. Si un aviso importa de verdad, conviene registrar al menos:</p>
-<ul>
-<li class="">fecha y hora del email;</li>
-<li class="">consulta exacta que lo disparo;</li>
-<li class="">URL recibida;</li>
-<li class="">si el contenido seguia accesible al revisarlo;</li>
-<li class="">y que parte del hallazgo procede del aviso frente a la comprobacion manual posterior.</li>
-</ul>
-<p>Esa pequena disciplina evita que, semanas despues, confundas "lo vi en una alerta" con "lo verifique bien".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Google Alerts</code> es util precisamente porque es simple, pero esa misma simplicidad impone limites claros:</p>
-<ul>
-<li class="">no representa toda la web ni todas las fuentes relevantes;</li>
-<li class="">depende de como Google indexa y vuelve a mostrar resultados;</li>
-<li class="">una consulta demasiado ancha produce ruido muy deprisa;</li>
-<li class="">una consulta demasiado estrecha puede dejar fuera variaciones importantes;</li>
-<li class="">y recibir un aviso no significa que el contenido sea exacto, actual o metodologicamente suficiente.</li>
-</ul>
-<p>Tambien conviene asumir algo muy basico: una alerta habla de <strong>aparicion en resultados</strong>, no de veracidad del contenido. El trabajo serio empieza despues, al contrastar con fuente primaria, archivo web, documento original o contexto institucional.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Crea alertas solo para fines legitimos y proporcionados.</li>
-<li class="">Evita combinaciones pensadas para vigilancia obsesiva de personas privadas sin interes publico claro.</li>
-<li class="">Prioriza entidades, dominios, marcas, cargos publicos, documentos o temas de riesgo antes que datos personales innecesarios.</li>
-<li class="">Si una alerta toca informacion sensible, limita difusion interna y conserva solo lo necesario.</li>
-<li class="">No conviertas un correo automatico en una conclusion automatica.</li>
-</ul>
-<p><code>Google Alerts</code> gana mucho valor cuando lo usas para seguir temas y cambios, no para ampliar sin freno el tratamiento de informacion personal.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si la pregunta principal exige otra profundidad, conviene complementar:</p>
-<ul>
-<li class=""><code>GDELT</code> o buscadores de noticias, si lo importante es la narrativa mediatica y el volumen temporal;</li>
-<li class=""><code>Common Crawl</code> o archivo web, si buscas rastro historico mas alla del resultado actual;</li>
-<li class=""><code>Hunchly</code>, <code>Archive.today</code> o <code>Wayback Machine</code>, si necesitas preservacion y trazabilidad;</li>
-<li class="">y fuentes sectoriales o regulatorias especificas, si el tema depende menos de Search y mas de registros primarios.</li>
-</ul>
-<p>La takeaway practica es sencilla: <code>Google Alerts</code> no sirve para investigar mejor por si solo. Sirve para <strong>no dejar caer preguntas que aun no han terminado de contestarse</strong>. En un flujo OSINT responsable, eso ya es bastante. Te obliga a definir mejor tus consultas, reduce comprobaciones manuales repetitivas y te recuerda que el seguimiento tambien forma parte del metodo.</p>
-<p>Como siguiente puente natural para el blog, tendria sentido bajar a una pieza comparada entre <code>Google Alerts</code>, archivo web y una libreta de evidencias para explicar que cambia entre detectar, preservar y demostrar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/google-alerts-osint-monitorizacion-menciones-cambios-ruido#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class="">Google Search Help, <code>Create an alert</code>: <a href="https://support.google.com/websearch/answer/4815696" target="_blank" rel="noopener noreferrer" class="">https://support.google.com/websearch/answer/4815696</a></li>
-<li class="">Google Search Help, <code>Refine Google searches</code>: <a href="https://support.google.com/websearch/answer/2466433" target="_blank" rel="noopener noreferrer" class="">https://support.google.com/websearch/answer/2466433</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Busqueda</category>
-            <category>Research</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
             <category>Tooling</category>
         </item>
     </channel>
