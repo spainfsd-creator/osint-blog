@@ -2,11 +2,154 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-13T00:00:00.000Z</updated>
+    <updated>2026-07-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[NVD en OSINT: CVE, CPE y contexto antes de priorizar vulnerabilidades]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto"/>
+        <updated>2026-07-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT defensivo con registros CVE abstractos, inventario CPE, puntuaciones de severidad y notas de verificacion]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT defensivo con registros CVE abstractos, inventario CPE, puntuaciones de severidad y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-14-nvd-osint-cve-cpe-priorizacion-contexto-70f4e1726dc1c862fb47ddc430c9d24f.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una vulnerabilidad con puntuacion alta puede encender todas las alarmas y, aun asi, no ser la primera que debas corregir. Tambien puede ocurrir lo contrario: una entrada discreta, con descripcion pobre o analisis pendiente, puede afectar a un producto critico de tu inventario. <code>NVD</code>, la National Vulnerability Database de NIST, ayuda a ordenar ese caos siempre que la uses como <strong>fuente de contexto estructurado</strong>, no como oraculo automatico de prioridad.</p>
+<p>Revisando la documentacion oficial el <strong>14 de julio de 2026</strong>, la API de vulnerabilidades de NVD expone registros <code>CVE</code>, filtros por identificador, <code>CPE</code>, severidad <code>CVSS</code>, <code>CWE</code>, estado, fechas de publicacion o modificacion, inclusion en <code>CISA KEV</code> y paginacion por <code>startIndex</code> y <code>resultsPerPage</code>. La documentacion publica indicaba <code>365.253</code> registros CVE en la base. NVD tambien mantiene una API de productos para el diccionario oficial <code>CPE</code>, una API de historial de cambios y feeds JSON 2.0, con feeds <code>recent</code> y <code>modified</code> actualizados cada dos horas.</p>
+<p>Este articulo esta escrito para analistas OSINT defensivos, equipos de gestion de vulnerabilidades, responsables de inventario, periodistas tecnicos y personas que necesitan leer datos publicos de seguridad sin sobrerreaccionar. No es una guia para explotar sistemas, localizar victimas ni convertir CVE en instrucciones de ataque.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-nvd-y-para-que-sirve">Que es NVD y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#que-es-nvd-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es NVD y para que sirve" title="Enlace directo al Que es NVD y para que sirve" translate="no">​</a></h2>
+<p><a href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer" class=""><code>NVD</code></a> es la base nacional de vulnerabilidades mantenida por el National Institute of Standards and Technology de Estados Unidos. En la practica, agrega y enriquece informacion alrededor de identificadores <code>CVE</code>: descripcion, fechas, referencias, debilidades <code>CWE</code>, metricas <code>CVSS</code>, configuraciones afectadas y relaciones con productos mediante <code>CPE</code>.</p>
+<p>Su utilidad OSINT no consiste en "saber que se puede atacar". Consiste en responder preguntas defensivas y verificables:</p>
+<ul>
+<li class="">que se ha publicado sobre una vulnerabilidad concreta;</li>
+<li class="">que productos o familias aparecen asociados mediante <code>CPE</code>;</li>
+<li class="">que puntuacion y vector <code>CVSS</code> se han asignado;</li>
+<li class="">que referencias primarias conviene leer despues;</li>
+<li class="">cuando se publico o modifico el registro;</li>
+<li class="">si aparece marcado como conocido explotado en <code>CISA KEV</code>;</li>
+<li class="">que parte del dato procede de una fuente externa y que parte es enriquecimiento de NVD.</li>
+</ul>
+<p>Esa estructura permite pasar de una alerta suelta a un expediente minimo. Pero tambien introduce una trampa: cuanto mas tabular parece el dato, mas facil es olvidar que sigue siendo incompleto, temporal y dependiente de interpretacion.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una cooperativa sanitaria ficticia, <code>Clara Salud</code>, con un inventario limitado:</p>
+<table><thead><tr><th>Activo</th><th>Producto declarado</th><th>Rol</th><th>Criticidad</th></tr></thead><tbody><tr><td>Portal externo</td><td>Gestor web ficticio 4.2</td><td>Citas publicas</td><td>Alta</td></tr><tr><td>Servidor interno</td><td>Motor documental ficticio 2.8</td><td>Archivo clinico</td><td>Muy alta</td></tr><tr><td>Puesto administrativo</td><td>Cliente VPN ficticio 6.1</td><td>Acceso remoto</td><td>Media</td></tr></tbody></table>
+<p>El equipo recibe tres avisos de vulnerabilidad durante la semana. La mala practica seria ordenar todo solo por severidad numerica. Un flujo mas sano con NVD haria otra cosa:</p>
+<ol>
+<li class="">resolver primero si el producto real del inventario corresponde al <code>CPE</code> citado;</li>
+<li class="">comprobar estado del <code>CVE</code>, fechas y cambios recientes;</li>
+<li class="">leer referencias del proveedor y advisories oficiales;</li>
+<li class="">revisar si existe entrada en <code>CISA KEV</code> o evidencia publica fiable de explotacion;</li>
+<li class="">cruzar con exposicion real, controles compensatorios y criticidad del activo;</li>
+<li class="">documentar la decision de priorizacion y sus dudas.</li>
+</ol>
+<p>La salida responsable no seria "CVSS 9.8, parchear todo ya". Seria algo mas defendible:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">CVE ficticio: CVE-20XX-0001</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Producto del inventario: gestor web ficticio 4.2</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">CPE compatible: pendiente de confirmar con vendor advisory</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Severidad NVD: alta / critica segun vector publicado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Explotacion conocida: no confirmada en fuentes primarias revisadas</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Exposicion propia: portal publico con autenticacion delante</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: prioridad alta, validar version exacta y parche disponible antes de ventana de cambio</span><br></span></code></pre></div></div>
+<p>Ese matiz no baja la urgencia. La hace auditable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-inventario-no-por-el-titular">1. Empieza por el inventario, no por el titular<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#1-empieza-por-el-inventario-no-por-el-titular" class="hash-link" aria-label="Enlace directo al 1. Empieza por el inventario, no por el titular" title="Enlace directo al 1. Empieza por el inventario, no por el titular" translate="no">​</a></h3>
+<p>NVD funciona mucho mejor cuando ya sabes que productos tienes. Si partes solo de una noticia, corres el riesgo de buscar una cadena de texto parecida y asumir que afecta a tu entorno.</p>
+<p>La API de productos de NVD trabaja con el diccionario oficial <code>CPE</code>. Un nombre <code>CPE</code> tiene trece componentes separados por dos puntos y sirve para describir producto, proveedor, parte, version y otros atributos. En OSINT defensivo, esto ayuda a convertir nombres comerciales ambiguos en selectores mas precisos.</p>
+<p>Un ejemplo seguro de nota interna seria:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Producto observado: "Acme Portal Server" (ficticio)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Version instalada: 4.2.7</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente del inventario: CMDB interna y banner validado por administracion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta NVD: que CVE se asocian a un CPE compatible?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Riesgo metodologico: el nombre comercial puede no coincidir con el CPE exacto</span><br></span></code></pre></div></div>
+<p>Si el <code>CPE</code> no encaja, no fuerces la coincidencia. Una mala correspondencia producto-vulnerabilidad produce tanto ruido como una alerta falsa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-cve-con-filtros-acotados">2. Consulta CVE con filtros acotados<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#2-consulta-cve-con-filtros-acotados" class="hash-link" aria-label="Enlace directo al 2. Consulta CVE con filtros acotados" title="Enlace directo al 2. Consulta CVE con filtros acotados" translate="no">​</a></h3>
+<p>La API de vulnerabilidades de NVD permite recuperar un <code>CVE</code> concreto o colecciones de resultados. Para trabajo reproducible, evita busquedas amplias sin pregunta. Mejor usar filtros acotados:</p>
+<ul>
+<li class=""><code>cveIds</code>, cuando ya conoces uno o varios identificadores;</li>
+<li class=""><code>cpeName</code>, cuando tienes un producto normalizado;</li>
+<li class=""><code>isVulnerable</code>, cuando quieres limitar resultados asociados a un <code>CPE</code> vulnerable;</li>
+<li class=""><code>pubStartDate</code> y <code>pubEndDate</code>, para ventanas de publicacion;</li>
+<li class=""><code>lastModStartDate</code> y <code>lastModEndDate</code>, para cambios recientes;</li>
+<li class=""><code>cvssV3Severity</code> o <code>cvssV4Severity</code>, como filtro auxiliar, no como veredicto;</li>
+<li class=""><code>hasKev</code>, si quieres separar entradas incluidas en el catalogo <code>Known Exploited Vulnerabilities</code> de CISA.</li>
+</ul>
+<p>La propia documentacion recomienda usar rangos de fecha para mantenerse actualizado sin descargarlo todo. Ese detalle importa: un flujo responsable respeta limites, pagina resultados y registra la consulta exacta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-el-vector-no-solo-la-etiqueta">3. Lee el vector, no solo la etiqueta<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#3-lee-el-vector-no-solo-la-etiqueta" class="hash-link" aria-label="Enlace directo al 3. Lee el vector, no solo la etiqueta" title="Enlace directo al 3. Lee el vector, no solo la etiqueta" translate="no">​</a></h3>
+<p><code>CRITICAL</code>, <code>HIGH</code> o <code>MEDIUM</code> son utiles para clasificar, pero esconden detalles. El vector <code>CVSS</code> explica por que una vulnerabilidad recibio esa puntuacion: vector de ataque, complejidad, privilegios requeridos, interaccion de usuario, impacto sobre confidencialidad, integridad y disponibilidad, entre otros factores.</p>
+<p>En una revision rapida, anota al menos:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Puntuacion base:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Vector:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Version de CVSS:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Interaccion de usuario:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Privilegios requeridos:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Alcance:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Impacto principal:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Lo que el vector no dice: exposicion real, mitigaciones locales, explotacion observada</span><br></span></code></pre></div></div>
+<p>Una vulnerabilidad remota sin autenticacion en un servicio expuesto no se gestiona igual que una vulnerabilidad local que requiere usuario, permisos previos y una configuracion que no usas. Las dos pueden ser importantes; no son la misma decision.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-el-historial-de-cambios-para-no-congelar-una-foto-vieja">4. Usa el historial de cambios para no congelar una foto vieja<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#4-usa-el-historial-de-cambios-para-no-congelar-una-foto-vieja" class="hash-link" aria-label="Enlace directo al 4. Usa el historial de cambios para no congelar una foto vieja" title="Enlace directo al 4. Usa el historial de cambios para no congelar una foto vieja" translate="no">​</a></h3>
+<p>Los registros cambian. NVD documenta una API de historial para ver eventos como recepcion del CVE, analisis inicial, reanalisis, modificaciones por la fuente, cambios de <code>CPE</code>, remapeos <code>CWE</code>, etiquetas de referencia o rechazo de CVE.</p>
+<p>Esto es especialmente util cuando una alerta parece contradecir lo que viste dias antes. En vez de discutir sobre capturas antiguas, revisa:</p>
+<ul>
+<li class="">cuando se modifico el registro;</li>
+<li class="">quien aporto el cambio;</li>
+<li class="">si cambio el estado;</li>
+<li class="">si se ajustaron referencias, <code>CPE</code>, <code>CWE</code> o metricas;</li>
+<li class="">si el CVE fue rechazado o corregido.</li>
+</ul>
+<p>En informes sensibles, una frase como "consultado el 14 de julio de 2026, con ultimo cambio observado en..." vale mas que una captura sin fecha.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-complementa-con-fuentes-primarias">5. Complementa con fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#5-complementa-con-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 5. Complementa con fuentes primarias" title="Enlace directo al 5. Complementa con fuentes primarias" translate="no">​</a></h3>
+<p>NVD es una capa excelente, pero no debe ser la unica. Para cada vulnerabilidad relevante, abre tambien:</p>
+<ul>
+<li class="">advisory del proveedor;</li>
+<li class="">notas de CISA si aplica;</li>
+<li class="">repositorio o changelog oficial del proyecto;</li>
+<li class="">documentacion de mitigacion;</li>
+<li class="">paquetes o versiones realmente instaladas;</li>
+<li class="">inventario interno, exposicion externa y controles compensatorios;</li>
+<li class="">tickets de cambio y evidencias de parcheo.</li>
+</ul>
+<p>La pregunta clave no es "que dice NVD?". La pregunta defendible es:</p>
+<p><strong>que dice NVD, que dice el proveedor, que vemos en nuestro inventario y que conclusion minima soportan todas esas fuentes juntas?</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>NVD baja mucho la friccion, pero no elimina problemas clasicos:</p>
+<ul>
+<li class=""><strong>Retraso y estado de analisis</strong>: algunas entradas pueden estar recibidas, pendientes o modificadas despues de la primera publicacion.</li>
+<li class=""><strong>CPE ambiguo</strong>: el producto instalado puede no mapear limpiamente con el <code>CPE</code> publicado.</li>
+<li class=""><strong>Versiones y backports</strong>: una distribucion puede parchear sin cambiar la version visible como esperas.</li>
+<li class=""><strong>Severidad no equivale a riesgo propio</strong>: <code>CVSS</code> no conoce tu topologia, segmentacion, exposicion ni controles.</li>
+<li class=""><strong>Referencias desiguales</strong>: un CVE puede tener muchas referencias tecnicas o apenas una descripcion minima.</li>
+<li class=""><strong>Rechazos y disputas</strong>: un identificador puede acabar rechazado, disputado o corregido.</li>
+<li class=""><strong>Automatizacion ruidosa</strong>: importar todo sin deduplicar ni normalizar puede llenar el backlog de falsos positivos.</li>
+</ul>
+<p>El error mas frecuente es tratar la base como una lista de tareas cerrada. NVD te da estructura; la priorizacion real exige contexto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Aunque NVD sea publico, la forma de usarlo importa:</p>
+<ul>
+<li class="">consulta vulnerabilidades para activos propios, autorizados o de interes publico legitimo;</li>
+<li class="">no publiques listas de sistemas de terceros "posiblemente vulnerables";</li>
+<li class="">no mezcles CVE con instrucciones de explotacion ni pruebas contra infraestructura ajena;</li>
+<li class="">minimiza datos internos cuando compartas tickets o informes;</li>
+<li class="">documenta incertidumbre en vez de ocultarla;</li>
+<li class="">respeta terminos de uso, paginacion y limites de APIs;</li>
+<li class="">separa observacion, inferencia y decision de remediacion.</li>
+</ul>
+<p>Un buen analista no presume de haber encontrado el CVE mas grave. Demuestra por que una decision de parcheo, mitigacion o seguimiento era proporcional con los datos disponibles.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>NVD encaja especialmente bien como capa base de vulnerabilidades. Segun la pregunta, combinala con:</p>
+<ul>
+<li class=""><code>CISA KEV</code>, para priorizar vulnerabilidades con explotacion conocida documentada;</li>
+<li class="">advisories de proveedores, para versiones, mitigaciones y parches concretos;</li>
+<li class=""><code>OSV</code>, si trabajas con dependencias de codigo abierto y ecosistemas de paquetes;</li>
+<li class=""><code>GitHub Security Advisories</code>, cuando el caso vive en repositorios y dependencias;</li>
+<li class="">scanners internos autorizados, para confirmar presencia real;</li>
+<li class="">inventario y SBOM, para saber que software existe antes de buscar CVE;</li>
+<li class=""><code>OpenCTI</code> o <code>MISP</code>, si necesitas integrarlo en flujos de inteligencia defensiva.</li>
+</ul>
+<p>La takeaway accionable es sencilla: usa <code>NVD</code> para <strong>estructurar preguntas sobre vulnerabilidades</strong>, no para automatizar conclusiones sin inventario. Si sabes que producto tienes, que CVE aplica, que cambio se produjo y que fuente primaria lo respalda, ya no estas persiguiendo ruido: estas gestionando evidencia.</p>
+<p>Como siguiente paso editorial, tendria sentido comparar <code>NVD</code>, <code>CISA KEV</code> y <code>OSV</code> sobre un caso ficticio de inventario mixto para ver que responde cada fuente y donde empieza la decision propia del equipo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://nvd.nist.gov/developers/vulnerabilities" target="_blank" rel="noopener noreferrer" class="">NVD, Vulnerability APIs</a></li>
+<li class=""><a href="https://nvd.nist.gov/developers/products" target="_blank" rel="noopener noreferrer" class="">NVD, Product APIs</a></li>
+<li class=""><a href="https://nvd.nist.gov/vuln/data-feeds" target="_blank" rel="noopener noreferrer" class="">NVD, Data Feeds</a></li>
+<li class=""><a href="https://nvd.nist.gov/general/news/change-timeline" target="_blank" rel="noopener noreferrer" class="">NVD, Change Timeline</a></li>
+<li class=""><a href="https://nvd.nist.gov/general/news/cisa-exploit-catalog" target="_blank" rel="noopener noreferrer" class="">NVD, Known Exploited Vulnerabilities</a></li>
+<li class=""><a href="https://www.first.org/cvss/" target="_blank" rel="noopener noreferrer" class="">FIRST, Common Vulnerability Scoring System</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Gestion de vulnerabilidades" term="Gestion de vulnerabilidades"/>
+        <category label="CVE" term="CVE"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Defensa" term="Defensa"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenAQ en OSINT: calidad del aire, sensores y contexto antes de atribuir causas]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto</id>
@@ -2667,109 +2810,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Datos" term="Datos"/>
         <category label="Tradecraft" term="Tradecraft"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OONI Explorer en OSINT: medir bloqueos, leer pruebas de red y no exagerar conclusiones]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto"/>
-        <updated>2026-06-21T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando mapas de conectividad, series temporales y pruebas de red para estudiar bloqueos con cautela" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-21-ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto-01d07b3593705acf71349c05f6545cd2.png" width="1672" height="941" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto.m4a">Descargar el podcast</a></p>
-<p>Cuando una historia gira alrededor de censura, caidas selectivas, apps que "a veces cargan" o sitios que desaparecen solo en ciertas redes, el error mas comun no es mirar poco: es <strong>confundir una queja aislada con una conclusion global</strong>. <code>OONI Explorer</code> encaja justo en ese hueco porque permite trabajar con mediciones reales de red, series temporales y contexto por pais, operador y prueba, sin obligarte a convertir cada anomalia en una acusacion cerrada.</p>
-<p>Revisando la documentacion oficial de <code>OONI</code> el <strong>21 de junio de 2026</strong>, el proyecto sigue definiendose como software libre para medir censura en Internet y rendimiento de red; <code>OONI Probe</code> publica resultados como datos abiertos en tiempo real; y la propia documentacion de datos explica que esos resultados pueden consultarse via <code>OONI Explorer</code>, <code>API</code> y volcados de datos. Ademas, una entrada oficial publicada el <strong>25 de septiembre de 2024</strong> sobre el bloqueo de <code>OONI Explorer</code> en Rusia recordaba otra escala importante: la plataforma ya alojaba entonces <strong>mas de 2.000 millones de mediciones</strong>, recogidas en <strong>27.000 redes distintas</strong> de <strong>242 paises y territorios</strong> desde 2012. Traducido a lenguaje de analista: <code>OONI Explorer</code> no te da "la verdad final" sobre censura, pero si te da una base empirica mucho mejor para separar incidente, patron y narrativa.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como periodismo, investigacion academica, derechos digitales, verificacion tecnica, analisis de riesgo y <code>due diligence</code> geopolitico. No incluye tacticas de intrusion, evasion, hostigamiento ni persecucion de personas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>OONI</code> es un proyecto abierto centrado en medir interferencias y bloqueos en Internet. Su ecosistema tiene varias piezas, pero para OSINT la que mas valor aporta al principio suele ser <code>OONI Explorer</code>: una interfaz para buscar y visualizar mediciones publicas ya recogidas por usuarios de <code>OONI Probe</code>.</p>
-<p>Eso permite trabajar con preguntas bastante concretas:</p>
-<ul>
-<li class="">si una web parece inaccesible en un pais o red concreta;</li>
-<li class="">si una app de mensajeria muestra senales de bloqueo o degradacion;</li>
-<li class="">si una anomalia aparece en una sola red, en varias o en una ventana temporal precisa;</li>
-<li class="">y si conviene seguir tirando del hilo con <code>API</code>, dataset bruto o contraste manual adicional.</li>
-</ul>
-<p>La pagina oficial de pruebas de <code>OONI</code>, revisada el <strong>21 de junio de 2026</strong>, sigue presentando varios tests relevantes para este tipo de trabajo, entre ellos <code>Web Connectivity</code>, orientado a detectar bloqueo de sitios por <code>DNS tampering</code>, bloqueo <code>TCP/IP</code> o proxies <code>HTTP</code> transparentes. Ese detalle importa mucho: <code>OONI Explorer</code> no es solo un "mapa bonito", sino la capa donde terminas leyendo resultados tecnicos de pruebas concretas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina este escenario: un medio regional recibe avisos de lectores que no consiguen abrir la web de una organizacion civica desde ciertos proveedores moviles. Hay capturas, quejas en redes y algun mensaje alarmista sobre "censura total", pero todavia no hay una verificacion tecnica seria.</p>
-<p>Con <code>OONI Explorer</code>, un analista puede empezar por una pregunta mas humilde y mas util: <strong>que muestran las mediciones abiertas para ese dominio, en ese pais y en esas fechas?</strong></p>
-<p>Un flujo responsable podria ser:</p>
-<ol>
-<li class="">buscar el dominio en <code>Web Connectivity</code>;</li>
-<li class="">limitar por pais y ventana temporal;</li>
-<li class="">revisar si las anomalias se concentran en uno o varios <code>ASNs</code>;</li>
-<li class="">comprobar si la senal es estable o solo aparece en horas puntuales;</li>
-<li class="">contrastar si el fallo parece de <code>DNS</code>, de <code>TLS</code>, de transporte o de disponibilidad del propio servicio;</li>
-<li class="">cruzar el hallazgo con estado del sitio, incidentes del proveedor, otras mediciones y testimonios humanos.</li>
-</ol>
-<p>La clave no es "probar censura" en un clic. La clave es <strong>reducir ambiguedad</strong> y documentar mejor que parte del problema parece una interferencia de red y que parte sigue abierta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formular-una-hipotesis-pequena">1. Formular una hipotesis pequena<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#1-formular-una-hipotesis-pequena" class="hash-link" aria-label="Enlace directo al 1. Formular una hipotesis pequena" title="Enlace directo al 1. Formular una hipotesis pequena" translate="no">​</a></h3>
-<p>Empieza con una afirmacion verificable, no con una conclusion enorme. Mejor "este dominio parece inaccesible en operador X durante esta semana" que "el pais esta bloqueando Internet".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elegir-bien-la-prueba">2. Elegir bien la prueba<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#2-elegir-bien-la-prueba" class="hash-link" aria-label="Enlace directo al 2. Elegir bien la prueba" title="Enlace directo al 2. Elegir bien la prueba" translate="no">​</a></h3>
-<p>Si el caso trata de webs, <code>Web Connectivity</code> suele ser el punto de entrada mas claro. Si gira alrededor de mensajeria o herramientas de circumvencion, conviene mirar las pruebas especificas disponibles en <code>OONI</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-series-y-distribucion-no-solo-un-resultado-suelto">3. Leer series y distribucion, no solo un resultado suelto<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#3-leer-series-y-distribucion-no-solo-un-resultado-suelto" class="hash-link" aria-label="Enlace directo al 3. Leer series y distribucion, no solo un resultado suelto" title="Enlace directo al 3. Leer series y distribucion, no solo un resultado suelto" translate="no">​</a></h3>
-<p>Una sola medicion puede estar afectada por ruido, caidas del destino, filtros locales o problemas pasajeros. Lo que interesa es el patron:</p>
-<ul>
-<li class="">cuantas mediciones muestran la anomalia;</li>
-<li class="">en que redes aparece;</li>
-<li class="">desde cuando;</li>
-<li class="">y si coincide con otros eventos tecnicos o politicos.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-bajar-de-explorer-a-api-o-datos-brutos-cuando-haga-falta">4. Bajar de Explorer a API o datos brutos cuando haga falta<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#4-bajar-de-explorer-a-api-o-datos-brutos-cuando-haga-falta" class="hash-link" aria-label="Enlace directo al 4. Bajar de Explorer a API o datos brutos cuando haga falta" title="Enlace directo al 4. Bajar de Explorer a API o datos brutos cuando haga falta" translate="no">​</a></h3>
-<p>La documentacion oficial de datos de <code>OONI</code>, revisada el <strong>21 de junio de 2026</strong>, explica tres vias principales: <code>OONI Explorer</code>, <code>OONI API</code> y dumps de datos. La <code>API</code> sirve para buscar metadatos, recuperar mediciones individuales y generar estadisticas, mientras que los volcados y el acceso en <code>AWS Open Data</code> encajan mejor cuando necesitas volumen, series largas o procesado propio.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-escribir-con-grados-de-certeza">5. Escribir con grados de certeza<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#5-escribir-con-grados-de-certeza" class="hash-link" aria-label="Enlace directo al 5. Escribir con grados de certeza" title="Enlace directo al 5. Escribir con grados de certeza" translate="no">​</a></h3>
-<p>La salida ideal no es "bloqueado" o "no bloqueado" a secas. Es algo mas parecido a esto:</p>
-<blockquote>
-<p>Las mediciones abiertas de <code>OONI</code> sugieren una interferencia consistente con bloqueo en determinadas redes durante la ventana analizada, pero el hallazgo debe leerse junto a disponibilidad del destino, cobertura de muestras y validacion adicional.</p>
-</blockquote>
-<p>Ese matiz protege tanto la calidad del analisis como tu credibilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>OONI Explorer</code> es potentisimo, pero tiene limites claros:</p>
-<ul>
-<li class="">depende de donde haya usuarios ejecutando pruebas, asi que la cobertura no es uniforme;</li>
-<li class="">una ausencia de mediciones no demuestra ausencia de bloqueo;</li>
-<li class="">algunas anomalias pueden venir del servidor de destino, <code>CDN</code>, geofencing, antifraude o configuraciones rotas;</li>
-<li class="">ciertos resultados requieren entender bien la metodologia de la prueba para no sobrerreaccionar;</li>
-<li class="">y un patron tecnico no identifica automaticamente al responsable politico o institucional.</li>
-</ul>
-<p>Tambien conviene recordar algo basico: <code>OONI</code> publica datos abiertos en tiempo real, pero "abierto" no significa "autoexplicativo". Cuanto mas sensible sea el caso, mas importante es combinar <code>OONI Explorer</code> con contexto humano, cronologia publica y otras fuentes independientes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">No uses el dato tecnico para senalar personas concretas sin una base mucho mas fuerte.</li>
-<li class="">Evita publicar selectores sensibles o detalles innecesarios si el caso puede exponer a usuarios vulnerables.</li>
-<li class="">Distingue siempre entre interferencia observada, hipotesis causal y atribucion.</li>
-<li class="">Si citas mediciones publicas, guarda tambien fecha de consulta, filtros usados y URL exacta de la vista para favorecer reproducibilidad.</li>
-<li class="">Si el caso afecta a comunidades en riesgo, prioriza explicar el metodo y el patron antes que dramatizar.</li>
-</ul>
-<p>En OSINT responsable, <code>OONI Explorer</code> sirve mejor como herramienta de corroboracion y contexto que como martillo para cerrar cualquier relato de censura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si <code>OONI Explorer</code> te abre una pista pero no la cierra, los siguientes pasos razonables suelen ser:</p>
-<ul>
-<li class="">consultar la <code>API</code> para extraer mediciones especificas;</li>
-<li class="">descargar datasets si necesitas analizar volumen o periodos largos;</li>
-<li class="">cruzar con <code>RIPE Atlas</code>, datos de resolucion <code>DNS</code>, estado del servicio o telemetria publica;</li>
-<li class="">y contrastar con informes tecnicos, periodisticos o de organizaciones de derechos digitales.</li>
-</ul>
-<p>Una buena secuencia practica es: <code>Explorer</code> para detectar senales, <code>API</code> para afinar, datos brutos para escalar y contraste externo para no sobreatribuir.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
-<p><code>OONI Explorer</code> aporta algo muy valioso a OSINT: <strong>evidencia tecnica abierta sobre conectividad y bloqueo, pero en un formato lo bastante legible como para pensar antes de automatizar</strong>. Si trabajas con censura, derechos digitales, reputacion geopolitica o verificacion de incidentes de red, merece un sitio estable en tu caja de herramientas.</p>
-<p>El siguiente paso natural, si este enfoque te resulta util, es bajar un nivel y trabajar con la <code>OONI API</code> o con datasets de mediciones para construir comparativas propias sin perder el rigor.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-consultadas">Fuentes oficiales consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ooni-explorer-osint-medicion-bloqueos-pruebas-red-contexto#fuentes-oficiales-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales consultadas" title="Enlace directo al Fuentes oficiales consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://ooni.org/about/" target="_blank" rel="noopener noreferrer" class="">About OONI</a></li>
-<li class=""><a href="https://ooni.org/nettest/" target="_blank" rel="noopener noreferrer" class="">OONI Tests</a></li>
-<li class=""><a href="https://docs.ooni.org/data" target="_blank" rel="noopener noreferrer" class="">Accessing OONI data</a></li>
-<li class=""><a href="https://ooni.org/post/2024-russia-blocked-ooni-explorer/" target="_blank" rel="noopener noreferrer" class="">Russia blocked OONI Explorer, a large open dataset on Internet censorship</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Tooling" term="Tooling"/>
     </entry>
 </feed>
