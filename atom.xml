@@ -2,11 +2,152 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-14T00:00:00.000Z</updated>
+    <updated>2026-07-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenSecrets en OSINT: dinero en politica, donaciones y lobby sin convertir indicios en acusaciones]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto"/>
+        <updated>2026-07-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con documentos publicos de financiacion politica, graficos de flujo de dinero, comites anonimizados y notas de verificacion]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con documentos publicos de financiacion politica, graficos de flujo de dinero, comites anonimizados y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-15-opensecrets-osint-dinero-politica-donaciones-lobbying-contexto-9ead7453a04d2fd3f41c4fa1ecfe7197.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una donacion politica rara vez cuenta una historia completa. Puede apuntar a afinidad, acceso, interes sectorial, cumplimiento normativo, activismo, simple coincidencia de nombres o ruido administrativo. En OSINT responsable, la pregunta no es "a quien pillamos", sino <strong>que flujo publico de dinero se observa, de que registro procede, que cobertura tiene y que inferencias siguen sin estar demostradas</strong>.</p>
+<p><a href="https://www.opensecrets.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenSecrets</code></a> ayuda en esa fase: organiza datos y analisis sobre dinero en la politica estadounidense, con herramientas para donantes, candidatos, comites, gasto externo, lobby, industrias, organizaciones, publicidad politica, "revolving door" y dinero oscuro. Revisando sus paginas publicas el <strong>15 de julio de 2026</strong>, la propia organizacion se presenta como un grupo independiente y sin animo de lucro dedicado a seguir el dinero en la politica de Estados Unidos. Hay un cambio operativo importante: su pagina de API indica que las APIs publicas de OpenSecrets quedaron discontinuadas el <strong>15 de abril de 2025</strong>, por lo que en 2026 conviene tratar la web, los productos de datos y las fuentes oficiales como piezas separadas, no como un endpoint publico garantizado.</p>
+<p>Este articulo esta escrito para periodistas, analistas de debida diligencia, investigadores civicos, equipos de compliance y personas que necesitan leer financiacion politica con metodo. No es una guia para acosar donantes, exponer domicilios, fabricar listas negras ni sugerir corrupcion a partir de una coincidencia nominal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-opensecrets-y-para-que-sirve">Que es OpenSecrets y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#que-es-opensecrets-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenSecrets y para que sirve" title="Enlace directo al Que es OpenSecrets y para que sirve" translate="no">​</a></h2>
+<p><code>OpenSecrets</code> es una capa de investigacion sobre dinero, elecciones e influencia politica en Estados Unidos. Su valor OSINT esta en reducir friccion: permite pasar de una pregunta difusa sobre donaciones, comites o lobby a una exploracion mas ordenada por entidades, ciclos, sectores, candidatos, organizaciones y tipos de gasto.</p>
+<p>La utilidad practica aparece en preguntas como estas:</p>
+<ul>
+<li class="">que donaciones publicas aparecen asociadas a un nombre, empleador u organizacion;</li>
+<li class="">que industrias figuran entre los apoyos financieros de un candidato o cargo;</li>
+<li class="">que comites, PACs o grupos de gasto externo aparecen en una carrera;</li>
+<li class="">que organizaciones declaran actividad de lobby y sobre que asuntos;</li>
+<li class="">que trayectorias de "revolving door" merecen comprobacion adicional;</li>
+<li class="">que parte del dato viene de registros oficiales y que parte es agregacion, clasificacion o analisis editorial;</li>
+<li class="">que lagunas de cobertura, desfases temporales o umbrales de publicacion pueden afectar a la lectura.</li>
+</ul>
+<p>La primera cautela es obvia pero se olvida a menudo: <code>OpenSecrets</code> no sustituye al registro primario. En materia federal, la <a href="https://www.fec.gov/data/" target="_blank" rel="noopener noreferrer" class=""><code>FEC</code></a> permite explorar como candidatos y comites recaudan y gastan dinero, consultar contribuciones de individuos, comites, filings, informes y descargas masivas. Para datos estatales, <a href="https://www.followthemoney.org/" target="_blank" rel="noopener noreferrer" class=""><code>FollowTheMoney.org</code></a> conserva un sitio integrado en OpenSecrets que muestra datos de financiacion estatal hasta el ciclo 2024, con el aviso de que el sitio no se mantiene activamente mientras se integra con OpenSecrets.</p>
+<p>La segunda cautela es temporal. Un dato politico puede cambiar por enmiendas, filings tardios, reclasificaciones, devoluciones, agregaciones y diferencias de calendario. En OSINT serio, siempre anotas fecha de consulta, ciclo electoral, fuente primaria, pagina agregada y decision analitica.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una redaccion local que investiga una propuesta de regulacion energetica en el estado ficticio de <code>Nueva Sierra</code>. La pregunta de partida no es si alguien "compro" una decision. Esa conclusion seria grave y exigiria pruebas que una tabla de donaciones no aporta por si sola.</p>
+<p>Una pregunta defendible seria:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: que actores con interes publico declarado aparecen financiando campanas, comites o lobby alrededor del debate energetico?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Ambito: ciclo electoral 2026 y filings disponibles hasta la fecha de consulta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Actores iniciales: candidato ficticio A, comite ficticio B, asociacion sectorial ficticia C</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuentes base: OpenSecrets, FEC, registro estatal, documentos de lobby, agenda publica y hemeroteca</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: mapa de contexto, no atribucion de influencia indebida</span><br></span></code></pre></div></div>
+<p>El flujo responsable separaria cuatro capas:</p>
+<table><thead><tr><th>Capa</th><th>Que observas</th><th>Que no debes concluir todavia</th></tr></thead><tbody><tr><td>Donacion individual</td><td>Nombre, fecha, cantidad, empleador/ocupacion si consta</td><td>Que el donante actua coordinado con su empresa</td></tr><tr><td>Comite o PAC</td><td>Recaudacion, gasto, beneficiarios, ciclo</td><td>Que cada gasto produce una decision politica concreta</td></tr><tr><td>Lobby</td><td>Cliente, firma, asunto, periodo, importe declarado</td><td>Que una reunion o pago demuestra captura regulatoria</td></tr><tr><td>Industria</td><td>Agregaciones sectoriales y tendencias</td><td>Que todo un sector actua como bloque unico</td></tr></tbody></table>
+<p>Una salida prudente podria decir:</p>
+<blockquote>
+<p>En el ciclo revisado se observan aportaciones y gasto de entidades vinculadas al sector energetico alrededor de varias candidaturas y comites. El patron justifica revisar filings, agendas, declaraciones de lobby y documentos regulatorios, pero no permite afirmar causalidad ni influencia indebida sin evidencia adicional.</p>
+</blockquote>
+<p>Ese matiz no debilita la investigacion. La hace publicable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-pregunta-acotada">1. Formula una pregunta acotada<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#1-formula-una-pregunta-acotada" class="hash-link" aria-label="Enlace directo al 1. Formula una pregunta acotada" title="Enlace directo al 1. Formula una pregunta acotada" translate="no">​</a></h3>
+<p>OpenSecrets invita a navegar mucho. Esa comodidad puede ser peligrosa si empiezas por nombres sueltos y acabas coleccionando capturas. Antes de buscar, define:</p>
+<ul>
+<li class="">jurisdiccion: federal, estatal o local;</li>
+<li class="">ciclo o periodo: 2024, 2026, trimestre de lobby, fecha de filing;</li>
+<li class="">actor: candidato, comite, organizacion, industria, lobby firm o donante;</li>
+<li class="">decision analitica: contexto, verificacion, cronologia, priorizacion o visualizacion;</li>
+<li class="">estandar de salida: nota interna, pieza periodistica, due diligence o expediente de compliance.</li>
+</ul>
+<p>Si no puedes escribir la pregunta en una frase, aun no estas listo para interpretar resultados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-opensecrets-para-orientarte">2. Empieza por OpenSecrets para orientarte<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#2-empieza-por-opensecrets-para-orientarte" class="hash-link" aria-label="Enlace directo al 2. Empieza por OpenSecrets para orientarte" title="Enlace directo al 2. Empieza por OpenSecrets para orientarte" translate="no">​</a></h3>
+<p>Usa OpenSecrets como capa de descubrimiento:</p>
+<ul>
+<li class="">perfiles de candidatos y cargos para ver tendencias de recaudacion y apoyo sectorial;</li>
+<li class="">busqueda de donantes para localizar registros publicos asociados a nombres;</li>
+<li class="">herramientas de lobby para identificar clientes, firmas, asuntos y gasto declarado;</li>
+<li class="">perfiles de organizaciones e industrias para entender agregaciones;</li>
+<li class="">secciones de gasto externo, publicidad politica y dinero oscuro para detectar actores indirectos;</li>
+<li class="">recursos de aprendizaje para entender terminos de financiacion electoral estadounidense.</li>
+</ul>
+<p>No copies una cifra aislada sin registrar el contexto. En donaciones politicas, el ciclo, el tipo de comite y la definicion de "recaudado" o "gastado" importan tanto como el importe.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-baja-a-la-fuente-primaria">3. Baja a la fuente primaria<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#3-baja-a-la-fuente-primaria" class="hash-link" aria-label="Enlace directo al 3. Baja a la fuente primaria" title="Enlace directo al 3. Baja a la fuente primaria" translate="no">​</a></h3>
+<p>Para datos federales, la FEC debe funcionar como verificacion primaria. Su portal de datos permite buscar contribuciones individuales, candidatos, comites, gastos, prestamos, filings e informes. Tambien ofrece descargas masivas y descripciones de ficheros.</p>
+<p>Un ejemplo metodologico: la descripcion del fichero de contribuciones individuales de la FEC explica que el archivo es un subconjunto de contribuciones itemizadas de individuos. Desde 2015 incluye, entre otras reglas, contribuciones cuyo acumulado de ciclo supera 200 dolares para comites de candidato y cuyo acumulado anual supera 200 dolares para PACs y comites de partido. Eso afecta directamente a la lectura: la ausencia de una persona en ese fichero no significa necesariamente ausencia de actividad politica.</p>
+<p>Cuando una cifra importe, guarda:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente agregada: URL de OpenSecrets consultada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente primaria: URL de FEC, imagen de filing o descarga usada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de consulta: 2026-07-15</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Ciclo/periodo: especificar</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Entidad exacta: candidato, comite, donante u organizacion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Campo usado: importe, fecha, empleador, ocupacion, asunto de lobby, filing</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Advertencia: dato agregado / dato primario / dato pendiente de corroborar</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-normaliza-nombres-sin-borrar-ambiguedad">4. Normaliza nombres sin borrar ambiguedad<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#4-normaliza-nombres-sin-borrar-ambiguedad" class="hash-link" aria-label="Enlace directo al 4. Normaliza nombres sin borrar ambiguedad" title="Enlace directo al 4. Normaliza nombres sin borrar ambiguedad" translate="no">​</a></h3>
+<p>Los nombres personales y corporativos son una fuente constante de falsos positivos. Dos personas pueden llamarse igual. Un empleador puede aparecer con variantes. Una organizacion puede donar mediante PAC, empleados, directivos, filiales o entidades no equivalentes.</p>
+<p>Trabaja con una tabla de resolucion:</p>
+<table><thead><tr><th>Campo</th><th>Pregunta</th></tr></thead><tbody><tr><td>Nombre</td><td>Hay homonimos plausibles?</td></tr><tr><td>Ciudad/estado</td><td>Encaja con otros datos publicos o solo parece coincidir?</td></tr><tr><td>Empleador/ocupacion</td><td>Es declarado por el contribuyente, normalizado o inferido?</td></tr><tr><td>Comite receptor</td><td>Es el comite correcto para el ciclo analizado?</td></tr><tr><td>Fecha</td><td>Corresponde al periodo de la decision que investigas?</td></tr><tr><td>Fuente</td><td>Es filing oficial, agregador, noticia o analisis?</td></tr></tbody></table>
+<p>Si tienes que explicar una coincidencia con demasiadas suposiciones, todavia no tienes una coincidencia: tienes una pista.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-construye-una-cronologia-no-una-insinuacion">5. Construye una cronologia, no una insinuacion<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#5-construye-una-cronologia-no-una-insinuacion" class="hash-link" aria-label="Enlace directo al 5. Construye una cronologia, no una insinuacion" title="Enlace directo al 5. Construye una cronologia, no una insinuacion" translate="no">​</a></h3>
+<p>El error narrativo mas comun es poner una donacion antes de una decision y sugerir causalidad. A veces la secuencia importa; muchas veces no basta.</p>
+<p>Una cronologia util deberia incluir:</p>
+<ol>
+<li class="">fecha de la donacion o gasto;</li>
+<li class="">fecha de filing y fecha de disponibilidad publica;</li>
+<li class="">periodo de lobby declarado;</li>
+<li class="">reuniones, audiencias o documentos regulatorios publicos;</li>
+<li class="">declaraciones, votos o decisiones;</li>
+<li class="">cobertura periodistica y respuestas de las partes;</li>
+<li class="">hechos que contradicen o debilitan la hipotesis.</li>
+</ol>
+<p>La pregunta correcta no es "que dato confirma mi sospecha", sino "que tendria que ser cierto para sostener esta lectura y que datos la podrian refutar".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>OpenSecrets y las fuentes oficiales son potentes, pero tienen limites claros:</p>
+<ul>
+<li class="">la API publica de OpenSecrets ya no estaba disponible en 2026, asi que no conviene disenar flujos nuevos que dependan de ella;</li>
+<li class="">los datos agregados pueden usar clasificaciones sectoriales utiles, pero discutibles en casos frontera;</li>
+<li class="">los filings pueden enmendarse, llegar tarde o tener errores de captura;</li>
+<li class="">los umbrales de publicacion dejan fuera parte de la actividad de bajo importe;</li>
+<li class="">el empleador u ocupacion de un donante no prueba que la empresa haya decidido donar;</li>
+<li class="">el gasto externo no siempre implica coordinacion con una campana;</li>
+<li class="">el lobby declarado no prueba el resultado de una reunion ni la influencia real;</li>
+<li class="">los nombres, direcciones y organizaciones exigen desambiguacion antes de cualquier atribucion;</li>
+<li class="">Estados Unidos tiene reglas federales, estatales y locales distintas, con cobertura y granularidad desigual.</li>
+</ul>
+<p>Tambien hay una limitacion etica: que un dato sea publico no significa que deba amplificarse sin proporcionalidad. El interes publico, el contexto y la minimizacion importan.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>El trabajo con dinero politico toca datos personales, intereses economicos y reputaciones. Algunas reglas practicas:</p>
+<ul>
+<li class="">no publiques domicilios ni detalles personales innecesarios de donantes individuales;</li>
+<li class="">evita listas de "enemigos" o llamadas a presionar personas por donaciones legales;</li>
+<li class="">distingue siempre entre persona, empresa, PAC, industria y comite;</li>
+<li class="">conserva capturas, URLs, hashes o exportes cuando el hallazgo sea relevante;</li>
+<li class="">cita fuentes primarias cuando hagas afirmaciones concretas;</li>
+<li class="">da oportunidad de respuesta si la conclusion puede afectar reputaciones;</li>
+<li class="">documenta incertidumbre y no la escondas en notas internas;</li>
+<li class="">revisa terminos de uso y licencias antes de reutilizar datos a escala;</li>
+<li class="">no combines datos politicos con informacion sensible ajena al interes publico.</li>
+</ul>
+<p>En investigaciones delicadas, una frase como "aparece en registros publicos" no basta. Explica que registro, que fecha, que campo y que limite tiene.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>OpenSecrets encaja muy bien como punto de entrada para dinero en politica estadounidense. Segun la pregunta, conviene combinarlo con:</p>
+<ul>
+<li class=""><code>FEC</code>, para contribuciones, comites, filings, gastos y descargas federales oficiales;</li>
+<li class=""><code>FollowTheMoney.org</code>, para datos estatales historicos y herramientas heredadas de la integracion con OpenSecrets;</li>
+<li class="">registros estatales de financiacion electoral, cuando el caso no sea federal;</li>
+<li class="">registros de lobby federales o estatales, para asuntos, clientes y periodos;</li>
+<li class=""><code>LittleSis</code>, si necesitas mapear relaciones de poder, cargos, donaciones e interlocks con referencias;</li>
+<li class=""><code>OpenCorporates</code>, <code>Companies House</code> o registros mercantiles, si el salto pasa de politica a estructura societaria;</li>
+<li class=""><code>OpenRefine</code> o <code>Datasette</code>, si necesitas limpiar, reconciliar y auditar un dataset propio.</li>
+</ul>
+<p>La takeaway accionable es sencilla: usa <code>OpenSecrets</code> para <strong>orientar y estructurar preguntas sobre dinero politico</strong>, no para cerrar acusaciones. Si una ruta parece relevante, baja a filings, registra el ciclo, desambigua entidades y escribe conclusiones proporcionadas. El siguiente buen tema seria una guia practica sobre como construir una cronologia reproducible con FEC, registros de lobby y hemeroteca sin mezclar correlacion con causalidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.opensecrets.org/" target="_blank" rel="noopener noreferrer" class="">OpenSecrets</a></li>
+<li class=""><a href="https://www.opensecrets.org/api" target="_blank" rel="noopener noreferrer" class="">OpenSecrets API</a></li>
+<li class=""><a href="https://www.followthemoney.org/" target="_blank" rel="noopener noreferrer" class="">FollowTheMoney.org</a></li>
+<li class=""><a href="https://www.fec.gov/data/" target="_blank" rel="noopener noreferrer" class="">FEC Campaign finance data</a></li>
+<li class=""><a href="https://www.fec.gov/data/browse-data/?tab=bulk-data" target="_blank" rel="noopener noreferrer" class="">FEC Browse data and bulk data</a></li>
+<li class=""><a href="https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/" target="_blank" rel="noopener noreferrer" class="">FEC Contributions by individuals file description</a></li>
+<li class=""><a href="https://api.open.fec.gov/developers/" target="_blank" rel="noopener noreferrer" class="">OpenFEC API Documentation</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+        <category label="Tradecraft" term="Tradecraft"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NVD en OSINT: CVE, CPE y contexto antes de priorizar vulnerabilidades]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto</id>
@@ -2683,133 +2824,5 @@
         <category label="TLS" term="TLS"/>
         <category label="Infraestructura" term="Infraestructura"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[EDGAR en OSINT: filings, CIK y XBRL para investigar empresas con contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto"/>
-        <updated>2026-06-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando filings, cronologias corporativas y tablas financieras estructuradas con foco en trazabilidad]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando filings, cronologias corporativas y tablas financieras estructuradas con foco en trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-22-edgar-osint-filings-cik-xbrl-contexto-12ed9ad0452b0e68eb1a578397a94fe5.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Cuando una investigacion corporativa deja de girar solo alrededor de una web o una marca y pasa a exigir <strong>hechos fechados, documentos presentados y lenguaje regulatorio</strong>, la diferencia entre una intuicion y una conclusion defendible se vuelve enorme. <code>EDGAR</code>, el sistema publico de filings de la <code>SEC</code>, encaja justo en ese hueco: no porque "revele la verdad" por si solo, sino porque ofrece una base documental gratuita para revisar companias, cronologias, formularios y datos financieros estructurados con mucha mas disciplina.</p>
-<p>La posicion correcta importa. Revisando <code>SEC.gov</code> el <strong>22 de junio de 2026</strong>, la propia <code>SEC</code> sigue presentando <code>EDGAR</code> como acceso publico gratuito a millones de documentos informativos de empresas cotizadas y otros declarantes. Su buscador <code>Full Text Search</code> sigue ofreciendo texto completo de filings electronicos desde <strong>2001</strong>, y la documentacion oficial de <code>data.sec.gov</code> mantiene otro detalle muy util para analistas: las <code>APIs</code> publicas de submissions y <code>XBRL</code> <strong>no requieren clave ni autenticacion</strong>. Traducido a lenguaje de OSINT: <code>EDGAR</code> sirve para <strong>leer, fechar y corroborar</strong> mejor; no para saltarte el contexto empresarial ni para atribuir intencion a partir de un solo formulario.</p>
-<p>Este contenido esta orientado a usos legitimos y proporcionales, como <code>due diligence</code>, periodismo de datos, verificacion corporativa, investigacion academica y analisis de riesgo. No incluye tacticas para acoso, doxxing, abuso de datos personales ni intrusion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-y-para-que-sirve">Que es y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#que-es-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es y para que sirve" title="Enlace directo al Que es y para que sirve" translate="no">​</a></h2>
-<p><code>EDGAR</code> significa <code>Electronic Data Gathering, Analysis, and Retrieval</code> y es el sistema de la <code>U.S. Securities and Exchange Commission</code> para recepcionar y publicar filings electronicos. La pagina oficial de <code>Search Filings</code>, revisada el <strong>22 de junio de 2026</strong>, resume bien su valor practico: acceso publico gratuito a millones de documentos presentados por empresas cotizadas y otros sujetos obligados.</p>
-<p>Para un flujo OSINT responsable, eso permite:</p>
-<ul>
-<li class="">buscar companias por nombre, ticker o <code>CIK</code>;</li>
-<li class="">localizar formularios concretos como <code>10-K</code>, <code>10-Q</code> u <code>8-K</code>;</li>
-<li class="">hacer busquedas por texto completo en filings desde 2001;</li>
-<li class="">seguir cronologias de eventos corporativos, cambios de ejecutivos y riesgos declarados;</li>
-<li class="">y descargar datos estructurados de submissions o estados financieros via <code>JSON</code> y <code>XBRL</code>.</li>
-</ul>
-<p>La ventaja real no es "tener mas papeles", sino trabajar sobre <strong>documentos fechados, clasificables y enlazados a un emisor concreto</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de terceros sobre <code>Northbridge Grid Systems</code>, una empresa ficticia que quiere cerrar un acuerdo con un proveedor europeo. El equipo ya tiene:</p>
-<ul>
-<li class="">una web corporativa muy pulida;</li>
-<li class="">una nota de prensa con promesas de expansion;</li>
-<li class="">y referencias vagas a adquisiciones recientes en Estados Unidos.</li>
-</ul>
-<p>Con <code>EDGAR</code>, un analista no tiene por que discutir primero sobre reputacion o narrativa. Puede empezar por preguntas mucho mas sobrias:</p>
-<ol>
-<li class="">que entidad concreta presenta filings y bajo que <code>CIK</code>;</li>
-<li class="">que formularios recientes existen y en que fechas;</li>
-<li class="">si los riesgos materiales, litigios o cambios de negocio aparecen reflejados en <code>10-K</code>, <code>10-Q</code> u <code>8-K</code>;</li>
-<li class="">y si los estados financieros estructurados respaldan de verdad el relato comercial.</li>
-</ol>
-<p>La ganancia metodologica no es "pillar a nadie", sino <strong>bajar incertidumbre documental antes de escalar una conclusion</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-identifica-bien-el-emisor-antes-de-leer-titulares">1. Identifica bien el emisor antes de leer titulares<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#1-identifica-bien-el-emisor-antes-de-leer-titulares" class="hash-link" aria-label="Enlace directo al 1. Identifica bien el emisor antes de leer titulares" title="Enlace directo al 1. Identifica bien el emisor antes de leer titulares" translate="no">​</a></h3>
-<p>La propia interfaz de <code>Search Filings</code> deja buscar por nombre de empresa, ticker y <code>CIK</code>. Ese detalle parece basico, pero evita uno de los errores mas caros en investigacion corporativa: mezclar filiales, homonimos o emisores con nombres parecidos.</p>
-<p>Si el caso toca una empresa conocida, conviene fijar primero tres anclas:</p>
-<ul>
-<li class="">nombre legal exacto;</li>
-<li class=""><code>CIK</code>;</li>
-<li class="">y tipos de formulario que importan para tu hipotesis.</li>
-</ul>
-<p>La pagina de <code>CIK Lookup</code> y el buscador general ayudan a que el trabajo no empiece con una marca ambigua.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-full-text-search-para-preguntas-no-solo-para-nombres">2. Usa <code>Full Text Search</code> para preguntas, no solo para nombres<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#2-usa-full-text-search-para-preguntas-no-solo-para-nombres" class="hash-link" aria-label="Enlace directo al 2-usa-full-text-search-para-preguntas-no-solo-para-nombres" title="Enlace directo al 2-usa-full-text-search-para-preguntas-no-solo-para-nombres" translate="no">​</a></h3>
-<p>La <code>SEC</code> sigue indicando que <code>EDGAR Full Text Search</code> permite buscar palabras y frases en mas de 20 anos de filings electronicos y filtrar por fecha, empresa, categoria de filing y localizacion. Eso cambia mucho la calidad de una investigacion porque te deja pasar de "encuentra la empresa" a "encuentra que dijo sobre este riesgo, esta subsidiaria o este cambio".</p>
-<p>En la practica, eso sirve para preguntas como:</p>
-<ul>
-<li class="">cuando aparece por primera vez una linea de negocio concreta;</li>
-<li class="">si un litigio fue reconocido formalmente y en que formulario;</li>
-<li class="">cuando se menciona una adquisicion, una desinversion o un factor de riesgo;</li>
-<li class="">y si ciertas afirmaciones publicas tienen reflejo documental.</li>
-</ul>
-<p>La disciplina importante es no leer una coincidencia textual como si fuera evidencia suficiente. Un termino puede aparecer en un contexto preventivo, historico o irrelevante para tu hipotesis.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-datasecgov-para-estructurar-cronologia-y-comparacion">3. Usa <code>data.sec.gov</code> para estructurar cronologia y comparacion<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" class="hash-link" aria-label="Enlace directo al 3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" title="Enlace directo al 3-usa-datasecgov-para-estructurar-cronologia-y-comparacion" translate="no">​</a></h3>
-<p>La pagina oficial de <code>EDGAR APIs</code>, publicada el <strong>6 de junio de 2024</strong> y vigente al revisar el flujo el <strong>22 de junio de 2026</strong>, deja dos ideas especialmente utiles:</p>
-<ul>
-<li class=""><code>data.sec.gov</code> ofrece <code>APIs</code> <code>REST</code> en <code>JSON</code> para historial de submissions y datos <code>XBRL</code>;</li>
-<li class="">y esas <code>APIs</code> no requieren autenticacion ni clave.</li>
-</ul>
-<p>Para OSINT serio eso importa porque permite ordenar mejor lo que ves en web. En lugar de navegar filing a filing sin estructura, puedes tratar el historial del emisor como una cronologia consultable: formularios recientes, fechas, accesiones y enlaces a documentos asociados.</p>
-<p>El mismo documento oficial explica ademas que los <code>JSON</code> se actualizan a lo largo del dia en tiempo real segun se difunden los filings, y que existe un ZIP nocturno con el conjunto de estructuras publicadas. No convierte <code>EDGAR</code> en un sistema magico, pero si en una base muy util para analisis repetibles.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-narrativa-filing-y-dato-financiero">4. Separa narrativa, filing y dato financiero<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#4-separa-narrativa-filing-y-dato-financiero" class="hash-link" aria-label="Enlace directo al 4. Separa narrativa, filing y dato financiero" title="Enlace directo al 4. Separa narrativa, filing y dato financiero" translate="no">​</a></h3>
-<p>No todos los hallazgos en <code>EDGAR</code> viven en la misma capa:</p>
-<ul>
-<li class="">la interfaz web te ayuda a localizar filings y leer texto;</li>
-<li class="">los metadatos de submissions te ordenan la cronologia del emisor;</li>
-<li class="">y <code>XBRL</code> te deja trabajar con cifras estructuradas de ciertos formularios financieros.</li>
-</ul>
-<p>La pagina de <code>Developer Resources</code>, revisada el <strong>22 de junio de 2026</strong>, mantiene precisamente esa separacion: filings accesibles por el sistema <code>HTTPS</code> de la <code>SEC</code>, <code>APIs</code> en <code>data.sec.gov</code> y <code>RSS</code> para seguir resultados de ciertas busquedas. Para un analista, eso ayuda a no confundir una frase llamativa del <code>10-K</code> con todo el cuadro financiero o societario.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-respeta-la-politica-de-acceso-justo">5. Respeta la politica de acceso justo<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#5-respeta-la-politica-de-acceso-justo" class="hash-link" aria-label="Enlace directo al 5. Respeta la politica de acceso justo" title="Enlace directo al 5. Respeta la politica de acceso justo" translate="no">​</a></h3>
-<p>La ayuda oficial <code>Accessing EDGAR Data</code>, consultada el <strong>22 de junio de 2026</strong>, es muy clara: la <code>SEC</code> fija una tasa maxima actual de <strong>10 solicitudes por segundo</strong>, pide descargar solo lo necesario y solicita declarar un <code>User-Agent</code> identificable en las cabeceras. Tambien advierte que no permite <code>botnets</code> ni automatizaciones fuera de su politica aceptable.</p>
-<p>Ese punto no es solo tecnico. En OSINT responsable significa dos cosas:</p>
-<ul>
-<li class="">si automatizas consultas, hazlo con moderacion y trazabilidad;</li>
-<li class="">y no conviertas una fuente publica en una excusa para scraping agresivo o indiscriminado.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>EDGAR</code> es potentisimo, pero no resuelve por si solo los problemas clasicos de interpretacion:</p>
-<ul>
-<li class="">una empresa puede usar un lenguaje juridico deliberadamente amplio;</li>
-<li class="">un filing describe lo que debe declararse, no necesariamente todo el contexto operativo;</li>
-<li class="">no todas las entidades relevantes para un caso estaran bajo el mismo perimetro regulatorio;</li>
-<li class="">una coincidencia en texto completo no prueba materialidad;</li>
-<li class="">y una cifra <code>XBRL</code> sin su nota o sin comparativa temporal puede inducir lecturas pobres.</li>
-</ul>
-<p>Tambien conviene recordar algo basico: <code>EDGAR</code> es una fuente primaria buenisima para filings de la <code>SEC</code>, pero no sustituye registros mercantiles estatales, litigios locales, contratacion publica, prensa sectorial o evidencia tecnica externa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Trabajar con filings publicos no elimina la necesidad de criterio:</p>
-<ul>
-<li class="">define antes que pregunta legitima intentas responder;</li>
-<li class="">minimiza la recogida de datos personales no necesarios;</li>
-<li class="">separa con claridad observacion documental, inferencia y corroboracion externa;</li>
-<li class="">no confundas una declaracion regulatoria con prueba de fraude o intencion;</li>
-<li class="">y si automatizas, respeta limites y deja rastro reproducible de lo consultado.</li>
-</ul>
-<p>En investigaciones corporativas, un analista mejora mucho cuando deja de perseguir frases sueltas y empieza a documentar <strong>que filing leyo, de que fecha, de que emisor y para sostener que afirmacion exacta</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>EDGAR</code> encaja especialmente bien cuando la pregunta toca emisores expuestos al perimetro de la <code>SEC</code>. Segun el caso, suele combinarse bien con:</p>
-<ul>
-<li class="">registros mercantiles y beneficiarios reales para contrastar estructura juridica;</li>
-<li class=""><code>OpenCorporates</code> o <code>OpenOwnership</code> para contexto societario transfronterizo;</li>
-<li class="">historicos web y archivo para revisar como cambia el relato publico;</li>
-<li class="">buscadores de noticias o bases de litigios para ver impacto externo;</li>
-<li class="">y fuentes tecnicas como <code>SecurityTrails</code>, <code>CT logs</code> o <code>urlscan.io</code> si la empresa ademas necesita ser entendida como superficie digital.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>EDGAR</code> para <strong>anclar una investigacion corporativa en documentos, fechas y datos estructurados</strong>, no para endurecer un relato antes de tiempo. Si el primer hallazgo parece importante, el siguiente paso sano no es dramatizarlo, sino cruzarlo con mas filings, mas fechas y mas contexto fuera del propio expediente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales">Fuentes oficiales<a href="https://spainfsd-creator.github.io/osint-blog/edgar-osint-filings-cik-xbrl-contexto#fuentes-oficiales" class="hash-link" aria-label="Enlace directo al Fuentes oficiales" title="Enlace directo al Fuentes oficiales" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.sec.gov/search-filings" target="_blank" rel="noopener noreferrer" class="">SEC Search Filings</a></li>
-<li class=""><a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener noreferrer" class="">SEC EDGAR Full Text Search</a></li>
-<li class=""><a href="https://www.sec.gov/search-filings/edgar-application-programming-interfaces" target="_blank" rel="noopener noreferrer" class="">SEC EDGAR Application Programming Interfaces</a></li>
-<li class=""><a href="https://www.sec.gov/about/developer-resources" target="_blank" rel="noopener noreferrer" class="">SEC Developer Resources</a></li>
-<li class=""><a href="https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data" target="_blank" rel="noopener noreferrer" class="">SEC Accessing EDGAR Data</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Tradecraft" term="Tradecraft"/>
     </entry>
 </feed>
