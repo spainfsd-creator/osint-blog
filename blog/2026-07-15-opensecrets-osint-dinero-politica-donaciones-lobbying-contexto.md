@@ -9,6 +9,9 @@ image: /img/blog/2026-07-15-opensecrets-osint-dinero-politica-donaciones-lobbyin
 
 ![Ilustracion editorial de una mesa de analisis OSINT con documentos publicos de financiacion politica, graficos de flujo de dinero, comites anonimizados y notas de verificacion](/img/blog/2026-07-15-opensecrets-osint-dinero-politica-donaciones-lobbying-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto.m4a)
+
+
 Una donacion politica rara vez cuenta una historia completa. Puede apuntar a afinidad, acceso, interes sectorial, cumplimiento normativo, activismo, simple coincidencia de nombres o ruido administrativo. En OSINT responsable, la pregunta no es "a quien pillamos", sino **que flujo publico de dinero se observa, de que registro procede, que cobertura tiene y que inferencias siguen sin estar demostradas**.
 
 [`OpenSecrets`](https://www.opensecrets.org/) ayuda en esa fase: organiza datos y analisis sobre dinero en la politica estadounidense, con herramientas para donantes, candidatos, comites, gasto externo, lobby, industrias, organizaciones, publicidad politica, "revolving door" y dinero oscuro. Revisando sus paginas publicas el **15 de julio de 2026**, la propia organizacion se presenta como un grupo independiente y sin animo de lucro dedicado a seguir el dinero en la politica de Estados Unidos. Hay un cambio operativo importante: su pagina de API indica que las APIs publicas de OpenSecrets quedaron discontinuadas el **15 de abril de 2025**, por lo que en 2026 conviene tratar la web, los productos de datos y las fuentes oficiales como piezas separadas, no como un endpoint publico garantizado.
