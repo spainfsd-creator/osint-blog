@@ -4,10 +4,160 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 16 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[CourtListener y RECAP en OSINT: expedientes judiciales, alertas y contexto antes de citar]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto</guid>
+            <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-contexto-16ddeaf45094510cfa36ce38d9daa1d8.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un expediente judicial puede parecer una prueba definitiva porque suena formal, viene de un tribunal y tiene numero de caso. En OSINT responsable, esa sensacion es peligrosa: una demanda no es una sentencia, una entrada de docket no cuenta todo el litigio y una coincidencia de nombre puede arruinar una investigacion si no se valida jurisdiccion, fecha, parte, documento y estado procesal. <code>CourtListener</code> y <code>RECAP</code> ayudan justo en ese punto: abrir registros legales publicos con trazabilidad, pero sin convertir cada hallazgo en acusacion.</p>
+<p>Revisando la documentacion oficial el <strong>16 de julio de 2026</strong>, <code>CourtListener</code>, proyecto de <code>Free Law Project</code>, se presenta como un archivo searchable de opiniones judiciales, alegaciones orales, jueces, declaraciones financieras judiciales y filings federales. Su pagina de proyecto indica que incluye mas de <code>10 millones</code> de opiniones en cientos de jurisdicciones, el archivo <code>RECAP</code> de datos <code>PACER</code> con cientos de millones de entradas de docket y decenas de millones de documentos, alertas para monitorizar casos o terminos de busqueda, y APIs para investigadores y desarrolladores. La API documentada en ese momento era <code>REST API v4.4</code>.</p>
+<p>Este articulo esta escrito para periodistas, equipos de compliance, analistas de debida diligencia, investigadores civicos y tecnicos que necesitan leer material judicial estadounidense con metodo. No es asesoramiento legal, no sustituye a un abogado y no debe usarse para acosar personas, doxxear litigantes, fabricar listas negras ni presentar alegaciones no resueltas como hechos probados.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-courtlistener-y-para-que-sirve">Que es CourtListener y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#que-es-courtlistener-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es CourtListener y para que sirve" title="Enlace directo al Que es CourtListener y para que sirve" translate="no">​</a></h2>
+<p><code>CourtListener</code> es un buscador y archivo publico de datos legales mantenido por <code>Free Law Project</code>, una organizacion sin animo de lucro centrada en hacer mas accesible el ecosistema legal. Para OSINT, su valor no esta en "encontrar trapos sucios", sino en reducir friccion cuando una pregunta legitima necesita contraste documental:</p>
+<ul>
+<li class="">si una empresa aparece como parte en litigios federales;</li>
+<li class="">si una opinion judicial cita otra y en que contexto;</li>
+<li class="">que filings publicos existen en un caso concreto;</li>
+<li class="">si una busqueda merece una alerta para detectar cambios;</li>
+<li class="">que documentos estan realmente disponibles y cuales solo aparecen como metadato;</li>
+<li class="">que parte de un hallazgo viene de CourtListener, de PACER, de RECAP o de una opinion judicial.</li>
+</ul>
+<p>La pieza clave es distinguir colecciones. <code>CourtListener</code> no es una sola base plana. Mezcla opiniones judiciales, datos de <code>RECAP</code>, jueces, argumentos orales, alertas, citas y datasets masivos. Para un analista, eso obliga a etiquetar bien cada hallazgo: no es lo mismo una opinion publicada que una queja inicial, una orden procesal, un docket entry o una mencion en una busqueda.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-aporta-recap-frente-a-pacer">Que aporta RECAP frente a PACER<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#que-aporta-recap-frente-a-pacer" class="hash-link" aria-label="Enlace directo al Que aporta RECAP frente a PACER" title="Enlace directo al Que aporta RECAP frente a PACER" translate="no">​</a></h2>
+<p><code>PACER</code> es el sistema de acceso electronico a documentos de tribunales federales de Estados Unidos. <code>RECAP</code>, mantenido por Free Law Project, funciona como una capa de archivo y reutilizacion: cuando usuarios de PACER contribuyen documentos mediante la extension RECAP u otros mecanismos, esos materiales pueden quedar disponibles en CourtListener para el publico.</p>
+<p>La documentacion de cobertura de CourtListener describe <code>RECAP Archive</code> como la mayor coleccion abierta de datos PACER en Internet. Indica que contiene cientos de millones de entradas de docket, casi todos los casos federales y millones de documentos, y que en un dia normal puede ganar nuevos dockets, miles de documentos y alrededor de <code>100.000</code> entradas de docket. Ese volumen lo vuelve util para investigacion, pero tambien obliga a no exagerar:</p>
+<ul>
+<li class="">que un caso exista no significa que la acusacion prosperase;</li>
+<li class="">que un documento este ausente no significa que no exista en PACER;</li>
+<li class="">que un docket cambie no explica por si solo el fondo del litigio;</li>
+<li class="">que haya muchas entradas no equivale a gravedad;</li>
+<li class="">que una fuente sea publica no elimina deberes de privacidad y proporcionalidad.</li>
+</ul>
+<p>La pregunta sana no es "que puedo encontrar sobre alguien", sino "que afirmacion concreta necesito verificar y que documento primario la sostiene".</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una investigacion de debida diligencia sobre una compania ficticia, <code>Atlas Meridian Components LLC</code>, que aspira a un contrato publico. El objetivo no es desacreditarla, sino comprobar si hay litigios relevantes que deban explicarse antes de adjudicar, invertir o publicar una pieza periodistica.</p>
+<p>Un flujo proporcionado con CourtListener podria ser:</p>
+<ol>
+<li class="">Buscar el nombre legal exacto y variantes razonables, no solo la marca comercial.</li>
+<li class="">Acotar por jurisdiccion y tipo de coleccion: opiniones, datos PACER/RECAP o ambas.</li>
+<li class="">Revisar si los resultados son de la misma entidad: direccion, jurisdiccion, abogados, numero de caso, fechas y contexto.</li>
+<li class="">Leer el docket como cronologia, no como conclusion.</li>
+<li class="">Abrir los documentos disponibles y separar demanda, mociones, ordenes, acuerdos y sentencia.</li>
+<li class="">Contrastar fuera de CourtListener cuando proceda: registro mercantil, web corporativa, comunicados, SEC/EDGAR si aplica, registros estatales o contacto formal.</li>
+<li class="">Redactar el hallazgo con estado procesal y fecha: "segun el docket consultado el 16 de julio de 2026..." es mas defendible que "la empresa fue acusada de...".</li>
+</ol>
+<p>En este ejemplo, una conclusion prudente podria ser: "aparecen dos casos federales asociados a una entidad con el mismo nombre; uno fue desestimado voluntariamente y otro sigue activo segun el docket, por lo que requiere comprobacion adicional antes de inferir responsabilidad". Eso no suena tan rotundo como un titular agresivo, pero es mucho mas util.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-y-el-alcance">1. Define la pregunta y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#1-define-la-pregunta-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta y el alcance" title="Enlace directo al 1. Define la pregunta y el alcance" translate="no">​</a></h3>
+<p>Antes de buscar, escribe una pregunta verificable. Por ejemplo:</p>
+<ul>
+<li class="">"Existe una opinion judicial publicada que mencione esta empresa?"</li>
+<li class="">"Hay filings federales recientes relacionados con esta entidad?"</li>
+<li class="">"Que documentos sostienen la afirmacion de que hubo una demanda?"</li>
+<li class="">"La cita legal que aparece en un informe existe y corresponde al caso citado?"</li>
+</ul>
+<p>Evita preguntas tipo "a ver que sale". En fuentes judiciales, esa forma de buscar multiplica homonimias, casos irrelevantes y sesgos de confirmacion.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-persona-entidad-y-caso">2. Separa persona, entidad y caso<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#2-separa-persona-entidad-y-caso" class="hash-link" aria-label="Enlace directo al 2. Separa persona, entidad y caso" title="Enlace directo al 2. Separa persona, entidad y caso" translate="no">​</a></h3>
+<p>Muchos errores vienen de mezclar capas. Una persona puede compartir nombre con otra. Una empresa puede tener filiales con nombres parecidos. Un caso puede incluir partes, abogados, terceros, testigos y menciones laterales. Cada resultado debe bajar a identificadores concretos:</p>
+<ul>
+<li class="">numero de docket;</li>
+<li class="">tribunal;</li>
+<li class="">fecha de presentacion y ultima actualizacion;</li>
+<li class="">rol procesal de cada parte;</li>
+<li class="">documentos disponibles;</li>
+<li class="">estado del caso;</li>
+<li class="">fuente original del dato.</li>
+</ul>
+<p>Si no puedes distinguir dos entidades, no las unas en el informe.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-el-docket-como-una-linea-temporal">3. Lee el docket como una linea temporal<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#3-lee-el-docket-como-una-linea-temporal" class="hash-link" aria-label="Enlace directo al 3. Lee el docket como una linea temporal" title="Enlace directo al 3. Lee el docket como una linea temporal" translate="no">​</a></h3>
+<p>El docket sirve para reconstruir actividad procesal: demanda, respuestas, mociones, ordenes, audiencias, acuerdos, cierres. Su lectura correcta es cronologica. Un filing llamativo puede quedar desmentido, limitado o resuelto mas adelante.</p>
+<p>Una practica util es crear una tabla minima:</p>
+<table><thead><tr><th>Fecha</th><th>Entrada</th><th>Tipo</th><th>Que afirma</th><th>Que no demuestra</th></tr></thead><tbody><tr><td>2026-02-03</td><td>Complaint</td><td>Alegacion inicial</td><td>La parte demandante sostiene X</td><td>Que X sea cierto</td></tr><tr><td>2026-04-18</td><td>Motion to dismiss</td><td>Peticion procesal</td><td>La defensa pide desestimar</td><td>Que el tribunal aceptase</td></tr><tr><td>2026-06-01</td><td>Order</td><td>Decision judicial</td><td>El tribunal decide Y</td><td>Otros hechos fuera del alcance</td></tr></tbody></table>
+<p>La ultima columna evita que una investigacion se convierta en una cadena de inferencias invisibles.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-alertas-sin-delegar-el-criterio">4. Usa alertas sin delegar el criterio<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#4-usa-alertas-sin-delegar-el-criterio" class="hash-link" aria-label="Enlace directo al 4. Usa alertas sin delegar el criterio" title="Enlace directo al 4. Usa alertas sin delegar el criterio" translate="no">​</a></h3>
+<p>CourtListener documenta tres tipos de alertas: busqueda, docket y citas. Las alertas de docket permiten seguir casos federales y recibir avisos cuando hay nuevas entradas; las de busqueda pueden monitorizar terminos; y las de citas ayudan a seguir menciones legales. La propia ayuda recuerda que las alertas dependen de sus fuentes y cobertura: en casos activos pueden llegar rapido, pero en otros puede haber retrasos o ausencia de avisos.</p>
+<p>Para OSINT, una alerta es una campana, no una conclusion. Conviene guardar:</p>
+<ul>
+<li class="">consulta exacta;</li>
+<li class="">fecha de creacion;</li>
+<li class="">razon de la alerta;</li>
+<li class="">resultado esperado;</li>
+<li class="">criterio para cerrarla.</li>
+</ul>
+<p>Si no defines cuando una alerta deja de ser util, acabara produciendo ruido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-automatiza-con-moderacion">5. Automatiza con moderacion<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#5-automatiza-con-moderacion" class="hash-link" aria-label="Enlace directo al 5. Automatiza con moderacion" title="Enlace directo al 5. Automatiza con moderacion" translate="no">​</a></h3>
+<p>La documentacion de <code>REST API v4.4</code> indica que CourtListener ofrece APIs para case law, PACER/RECAP, busqueda, jueces, financial disclosures, argumentos orales, citas, alertas, tags y visualizaciones. Tambien recomienda autenticacion por token para acceso programatico, permite explorar endpoints con <code>OPTIONS</code> y documenta limites por defecto para usuarios autenticados: <code>5</code> solicitudes por minuto, <code>50</code> por hora y <code>125</code> por dia, con opciones de membresia para ampliar acceso.</p>
+<p>Un uso responsable de API en OSINT deberia:</p>
+<ul>
+<li class="">consultar solo lo necesario;</li>
+<li class="">seleccionar campos para reducir payload;</li>
+<li class="">cachear resultados;</li>
+<li class="">registrar URL, parametros y fecha;</li>
+<li class="">respetar rate limits;</li>
+<li class="">no crear cuentas multiples para esquivar throttling;</li>
+<li class="">evitar scraping paralelo cuando existe endpoint documentado.</li>
+</ul>
+<p>Para analisis de gran escala, los datos bulk pueden ser mas apropiados que golpear la busqueda repetidamente. La documentacion de bulk data describe tablas como courts, dockets, opinion clusters, opinions, citation map, financial disclosures, judges y oral arguments, con regeneracion trimestral de ficheros bulk en calendario previsto. Esa via exige mas preparacion tecnica, pero ofrece mejor reproducibilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
+<p>CourtListener es grande, no total. Puede haber documentos sellados, no disponibles, no contribuidos a RECAP, sujetos a retrasos, fuera de cobertura o presentes solo como metadato. La ausencia de un documento en CourtListener no demuestra ausencia en el tribunal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lenguaje-legal-ambiguo">Lenguaje legal ambiguo<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#lenguaje-legal-ambiguo" class="hash-link" aria-label="Enlace directo al Lenguaje legal ambiguo" title="Enlace directo al Lenguaje legal ambiguo" translate="no">​</a></h3>
+<p>Una "complaint" contiene alegaciones. Una "motion" pide algo. Una "order" decide algo concreto. Un "settlement" puede cerrar sin admision de responsabilidad. Si el analista no distingue estos generos, convertira el sistema judicial en una maquina de rumores con membrete oficial.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homonimias-y-entidades-parecidas">Homonimias y entidades parecidas<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#homonimias-y-entidades-parecidas" class="hash-link" aria-label="Enlace directo al Homonimias y entidades parecidas" title="Enlace directo al Homonimias y entidades parecidas" translate="no">​</a></h3>
+<p>Nombres de personas, empresas y organizaciones pueden repetirse. En investigaciones sensibles, una coincidencia debe sostenerse con varios campos: jurisdiccion, direccion, representantes, fechas, numero de registro, web oficial o documentos corporativos. Si solo tienes un nombre, tienes una pista debil.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="datos-publicos-que-siguen-siendo-sensibles">Datos publicos que siguen siendo sensibles<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#datos-publicos-que-siguen-siendo-sensibles" class="hash-link" aria-label="Enlace directo al Datos publicos que siguen siendo sensibles" title="Enlace directo al Datos publicos que siguen siendo sensibles" translate="no">​</a></h3>
+<p>Que algo sea publico no significa que sea proporcionado republicarlo. CourtListener incluye politicas de ayuda y remocion: su pagina de ayuda indica que no eliminan contenido de sus sistemas salvo orden judicial valida, aunque normalmente pueden retirarlo de buscadores publicos como Google bajo solicitud. Para el analista, esto es una advertencia: la permanencia tecnica de un documento no autoriza exposicion innecesaria.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-de-acceso-y-api">Cambios de acceso y API<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#cambios-de-acceso-y-api" class="hash-link" aria-label="Enlace directo al Cambios de acceso y API" title="Enlace directo al Cambios de acceso y API" translate="no">​</a></h3>
+<p>La API, membresias y limites cambian. En mayo de 2026, Free Law Project anuncio que cualquier miembro de CourtListener podia conectar directamente con todas sus APIs, incluido acceso a APIs PACER que antes requerian permiso especial. Si vas a automatizar, lee la documentacion viva, no una nota antigua ni un tutorial reciclado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con cuentas y navegadores separados para investigacion profesional, especialmente si vas a crear alertas.</li>
+<li class="">No busques por curiosidad personal ni por conflictos privados; define interes publico, mandato o base legitima.</li>
+<li class="">Minimiza nombres de personas privadas en notas y capturas.</li>
+<li class="">Redacta datos personales no necesarios antes de compartir hallazgos internamente.</li>
+<li class="">Distingue siempre "documento presentado por una parte" de "hecho establecido por el tribunal".</li>
+<li class="">Conserva enlaces, hashes o capturas solo cuando aporten trazabilidad real.</li>
+<li class="">No publiques domicilios, telefonos, identificadores personales ni datos de menores salvo necesidad editorial excepcional y revisada.</li>
+<li class="">Si un caso afecta a una persona vulnerable o no publica, eleva el umbral de publicacion.</li>
+<li class="">Anota fecha y hora de consulta, porque un docket puede cambiar.</li>
+<li class="">Consulta asesoramiento legal antes de publicar acusaciones basadas en expedientes judiciales.</li>
+</ul>
+<p>La regla simple: usa CourtListener para entender mejor documentos publicos, no para amplificar dano.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>CourtListener encaja bien en investigaciones centradas en Estados Unidos, pero no vive solo. Segun la pregunta, conviene combinarlo con:</p>
+<ul>
+<li class=""><code>PACER</code>, cuando necesitas comprobar directamente el expediente oficial y asumir sus condiciones de acceso;</li>
+<li class="">webs de tribunales estatales o federales, si el dato primario no esta completo en RECAP;</li>
+<li class=""><code>EDGAR</code>, si el litigio afecta a una compania cotizada o aparece en filings regulatorios;</li>
+<li class="">registros mercantiles estatales, para confirmar entidad legal, jurisdiccion y estado;</li>
+<li class=""><code>OpenCorporates</code> o <code>OpenOwnership</code>, si necesitas contexto societario transfronterizo;</li>
+<li class=""><code>OpenSanctions</code>, si hay preguntas de sanciones, PEP o listas regulatorias;</li>
+<li class="">hemerotecas y comunicados oficiales, para separar proceso judicial de narrativa publica;</li>
+<li class=""><code>Datasette</code> o <code>SQLite</code>, si vas a construir un corpus propio reproducible con resultados, documentos y notas.</li>
+</ul>
+<p>El takeaway accionable es este: <code>CourtListener</code> y <code>RECAP</code> son excelentes para <strong>bajar a documento, fecha y contexto procesal</strong>. La investigacion mejora cuando cada afirmacion responde a tres preguntas: que documento lo sostiene, que estado procesal tiene y que inferencia queda todavia sin demostrar. El siguiente tema natural seria un post practico sobre como convertir dockets y documentos publicos en una matriz de evidencia sin perder privacidad ni trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://free.law/projects/courtlistener/" target="_blank" rel="noopener noreferrer" class="">CourtListener Research and Awareness Website</a></li>
+<li class=""><a href="https://www.courtlistener.com/help/coverage/recap/" target="_blank" rel="noopener noreferrer" class="">RECAP Archive Coverage: What PACER Data Does CourtListener Have?</a></li>
+<li class=""><a href="https://www.courtlistener.com/help/alerts/" target="_blank" rel="noopener noreferrer" class="">Help with Search and Docket Alerts</a></li>
+<li class=""><a href="https://wiki.free.law/c/courtlistener/help/api/rest/v4/overview" target="_blank" rel="noopener noreferrer" class="">REST API v4.4 - Free Law Project Wiki</a></li>
+<li class=""><a href="https://wiki.free.law/c/courtlistener/help/api/bulk-data/bulk-legal-data" target="_blank" rel="noopener noreferrer" class="">Bulk Legal Data - Free Law Project Wiki</a></li>
+<li class=""><a href="https://free.law/2026/05/07/api-included-in-memberships/" target="_blank" rel="noopener noreferrer" class="">Full CourtListener Data Access via API Now Included with Membership</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Due Diligence</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Privacidad</category>
+            <category>Investigacion</category>
+        </item>
         <item>
             <title><![CDATA[OpenSecrets en OSINT: dinero en politica, donaciones y lobby sin convertir indicios en acusaciones]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto</link>
@@ -2607,144 +2757,6 @@
             <category>Verificacion</category>
             <category>Infraestructura</category>
             <category>Datos</category>
-            <category>Metodologia</category>
-        </item>
-        <item>
-            <title><![CDATA[crt.sh en OSINT: Certificate Transparency para descubrir nombres sin confundirlos con activos]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto</guid>
-            <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de un analista OSINT revisando certificados TLS, una cronología y relaciones entre dominios con criterio defensivo]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista OSINT revisando certificados TLS, una cronología y relaciones entre dominios con criterio defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-23-crtsh-certificate-transparency-osint-contexto-9291382dc9dbdc9f98a5611f3ce63f7b.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/crtsh-certificate-transparency-osint-contexto.m4a">Descargar el podcast</a></p>
-<p>Una empresa asegura que ya ha retirado un entorno antiguo, pero en su inventario aparece un nombre que nadie reconoce: <code>proveedores.empresa-ejemplo.test</code>. No figura en la web pública, no está en la documentación reciente y buscarlo a ciegas solo añade ruido. En un caso así, <code>crt.sh</code> puede abrir una pista útil al consultar registros públicos de <strong>Certificate Transparency</strong> (<code>CT</code>): qué nombres aparecieron en certificados o precertificados, cuándo se observaron y qué autoridad certificadora intervino.</p>
-<p>La clave está en no pedirle más de lo que sabe. Un registro <code>CT</code> demuestra que un nombre quedó incluido en material de certificado; <strong>no demuestra por sí solo que el host siga activo, que resuelva hoy, que pertenezca todavía a la misma organización ni que esté expuesto de forma insegura</strong>. Este artículo propone un flujo para inventario defensivo, <code>due diligence</code> técnica y verificación responsable, no para intrusión, acoso ni ampliación abusiva de objetivos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-certificate-transparency-y-dónde-encaja-crtsh">Qué es Certificate Transparency y dónde encaja crt.sh<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#qu%C3%A9-es-certificate-transparency-y-d%C3%B3nde-encaja-crtsh" class="hash-link" aria-label="Enlace directo al Qué es Certificate Transparency y dónde encaja crt.sh" title="Enlace directo al Qué es Certificate Transparency y dónde encaja crt.sh" translate="no">​</a></h2>
-<p>Certificate Transparency es un sistema de registros públicos y auditables para certificados TLS. El <a href="https://www.rfc-editor.org/rfc/rfc9162.html" target="_blank" rel="noopener noreferrer" class="">RFC 9162</a>, publicado en diciembre de 2021, describe <code>CT v2</code> como un protocolo para registrar públicamente certificados de servidor TLS conforme se emiten u observan. Su objetivo es que la actividad de las autoridades certificadoras pueda auditarse y que resulte posible detectar emisiones sospechosas.</p>
-<p>Los logs funcionan como árboles de Merkle <strong>append-only</strong>: se pueden añadir entradas, pero su diseño permite comprobar criptográficamente que el historial no se ha reescrito en silencio. Una autoridad certificadora, el titular o un tercero puede presentar un certificado; el log devuelve un <code>Signed Certificate Timestamp</code> (<code>SCT</code>) como compromiso de incorporarlo dentro de su plazo máximo de integración.</p>
-<p>En ese ecosistema hay tres piezas distintas:</p>
-<ul>
-<li class="">los <strong>logs</strong> reciben certificados y precertificados y mantienen el historial auditable;</li>
-<li class="">los <strong>monitores</strong> revisan esos logs en busca de emisiones relevantes o sospechosas;</li>
-<li class="">herramientas de búsqueda como <strong>crt.sh</strong> hacen que ese corpus sea consultable para un analista.</li>
-</ul>
-<p><code>crt.sh</code> no es “el log” ni una prueba de disponibilidad. Es una interfaz de búsqueda sobre datos de certificados. Su organización pública mantiene, entre otros componentes, un monitor de logs, el esquema de la base de datos y utilidades de procesamiento de certificados.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-reconciliar-el-inventario-de-una-empresa-ficticia">Caso de uso legítimo: reconciliar el inventario de una empresa ficticia<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#caso-de-uso-leg%C3%ADtimo-reconciliar-el-inventario-de-una-empresa-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: reconciliar el inventario de una empresa ficticia" title="Enlace directo al Caso de uso legítimo: reconciliar el inventario de una empresa ficticia" translate="no">​</a></h2>
-<p>Imagina que el equipo de seguridad de <code>Northbridge Foods</code>, una compañía ficticia, prepara una auditoría de su superficie externa. El inventario aprobado contiene <code>www</code>, <code>clientes</code> y <code>correo</code>, pero una consulta por el dominio corporativo devuelve también estos nombres históricos:</p>
-<table><thead><tr><th>Nombre observado</th><th>Primera pregunta</th><th>Evidencia adicional necesaria</th></tr></thead><tbody><tr><td><code>clientes.northbridge.example</code></td><td>¿Es un portal vigente?</td><td>DNS actual, inventario y responsable interno</td></tr><tr><td><code>vpn-antigua.northbridge.example</code></td><td>¿Se retiró realmente?</td><td>DNS histórico, ticket de baja y comprobación autorizada</td></tr><tr><td><code>*.laboratorio.northbridge.example</code></td><td>¿Qué cubría el comodín?</td><td>Emisión del certificado y alcance documentado; no enumera cada host</td></tr></tbody></table>
-<p>El objetivo no es “encontrar algo vulnerable”. Es comparar tres listas: <strong>lo documentado, lo observado históricamente y lo que sigue validado hoy</strong>. Esa diferencia puede revelar deuda de inventario, nombres olvidados, proveedores que ya no deberían emitir certificados o simplemente residuos históricos sin relevancia operativa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-y-pregunta">1. Define alcance y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#1-define-alcance-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Define alcance y pregunta" title="Enlace directo al 1. Define alcance y pregunta" translate="no">​</a></h3>
-<p>Empieza por un dominio que la organización controla o que está expresamente dentro de una revisión autorizada. Anota antes de buscar:</p>
-<ul>
-<li class="">quién ha solicitado la comprobación;</li>
-<li class="">qué dominio o unidad de negocio entra en alcance;</li>
-<li class="">qué periodo interesa;</li>
-<li class="">y qué decisión dependerá del resultado.</li>
-</ul>
-<p>Una pregunta útil sería: “¿Qué nombres incluidos en certificados durante los últimos doce meses no aparecen en el inventario aprobado?”. “Descubrir todo lo posible” no es una pregunta: es una receta para acumular datos sin criterio.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-crtsh-y-conserva-la-búsqueda">2. Consulta crt.sh y conserva la búsqueda<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#2-consulta-crtsh-y-conserva-la-b%C3%BAsqueda" class="hash-link" aria-label="Enlace directo al 2. Consulta crt.sh y conserva la búsqueda" title="Enlace directo al 2. Consulta crt.sh y conserva la búsqueda" translate="no">​</a></h3>
-<p>En la interfaz web, busca el dominio y revisa los nombres incluidos en el <code>Common Name</code> y en los <code>Subject Alternative Names</code> (<code>SAN</code>). Para una revisión reproducible, conserva:</p>
-<ul>
-<li class="">la consulta exacta;</li>
-<li class="">la fecha y zona horaria;</li>
-<li class="">el identificador de la entrada o certificado;</li>
-<li class="">el emisor;</li>
-<li class="">las fechas <code>Not Before</code> y <code>Not After</code>;</li>
-<li class="">y los nombres observados.</li>
-</ul>
-<p>Si usas una salida estructurada para un volumen moderado, documenta igualmente el origen y limita la automatización. Un ejemplo con un dominio reservado para documentación sería:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://crt.sh/?q=%25.example.com&amp;output=json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -o crtsh-example-com.json</span><br></span></code></pre></div></div>
-<p>El comodín codificado <code>%25</code> amplía la búsqueda a nombres que terminan en el dominio. Eso puede generar duplicados: un mismo certificado puede aparecer en más de una entrada y <code>name_value</code> puede contener varios nombres separados por saltos de línea. Deduplicar ayuda a ordenar; <strong>no convierte los resultados en activos confirmados</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-sin-borrar-el-tiempo">3. Normaliza sin borrar el tiempo<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#3-normaliza-sin-borrar-el-tiempo" class="hash-link" aria-label="Enlace directo al 3. Normaliza sin borrar el tiempo" title="Enlace directo al 3. Normaliza sin borrar el tiempo" translate="no">​</a></h3>
-<p>Crea una tabla de trabajo con, al menos:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">nombre_observado | primera_observacion | not_before | not_after | emisor | id_fuente | estado_validacion</span><br></span></code></pre></div></div>
-<p>Normaliza mayúsculas, elimina el prefijo <code>*.</code> solo en una columna derivada y conserva siempre el valor original. Un comodín como <code>*.laboratorio.example</code> no enumera automáticamente todos los subdominios posibles: solo indica el alcance nominal que cubre ese certificado.</p>
-<p>Tampoco mezcles “fecha del certificado” y “momento en que tu equipo lo consultó”. La primera ayuda a reconstruir una cronología; la segunda asegura trazabilidad de tu informe.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-valida-cada-nombre-con-otra-capa">4. Valida cada nombre con otra capa<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#4-valida-cada-nombre-con-otra-capa" class="hash-link" aria-label="Enlace directo al 4. Valida cada nombre con otra capa" title="Enlace directo al 4. Valida cada nombre con otra capa" translate="no">​</a></h3>
-<p>Antes de elevar una pista a hallazgo, contrástala con fuentes que respondan preguntas diferentes:</p>
-<ol>
-<li class=""><strong>DNS actual:</strong> ¿el nombre resuelve ahora? Guarda tipo de registro, respuesta y hora.</li>
-<li class=""><strong>DNS histórico o archivo web:</strong> ¿resolvía o mostraba contenido durante el periodo relevante?</li>
-<li class=""><strong>Inventario autorizado:</strong> ¿hay propietario, proveedor, servicio y fecha de retirada?</li>
-<li class=""><strong>Certificado servido actualmente:</strong> ¿coincide con el registro histórico o se ha sustituido?</li>
-<li class=""><strong>Contexto documental:</strong> ¿un ticket, contrato o cambio de infraestructura explica la relación?</li>
-</ol>
-<p>Que un nombre no resuelva hoy no invalida el registro histórico. Que resuelva tampoco prueba control organizativo: puede apuntar a alojamiento compartido, un servicio gestionado o infraestructura reutilizada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-clasifica-la-certeza-no-solo-el-resultado">5. Clasifica la certeza, no solo el resultado<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#5-clasifica-la-certeza-no-solo-el-resultado" class="hash-link" aria-label="Enlace directo al 5. Clasifica la certeza, no solo el resultado" title="Enlace directo al 5. Clasifica la certeza, no solo el resultado" translate="no">​</a></h3>
-<p>Una escala sencilla evita conclusiones infladas:</p>
-<ul>
-<li class=""><strong>Observado:</strong> el nombre figura en un certificado o precertificado registrado.</li>
-<li class=""><strong>Corroborado:</strong> otra fuente independiente sitúa el nombre en una fecha o contexto compatible.</li>
-<li class=""><strong>Activo validado:</strong> el equipo confirma que forma parte del inventario vigente.</li>
-<li class=""><strong>Pendiente:</strong> hay una pista, pero falta información suficiente.</li>
-<li class=""><strong>Descartado con motivo:</strong> duplicado, comodín mal interpretado, nombre de tercero o residuo explicado.</li>
-</ul>
-<p>El informe debe poder mostrar cómo pasó cada fila de una categoría a otra.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-puede-salir-mal-limitaciones-y-falsos-positivos">Qué puede salir mal: limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#qu%C3%A9-puede-salir-mal-limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Qué puede salir mal: limitaciones y falsos positivos" title="Enlace directo al Qué puede salir mal: limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-certificado-no-equivale-a-un-servidor-vivo">Un certificado no equivale a un servidor vivo<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#un-certificado-no-equivale-a-un-servidor-vivo" class="hash-link" aria-label="Enlace directo al Un certificado no equivale a un servidor vivo" title="Enlace directo al Un certificado no equivale a un servidor vivo" translate="no">​</a></h3>
-<p>Los certificados pueden caducar, renovarse, reemplazarse o emitirse antes de que un servicio llegue a producción. Los precertificados también forman parte del sistema. Por eso, una coincidencia es evidencia sobre <strong>emisión u observación</strong>, no una sonda de disponibilidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-nombres-pueden-revelar-más-contexto-del-previsto">Los nombres pueden revelar más contexto del previsto<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#los-nombres-pueden-revelar-m%C3%A1s-contexto-del-previsto" class="hash-link" aria-label="Enlace directo al Los nombres pueden revelar más contexto del previsto" title="Enlace directo al Los nombres pueden revelar más contexto del previsto" translate="no">​</a></h3>
-<p>El propio RFC dedica una consideración de seguridad a la posible filtración de información DNS. Nombres internos trasladados por error a certificados públicamente confiables, etiquetas de proyecto o referencias a proveedores pueden quedar visibles. Esa visibilidad justifica revisar las prácticas de nomenclatura y emisión; no autoriza a explotar el hallazgo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-comodines-crean-una-falsa-sensación-de-cobertura">Los comodines crean una falsa sensación de cobertura<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#los-comodines-crean-una-falsa-sensaci%C3%B3n-de-cobertura" class="hash-link" aria-label="Enlace directo al Los comodines crean una falsa sensación de cobertura" title="Enlace directo al Los comodines crean una falsa sensación de cobertura" translate="no">​</a></h3>
-<p><code>*.example.com</code> indica que un certificado puede cubrir determinados nombres bajo ese nivel, pero no lista cuáles existen. Tratar el comodín como un inventario de hosts produce conclusiones ficticias.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-cronología-tiene-varios-relojes">La cronología tiene varios relojes<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#la-cronolog%C3%ADa-tiene-varios-relojes" class="hash-link" aria-label="Enlace directo al La cronología tiene varios relojes" title="Enlace directo al La cronología tiene varios relojes" translate="no">​</a></h3>
-<p>Conviene separar al menos:</p>
-<ul>
-<li class="">timestamp de entrada o precertificado;</li>
-<li class=""><code>Not Before</code> y <code>Not After</code>;</li>
-<li class="">momento de primera observación por tu equipo;</li>
-<li class="">y fecha de cualquier comprobación DNS o web.</li>
-</ul>
-<p>Ordenar mal esos relojes puede convertir una migración normal en una supuesta anomalía.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crtsh-y-cualquier-agregador-tienen-límites-operativos">crt.sh y cualquier agregador tienen límites operativos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#crtsh-y-cualquier-agregador-tienen-l%C3%ADmites-operativos" class="hash-link" aria-label="Enlace directo al crt.sh y cualquier agregador tienen límites operativos" title="Enlace directo al crt.sh y cualquier agregador tienen límites operativos" translate="no">​</a></h3>
-<p>Una interfaz de búsqueda puede responder lentamente, aplicar límites o devolver resultados repetidos. Para monitorización continua de activos propios, no dependas de una única consulta ocasional: combina alertas de emisión, inventario y revisión periódica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con activos propios, encargos documentados o preguntas de interés público legítimo y proporcional.</li>
-<li class="">Evita incluir nombres personales, correos o etiquetas sensibles en capturas compartidas si no son necesarios.</li>
-<li class="">No abras hosts desconocidos desde el navegador de trabajo; valida primero DNS, alcance y procedimiento interno.</li>
-<li class="">Limita frecuencia y volumen de consultas. Conserva resultados suficientes para reproducir el análisis, no un volcado indiscriminado.</li>
-<li class="">Separa datos brutos, notas analíticas y conclusiones. Una cadena de custodia ligera —URL, timestamp, hash del fichero y capturas— mejora la auditabilidad.</li>
-<li class="">Informa de un certificado inesperado al propietario o al equipo de seguridad por un canal responsable; no lo presentes públicamente como brecha sin corroboración.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-una-revisión-defendible">Checklist para una revisión defendible<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#checklist-para-una-revisi%C3%B3n-defendible" class="hash-link" aria-label="Enlace directo al Checklist para una revisión defendible" title="Enlace directo al Checklist para una revisión defendible" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El dominio está autorizado y la pregunta está escrita.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La consulta, la fecha y el identificador de cada entrada se han conservado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los nombres originales y normalizados están en columnas distintas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los comodines no se han tratado como hosts enumerados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada nombre relevante tiene al menos una validación independiente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->“Observado”, “corroborado” y “activo” no se usan como sinónimos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las fechas del certificado, del log y de la comprobación están separadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los datos personales o etiquetas sensibles se han minimizado en el informe.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las conclusiones incluyen límites y una acción concreta para el propietario.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>crt.sh</code> es una entrada cómoda, pero no cubre todas las preguntas:</p>
-<ul>
-<li class="">los monitores de <code>Certificate Transparency</code> encajan mejor cuando necesitas alertas continuas sobre dominios propios;</li>
-<li class=""><code>Censys</code> permite relacionar certificados con servicios observados, con sus propios tiempos y límites de cobertura;</li>
-<li class=""><code>RDAP/WHOIS</code> aporta contexto registral, no prueba de operación;</li>
-<li class="">DNS histórico ayuda a reconstruir resoluciones pasadas;</li>
-<li class=""><code>urlscan.io</code> y el archivo web aportan comportamiento o contenido observado, siempre con cuidado de no enviar URLs sensibles a servicios públicos.</li>
-</ul>
-<p>El takeaway práctico es este: usa <code>crt.sh</code> para <strong>generar una lista de nombres y momentos que merecen validación</strong>, no para declarar activos, propietarios o incidentes. La calidad del análisis aparece cuando el registro del certificado se cruza con DNS, inventario y contexto temporal, y cuando cada conclusión conserva el grado de certeza que realmente soportan las fuentes.</p>
-<p>Como siguiente tema, tendría sentido comparar monitorización continua de <code>CT</code> con revisiones puntuales de DNS histórico: qué detecta antes cada capa, qué omite y cómo evitar alertas sin contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/crtsh-certificate-transparency-osint-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://certificate.transparency.dev/howctworks/" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: How CT Works</a></li>
-<li class=""><a href="https://certificate.transparency.dev/logs" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Logs</a></li>
-<li class=""><a href="https://certificate.transparency.dev/monitors" target="_blank" rel="noopener noreferrer" class="">Certificate Transparency: Monitors</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9162.html" target="_blank" rel="noopener noreferrer" class="">RFC 9162: Certificate Transparency Version 2.0</a></li>
-<li class=""><a href="https://github.com/crtsh" target="_blank" rel="noopener noreferrer" class="">Organización oficial de crt.sh en GitHub</a></li>
-<li class=""><a href="https://googlechrome.github.io/CertificateTransparency/ct_policy.html" target="_blank" rel="noopener noreferrer" class="">Chrome Certificate Transparency Policy</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Investigacion</category>
-            <category>Verificacion</category>
-            <category>TLS</category>
-            <category>Infraestructura</category>
             <category>Metodologia</category>
         </item>
     </channel>
