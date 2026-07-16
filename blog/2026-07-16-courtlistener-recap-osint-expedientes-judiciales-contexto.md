@@ -9,6 +9,9 @@ image: /img/blog/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-con
 
 ![Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion](/img/blog/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/courtlistener-recap-osint-expedientes-judiciales-contexto.m4a)
+
+
 Un expediente judicial puede parecer una prueba definitiva porque suena formal, viene de un tribunal y tiene numero de caso. En OSINT responsable, esa sensacion es peligrosa: una demanda no es una sentencia, una entrada de docket no cuenta todo el litigio y una coincidencia de nombre puede arruinar una investigacion si no se valida jurisdiccion, fecha, parte, documento y estado procesal. `CourtListener` y `RECAP` ayudan justo en ese punto: abrir registros legales publicos con trazabilidad, pero sin convertir cada hallazgo en acusacion.
 
 Revisando la documentacion oficial el **16 de julio de 2026**, `CourtListener`, proyecto de `Free Law Project`, se presenta como un archivo searchable de opiniones judiciales, alegaciones orales, jueces, declaraciones financieras judiciales y filings federales. Su pagina de proyecto indica que incluye mas de `10 millones` de opiniones en cientos de jurisdicciones, el archivo `RECAP` de datos `PACER` con cientos de millones de entradas de docket y decenas de millones de documentos, alertas para monitorizar casos o terminos de busqueda, y APIs para investigadores y desarrolladores. La API documentada en ese momento era `REST API v4.4`.
