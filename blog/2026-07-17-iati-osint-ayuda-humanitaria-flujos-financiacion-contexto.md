@@ -9,6 +9,9 @@ image: /img/blog/2026-07-17-iati-osint-ayuda-humanitaria-flujos-financiacion-con
 
 ![Ilustracion editorial de una analista OSINT revisando datos abiertos de ayuda humanitaria, flujos de financiacion, tablas CSV, mapas y notas de verificacion](/img/blog/2026-07-17-iati-osint-ayuda-humanitaria-flujos-financiacion-contexto.png)
 
+**Descargar el podcast!**: <a href="/podcasts/iati-osint-ayuda-humanitaria-flujos-financiacion-contexto.m4a">Descargar el podcast</a>
+
+
 Una cifra de ayuda internacional puede viajar muy rapido: un titular, una promesa de financiacion, una tabla de proyecto y una captura de mapa. El problema es que en cooperacion y accion humanitaria **dinero anunciado, comprometido, desembolsado y gastado no significan lo mismo**. `IATI` ayuda a poner orden en ese terreno, siempre que el analista trate sus datos como una pista estructurada y no como una sentencia automatica sobre impacto, fraude o responsabilidad.
 
 Revisando la documentacion oficial el **17 de julio de 2026**, la `International Aid Transparency Initiative` se presenta como una iniciativa global para mejorar la transparencia de los recursos de desarrollo y humanitarios. Su pagina principal mostraba `1.038.446` actividades publicadas y `1.846` publicadores. La plataforma permite explorar datos mediante `d-portal`, `Country Development Finance Data`, `Datastore Search` y `Datastore API v3`, con salidas en `XML`, `JSON` y `CSV` para analisis posterior.
