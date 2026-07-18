@@ -9,6 +9,9 @@ image: /img/blog/2026-07-18-gleif-lei-osint-identidad-corporativa-contexto.png
 
 ![Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion](/img/blog/2026-07-18-gleif-lei-osint-identidad-corporativa-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/gleif-lei-osint-identidad-corporativa-contexto.m4a)
+
+
 Una empresa puede aparecer con tres nombres comerciales, dos domicilios, una filial local y un intermediario que usa una abreviatura parecida. En ese punto, el riesgo OSINT no es quedarse sin datos: es **unir entidades distintas porque se parecen, o separar la misma entidad porque cambia de idioma, jurisdiccion o registro**. El identificador `LEI`, mantenido en el ecosistema de `GLEIF`, ayuda justo en esa zona gris: convertir nombres corporativos en identidades legales mas trazables antes de hablar de ownership, riesgo o responsabilidad.
 
 Revisando la documentacion oficial el **18 de julio de 2026**, `GLEIF` describe el `Legal Entity Identifier` como un codigo alfanumerico unico de `20` caracteres que permite acceder a datos claros de identificacion de una entidad juridica. La documentacion del `Global LEI Index` lo presenta como un repositorio central con registros historicos y actuales, abierto para consulta gratuita mediante buscador web, descargas y `API`. Una consulta minima a la API el mismo dia devolvio `goldenCopy.publishDate=2026-07-17T16:00:00Z` y `3.376.314` registros, una fotografia util para contextualizar escala sin tratarla como cifra permanente.
