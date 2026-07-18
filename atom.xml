@@ -2,11 +2,162 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-17T00:00:00.000Z</updated>
+    <updated>2026-07-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[GLEIF y LEI en OSINT: identidad corporativa, ownership y contexto antes de atribuir]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto"/>
+        <updated>2026-07-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-18-gleif-lei-osint-identidad-corporativa-contexto-d479f6d3c767ddcbb01ddf15376238e7.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una empresa puede aparecer con tres nombres comerciales, dos domicilios, una filial local y un intermediario que usa una abreviatura parecida. En ese punto, el riesgo OSINT no es quedarse sin datos: es <strong>unir entidades distintas porque se parecen, o separar la misma entidad porque cambia de idioma, jurisdiccion o registro</strong>. El identificador <code>LEI</code>, mantenido en el ecosistema de <code>GLEIF</code>, ayuda justo en esa zona gris: convertir nombres corporativos en identidades legales mas trazables antes de hablar de ownership, riesgo o responsabilidad.</p>
+<p>Revisando la documentacion oficial el <strong>18 de julio de 2026</strong>, <code>GLEIF</code> describe el <code>Legal Entity Identifier</code> como un codigo alfanumerico unico de <code>20</code> caracteres que permite acceder a datos claros de identificacion de una entidad juridica. La documentacion del <code>Global LEI Index</code> lo presenta como un repositorio central con registros historicos y actuales, abierto para consulta gratuita mediante buscador web, descargas y <code>API</code>. Una consulta minima a la API el mismo dia devolvio <code>goldenCopy.publishDate=2026-07-17T16:00:00Z</code> y <code>3.376.314</code> registros, una fotografia util para contextualizar escala sin tratarla como cifra permanente.</p>
+<p>Este articulo esta escrito para analistas de debida diligencia, periodistas de datos, equipos de compliance, investigadores civicos y profesionales de ciberinteligencia que necesitan identificar entidades juridicas con metodo. No es una guia para senalar personas, acosar directivos, publicar domicilios sensibles ni convertir coincidencias nominales en acusaciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-gleif-y-para-que-sirve-el-lei">Que es GLEIF y para que sirve el LEI<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#que-es-gleif-y-para-que-sirve-el-lei" class="hash-link" aria-label="Enlace directo al Que es GLEIF y para que sirve el LEI" title="Enlace directo al Que es GLEIF y para que sirve el LEI" translate="no">​</a></h2>
+<p><code>GLEIF</code> es la Global Legal Entity Identifier Foundation, la organizacion que hace accesible el <code>Global LEI Index</code>: una base publica de identificadores de entidades juridicas y datos de referencia asociados. El <code>LEI</code> no es una etiqueta comercial ni un numero magico que "demuestre" propiedad real por si solo. Es un identificador estable para distinguir una entidad legal concreta dentro de un sistema global.</p>
+<p>Su utilidad OSINT aparece en preguntas como estas:</p>
+<ul>
+<li class="">que entidad legal exacta hay detras de un nombre parecido;</li>
+<li class="">que domicilio legal y sede central figuran en el registro LEI;</li>
+<li class="">que autoridad registral y numero local se han usado para validar la entidad;</li>
+<li class="">si el registro esta emitido, caducado, fusionado, retirado o pendiente de renovacion;</li>
+<li class="">si existen datos de relacion con matriz directa o matriz ultima;</li>
+<li class="">que otros identificadores mapeados, como <code>BIC</code>, <code>ISIN</code>, <code>MIC</code> u <code>OpenCorporates</code>, pueden ayudar a pivotar;</li>
+<li class="">que parte del dato procede del ecosistema LEI y que parte debe comprobarse en registros primarios.</li>
+</ul>
+<p>La distincion clave es <code>Level 1</code> y <code>Level 2</code>. La propia documentacion de GLEIF resume <code>Level 1</code> como la capa que responde a "quien es quien": nombre legal, direcciones, jurisdiccion, forma legal, registro local y estado. <code>Level 2</code> intenta responder a "quien posee a quien": relaciones de matriz directa y ultima, cuando existen y se reportan.</p>
+<p>Ese matiz importa mucho. Un <code>LEI</code> puede ayudarte a identificar mejor una sociedad, pero no reemplaza el registro mercantil, una escritura, un filing regulatorio, una memoria auditada o una confirmacion formal cuando la conclusion es sensible.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina una revision de terceros para una organizacion que va a contratar a <code>Iberia North Analytics Ltd</code>, una sociedad ficticia que aparece tambien como <code>Iberia N. Analytics</code>, <code>INA Trading</code> y <code>Iberia North Analytics Limited</code> en documentos comerciales. La pregunta no es "que encontramos para descartar al proveedor". La pregunta responsable es:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: que entidad juridica concreta corresponde al proveedor revisado y que relaciones corporativas publicas deben verificarse?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Alcance: datos LEI, registro mercantil primario, web corporativa, contrato propuesto y listas regulatorias pertinentes</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Salida: mapa de identidad corporativa y dudas abiertas, no acusacion</span><br></span></code></pre></div></div>
+<p>Un flujo prudente podria separar cuatro capas:</p>
+<table><thead><tr><th>Capa</th><th>Que buscas</th><th>Que no debes concluir todavia</th></tr></thead><tbody><tr><td>Nombre legal</td><td>Coincidencia exacta y variantes razonables</td><td>Que dos nombres parecidos son la misma sociedad</td></tr><tr><td>Identificador</td><td>LEI, numero registral local y autoridad validante</td><td>Que el LEI confirma toda la estructura societaria</td></tr><tr><td>Estado</td><td>Registro emitido, renovacion, fusion o retirada</td><td>Que un estado administrativo implica mala conducta</td></tr><tr><td>Relaciones</td><td>Matriz directa, matriz ultima o excepciones reportadas</td><td>Que ownership contable equivale a control operativo total</td></tr></tbody></table>
+<p>Una conclusion defendible podria sonar asi:</p>
+<blockquote>
+<p>La entidad revisada aparece con un LEI emitido y datos corroborados frente al registro local indicado. El registro LEI apunta a una entidad matriz reportada, pero la relacion debe contrastarse con filings societarios y documentos primarios antes de usarla como conclusion de control.</p>
+</blockquote>
+<p>No es una frase espectacular. Es precisamente la clase de frase que evita errores caros.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-una-pregunta-de-identidad">1. Empieza por una pregunta de identidad<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#1-empieza-por-una-pregunta-de-identidad" class="hash-link" aria-label="Enlace directo al 1. Empieza por una pregunta de identidad" title="Enlace directo al 1. Empieza por una pregunta de identidad" translate="no">​</a></h3>
+<p>Antes de abrir el buscador, escribe que necesitas confirmar:</p>
+<ul>
+<li class="">una entidad legal concreta detras de una marca;</li>
+<li class="">una coincidencia entre varias fuentes;</li>
+<li class="">una relacion de grupo;</li>
+<li class="">un identificador para cruzar datasets;</li>
+<li class="">una senal de cambio corporativo, fusion o sucesion.</li>
+</ul>
+<p>Evita empezar por "buscar todo sobre una empresa". Esa forma de trabajar acaba mezclando domicilios antiguos, filiales, sociedades homonimas y agregadores con niveles de calidad distintos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-por-nombre-pero-decide-por-identificadores">2. Busca por nombre, pero decide por identificadores<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#2-busca-por-nombre-pero-decide-por-identificadores" class="hash-link" aria-label="Enlace directo al 2. Busca por nombre, pero decide por identificadores" title="Enlace directo al 2. Busca por nombre, pero decide por identificadores" translate="no">​</a></h3>
+<p>El buscador de <code>GLEIF</code> y la <code>API</code> permiten busquedas por campos y coincidencias difusas en nombres y direcciones. Eso es util para abrir el caso, no para cerrarlo. Cuando aparezcan resultados parecidos, compara:</p>
+<ul>
+<li class="">nombre legal exacto y otros nombres;</li>
+<li class="">pais y jurisdiccion;</li>
+<li class="">numero registral local;</li>
+<li class="">autoridad registral;</li>
+<li class="">direccion legal y sede central;</li>
+<li class="">estado de la entidad y estado del registro;</li>
+<li class="">fecha de ultima actualizacion y proxima renovacion;</li>
+<li class="">identificadores externos mapeados, si existen.</li>
+</ul>
+<p>Si dos resultados se parecen pero tienen numeros registrales distintos, tratarlos como la misma entidad exige evidencia adicional. Si una entidad tiene el nombre esperado pero el registro esta caducado, la conclusion debe explicar esa condicion temporal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-buscador-api-y-ficheros">3. Separa buscador, API y ficheros<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#3-separa-buscador-api-y-ficheros" class="hash-link" aria-label="Enlace directo al 3. Separa buscador, API y ficheros" title="Enlace directo al 3. Separa buscador, API y ficheros" translate="no">​</a></h3>
+<p>GLEIF ofrece varias puertas de entrada y conviene elegir segun la tarea:</p>
+<ul>
+<li class=""><code>LEI Search</code> sirve para exploracion manual rapida y revision visual;</li>
+<li class=""><code>GLEIF API</code> sirve para integrar busquedas, filtros, resultados por campos y relaciones en flujos reproducibles;</li>
+<li class=""><code>Concatenated Files</code> publican diariamente datos enviados por emisores LEI;</li>
+<li class=""><code>Golden Copy Files</code> y deltas ofrecen una version lista para uso, actualizada varias veces al dia, con deduplicacion tecnica y formatos como <code>XML</code>, <code>CSV</code> y <code>JSON</code>.</li>
+</ul>
+<p>Para un caso pequeno, el buscador puede bastar. Para una revision de cartera, proveedores, contrapartes o entidades repetidas en documentos, la API o los ficheros descargables permiten conservar consultas, fechas y resultados de forma mas auditable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-estado-como-metadato-no-como-sentencia">4. Lee el estado como metadato, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#4-lee-el-estado-como-metadato-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 4. Lee el estado como metadato, no como sentencia" title="Enlace directo al 4. Lee el estado como metadato, no como sentencia" translate="no">​</a></h3>
+<p>Un registro LEI incluye campos de entidad y de registro. En un informe, conviene distinguir:</p>
+<ul>
+<li class=""><code>entity.status</code>: vida o situacion de la entidad legal segun el dato reportado;</li>
+<li class=""><code>registration.status</code>: estado administrativo del registro LEI;</li>
+<li class=""><code>corroborationLevel</code>: como se ha validado la informacion;</li>
+<li class=""><code>nextRenewalDate</code>: fecha esperada de renovacion;</li>
+<li class=""><code>validatedAt</code> y <code>validatedAs</code>: autoridad y numero usados para validar;</li>
+<li class="">relaciones de matriz o excepciones de reporting.</li>
+</ul>
+<p>El error clasico es convertir un campo tecnico en una interpretacion narrativa. Un registro vencido puede significar que no se renovo a tiempo, que ya no se necesita para actividad regulada o que hay desfase operativo. No demuestra fraude. Una relacion de matriz puede responder a consolidacion contable, no necesariamente a control diario de decisiones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-documenta-una-cadena-reproducible">5. Documenta una cadena reproducible<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#5-documenta-una-cadena-reproducible" class="hash-link" aria-label="Enlace directo al 5. Documenta una cadena reproducible" title="Enlace directo al 5. Documenta una cadena reproducible" translate="no">​</a></h3>
+<p>Para que otro analista pueda revisar tu trabajo, guarda:</p>
+<ul>
+<li class="">URL de la ficha LEI o endpoint consultado;</li>
+<li class="">fecha y hora de consulta;</li>
+<li class=""><code>publishDate</code> de la Golden Copy si usas API o ficheros;</li>
+<li class="">campos usados para decidir identidad;</li>
+<li class="">capturas o exportaciones necesarias;</li>
+<li class="">enlace al registro primario;</li>
+<li class="">dudas abiertas y acciones pendientes.</li>
+</ul>
+<p>Si el caso es sensible, anade una regla de minimizacion: no copies direcciones personales, nombres de personas fisicas o datos no necesarios para la pregunta. Que algo este en una fuente publica no obliga a amplificarlo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ejemplo-de-consulta-responsable">Ejemplo de consulta responsable<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#ejemplo-de-consulta-responsable" class="hash-link" aria-label="Enlace directo al Ejemplo de consulta responsable" title="Enlace directo al Ejemplo de consulta responsable" translate="no">​</a></h2>
+<p>Un ejemplo de alto nivel, con una entidad ficticia:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">1. Buscar "Iberia North Analytics Ltd" en LEI Search.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2. Revisar resultados por pais, jurisdiccion y numero registral.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">3. Abrir la ficha con mejor coincidencia y anotar LEI, nombre legal, registro local y estado.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">4. Revisar si hay relaciones de matriz directa o ultima.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">5. Abrir el registro mercantil primario indicado por la ficha.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">6. Comparar nombre, numero, domicilio, fechas y documentos.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">7. Redactar solo lo que queda corroborado y separar hipotesis de hechos.</span><br></span></code></pre></div></div>
+<p>Para automatizar, la API permite consultar registros LEI y campos relacionados. En vez de pegar resultados crudos en un informe, suele ser mejor conservar un pequeno extracto con los campos necesarios y la URL del endpoint. Asi puedes explicar de donde sale cada afirmacion sin publicar mas datos de los necesarios.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>GLEIF reduce ambiguedad, pero no elimina los problemas de investigacion:</p>
+<ul>
+<li class="">no todas las entidades del mundo tienen LEI;</li>
+<li class="">una entidad puede tener datos desactualizados si no se ha renovado o corroborado recientemente;</li>
+<li class="">las relaciones de ownership pueden estar ausentes por excepciones de reporting;</li>
+<li class="">el dato LEI no sustituye a documentos societarios primarios;</li>
+<li class="">una direccion compartida puede ser un proveedor de servicios, no una prueba de relacion material;</li>
+<li class="">una coincidencia por nombre puede mezclar filiales, fondos, sucursales o sociedades homonimas;</li>
+<li class="">los identificadores mapeados deben validarse en su propia fuente.</li>
+</ul>
+<p>Tambien hay un limite geografico y regulatorio. El LEI nacio alrededor de necesidades de identificacion en mercados financieros y reporting regulatorio. Su cobertura es fuerte donde hay obligacion o incentivo para obtenerlo, y mas desigual donde una entidad no participa en esos circuitos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
+<p>Trabajar con entidades juridicas no elimina riesgos para personas. Directivos, apoderados, beneficiarios reales, empleados y domicilios pueden aparecer en fuentes publicas o enlazadas. Una metodologia responsable:</p>
+<ul>
+<li class="">define una finalidad legitima antes de buscar;</li>
+<li class="">evita publicar datos personales no necesarios;</li>
+<li class="">no usa LEI para acosar, doxxear o crear listas negras;</li>
+<li class="">separa identidad legal, propiedad, control, actividad y responsabilidad;</li>
+<li class="">contrasta siempre en la fuente primaria cuando la conclusion sea sensible;</li>
+<li class="">explica fechas y estado de los registros;</li>
+<li class="">conserva evidencias sin amplificar datos que no aportan valor analitico.</li>
+</ul>
+<p>La prueba de calidad es sencilla: si tu informe no puede distinguir entre "esta entidad existe", "esta entidad parece relacionada" y "esta entidad controla", todavia no esta listo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>GLEIF encaja muy bien cuando necesitas una columna vertebral de identidad corporativa. Segun la pregunta, puede combinarse con:</p>
+<ul>
+<li class="">registros mercantiles nacionales, como fuente primaria;</li>
+<li class=""><code>OpenCorporates</code>, para descubrir jurisdicciones y llegar a registros;</li>
+<li class=""><code>OpenOwnership</code>, cuando la pregunta gira alrededor de beneficiarios reales;</li>
+<li class=""><code>OpenSanctions</code>, si hay una revision legitima de sanciones, PEP o listas de riesgo;</li>
+<li class=""><code>EDGAR</code> o filings regulatorios, si la entidad cotiza o reporta en Estados Unidos;</li>
+<li class=""><code>OpenRefine</code> para normalizar nombres antes de cruzar datasets;</li>
+<li class=""><code>Datasette</code> o <code>SQLite</code> para conservar consultas reproducibles.</li>
+</ul>
+<p>El takeaway operativo es este: usa <code>GLEIF</code> y el <code>LEI</code> para <strong>subir la precision de identidad antes de unir puntos corporativos</strong>, no para saltarte la verificacion documental. El siguiente paso natural para el blog seria una guia practica sobre como combinar LEI, registros mercantiles y normalizacion de nombres sin fabricar relaciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.gleif.org/en/organizational-identity/lei-vlei/the-legal-entity-identifier-lei" target="_blank" rel="noopener noreferrer" class="">The Legal Entity Identifier (LEI) - GLEIF</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/global-lei-index" target="_blank" rel="noopener noreferrer" class="">Global LEI Index - GLEIF</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/access-and-use-lei-data" target="_blank" rel="noopener noreferrer" class="">LEI Data: Access &amp; Use - GLEIF</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/gleif-api" target="_blank" rel="noopener noreferrer" class="">GLEIF API</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/gleif-golden-copy" target="_blank" rel="noopener noreferrer" class="">GLEIF Golden Copy and Delta Files</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/gleif-concatenated-file/download-the-concatenated-file" target="_blank" rel="noopener noreferrer" class="">Download the Concatenated Files - GLEIF</a></li>
+<li class=""><a href="https://www.gleif.org/en/lei-data/access-and-use-lei-data/supporting-documents" target="_blank" rel="noopener noreferrer" class="">Supporting Documents - GLEIF</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IATI en OSINT: ayuda humanitaria, flujos de financiacion y contexto antes de concluir]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/iati-osint-ayuda-humanitaria-flujos-financiacion-contexto</id>
@@ -2684,148 +2835,5 @@
         <category label="Datos" term="Datos"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Investigacion" term="Investigacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MISP en OSINT: indicadores, taxonomías y contexto para compartir inteligencia sin crear ruido]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto"/>
-        <updated>2026-06-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT organizando indicadores, eventos, taxonomías y listas de aviso en una investigación defensiva]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT organizando indicadores, eventos, taxonomías y listas de aviso en una investigación defensiva" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-25-misp-osint-indicadores-taxonomias-contexto-360cbaeacb23806edc83cb0c1f0f2edd.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/misp-osint-indicadores-taxonomias-contexto.m4a">Descargar el podcast</a></p>
-<p>Un indicador aislado parece una pista; cien indicadores sin contexto parecen una verdad por volumen. Ahí empieza el problema: un dominio, una IP o un hash pueden ser útiles para investigar, pero también pueden arrastrar falsos positivos, caducidad, atribuciones débiles y datos personales innecesarios. <code>MISP</code> ayuda a ordenar esa conversación cuando el objetivo es compartir inteligencia técnica de forma estructurada, trazable y proporcional.</p>
-<p>Revisando la documentación oficial el <strong>25 de junio de 2026</strong>, el proyecto describe <code>MISP</code> como una solución de código abierto para recopilar, almacenar, distribuir y compartir indicadores y amenazas de ciberseguridad, pensada para analistas de incidentes, profesionales de seguridad y equipos que necesitan intercambiar información estructurada. Su valor OSINT no está en "tener más IoCs", sino en poder explicar <strong>qué se observó, por qué importa, con qué confianza se comparte y qué límites tiene</strong>.</p>
-<p>Este artículo está orientado a investigación defensiva, respuesta a incidentes, verificación técnica y colaboración responsable. No incluye instrucciones para intrusión, acoso, doxxing ni ampliación abusiva de objetivos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-misp-y-para-qué-sirve">Qué es MISP y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#qu%C3%A9-es-misp-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es MISP y para qué sirve" title="Enlace directo al Qué es MISP y para qué sirve" translate="no">​</a></h2>
-<p><a href="https://www.misp-project.org/" target="_blank" rel="noopener noreferrer" class=""><code>MISP</code></a> nació alrededor del intercambio de información sobre malware e incidentes, pero hoy funciona como un ecosistema más amplio de inteligencia de amenazas: software, formatos, taxonomías, galaxies, objetos, listas de aviso, API e integraciones.</p>
-<p>En la práctica, permite organizar una investigación en piezas reutilizables:</p>
-<ul>
-<li class=""><strong>eventos</strong>, que agrupan una observación o incidente;</li>
-<li class=""><strong>atributos</strong>, como dominios, hashes, URLs, correos o direcciones IP;</li>
-<li class=""><strong>objetos</strong>, que representan entidades más ricas que un simple campo suelto;</li>
-<li class=""><strong>tags y taxonomías</strong>, para clasificar sensibilidad, confianza, tipo de amenaza o etapa del análisis;</li>
-<li class=""><strong>galaxies</strong>, para asociar contexto estructurado como técnicas, familias, campañas o actores cuando proceda;</li>
-<li class=""><strong>warninglists</strong>, que ayudan a detectar indicadores propensos a falsos positivos;</li>
-<li class="">y <strong>modelos de distribución</strong>, para compartir solo lo que debe compartirse con quien debe recibirlo.</li>
-</ul>
-<p>La <a href="https://www.misp-project.org/features/" target="_blank" rel="noopener noreferrer" class="">página de funcionalidades</a> insiste en dos ideas importantes para OSINT: el intercambio puede granularse hasta el nivel de atributo y las listas de aviso ayudan a limitar falsos positivos. Es justo el tipo de fricción saludable que evita convertir una investigación abierta en una cadena de copias sin criterio.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que el equipo de seguridad de <code>Northbridge Foods</code>, una empresa ficticia, detecta varios correos de suplantación contra proveedores. El análisis inicial deja estos datos:</p>
-<table><thead><tr><th>Observación</th><th>Valor ficticio</th><th>Riesgo metodológico</th></tr></thead><tbody><tr><td>Dominio parecido</td><td><code>northbridge-payments.example</code></td><td>Podría ser typosquatting o una coincidencia legítima</td></tr><tr><td>URL en correo</td><td><code>https://pay.example.invalid/session</code></td><td>Puede estar caída, haber cambiado o ser un redirector</td></tr><tr><td>Hash de adjunto</td><td><code>44d88612fea8a8f36de82e1278abb02f</code></td><td>Un hash solo identifica una muestra, no una campaña</td></tr><tr><td>IP de envío</td><td><code>203.0.113.42</code></td><td>Puede ser infraestructura compartida o comprometida</td></tr><tr><td>Texto del asunto</td><td><code>Actualización de cuenta proveedor</code></td><td>Puede repetirse en campañas no relacionadas</td></tr></tbody></table>
-<p>Sin una estructura, el informe acaba siendo una lista. Con <code>MISP</code>, el equipo puede crear un evento, añadir atributos, etiquetar la sensibilidad, indicar si cada atributo es accionable o solo contextual, marcar confianza, enlazar evidencias y decidir qué elementos se comparten con socios de confianza.</p>
-<p>El resultado no es una atribución automática. Es una forma de que otro analista entienda qué puede reutilizar, qué debe verificar y qué no conviene propagar sin más.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-alcance-antes-de-añadir-indicadores">1. Define el alcance antes de añadir indicadores<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#1-define-el-alcance-antes-de-a%C3%B1adir-indicadores" class="hash-link" aria-label="Enlace directo al 1. Define el alcance antes de añadir indicadores" title="Enlace directo al 1. Define el alcance antes de añadir indicadores" translate="no">​</a></h3>
-<p>Empieza por una pregunta verificable: "¿Qué señales abiertas y defensivas permiten describir una campaña de suplantación contra proveedores de Northbridge Foods durante la semana del 15 de junio?".</p>
-<p>Registra desde el inicio:</p>
-<ul>
-<li class="">periodo de observación;</li>
-<li class="">origen de cada dato;</li>
-<li class="">permiso o base legítima para tratarlo;</li>
-<li class="">sensibilidad de la información;</li>
-<li class="">hipótesis que todavía no están demostradas;</li>
-<li class="">y condiciones para compartir o retirar el evento.</li>
-</ul>
-<p>Esta fase evita dos errores frecuentes: meter todo lo que aparece en una búsqueda y olvidar que algunos datos abiertos siguen teniendo impacto de privacidad o reputación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-crea-el-evento-como-contenedor-no-como-conclusión">2. Crea el evento como contenedor, no como conclusión<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#2-crea-el-evento-como-contenedor-no-como-conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al 2. Crea el evento como contenedor, no como conclusión" title="Enlace directo al 2. Crea el evento como contenedor, no como conclusión" translate="no">​</a></h3>
-<p>En <code>MISP</code>, el evento debe describir la observación con sobriedad: campaña de suplantación reportada, conjunto de correos recibidos, análisis de adjuntos o revisión de infraestructura relacionada. Evita títulos que atribuyan demasiado pronto: "APT X contra Northbridge" suele ser peor que "Suplantación a proveedores de Northbridge: indicadores observados".</p>
-<p>La <a href="https://www.misp-project.org/datamodels/" target="_blank" rel="noopener noreferrer" class="">documentación de modelos de datos</a> presenta <code>MISP</code> como un formato práctico en <code>JSON</code> para compartir indicadores e información de amenazas entre instancias y herramientas. Esa estructura ayuda a separar el dato de la interpretación:</p>
-<ul>
-<li class="">el atributo contiene el valor;</li>
-<li class="">el tipo indica qué clase de valor es;</li>
-<li class="">el contexto explica de dónde sale;</li>
-<li class="">la distribución define quién lo ve;</li>
-<li class="">y las etiquetas expresan clasificación o confianza.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-distingue-indicadores-accionables-de-contexto">3. Distingue indicadores accionables de contexto<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#3-distingue-indicadores-accionables-de-contexto" class="hash-link" aria-label="Enlace directo al 3. Distingue indicadores accionables de contexto" title="Enlace directo al 3. Distingue indicadores accionables de contexto" translate="no">​</a></h3>
-<p>No todo lo que aparece en un caso debe disparar una alerta. Una IP residencial, una plataforma compartida o un dominio de alojamiento legítimo pueden aparecer por razones benignas. MISP permite marcar atributos y añadir contexto para que un consumidor no use una pista débil como bloqueo automático.</p>
-<p>Una regla práctica:</p>
-<ul>
-<li class=""><strong>IoC accionable</strong>: valor específico, observado en el caso, con suficiente confianza y baja probabilidad de colisión;</li>
-<li class=""><strong>contexto</strong>: dato que ayuda a entender el caso, pero no debería bloquearse ni atribuirse por sí solo;</li>
-<li class=""><strong>pista pendiente</strong>: dato que necesita corroboración antes de compartirse fuera del equipo.</li>
-</ul>
-<p>Las <a href="https://github.com/MISP/misp-warninglists" target="_blank" rel="noopener noreferrer" class=""><code>warninglists</code></a> existen precisamente para advertir sobre valores comunes o propensos a errores: dominios populares, rangos conocidos, servicios compartidos u otros elementos que pueden generar falsos positivos si se tratan como maliciosos sin contexto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-taxonomías-para-hablar-el-mismo-idioma">4. Usa taxonomías para hablar el mismo idioma<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#4-usa-taxonom%C3%ADas-para-hablar-el-mismo-idioma" class="hash-link" aria-label="Enlace directo al 4. Usa taxonomías para hablar el mismo idioma" title="Enlace directo al 4. Usa taxonomías para hablar el mismo idioma" translate="no">​</a></h3>
-<p>Las <a href="https://github.com/MISP/misp-taxonomies" target="_blank" rel="noopener noreferrer" class=""><code>MISP taxonomies</code></a> son vocabularios comunes para clasificar y organizar información. Su utilidad no es decorativa: permiten que equipos distintos interpreten de forma parecida etiquetas de tráfico, nivel de confianza, ciclo de vida, sensibilidad o tipo de amenaza.</p>
-<p>En un flujo OSINT responsable, las taxonomías pueden cubrir:</p>
-<ul>
-<li class="">nivel de confianza de la fuente;</li>
-<li class="">fiabilidad de la información;</li>
-<li class="">sensibilidad para compartir;</li>
-<li class="">tipo de incidente;</li>
-<li class="">estado de validación;</li>
-<li class="">y restricciones de distribución.</li>
-</ul>
-<p>La diferencia entre <code>confirmado</code>, <code>probable</code>, <code>posible</code> y <code>sin verificar</code> no es estética. Evita que un consumidor convierta una hipótesis en una regla de bloqueo, una alerta pública o una acusación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-añade-galaxies-solo-cuando-aporten-contexto-verificable">5. Añade galaxies solo cuando aporten contexto verificable<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#5-a%C3%B1ade-galaxies-solo-cuando-aporten-contexto-verificable" class="hash-link" aria-label="Enlace directo al 5. Añade galaxies solo cuando aporten contexto verificable" title="Enlace directo al 5. Añade galaxies solo cuando aporten contexto verificable" translate="no">​</a></h3>
-<p>Las <a href="https://github.com/MISP/misp-galaxy" target="_blank" rel="noopener noreferrer" class=""><code>MISP galaxies</code></a> permiten asociar clusters de conocimiento a eventos o atributos. Pueden representar actores, herramientas, malware, ransomware o matrices como <code>MITRE ATT&amp;CK</code>.</p>
-<p>La tentación es grande: si un patrón se parece a una técnica conocida, se etiqueta y listo. Pero en OSINT la etiqueta fuerte exige evidencia fuerte. Una galaxy debe responder a una pregunta útil:</p>
-<ul>
-<li class="">¿ayuda a explicar una técnica observada?</li>
-<li class="">¿documenta una relación ya corroborada?</li>
-<li class="">¿separa familias, herramientas y actores en vez de mezclarlos?</li>
-<li class="">¿queda claro qué parte es observación y qué parte es interpretación?</li>
-</ul>
-<p>Si la respuesta es débil, mejor usar una nota analítica y dejar la atribución abierta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-automatiza-con-api-sin-perder-trazabilidad">6. Automatiza con API sin perder trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#6-automatiza-con-api-sin-perder-trazabilidad" class="hash-link" aria-label="Enlace directo al 6. Automatiza con API sin perder trazabilidad" title="Enlace directo al 6. Automatiza con API sin perder trazabilidad" translate="no">​</a></h3>
-<p>La <a href="https://www.misp-project.org/openapi/" target="_blank" rel="noopener noreferrer" class="">especificación OpenAPI</a> expone operaciones para consultar, crear o modificar modelos como <code>Events</code>, <code>Objects</code> y <code>Attributes</code>. Esto permite integrar <code>MISP</code> con pipelines de enriquecimiento, SIEM, notebooks o herramientas de análisis.</p>
-<p>Automatizar no significa aceptar todo. Un pipeline prudente debería:</p>
-<ol>
-<li class="">importar datos con fuente y fecha;</li>
-<li class="">normalizar tipos de atributo;</li>
-<li class="">comprobar warninglists;</li>
-<li class="">marcar confianza inicial baja cuando el origen no esté verificado;</li>
-<li class="">separar enriquecimiento automático de revisión humana;</li>
-<li class="">y registrar qué cambió, cuándo y por qué.</li>
-</ol>
-<p>Para scripts internos, <a href="https://github.com/MISP/PyMISP" target="_blank" rel="noopener noreferrer" class=""><code>PyMISP</code></a> ofrece una biblioteca Python para interactuar con la API REST. El criterio sigue siendo el mismo: la automatización debe reducir trabajo repetitivo, no multiplicar errores a velocidad de máquina.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>MISP</code> no convierte datos débiles en inteligencia fuerte. Solo mejora la forma de almacenarlos, clasificarlos y compartirlos.</p>
-<p>Limitaciones habituales:</p>
-<ul>
-<li class=""><strong>caducidad</strong>: un dominio o una IP pueden cambiar de uso;</li>
-<li class=""><strong>infraestructura compartida</strong>: bloquear un proveedor común puede afectar a terceros legítimos;</li>
-<li class=""><strong>atribución excesiva</strong>: una técnica o herramienta no identifica por sí sola a un actor;</li>
-<li class=""><strong>sesgo de fuente</strong>: feeds repetidos pueden parecer corroboración independiente cuando proceden del mismo origen;</li>
-<li class=""><strong>datos personales</strong>: correos, nombres de usuario o teléfonos requieren minimización y base legítima;</li>
-<li class=""><strong>ruido heredado</strong>: un evento antiguo puede seguir circulando si nadie revisa su vigencia.</li>
-</ul>
-<p>Una buena práctica es incluir una fecha de revisión y una política de expiración para indicadores que no deban vivir indefinidamente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<p>Trabajar con inteligencia compartida exige más disciplina que acumular capturas.</p>
-<ul>
-<li class="">Comparte por defecto el mínimo útil, no el máximo posible.</li>
-<li class="">Usa distribución granular cuando un atributo sea sensible.</li>
-<li class="">Separa datos personales de indicadores técnicos siempre que puedas.</li>
-<li class="">Evita publicar nombres, cuentas o correos de personas si no son imprescindibles para el fin legítimo.</li>
-<li class="">Documenta incertidumbre de forma explícita.</li>
-<li class="">No mezcles atribución pública con hipótesis internas.</li>
-<li class="">Revisa feeds externos antes de incorporarlos a reglas automáticas.</li>
-<li class="">Conserva evidencias originales cuando sean necesarias, pero no redistribuyas material sensible sin permiso.</li>
-</ul>
-<p>La pregunta correcta no es "¿puedo meter este dato en MISP?", sino "¿qué daño puede causar si otro equipo lo interpreta mal?".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>MISP</code> encaja bien cuando necesitas colaboración estructurada, intercambio de indicadores y vocabulario común. No siempre es la primera herramienta:</p>
-<ul>
-<li class="">para exploración rápida de IoCs, <code>VirusTotal</code>, <code>URLhaus</code>, <code>ThreatFox</code>, <code>Maltiverse</code> o <code>AlienVault OTX</code> pueden aportar contexto inicial;</li>
-<li class="">para análisis de grafos, <code>Maltego</code>, <code>OpenAleph</code> o <code>Datasette</code> pueden ser más cómodos según el caso;</li>
-<li class="">para preservación de evidencia, <code>Hunchly</code>, <code>ArchiveBox</code>, <code>WARC</code> y hashing siguen siendo piezas separadas;</li>
-<li class="">para documentación final, un informe narrativo con límites claros suele ser más útil que exportar todos los atributos.</li>
-</ul>
-<p>El siguiente paso práctico es diseñar una plantilla mínima de evento: título sobrio, resumen, fuente, periodo, criterios de inclusión, taxonomías de confianza, distribución por defecto y checklist de falsos positivos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="takeaway">Takeaway<a href="https://spainfsd-creator.github.io/osint-blog/misp-osint-indicadores-taxonomias-contexto#takeaway" class="hash-link" aria-label="Enlace directo al Takeaway" title="Enlace directo al Takeaway" translate="no">​</a></h2>
-<p><code>MISP</code> no es una máquina de verdad: es una mesa de trabajo compartida. Su valor en OSINT aparece cuando obliga a distinguir dato, contexto, confianza, distribución y vida útil. Si un indicador no puede explicar de dónde viene, qué significa y cuándo deja de ser útil, probablemente todavía no está listo para circular.</p>
-<p>El próximo tema natural sería bajar un nivel y construir una plantilla de evento OSINT reproducible: qué campos rellenar, qué etiquetas usar y cómo revisar indicadores antes de compartirlos con terceros.</p>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Threat Intelligence" term="Threat Intelligence"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Automatizacion" term="Automatizacion"/>
-        <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
