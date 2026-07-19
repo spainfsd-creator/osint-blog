@@ -9,6 +9,9 @@ image: /img/blog/2026-07-19-ted-osint-contratacion-publica-europea-trazabilidad.
 
 ![Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea](/img/blog/2026-07-19-ted-osint-contratacion-publica-europea-trazabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ted-osint-contratacion-publica-europea-trazabilidad.m4a)
+
+
 Una cifra llamativa en un contrato público puede parecer el final de una investigación. En realidad, suele ser el principio: ¿era una estimación o el importe adjudicado?, ¿hablamos de un lote o del procedimiento completo?, ¿hubo una corrección posterior?, ¿la empresa mencionada ganó o solo presentó una oferta? `TED`, la versión en línea del suplemento del Diario Oficial de la Unión Europea, permite reconstruir buena parte de esa historia con fuentes abiertas. El reto no es encontrar un nombre, sino **seguir el procedimiento sin convertir un anuncio aislado en una conclusión**.
 
 <!-- truncate -->
