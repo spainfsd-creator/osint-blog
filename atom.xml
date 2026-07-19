@@ -2,11 +2,162 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-18T00:00:00.000Z</updated>
+    <updated>2026-07-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[TED en OSINT: contratación pública europea, adjudicaciones y trazabilidad sin atajos]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad"/>
+        <updated>2026-07-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-19-ted-osint-contratacion-publica-europea-trazabilidad-dbeb38289be7995d0892900154e11cd6.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una cifra llamativa en un contrato público puede parecer el final de una investigación. En realidad, suele ser el principio: ¿era una estimación o el importe adjudicado?, ¿hablamos de un lote o del procedimiento completo?, ¿hubo una corrección posterior?, ¿la empresa mencionada ganó o solo presentó una oferta? <code>TED</code>, la versión en línea del suplemento del Diario Oficial de la Unión Europea, permite reconstruir buena parte de esa historia con fuentes abiertas. El reto no es encontrar un nombre, sino <strong>seguir el procedimiento sin convertir un anuncio aislado en una conclusión</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-ted-y-para-qué-sirve-en-osint">Qué es TED y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#qu%C3%A9-es-ted-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es TED y para qué sirve en OSINT" title="Enlace directo al Qué es TED y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><code>TED</code> significa <code>Tenders Electronic Daily</code>. La Comisión Europea explica que el portal publica el suplemento del Diario Oficial de la UE dedicado a contratación pública y que los anuncios cubren distintas fases: planificación, licitación y resultados. Los compradores públicos envían esos anuncios mediante soluciones nacionales o comerciales, o mediante <code>eNotices2</code>, y el formato actual se basa en el estándar abierto <code>eForms</code>.</p>
+<p>Para un analista OSINT, TED puede ayudar a responder preguntas legítimas como estas:</p>
+<ul>
+<li class="">qué organismo convocó una licitación y con qué objeto declarado;</li>
+<li class="">qué territorio, plazo, lote o código de actividad estaba afectado;</li>
+<li class="">qué anuncios de planificación, competencia, adjudicación, modificación o cambio forman parte de la misma secuencia;</li>
+<li class="">qué adjudicatario y qué valor figuran en el anuncio de resultado;</li>
+<li class="">qué documentos y portales nacionales deben consultarse para verificar el expediente;</li>
+<li class="">cómo cambia la actividad contractual de un comprador o un sector a lo largo del tiempo.</li>
+</ul>
+<p>La escala explica su utilidad: la página oficial de la Comisión indica que el suplemento publica más de 250 ediciones al año y alrededor de 800.000 anuncios. Ese volumen también impone disciplina. TED es una fuente documental de enorme valor, pero <strong>un resultado de búsqueda no es por sí mismo una prueba de irregularidad, propiedad, influencia o ejecución material del contrato</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>Imagina que una organización de control presupuestario quiere revisar la compra de sistemas de monitorización ambiental por parte del organismo ficticio <code>Agencia Regional del Estuario</code>. Una nota de prensa habla de un programa de 18 millones de euros y una hoja de cálculo menciona a <code>Delta Clara Tecnología, S.L.</code>. La pregunta responsable no es «¿cómo demostramos que hubo favoritismo?», sino:</p>
+<blockquote>
+<p>¿Qué procedimiento público corresponde al programa, qué anuncios forman su cronología, qué lotes e importes se adjudicaron y qué documentos primarios permiten comprobarlo?</p>
+</blockquote>
+<p>Un flujo inicial podría combinar:</p>
+<ul>
+<li class="">el nombre oficial y el identificador nacional del comprador, cuando esté disponible;</li>
+<li class="">palabras clave del objeto del contrato en varios idiomas;</li>
+<li class="">códigos <code>CPV</code> relacionados con equipos de medición y servicios ambientales;</li>
+<li class="">lugar de ejecución mediante país o códigos <code>NUTS</code>;</li>
+<li class="">intervalo de fechas coherente con el anuncio público;</li>
+<li class="">anuncios de resultado y sus anuncios relacionados.</li>
+</ul>
+<p>Este enfoque evita dos errores clásicos: buscar solo por el nombre comercial de un proveedor y confundir el presupuesto global anunciado con el valor de un contrato concreto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-del-hallazgo-a-una-cronología-verificable">Flujo recomendado: del hallazgo a una cronología verificable<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#flujo-recomendado-del-hallazgo-a-una-cronolog%C3%ADa-verificable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: del hallazgo a una cronología verificable" title="Enlace directo al Flujo recomendado: del hallazgo a una cronología verificable" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-hipótesis-y-la-unidad-de-análisis">1. Define la hipótesis y la unidad de análisis<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#1-define-la-hip%C3%B3tesis-y-la-unidad-de-an%C3%A1lisis" class="hash-link" aria-label="Enlace directo al 1. Define la hipótesis y la unidad de análisis" title="Enlace directo al 1. Define la hipótesis y la unidad de análisis" translate="no">​</a></h3>
+<p>Antes de abrir el buscador, escribe una pregunta comprobable y decide si estás siguiendo un procedimiento, un lote, un comprador, un adjudicatario o un sector. Guarda también tus criterios de exclusión. Por ejemplo: «contratos de equipos de medición publicados entre enero de 2025 y junio de 2026, con ejecución principal en la región ficticia <code>ESX00</code>».</p>
+<p>La unidad importa porque un procedimiento puede contener varios lotes, cada lote puede terminar de forma distinta y un anuncio puede corregirse. Sumar cifras sin distinguir esos niveles produce duplicados con sorprendente facilidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-amplio-y-normaliza-términos">2. Empieza amplio y normaliza términos<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#2-empieza-amplio-y-normaliza-t%C3%A9rminos" class="hash-link" aria-label="Enlace directo al 2. Empieza amplio y normaliza términos" title="Enlace directo al 2. Empieza amplio y normaliza términos" translate="no">​</a></h3>
+<p>La ayuda oficial de TED distingue búsqueda rápida, avanzada, experta y navegación por materias. Para una primera pasada, combina texto libre con comprador, ubicación y fecha. Prueba variantes lingüísticas y denominaciones oficiales: el nombre que aparece en prensa puede no coincidir con el registrado en el anuncio.</p>
+<p>Registra cada búsqueda con:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">fecha de consulta: 2026-07-19</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">alcance: todos los anuncios</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">texto: "environmental monitoring"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">comprador: Agencia Regional del Estuario</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">periodo: 2025-01-01 a 2026-06-30</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">versiones: incluir cambios para reconstruir la secuencia</span><br></span></code></pre></div></div>
+<p>No es una consulta real contra una entidad existente; es una plantilla de trazabilidad. Su función es que otra persona pueda entender qué hiciste y qué pudo quedar fuera.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-cpv-y-nuts-como-filtros-no-como-verdades">3. Usa CPV y NUTS como filtros, no como verdades<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#3-usa-cpv-y-nuts-como-filtros-no-como-verdades" class="hash-link" aria-label="Enlace directo al 3. Usa CPV y NUTS como filtros, no como verdades" title="Enlace directo al 3. Usa CPV y NUTS como filtros, no como verdades" translate="no">​</a></h3>
+<p>El <code>Common Procurement Vocabulary</code> o <code>CPV</code> es una clasificación común destinada a estandarizar cómo los compradores describen los contratos. Puede descubrir anuncios que no comparten tus palabras clave y separar sectores cercanos. TED también permite navegar por lugar de ejecución mediante la nomenclatura territorial <code>NUTS</code>.</p>
+<p>Pero ambos campos dependen de cómo se codificó el anuncio. Un CPV demasiado general genera ruido; uno demasiado estrecho puede ocultar contratos multidisciplinares. Y el lugar de ejecución no siempre coincide con la sede del comprador ni con el domicilio del adjudicatario. La práctica sensata es combinar clasificación, texto y contexto documental.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-identifica-cada-anuncio-de-forma-estable">4. Identifica cada anuncio de forma estable<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#4-identifica-cada-anuncio-de-forma-estable" class="hash-link" aria-label="Enlace directo al 4. Identifica cada anuncio de forma estable" title="Enlace directo al 4. Identifica cada anuncio de forma estable" translate="no">​</a></h3>
+<p>Guarda el número de publicación, la URL directa, la fecha y el tipo de anuncio. Descarga además una manifestación conservable cuando sea útil: TED ofrece enlaces directos a HTML, PDF, PDF firmado y XML. Para trabajos reproducibles, conserva el XML original junto a una copia legible y calcula un hash del fichero descargado.</p>
+<p>Una tabla mínima puede tener estas columnas:</p>
+<table><thead><tr><th>Campo</th><th>Por qué conservarlo</th></tr></thead><tbody><tr><td>Número de publicación</td><td>Permite volver al anuncio exacto</td></tr><tr><td>Tipo y fecha</td><td>Sitúa la pieza en la fase correcta</td></tr><tr><td>Identificador del procedimiento</td><td>Ayuda a agrupar anuncios relacionados cuando existe</td></tr><tr><td>Comprador e identificador nacional</td><td>Reduce homónimos y cambios de nombre</td></tr><tr><td>Lote</td><td>Evita mezclar objetos, importes y adjudicatarios</td></tr><tr><td>Valor y moneda</td><td>Obliga a distinguir estimado, máximo y adjudicado</td></tr><tr><td>Adjudicatario declarado</td><td>Documenta lo publicado sin atribuir más de lo que dice</td></tr><tr><td>URL y hash del XML/PDF</td><td>Refuerza trazabilidad e integridad</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reconstruye-la-cadena-de-anuncios">5. Reconstruye la cadena de anuncios<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#5-reconstruye-la-cadena-de-anuncios" class="hash-link" aria-label="Enlace directo al 5. Reconstruye la cadena de anuncios" title="Enlace directo al 5. Reconstruye la cadena de anuncios" translate="no">​</a></h3>
+<p>La vista de un anuncio incorpora pestañas para cambios y anuncios relacionados. La documentación oficial explica que un anuncio de cambio contiene la información actualizada y recibe un nuevo número de publicación, mientras las versiones anteriores siguen siendo recuperables. También permite enlazar, por ejemplo, planificación, convocatoria y adjudicación.</p>
+<p>Por eso conviene dibujar una cronología explícita:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">planificación -&gt; convocatoria -&gt; corrección -&gt; adjudicación -&gt; modificación -&gt; finalización</span><br></span></code></pre></div></div>
+<p>No todos los procedimientos tendrán todas las piezas ni estarán completos en TED. Aun así, ordenar lo que existe revela qué importe pertenece a qué momento y si un dato fue reemplazado. Si activas «solo las últimas versiones», recuerda que simplificas la vista, pero puedes esconder el camino editorial que necesitas auditar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-baja-al-portal-nacional-y-a-los-documentos-del-expediente">6. Baja al portal nacional y a los documentos del expediente<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#6-baja-al-portal-nacional-y-a-los-documentos-del-expediente" class="hash-link" aria-label="Enlace directo al 6. Baja al portal nacional y a los documentos del expediente" title="Enlace directo al 6. Baja al portal nacional y a los documentos del expediente" translate="no">​</a></h3>
+<p>TED es un índice y un canal oficial de publicación, no necesariamente el repositorio completo del expediente. Sigue las URLs de documentos de contratación, perfil del comprador o plataforma nacional. Busca pliegos, criterios de adjudicación, resoluciones, actas, formalización y modificaciones, respetando las condiciones de acceso.</p>
+<p>Contrasta las conclusiones sensibles con fuentes primarias adicionales:</p>
+<ul>
+<li class="">registro mercantil o de entidades competente;</li>
+<li class="">presupuesto, cuenta general o portal de transparencia del organismo;</li>
+<li class="">resolución de adjudicación y contrato formalizado;</li>
+<li class="">informes de auditoría o de órganos de control;</li>
+<li class="">respuesta oficial del comprador o proveedor cuando proceda.</li>
+</ul>
+<p>La ausencia de un documento enlazado puede significar migración, caducidad del portal, restricciones legítimas o una indexación incompleta. No equivale automáticamente a ocultación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-escala-con-la-api-solo-después-de-entender-el-dato">7. Escala con la API solo después de entender el dato<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#7-escala-con-la-api-solo-despu%C3%A9s-de-entender-el-dato" class="hash-link" aria-label="Enlace directo al 7. Escala con la API solo después de entender el dato" title="Enlace directo al 7. Escala con la API solo después de entender el dato" translate="no">​</a></h3>
+<p>La <code>Search API</code> de TED permite consultar anuncios publicados mediante búsquedas expertas y recuperar resultados para análisis o reutilización. La documentación vigente describe acceso anónimo para el contenido ya publicado y un endpoint <code>POST /v3/notices/search</code>. Para descargas amplias existen modos paginados y de iteración, además de paquetes XML diarios o mensuales.</p>
+<p>Antes de automatizar, valida manualmente una muestra. Decide qué campos necesitas, cómo tratarás lotes y versiones, y qué identificador usarás para deduplicar. Una descarga masiva sin modelo de datos solo convierte el ruido pequeño en ruido caro.</p>
+<p>Para cada ejecución conserva:</p>
+<ul>
+<li class="">consulta exacta y fecha;</li>
+<li class="">alcance temporal;</li>
+<li class="">campos solicitados;</li>
+<li class="">modo de paginación o iteración;</li>
+<li class="">número de registros recibido;</li>
+<li class="">reglas de normalización y deduplicación;</li>
+<li class="">fichero bruto separado del dataset transformado.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-puede-salir-mal-límites-y-falsos-positivos">Qué puede salir mal: límites y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#qu%C3%A9-puede-salir-mal-l%C3%ADmites-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Qué puede salir mal: límites y falsos positivos" title="Enlace directo al Qué puede salir mal: límites y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-anuncio-no-es-el-contrato-completo">Un anuncio no es el contrato completo<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#un-anuncio-no-es-el-contrato-completo" class="hash-link" aria-label="Enlace directo al Un anuncio no es el contrato completo" title="Enlace directo al Un anuncio no es el contrato completo" translate="no">​</a></h3>
+<p>El anuncio resume información legal y operativa, pero los pliegos, anexos, actas y documentos nacionales pueden contener el detalle necesario. Una cifra en TED debe etiquetarse según su campo y fase, no presentarse simplemente como «coste del contrato».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ganador-no-significa-beneficiario-último">Ganador no significa beneficiario último<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#ganador-no-significa-beneficiario-%C3%BAltimo" class="hash-link" aria-label="Enlace directo al Ganador no significa beneficiario último" title="Enlace directo al Ganador no significa beneficiario último" translate="no">​</a></h3>
+<p>El adjudicatario publicado puede ser una filial, una agrupación o un vehículo contractual. TED no sustituye el análisis societario ni demuestra control efectivo. Cruza identificadores y fuentes registrales antes de unir entidades.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-coincidencia-de-nombre-no-identifica-una-organización">Una coincidencia de nombre no identifica una organización<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#una-coincidencia-de-nombre-no-identifica-una-organizaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Una coincidencia de nombre no identifica una organización" title="Enlace directo al Una coincidencia de nombre no identifica una organización" translate="no">​</a></h3>
+<p>Razones sociales parecidas, transliteraciones y consorcios producen falsos positivos. Prioriza identificadores nacionales, dirección, país, lote y contexto. Trata el nombre como pista, no como clave única.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-versiones-pueden-duplicar-cifras">Las versiones pueden duplicar cifras<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#las-versiones-pueden-duplicar-cifras" class="hash-link" aria-label="Enlace directo al Las versiones pueden duplicar cifras" title="Enlace directo al Las versiones pueden duplicar cifras" translate="no">​</a></h3>
+<p>Un cambio conserva la historia del anuncio, y los anuncios relacionados describen fases distintas. Si sumas todas las filas recuperadas sin modelar relaciones y lotes, puedes contar dos veces la misma contratación o mezclar estimaciones con resultados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="publicado-no-significa-ejecutado">Publicado no significa ejecutado<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#publicado-no-significa-ejecutado" class="hash-link" aria-label="Enlace directo al Publicado no significa ejecutado" title="Enlace directo al Publicado no significa ejecutado" translate="no">​</a></h3>
+<p>Una adjudicación puede ser recurrida, anulada, modificada o no formalizada. Incluso un contrato formalizado puede ejecutarse por un importe distinto. Para hablar de pagos o cumplimiento necesitas fuentes presupuestarias, contables o de ejecución.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-no-equivale-a-todo-el-gasto-público">Cobertura no equivale a todo el gasto público<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#cobertura-no-equivale-a-todo-el-gasto-p%C3%BAblico" class="hash-link" aria-label="Enlace directo al Cobertura no equivale a todo el gasto público" title="Enlace directo al Cobertura no equivale a todo el gasto público" translate="no">​</a></h3>
+<p>TED recoge contratación sujeta a sus reglas de publicación y otros anuncios remitidos, pero no debe tratarse como inventario universal de cada compra pública europea. Los contratos por debajo de umbrales, regímenes específicos y datos nacionales requieren otras fuentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>La contratación pública persigue transparencia, pero los anuncios pueden incluir contactos profesionales y, en casos concretos, datos de personas físicas. Que un dato sea accesible no obliga a republicarlo sin contexto.</p>
+<ul>
+<li class="">Recoge solo los campos necesarios para la pregunta de investigación.</li>
+<li class="">Separa hechos publicados, inferencias y asuntos todavía sin confirmar.</li>
+<li class="">Evita crear perfiles personales a partir de contactos administrativos.</li>
+<li class="">No conviertas una adjudicación legítima en insinuación de conflicto sin evidencia adicional.</li>
+<li class="">Protege tus notas, credenciales de portales y datasets enriquecidos.</li>
+<li class="">Respeta límites técnicos, licencias y condiciones de reutilización.</li>
+<li class="">Ofrece derecho de réplica antes de publicar conclusiones que afecten a organizaciones o personas.</li>
+<li class="">Documenta correcciones: si cambia el anuncio, actualiza tu análisis y conserva la versión anterior como parte de la cronología.</li>
+</ul>
+<p>La OPSEC también es metodológica. Una tabla que mezcla datos originales con categorías añadidas por el analista puede hacer que una inferencia parezca oficial. Usa columnas separadas para <code>valor_publicado</code>, <code>interpretación_analista</code> y <code>estado_de_verificación</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-citar-un-hallazgo">Checklist antes de citar un hallazgo<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#checklist-antes-de-citar-un-hallazgo" class="hash-link" aria-label="Enlace directo al Checklist antes de citar un hallazgo" title="Enlace directo al Checklist antes de citar un hallazgo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado número de publicación, URL, fecha y tipo de anuncio.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He distinguido procedimiento, lote y versión.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Sé si el valor es estimado, máximo, adjudicado o modificado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado cambios y anuncios relacionados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado el portal nacional y los documentos enlazados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He normalizado comprador y adjudicatario con identificadores, no solo nombres.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He descartado duplicados derivados de versiones o traducciones.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He contrastado cualquier conclusión sensible con otra fuente primaria.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He minimizado datos personales y explicado las limitaciones.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Otra persona podría reproducir mi búsqueda con las notas guardadas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>TED encaja mejor como columna vertebral documental que como herramienta única. Según la pregunta, puedes complementarlo con:</p>
+<ul>
+<li class="">portales nacionales, autonómicos o locales de contratación para el expediente completo;</li>
+<li class=""><code>OpenCorporates</code>, <code>GLEIF</code> o registros mercantiles para resolver identidades societarias;</li>
+<li class=""><code>OpenOwnership</code> para explorar datos publicados sobre titularidad real, siempre verificándolos en el registro competente;</li>
+<li class=""><code>OpenRefine</code> para limpiar nombres, monedas y códigos sin perder el historial de transformaciones;</li>
+<li class=""><code>Datasette</code> o una base <code>SQLite</code> para explorar lotes, compradores y adjudicatarios de forma reproducible;</li>
+<li class="">datos presupuestarios y de pagos para separar adjudicación de ejecución.</li>
+</ul>
+<p>El siguiente paso útil no es descargar millones de anuncios. Es escoger diez procedimientos de un mismo comprador, reconstruir de principio a fin sus anuncios relacionados y anotar dónde TED deja paso al expediente nacional. <strong>Cuando puedas explicar cada cifra, cada versión y cada ausencia, ya tendrás un flujo OSINT defendible.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación-oficial">Fuentes y documentación oficial<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#fuentes-y-documentaci%C3%B3n-oficial" class="hash-link" aria-label="Enlace directo al Fuentes y documentación oficial" title="Enlace directo al Fuentes y documentación oficial" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/tenders-electronic-daily_en" target="_blank" rel="noopener noreferrer" class="">Tenders Electronic Daily — Comisión Europea</a></li>
+<li class=""><a href="https://ted.europa.eu/en/help/search-browse" target="_blank" rel="noopener noreferrer" class="">Ayuda de TED: búsqueda y navegación</a></li>
+<li class=""><a href="https://ted.europa.eu/en/help/notice-view" target="_blank" rel="noopener noreferrer" class="">Ayuda de TED: vista, cambios y anuncios relacionados</a></li>
+<li class=""><a href="https://docs.ted.europa.eu/api/latest/search.html" target="_blank" rel="noopener noreferrer" class="">Documentación de la Search API de TED</a></li>
+<li class=""><a href="https://ted.europa.eu/en/simap/developers-corner-for-reusers" target="_blank" rel="noopener noreferrer" class="">Rincón de desarrolladores y reutilización de datos</a></li>
+<li class=""><a href="https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/common-procurement-vocabulary_en" target="_blank" rel="noopener noreferrer" class="">Common Procurement Vocabulary — Comisión Europea</a></li>
+<li class=""><a href="https://docs.ted.europa.eu/eforms/latest/schema/documents-forms-and-notices.html" target="_blank" rel="noopener noreferrer" class="">Documentación eForms: formularios y tipos de anuncio</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GLEIF y LEI en OSINT: identidad corporativa, ownership y contexto antes de atribuir]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto</id>
@@ -2715,126 +2866,5 @@
         <category label="Investigacion" term="Investigacion"/>
         <category label="Privacidad" term="Privacidad"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[NASA FIRMS en OSINT: anomalías térmicas, incendios y contexto antes de atribuir causas]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto"/>
-        <updated>2026-06-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando un mapa satelital con anomalías térmicas, línea temporal y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-26-nasa-firms-osint-anomalias-termicas-contexto-0ca19d6e2a8b6749787f7e441d7cee8c.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/nasa-firms-osint-anomalias-termicas-contexto.m4a">Descargar el podcast</a></p>
-<p>Una columna de humo aparece en redes, una cuenta local habla de una explosión y un mapa satelital muestra varios puntos rojos cerca de la zona. El salto tentador es convertir esos puntos en una causa: ataque, sabotaje, incendio industrial, accidente. El salto correcto es más lento: <strong>una anomalía térmica indica calor observado por un sensor, no explica por sí sola qué ocurrió ni quién lo provocó</strong>.</p>
-<p><code>NASA FIRMS</code> es útil precisamente cuando se usa con esa disciplina. Revisando la documentación oficial el <strong>26 de junio de 2026</strong>, FIRMS distribuye datos de incendios activos y anomalías térmicas en tiempo casi real a partir de observaciones <code>MODIS</code> y <code>VIIRS</code>, con visualización en mapas, alertas, descargas y servicios web. Para OSINT responsable, su valor no está en señalar culpables, sino en ayudar a construir una cronología verificable y a decidir qué evidencia falta.</p>
-<p>Este artículo está pensado para verificación, periodismo, análisis humanitario, gestión de crisis y contexto defensivo. No sirve para acosar personas, dirigir acciones sobre objetivos ni presentar una lectura técnica como prueba cerrada sin corroboración.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-nasa-firms-y-para-qué-sirve">Qué es NASA FIRMS y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#qu%C3%A9-es-nasa-firms-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es NASA FIRMS y para qué sirve" title="Enlace directo al Qué es NASA FIRMS y para qué sirve" translate="no">​</a></h2>
-<p><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener noreferrer" class=""><code>FIRMS</code></a> significa <code>Fire Information for Resource Management System</code>. Es un sistema de NASA/LANCE orientado a distribuir datos de incendios activos y anomalías térmicas observadas desde satélites. La página oficial resume el núcleo operativo: datos <code>NRT</code> de <code>MODIS</code> a bordo de los satélites <code>Aqua</code> y <code>Terra</code>, y de <code>VIIRS</code> a bordo de <code>S-NPP</code>, <code>NOAA-20</code> y <code>NOAA-21</code>.</p>
-<p>La diferencia práctica para un analista es sencilla:</p>
-<ul>
-<li class=""><code>MODIS</code> ofrece continuidad histórica y una lectura amplia del fenómeno;</li>
-<li class=""><code>VIIRS</code> aporta detecciones con mejor detalle espacial para muchos usos operativos;</li>
-<li class="">el mapa permite explorar puntos, capas y ventanas temporales;</li>
-<li class="">las descargas (<code>SHP</code>, <code>KML</code>, <code>TXT</code>) y los servicios web facilitan reproducir el análisis;</li>
-<li class="">las alertas sirven para monitorizar un área cuando hay interés legítimo y proporcional.</li>
-</ul>
-<p>NASA indica que los datos globales están disponibles normalmente dentro de unas <code>3</code> horas desde la observación satelital, mientras que para Estados Unidos y Canadá algunas detecciones se ofrecen en tiempo real. Esa frase debe leerse con cuidado: "casi en tiempo real" no significa "instantáneo", "completo" ni "sin incertidumbre".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que una ONG ambiental investiga un incendio en una planta de reciclaje ficticia cerca de <code>Puerto Claro</code>. Hay tres piezas abiertas:</p>
-<table><thead><tr><th>Evidencia inicial</th><th>Qué aporta</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>Vídeos locales con humo</td><td>Existencia visual de un evento y posible dirección de la columna</td><td>Causa, hora exacta o foco inicial</td></tr><tr><td>Detecciones en FIRMS</td><td>Señales térmicas con coordenadas, hora de observación, sensor y confianza</td><td>Que el punto sea el origen del incendio o que haya una acción deliberada</td></tr><tr><td>Comunicados oficiales</td><td>Cronología declarada y respuesta institucional</td><td>Independencia, precisión completa o ausencia de omisiones</td></tr></tbody></table>
-<p>El equipo no empieza preguntando "quién lo hizo". Empieza con preguntas observables:</p>
-<ol>
-<li class="">¿Qué detecciones aparecen en un radio razonable alrededor de la planta?</li>
-<li class="">¿Qué sensor las observó y a qué hora UTC?</li>
-<li class="">¿La señal aparece antes, durante o después de los primeros vídeos públicos?</li>
-<li class="">¿Hay fuentes alternativas que corroboren humo, actividad de bomberos, cortes de carretera o imágenes satelitales posteriores?</li>
-<li class="">¿El punto cae sobre la planta, sobre vegetación cercana, sobre una chimenea, sobre una zona industrial caliente o sobre otro elemento plausible?</li>
-</ol>
-<p>Ese flujo evita dos errores habituales: convertir el mapa en sentencia y tratar una publicación viral como reloj fiable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-área-ventana-y-pregunta">1. Define área, ventana y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#1-define-%C3%A1rea-ventana-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Define área, ventana y pregunta" title="Enlace directo al 1. Define área, ventana y pregunta" translate="no">​</a></h3>
-<p>Antes de abrir el mapa, escribe la hipótesis mínima: "verificar si hubo actividad térmica compatible con un incendio cerca de <code>X</code> entre <code>T1</code> y <code>T2</code>". Si la pregunta es demasiado grande, FIRMS devuelve ruido; si es demasiado estrecha, puedes descartar señales útiles por una geolocalización inicial imprecisa.</p>
-<p>Trabaja siempre con hora <code>UTC</code> y conserva la zona horaria local por separado. Muchas confusiones nacen de mezclar hora de publicación, hora local del testigo, hora de adquisición satelital y hora de descarga del dato.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-el-mapa-y-descarga-los-datos">2. Consulta el mapa y descarga los datos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#2-consulta-el-mapa-y-descarga-los-datos" class="hash-link" aria-label="Enlace directo al 2. Consulta el mapa y descarga los datos" title="Enlace directo al 2. Consulta el mapa y descarga los datos" translate="no">​</a></h3>
-<p>El <a href="https://firms.modaps.eosdis.nasa.gov/map/" target="_blank" rel="noopener noreferrer" class=""><code>FIRMS Fire Map</code></a> es suficiente para una primera lectura visual, pero una investigación revisable necesita exportar datos o documentar la consulta. La <a href="https://firms.modaps.eosdis.nasa.gov/api/" target="_blank" rel="noopener noreferrer" class=""><code>API de FIRMS</code></a> expone servicios por área, país, disponibilidad de datos, huellas <code>KML</code> y configuración de <code>MAP_KEY</code>.</p>
-<p>Para una nota de caso, conserva como mínimo:</p>
-<ul>
-<li class="">URL o parámetros de consulta;</li>
-<li class="">fecha y hora de descarga;</li>
-<li class="">sensor (<code>MODIS</code>, <code>VIIRS</code> u otro producto disponible);</li>
-<li class="">coordenadas;</li>
-<li class="">hora de observación;</li>
-<li class="">valor de confianza o clasificación que muestre el producto;</li>
-<li class="">captura o exportación usada en el análisis;</li>
-<li class="">explicación de por qué el área de búsqueda es proporcional.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-observación-inferencia-y-conclusión">3. Separa observación, inferencia y conclusión<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#3-separa-observaci%C3%B3n-inferencia-y-conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Separa observación, inferencia y conclusión" title="Enlace directo al 3. Separa observación, inferencia y conclusión" translate="no">​</a></h3>
-<p>Una buena tabla de análisis distingue tres capas:</p>
-<table><thead><tr><th>Capa</th><th>Ejemplo prudente</th><th>Ejemplo problemático</th></tr></thead><tbody><tr><td>Observación</td><td>"VIIRS muestra una anomalía térmica cerca de la zona a las 19:24 UTC"</td><td>"VIIRS prueba que explotó la planta"</td></tr><tr><td>Inferencia</td><td>"La señal es compatible con calor intenso en la ventana analizada"</td><td>"La señal confirma un ataque"</td></tr><tr><td>Conclusión</td><td>"Debe corroborarse con vídeo, respuesta local e imagen posterior"</td><td>"Caso cerrado"</td></tr></tbody></table>
-<p>La palabra clave es <strong>compatible</strong>. En OSINT serio, muchas piezas son compatibles con una hipótesis sin demostrarla por completo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corrobora-con-fuentes-independientes">4. Corrobora con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#4-corrobora-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 4. Corrobora con fuentes independientes" title="Enlace directo al 4. Corrobora con fuentes independientes" translate="no">​</a></h3>
-<p>FIRMS encaja bien con:</p>
-<ul>
-<li class="">imágenes satelitales ópticas posteriores para evaluar cambio visible;</li>
-<li class=""><code>Sentinel Hub EO Browser</code>, <code>NASA Worldview</code> o servicios equivalentes para contexto visual;</li>
-<li class="">vídeos y fotografías geolocalizadas;</li>
-<li class="">comunicados de bomberos, protección civil o autoridades locales;</li>
-<li class="">sensores de calidad del aire, si la pregunta es ambiental;</li>
-<li class="">tráfico marítimo, aéreo o terrestre cuando el evento afecta logística;</li>
-<li class="">archivo web y medios locales para reconstruir la cronología pública.</li>
-</ul>
-<p>La guía de <a href="https://www.bellingcat.com/resources/2022/10/04/scorched-earth-using-nasa-fire-data-to-monitor-war-zones/" target="_blank" rel="noopener noreferrer" class="">Bellingcat sobre NASA FIRMS en zonas de guerra</a> es útil como recordatorio metodológico: las firmas térmicas pueden aportar pistas en contextos complejos, pero deben tratarse con cautela porque no toda fuente de calor tiene el mismo significado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>El error más peligroso es olvidar que FIRMS detecta <strong>anomalías térmicas</strong>. Un hotspot puede corresponder a un incendio forestal, una quema agrícola, una antorcha industrial, actividad volcánica, un incendio urbano, una explosión, calor persistente de una instalación o un artefacto de observación. Sin contexto, el punto es una pista.</p>
-<p>Hay límites técnicos y metodológicos que conviene escribir en el informe:</p>
-<ul>
-<li class=""><strong>Resolución espacial</strong>: la coordenada no siempre equivale al foco exacto del evento; representa una detección asociada a un píxel o producto.</li>
-<li class=""><strong>Revisita temporal</strong>: el satélite observa cuando pasa; puede perder eventos breves o ver solo una fase.</li>
-<li class=""><strong>Nubes, humo y ángulo de observación</strong>: las condiciones atmosféricas y geométricas afectan la lectura.</li>
-<li class=""><strong>Saturación y brillo</strong>: una señal intensa no ordena por sí sola causas ni daños.</li>
-<li class=""><strong>Confianza</strong>: los campos de confianza ayudan a priorizar, pero no sustituyen la corroboración.</li>
-<li class=""><strong>Cambios de producto</strong>: compara sensores y versiones con cuidado, especialmente si mezclas histórico y tiempo casi real.</li>
-</ul>
-<p>La propia <a href="https://www.earthdata.nasa.gov/data/tools/firms/faq" target="_blank" rel="noopener noreferrer" class="">FAQ de NASA FIRMS</a> explica conceptos como <code>FRP</code> (<code>Fire Radiative Power</code>) y recuerda que factores como resolución del sensor, temperatura de saturación, ángulo de visión y hora de observación influyen en la interpretación. Es material que merece leerse antes de convertir una captura de mapa en afirmación fuerte.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<p>FIRMS suele tratar fenómenos físicos, pero las investigaciones alrededor de incendios, ataques o accidentes pueden afectar a personas concretas. La ética no desaparece porque la fuente sea satelital.</p>
-<p>Aplica estas reglas:</p>
-<ul>
-<li class="">no publiques coordenadas sensibles si pueden exponer víctimas, equipos de emergencia o infraestructuras críticas;</li>
-<li class="">no atribuyas intención a partir de calor observado;</li>
-<li class="">no mezcles rumores de redes con datos satelitales como si tuvieran el mismo peso;</li>
-<li class="">conserva capturas, exportaciones y notas de consulta para que otra persona pueda revisar el razonamiento;</li>
-<li class="">minimiza datos personales en vídeos, testimonios y capturas;</li>
-<li class="">marca incertidumbre de forma explícita: "compatible con", "no descarta", "no permite concluir".</li>
-</ul>
-<p>El estándar sano es que una persona externa pueda reconstruir por qué miraste esa zona, qué viste, qué descartaste y qué queda sin probar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>FIRMS no vive solo. Según la pregunta, puede tener más sentido empezar por otra capa:</p>
-<ul>
-<li class=""><code>NASA Worldview</code>, si necesitas revisar imagen satelital contextual y no solo puntos de calor;</li>
-<li class=""><code>Sentinel Hub EO Browser</code>, si buscas comparativas visuales antes/después con sensores concretos;</li>
-<li class="">sistemas nacionales o regionales de incendios, si la prioridad es respuesta local;</li>
-<li class=""><code>EFFIS</code>, para contexto europeo de incendios forestales;</li>
-<li class=""><code>GDELT</code> o medios locales, si el objetivo es rastrear narrativa pública;</li>
-<li class=""><code>Datasette</code> o <code>SQLite</code>, si quieres conservar una cronología consultable de detecciones, fuentes y decisiones.</li>
-</ul>
-<p>El siguiente paso práctico es crear una plantilla de caso con cuatro bloques: <code>consulta FIRMS</code>, <code>corroboración visual</code>, <code>cronología pública</code> y <code>conclusiones con incertidumbre</code>. Si una anomalía térmica no puede pasar por esos cuatro filtros, probablemente todavía no es una conclusión: es una pista que merece más trabajo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/nasa-firms-osint-anomalias-termicas-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener noreferrer" class="">NASA FIRMS</a></li>
-<li class=""><a href="https://www.earthdata.nasa.gov/data/tools/firms" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: FIRMS</a></li>
-<li class=""><a href="https://www.earthdata.nasa.gov/data/tools/firms/faq" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: FIRMS FAQ</a></li>
-<li class=""><a href="https://firms.modaps.eosdis.nasa.gov/api/" target="_blank" rel="noopener noreferrer" class="">NASA FIRMS API</a></li>
-<li class=""><a href="https://www.bellingcat.com/resources/2022/10/04/scorched-earth-using-nasa-fire-data-to-monitor-war-zones/" target="_blank" rel="noopener noreferrer" class="">Bellingcat: Scorched Earth, Using NASA Fire Data to Monitor War Zones</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Investigacion" term="Investigacion"/>
     </entry>
 </feed>
