@@ -258,6 +258,11 @@ archive:
   permalink: /archive
   description: Archivo web, memoria longitudinal y reconstruccion cronologica de presencia publica con trazabilidad.
 
+trade:
+  label: Comercio
+  permalink: /trade
+  description: Estadisticas comerciales, flujos internacionales y contexto economico para investigaciones OSINT reproducibles.
+
 sqlite:
   label: SQLite
   permalink: /sqlite
