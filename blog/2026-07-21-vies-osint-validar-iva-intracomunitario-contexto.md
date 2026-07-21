@@ -9,6 +9,9 @@ image: /img/blog/2026-07-21-vies-osint-validar-iva-intracomunitario-contexto.png
 
 ![Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias](/img/blog/2026-07-21-vies-osint-validar-iva-intracomunitario-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/vies-osint-validar-iva-intracomunitario-contexto.m4a)
+
+
 Una empresa recién llegada propone entregar material por valor de cinco cifras, envía una factura impecable y asegura operar desde otro país de la Unión Europea. El membrete convence; el número de IVA también parece plausible. Antes de convertir esa apariencia en confianza, hay una comprobación pequeña y muy útil: **preguntar a VIES si ese identificador está registrado para operaciones intracomunitarias y guardar el resultado con fecha, contexto y límites claros**.
 
 <!-- truncate -->
