@@ -4,10 +4,125 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 21 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[VIES en OSINT: validar el IVA intracomunitario sin confundir registro con confianza]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto</guid>
+            <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-21-vies-osint-validar-iva-intracomunitario-contexto-47f69bc0c697a71c40d3ff016cb4021e.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una empresa recién llegada propone entregar material por valor de cinco cifras, envía una factura impecable y asegura operar desde otro país de la Unión Europea. El membrete convence; el número de IVA también parece plausible. Antes de convertir esa apariencia en confianza, hay una comprobación pequeña y muy útil: <strong>preguntar a VIES si ese identificador está registrado para operaciones intracomunitarias y guardar el resultado con fecha, contexto y límites claros</strong>.</p>
+<p>VIES no decide si el proveedor existe realmente, si controla una cuenta bancaria o si cumplirá el contrato. Tampoco emite números fiscales. Bien utilizado, aporta una pieza oficial y reproducible a una investigación de due diligence. Mal utilizado, convierte un simple <code>válido</code> en una garantía que el sistema nunca prometió.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-vies-y-para-qué-sirve-en-osint">Qué es VIES y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#qu%C3%A9-es-vies-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es VIES y para qué sirve en OSINT" title="Enlace directo al Qué es VIES y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><code>VIES</code> son las siglas de <em>VAT Information Exchange System</em>. La <a href="https://europa.eu/youreurope/business/finance-and-tax/vat/check-vat-number-vies/index_en.htm" target="_blank" rel="noopener noreferrer" class="">explicación oficial de Your Europe</a> subraya una distinción esencial: es <strong>un motor de búsqueda, no una base de datos</strong>. Al consultar, el servicio recupera información de la base nacional de IVA del país correspondiente.</p>
+<p>Su pregunta es estrecha: ¿consta este número como válido para el comercio transfronterizo dentro de la UE? La respuesta ayuda a:</p>
+<ul>
+<li class="">contrastar el identificador incluido en una factura, presupuesto o contrato;</li>
+<li class="">detectar errores de transcripción o prefijos nacionales incoherentes;</li>
+<li class="">documentar que se hizo una comprobación en un momento concreto;</li>
+<li class="">abrir una verificación adicional ante la administración nacional cuando nombre, dirección o estado no encajan;</li>
+<li class="">separar el indicio fiscal de otras preguntas sobre identidad corporativa, representación y riesgo.</li>
+</ul>
+<p>La Comisión explica además que el número de IVA identifica a una persona sujeta al impuesto o a una entidad jurídica no sujeta registrada a efectos de IVA. Su formato varía por país y, por regla general, comienza con el código del Estado seguido de dígitos o caracteres. Un mismo negocio puede necesitar identificadores distintos en varios países; no existe un número único que lo cubra automáticamente en toda la UE. Puede consultarse el contexto en la página oficial sobre <a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-identification-numbers_en" target="_blank" rel="noopener noreferrer" class="">números de identificación a efectos de IVA</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-a-un-proveedor-ficticio">Caso de uso legítimo: verificar a un proveedor ficticio<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#caso-de-uso-leg%C3%ADtimo-verificar-a-un-proveedor-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar a un proveedor ficticio" title="Enlace directo al Caso de uso legítimo: verificar a un proveedor ficticio" translate="no">​</a></h2>
+<p>Imaginemos a <code>Taller Norte S.L.</code>, una pyme española ficticia que va a comprar componentes a <code>Baltic Example OÜ</code>, también ficticia. La oferta muestra un identificador de IVA estonio enmascarado como <code>EE 10•••••••</code> y pide que el pago se haga a una cuenta cuyo titular aparece abreviado.</p>
+<p>La pregunta responsable no es «¿VIES dice que puedo fiarme?», sino esta:</p>
+<blockquote>
+<p>¿El número aportado figura habilitado para operaciones intracomunitarias, y es coherente con la entidad, el país, la documentación y el canal de pago que estamos verificando?</p>
+</blockquote>
+<p>El analista solo usa datos empresariales necesarios para la operación. No busca domicilios privados, familiares ni perfiles personales. Tampoco prueba números por fuerza bruta: consulta el identificador que la contraparte ya ha proporcionado para una finalidad legítima.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-conserva-el-dato-original-antes-de-normalizarlo">1. Conserva el dato original antes de normalizarlo<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#1-conserva-el-dato-original-antes-de-normalizarlo" class="hash-link" aria-label="Enlace directo al 1. Conserva el dato original antes de normalizarlo" title="Enlace directo al 1. Conserva el dato original antes de normalizarlo" translate="no">​</a></h3>
+<p>Guarda la factura o propuesta recibida y anota su procedencia. Copia el número tal como aparece, incluidos prefijo, espacios y posibles separadores. Después crea una versión normalizada para la consulta.</p>
+<p>Esta separación evita un error frecuente: corregir silenciosamente el dato y olvidar que el documento original contenía una inconsistencia. Calcula un hash si el expediente requiere integridad documental y registra zona horaria y fecha de recepción.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-comprueba-país-y-formato-sin-atribuir-todavía">2. Comprueba país y formato sin atribuir todavía<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#2-comprueba-pa%C3%ADs-y-formato-sin-atribuir-todav%C3%ADa" class="hash-link" aria-label="Enlace directo al 2. Comprueba país y formato sin atribuir todavía" title="Enlace directo al 2. Comprueba país y formato sin atribuir todavía" translate="no">​</a></h3>
+<p>Confirma que el prefijo corresponde al país declarado y revisa el formato nacional en la información oficial. Un patrón correcto solo demuestra que la cadena <strong>parece</strong> bien formada. No prueba que esté asignada ni que pertenezca a quien presenta el documento.</p>
+<p>Evita búsquedas masivas o combinaciones especulativas. En una investigación proporcional se valida un identificador recibido, no se enumera un registro fiscal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-consulta-vies-desde-el-portal-oficial">3. Consulta VIES desde el portal oficial<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#3-consulta-vies-desde-el-portal-oficial" class="hash-link" aria-label="Enlace directo al 3. Consulta VIES desde el portal oficial" title="Enlace directo al 3. Consulta VIES desde el portal oficial" translate="no">​</a></h3>
+<p>Introduce el país emisor y el identificador en la herramienta enlazada desde <a href="https://europa.eu/youreurope/business/finance-and-tax/vat/check-vat-number-vies/index_en.htm" target="_blank" rel="noopener noreferrer" class="">Your Europe</a>. Registra:</p>
+<ul>
+<li class="">fecha y hora de la comprobación;</li>
+<li class="">número consultado, enmascarado en el informe si no es necesario mostrarlo completo;</li>
+<li class="">resultado exacto;</li>
+<li class="">nombre o dirección mostrados, si el país los proporciona;</li>
+<li class="">cualquier mensaje de indisponibilidad;</li>
+<li class="">captura o justificante de la consulta, conservado con acceso restringido.</li>
+</ul>
+<p>La propia guía recomienda conservar constancia de la validación para un posible control fiscal. Esa evidencia debe acompañarse de la URL, el contexto y una nota que recuerde qué afirma —y qué no afirma— VIES.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-interpreta-el-resultado-no-solo-el-color">4. Interpreta el resultado, no solo el color<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#4-interpreta-el-resultado-no-solo-el-color" class="hash-link" aria-label="Enlace directo al 4. Interpreta el resultado, no solo el color" title="Enlace directo al 4. Interpreta el resultado, no solo el color" translate="no">​</a></h3>
+<table><thead><tr><th>Resultado</th><th>Lectura prudente</th><th>Acción siguiente</th></tr></thead><tbody><tr><td>Válido y datos coherentes</td><td>El número figura habilitado para operaciones intracomunitarias en ese momento</td><td>Contrastar registro mercantil, contrato, dominio corporativo y titularidad del pago</td></tr><tr><td>Válido, pero nombre o dirección no encajan</td><td>Hay una inconsistencia que puede deberse a datos desactualizados, representación, sucursal o suplantación</td><td>Pausar la decisión y pedir documentación; confirmar con fuentes nacionales</td></tr><tr><td>Inválido</td><td>No consta como registrado en la base nacional consultada para esa finalidad</td><td>Revisar transcripción y país; pedir aclaración; consultar a la administración competente</td></tr><tr><td>Servicio o base nacional no disponible</td><td>No hay resultado interpretable</td><td>Reintentar más tarde y documentar el fallo, sin convertirlo en un <code>inválido</code></td></tr></tbody></table>
+<p>Según la documentación oficial, una respuesta inválida puede significar que el número no existe, que todavía no está activado para operaciones dentro de la UE o que el alta aún no ha finalizado. Los cambios tampoco se reflejan siempre de inmediato. Por tanto, <code>inválido</code> es una señal para aclarar, no una acusación de fraude.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corrobora-la-entidad-por-canales-independientes">5. Corrobora la entidad por canales independientes<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#5-corrobora-la-entidad-por-canales-independientes" class="hash-link" aria-label="Enlace directo al 5. Corrobora la entidad por canales independientes" title="Enlace directo al 5. Corrobora la entidad por canales independientes" translate="no">​</a></h3>
+<p>VIES responde a una pregunta fiscal. Para cerrar la identidad empresarial necesitas otras capas:</p>
+<ol>
+<li class="">localizar la entidad en el registro mercantil oficial del país;</li>
+<li class="">comparar razón social, forma jurídica, número registral y domicilio profesional;</li>
+<li class="">verificar que el dominio y el correo proceden de canales corporativos controlados;</li>
+<li class="">confirmar por un canal independiente cualquier cambio de cuenta bancaria;</li>
+<li class="">comprobar poderes o representación si firma una persona distinta de la esperada;</li>
+<li class="">contrastar la factura con el contrato, el pedido y la realidad operativa.</li>
+</ol>
+<p>En facturación, las reglas europeas exigen distintos datos según el caso. La Comisión resume que las facturas B2B suelen incluir nombre y dirección de proveedor y cliente, número de factura, descripción, importes y, cuando procede, números de IVA o la mención de inversión del sujeto pasivo. La referencia útil es la página oficial sobre <a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-businesses/invoicing_en" target="_blank" rel="noopener noreferrer" class="">facturación del IVA en la UE</a>, sin olvidar que también pueden aplicarse reglas nacionales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-formula-una-conclusión-graduada">6. Formula una conclusión graduada<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#6-formula-una-conclusi%C3%B3n-graduada" class="hash-link" aria-label="Enlace directo al 6. Formula una conclusión graduada" title="Enlace directo al 6. Formula una conclusión graduada" translate="no">​</a></h3>
+<p>Una nota de análisis sólida podría decir:</p>
+<blockquote>
+<p>El 21 de julio de 2026, VIES devolvió un resultado válido para el identificador empresarial facilitado. La razón social mostrada fue coherente con la factura examinada. Esta comprobación acredita el estado consultado en ese momento, pero no demuestra control de la cuenta bancaria, solvencia, cumplimiento contractual ni ausencia de suplantación. La identidad se corroboró además en el registro nacional y mediante un canal corporativo independiente.</p>
+</blockquote>
+<p>La frase conserva el valor del hallazgo sin inflarlo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="válido-no-significa-fiable">Válido no significa fiable<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#v%C3%A1lido-no-significa-fiable" class="hash-link" aria-label="Enlace directo al Válido no significa fiable" title="Enlace directo al Válido no significa fiable" translate="no">​</a></h3>
+<p>Un estafador puede copiar el número real de una empresa ajena. También puede comprometer un correo, manipular una factura o sustituir la cuenta bancaria mientras mantiene intactos todos los datos fiscales. La validación debe enlazar el identificador con <strong>la contraparte concreta y el canal concreto</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="inválido-no-significa-inexistente">Inválido no significa inexistente<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#inv%C3%A1lido-no-significa-inexistente" class="hash-link" aria-label="Enlace directo al Inválido no significa inexistente" title="Enlace directo al Inválido no significa inexistente" translate="no">​</a></h3>
+<p>Una empresa puede estar registrada a efectos nacionales y no estar activada para transacciones intracomunitarias. También puede haber retrasos de actualización, un alta pendiente o un error en el documento. Para asuntos urgentes, la guía europea remite a la administración fiscal nacional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-visibles-varían-por-país">Los datos visibles varían por país<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#los-datos-visibles-var%C3%ADan-por-pa%C3%ADs" class="hash-link" aria-label="Enlace directo al Los datos visibles varían por país" title="Enlace directo al Los datos visibles varían por país" translate="no">​</a></h3>
+<p>La respuesta no ofrece necesariamente el mismo nivel de detalle en todos los Estados. Por protección de datos, algunas autoridades no entregan el nombre y la dirección asociados; pueden limitarse a confirmar si unos datos concretos coinciden. La ausencia de un campo no equivale a una discordancia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-disponibilidad-también-es-evidencia-técnica">La disponibilidad también es evidencia técnica<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#la-disponibilidad-tambi%C3%A9n-es-evidencia-t%C3%A9cnica" class="hash-link" aria-label="Enlace directo al La disponibilidad también es evidencia técnica" title="Enlace directo al La disponibilidad también es evidencia técnica" translate="no">​</a></h3>
+<p>Las bases nacionales pueden quedar temporalmente inaccesibles por mantenimiento o copia de seguridad. Diferencia siempre <code>no válido</code> de <code>no disponible</code>. Repite la consulta en otro momento y conserva ambos eventos si afectan a la cronología.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-comisión-no-corrige-los-registros-nacionales">La Comisión no corrige los registros nacionales<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#la-comisi%C3%B3n-no-corrige-los-registros-nacionales" class="hash-link" aria-label="Enlace directo al La Comisión no corrige los registros nacionales" title="Enlace directo al La Comisión no corrige los registros nacionales" translate="no">​</a></h3>
+<p>La Comisión advierte que no controla la exactitud de cada base nacional ni puede añadir, corregir o borrar altas. Si el dato resulta crítico, la fuente competente sigue siendo la administración del Estado emisor.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Consulta únicamente identificadores vinculados a una finalidad empresarial, fiscal, periodística o de investigación legítima.</li>
+<li class="">No automatices enumeraciones ni uses VIES para construir listados indiscriminados.</li>
+<li class="">Enmascara el número en informes públicos y limita el acceso a facturas y capturas completas.</li>
+<li class="">Conserva la mínima información necesaria y define un plazo de retención.</li>
+<li class="">No envíes documentación sensible a verificadores no oficiales.</li>
+<li class="">Comprueba que trabajas en dominios institucionales <code>europa.eu</code> o <code>ec.europa.eu</code> antes de introducir datos.</li>
+<li class="">Trata un desajuste como hipótesis verificable, no como acusación.</li>
+<li class="">Escala cuestiones fiscales o legales relevantes a la administración competente o a asesoramiento profesional.</li>
+</ul>
+<p>Hay además una alerta práctica: la Comisión recuerda que <strong>solo las administraciones tributarias emiten números de IVA</strong> y ha advertido de propuestas que imitan documentos oficiales para ofrecer números válidos a cambio de un pago anticipado. VIES sirve para comprobar; no vende ni tramita identificadores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>VIES funciona mejor como una pieza de un flujo más amplio:</p>
+<ul>
+<li class="">el registro mercantil nacional aporta existencia jurídica, cargos y documentos originales;</li>
+<li class=""><code>GLEIF</code> puede ayudar si la entidad dispone de <code>LEI</code>, sin sustituir el registro primario;</li>
+<li class=""><code>OpenCorporates</code> orienta búsquedas entre jurisdicciones, pero sus datos deben volver a la fuente oficial;</li>
+<li class="">los portales nacionales de IVA permiten escalar una comprobación cuando VIES no muestra detalle suficiente;</li>
+<li class="">la verificación bancaria por un canal conocido reduce el riesgo de fraude de cambio de cuenta;</li>
+<li class=""><code>TED</code> puede aportar contexto si la entidad participa en contratación pública europea.</li>
+</ul>
+<p>El takeaway es sencillo: <strong>usa VIES para verificar un estado fiscal puntual, conserva la evidencia y enlázala con identidad, documentación y canal de pago antes de decidir</strong>. Un resultado verde abre la siguiente comprobación; no cierra la investigación.</p>
+<p>Como próximo ejercicio metodológico, merece la pena construir una ficha de due diligence que separe cuatro columnas: dato recibido, fuente que lo confirma, momento de consulta y límite de la evidencia. Esa disciplina evita que una coincidencia administrativa termine convertida en certeza absoluta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-consultadas">Fuentes oficiales consultadas<a href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto#fuentes-oficiales-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales consultadas" title="Enlace directo al Fuentes oficiales consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://europa.eu/youreurope/business/finance-and-tax/vat/check-vat-number-vies/index_en.htm" target="_blank" rel="noopener noreferrer" class="">Your Europe: comprobar un número de IVA en VIES</a></li>
+<li class=""><a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-identification-numbers_en" target="_blank" rel="noopener noreferrer" class="">Comisión Europea: números de identificación a efectos de IVA</a></li>
+<li class=""><a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-businesses/invoicing_en" target="_blank" rel="noopener noreferrer" class="">Comisión Europea: reglas de facturación del IVA</a></li>
+<li class=""><a href="https://commission.europa.eu/business-economy-euro/doing-business-eu/company-tax-excise-vat/vat-value-added-tax_en" target="_blank" rel="noopener noreferrer" class="">Comisión Europea: IVA en la Unión Europea</a></li>
+</ul>
+<p><em>Fuentes revisadas el 21 de julio de 2026. Los procedimientos fiscales pueden cambiar y las reglas nacionales pueden añadir requisitos: verifica siempre la información vigente para la jurisdicción y la operación concretas.</em></p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Due Diligence</category>
+            <category>Verificacion</category>
+            <category>Investigacion</category>
+            <category>Privacidad</category>
+            <category>Metodologia</category>
+        </item>
         <item>
             <title><![CDATA[UN Comtrade en OSINT: flujos comerciales, códigos HS y asimetrías sin falsas certezas]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias</link>
@@ -2707,129 +2822,6 @@
             <category>IoC</category>
             <category>Defensa</category>
             <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[BinaryEdge en OSINT: superficie externa, servicios expuestos y contexto antes de priorizar]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto</guid>
-            <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando resultados de escaneo de superficie externa, puertos abiertos, banners de servicio y notas de riesgo defensivo]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando resultados de escaneo de superficie externa, puertos abiertos, banners de servicio y notas de riesgo defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-28-binaryedge-osint-superficie-externa-contexto-337722995822deae941a0ad02e1a95b0.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/binaryedge-osint-superficie-externa-contexto.m4a">Descargar el podcast</a></p>
-<p>Una IP responde en Internet, un banner sugiere una version antigua y un panel aparece en un puerto que nadie recordaba. La tentacion es escribir "vulnerable" demasiado pronto. El trabajo correcto es mas sobrio: <strong>convertir lo visible desde fuera en un inventario verificable, fechar la observacion y decidir si merece accion defensiva</strong>. <code>BinaryEdge</code> encaja en ese punto cuando se usa para entender exposicion publica, no para ampliar objetivos sin permiso.</p>
-<p>Revisando documentacion publica el <strong>28 de junio de 2026</strong>, Coalition explica que usa tecnologia de escaneo de <code>BinaryEdge</code> para recoger informacion sobre servicios publicamente alcanzables, identificar puertos abiertos, servicios expuestos, metadatos de servicio e indicadores de tecnologia o version cuando estan disponibles. La documentacion publica historica de la API de <code>BinaryEdge</code> tambien describe flujos de datos, tareas de escaneo, modulos de captura y consultas sobre resultados. Eso basta para una leccion OSINT importante: un escaneo externo aporta <strong>senales tecnicas</strong>, no conclusiones automaticas sobre propiedad, explotabilidad o impacto.</p>
-<p>Este articulo esta pensado para equipos defensivos, analistas de exposicion externa, respuesta a incidentes, <code>due diligence</code> tecnica y verificacion responsable. No contiene instrucciones para intrusion, explotacion, acoso, doxxing ni busqueda indiscriminada de sistemas ajenos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-binaryedge-y-para-que-sirve">Que es BinaryEdge y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#que-es-binaryedge-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es BinaryEdge y para que sirve" title="Enlace directo al Que es BinaryEdge y para que sirve" translate="no">​</a></h2>
-<p><code>BinaryEdge</code> es una tecnologia orientada a observar servicios expuestos en Internet y producir inteligencia sobre superficie externa. En la practica, ayuda a responder preguntas como:</p>
-<ul>
-<li class="">que servicios parecen visibles desde fuera;</li>
-<li class="">que puertos y protocolos responden en una IP o rango autorizado;</li>
-<li class="">que metadatos devuelve un servicio, por ejemplo banner, protocolo o indicios de tecnologia;</li>
-<li class="">que exposiciones se repiten en el tiempo;</li>
-<li class="">que hallazgos necesitan verificacion manual antes de convertirse en riesgo.</li>
-</ul>
-<p>La pagina de ayuda de Coalition publicada en abril de 2026 aclara un matiz util: ser escaneado no implica que una organizacion este comprometida. Normalmente significa que sus sistemas son alcanzables desde Internet y que se esta recogiendo el mismo tipo de datos externos que un equipo de seguridad necesita para entender que ve cualquiera desde fuera.</p>
-<p>La documentacion publica de API conservada en GitHub muestra ademas la logica tecnica del ecosistema: flujos de datos, tareas bajo demanda, tipos <code>scan</code> y <code>grab</code>, modulos para protocolos como <code>http</code>, <code>https</code>, <code>ssh</code>, <code>ssl</code>, <code>rdp</code>, <code>vnc</code>, <code>mongodb</code>, <code>redis</code> o <code>mqtt</code>, y endpoints de consulta historica o remota. Para un analista OSINT responsable, el valor no esta en "mirar mas", sino en <strong>mirar con alcance, fecha y criterio</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que <code>Litoral Pharma</code>, una empresa ficticia, encarga una revision externa de exposicion. El alcance autorizado incluye sus dominios corporativos, rangos propios confirmados por el equipo de red y proveedores criticos documentados. La pregunta no es "que encuentro por ahi", sino:</p>
-<p><strong>¿Que servicios publicos parecen formar parte de nuestra superficie externa y cuales requieren revision prioritaria?</strong></p>
-<p>Un primer inventario podria verse asi:</p>
-<table><thead><tr><th>Observacion</th><th>Ejemplo ficticio</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Puerto abierto</td><td><code>203.0.113.42:8443</code></td><td>Servicio visible, no necesariamente vulnerable</td></tr><tr><td>Banner</td><td><code>nginx</code> con pista de version</td><td>Indicio tecnico que requiere comprobacion local</td></tr><tr><td>Servicio remoto</td><td><code>RDP</code> detectado en una IP autorizada</td><td>Hallazgo sensible que debe validarse con el equipo propietario</td></tr><tr><td>Certificado</td><td>CN o SAN asociado a subdominio antiguo</td><td>Posible activo olvidado, no prueba de control actual</td></tr><tr><td>Pais/ASN</td><td>Hosting externo conocido</td><td>Contexto de infraestructura, no atribucion por si solo</td></tr></tbody></table>
-<p>El resultado util no es una lista larga. Es una cola de verificacion:</p>
-<ol>
-<li class="">confirmar si el activo pertenece al alcance;</li>
-<li class="">comprobar si el servicio sigue vivo desde una fuente interna o autorizada;</li>
-<li class="">distinguir exposicion intencional, legado olvidado y falso positivo;</li>
-<li class="">priorizar segun criticidad del servicio, sensibilidad del entorno y evidencia corroborada;</li>
-<li class="">documentar fecha, fuente, consulta, limites y decision.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-alcance-antes-de-consultar">1. Fijar alcance antes de consultar<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#1-fijar-alcance-antes-de-consultar" class="hash-link" aria-label="Enlace directo al 1. Fijar alcance antes de consultar" title="Enlace directo al 1. Fijar alcance antes de consultar" translate="no">​</a></h3>
-<p>La superficie externa es peligrosa de interpretar si empiezas por la herramienta. Empieza por el alcance:</p>
-<ul>
-<li class="">dominios propiedad de la organizacion;</li>
-<li class="">rangos IP confirmados por fuentes internas o registros tecnicos;</li>
-<li class="">activos de terceros solo si hay autorizacion o necesidad legitima clara;</li>
-<li class="">exclusiones, por ejemplo sistemas personales, clientes finales o entornos no cubiertos.</li>
-</ul>
-<p>Sin ese marco, una coincidencia tecnica puede convertirse en una conclusion injusta. Un banner compartido, un proveedor comun o un certificado historico no demuestran propiedad actual.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-inventario-enrichment-y-riesgo">2. Separar inventario, enrichment y riesgo<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#2-separar-inventario-enrichment-y-riesgo" class="hash-link" aria-label="Enlace directo al 2. Separar inventario, enrichment y riesgo" title="Enlace directo al 2. Separar inventario, enrichment y riesgo" translate="no">​</a></h3>
-<p>Un buen flujo defensivo trata los datos en capas:</p>
-<ul>
-<li class=""><strong>inventario</strong>: que IP, puerto, protocolo y host se observaron;</li>
-<li class=""><strong>enrichment</strong>: que metadatos, tecnologias o relaciones visibles aparecen;</li>
-<li class=""><strong>validacion</strong>: que parte se confirma con DNS, RDAP, certificados, logs internos o propietarios del servicio;</li>
-<li class=""><strong>riesgo</strong>: que exposicion merece accion, con que urgencia y por que.</li>
-</ul>
-<p>Ese orden evita un error muy comun: llamar "critico" a cualquier servicio que resulte llamativo. Un panel de administracion visible puede ser grave, pero tambien puede estar protegido, filtrado, aislado o ser un falso positivo de deteccion.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-fechar-todo">3. Fechar todo<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#3-fechar-todo" class="hash-link" aria-label="Enlace directo al 3. Fechar todo" title="Enlace directo al 3. Fechar todo" translate="no">​</a></h3>
-<p>La observacion externa caduca. Coalition indica que su programa de escaneo es efectivamente continuo, con refresco completo aproximado de datos IP publicos cada <code>30</code> dias y rescaneos mas frecuentes para algunos puertos segun actividad de amenazas, vulnerabilidades o necesidades de investigacion. Esa periodicidad no debe leerse como garantia universal de frescura para cada conclusion operativa.</p>
-<p>En una nota de caso, deja siempre:</p>
-<ul>
-<li class="">fecha y hora de consulta;</li>
-<li class="">fuente usada;</li>
-<li class="">selector consultado;</li>
-<li class="">resultado bruto minimo necesario;</li>
-<li class="">verificacion posterior;</li>
-<li class="">decision tomada.</li>
-</ul>
-<p>Si manana el servicio desaparece, esa trazabilidad permite explicar si se corrigio, si el dato estaba obsoleto o si el analisis confundio dos activos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-corroborar-con-fuentes-independientes">4. Corroborar con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#4-corroborar-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 4. Corroborar con fuentes independientes" title="Enlace directo al 4. Corroborar con fuentes independientes" translate="no">​</a></h3>
-<p><code>BinaryEdge</code> puede orientar, pero conviene cruzar hallazgos con capas distintas:</p>
-<ul>
-<li class=""><code>RDAP</code> o datos de red para propiedad aparente de rangos;</li>
-<li class=""><code>DNS</code> y <code>CT logs</code> para nombres y cronologia;</li>
-<li class=""><code>urlscan.io</code>, <code>Netcraft</code>, <code>Shodan</code>, <code>Censys</code> o <code>FullHunt</code> para contraste externo;</li>
-<li class="">inventario interno, CMDB o responsables de servicio cuando haya autorizacion;</li>
-<li class="">tickets de remediacion y evidencias de cierre.</li>
-</ul>
-<p>El objetivo no es que todas las fuentes digan lo mismo, sino entender por que discrepan. Diferentes motores escanean en momentos distintos, con modulos distintos y desde redes distintas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>BinaryEdge</code> no elimina los problemas clasicos de la inteligencia tecnica abierta:</p>
-<ul>
-<li class="">un servicio visible no equivale a explotable;</li>
-<li class="">un banner puede estar manipulado, incompleto o cacheado;</li>
-<li class="">una IP puede estar detras de CDN, hosting compartido, NAT, cloud o proveedor gestionado;</li>
-<li class="">un certificado historico puede sobrevivir a la migracion de un activo;</li>
-<li class="">una deteccion puede estar desactualizada cuando llega al informe;</li>
-<li class="">el dato externo no siempre ve controles internos, segmentacion, autenticacion o reglas de acceso.</li>
-</ul>
-<p>Tambien hay una limitacion etica: que algo sea tecnicamente visible no significa que sea proporcional investigarlo en profundidad. Para OSINT responsable, la pregunta no es solo "puedo verlo", sino "tengo motivo legitimo, alcance y una forma segura de documentarlo sin causar dano".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Usa <code>BinaryEdge</code> como una capa de contexto defensivo:</p>
-<ul>
-<li class="">trabaja con activos propios, autorizados o de interes publico claro;</li>
-<li class="">minimiza datos personales y evita publicar identificadores innecesarios;</li>
-<li class="">redacta IPs, dominios internos, rutas y banners sensibles en informes publicos;</li>
-<li class="">no descargues, pruebes credenciales ni interactues con servicios ajenos;</li>
-<li class="">si detectas exposicion sensible, usa canales de notificacion responsable;</li>
-<li class="">conserva el resultado minimo necesario para reproducir la conclusion;</li>
-<li class="">separa observacion, inferencia y recomendacion.</li>
-</ul>
-<p>La pagina de Coalition tambien explica vias de exclusion y bloqueo de escaneos, incluyendo contacto de soporte y listas de rangos de escaneo. Eso recuerda algo importante: la observacion masiva de Internet puede ser legitima para seguridad, pero no deja de afectar a organizaciones reales. Documentar limites y ofrecer contexto reduce friccion y mejora la calidad del trabajo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Segun la pregunta, <code>BinaryEdge</code> puede complementarse con:</p>
-<ul>
-<li class=""><code>Shodan</code> o <code>Censys</code>, si necesitas comparar visibilidad de servicios y banners;</li>
-<li class=""><code>FullHunt</code>, si el foco es superficie externa asociada a dominios;</li>
-<li class=""><code>GreyNoise</code>, si quieres separar ruido de escaneo comun y actividad potencialmente interesante;</li>
-<li class=""><code>urlscan.io</code>, si necesitas observar carga web, redirecciones y artefactos del navegador;</li>
-<li class=""><code>RDAP</code>, <code>WHOIS</code>, <code>CT logs</code> y passive DNS para validar propiedad aparente y cronologia.</li>
-</ul>
-<p>La takeaway practica es sencilla: <strong>usa <code>BinaryEdge</code> para convertir exposicion externa en preguntas verificables, no para convertir banners en veredictos</strong>. Un buen hallazgo defensivo no es el que suena mas grave, sino el que permite al propietario del activo reproducir, priorizar y corregir con confianza.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/binaryedge-osint-superficie-externa-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://help.coalitioninc.com/hc/en-us/articles/48928737389979-What-the-BinaryEdge-scanner-does-and-why-Coalition-may-scan-your-internet-facing-systems" target="_blank" rel="noopener noreferrer" class="">Coalition Help Center: What the BinaryEdge scanner does and why Coalition may scan your internet-facing systems</a></li>
-<li class=""><a href="https://github.com/binaryedge/api-publicdoc" target="_blank" rel="noopener noreferrer" class="">BinaryEdge API public documentation, GitHub</a></li>
-<li class=""><a href="https://www.greynoise.io/blog/checking-it-twice-profiling-benign-internet-scanners----2024-edition" target="_blank" rel="noopener noreferrer" class="">GreyNoise: Checking It Twice, Profiling Benign Internet Scanners - 2024 Edition</a></li>
-<li class=""><a href="https://www.paloaltonetworks.com/cyberpedia/what-is-attack-surface-management" target="_blank" rel="noopener noreferrer" class="">Palo Alto Networks Cyberpedia: What Is Attack Surface and Attack Surface Management?</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Infraestructura</category>
-            <category>Reconocimiento</category>
-            <category>Triage</category>
-            <category>Verificacion</category>
-            <category>Defensa</category>
         </item>
     </channel>
 </rss>
