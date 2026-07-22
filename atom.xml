@@ -2,11 +2,174 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-21T00:00:00.000Z</updated>
+    <updated>2026-07-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Mapillary en OSINT: geolocalización visual, secuencias y contexto antes de situar una imagen]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto"/>
+        <updated>2026-07-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-22-mapillary-osint-geolocalizacion-visual-contexto-ea034adcceebd0fd1915fef0ac8cc9f2.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una fotografía muestra una calle sin rótulos legibles: una marquesina, tres bolardos, una señal parcialmente tapada y una fachada en obras. Alguien asegura que fue tomada ayer junto a una sede concreta. La escena parece reconocible, pero <strong>parecerse no basta</strong>. Antes de ubicarla hay que encontrar una vista comparable, comprobar cuándo se capturó, separar rasgos estables de detalles pasajeros y buscar una segunda fuente independiente. <code>Mapillary</code> puede aportar esa vista a pie de calle, siempre que el analista trate cada imagen como una observación situada en el tiempo y no como una respuesta automática.</p>
+<p>Este artículo propone un método responsable para usar imágenes públicas de nivel de calle en verificación geográfica. No está pensado para identificar domicilios particulares, seguir personas ni explorar zonas sensibles. La pregunta legítima es otra: <strong>¿qué elementos públicos y no personales permiten comprobar o refutar una hipótesis de lugar sin sobrepasar la evidencia?</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-mapillary-y-para-qué-sirve-en-osint">Qué es Mapillary y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#qu%C3%A9-es-mapillary-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Mapillary y para qué sirve en OSINT" title="Enlace directo al Qué es Mapillary y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><code>Mapillary</code> es una plataforma de imágenes georreferenciadas a nivel de calle aportadas por distintos colaboradores. Su unidad práctica no es solo la fotografía aislada, sino la <strong>secuencia</strong>: una serie de imágenes capturadas y subidas como un recorrido. Cada imagen tiene una clave única y una clave de secuencia que permite mantener el contexto del trayecto.</p>
+<p>La aplicación web ofrece dos formas de moverse que conviene no confundir:</p>
+<ul>
+<li class="">la navegación de secuencia avanza o retrocede dentro del mismo recorrido;</li>
+<li class="">la navegación espacial salta a imágenes cercanas, aunque sean de otra persona, fecha, secuencia o perspectiva.</li>
+</ul>
+<p>Esa distinción es esencial para investigar. Un salto espacial puede enseñar mejor una fachada, pero también introducir de golpe <strong>otro momento y otro contexto de captura</strong>. Antes de comparar, vuelve a comprobar fecha, autor de la contribución y secuencia.</p>
+<p>En un flujo OSINT legítimo, Mapillary resulta especialmente útil para:</p>
+<ul>
+<li class="">contrastar mobiliario urbano, trazado vial, fachadas y señalización visible desde el espacio público;</li>
+<li class="">recorrer una calle en una secuencia coherente, en vez de interpretar una sola toma;</li>
+<li class="">filtrar imágenes por intervalo temporal o contribuidor;</li>
+<li class="">comparar capturas anteriores mediante <code>Time Travel</code>, cuando existe cobertura compatible;</li>
+<li class="">revisar detecciones de objetos o señales como pistas que después deben verificarse en la imagen original;</li>
+<li class="">documentar una referencia reproducible con la clave o URL de una imagen.</li>
+</ul>
+<p>No es una cámara en directo, un catastro, una fuente de identidad ni una prueba de propiedad. Tampoco garantiza cobertura homogénea ni actualidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-fotografía-de-una-obra-pública">Caso de uso legítimo: verificar una fotografía de una obra pública<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#caso-de-uso-leg%C3%ADtimo-verificar-una-fotograf%C3%ADa-de-una-obra-p%C3%BAblica" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una fotografía de una obra pública" title="Enlace directo al Caso de uso legítimo: verificar una fotografía de una obra pública" translate="no">​</a></h2>
+<p>Imagina un caso ficticio. El ayuntamiento de <code>Villa Serena</code> publica una nota sobre la reapertura de un intercambiador de autobuses. Días después circula una fotografía que supuestamente demuestra que el acceso seguía cerrado en la fecha del anuncio. Una redacción quiere verificar <strong>el lugar y la compatibilidad temporal de la escena</strong>, sin identificar a peatones ni investigar domicilios.</p>
+<p>En la fotografía aparecen cinco elementos potencialmente útiles:</p>
+<ol>
+<li class="">una marquesina con cubierta asimétrica;</li>
+<li class="">una isleta triangular;</li>
+<li class="">bolardos de color oscuro;</li>
+<li class="">un edificio con soportales al fondo;</li>
+<li class="">una señal de giro situada antes del paso de peatones.</li>
+</ol>
+<p>El equipo localiza en Mapillary una calle candidata y encuentra varias secuencias. La más reciente es anterior a la reapertura; otra, más antigua, muestra la marquesina antes de una reforma. Esto permite comparar geometría, pero <strong>no demuestra el estado de la obra el día del comunicado</strong>. Para acercarse a una conclusión prudente, el equipo cruza después la escena con:</p>
+<ul>
+<li class="">el plano oficial del proyecto;</li>
+<li class="">fotografías fechadas del comunicado municipal;</li>
+<li class="">ortofoto o imagen satelital adecuada para los rasgos visibles;</li>
+<li class="">y, si es necesario, una confirmación presencial obtenida de forma legal.</li>
+</ul>
+<p>La conclusión correcta podría ser: «la geometría visible es compatible con el intercambiador de Villa Serena, pero la cobertura disponible en Mapillary no permite confirmar el estado del acceso en la fecha alegada». Es menos espectacular que un veredicto tajante y mucho más útil.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-hipótesis-falsable">1. Formula una hipótesis falsable<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#1-formula-una-hip%C3%B3tesis-falsable" class="hash-link" aria-label="Enlace directo al 1. Formula una hipótesis falsable" title="Enlace directo al 1. Formula una hipótesis falsable" translate="no">​</a></h3>
+<p>Evita empezar con «¿dónde es esto?». Es una pregunta demasiado abierta y favorece el sesgo de confirmación. Formula algo que pueda fallar:</p>
+<blockquote>
+<p>La imagen podría corresponder al lado este del intercambiador ficticio de Villa Serena y habría sido tomada después de la reforma de la marquesina.</p>
+</blockquote>
+<p>Divide después la hipótesis en dos:</p>
+<ul>
+<li class=""><strong>hipótesis espacial</strong>: el lugar es compatible;</li>
+<li class=""><strong>hipótesis temporal</strong>: la escena es compatible con el periodo alegado.</li>
+</ul>
+<p>Mapillary puede ayudar con ambas, pero rara vez cerrará por sí solo la segunda.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-extrae-rasgos-antes-de-abrir-el-mapa">2. Extrae rasgos antes de abrir el mapa<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#2-extrae-rasgos-antes-de-abrir-el-mapa" class="hash-link" aria-label="Enlace directo al 2. Extrae rasgos antes de abrir el mapa" title="Enlace directo al 2. Extrae rasgos antes de abrir el mapa" translate="no">​</a></h3>
+<p>Haz una lista previa para no adaptar la observación al primer lugar que se parezca. Prioriza elementos públicos y relativamente estables:</p>
+<ul>
+<li class="">geometría de cruces, medianas y aceras;</li>
+<li class="">número y posición relativa de carriles;</li>
+<li class="">perfil de cubiertas y fachadas;</li>
+<li class="">farolas, barandillas, marquesinas y pavimentos;</li>
+<li class="">pendiente, horizonte y orientación de sombras;</li>
+<li class="">señalización vial, sin confiar en una lectura borrosa.</li>
+</ul>
+<p>Separa los rasgos débiles: vehículos, contenedores, obras menores, vegetación estacional, carteles temporales o personas. Pueden aportar contexto, pero cambian rápido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-explora-cobertura-y-mantén-la-secuencia">3. Explora cobertura y mantén la secuencia<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#3-explora-cobertura-y-mant%C3%A9n-la-secuencia" class="hash-link" aria-label="Enlace directo al 3. Explora cobertura y mantén la secuencia" title="Enlace directo al 3. Explora cobertura y mantén la secuencia" translate="no">​</a></h3>
+<p>En la aplicación web no necesitas instalar software para una inspección manual. Acércate a la zona candidata hasta ver las líneas y puntos de cobertura, abre una imagen y recorre primero su propia secuencia. La documentación de Mapillary explica que las secuencias agrupan imágenes capturadas durante un recorrido y que la reproducción ayuda a conservar dirección, fecha y contribuidor.</p>
+<p>Anota para cada observación relevante:</p>
+<table><thead><tr><th>Campo</th><th>Qué registrar</th></tr></thead><tbody><tr><td>Imagen</td><td>URL o clave única</td></tr><tr><td>Secuencia</td><td>Clave y sentido del recorrido</td></tr><tr><td>Captura</td><td>Fecha mostrada por la plataforma</td></tr><tr><td>Consulta</td><td>Filtros de fecha, usuario y tipo de imagen</td></tr><tr><td>Rasgo</td><td>Qué se observa exactamente</td></tr><tr><td>Calidad</td><td>Oclusión, desenfoque, perspectiva y resolución</td></tr><tr><td>Inferencia</td><td>Compatible, incompatible o indeterminado</td></tr></tbody></table>
+<p>La URL de la aplicación refleja los filtros aplicados, lo que facilita guardar una consulta. Aun así, conserva también notas y capturas con fecha de acceso: una plataforma dinámica no sustituye un registro de trabajo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-filtra-por-fecha-y-usa-time-travel-con-cautela">4. Filtra por fecha y usa Time Travel con cautela<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#4-filtra-por-fecha-y-usa-time-travel-con-cautela" class="hash-link" aria-label="Enlace directo al 4. Filtra por fecha y usa Time Travel con cautela" title="Enlace directo al 4. Filtra por fecha y usa Time Travel con cautela" translate="no">​</a></h3>
+<p>La aplicación permite filtrar por contribuidor, intervalo de fechas, antigüedad de la imagen y panorámicas de 360 grados. Usa un intervalo estrecho cuando la hipótesis sea temporal y amplíalo de forma deliberada si no aparece cobertura.</p>
+<p><code>Time Travel</code>, cuando está disponible, facilita comparar imágenes cercanas tomadas en distintos momentos. Sirve para detectar cambios como una marquesina nueva, un sentido de circulación modificado o una fachada rehabilitada. No presupongas, sin embargo, que ambas tomas comparten exactamente posición, encuadre o calidad. Compara relaciones geométricas, no solo impresiones visuales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-trata-las-detecciones-automáticas-como-índice">5. Trata las detecciones automáticas como índice<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#5-trata-las-detecciones-autom%C3%A1ticas-como-%C3%ADndice" class="hash-link" aria-label="Enlace directo al 5. Trata las detecciones automáticas como índice" title="Enlace directo al 5. Trata las detecciones automáticas como índice" translate="no">​</a></h3>
+<p>Mapillary usa visión artificial para extraer detecciones de objetos y elementos cartográficos. Su documentación distingue entre objetos detectados dentro de imágenes y <strong>map features</strong> cuya posición se estima, incluso mediante triangulación cuando un elemento aparece en varias vistas. La aplicación documenta actualmente 42 clases de puntos y más de 1.500 clases de señales de tráfico.</p>
+<p>Esto acelera la búsqueda, pero no convierte una detección en hecho confirmado. Una señal puede estar ocluida, mal clasificada, movida después de la captura o posicionada con error. El flujo correcto es:</p>
+<ol>
+<li class="">usar la detección para localizar imágenes candidatas;</li>
+<li class="">abrir las imágenes asociadas;</li>
+<li class="">revisar el objeto visible y su contexto;</li>
+<li class="">comparar varias perspectivas;</li>
+<li class="">corroborar con cartografía o documentación primaria.</li>
+</ol>
+<p>Si descargas datos desde la web, la plataforma genera colecciones <code>GeoJSON</code> para el área visible y separa señales de tráfico de otros puntos. Para áreas mayores remite a la API o al SDK. Antes de automatizar, revisa condiciones de uso, alcance, atribución y límites de acceso; no diseñes una recolección masiva de datos personales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-construye-una-matriz-de-corroboración">6. Construye una matriz de corroboración<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#6-construye-una-matriz-de-corroboraci%C3%B3n" class="hash-link" aria-label="Enlace directo al 6. Construye una matriz de corroboración" title="Enlace directo al 6. Construye una matriz de corroboración" translate="no">​</a></h3>
+<p>Una comparación sólida no depende de un único detalle llamativo. Puntúa cada rasgo de manera cualitativa:</p>
+<table><thead><tr><th>Rasgo</th><th>Imagen investigada</th><th>Mapillary</th><th>Fuente independiente</th><th>Resultado</th></tr></thead><tbody><tr><td>Isleta triangular</td><td>Visible</td><td>Compatible</td><td>Plano oficial compatible</td><td>Fuerte</td></tr><tr><td>Marquesina</td><td>Cubierta asimétrica</td><td>Compatible, captura antigua</td><td>Proyecto confirma reforma</td><td>Medio</td></tr><tr><td>Señal de giro</td><td>Parcial</td><td>Detección automática</td><td>No confirmada</td><td>Débil</td></tr><tr><td>Soportales</td><td>Tres vanos visibles</td><td>Misma disposición</td><td>Foto municipal compatible</td><td>Fuerte</td></tr><tr><td>Fecha exacta</td><td>Alegada</td><td>Sin cobertura del día</td><td>Sin metadato original</td><td>Indeterminada</td></tr></tbody></table>
+<p>La columna «indeterminada» es una salida válida. Si ninguna fuente cubre el día relevante, no conviertas una comparación espacial en una afirmación temporal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-conserva-evidencia-sin-invadir-privacidad">7. Conserva evidencia sin invadir privacidad<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#7-conserva-evidencia-sin-invadir-privacidad" class="hash-link" aria-label="Enlace directo al 7. Conserva evidencia sin invadir privacidad" title="Enlace directo al 7. Conserva evidencia sin invadir privacidad" translate="no">​</a></h3>
+<p>Registra la consulta, la fecha de acceso, las claves de imagen y el razonamiento. Recorta solo lo necesario para mostrar el rasgo público relevante y evita republicar rostros, matrículas, portales residenciales o rutinas personales.</p>
+<p>Mapillary indica que procesa las imágenes subidas para difuminar automáticamente rostros y matrículas, pero también aconseja evitar primeros planos de personas y capturas en zonas privadas, restringidas o sensibles. El desenfoque automático reduce riesgo; <strong>no elimina la responsabilidad del investigador</strong>. Si ves un fallo de privacidad, usa el mecanismo de reporte de la plataforma en lugar de amplificarlo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual-y-fechas-antiguas">Cobertura desigual y fechas antiguas<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#cobertura-desigual-y-fechas-antiguas" class="hash-link" aria-label="Enlace directo al Cobertura desigual y fechas antiguas" title="Enlace directo al Cobertura desigual y fechas antiguas" translate="no">​</a></h3>
+<p>La ausencia de imágenes no demuestra que un lugar o un elemento no existan. La cobertura depende de contribuciones, rutas, procesamiento y disponibilidad. Una calle céntrica puede tener docenas de secuencias y una zona rural, ninguna. Además, «la imagen más reciente disponible» no equivale a «el estado actual».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="posición-y-orientación-imperfectas">Posición y orientación imperfectas<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#posici%C3%B3n-y-orientaci%C3%B3n-imperfectas" class="hash-link" aria-label="Enlace directo al Posición y orientación imperfectas" title="Enlace directo al Posición y orientación imperfectas" translate="no">​</a></h3>
+<p>El GPS del dispositivo, la calibración, el movimiento y el entorno urbano pueden desplazar una captura. La posición estimada de un elemento cartográfico añade otra capa de incertidumbre. Valida la geometría con varias imágenes y una fuente cartográfica independiente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="saltos-entre-momentos-distintos">Saltos entre momentos distintos<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#saltos-entre-momentos-distintos" class="hash-link" aria-label="Enlace directo al Saltos entre momentos distintos" title="Enlace directo al Saltos entre momentos distintos" translate="no">​</a></h3>
+<p>Las flechas espaciales pueden llevarte a otra secuencia, fecha o perspectiva. Este cambio es útil para explorar, pero peligroso si se pasa por alto. Comprueba siempre los metadatos visibles después de cada salto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-urbanos-y-objetos-móviles">Cambios urbanos y objetos móviles<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#cambios-urbanos-y-objetos-m%C3%B3viles" class="hash-link" aria-label="Enlace directo al Cambios urbanos y objetos móviles" title="Enlace directo al Cambios urbanos y objetos móviles" translate="no">​</a></h3>
+<p>Una obra, un árbol podado, una señal sustituida o un vehículo estacionado pueden crear compatibilidades falsas. Da más peso a conjuntos de relaciones estables que a objetos aislados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="detecciones-de-visión-artificial">Detecciones de visión artificial<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#detecciones-de-visi%C3%B3n-artificial" class="hash-link" aria-label="Enlace directo al Detecciones de visión artificial" title="Enlace directo al Detecciones de visión artificial" translate="no">​</a></h3>
+<p>Las clases automáticas y posiciones trianguladas son predicciones. Un falso positivo, una señal temporal o una estimación desplazada pueden contaminar el análisis. Vuelve siempre a los píxeles y conserva el grado de incertidumbre.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="licencias-términos-y-reproducibilidad">Licencias, términos y reproducibilidad<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#licencias-t%C3%A9rminos-y-reproducibilidad" class="hash-link" aria-label="Enlace directo al Licencias, términos y reproducibilidad" title="Enlace directo al Licencias, términos y reproducibilidad" translate="no">​</a></h3>
+<p>Poder ver o descargar una imagen no significa que cualquier reutilización sea válida. Comprueba las condiciones actuales de Mapillary y de la fuente complementaria, atribuye cuando corresponda y conserva solo lo proporcional al objetivo. Las interfaces, permisos y condiciones pueden cambiar; documenta la fecha de consulta.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga lugares y hechos de interés legítimo, no rutinas de personas.</li>
+<li class="">No uses la plataforma para localizar domicilios, menores, refugios, instalaciones sensibles ni víctimas.</li>
+<li class="">Evita subir imágenes nuevas solo para «completar» una investigación sobre alguien.</li>
+<li class="">No publiques coordenadas precisas si pueden aumentar un riesgo físico o de privacidad.</li>
+<li class="">Mantén separadas observación, inferencia y conclusión.</li>
+<li class="">Trabaja con una cuenta y un navegador adecuados a la política de tu organización.</li>
+<li class="">Limita descargas y automatización a lo necesario y permitido.</li>
+<li class="">Si la evidencia afecta a una persona, exige una corroboración más fuerte y una revisión editorial o legal.</li>
+</ul>
+<p>Una regla práctica: si el informe puede demostrar el mismo punto con una geometría vial o un elemento público, no necesita mostrar una cara, una matrícula ni un portal privado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-situar-una-imagen">Checklist antes de situar una imagen<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#checklist-antes-de-situar-una-imagen" class="hash-link" aria-label="Enlace directo al Checklist antes de situar una imagen" title="Enlace directo al Checklist antes de situar una imagen" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He formulado una hipótesis espacial y otra temporal.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He listado rasgos antes de buscar candidatos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado fecha, secuencia y contribuidor tras cada salto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He distinguido detecciones automáticas de observaciones visuales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comparado al menos tres rasgos independientes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He usado una fuente ajena a Mapillary para corroborar.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He anotado qué parte sigue siendo indeterminada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He minimizado datos personales y detalles sensibles.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado claves, filtros y fecha de acceso.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión no afirma más de lo que permiten las fechas disponibles.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>La mejor alternativa depende de la pregunta:</p>
+<ul>
+<li class=""><code>KartaView</code> o <code>Panoramax</code> pueden aportar otra cobertura comunitaria de nivel de calle;</li>
+<li class="">imágenes oficiales municipales sirven para obras, señalización y cronologías públicas;</li>
+<li class=""><code>OpenStreetMap</code> y su historial ayudan a contrastar geometría y cambios cartográficos;</li>
+<li class=""><code>Google Street View</code>, donde esté disponible y su uso sea compatible con el proyecto, ofrece otra perspectiva temporal;</li>
+<li class=""><code>Copernicus Browser</code>, <code>Sentinel Hub EO Browser</code> u ortofotos públicas sirven para rasgos visibles desde arriba;</li>
+<li class="">el trabajo de campo legal y seguro puede resolver lo que ninguna captura histórica cubre.</li>
+</ul>
+<p>El takeaway accionable es sencillo: <strong>usa Mapillary para convertir una intuición visual en una comparación documentada, no para saltar de una calle parecida a una ubicación segura</strong>. Empieza con la secuencia, fija la fecha, verifica varios rasgos y conserva la opción de concluir «indeterminado». El siguiente paso natural sería comparar Mapillary, Panoramax y KartaView con una misma escena ficticia para medir cobertura, trazabilidad y privacidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://help.mapillary.com/hc/en-us/articles/115001662325-Viewing-imagery-on-the-Mapillary-web-app-the-complete-guide" target="_blank" rel="noopener noreferrer" class="">Mapillary Help Center, <em>Viewing imagery on the Mapillary web app: the complete guide</em></a></li>
+<li class=""><a href="https://help.mapillary.com/hc/en-us/articles/115001724849-Understanding-Mapillary-sequences-their-symbology" target="_blank" rel="noopener noreferrer" class="">Mapillary Help Center, <em>Understanding Mapillary sequences &amp; their symbology</em></a></li>
+<li class=""><a href="https://help.mapillary.com/hc/en-us/articles/360003021152-Types-of-map-data" target="_blank" rel="noopener noreferrer" class="">Mapillary Help Center, <em>Types of map data</em></a></li>
+<li class=""><a href="https://help.mapillary.com/hc/en-us/articles/4407521157138-Downloading-map-data-via-the-Mapillary-web-app" target="_blank" rel="noopener noreferrer" class="">Mapillary Help Center, <em>Downloading map data via the Mapillary web app</em></a></li>
+<li class=""><a href="https://help.mapillary.com/hc/en-us/articles/115001770349-Privacy" target="_blank" rel="noopener noreferrer" class="">Mapillary Help Center, <em>Privacy</em></a></li>
+<li class=""><a href="https://github.com/mapillary/mapillary-python-sdk" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de Mapillary Python SDK</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[VIES en OSINT: validar el IVA intracomunitario sin confundir registro con confianza]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto</id>
@@ -2788,119 +2951,5 @@
         <category label="Datos" term="Datos"/>
         <category label="Research" term="Research"/>
         <category label="Investigacion" term="Investigacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ThreatFox en OSINT: IOCs de malware, contexto y caducidad antes de bloquear]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto"/>
-        <updated>2026-06-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando indicadores de compromiso de malware, hashes redactados, dominios ficticios, marcas temporales y notas de verificacion responsable]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando indicadores de compromiso de malware, hashes redactados, dominios ficticios, marcas temporales y notas de verificacion responsable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-29-threatfox-osint-iocs-malware-contexto-fa56a7a6931c95b612fc7628b005096a.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/threatfox-osint-iocs-malware-contexto.m4a">Descargar el podcast</a></p>
-<p>Un dominio aparece en una alerta, una IP llega en un feed comunitario y un hash coincide con una familia de malware conocida. La tentacion es bloquearlo todo y escribir un informe contundente. El trabajo serio es mas lento: <strong>comprobar de donde viene el indicador, que significa exactamente, cuanto tiempo lleva vivo y si encaja con tu telemetria propia</strong>.</p>
-<p><code>ThreatFox</code>, de <code>abuse.ch</code> y <code>Spamhaus</code>, encaja en esa parte del flujo. Revisando sus paginas publicas el <strong>29 de junio de 2026</strong>, la plataforma se presenta como un espacio para compartir indicadores de compromiso asociados a malware, consultar la base de datos, usar una <code>API</code>, descargar exportaciones y automatizar consultas. Su valor no esta en sustituir el juicio del analista, sino en aportar senales externas con procedencia, etiquetas, familia de malware y contexto temporal.</p>
-<p>Este articulo esta escrito para equipos defensivos, analistas SOC, <code>CERT/CSIRT</code>, investigacion de amenazas y respuesta a incidentes. No contiene instrucciones para intrusion, despliegue de malware, doxxing, acoso ni uso de indicadores contra terceros sin autorizacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-threatfox-y-para-que-sirve">Que es ThreatFox y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#que-es-threatfox-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es ThreatFox y para que sirve" title="Enlace directo al Que es ThreatFox y para que sirve" translate="no">​</a></h2>
-<p><a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer" class=""><code>ThreatFox</code></a> es una plataforma comunitaria de inteligencia de amenazas centrada en <code>IOCs</code> relacionados con malware. Permite buscar y compartir indicadores como dominios, IPs, URLs, direcciones de correo o hashes cuando esos datos estan asociados a actividad maliciosa verificable.</p>
-<p>En un flujo OSINT defensivo, ayuda a responder preguntas practicas:</p>
-<ul>
-<li class="">si un indicador observado en tu entorno aparece relacionado con malware;</li>
-<li class="">que familia o etiqueta se le atribuye en la plataforma;</li>
-<li class="">cuando fue visto o compartido;</li>
-<li class="">que confianza o contexto acompana al dato;</li>
-<li class="">si existe una exportacion o integracion que permita incorporarlo a controles defensivos;</li>
-<li class="">que parte del hallazgo necesita verificacion adicional antes de bloquear, escalar o reportar.</li>
-</ul>
-<p>La FAQ de ThreatFox marca un limite metodologico importante: la plataforma pide indicadores relacionados con malware, no cualquier dato sospechoso. Tambien insiste en escoger bien el nivel de confianza y en compartir indicadores frescos, no listas obsoletas. Esa disciplina es clave porque los <code>IOCs</code> envejecen rapido: un dominio puede cambiar de manos, una IP puede ser reasignada y un hash puede seguir siendo util como referencia historica aunque ya no represente riesgo operativo inmediato.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que el SOC de <code>NorteFabril</code>, una empresa ficticia, detecta conexiones salientes hacia <code>update-check.example</code> desde tres equipos internos. El equipo no quiere acusar a nadie ni publicar el dominio en redes. Quiere responder una pregunta concreta:</p>
-<p><strong>¿Ese indicador tiene contexto publico suficiente para priorizar una investigacion defensiva?</strong></p>
-<p>Un registro inicial podria quedar asi:</p>
-<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Indicador</td><td><code>update-check.example</code></td><td>Selector tecnico, no prueba completa</td></tr><tr><td>Fuente interna</td><td>Proxy corporativo</td><td>Necesita hora, usuario tecnico y equipo</td></tr><tr><td>Fuente externa</td><td>Coincidencia en ThreatFox</td><td>Senal comunitaria que hay que leer con contexto</td></tr><tr><td>Etiqueta</td><td><code>botnet-c2</code> ficticia</td><td>Hipotesis de funcion, no atribucion final</td></tr><tr><td>Accion inicial</td><td>Aislar muestra de logs y revisar endpoints afectados</td><td>Medida proporcional y defensiva</td></tr></tbody></table>
-<p>El analista no deberia saltar de "aparece en un feed" a "tenemos una intrusion confirmada por X grupo". Lo correcto es separar tres capas: indicador observado, contexto externo y evidencia interna. Si las tres convergen, el caso sube de prioridad. Si solo existe una coincidencia debil, conviene tratarlo como pista.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-indicador-y-su-fecha">1. Empieza por el indicador y su fecha<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#1-empieza-por-el-indicador-y-su-fecha" class="hash-link" aria-label="Enlace directo al 1. Empieza por el indicador y su fecha" title="Enlace directo al 1. Empieza por el indicador y su fecha" translate="no">​</a></h3>
-<p>Antes de consultar nada, documenta el selector exacto y la hora de observacion:</p>
-<ul>
-<li class="">dominio, IP, URL, hash o correo;</li>
-<li class="">sistema que lo observo;</li>
-<li class="">zona horaria;</li>
-<li class="">frecuencia;</li>
-<li class="">muestra de logs suficiente para reproducir la consulta;</li>
-<li class="">alcance autorizado de la investigacion.</li>
-</ul>
-<p>La fecha importa tanto como el valor. Un <code>IOC</code> de hace seis meses puede ser util para entender una campana, pero peligroso como regla de bloqueo si el activo ha cambiado de propietario o funcion.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-threatfox-como-capa-de-contexto">2. Consulta ThreatFox como capa de contexto<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#2-consulta-threatfox-como-capa-de-contexto" class="hash-link" aria-label="Enlace directo al 2. Consulta ThreatFox como capa de contexto" title="Enlace directo al 2. Consulta ThreatFox como capa de contexto" translate="no">​</a></h3>
-<p>La <a href="https://threatfox.abuse.ch/api/" target="_blank" rel="noopener noreferrer" class=""><code>API comunitaria</code></a> permite buscar, recuperar IOCs recientes, consultar tipos admitidos y trabajar con etiquetas o familias de malware. No hace falta convertir el articulo en un manual de automatizacion agresiva: la idea sana es usar la API para reducir trabajo manual y mantener trazabilidad.</p>
-<p>Un pseudo-flujo defensivo seria:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada: dominio observado en logs propios</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta: buscar el indicador exacto en ThreatFox</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">salida esperada: estado, familia/etiquetas, fechas, confianza y referencias</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">decision: enriquecer el ticket, no cerrar el caso automaticamente</span><br></span></code></pre></div></div>
-<p>Si trabajas con SIEM, SOAR o MISP, lo importante no es "meter mas feeds", sino registrar de donde procede cada dato, cuando se consulto y que accion genero.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruza-con-telemetria-propia">3. Cruza con telemetria propia<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#3-cruza-con-telemetria-propia" class="hash-link" aria-label="Enlace directo al 3. Cruza con telemetria propia" title="Enlace directo al 3. Cruza con telemetria propia" translate="no">​</a></h3>
-<p>Un indicador externo gana valor cuando encaja con evidencias internas:</p>
-<ul>
-<li class="">varios endpoints lo contactan en una ventana corta;</li>
-<li class="">el proceso que origina la conexion no encaja con el uso normal;</li>
-<li class="">hay resoluciones DNS cercanas a otros indicadores;</li>
-<li class="">aparece una descarga, proceso hijo o persistencia asociada;</li>
-<li class="">el hash de una muestra local coincide con otra fuente independiente.</li>
-</ul>
-<p>Si no existe telemetria propia, ThreatFox sigue siendo util como contexto, pero no deberia convertirse en acusacion ni en bloqueo masivo sin pruebas adicionales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-las-exportaciones-como-material-vivo">4. Trata las exportaciones como material vivo<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#4-trata-las-exportaciones-como-material-vivo" class="hash-link" aria-label="Enlace directo al 4. Trata las exportaciones como material vivo" title="Enlace directo al 4. Trata las exportaciones como material vivo" translate="no">​</a></h3>
-<p>La pagina de <a href="https://threatfox.abuse.ch/export/" target="_blank" rel="noopener noreferrer" class=""><code>Export IOCs</code></a> ofrece formatos pensados para consumo defensivo, incluyendo reglas y listas. Tambien deja claro un principio sano: los indicadores caducan. ThreatFox limita ciertas exportaciones a ventanas recientes para reducir falsos positivos, y su FAQ indica que desde el <strong>1 de mayo de 2025</strong> expira IOCs antiguos de mas de seis meses en API y exportaciones, aunque sigan visibles en la interfaz.</p>
-<p>Esa politica es una pista operativa: si tu organizacion importa feeds, debe tener caducidad, revision y excepciones. Una lista que solo crece se convierte en ruido.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>ThreatFox</code> es potente, pero no elimina problemas clasicos de inteligencia de amenazas:</p>
-<ul>
-<li class=""><strong>Reasignacion de infraestructura</strong>: una IP marcada ayer puede pertenecer manana a otro cliente.</li>
-<li class=""><strong>Dominios recuperados o aparcados</strong>: un dominio historicamente malicioso puede dejar de servir malware.</li>
-<li class=""><strong>Etiquetas incompletas</strong>: una familia de malware puede estar mal nombrada, ser generica o cambiar con nueva informacion.</li>
-<li class=""><strong>Sesgo comunitario</strong>: se ve mejor lo que la comunidad reporta, no todo lo que existe.</li>
-<li class=""><strong>Contexto operativo ausente</strong>: un indicador publico no sabe como funciona tu red.</li>
-<li class=""><strong>Automatizacion excesiva</strong>: bloquear sin revisar puede romper servicios legitimos o generar fatiga de alertas.</li>
-</ul>
-<p>La pregunta clave no es "aparece o no aparece", sino "que peso tiene esta senal dentro de mi caso".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Trabajar con <code>IOCs</code> no autoriza a investigar personas, publicar datos privados ni contactar con terceros de forma imprudente. Algunas reglas simples ayudan:</p>
-<ul>
-<li class="">usa datos internos solo con autorizacion y minimizacion;</li>
-<li class="">no pegues logs sensibles completos en servicios externos;</li>
-<li class="">redacta usuarios, tokens, rutas internas y datos personales antes de compartir;</li>
-<li class="">comparte indicadores de malware con contexto suficiente y confianza honesta;</li>
-<li class="">evita atribuir a actores concretos si solo tienes infraestructura o un hash;</li>
-<li class="">conserva enlaces, hora de consulta y version de la fuente;</li>
-<li class="">revisa caducidad antes de convertir un indicador en regla persistente.</li>
-</ul>
-<p>La propia FAQ de ThreatFox pide no mezclar amenazas no cubiertas por su politica de envio. Si el caso es phishing, spam, fraude o abuso no relacionado con malware, busca una fuente mas adecuada en lugar de forzar la herramienta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>ThreatFox encaja especialmente bien para <code>IOCs</code> de malware. Segun la pregunta, puedes combinarlo con otras capas:</p>
-<ul>
-<li class=""><code>URLhaus</code>, para URLs de distribucion de malware;</li>
-<li class=""><code>MalwareBazaar</code>, para contexto de muestras y hashes;</li>
-<li class=""><code>MISP</code>, si necesitas compartir eventos estructurados con una comunidad cerrada;</li>
-<li class=""><code>AlienVault OTX</code>, si buscas pulsos comunitarios mas amplios;</li>
-<li class=""><code>VirusTotal</code>, cuando necesitas relaciones entre muestras, URLs, dominios y detecciones;</li>
-<li class="">telemetria propia de DNS, proxy, EDR y firewall, que siempre debe pesar mas que un feed externo aislado.</li>
-</ul>
-<p>El takeaway practico es sencillo: <code>ThreatFox</code> sirve para <strong>poner contexto y caducidad a indicadores de malware</strong>, no para sustituir investigacion. Si un <code>IOC</code> aparece en la plataforma, abre una hipotesis. Si ademas encaja con tus logs, tiempos y sistemas afectados, entonces tienes una pista defendible para priorizar respuesta.</p>
-<p>Como siguiente paso natural del blog, tendria sentido comparar <code>ThreatFox</code>, <code>URLhaus</code> y <code>MalwareBazaar</code> sobre un caso ficticio de triage de malware, separando bien URL, muestra, hash, dominio e infraestructura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/threatfox-osint-iocs-malware-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, pagina principal</a></li>
-<li class=""><a href="https://threatfox.abuse.ch/api/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, Community API</a></li>
-<li class=""><a href="https://threatfox.abuse.ch/faq/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, FAQ</a></li>
-<li class=""><a href="https://threatfox.abuse.ch/export/" target="_blank" rel="noopener noreferrer" class="">ThreatFox, Export IOCs</a></li>
-<li class=""><a href="https://abuse.ch/blog/introducing-threatfox/" target="_blank" rel="noopener noreferrer" class="">abuse.ch, Introducing ThreatFox</a></li>
-<li class=""><a href="https://github.com/abusech/ThreatFox" target="_blank" rel="noopener noreferrer" class="">Repositorio abusech/ThreatFox</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Threat Intelligence" term="Threat Intelligence"/>
-        <category label="Malware" term="Malware"/>
-        <category label="IoC" term="IoC"/>
-        <category label="Defensa" term="Defensa"/>
-        <category label="Verificacion" term="Verificacion"/>
     </entry>
 </feed>
