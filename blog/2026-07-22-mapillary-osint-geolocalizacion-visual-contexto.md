@@ -9,6 +9,9 @@ image: /img/blog/2026-07-22-mapillary-osint-geolocalizacion-visual-contexto.png
 
 ![Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias](/img/blog/2026-07-22-mapillary-osint-geolocalizacion-visual-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/mapillary-osint-geolocalizacion-visual-contexto.m4a)
+
+
 Una fotografía muestra una calle sin rótulos legibles: una marquesina, tres bolardos, una señal parcialmente tapada y una fachada en obras. Alguien asegura que fue tomada ayer junto a una sede concreta. La escena parece reconocible, pero **parecerse no basta**. Antes de ubicarla hay que encontrar una vista comparable, comprobar cuándo se capturó, separar rasgos estables de detalles pasajeros y buscar una segunda fuente independiente. `Mapillary` puede aportar esa vista a pie de calle, siempre que el analista trate cada imagen como una observación situada en el tiempo y no como una respuesta automática.
 
 <!-- truncate -->
