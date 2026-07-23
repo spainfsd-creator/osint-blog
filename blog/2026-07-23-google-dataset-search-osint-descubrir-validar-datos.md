@@ -9,6 +9,9 @@ image: /img/blog/2026-07-23-google-dataset-search-osint-descubrir-validar-datos.
 
 ![Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset](/img/blog/2026-07-23-google-dataset-search-osint-descubrir-validar-datos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-dataset-search-osint-descubrir-validar-datos.m4a)
+
+
 Un informe asegura que una ciudad ha reducido a la mitad sus incidentes de tráfico. La gráfica parece convincente, pero no explica si cambió la definición de «incidente», si faltan meses ni quién mantiene los datos. Antes de discutir la conclusión necesitamos encontrar el dataset original, su cobertura, su licencia y su metodología. `Google Dataset Search` puede acortar esa búsqueda, siempre que recordemos una regla sencilla: **encontrar un conjunto de datos no equivale a validarlo**.
 
 <!-- truncate -->
