@@ -4,10 +4,158 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 22 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 23 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Google Dataset Search en OSINT: descubrir datos sin confundir índice con evidencia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos</guid>
+            <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-23-google-dataset-search-osint-descubrir-validar-datos-284a51a8a6dd0a78e8ca1ef42d91ce4a.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un informe asegura que una ciudad ha reducido a la mitad sus incidentes de tráfico. La gráfica parece convincente, pero no explica si cambió la definición de «incidente», si faltan meses ni quién mantiene los datos. Antes de discutir la conclusión necesitamos encontrar el dataset original, su cobertura, su licencia y su metodología. <code>Google Dataset Search</code> puede acortar esa búsqueda, siempre que recordemos una regla sencilla: <strong>encontrar un conjunto de datos no equivale a validarlo</strong>.</p>
+<p>Este artículo propone un flujo responsable para localizar datos públicos y convertir un resultado de búsqueda en una fuente evaluable. Está pensado para periodismo de datos, investigación académica, debida diligencia y análisis de políticas públicas. No es una invitación a combinar datasets para identificar, perfilar o señalar a personas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-google-dataset-search-y-para-qué-sirve">Qué es Google Dataset Search y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#qu%C3%A9-es-google-dataset-search-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Google Dataset Search y para qué sirve" title="Enlace directo al Qué es Google Dataset Search y para qué sirve" translate="no">​</a></h2>
+<p><code>Google Dataset Search</code> es un buscador especializado en <strong>descubrir datasets publicados en la web</strong>. Google Research explica que el sistema agrega, normaliza y reconcilia metadatos que los proveedores incorporan a sus propias páginas mediante estándares abiertos. En particular, se apoya en descripciones estructuradas como <code>Dataset</code> y <code>DataCatalog</code> de <code>Schema.org</code>.</p>
+<p>La distinción importa:</p>
+<ul>
+<li class="">Dataset Search ayuda a localizar la ficha de un conjunto de datos;</li>
+<li class="">el proveedor sigue siendo responsable de los datos, su mantenimiento y sus condiciones;</li>
+<li class="">el resultado puede conducir a un portal público, un repositorio científico, una organización o una empresa;</li>
+<li class="">la calidad del índice depende, en parte, de la calidad de los metadatos publicados en origen.</li>
+</ul>
+<p>No es una base de datos única ni una auditoría editorial de todo lo que indexa. Es una <strong>capa de descubrimiento</strong> sobre un ecosistema abierto y heterogéneo. Un estudio de usuarios publicado por Google Research en 2024 destacó precisamente ese valor transversal, pero también las dificultades de interpretar conjuntos muy distintos y aprender a buscarlos con criterio.</p>
+<p>Para OSINT, resulta útil cuando la pregunta exige:</p>
+<ol>
+<li class="">localizar posibles fuentes de datos sobre un tema, lugar o periodo;</li>
+<li class="">descubrir el repositorio original detrás de una tabla citada por terceros;</li>
+<li class="">comparar cobertura, formatos, licencias y fechas de actualización;</li>
+<li class="">hallar un dataset complementario para contrastar una afirmación;</li>
+<li class="">documentar por qué se eligió una fuente y se descartaron otras.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-afirmación-municipal">Caso de uso legítimo: comprobar una afirmación municipal<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#caso-de-uso-leg%C3%ADtimo-comprobar-una-afirmaci%C3%B3n-municipal" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una afirmación municipal" title="Enlace directo al Caso de uso legítimo: comprobar una afirmación municipal" translate="no">​</a></h2>
+<p>Imaginemos la ciudad ficticia de <code>Puerto Claro</code>. Una nota de prensa afirma que los incidentes con bicicletas compartidas descendieron un <code>48 %</code> entre 2024 y 2025. El documento enlaza una infografía, pero no a los datos.</p>
+<p>La pregunta de investigación no debería ser «¿dónde encuentro una cifra que confirme el 48 %?», sino algo más neutral:</p>
+<blockquote>
+<p>¿Qué datos públicos permiten comparar incidentes de bicicletas compartidas en Puerto Claro entre 2024 y 2025, y son realmente comparables?</p>
+</blockquote>
+<p>Una búsqueda inicial puede combinar conceptos observables: <code>shared bicycle incidents Puerto Claro 2024 2025 dataset</code>. Si no funciona, conviene variar el vocabulario —<code>crashes</code>, <code>collisions</code>, <code>mobility</code>, <code>open data</code>— sin introducir todavía la conclusión esperada.</p>
+<p>Supongamos que aparecen tres candidatos:</p>
+<ul>
+<li class="">un CSV del portal municipal actualizado cada trimestre;</li>
+<li class="">un dataset universitario que termina en 2023;</li>
+<li class="">una copia republicada por una plataforma comercial sin metodología visible.</li>
+</ul>
+<p>El primer resultado parece el mejor, pero aún no prueba nada. Debemos abrir la página del proveedor y averiguar si «incidente» incluye avisos sin daños, si cambió el sistema de notificación, si 2025 está completo y si los registros se deduplicaron. El dataset universitario puede servir para contexto histórico; la copia comercial, como pista para localizar el origen, no como sustituto automático.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-resultado-a-fuente-trazable">Flujo recomendado: de resultado a fuente trazable<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#flujo-recomendado-de-resultado-a-fuente-trazable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de resultado a fuente trazable" title="Enlace directo al Flujo recomendado: de resultado a fuente trazable" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribir-la-necesidad-de-datos-antes-de-buscar">1. Escribir la necesidad de datos antes de buscar<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#1-escribir-la-necesidad-de-datos-antes-de-buscar" class="hash-link" aria-label="Enlace directo al 1. Escribir la necesidad de datos antes de buscar" title="Enlace directo al 1. Escribir la necesidad de datos antes de buscar" translate="no">​</a></h3>
+<p>Define en una frase:</p>
+<ul>
+<li class="">la <strong>unidad de análisis</strong>: incidentes, contratos, estaciones o mediciones;</li>
+<li class="">el <strong>ámbito geográfico</strong>;</li>
+<li class="">el <strong>periodo</strong>;</li>
+<li class="">las variables mínimas;</li>
+<li class="">el nivel de agregación aceptable;</li>
+<li class="">la finalidad legítima de la investigación.</li>
+</ul>
+<p>Esta ficha evita que adaptes la pregunta al primer dataset atractivo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-buscar-conceptos-sinónimos-y-entidades">2. Buscar conceptos, sinónimos y entidades<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#2-buscar-conceptos-sin%C3%B3nimos-y-entidades" class="hash-link" aria-label="Enlace directo al 2. Buscar conceptos, sinónimos y entidades" title="Enlace directo al 2. Buscar conceptos, sinónimos y entidades" translate="no">​</a></h3>
+<p>Empieza con términos concretos y prueba variantes en el idioma del posible proveedor. Los títulos institucionales no siempre usan el vocabulario periodístico. Una administración puede publicar <code>siniestros viales</code>, mientras que un repositorio académico habla de <code>road safety events</code>.</p>
+<p>Registra la consulta y la fecha. Dataset Search cambia a medida que los proveedores publican, retiran o mejoran metadatos; una búsqueda reproducible necesita algo más que una captura.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-abrir-siempre-la-página-de-origen">3. Abrir siempre la página de origen<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#3-abrir-siempre-la-p%C3%A1gina-de-origen" class="hash-link" aria-label="Enlace directo al 3. Abrir siempre la página de origen" title="Enlace directo al 3. Abrir siempre la página de origen" translate="no">​</a></h3>
+<p>No evalúes un dataset solo con la tarjeta del buscador. En la ficha original comprueba:</p>
+<ul>
+<li class="">organización responsable y canal de contacto;</li>
+<li class="">descripción de variables y metodología;</li>
+<li class="">cobertura espacial y temporal;</li>
+<li class="">fecha de publicación, actualización y versión;</li>
+<li class="">formatos y tamaño;</li>
+<li class="">licencia y restricciones de uso;</li>
+<li class="">identificador persistente, como un DOI, si existe;</li>
+<li class="">historial de cambios, documentación o código de preparación.</li>
+</ul>
+<p><code>Schema.org</code> contempla propiedades como licencia, proveedor, cobertura espacial, cobertura temporal, versión e identificador. Que una propiedad pueda publicarse no significa que esté presente o sea correcta: hay que verificarla en origen.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-descargar-una-muestra-y-perfilarla">4. Descargar una muestra y perfilarla<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#4-descargar-una-muestra-y-perfilarla" class="hash-link" aria-label="Enlace directo al 4. Descargar una muestra y perfilarla" title="Enlace directo al 4. Descargar una muestra y perfilarla" translate="no">​</a></h3>
+<p>Antes de construir una historia, inspecciona:</p>
+<ul>
+<li class="">nombres y tipos de columnas;</li>
+<li class="">valores nulos y duplicados;</li>
+<li class="">rangos de fechas;</li>
+<li class="">categorías inesperadas;</li>
+<li class="">cambios bruscos en el volumen;</li>
+<li class="">codificación, separadores y unidades;</li>
+<li class="">presencia de datos personales o cuasiidentificadores.</li>
+</ul>
+<p>Guarda el archivo sin modificar y calcula un hash. Trabaja sobre una copia, conserva la URL de descarga y anota la hora. Si el proveedor reemplaza el fichero sin versionarlo, al menos podrás demostrar qué examinaste.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-leer-la-metodología-como-parte-del-dato">5. Leer la metodología como parte del dato<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#5-leer-la-metodolog%C3%ADa-como-parte-del-dato" class="hash-link" aria-label="Enlace directo al 5. Leer la metodología como parte del dato" title="Enlace directo al 5. Leer la metodología como parte del dato" translate="no">​</a></h3>
+<p>Una columna no se interpreta sola. Pregunta cómo se recogió, quién podía quedar fuera y qué cambió entre periodos. Un descenso puede reflejar menos incidencias, pero también una nueva app, una definición más estrecha, retrasos de carga o una huelga de personal.</p>
+<p>El diccionario de datos, las notas técnicas y el calendario de actualización son evidencia metodológica. Si faltan, la incertidumbre debe quedar visible en el análisis.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-triangular-con-una-fuente-independiente">6. Triangular con una fuente independiente<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#6-triangular-con-una-fuente-independiente" class="hash-link" aria-label="Enlace directo al 6. Triangular con una fuente independiente" title="Enlace directo al 6. Triangular con una fuente independiente" translate="no">​</a></h3>
+<p>Contrasta el patrón con otra capa:</p>
+<ul>
+<li class="">memorias oficiales;</li>
+<li class="">actas o presupuestos;</li>
+<li class="">otro portal institucional;</li>
+<li class="">publicaciones académicas;</li>
+<li class="">documentación del sistema que genera los registros;</li>
+<li class="">series agregadas de una autoridad distinta.</li>
+</ul>
+<p>La segunda fuente no tiene que repetir cada cifra. Puede confirmar que la definición cambió, que hubo meses incompletos o que el ámbito geográfico no coincide.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-crear-una-ficha-de-procedencia">7. Crear una ficha de procedencia<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#7-crear-una-ficha-de-procedencia" class="hash-link" aria-label="Enlace directo al 7. Crear una ficha de procedencia" title="Enlace directo al 7. Crear una ficha de procedencia" translate="no">​</a></h3>
+<p>Para cada candidato, conserva al menos:</p>
+<table><thead><tr><th>Campo</th><th>Qué registrar</th></tr></thead><tbody><tr><td>Consulta</td><td>Términos usados y fecha</td></tr><tr><td>Resultado</td><td>URL de Dataset Search o posición observada</td></tr><tr><td>Fuente primaria</td><td>URL y organización responsable</td></tr><tr><td>Versión</td><td>Fecha, edición o identificador</td></tr><tr><td>Cobertura</td><td>Geografía, periodo y población</td></tr><tr><td>Licencia</td><td>Condiciones y atribución</td></tr><tr><td>Transformaciones</td><td>Limpieza, filtros y cálculos</td></tr><tr><td>Integridad</td><td>Hash del archivo original</td></tr><tr><td>Límites</td><td>Sesgos, faltantes y dudas abiertas</td></tr></tbody></table>
+<p>Esta ficha convierte una búsqueda puntual en un proceso que otra persona puede revisar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metadatos-ricos-no-garantizan-datos-buenos">Metadatos ricos no garantizan datos buenos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#metadatos-ricos-no-garantizan-datos-buenos" class="hash-link" aria-label="Enlace directo al Metadatos ricos no garantizan datos buenos" title="Enlace directo al Metadatos ricos no garantizan datos buenos" translate="no">​</a></h3>
+<p>Una ficha completa puede describir con precisión un dataset deficiente. También puede ocurrir lo contrario: una fuente pública sólida puede tener metadatos pobres y aparecer peor posicionada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="copias-y-versiones-pueden-parecer-equivalentes">Copias y versiones pueden parecer equivalentes<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#copias-y-versiones-pueden-parecer-equivalentes" class="hash-link" aria-label="Enlace directo al Copias y versiones pueden parecer equivalentes" title="Enlace directo al Copias y versiones pueden parecer equivalentes" translate="no">​</a></h3>
+<p>Un mismo conjunto puede estar en el portal original, un repositorio académico y varios agregadores. Comprueba si son espejos, derivados o versiones distintas. La fecha de la página no siempre es la fecha de los datos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-en-el-buscador-no-demuestra-inexistencia">La ausencia en el buscador no demuestra inexistencia<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#la-ausencia-en-el-buscador-no-demuestra-inexistencia" class="hash-link" aria-label="Enlace directo al La ausencia en el buscador no demuestra inexistencia" title="Enlace directo al La ausencia en el buscador no demuestra inexistencia" translate="no">​</a></h3>
+<p>El proveedor puede no publicar marcado estructurado, bloquear el rastreo o usar una página difícil de indexar. Complementa con catálogos oficiales, búsquedas web normales y repositorios sectoriales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-licencia-visible-puede-ser-incompleta">La licencia visible puede ser incompleta<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#la-licencia-visible-puede-ser-incompleta" class="hash-link" aria-label="Enlace directo al La licencia visible puede ser incompleta" title="Enlace directo al La licencia visible puede ser incompleta" translate="no">​</a></h3>
+<p>No confundas «descargable» con «reutilizable sin condiciones». Lee la licencia completa, sus requisitos de atribución y las posibles restricciones sobre datos personales, redistribución o uso comercial.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-agregados-también-pueden-causar-daño">Los datos agregados también pueden causar daño<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#los-datos-agregados-tambi%C3%A9n-pueden-causar-da%C3%B1o" class="hash-link" aria-label="Enlace directo al Los datos agregados también pueden causar daño" title="Enlace directo al Los datos agregados también pueden causar daño" translate="no">​</a></h3>
+<p>Cruzar varias fuentes puede volver identificables grupos pequeños. Minimiza variables, trabaja con el nivel de detalle necesario y documenta una evaluación de riesgo antes de publicar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Busca desde un perfil de investigación separado cuando el tema sea sensible.</li>
+<li class="">No subas datasets confidenciales a servicios de terceros para «analizarlos más rápido».</li>
+<li class="">Evita descargar campos personales que no necesitas.</li>
+<li class="">No intentes reidentificar registros anonimizados.</li>
+<li class="">Respeta licencias, términos y límites razonables de acceso.</li>
+<li class="">Separa hechos observados, transformaciones propias e inferencias.</li>
+<li class="">Redacta o agrega resultados cuando el detalle pueda perjudicar a personas.</li>
+<li class="">Conserva una bitácora suficiente para auditar el trabajo, pero protege copias locales y credenciales.</li>
+</ul>
+<p>El objetivo no es acumular datos. Es responder una pregunta legítima con la mínima exposición necesaria y una cadena de procedencia clara.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Dataset Search funciona mejor como puerta de entrada que como única herramienta. Según el caso, conviene combinarlo con:</p>
+<ul>
+<li class="">portales oficiales como <code>datos.gob.es</code>, el catálogo europeo <code>data.europa.eu</code> o catálogos municipales;</li>
+<li class="">repositorios científicos como <code>Zenodo</code>, <code>Figshare</code> o <code>Dataverse</code>;</li>
+<li class=""><code>DataCite</code> para seguir DOI y metadatos de investigación;</li>
+<li class=""><code>Schema.org</code> para entender qué describe la ficha;</li>
+<li class=""><code>OpenRefine</code>, <code>Datasette</code> o <code>SQLite</code> para perfilar, limpiar y consultar una copia con trazabilidad.</li>
+</ul>
+<p>La próxima vez que encuentres el dataset «perfecto», no empieces por la gráfica. Empieza por una ficha de procedencia y formula cinco preguntas: <strong>quién lo publica, qué mide, a quién deja fuera, cuándo se actualizó y bajo qué licencia puede reutilizarse</strong>. Si una de esas respuestas falta, no has encontrado una evidencia terminada; has encontrado una pista que aún debe validarse.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://datasetsearch.research.google.com/" target="_blank" rel="noopener noreferrer" class="">Google Dataset Search</a></li>
+<li class=""><a href="https://research.google/pubs/google-dataset-search-building-a-search-engine-for-datasets-in-an-open-web-ecosystem/" target="_blank" rel="noopener noreferrer" class="">Google Dataset Search: Building a search engine for datasets in an open Web ecosystem</a></li>
+<li class=""><a href="https://research.google/blog/an-analysis-of-online-datasets-using-dataset-search-published-in-part-as-a-dataset/" target="_blank" rel="noopener noreferrer" class="">An Analysis of Online Datasets Using Dataset Search</a></li>
+<li class=""><a href="https://research.google/pubs/discovering-datasets-on-the-web-scale-challenges-and-recommendations-for-google-dataset-search/" target="_blank" rel="noopener noreferrer" class="">Discovering Datasets on the Web Scale: Challenges and Recommendations for Google Dataset Search</a></li>
+<li class=""><a href="https://schema.org/Dataset" target="_blank" rel="noopener noreferrer" class="">Schema.org: Dataset</a></li>
+<li class=""><a href="https://schema.org/DataCatalog" target="_blank" rel="noopener noreferrer" class="">Schema.org: DataCatalog</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Investigacion</category>
+            <category>Metodologia</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Mapillary en OSINT: geolocalización visual, secuencias y contexto antes de situar una imagen]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto</link>
@@ -2758,121 +2906,6 @@
             <category>Automatizacion</category>
             <category>Verificacion</category>
             <category>Defensa</category>
-        </item>
-        <item>
-            <title><![CDATA[Tranco en OSINT: rankings de dominios reproducibles sin convertir popularidad en evidencia]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto</guid>
-            <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando rankings reproducibles de dominios, tablas anonimas, linea temporal y grafos web sin marcas reales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-06-30-tranco-osint-rankings-dominios-reproducibles-contexto-d2a88f152de942b2019da405fd40b6b7.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/tranco-osint-rankings-dominios-reproducibles-contexto.m4a">Descargar el podcast</a></p>
-<p>En una investigacion web, decir que un dominio es "popular" puede parecer un dato menor. No lo es. Ese ranking puede decidir que muestras analizas, que dominios excluyes como ruido, que infraestructura consideras normal y que conclusiones acabas defendiendo. Si la lista cambia cada dia, no puedes reproducir tu trabajo; si la lista se manipula con facilidad, puedes construir un informe sobre arena.</p>
-<p><code>Tranco</code> encaja justo en ese punto: no sirve para descubrir secretos ni para atribuir actores, sino para trabajar con rankings publicos de dominios de forma mas estable, citable y reproducible. Revisando su web y documentacion el <strong>30 de junio de 2026</strong>, el proyecto recomienda usar su lista estandar mas reciente: un millon de dominios obtenidos promediando rankings durante los ultimos 30 dias, con identificadores permanentes, descargas historicas, consulta de ranking por dominio, <code>API</code>, paquetes de codigo y acceso mediante <code>BigQuery</code>.</p>
-<p>Este articulo esta escrito para analistas defensivos, investigadores, periodistas de datos y equipos que necesitan muestrear o contextualizar dominios sin exagerar lo que un ranking puede demostrar. No contiene instrucciones para intrusiones, doxxing, acoso ni automatizacion contra terceros.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-tranco-y-para-que-sirve">Que es Tranco y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#que-es-tranco-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es Tranco y para que sirve" title="Enlace directo al Que es Tranco y para que sirve" translate="no">​</a></h2>
-<p><a href="https://tranco-list.eu/" target="_blank" rel="noopener noreferrer" class=""><code>Tranco</code></a> es un ranking de sitios web orientado a investigacion. Nacio como respuesta a problemas clasicos de listas de popularidad: volatilidad, poca transparencia, dificultad para citar una version concreta y riesgo de manipulacion. El paper original, publicado en <code>NDSS 2019</code>, explicaba que las listas populares usadas en estudios de seguridad y privacidad podian discrepar mucho entre si y alterar resultados si no se controlaban bien.</p>
-<p>La idea practica es sencilla: si vas a medir algo sobre la web, necesitas saber exactamente que dominios entraron en la muestra y por que. <code>Tranco</code> ayuda a responder preguntas como estas:</p>
-<ul>
-<li class="">que version concreta de una lista de dominios use;</li>
-<li class="">si mi muestra es de dominios raiz o incluye subdominios;</li>
-<li class="">durante que ventana temporal se agrego el ranking;</li>
-<li class="">como citar la lista para que otro analista pueda repetir el trabajo;</li>
-<li class="">si un dominio aparece en una posicion aproximada o ha variado con el tiempo;</li>
-<li class="">que limites metodologicos debo explicar antes de convertir "popular" en "importante".</li>
-</ul>
-<p>Para OSINT, el valor no esta en tratar el ranking como verdad absoluta. Esta en usarlo como una capa de contexto cuando necesitas priorizar, muestrear o comparar dominios publicos con trazabilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que el equipo de seguridad de <code>Liria Seguros</code>, una empresa ficticia, quiere revisar la exposicion de formularios de contacto en webs de su sector. No quiere rastrear personas ni forzar servicios. Quiere construir una muestra defendible de dominios para una revision pasiva y documentada.</p>
-<p>Un planteamiento prudente podria ser:</p>
-<table><thead><tr><th>Decision</th><th>Ejemplo ficticio</th><th>Por que importa</th></tr></thead><tbody><tr><td>Lista base</td><td><code>Tranco Top 100k</code> de una fecha concreta</td><td>Evita una muestra improvisada</td></tr><tr><td>Version</td><td>ID permanente de la lista</td><td>Permite reproducir el estudio</td></tr><tr><td>Alcance</td><td>Dominios raiz, sin subdominios</td><td>Reduce ruido y ambiguedad</td></tr><tr><td>Observacion</td><td>Cabeceras, tecnologias visibles, enlaces publicos</td><td>Mantiene el flujo pasivo</td></tr><tr><td>Conclusion</td><td>Tendencias agregadas, no acusaciones por dominio</td><td>Evita sobreatribuir</td></tr></tbody></table>
-<p>El resultado sano no seria "estos dominios son seguros" ni "estos dominios son sospechosos". Seria algo mas humilde: "en esta muestra reproducible, con esta fecha y estas reglas, observamos estos patrones visibles".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-antes-de-descargar-la-lista">1. Define la pregunta antes de descargar la lista<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#1-define-la-pregunta-antes-de-descargar-la-lista" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta antes de descargar la lista" title="Enlace directo al 1. Define la pregunta antes de descargar la lista" translate="no">​</a></h3>
-<p><code>Tranco</code> no arregla una pregunta mal formulada. Antes de tocar datos, escribe que intentas medir:</p>
-<ul>
-<li class="">prevalencia de una tecnologia visible;</li>
-<li class="">comparacion de respuestas HTTP entre dominios populares;</li>
-<li class="">validacion de un conjunto de dominios frente a una referencia estable;</li>
-<li class="">seleccion de una muestra para revision manual;</li>
-<li class="">exclusion razonada de dominios muy populares en un flujo de triage.</li>
-</ul>
-<p>Si la pregunta es sobre riesgo, propiedad, intencion o impacto, un ranking de popularidad solo aporta contexto. No demuestra ninguna de esas cosas por si solo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elige-configuracion-y-fecha-con-cuidado">2. Elige configuracion y fecha con cuidado<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#2-elige-configuracion-y-fecha-con-cuidado" class="hash-link" aria-label="Enlace directo al 2. Elige configuracion y fecha con cuidado" title="Enlace directo al 2. Elige configuracion y fecha con cuidado" translate="no">​</a></h3>
-<p>La web de <code>Tranco</code> permite recuperar la lista estandar, listas con subdominios, versiones pasadas y listas personalizadas. Su metodologia explica que la configuracion estandar busca mejorar acuerdo y estabilidad agregando rankings durante una ventana temporal y aplicando una regla de puntuacion.</p>
-<p>En un informe OSINT, deja por escrito:</p>
-<ul>
-<li class="">fecha de descarga;</li>
-<li class="">ID permanente de la lista;</li>
-<li class="">si incluye subdominios;</li>
-<li class="">tamano usado: <code>Top 10k</code>, <code>Top 100k</code>, <code>Top 1M</code> u otro corte;</li>
-<li class="">motivo del corte;</li>
-<li class="">cualquier filtro adicional aplicado despues.</li>
-</ul>
-<p>Ese detalle puede parecer burocratico, pero es lo que separa una muestra defendible de una captura imposible de repetir.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-el-ranking-como-contexto-no-como-veredicto">3. Usa el ranking como contexto, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#3-usa-el-ranking-como-contexto-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 3. Usa el ranking como contexto, no como veredicto" title="Enlace directo al 3. Usa el ranking como contexto, no como veredicto" translate="no">​</a></h3>
-<p>Un dominio alto en <code>Tranco</code> suele indicar visibilidad o uso amplio, no legitimidad. Un dominio bajo o ausente no implica malicia, irrelevancia ni abandono. La lectura correcta depende de la pregunta:</p>
-<ul>
-<li class="">para muestreo web, puede ayudarte a evitar sesgos de seleccion;</li>
-<li class="">para triage defensivo, puede explicar por que un dominio aparece en muchos entornos;</li>
-<li class="">para investigacion de infraestructura, puede ayudarte a distinguir servicios muy comunes de hallazgos raros;</li>
-<li class="">para periodismo de datos, puede dar un marco reproducible a una medicion agregada.</li>
-</ul>
-<p>Pero no conviene usarlo como whitelist ciega. El propio paper de <code>Tranco</code> nacio, en parte, del problema de usar rankings populares sin entender su estabilidad, representatividad y manipulabilidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-documenta-cada-transformacion">4. Documenta cada transformacion<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#4-documenta-cada-transformacion" class="hash-link" aria-label="Enlace directo al 4. Documenta cada transformacion" title="Enlace directo al 4. Documenta cada transformacion" translate="no">​</a></h3>
-<p>Una lista descargada rara vez se usa tal cual. Normalmente se corta, se cruza, se filtra o se enriquece. Cada transformacion debe quedar registrada:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada: Tranco list ID concreto</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">corte: primeros 100.000 dominios</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">normalizacion: dominios en minusculas, sin esquema ni ruta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">exclusion: dominios internos de prueba y duplicados</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">enrichment: tecnologia visible mediante fuente pasiva</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">salida: tabla agregada sin datos personales</span><br></span></code></pre></div></div>
-<p>Si otro analista no puede reconstruir el camino desde la lista original hasta tu tabla final, el ranking ya no aporta reproducibilidad real.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Tranco</code> mejora varias debilidades de rankings anteriores, pero no elimina los problemas de interpretacion:</p>
-<ul>
-<li class=""><strong>Popularidad no es legitimidad</strong>: un dominio muy visitado puede alojar contenido comprometido, abusado o simplemente irrelevante para tu caso.</li>
-<li class=""><strong>Ausencia no es prueba</strong>: dominios nuevos, regionales, nicho o internos pueden no aparecer aunque sean importantes.</li>
-<li class=""><strong>El corte importa</strong>: <code>Top 10k</code> y <code>Top 1M</code> responden preguntas muy distintas.</li>
-<li class=""><strong>Subdominios cambian el significado</strong>: incluirlos puede ser util para ciertos estudios, pero tambien aumenta ruido y mezcla capas.</li>
-<li class=""><strong>Los rankings tienen sesgos de fuente</strong>: cualquier agregacion depende de los proveedores y senales disponibles.</li>
-<li class=""><strong>La estabilidad tiene coste</strong>: suavizar fluctuaciones ayuda a reproducir, pero puede retrasar cambios bruscos de popularidad.</li>
-</ul>
-<p>La mejor practica es no presentar <code>Tranco</code> como "la web". Presentalo como una muestra concreta, con configuracion, fecha y limites.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Trabajar con rankings de dominios no autoriza a rastrear usuarios, perfilar personas ni lanzar escaneos agresivos. Algunas reglas ayudan a mantener el trabajo en una zona responsable:</p>
-<ul>
-<li class="">usa dominios publicos como unidades de analisis, no personas;</li>
-<li class="">evita publicar listas de objetivos sensibles si no hay interes publico claro;</li>
-<li class="">no conviertas un ranking en una lista de ataque;</li>
-<li class="">respeta <code>robots.txt</code>, terminos de uso y limites de consulta cuando hagas mediciones;</li>
-<li class="">separa muestreo, observacion, inferencia y conclusion;</li>
-<li class="">anonimiza resultados cuando el analisis agregado sea suficiente;</li>
-<li class="">conserva el ID de lista, fecha y scripts para auditoria interna.</li>
-</ul>
-<p>La disciplina clave es proporcionalidad. Si tu pregunta puede responderse con agregados, no necesitas exponer dominios concretos ni ampliar el tratamiento de datos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Tranco</code> funciona bien cuando necesitas una referencia reproducible de popularidad web. Segun el caso, puede combinarse con:</p>
-<ul>
-<li class=""><code>Common Crawl</code>, si necesitas contenido web historico o corpus amplio;</li>
-<li class=""><code>HTTP Archive</code>, si buscas mediciones tecnicas agregadas de la web;</li>
-<li class=""><code>urlscan.io</code>, para observacion puntual de carga, redirecciones y recursos;</li>
-<li class=""><code>BuiltWith</code> o <code>Wappalyzer</code>, si el foco es huella tecnologica visible;</li>
-<li class=""><code>Datasette</code> o <code>SQLite</code>, si quieres convertir mediciones en una base consultable;</li>
-<li class="">notas metodologicas propias, porque ninguna lista sustituye el diseno de investigacion.</li>
-</ul>
-<p>El takeaway practico es este: <code>Tranco</code> sirve para <strong>hacer mas reproducibles tus muestras de dominios</strong>, no para decidir que es verdad, seguro o malicioso. Si lo citas con fecha, ID, corte y limites, mejora la calidad de tus informes. Si lo usas como oraculo, solo cambia una intuicion fragil por otra con apariencia de tabla.</p>
-<p>Como siguiente paso natural del blog, tendria sentido publicar un flujo comparado para construir una muestra web reproducible con <code>Tranco</code>, guardar resultados en <code>SQLite</code> y documentar cada transformacion sin perder trazabilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/tranco-osint-rankings-dominios-reproducibles-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://tranco-list.eu/" target="_blank" rel="noopener noreferrer" class="">Tranco, pagina principal</a></li>
-<li class=""><a href="https://tranco-list.eu/methodology" target="_blank" rel="noopener noreferrer" class="">Tranco, metodologia</a></li>
-<li class=""><a href="https://arxiv.org/abs/1806.01156" target="_blank" rel="noopener noreferrer" class="">Tranco, paper en arXiv</a></li>
-<li class=""><a href="https://www.ndss-symposium.org/ndss-paper/tranco-a-research-oriented-top-sites-ranking-hardened-against-manipulation/" target="_blank" rel="noopener noreferrer" class="">Tranco, paper NDSS 2019</a></li>
-<li class=""><a href="https://github.com/DistriNet/tranco-list" target="_blank" rel="noopener noreferrer" class="">Repositorio DistriNet/tranco-list</a></li>
-<li class=""><a href="https://tranco-list.eu/assets/tranco-ndss19.pdf" target="_blank" rel="noopener noreferrer" class="">Tranco, PDF del paper</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>Verificacion</category>
-            <category>Datos</category>
-            <category>Research</category>
-            <category>Investigacion</category>
         </item>
     </channel>
 </rss>
