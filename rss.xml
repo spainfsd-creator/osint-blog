@@ -4,10 +4,167 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Thu, 23 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 24 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Wikimedia Commons en OSINT: procedencia, metadatos e historial antes de reutilizar una imagen]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto</guid>
+            <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contexto-f1d57acdaf5f985f7721bc3ccdae22c7.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una fotografía antigua aparece en un informe y parece resolver el caso: edificio correcto, década plausible y una descripción muy precisa. Además, procede de Wikimedia Commons, así que la tentación es tratarla como una imagen ya verificada. Es justo ahí donde empieza el trabajo. Commons puede ofrecer <strong>ficha, autoría declarada, historial de versiones, categorías, datos estructurados y licencia</strong>, pero ninguna de esas capas convierte por sí sola una descripción comunitaria en un hecho probado.</p>
+<p>Usado con método, Wikimedia Commons es mucho más que un banco de imágenes. Es un punto de partida para reconstruir la procedencia de un archivo, localizar colecciones relacionadas y documentar qué se sabía —o qué se afirmaba— en un momento concreto. Usado deprisa, también puede amplificar fechas heredadas, atribuciones circulares y categorías demasiado optimistas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-wikimedia-commons-y-para-qué-sirve-en-osint">Qué es Wikimedia Commons y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#qu%C3%A9-es-wikimedia-commons-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Wikimedia Commons y para qué sirve en OSINT" title="Enlace directo al Qué es Wikimedia Commons y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons</a> es el repositorio multimedia libre del ecosistema Wikimedia. Aloja fotografías, ilustraciones, mapas, audio, vídeo y documentos digitalizados. Para una investigación legítima resulta útil en tres tareas:</p>
+<ul>
+<li class=""><strong>Descubrimiento:</strong> localizar archivos mediante texto, categorías y conceptos relacionados.</li>
+<li class=""><strong>Contextualización:</strong> leer descripciones, fechas, autorías, fuentes, categorías y elementos representados.</li>
+<li class=""><strong>Trazabilidad:</strong> conservar la URL de la ficha, la revisión consultada y los datos técnicos del archivo.</li>
+</ul>
+<p>Su <a href="https://commons.wikimedia.org/wiki/Commons:Media_search" target="_blank" rel="noopener noreferrer" class="">buscador multimedia</a> no se limita al nombre del fichero. MediaSearch combina categorías, texto wiki, datos estructurados y etiquetas o alias de Wikidata. Esto mejora el descubrimiento multilingüe, pero también introduce una precaución importante: un resultado puede aparecer por una relación semántica amplia, no porque la imagen demuestre literalmente todos los términos de la consulta.</p>
+<p>Cada archivo tiene una página propia. En ella pueden convivir dos capas:</p>
+<ol>
+<li class=""><strong>Información de la ficha:</strong> descripción en texto, fuente, autor, fecha, permiso, licencia y categorías.</li>
+<li class=""><strong>Datos estructurados:</strong> pies multilingües y declaraciones como «representa», creador, licencia o valoración de calidad.</li>
+</ol>
+<p>La <a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/en" target="_blank" rel="noopener noreferrer" class="">documentación de datos estructurados</a> explica que esta segunda capa está pensada para ser legible por máquinas y consultable a escala. Eso la hace valiosa para filtrar y agrupar, no infalible: las declaraciones pueden estar incompletas, haber cambiado o necesitar una fuente externa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-fotografía-histórica-ficticia">Caso de uso legítimo: verificar una fotografía histórica ficticia<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#caso-de-uso-leg%C3%ADtimo-verificar-una-fotograf%C3%ADa-hist%C3%B3rica-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una fotografía histórica ficticia" title="Enlace directo al Caso de uso legítimo: verificar una fotografía histórica ficticia" translate="no">​</a></h2>
+<p>Imaginemos que una asociación cultural de <strong>Villa del Olmo</strong>, municipio inventado, recibe una fotografía atribuida a la inauguración de su estación en 1932. Quiere utilizarla en una exposición y comprobar tres cosas:</p>
+<ul>
+<li class="">si representa realmente esa estación;</li>
+<li class="">si la fecha de 1932 tiene respaldo;</li>
+<li class="">y bajo qué condiciones puede reproducirse.</li>
+</ul>
+<p>Una búsqueda en Commons devuelve un archivo titulado «Estación de Villa del Olmo, 1932». La coincidencia es prometedora, pero todavía no es una conclusión. El título pudo elegirlo quien subió el archivo décadas después; la fecha puede referirse a la toma, a una copia o a una estimación; y una categoría geográfica puede haber sido añadida por semejanza.</p>
+<p>El objetivo responsable no es identificar personas ni exponer datos privados. Es <strong>evaluar una pieza patrimonial</strong>, documentar incertidumbres y decidir si la evidencia permite usarla en una exposición.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-verificación">Flujo recomendado de verificación<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#flujo-recomendado-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de verificación" title="Enlace directo al Flujo recomendado de verificación" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-hipótesis-separadas">1. Formula hipótesis separadas<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#1-formula-hip%C3%B3tesis-separadas" class="hash-link" aria-label="Enlace directo al 1. Formula hipótesis separadas" title="Enlace directo al 1. Formula hipótesis separadas" translate="no">​</a></h3>
+<p>Antes de buscar, divide la afirmación en componentes verificables:</p>
+<ul>
+<li class=""><strong>Lugar:</strong> ¿qué rasgos arquitectónicos o geográficos permiten situar la escena?</li>
+<li class=""><strong>Fecha:</strong> ¿qué intervalo temporal sugieren el tren, la señalización, la ropa o el soporte fotográfico?</li>
+<li class=""><strong>Autoría y custodia:</strong> ¿quién creó el original, quién conserva la copia y quién la subió?</li>
+<li class=""><strong>Derechos:</strong> ¿qué licencia o situación de dominio público se declara y sobre qué fundamento?</li>
+</ul>
+<p>Separar hipótesis evita que un título convincente arrastre todas las respuestas a la vez.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-por-conceptos-y-explora-categorías">2. Busca por conceptos y explora categorías<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#2-busca-por-conceptos-y-explora-categor%C3%ADas" class="hash-link" aria-label="Enlace directo al 2. Busca por conceptos y explora categorías" title="Enlace directo al 2. Busca por conceptos y explora categorías" translate="no">​</a></h3>
+<p>Empieza en MediaSearch con términos amplios y variantes lingüísticas: tipo de edificio, localidad, antigua compañía ferroviaria o elemento visual singular. Después abre las categorías del archivo y recórrelas en ambas direcciones.</p>
+<p>Las categorías son especialmente útiles para descubrir:</p>
+<ul>
+<li class="">otras fotografías de la misma colección;</li>
+<li class="">edificios o lugares próximos;</li>
+<li class="">obras atribuidas al mismo creador;</li>
+<li class="">digitalizaciones procedentes de la misma institución.</li>
+</ul>
+<p>No confundas pertenencia a una categoría con prueba. Una categoría es una decisión editorial revisable. Registra cuál te llevó al archivo y qué relación exacta propone.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-como-una-cadena-de-afirmaciones">3. Lee la ficha como una cadena de afirmaciones<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#3-lee-la-ficha-como-una-cadena-de-afirmaciones" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha como una cadena de afirmaciones" title="Enlace directo al 3. Lee la ficha como una cadena de afirmaciones" translate="no">​</a></h3>
+<p>No copies el bloque de información como si fuera una unidad homogénea. Para cada campo, anota quién parece sostenerlo y dónde podría comprobarse:</p>
+<table><thead><tr><th>Campo</th><th>Pregunta de control</th><th>Corroboración útil</th></tr></thead><tbody><tr><td>Fecha</td><td>¿Toma, publicación, digitalización o estimación?</td><td>Catálogo del archivo, prensa de época, inventario</td></tr><tr><td>Autor</td><td>¿Creador original, institución custodiante o usuario que subió el fichero?</td><td>Registro de colección, firma, autoridad bibliográfica</td></tr><tr><td>Fuente</td><td>¿Enlace al objeto original o mención genérica?</td><td>Identificador persistente, catálogo institucional</td></tr><tr><td>Descripción</td><td>¿Distingue hechos de interpretación?</td><td>Elementos visibles y fuentes independientes</td></tr><tr><td>Licencia</td><td>¿Quién tenía capacidad para aplicarla?</td><td>Aviso de derechos de la institución y norma aplicable</td></tr></tbody></table>
+<p>Guarda la URL de la ficha y su <strong>enlace permanente</strong>. Si el análisis es relevante, anota también la fecha y hora de consulta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-información-textual-y-datos-estructurados">4. Compara información textual y datos estructurados<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#4-compara-informaci%C3%B3n-textual-y-datos-estructurados" class="hash-link" aria-label="Enlace directo al 4. Compara información textual y datos estructurados" title="Enlace directo al 4. Compara información textual y datos estructurados" translate="no">​</a></h3>
+<p>Abre la pestaña de datos estructurados. Comprueba si las declaraciones de «representa», creador, ubicación o licencia coinciden con la ficha textual. Una discrepancia no decide cuál es correcta; señala un punto que necesita revisión.</p>
+<p>Los datos estructurados son muy útiles para encontrar archivos relacionados y detectar huecos. También pueden contener referencias, lo que permite seguir la afirmación hasta su fuente. Si una declaración carece de referencia, trátala como una etiqueta comunitaria pendiente de validación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-revisa-el-historial-de-la-página-y-del-archivo">5. Revisa el historial de la página y del archivo<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#5-revisa-el-historial-de-la-p%C3%A1gina-y-del-archivo" class="hash-link" aria-label="Enlace directo al 5. Revisa el historial de la página y del archivo" title="Enlace directo al 5. Revisa el historial de la página y del archivo" translate="no">​</a></h3>
+<p>El historial ayuda a responder:</p>
+<ul>
+<li class="">cuándo apareció una atribución;</li>
+<li class="">qué usuario cambió una fecha o categoría;</li>
+<li class="">si hubo una corrección explicada;</li>
+<li class="">y si se sustituyó el fichero por una nueva versión.</li>
+</ul>
+<p>Esto aporta trazabilidad editorial, no una máquina del tiempo. Que una descripción figure desde la primera edición solo demuestra que ya se afirmaba entonces. Tampoco la fecha de subida equivale a la fecha de creación de la obra.</p>
+<p>Para tareas repetibles, la <a href="https://www.mediawiki.org/wiki/API:Imageinfo/en" target="_blank" rel="noopener noreferrer" class="">API <code>imageinfo</code> de MediaWiki</a> devuelve información del archivo y su historial de subidas. Puede ayudar a registrar marcas temporales, tamaño, tipo MIME, URL y huellas del fichero. Automatizar la captura no automatiza el juicio: conserva la respuesta original, limita las consultas y revisa manualmente los casos ambiguos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-examina-el-archivo-no-solo-la-miniatura">6. Examina el archivo, no solo la miniatura<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#6-examina-el-archivo-no-solo-la-miniatura" class="hash-link" aria-label="Enlace directo al 6. Examina el archivo, no solo la miniatura" title="Enlace directo al 6. Examina el archivo, no solo la miniatura" translate="no">​</a></h3>
+<p>Descarga la resolución original desde la ficha y calcula una huella criptográfica para tu registro de evidencias. Después:</p>
+<ul>
+<li class="">inspecciona dimensiones, formato y metadatos disponibles;</li>
+<li class="">amplía detalles visuales que puedan contrastarse;</li>
+<li class="">busca copias anteriores o de mayor calidad;</li>
+<li class="">y compara recortes para detectar que dos resultados son en realidad la misma imagen.</li>
+</ul>
+<p>Los metadatos embebidos pueden haberse perdido al digitalizar o editar. Su ausencia no demuestra manipulación; su presencia tampoco prueba autenticidad. Para una revisión local puedes combinar este paso con ExifTool, búsqueda inversa y análisis visual, siempre con datos propios o material públicamente reutilizable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-sigue-la-procedencia-hasta-la-institución-original">7. Sigue la procedencia hasta la institución original<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#7-sigue-la-procedencia-hasta-la-instituci%C3%B3n-original" class="hash-link" aria-label="Enlace directo al 7. Sigue la procedencia hasta la institución original" title="Enlace directo al 7. Sigue la procedencia hasta la institución original" translate="no">​</a></h3>
+<p>La mejor pista de una ficha suele ser un identificador de museo, biblioteca o archivo. Abre el catálogo original y contrasta:</p>
+<ul>
+<li class="">título e identificador;</li>
+<li class="">descripción y datación;</li>
+<li class="">creador y colección;</li>
+<li class="">resolución o número de inventario;</li>
+<li class="">y declaración de derechos.</li>
+</ul>
+<p>Si Commons remite a un agregador, intenta llegar a la entidad custodiante. Si la entidad enlaza de vuelta a Commons sin aportar documentación propia, anota la posible circularidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-lugar-y-fecha-con-fuentes-independientes">8. Corrobora lugar y fecha con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#8-corrobora-lugar-y-fecha-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 8. Corrobora lugar y fecha con fuentes independientes" title="Enlace directo al 8. Corrobora lugar y fecha con fuentes independientes" translate="no">​</a></h3>
+<p>En el caso ficticio, la forma de la cubierta puede compararse con planos municipales; el rótulo, con fotografías de prensa; y el modelo de locomotora, con un catálogo ferroviario. Busca al menos dos apoyos que no copien la misma descripción.</p>
+<p>Una conclusión proporcionada podría ser:</p>
+<blockquote>
+<p>La ficha de Commons atribuye la escena a Villa del Olmo y 1932. La arquitectura coincide con un plano fechado entre 1929 y 1935, y un catálogo institucional identifica la misma copia con ese lugar, pero no aporta día ni mes. La ubicación tiene respaldo razonable; la fecha exacta permanece sin confirmar.</p>
+</blockquote>
+<p>Eso es más útil que un «verdadero» o «falso» sin matices.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="descripciones-comunitarias-y-errores-heredados">Descripciones comunitarias y errores heredados<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#descripciones-comunitarias-y-errores-heredados" class="hash-link" aria-label="Enlace directo al Descripciones comunitarias y errores heredados" title="Enlace directo al Descripciones comunitarias y errores heredados" translate="no">​</a></h3>
+<p>Commons permite corregir y enriquecer archivos, pero una descripción puede proceder de la institución que digitalizó la obra, de una publicación secundaria o de quien la subió. Varias páginas repitiendo el mismo texto no equivalen a varias fuentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fechas-con-significados-distintos">Fechas con significados distintos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#fechas-con-significados-distintos" class="hash-link" aria-label="Enlace directo al Fechas con significados distintos" title="Enlace directo al Fechas con significados distintos" translate="no">​</a></h3>
+<p>Creación, primera publicación, copia física, escaneado y subida son eventos diferentes. Un campo llamado «fecha» puede ocultar esa distinción. Representa cada evento por separado en tu cronología.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="categorías-amplias-y-resultados-semánticos">Categorías amplias y resultados semánticos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#categor%C3%ADas-amplias-y-resultados-sem%C3%A1nticos" class="hash-link" aria-label="Enlace directo al Categorías amplias y resultados semánticos" title="Enlace directo al Categorías amplias y resultados semánticos" translate="no">​</a></h3>
+<p>Las categorías pueden mezclar región, tema, época, colección o estilo. MediaSearch amplía la consulta con información vinculada; por eso un resultado relevante para explorar puede ser insuficiente para demostrar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="historial-incompleto-fuera-de-commons">Historial incompleto fuera de Commons<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#historial-incompleto-fuera-de-commons" class="hash-link" aria-label="Enlace directo al Historial incompleto fuera de Commons" title="Enlace directo al Historial incompleto fuera de Commons" translate="no">​</a></h3>
+<p>El historial de Commons comienza cuando la página o el archivo entra en la plataforma. No reconstruye automáticamente la vida anterior de la obra ni las ediciones realizadas antes de subirla.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="licencia-no-equivale-a-autenticidad">Licencia no equivale a autenticidad<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#licencia-no-equivale-a-autenticidad" class="hash-link" aria-label="Enlace directo al Licencia no equivale a autenticidad" title="Enlace directo al Licencia no equivale a autenticidad" translate="no">​</a></h3>
+<p>La licencia responde a condiciones de uso; la procedencia responde a de dónde viene el objeto; la autenticidad responde a qué es. Son preguntas relacionadas, pero distintas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con una finalidad legítima y minimiza los datos personales.</li>
+<li class="">No uses fotografías de personas para perseguir, perfilar o identificar a particulares.</li>
+<li class="">No contactes a usuarios de Commons para presionarlos ni conviertas discrepancias editoriales en acusaciones.</li>
+<li class="">Conserva enlaces, revisiones, huellas y notas de decisión sin recopilar más información de la necesaria.</li>
+<li class="">Si una imagen puede poner en riesgo a una persona, evalúa si debe publicarse, aunque su licencia permita reutilizarla.</li>
+<li class="">Distingue siempre entre <strong>observación</strong>, <strong>dato declarado</strong>, <strong>inferencia</strong> y <strong>hecho corroborado</strong>.</li>
+</ul>
+<p>La guía oficial de <a href="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en" target="_blank" rel="noopener noreferrer" class="">reutilización de contenido</a> recuerda que cada archivo puede imponer condiciones distintas, como atribución, enlace a la licencia o compartir las obras derivadas bajo términos compatibles. También advierte que Wikimedia no garantiza la exactitud del estado de copyright y que pueden existir derechos de imagen, marcas, derechos morales u otras restricciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-herramientas-complementarias">Alternativas y herramientas complementarias<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#alternativas-y-herramientas-complementarias" class="hash-link" aria-label="Enlace directo al Alternativas y herramientas complementarias" title="Enlace directo al Alternativas y herramientas complementarias" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Catálogos de archivos y museos:</strong> suelen ser la fuente primaria de custodia e inventario.</li>
+<li class=""><strong>Europeana y repositorios nacionales:</strong> útiles para localizar copias, colecciones y metadatos institucionales.</li>
+<li class=""><strong>Búsqueda inversa de imágenes:</strong> ayuda a encontrar publicaciones anteriores, recortes y atribuciones divergentes.</li>
+<li class=""><strong>ExifTool e InVID:</strong> complementan el examen técnico y la verificación multimedia.</li>
+<li class=""><strong>Wikidata:</strong> permite explorar entidades relacionadas, pero sus declaraciones también requieren referencias y contexto.</li>
+<li class=""><strong>API de MediaWiki:</strong> facilita capturas reproducibles cuando se analizan muchos archivos con un alcance definido.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-una-ficha-de-evidencia">Checklist para una ficha de evidencia<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#checklist-para-una-ficha-de-evidencia" class="hash-link" aria-label="Enlace directo al Checklist para una ficha de evidencia" title="Enlace directo al Checklist para una ficha de evidencia" translate="no">​</a></h2>
+<p>Antes de citar o reutilizar un archivo, confirma:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->URL de la ficha y revisión permanente guardadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Archivo original descargado y huella registrada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Fecha de creación separada de digitalización y subida.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Autor, usuario que subió el archivo e institución custodiante diferenciados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Fuente primaria o catálogo original consultados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Datos estructurados comparados con la descripción textual.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cambios relevantes del historial revisados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Lugar y fecha corroborados con fuentes independientes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Licencia, atribución y posibles restricciones adicionales evaluadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Conclusión redactada con nivel de confianza y lagunas pendientes.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
+<p>Wikimedia Commons ofrece algo muy valioso para OSINT: no solo una imagen, sino un conjunto de pistas sobre cómo fue descrita, clasificada, modificada y licenciada. El método consiste en no confundir esas pistas con la respuesta. <strong>Busca de forma amplia, fija la revisión, separa las afirmaciones, sigue la fuente hasta su origen y corrobora fuera de Commons.</strong></p>
+<p>El siguiente paso práctico es elegir una fotografía patrimonial sin personas identificables y construir una ficha de evidencia con la checklist anterior. Un buen tema para continuar sería cómo usar Europeana y los catálogos GLAM para triangular colecciones digitalizadas sin perder la procedencia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Media_search" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: MediaSearch</a></li>
+<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Structured Data</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/API:Imageinfo/en" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Imageinfo</a></li>
+<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Reusing content outside Wikimedia</a></li>
+<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/Modeling/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Structured data modeling</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Verificacion</category>
+            <category>IMINT</category>
+            <category>Metadatos</category>
+            <category>Investigacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Google Dataset Search en OSINT: descubrir datos sin confundir índice con evidencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos</link>
@@ -2777,136 +2934,6 @@
             <category>CVE</category>
             <category>Defensa</category>
             <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[OpenCTI en OSINT: grafo de conocimiento, observables y contexto antes de automatizar inteligencia]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto</guid>
-            <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT organizando observables, indicadores, informes y relaciones STIX en un grafo de conocimiento defensivo" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-01-opencti-osint-grafo-conocimiento-cti-contexto-d931f04289b5741b97bc81289eb4d9bc.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/opencti-osint-grafo-conocimiento-cti-contexto.m4a">Descargar el podcast</a></p>
-<p>Un feed de indicadores puede parecer inteligencia hasta que intentas explicar de donde salio cada dato, que confianza tiene, que relacion guarda con tu caso y cuando deja de ser util. El problema no es tener pocos datos: es tener demasiados sin estructura. <code>OpenCTI</code> encaja en ese punto porque ayuda a convertir observables, informes, relaciones y contexto en un grafo consultable, sin prometer que una plataforma pueda sustituir el juicio del analista.</p>
-<p>Revisando documentacion publica el <strong>1 de julio de 2026</strong>, el proyecto <code>OpenCTI</code> se presenta como una plataforma abierta para gestionar conocimiento de ciberinteligencia y observables, estructurando informacion tecnica y no tecnica sobre amenazas. Sus documentos explican que el diseno gira alrededor de un grafo de conocimiento, objetos, relaciones, observables, indicadores, conectores y flujos de entrada y salida. Para OSINT responsable, la leccion practica es clara: una buena plataforma no "descubre la verdad"; te obliga a registrar mejor que sabes, por que lo crees y que parte sigue siendo hipotesis.</p>
-<p>Este articulo esta pensado para analistas defensivos, equipos <code>SOC</code>, <code>CERT/CSIRT</code>, investigacion corporativa y periodistas tecnicos que necesitan ordenar inteligencia abierta sin amplificar ruido. No contiene instrucciones para intrusion, doxxing, acoso, explotacion ni automatizacion contra terceros sin autorizacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-opencti-y-para-que-sirve">Que es OpenCTI y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#que-es-opencti-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenCTI y para que sirve" title="Enlace directo al Que es OpenCTI y para que sirve" translate="no">​</a></h2>
-<p><a href="https://github.com/OpenCTI-Platform/opencti" target="_blank" rel="noopener noreferrer" class=""><code>OpenCTI</code></a> es una plataforma de codigo abierto para gestionar conocimiento de ciberinteligencia. Su repositorio oficial la describe como una herramienta para estructurar, almacenar, organizar y visualizar informacion tecnica y no tecnica sobre amenazas.</p>
-<p>En un flujo OSINT, su valor aparece cuando necesitas responder preguntas como estas:</p>
-<ul>
-<li class="">que observables has recogido y de donde proceden;</li>
-<li class="">que indicadores tienen patron de deteccion y cuales son solo datos crudos;</li>
-<li class="">que informes, incidentes, campanas o familias de malware estan relacionados;</li>
-<li class="">que confianza, marcado, fecha y fuente acompana a cada elemento;</li>
-<li class="">que informacion debe quedarse como contexto y que parte puede alimentar controles defensivos;</li>
-<li class="">que integraciones pueden mover datos sin perder trazabilidad.</li>
-</ul>
-<p>La <a href="https://docs.opencti.io/latest/usage/getting-started/" target="_blank" rel="noopener noreferrer" class="">documentacion de introduccion</a> explica que la plataforma esta disenada como un grafo de conocimiento que toma entradas, por ejemplo feeds de inteligencia, avistamientos, alertas, vulnerabilidades, activos o artefactos, y genera salidas mediante capacidades internas o conectores. Esa idea es importante: <code>OpenCTI</code> no es solo un almacen de IOCs, sino una forma de ordenar relaciones entre entidades.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que el equipo de seguridad de <code>Northbridge.example</code> recibe tres senales abiertas:</p>
-<ul>
-<li class="">un dominio parecido a la marca, <code>northbrldge-login.example</code>;</li>
-<li class="">una URL mencionada en un informe publico de phishing;</li>
-<li class="">un hash de adjunto compartido por un proveedor de inteligencia.</li>
-</ul>
-<p>El error rapido seria meter los tres elementos en una lista de bloqueo y escribir "campana atribuida". Un flujo mas responsable con <code>OpenCTI</code> haria algo distinto:</p>
-<ol>
-<li class="">Registrar el dominio, la URL y el hash como observaciones separadas.</li>
-<li class="">Anotar fuente, fecha de consulta, autor, licencia o restricciones de uso.</li>
-<li class="">Diferenciar observable de indicador: el dominio existe como dato; un indicador exige patron, contexto de deteccion y finalidad defensiva.</li>
-<li class="">Relacionar los elementos con un informe o incidente interno sin atribuir actor si no hay evidencia suficiente.</li>
-<li class="">Marcar confianza y sensibilidad antes de exportar nada a un <code>SIEM</code> o a una comunidad externa.</li>
-</ol>
-<p>La <a href="https://docs.opencti.io/latest/usage/exploring-observations/" target="_blank" rel="noopener noreferrer" class="">documentacion sobre observaciones</a> separa <code>Observables</code>, <code>Artefacts</code> e <code>Indicators</code>: un observable puede ser una IP, dominio, correo u otro dato tecnico, pero no implica por si mismo intencion maliciosa; un indicador es un objeto de deteccion expresado mediante patrones como <code>STIX</code>, <code>Sigma</code> o <code>YARA</code>. Esa distincion evita muchos falsos positivos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-definir-alcance-y-pregunta">1. Definir alcance y pregunta<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#1-definir-alcance-y-pregunta" class="hash-link" aria-label="Enlace directo al 1. Definir alcance y pregunta" title="Enlace directo al 1. Definir alcance y pregunta" translate="no">​</a></h3>
-<p>Antes de importar nada, escribe la pregunta analitica. No es lo mismo investigar una alerta de phishing, documentar una campana publica, enriquecer un incidente propio o preparar un informe de exposicion para direccion.</p>
-<p>Una pregunta util suena asi: "Que evidencias abiertas conectan estos dominios ficticios con una campana de suplantacion contra nuestra organizacion entre el 20 y el 30 de junio?". Una pregunta mala suena asi: "Que mas encontramos sobre este objetivo?". La primera limita alcance, fechas y finalidad. La segunda invita a acumular ruido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-datos-crudos-indicadores-e-informes">2. Separar datos crudos, indicadores e informes<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#2-separar-datos-crudos-indicadores-e-informes" class="hash-link" aria-label="Enlace directo al 2. Separar datos crudos, indicadores e informes" title="Enlace directo al 2. Separar datos crudos, indicadores e informes" translate="no">​</a></h3>
-<p>El <a href="https://docs.opencti.io/latest/usage/data-model/" target="_blank" rel="noopener noreferrer" class="">modelo de datos</a> de <code>OpenCTI</code> se apoya en nodos y relaciones. Los nodos describen entidades; las relaciones conectan entidades y tambien tienen propiedades. Eso permite modelar una investigacion sin mezclarlo todo en una tabla plana.</p>
-<p>En la practica:</p>
-<ul>
-<li class="">un dominio observado es un dato;</li>
-<li class="">una regla de deteccion o patron <code>STIX</code> es otra cosa;</li>
-<li class="">un informe que interpreta varios elementos tiene otra capa;</li>
-<li class="">una relacion entre una campana y una infraestructura debe explicar fuente, confianza y fecha;</li>
-<li class="">una atribucion fuerte requiere mas que proximidad tecnica.</li>
-</ul>
-<p>Esta disciplina es aburrida hasta que alguien pregunta "por que bloqueamos esto" o "como sabemos que esta relacion existe". Entonces se vuelve esencial.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-importar-con-conectores-pero-revisar-antes-de-confiar">3. Importar con conectores, pero revisar antes de confiar<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#3-importar-con-conectores-pero-revisar-antes-de-confiar" class="hash-link" aria-label="Enlace directo al 3. Importar con conectores, pero revisar antes de confiar" title="Enlace directo al 3. Importar con conectores, pero revisar antes de confiar" translate="no">​</a></h3>
-<p>La documentacion de <a href="https://docs.opencti.io/latest/deployment/connectors/" target="_blank" rel="noopener noreferrer" class="">conectores</a> los define como una pieza central para ingerir, enriquecer o exportar datos. Tambien existen conectores concretos, como el de <a href="https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md" target="_blank" rel="noopener noreferrer" class=""><code>MISP</code></a>, que importa eventos y atributos y los convierte a objetos <code>STIX 2.1</code>.</p>
-<p>El riesgo esta en confundir integracion con validacion. Un conector puede traer datos muy utiles, pero tambien arrastra sesgos, duplicados, caducidad, fuentes poco claras o indicadores demasiado genericos. La regla practica:</p>
-<ul>
-<li class="">importa menos al principio;</li>
-<li class="">conserva procedencia y marcas de tiempo;</li>
-<li class="">deduplica con criterio;</li>
-<li class="">revisa muestras manuales;</li>
-<li class="">documenta por que una fuente es apta para tu caso;</li>
-<li class="">separa lo que sirve para contexto de lo que puede disparar alertas.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usar-stix-y-taxii-como-lenguaje-comun-no-como-garantia">4. Usar STIX y TAXII como lenguaje comun, no como garantia<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#4-usar-stix-y-taxii-como-lenguaje-comun-no-como-garantia" class="hash-link" aria-label="Enlace directo al 4. Usar STIX y TAXII como lenguaje comun, no como garantia" title="Enlace directo al 4. Usar STIX y TAXII como lenguaje comun, no como garantia" translate="no">​</a></h3>
-<p><code>OpenCTI</code> encaja especialmente bien cuando necesitas trabajar con formatos interoperables. <code>STIX</code> ayuda a representar objetos de ciberinteligencia y <code>TAXII</code> facilita el intercambio sobre <code>HTTPS</code>. La documentacion de <a href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener noreferrer" class="">OASIS CTI</a> resume <code>TAXII</code> como un protocolo para intercambiar ciberinteligencia representada en <code>STIX</code>.</p>
-<p>Eso no convierte automaticamente un dato en fiable. Solo hace que viaje mejor. Si el contenido original es debil, <code>STIX</code> lo serializa con elegancia, pero no lo mejora.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-exportar-solo-lo-que-tenga-uso-defensivo-claro">5. Exportar solo lo que tenga uso defensivo claro<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#5-exportar-solo-lo-que-tenga-uso-defensivo-claro" class="hash-link" aria-label="Enlace directo al 5. Exportar solo lo que tenga uso defensivo claro" title="Enlace directo al 5. Exportar solo lo que tenga uso defensivo claro" translate="no">​</a></h3>
-<p>Cuando <code>OpenCTI</code> se conecta a un <code>SIEM</code>, <code>SOAR</code>, plataforma <code>EDR</code> o repositorio compartido, el coste de equivocarse aumenta. Un dominio popular, una IP compartida o un hash sin contexto pueden generar alertas inutiles o bloqueos desproporcionados.</p>
-<p>Antes de exportar, comprueba:</p>
-<ul>
-<li class="">si el indicador sigue vivo o si ya caduco;</li>
-<li class="">si el patron es especifico o demasiado amplio;</li>
-<li class="">si la fuente permite redistribucion;</li>
-<li class="">si el dato contiene informacion personal innecesaria;</li>
-<li class="">si hay warninglists, allowlists o contexto propio que reduzca falsos positivos;</li>
-<li class="">si la accion recomendada es monitorizar, enriquecer, alertar o bloquear.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>OpenCTI</code> no arregla una mala metodologia. Puede hacer visibles relaciones, pero no decide por ti si son significativas.</p>
-<p>Los falsos positivos suelen entrar por cinco vias:</p>
-<ul>
-<li class=""><strong>Coincidencia tecnica debil</strong>: dos dominios comparten proveedor, CDN, registrador o plantilla.</li>
-<li class=""><strong>Feeds sin curacion suficiente</strong>: muchos indicadores entran con poca explicacion o sin caducidad clara.</li>
-<li class=""><strong>Atribucion prematura</strong>: una herramienta, infraestructura o tecnica aparece en varios grupos y no identifica a nadie por si sola.</li>
-<li class=""><strong>Automatizacion sin revision</strong>: un pipeline convierte contexto en bloqueo sin una capa humana o reglas de calidad.</li>
-<li class=""><strong>Datos personales innecesarios</strong>: el sistema acaba almacenando mas informacion de la que la pregunta justifica.</li>
-</ul>
-<p>La solucion no es dejar de usar plataformas CTI, sino obligarlas a trabajar con notas, confianza, fuentes, marcados y expiracion. Si una relacion no puede explicarse en lenguaje claro, probablemente no deberia sostener una conclusion fuerte.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p><code>OpenCTI</code> puede concentrar informacion sensible. Eso exige disciplina:</p>
-<ul>
-<li class="">define roles y permisos con el minimo acceso necesario;</li>
-<li class="">no importes datos personales si no son imprescindibles para una finalidad legitima;</li>
-<li class="">marca sensibilidad, restricciones de distribucion y licencias de fuentes;</li>
-<li class="">evita copiar informes completos si basta con una referencia y una nota verificable;</li>
-<li class="">no uses conectores para recolectar mas alla de tu alcance autorizado;</li>
-<li class="">registra fechas de consulta, versiones de fuentes y razon de inclusion;</li>
-<li class="">separa laboratorio, produccion y exportaciones automatizadas;</li>
-<li class="">revisa que los indicadores compartidos no danen a terceros inocentes.</li>
-</ul>
-<p>La pregunta etica basica es: "si otro equipo consume este dato sin contexto, que decision peligrosa podria tomar?". Si la respuesta te incomoda, anade contexto o no lo compartas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>OpenCTI</code> no sustituye a todo el ecosistema. Segun el problema, puede convivir con:</p>
-<ul>
-<li class=""><code>MISP</code>, si el foco es intercambio comunitario granular de eventos, atributos, taxonomias y warninglists;</li>
-<li class=""><code>TheHive</code> o herramientas de gestion de casos, si necesitas coordinar respuesta a incidentes;</li>
-<li class=""><code>Elastic Security</code>, <code>Microsoft Sentinel</code> u otros <code>SIEM</code>, si la prioridad es deteccion y correlacion operacional;</li>
-<li class=""><code>Yeti</code>, notebooks o bases de datos internas, si el equipo necesita un flujo mas ligero;</li>
-<li class="">hojas controladas y repositorios versionados, si el caso es pequeno y la trazabilidad pesa mas que la automatizacion.</li>
-</ul>
-<p>La takeaway practica: usa <code>OpenCTI</code> para <strong>ordenar conocimiento, preservar procedencia y separar observacion de conclusion</strong>. No lo uses como una aspiradora de feeds ni como una maquina de atribucion. El siguiente paso natural seria comparar <code>OpenCTI</code> y <code>MISP</code> en un flujo defensivo pequeno: que dato entra en cada uno, que contexto se conserva y donde conviene automatizar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/opencti-osint-grafo-conocimiento-cti-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class="">OpenCTI, repositorio oficial: <a href="https://github.com/OpenCTI-Platform/opencti" target="_blank" rel="noopener noreferrer" class="">https://github.com/OpenCTI-Platform/opencti</a></li>
-<li class="">OpenCTI Documentation, <code>Getting started</code>: <a href="https://docs.opencti.io/latest/usage/getting-started/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/getting-started/</a></li>
-<li class="">OpenCTI Documentation, <code>Data model</code>: <a href="https://docs.opencti.io/latest/usage/data-model/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/data-model/</a></li>
-<li class="">OpenCTI Documentation, <code>Observations</code>: <a href="https://docs.opencti.io/latest/usage/exploring-observations/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/usage/exploring-observations/</a></li>
-<li class="">OpenCTI Documentation, <code>Connectors</code>: <a href="https://docs.opencti.io/latest/deployment/connectors/" target="_blank" rel="noopener noreferrer" class="">https://docs.opencti.io/latest/deployment/connectors/</a></li>
-<li class="">OpenCTI Connectors, <code>MISP Connector</code>: <a href="https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/OpenCTI-Platform/connectors/blob/master/external-import/misp/README.md</a></li>
-<li class="">OASIS Open, <code>Cyber Threat Intelligence Technical Committee</code>: <a href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener noreferrer" class="">https://oasis-open.github.io/cti-documentation/</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Threat Intelligence</category>
-            <category>Datos</category>
-            <category>Automatizacion</category>
-            <category>Verificacion</category>
-            <category>Defensa</category>
         </item>
     </channel>
 </rss>
