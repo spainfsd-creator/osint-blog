@@ -9,6 +9,9 @@ image: /img/blog/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contex
 
 ![Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia](/img/blog/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/wikimedia-commons-osint-procedencia-metadatos-contexto.m4a)
+
+
 Una fotografía antigua aparece en un informe y parece resolver el caso: edificio correcto, década plausible y una descripción muy precisa. Además, procede de Wikimedia Commons, así que la tentación es tratarla como una imagen ya verificada. Es justo ahí donde empieza el trabajo. Commons puede ofrecer **ficha, autoría declarada, historial de versiones, categorías, datos estructurados y licencia**, pero ninguna de esas capas convierte por sí sola una descripción comunitaria en un hecho probado.
 
 <!-- truncate -->
