@@ -9,6 +9,9 @@ image: /img/blog/2026-07-25-espacenet-osint-patentes-familias-citas-contexto.png
 
 ![Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público](/img/blog/2026-07-25-espacenet-osint-patentes-familias-citas-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/espacenet-osint-patentes-familias-citas-contexto.m4a)
+
+
 Una empresa afirma haber inventado una tecnología «única» para evitar el sobrecalentamiento de baterías. La nota de prensa es rotunda; la cronología, no tanto. Hay solicitudes con nombres parecidos, varios países, inventores que cambian y documentos citados muchos años antes. `Espacenet` permite reconstruir ese paisaje, pero exige una disciplina básica: **una publicación no demuestra que una patente esté concedida, vigente, sea propiedad actual de quien aparece en la ficha ni cubra exactamente lo que anuncia una campaña comercial**.
 
 <!-- truncate -->
