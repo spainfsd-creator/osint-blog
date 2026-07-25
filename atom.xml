@@ -2,11 +2,204 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-24T00:00:00.000Z</updated>
+    <updated>2026-07-25T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Espacenet en OSINT: patentes, familias y citas sin confundir publicación con vigencia]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto"/>
+        <updated>2026-07-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-25-espacenet-osint-patentes-familias-citas-contexto-e08f3b6d11757f4e1c3a5ed6ef644bd5.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una empresa afirma haber inventado una tecnología «única» para evitar el sobrecalentamiento de baterías. La nota de prensa es rotunda; la cronología, no tanto. Hay solicitudes con nombres parecidos, varios países, inventores que cambian y documentos citados muchos años antes. <code>Espacenet</code> permite reconstruir ese paisaje, pero exige una disciplina básica: <strong>una publicación no demuestra que una patente esté concedida, vigente, sea propiedad actual de quien aparece en la ficha ni cubra exactamente lo que anuncia una campaña comercial</strong>.</p>
+<p>Este artículo propone un flujo responsable para usar información de patentes en debida diligencia, periodismo tecnológico, análisis competitivo e investigación académica. El objetivo es comprobar afirmaciones públicas y entender trayectorias técnicas, no apropiarse de secretos, acosar a inventores ni convertir coincidencias de nombres en acusaciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-espacenet-y-para-qué-sirve-en-osint">Qué es Espacenet y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#qu%C3%A9-es-espacenet-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Espacenet y para qué sirve en OSINT" title="Enlace directo al Qué es Espacenet y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><a href="https://worldwide.espacenet.com/" target="_blank" rel="noopener noreferrer" class="">Espacenet</a> es el buscador gratuito de documentos de patentes de la Oficina Europea de Patentes (EPO). Reúne datos bibliográficos, resúmenes, descripciones, reivindicaciones, dibujos, citas, familias y eventos legales procedentes de numerosas oficinas. La EPO presenta sus bases como una gran fuente de información técnica y empresarial; también publica informes de <a href="https://www.epo.org/en/searching-for-patents/data/coverage" target="_blank" rel="noopener noreferrer" class="">cobertura y actualización</a> para que el usuario pueda evaluar qué datos existen y con qué alcance.</p>
+<p>En una investigación abierta, Espacenet resulta útil para:</p>
+<ul>
+<li class="">localizar documentos por palabras, solicitante, inventor, fechas o clasificación técnica;</li>
+<li class="">descubrir cómo se describe una solución en las reivindicaciones y no solo en una nota de prensa;</li>
+<li class="">agrupar publicaciones relacionadas mediante familias de patentes;</li>
+<li class="">seguir prioridades y construir una cronología de divulgación;</li>
+<li class="">explorar documentos citados y posteriores que citan una publicación;</li>
+<li class="">identificar jurisdicciones donde se solicitó protección;</li>
+<li class="">abrir el Registro Europeo de Patentes o expedientes relacionados cuando se necesita información procesal.</li>
+</ul>
+<p>La herramienta es un <strong>índice de descubrimiento y análisis</strong>, no una opinión jurídica. Para una decisión legal, una búsqueda de libertad de operación o una conclusión sobre infracción hace falta delimitar jurisdicción, interpretar reivindicaciones y consultar fuentes registrales autorizadas con asesoramiento especializado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="antes-de-buscar-cuatro-conceptos-que-no-son-intercambiables">Antes de buscar: cuatro conceptos que no son intercambiables<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#antes-de-buscar-cuatro-conceptos-que-no-son-intercambiables" class="hash-link" aria-label="Enlace directo al Antes de buscar: cuatro conceptos que no son intercambiables" title="Enlace directo al Antes de buscar: cuatro conceptos que no son intercambiables" translate="no">​</a></h2>
+<p>Una ficha puede mostrar muchos números y fechas. Separarlos evita la mayoría de errores:</p>
+<ol>
+<li class=""><strong>Prioridad:</strong> referencia a una presentación anterior cuya fecha se reivindica. Es una pieza central de la cronología, pero una familia puede contener varias prioridades.</li>
+<li class=""><strong>Solicitud:</strong> expediente presentado ante una oficina. Su existencia no equivale a concesión.</li>
+<li class=""><strong>Publicación:</strong> documento que se hace público y recibe un número con un código de tipo documental. Puede ser una solicitud publicada, una patente concedida u otra clase de publicación.</li>
+<li class=""><strong>Concesión y vigencia:</strong> decisiones y estados jurídicos que dependen de la oficina, el procedimiento, el territorio, las tasas y posibles impugnaciones.</li>
+</ol>
+<p>También conviene distinguir <strong>inventor</strong> de <strong>solicitante</strong>. El inventor identifica a la persona declarada como creadora; el solicitante es quien pide el derecho en ese momento. Ninguno de los dos campos prueba por sí solo la titularidad actual, la relación laboral presente ni la explotación comercial de la tecnología.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-promesa-tecnológica-ficticia">Caso de uso legítimo: comprobar una promesa tecnológica ficticia<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#caso-de-uso-leg%C3%ADtimo-comprobar-una-promesa-tecnol%C3%B3gica-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una promesa tecnológica ficticia" title="Enlace directo al Caso de uso legítimo: comprobar una promesa tecnológica ficticia" translate="no">​</a></h2>
+<p>Imaginemos a <code>Asteria Mobility</code>, empresa inventada que anuncia en 2026 un sistema de refrigeración «sin precedentes» para baterías de bicicletas eléctricas. Una redacción quiere responder tres preguntas:</p>
+<ul>
+<li class="">¿había documentación pública sobre soluciones similares antes del anuncio?</li>
+<li class="">¿qué alcance técnico describen las solicitudes asociadas a la empresa?</li>
+<li class="">¿qué puede afirmarse sobre su situación procesal sin exagerar?</li>
+</ul>
+<p>La búsqueda no debe comenzar con «demostrar que Asteria copió la idea». Esa formulación introduce una conclusión antes de mirar la evidencia. Una pregunta neutral sería:</p>
+<blockquote>
+<p>¿Qué documentos públicos describen mecanismos comparables de control térmico para baterías de vehículos ligeros, cómo se relacionan entre sí y qué estado muestran las fuentes oficiales?</p>
+</blockquote>
+<p>El equipo define un periodo, anota sinónimos en español e inglés y separa la entidad de la tecnología. Así puede encontrar antecedentes aunque el solicitante haya cambiado de nombre o el documento use otro vocabulario.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-el-nivel-de-prueba">1. Define la afirmación y el nivel de prueba<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#1-define-la-afirmaci%C3%B3n-y-el-nivel-de-prueba" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y el nivel de prueba" title="Enlace directo al 1. Define la afirmación y el nivel de prueba" translate="no">​</a></h3>
+<p>Escribe qué necesitas comprobar:</p>
+<ul>
+<li class="">existencia de una publicación anterior;</li>
+<li class="">vínculo documental con una empresa;</li>
+<li class="">parentesco entre solicitudes;</li>
+<li class="">evolución de una solución técnica;</li>
+<li class="">estado procesal en una fecha concreta.</li>
+</ul>
+<p>No todas las preguntas requieren la misma profundidad. Para refutar «nunca se publicó nada parecido» puede bastar un documento anterior bien identificado. Para afirmar que un derecho está vigente en varios países, no.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-con-conceptos-y-conserva-la-consulta">2. Empieza con conceptos y conserva la consulta<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#2-empieza-con-conceptos-y-conserva-la-consulta" class="hash-link" aria-label="Enlace directo al 2. Empieza con conceptos y conserva la consulta" title="Enlace directo al 2. Empieza con conceptos y conserva la consulta" translate="no">​</a></h3>
+<p>Prueba combinaciones de función, objeto y problema: por ejemplo, <code>thermal control</code>, <code>battery module</code>, <code>light electric vehicle</code> y sus sinónimos. Registra:</p>
+<ul>
+<li class="">consulta exacta;</li>
+<li class="">fecha y hora;</li>
+<li class="">filtros aplicados;</li>
+<li class="">número aproximado de resultados;</li>
+<li class="">criterio usado para incluir o excluir documentos.</li>
+</ul>
+<p>Las palabras fallan por traducción, jerga y redacción estratégica. La EPO recomienda combinar términos con símbolos <a href="https://www.epo.org/en/searching-for-patents/helpful-resources/patent-knowledge-news/do-you-know" target="_blank" rel="noopener noreferrer" class="">IPC o CPC</a>: las clasificaciones ayudan a recuperar documentos que describen el mismo campo con palabras distintas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aprende-la-clasificación-desde-documentos-semilla">3. Aprende la clasificación desde documentos semilla<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#3-aprende-la-clasificaci%C3%B3n-desde-documentos-semilla" class="hash-link" aria-label="Enlace directo al 3. Aprende la clasificación desde documentos semilla" title="Enlace directo al 3. Aprende la clasificación desde documentos semilla" translate="no">​</a></h3>
+<p>Abre dos o tres resultados claramente relevantes y observa sus símbolos de clasificación. Después consulta la definición del grupo y sus niveles vecinos antes de ampliar la búsqueda.</p>
+<p>Una práctica reproducible es:</p>
+<ol>
+<li class="">localizar un documento semilla por texto;</li>
+<li class="">anotar las clases asignadas a la materia central;</li>
+<li class="">leer el alcance de esas clases;</li>
+<li class="">buscar por clase y palabras técnicas;</li>
+<li class="">comparar qué aparece y qué desaparece.</li>
+</ol>
+<p>No copies un código sin leerlo. Una clase puede describir información adicional y no el núcleo inventivo, y las clasificaciones evolucionan. La propia documentación de la EPO explica que IPC se revisa anualmente y CPC varias veces al año.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-documento-no-solo-el-título">4. Lee el documento, no solo el título<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#4-lee-el-documento-no-solo-el-t%C3%ADtulo" class="hash-link" aria-label="Enlace directo al 4. Lee el documento, no solo el título" title="Enlace directo al 4. Lee el documento, no solo el título" translate="no">​</a></h3>
+<p>El título y el resumen sirven para el triage. Para entender qué se intenta proteger hay que revisar:</p>
+<ul>
+<li class=""><strong>reivindicaciones:</strong> delimitan el objeto para el que se solicita o concede protección;</li>
+<li class=""><strong>descripción:</strong> aporta contexto, variantes y antecedentes;</li>
+<li class=""><strong>dibujos:</strong> facilitan la comprensión, pero no sustituyen el texto;</li>
+<li class=""><strong>datos bibliográficos:</strong> fechas, personas, entidades, números y clasificaciones;</li>
+<li class=""><strong>documento original:</strong> conserva la publicación tal como fue emitida.</li>
+</ul>
+<p>La búsqueda de texto puede depender de OCR o traducción automática. Cuando una frase sea crítica, compruébala en el documento original. Para publicaciones europeas, el <a href="https://www.epo.org/en/searching-for-patents/technical/publication-server" target="_blank" rel="noopener noreferrer" class="">European Publication Server</a> es la fuente jurídicamente auténtica de solicitudes y especificaciones publicadas por la EPO.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reconstruye-la-familia-sin-contar-la-misma-invención-varias-veces">5. Reconstruye la familia sin contar la misma invención varias veces<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#5-reconstruye-la-familia-sin-contar-la-misma-invenci%C3%B3n-varias-veces" class="hash-link" aria-label="Enlace directo al 5. Reconstruye la familia sin contar la misma invención varias veces" title="Enlace directo al 5. Reconstruye la familia sin contar la misma invención varias veces" translate="no">​</a></h3>
+<p>Una invención puede generar publicaciones en distintas oficinas y fases. La EPO define una <a href="https://www.epo.org/en/searching-for-patents/helpful-resources/first-time-here/patent-families" target="_blank" rel="noopener noreferrer" class="">familia de patentes</a> como un conjunto de solicitudes relacionadas mediante reivindicaciones de prioridad, y distingue:</p>
+<ul>
+<li class=""><strong>familia simple DOCDB:</strong> documentos considerados de contenido técnico idéntico;</li>
+<li class=""><strong>familia extendida INPADOC:</strong> solicitudes con contenido técnico similar conectadas por prioridades.</li>
+</ul>
+<p>Estas vistas responden a preguntas diferentes. La simple ayuda a reunir equivalentes cercanos; la extendida muestra una genealogía más amplia. Otras bases pueden formar familias de otro modo, así que guarda la definición utilizada.</p>
+<p>Para cada miembro relevante, registra país u oficina, número de publicación, código documental, fecha de prioridad, fecha de publicación y solicitante mostrado. Después dibuja una cronología. Contar publicaciones como si fueran invenciones independientes inflará cualquier estadística.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-usa-las-citas-como-rutas-de-exploración-no-como-veredictos">6. Usa las citas como rutas de exploración, no como veredictos<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#6-usa-las-citas-como-rutas-de-exploraci%C3%B3n-no-como-veredictos" class="hash-link" aria-label="Enlace directo al 6. Usa las citas como rutas de exploración, no como veredictos" title="Enlace directo al 6. Usa las citas como rutas de exploración, no como veredictos" translate="no">​</a></h3>
+<p>Las citas hacia documentos anteriores pueden conducir al estado de la técnica; los documentos posteriores que citan una publicación ayudan a explorar desarrollos relacionados. También puede aparecer literatura no patente.</p>
+<p>Pero una cita no significa automáticamente:</p>
+<ul>
+<li class="">que el inventor conociera personalmente ese documento;</li>
+<li class="">que una oficina considere idénticas ambas soluciones;</li>
+<li class="">que exista licencia, colaboración o copia;</li>
+<li class="">que el documento citado sea más importante comercialmente;</li>
+<li class="">que todas las oficinas hayan recopilado citas con el mismo criterio.</li>
+</ul>
+<p>Anota el origen de la cita cuando esté disponible y lee el documento relacionado. Una red de citas es un mapa para formular hipótesis, no una puntuación automática de influencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-comprueba-el-expediente-y-el-estado-en-la-fuente-adecuada">7. Comprueba el expediente y el estado en la fuente adecuada<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#7-comprueba-el-expediente-y-el-estado-en-la-fuente-adecuada" class="hash-link" aria-label="Enlace directo al 7. Comprueba el expediente y el estado en la fuente adecuada" title="Enlace directo al 7. Comprueba el expediente y el estado en la fuente adecuada" translate="no">​</a></h3>
+<p>Si el documento es europeo, abre el <a href="https://www.epo.org/en/searching-for-patents/legal/register" target="_blank" rel="noopener noreferrer" class="">European Patent Register</a>. La EPO lo describe como su fuente pública más completa y actualizada para la información procesal de solicitudes europeas. Permite comprobar fases del procedimiento, concesión, oposiciones, correspondencia pública y datos sobre efecto unitario.</p>
+<p>Después de la concesión, la situación puede depender de oficinas nacionales. El propio Registro enlaza a registros de Estados participantes y ofrece el Registro Federado para información posconcesión. Para concluir «vigente en España a fecha X» hay que identificar el derecho exacto, consultar la fuente competente y guardar la fecha de verificación.</p>
+<p>Redacta con precisión:</p>
+<ul>
+<li class="">«Espacenet muestra un evento legal» no equivale a «el derecho está vigente»;</li>
+<li class="">«la solicitud fue publicada» no equivale a «la patente fue concedida»;</li>
+<li class="">«figura como solicitante en esta publicación» no equivale a «es titular actual»;</li>
+<li class="">«aparece una designación territorial» no equivale a «hay protección efectiva allí».</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-la-entidad-fuera-del-ecosistema-de-patentes">8. Corrobora la entidad fuera del ecosistema de patentes<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#8-corrobora-la-entidad-fuera-del-ecosistema-de-patentes" class="hash-link" aria-label="Enlace directo al 8. Corrobora la entidad fuera del ecosistema de patentes" title="Enlace directo al 8. Corrobora la entidad fuera del ecosistema de patentes" translate="no">​</a></h3>
+<p>Los nombres corporativos cambian, se transliteran y se escriben de distintas formas. Contrasta solicitantes o titulares con:</p>
+<ul>
+<li class="">registros mercantiles oficiales;</li>
+<li class="">informes corporativos y operaciones de adquisición;</li>
+<li class="">cesiones o cambios inscritos en los registros de patentes;</li>
+<li class="">documentos regulatorios;</li>
+<li class="">sitios oficiales archivados, siempre indicando la fecha.</li>
+</ul>
+<p>No deduzcas que dos personas son la misma por compartir apellido e inicial. Tampoco uses direcciones históricas de inventores para localizar o contactar a particulares: basta con documentar el vínculo profesional público necesario para la investigación.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual-y-retrasos">Cobertura desigual y retrasos<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#cobertura-desigual-y-retrasos" class="hash-link" aria-label="Enlace directo al Cobertura desigual y retrasos" title="Enlace directo al Cobertura desigual y retrasos" translate="no">​</a></h3>
+<p>La EPO recibe flujos bibliográficos, facsímiles y de texto completo de múltiples países. Su página de <a href="https://www.epo.org/en/searching-for-patents/data/coverage" target="_blank" rel="noopener noreferrer" class="">cobertura</a> muestra que estos conjuntos se actualizan y controlan por separado. La ausencia de un resultado puede significar que no existe, pero también que falta texto completo, hay retraso, otra transliteración o una clasificación distinta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="traducciones-y-ocr">Traducciones y OCR<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#traducciones-y-ocr" class="hash-link" aria-label="Enlace directo al Traducciones y OCR" title="Enlace directo al Traducciones y OCR" translate="no">​</a></h3>
+<p>Las traducciones automáticas ayudan a descubrir conceptos, no a fijar el alcance jurídico de una frase. Los documentos históricos digitalizados pueden contener errores de reconocimiento. Cita la página o reivindicación del original y conserva el PDF consultado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="variantes-de-nombres">Variantes de nombres<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#variantes-de-nombres" class="hash-link" aria-label="Enlace directo al Variantes de nombres" title="Enlace directo al Variantes de nombres" translate="no">​</a></h3>
+<p>Una empresa puede aparecer con razón social anterior, filial, abreviatura o transliteración. La normalización facilita el análisis, pero también puede unir entidades diferentes. Mantén siempre el valor original junto al nombre normalizado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="familias-y-estadísticas">Familias y estadísticas<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#familias-y-estad%C3%ADsticas" class="hash-link" aria-label="Enlace directo al Familias y estadísticas" title="Enlace directo al Familias y estadísticas" translate="no">​</a></h3>
+<p>Los resultados por publicación y por familia no responden a la misma pregunta. Los gráficos rápidos sirven para orientar, pero no para declarar quién «lidera una tecnología» sin depurar familias, años, jurisdicciones, cambios de nombre y relevancia técnica.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="estado-legal-complejo">Estado legal complejo<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#estado-legal-complejo" class="hash-link" aria-label="Enlace directo al Estado legal complejo" title="Enlace directo al Estado legal complejo" translate="no">​</a></h3>
+<p>Un evento puede llegar tarde, tener alcance nacional o requerir interpretación. La vigencia cambia con el tiempo. Si la conclusión afecta a una inversión, litigio, licencia o lanzamiento de producto, documenta la consulta y deriva la valoración jurídica a un profesional.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga tecnologías y afirmaciones públicas con una finalidad legítima y un alcance escrito.</li>
+<li class="">Minimiza los datos personales: nombres profesionales pueden ser pertinentes; domicilios, familiares y contactos privados normalmente no.</li>
+<li class="">No contactes a inventores para presionarlos ni publiques hipótesis sobre su conducta sin evidencia independiente.</li>
+<li class="">Usa consultas manuales o servicios autorizados; respeta límites, términos y mecanismos de acceso.</li>
+<li class="">Separa en tus notas <strong>dato de la ficha</strong>, <strong>texto del documento</strong>, <strong>inferencia analítica</strong> y <strong>confirmación registral</strong>.</li>
+<li class="">Conserva URL, identificador, documento original, fecha de acceso y una huella del archivo cuando la reproducibilidad sea importante.</li>
+<li class="">Incluye evidencia contraria y búsquedas que no dieron resultado.</li>
+<li class="">Expresa el nivel de confianza y qué cambiaría la conclusión.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-herramientas-complementarias">Alternativas y herramientas complementarias<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#alternativas-y-herramientas-complementarias" class="hash-link" aria-label="Enlace directo al Alternativas y herramientas complementarias" title="Enlace directo al Alternativas y herramientas complementarias" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Google Patents:</strong> útil para descubrimiento por texto y navegación rápida, con verificación posterior en oficinas oficiales.</li>
+<li class=""><strong>PATENTSCOPE de la OMPI:</strong> apropiado para solicitudes internacionales PCT y búsquedas multilingües.</li>
+<li class=""><strong>OEPM, USPTO y otras oficinas nacionales:</strong> fuentes necesarias para expedientes y estados bajo su competencia.</li>
+<li class=""><strong>European Patent Register:</strong> fuente procesal para solicitudes europeas, no un sustituto de todos los registros nacionales.</li>
+<li class=""><strong>Global Dossier:</strong> reúne documentación pública de expedientes de oficinas participantes.</li>
+<li class=""><strong>OpenAlex y literatura científica:</strong> ayudan a contrastar publicaciones académicas, autores y cronologías fuera del sistema de patentes.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-una-ficha-de-evidencia">Checklist de una ficha de evidencia<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#checklist-de-una-ficha-de-evidencia" class="hash-link" aria-label="Enlace directo al Checklist de una ficha de evidencia" title="Enlace directo al Checklist de una ficha de evidencia" translate="no">​</a></h2>
+<p>Antes de cerrar el análisis, confirma:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Pregunta neutral, jurisdicción y fecha de corte definidas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Consulta, filtros y clases IPC/CPC guardados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Documento original revisado, no solo título o traducción.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Prioridad, solicitud, publicación y concesión diferenciadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Familia simple y extendida interpretadas con su definición.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Citas leídas como pistas y no como prueba de copia o influencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Solicitante, inventor y titular actual no confundidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Estado procesal contrastado en el registro competente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Variantes corporativas corroboradas con fuentes externas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Limitaciones, resultados negativos y nivel de confianza documentados.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
+<p>Espacenet permite convertir una afirmación tecnológica en una investigación trazable: <strong>buscar conceptos, aprender clasificaciones, leer el original, agrupar familias, seguir citas y terminar en el registro competente</strong>. Su valor no está en ofrecer una etiqueta definitiva, sino en mostrar las piezas necesarias para formular y comprobar una cronología.</p>
+<p>Como ejercicio, elige una tecnología cotidiana —sin investigar a una persona—, localiza dos documentos semilla y construye una tabla que separe prioridad, publicación, familia, solicitante y estado verificado. El siguiente tema natural sería PATENTSCOPE: cómo seguir solicitudes PCT sin confundir la fase internacional con una patente mundial.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents" target="_blank" rel="noopener noreferrer" class="">EPO: Searching for patents</a></li>
+<li class=""><a href="https://worldwide.espacenet.com/" target="_blank" rel="noopener noreferrer" class="">Espacenet</a></li>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents/data/coverage" target="_blank" rel="noopener noreferrer" class="">EPO: Coverage, codes and statistics</a></li>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents/helpful-resources/first-time-here/patent-families" target="_blank" rel="noopener noreferrer" class="">EPO: Patent families</a></li>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents/helpful-resources/patent-knowledge-news/do-you-know" target="_blank" rel="noopener noreferrer" class="">EPO: clasificación IPC/CPC en Espacenet</a></li>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents/legal/register" target="_blank" rel="noopener noreferrer" class="">EPO: European Patent Register</a></li>
+<li class=""><a href="https://www.epo.org/en/searching-for-patents/technical/publication-server" target="_blank" rel="noopener noreferrer" class="">EPO: European Publication Server</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Herramientas" term="Herramientas"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Wikimedia Commons en OSINT: procedencia, metadatos e historial antes de reutilizar una imagen]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto</id>
@@ -2856,162 +3049,6 @@
         <category label="Malware" term="Malware"/>
         <category label="Threat Intelligence" term="Threat Intelligence"/>
         <category label="IoC" term="IoC"/>
-        <category label="Defensa" term="Defensa"/>
-        <category label="Verificacion" term="Verificacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CISA KEV en OSINT: vulnerabilidades explotadas, prioridad y contexto antes de parchear]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto"/>
-        <updated>2026-07-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando un catalogo publico de vulnerabilidades explotadas, tarjetas CVE, fechas de remediacion e inventario de activos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-02-cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto-04d2ab507d790c289a6c2abf72656d40.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto.m4a">Descargar el podcast</a></p>
-<p>Una lista de vulnerabilidades criticas no te dice por si sola que debes arreglar primero. Algunas tienen <code>CVSS</code> alto pero no estan siendo explotadas; otras parecen menos espectaculares y, sin embargo, ya aparecen en campanas reales. El trabajo serio consiste en cruzar la senal publica con tu inventario, tu exposicion y tus ventanas de cambio. Ahi es donde el catalogo <code>CISA KEV</code> resulta especialmente util.</p>
-<p>Revisando el feed publico el <strong>2 de julio de 2026</strong>, el <code>CISA Known Exploited Vulnerabilities Catalog</code> publicaba la version <code>2026.07.01</code>, liberada el <code>2026-07-01T19:00:06.9016Z</code>, con <code>1.631</code> vulnerabilidades. La entrada mas reciente visible en el feed era <code>CVE-2026-45659</code>, asociada a <code>Microsoft SharePoint Server</code>, anadida el <code>1 de julio de 2026</code> y con fecha de accion el <code>4 de julio de 2026</code>. Ese dato no es una invitacion a correr detras del ultimo titular: es una forma de ordenar una conversacion defensiva con evidencia de explotacion, fechas y acciones recomendadas.</p>
-<p>Este articulo esta escrito para equipos defensivos, responsables de vulnerabilidades, <code>SOC</code>, <code>CERT/CSIRT</code>, auditoria tecnica y periodistas que necesitan entender como usar una fuente abierta sin convertirla en una lista de sustos. No contiene instrucciones de explotacion, intrusiones, doxxing, acoso ni escaneo contra terceros.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-cisa-kev-y-para-que-sirve">Que es CISA KEV y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#que-es-cisa-kev-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es CISA KEV y para que sirve" title="Enlace directo al Que es CISA KEV y para que sirve" translate="no">​</a></h2>
-<p><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class=""><code>CISA KEV</code></a> es el catalogo publico de vulnerabilidades conocidas y explotadas que mantiene la Cybersecurity and Infrastructure Security Agency de Estados Unidos. En la practica, es una lista curada de <code>CVE</code> para las que CISA ha reunido evidencia de explotacion real y una accion de remediacion clara.</p>
-<p>Para un flujo OSINT defensivo, su valor aparece cuando necesitas responder preguntas concretas:</p>
-<ul>
-<li class="">que <code>CVE</code> tienen evidencia publica de explotacion, no solo gravedad teorica;</li>
-<li class="">que producto y proveedor estan asociados a cada entrada;</li>
-<li class="">cuando se anadio la vulnerabilidad al catalogo;</li>
-<li class="">que fecha de accion marca CISA para entornos sujetos a sus directivas;</li>
-<li class="">si CISA conoce uso en campanas de ransomware;</li>
-<li class="">que notas enlazan a advisories de proveedor, NVD u otras guias oficiales;</li>
-<li class="">como priorizar el trabajo sin confundir "nuevo", "critico" y "explotado".</li>
-</ul>
-<p>La parte metodologica importa. <code>KEV</code> no sustituye un inventario de activos ni una herramienta de gestion de vulnerabilidades. Sirve como senal externa de explotacion observada. Si tu organizacion no tiene el producto afectado, la entrada es contexto. Si lo tiene, pero no esta expuesto y esta segmentado, la prioridad puede ser distinta. Si lo tiene expuesto a internet y sin mitigacion, la conversacion cambia por completo.</p>
-<p>Tambien conviene actualizar el contexto normativo. <code>BOD 22-01</code> fue la directiva que establecio el catalogo como pieza central de reduccion de riesgo federal, pero CISA la marca ahora como revocada y sustituida por <a href="https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk" target="_blank" rel="noopener noreferrer" class=""><code>BOD 26-04</code></a>. La pagina de <code>BOD 26-04</code> explica que consolida y aclara las guias de remediacion, y que la urgencia debe leerse combinando exposicion del activo, presencia en <code>KEV</code> y otros factores de riesgo. Para analistas fuera del gobierno federal estadounidense, la leccion sigue siendo util: <code>KEV</code> es una entrada de priorizacion, no una decision automatica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que <code>Meridiano Salud</code>, una organizacion ficticia, recibe un informe mensual de vulnerabilidades con 4.000 hallazgos. El informe esta ordenado por severidad tecnica, asi que los equipos se atascan en una pila enorme de "criticos" y "altos". El responsable de riesgo quiere separar tres cosas:</p>
-<ul>
-<li class="">que vulnerabilidades estan en productos realmente presentes;</li>
-<li class="">cuales afectan a activos publicamente expuestos;</li>
-<li class="">cuales aparecen en <code>CISA KEV</code> con evidencia de explotacion.</li>
-</ul>
-<p>Un registro inicial podria quedar asi:</p>
-<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Por que importa</th></tr></thead><tbody><tr><td><code>cve_id</code></td><td><code>CVE-20XX-12345</code></td><td>Selector comun para cruzar fuentes</td></tr><tr><td>Producto afectado</td><td><code>Servidor documental interno</code></td><td>Evita trabajar sobre activos inexistentes</td></tr><tr><td>Exposicion</td><td><code>VPN / intranet / internet</code></td><td>Cambia la urgencia operativa</td></tr><tr><td><code>KEV</code></td><td><code>si / no</code></td><td>Indica explotacion observada por CISA</td></tr><tr><td>Fecha anadida</td><td><code>2026-07-01</code></td><td>Ayuda a construir cronologia</td></tr><tr><td>Accion recomendada</td><td><code>Mitigar segun proveedor</code></td><td>Conecta inteligencia con remediacion</td></tr><tr><td>Evidencia interna</td><td><code>scanner, CMDB, ticket</code></td><td>Evita depender solo de una fuente externa</td></tr></tbody></table>
-<p>La conclusion responsable no seria "todo lo que esta en <code>KEV</code> se parchea antes que cualquier otra cosa". Seria mas concreta:</p>
-<ol>
-<li class="">Si el <code>CVE</code> esta en <code>KEV</code>, el producto existe en el inventario y el activo esta expuesto, escalar prioridad.</li>
-<li class="">Si el <code>CVE</code> esta en <code>KEV</code>, pero el producto no existe en el entorno, documentar descarte.</li>
-<li class="">Si el producto existe, pero el hallazgo viene de un scanner antiguo, validar version y configuracion antes de abrir una crisis.</li>
-<li class="">Si no hay parche inmediato, registrar mitigacion compensatoria, responsable y fecha de revision.</li>
-<li class="">Si se detecta exposicion publica, coordinar con respuesta a incidentes antes de publicar ningun detalle.</li>
-</ol>
-<p>Ese flujo ensena una idea basica del OSINT serio: la fuente abierta acelera la pregunta, pero la evidencia local decide la accion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-descargar-la-fuente-canónica">1. Descargar la fuente canónica<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#1-descargar-la-fuente-can%C3%B3nica" class="hash-link" aria-label="Enlace directo al 1. Descargar la fuente canónica" title="Enlace directo al 1. Descargar la fuente canónica" translate="no">​</a></h3>
-<p>CISA publica el catalogo en la web y tambien como feed <code>JSON</code>. El repositorio oficial <a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener noreferrer" class=""><code>cisagov/kev-data</code></a> actua como espejo de los ficheros de datos y explica que el origen canonico sigue siendo <code>cisa.gov/kev</code>. El espejo aporta una ventaja practica: historial de commits para ver cambios con mas transparencia.</p>
-<p>Un flujo prudente empieza guardando metadatos de consulta:</p>
-<ul>
-<li class="">URL consultada;</li>
-<li class="">fecha y hora en UTC;</li>
-<li class=""><code>catalogVersion</code>;</li>
-<li class=""><code>dateReleased</code>;</li>
-<li class=""><code>count</code>;</li>
-<li class="">hash del fichero descargado si el caso exige trazabilidad.</li>
-</ul>
-<p>No hace falta automatizar nada agresivo. Basta con tratar el feed como una fuente documental que puede cambiar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-entender-el-esquema-antes-de-filtrar">2. Entender el esquema antes de filtrar<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#2-entender-el-esquema-antes-de-filtrar" class="hash-link" aria-label="Enlace directo al 2. Entender el esquema antes de filtrar" title="Enlace directo al 2. Entender el esquema antes de filtrar" translate="no">​</a></h3>
-<p>El esquema <code>JSON</code> oficial define campos como <code>cveID</code>, <code>vendorProject</code>, <code>product</code>, <code>vulnerabilityName</code>, <code>dateAdded</code>, <code>shortDescription</code>, <code>requiredAction</code>, <code>dueDate</code>, <code>knownRansomwareCampaignUse</code>, <code>notes</code> y <code>cwes</code>. Esa estructura es mas util que una captura de pantalla porque permite filtrar, auditar y repetir el analisis.</p>
-<p>Para una revision defensiva, las preguntas minimas son:</p>
-<ul>
-<li class="">que entradas nuevas hay desde la ultima revision;</li>
-<li class="">que entradas tienen fecha de accion cercana;</li>
-<li class="">que proveedores aparecen en mi inventario;</li>
-<li class="">que productos son internet-facing o sostienen procesos criticos;</li>
-<li class="">que notas enlazan a advisories de proveedor que debo leer completos;</li>
-<li class="">que entradas tienen posible uso en ransomware y requieren coordinacion adicional.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-cruzar-con-inventario-propio">3. Cruzar con inventario propio<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#3-cruzar-con-inventario-propio" class="hash-link" aria-label="Enlace directo al 3. Cruzar con inventario propio" title="Enlace directo al 3. Cruzar con inventario propio" translate="no">​</a></h3>
-<p>El error habitual es leer <code>KEV</code> como si fuera un ranking universal. No lo es. Una vulnerabilidad explotada contra un producto que no usas no tiene prioridad operativa para ti. Una vulnerabilidad explotada contra un producto que usas en un activo aislado puede requerir accion, pero no necesariamente la misma urgencia que un servicio expuesto.</p>
-<p>Un cruce defensivo puede separar tres listas:</p>
-<ul>
-<li class=""><strong>accion inmediata</strong>: producto presente, version afectada probable, activo expuesto o critico;</li>
-<li class=""><strong>validacion tecnica</strong>: producto presente, pero version, configuracion o exposicion dudosa;</li>
-<li class=""><strong>contexto/documentacion</strong>: producto no presente o entrada no aplicable al entorno.</li>
-</ul>
-<p>La diferencia entre esas listas reduce ruido y evita dos fallos simetricos: ignorar una senal real o saturar al equipo con falsos positivos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-verificar-con-fuentes-primarias">4. Verificar con fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#4-verificar-con-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 4. Verificar con fuentes primarias" title="Enlace directo al 4. Verificar con fuentes primarias" translate="no">​</a></h3>
-<p>Cuando una entrada importa, no te quedes solo con el resumen. Lee el advisory del proveedor, la entrada de <code>NVD</code> si aporta contexto, notas de CISA y documentacion interna. El campo <code>requiredAction</code> suele resumir la accion, pero la implementacion real depende del producto, version, arquitectura y dependencias.</p>
-<p>En informes, conviene separar:</p>
-<ul>
-<li class="">dato de <code>KEV</code>;</li>
-<li class="">dato del proveedor;</li>
-<li class="">dato del scanner;</li>
-<li class="">dato del inventario;</li>
-<li class="">inferencia del analista.</li>
-</ul>
-<p>Esa separacion protege el informe cuando alguien pregunte "de donde sale esta conclusion".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-convertirlo-en-rutina-no-en-alarma-puntual">5. Convertirlo en rutina, no en alarma puntual<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#5-convertirlo-en-rutina-no-en-alarma-puntual" class="hash-link" aria-label="Enlace directo al 5. Convertirlo en rutina, no en alarma puntual" title="Enlace directo al 5. Convertirlo en rutina, no en alarma puntual" translate="no">​</a></h3>
-<p>El catalogo se actualiza cuando CISA incorpora entradas nuevas o modifica datos. El repositorio espejo indica que se sincroniza poco despues del origen canonico, normalmente en dias laborables y horario laboral de la costa este de Estados Unidos cuando hay cambios. Para un equipo defensivo, lo util no es mirar la pagina cuando hay ruido en redes, sino crear una rutina:</p>
-<ul>
-<li class="">revision diaria o semanal del feed;</li>
-<li class="">diff contra la version anterior;</li>
-<li class="">cruce con inventario;</li>
-<li class="">apertura de tickets solo cuando hay aplicabilidad;</li>
-<li class="">cierre documentado cuando no aplica;</li>
-<li class="">metrica de tiempo desde entrada en <code>KEV</code> hasta decision interna.</li>
-</ul>
-<p>Ese ultimo dato es mas valioso que una presentacion llena de CVEs: mide si la organizacion convierte inteligencia abierta en accion verificable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>CISA KEV</code> es una fuente fuerte, pero tiene limites claros:</p>
-<ul>
-<li class="">no contiene todas las vulnerabilidades explotadas del mundo;</li>
-<li class="">requiere <code>CVE</code> y guia de remediacion clara para incorporar una entrada;</li>
-<li class="">no prueba que tu organizacion este afectada;</li>
-<li class="">no sustituye telemetria interna ni respuesta a incidentes;</li>
-<li class="">no ordena automaticamente por impacto local;</li>
-<li class="">puede apuntar a productos que aparecen en tu inventario de forma incorrecta o desactualizada;</li>
-<li class="">la fecha de accion de CISA no siempre coincide con tus ventanas de cambio, contratos o restricciones operativas.</li>
-</ul>
-<p>Tambien hay que evitar la lectura inversa: que una vulnerabilidad no este en <code>KEV</code> no significa que sea segura, irrelevante o no explotable. Significa que no cumple, o aun no cumple, los criterios de inclusion del catalogo. En gestion de riesgo, ausencia de una senal no equivale a ausencia de riesgo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Usar <code>KEV</code> de forma responsable exige disciplina:</p>
-<ul>
-<li class="">no publiques listas de activos propios afectados sin necesidad;</li>
-<li class="">no uses el catalogo para buscar victimas ajenas;</li>
-<li class="">no combines <code>KEV</code> con escaneos contra terceros sin autorizacion;</li>
-<li class="">no conviertas una coincidencia de scanner en acusacion o atribucion;</li>
-<li class="">limita los detalles tecnicos en informes externos cuando puedan facilitar abuso;</li>
-<li class="">conserva evidencias de consulta, version del feed y razonamiento;</li>
-<li class="">prioriza remediacion, mitigacion y comunicacion interna sobre ruido publico.</li>
-</ul>
-<p>Para periodistas o investigadores externos, la regla es todavia mas estricta: <code>KEV</code> puede explicar por que una vulnerabilidad merece atencion, pero no justifica identificar sistemas vulnerables de terceros ni publicar rutas de explotacion. La historia responsable habla de riesgo, contexto, mitigacion y rendicion de cuentas, no de convertir la fuente publica en municion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>CISA KEV</code> funciona mejor como capa de priorizacion junto a otras fuentes:</p>
-<ul>
-<li class=""><code>NVD</code>, para contexto general de <code>CVE</code>, <code>CWE</code>, referencias y metadatos;</li>
-<li class="">advisories del proveedor, para versiones afectadas, parches y mitigaciones reales;</li>
-<li class=""><code>Vulnrichment</code>, si necesitas enriquecimiento estructurado del ecosistema CISA;</li>
-<li class="">inventario interno, para saber si el producto existe y donde;</li>
-<li class="">scanners de vulnerabilidades, para validar presencia tecnica;</li>
-<li class=""><code>OpenCTI</code> o una plataforma similar, si quieres convertir observables, informes y decisiones en grafo trazable;</li>
-<li class=""><code>MISP</code>, si el equipo comparte inteligencia y necesita taxonomias, distribucion y control de contexto.</li>
-</ul>
-<p>El takeaway practico es sencillo: trata <code>CISA KEV</code> como una senal OSINT de explotacion real que debe pasar por inventario, exposicion y verificacion. Bien usado, ayuda a priorizar con criterio. Mal usado, solo cambia una lista enorme por otra lista con mas urgencia aparente.</p>
-<p>Como siguiente paso editorial, tendria sentido comparar <code>CISA KEV</code>, <code>NVD</code> y advisories de proveedor sobre un mismo caso ficticio para ver que aporta cada capa y donde empieza el trabajo propio del analista.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/cisa-kev-osint-vulnerabilidades-explotadas-prioridad-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="">CISA Known Exploited Vulnerabilities Catalog</a></li>
-<li class=""><a href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json" target="_blank" rel="noopener noreferrer" class="">CISA KEV JSON feed</a></li>
-<li class=""><a href="https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities_schema.json" target="_blank" rel="noopener noreferrer" class="">CISA KEV JSON schema</a></li>
-<li class=""><a href="https://github.com/cisagov/kev-data" target="_blank" rel="noopener noreferrer" class="">cisagov/kev-data en GitHub</a></li>
-<li class=""><a href="https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk" target="_blank" rel="noopener noreferrer" class="">BOD 26-04: Prioritizing Security Updates Based on Risk</a></li>
-<li class=""><a href="https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities-revoked" target="_blank" rel="noopener noreferrer" class="">BOD 22-01 revocada y sustituida por BOD 26-04</a></li>
-<li class=""><a href="https://nvd.nist.gov/general/news/cisa-exploit-catalog" target="_blank" rel="noopener noreferrer" class="">NVD: Known Exploited Vulnerabilities</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Gestion de vulnerabilidades" term="Gestion de vulnerabilidades"/>
-        <category label="Threat Intelligence" term="Threat Intelligence"/>
-        <category label="CVE" term="CVE"/>
         <category label="Defensa" term="Defensa"/>
         <category label="Verificacion" term="Verificacion"/>
     </entry>
