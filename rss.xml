@@ -4,10 +4,134 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sat, 25 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 26 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Crossref en OSINT: DOI, metadatos y retractaciones sin confundir registro con evidencia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto</guid>
+            <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT comprobando la procedencia, las citas, las versiones y las actualizaciones de varios registros académicos]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comprobando la procedencia, las citas, las versiones y las actualizaciones de varios registros académicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-26-crossref-osint-metadatos-verificacion-4f1dbccbdc1e5f92368a98a2f654e75a.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una consultora presenta un estudio como «la prueba definitiva» de que su producto reduce un riesgo industrial. El documento tiene DOI, autores reconocibles y decenas de citas. Parece una referencia sólida hasta que aparecen una corrección posterior, una afiliación incompleta y dos versiones con fechas distintas. <code>Crossref</code> ayuda a ordenar esas pistas, pero obliga a conservar una distinción esencial: <strong>un DOI identifica un objeto; no certifica que sus conclusiones sean ciertas, que siga vigente ni que sus metadatos estén completos</strong>.</p>
+<p>Este artículo propone un flujo responsable para examinar publicaciones en debida diligencia, verificación periodística, revisión bibliográfica e investigación de integridad científica. El objetivo es reconstruir procedencia y estado documental, no elaborar perfiles de investigadores ni convertir una anomalía bibliográfica en una acusación.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-crossref-y-para-qué-sirve-en-osint">Qué es Crossref y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#qu%C3%A9-es-crossref-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Crossref y para qué sirve en OSINT" title="Enlace directo al Qué es Crossref y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><a href="https://www.crossref.org/" target="_blank" rel="noopener noreferrer" class="">Crossref</a> es una infraestructura sin ánimo de lucro mediante la que editoriales y otras organizaciones registran DOI y depositan metadatos de objetos de investigación. Su documentación de <a href="https://www.crossref.org/documentation/retrieve-metadata/" target="_blank" rel="noopener noreferrer" class="">recuperación de metadatos</a> explica que esos registros se pueden consultar mediante interfaces humanas, API y descargas masivas.</p>
+<p>Según el tipo de obra y la información aportada por quien mantiene el registro, podemos encontrar:</p>
+<ul>
+<li class="">título, autoría declarada, fechas y tipo de contenido;</li>
+<li class="">revista, editorial, volumen, número y páginas;</li>
+<li class="">ORCID, afiliaciones, financiación y licencias;</li>
+<li class="">referencias y recuentos de citas enlazadas;</li>
+<li class="">resúmenes y enlaces de acceso;</li>
+<li class="">relaciones con preprints, datasets, software u otras versiones;</li>
+<li class="">correcciones, retractaciones y otras actualizaciones.</li>
+</ul>
+<p>Crossref resulta especialmente útil como <strong>índice de conexiones</strong>. Permite pasar de una referencia parcial a un DOI, comparar lo que distintas fuentes dicen sobre una obra y detectar relaciones que merecen una comprobación adicional.</p>
+<p>También tiene un límite estructural: el registro refleja los metadatos depositados y mantenidos por los miembros, enriquecidos en algunos casos por Crossref. La propia guía de <a href="https://www.crossref.org/documentation/principles-practices/best-practices/" target="_blank" rel="noopener noreferrer" class="">buenas prácticas de metadatos</a> recuerda que los requisitos mínimos bastan para registrar contenido, no para producir una ficha completa. Un campo ausente no demuestra que el hecho no exista; puede significar que nadie lo depositó, que el esquema no lo representa bien o que la actualización aún no llegó.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-comprobar-el-estudio-de-termalia">Caso legítimo: comprobar el estudio de «Termalia»<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#caso-leg%C3%ADtimo-comprobar-el-estudio-de-termalia" class="hash-link" aria-label="Enlace directo al Caso legítimo: comprobar el estudio de «Termalia»" title="Enlace directo al Caso legítimo: comprobar el estudio de «Termalia»" translate="no">​</a></h2>
+<p>Imaginemos una empresa ficticia, <strong>Termalia Sistemas</strong>, que atribuye a un estudio académico una reducción del <code>37 %</code> en incidentes de sobrecalentamiento. Antes de citar esa cifra en un informe de inversión, el equipo necesita responder:</p>
+<ol>
+<li class="">¿Cuál es el objeto exacto al que apunta la referencia?</li>
+<li class="">¿Existe un preprint, una versión aceptada o una publicación posterior?</li>
+<li class="">¿Se registraron correcciones, expresiones de preocupación o retractaciones?</li>
+<li class="">¿Qué organización depositó el registro y cuándo se actualizó?</li>
+<li class="">¿La financiación o las afiliaciones declaradas aportan contexto relevante?</li>
+<li class="">¿La cifra del <code>37 %</code> aparece realmente en el texto original?</li>
+</ol>
+<p>Las cuatro primeras preguntas pueden apoyarse en Crossref. Las dos últimas exigen volver a la publicación, sus materiales suplementarios y, cuando proceda, los registros del financiador o de la institución.</p>
+<p>El entregable no debería decir «Crossref valida el estudio». Una formulación defendible sería: «El DOI resuelve a esta publicación; el registro consultado en esta fecha declara estos autores y esta financiación; existe esta actualización enlazada; el resultado citado fue comprobado en esta sección del documento».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-la-pregunta-y-conservar-la-referencia-recibida">1. Fijar la pregunta y conservar la referencia recibida<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#1-fijar-la-pregunta-y-conservar-la-referencia-recibida" class="hash-link" aria-label="Enlace directo al 1. Fijar la pregunta y conservar la referencia recibida" title="Enlace directo al 1. Fijar la pregunta y conservar la referencia recibida" translate="no">​</a></h3>
+<p>Guarda la cita tal como llegó: título, URL, DOI escrito, captura o documento que la contiene y fecha de consulta. No corrijas silenciosamente un DOI mal transcrito. La discrepancia puede explicar por qué dos equipos terminaron analizando obras distintas.</p>
+<p>Define después qué necesitas demostrar. «Encontrar el artículo» es una tarea de descubrimiento; «comprobar si fue corregido» es una tarea de estado; «evaluar su metodología» requiere leerlo. Mezclarlas favorece conclusiones prematuras.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-resolver-el-doi-y-consultar-el-registro">2. Resolver el DOI y consultar el registro<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#2-resolver-el-doi-y-consultar-el-registro" class="hash-link" aria-label="Enlace directo al 2. Resolver el DOI y consultar el registro" title="Enlace directo al 2. Resolver el DOI y consultar el registro" translate="no">​</a></h3>
+<p>Si ya tienes un DOI, prueba primero su resolución en <code>https://doi.org/</code>. Después consulta su ficha mediante la <a href="https://api.crossref.org/" target="_blank" rel="noopener noreferrer" class="">API REST de Crossref</a>. Sustituye el valor ficticio por el DOI autorizado de tu caso:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  "https://api.crossref.org/works/10.0000/ejemplo-ficticio"</span><br></span></code></pre></div></div>
+<p>Si solo tienes una cita parcial, puedes hacer una búsqueda bibliográfica:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error --get \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode "query.bibliographic=Termalia control termico informe ficticio" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode "rows=5" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  "https://api.crossref.org/works"</span><br></span></code></pre></div></div>
+<p>Trata el orden de resultados como candidatos, no como identificación automática. Contrasta título, autoría, año, revista y páginas. Dos obras pueden compartir términos y apellidos; un título puede cambiar entre el preprint y la versión publicada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separar-las-fechas">3. Separar las fechas<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#3-separar-las-fechas" class="hash-link" aria-label="Enlace directo al 3. Separar las fechas" title="Enlace directo al 3. Separar las fechas" translate="no">​</a></h3>
+<p>Un registro puede contener fechas de creación del DOI, depósito, publicación en línea, publicación impresa, actualización del registro y eventos postpublicación. No las reduzcas a una sola «fecha del artículo».</p>
+<p>Construye una tabla de cronología con tres columnas:</p>
+<table><thead><tr><th>Evento</th><th>Fecha y fuente</th><th>Qué permite afirmar</th></tr></thead><tbody><tr><td>Publicación declarada</td><td>Registro Crossref y página editorial</td><td>Cuándo se presenta como publicada esa versión</td></tr><tr><td>Actualización del registro</td><td>Metadatos de Crossref</td><td>Cuándo cambió la ficha, no necesariamente la obra</td></tr><tr><td>Corrección o retractación</td><td>Aviso editorial enlazado</td><td>Qué cambio se comunicó y con qué alcance</td></tr></tbody></table>
+<p>Si dos fuentes discrepan, conserva ambas y explica cuál responde a tu pregunta. Una publicación «online first» y su asignación posterior a un número impreso pueden tener fechas diferentes sin que exista irregularidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-recorrer-relaciones-sin-convertir-el-grafo-en-prueba">4. Recorrer relaciones sin convertir el grafo en prueba<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#4-recorrer-relaciones-sin-convertir-el-grafo-en-prueba" class="hash-link" aria-label="Enlace directo al 4. Recorrer relaciones sin convertir el grafo en prueba" title="Enlace directo al 4. Recorrer relaciones sin convertir el grafo en prueba" translate="no">​</a></h3>
+<p>Crossref admite relaciones tipadas entre objetos. Su documentación enumera vínculos como <code>isPreprintOf</code>, <code>hasVersion</code>, <code>isSupplementedBy</code>, <code>isReviewOf</code> o <code>isBasedOn</code>. Estas conexiones pueden revelar un preprint, datos asociados, software, revisiones o versiones.</p>
+<p>Sin embargo, la <a href="https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/relationships/" target="_blank" rel="noopener noreferrer" class="">documentación de relaciones</a> advierte de un detalle importante: una relación puede ser declarada desde uno de los registros y aparecer de forma recíproca en el otro. Para objetos identificados sin DOI, el identificador tampoco se verifica necesariamente durante el depósito.</p>
+<p>Por eso, registra para cada arista:</p>
+<ul>
+<li class="">qué registro formula la relación;</li>
+<li class="">qué tipo de relación declara;</li>
+<li class="">si el destino resuelve;</li>
+<li class="">si la página de destino confirma el vínculo;</li>
+<li class="">qué queda todavía por demostrar.</li>
+</ul>
+<p>Una conexión entre artículo y dataset no demuestra que los datos reproduzcan el resultado. Solo abre una línea de verificación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-buscar-actualizaciones-y-retractaciones">5. Buscar actualizaciones y retractaciones<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#5-buscar-actualizaciones-y-retractaciones" class="hash-link" aria-label="Enlace directo al 5. Buscar actualizaciones y retractaciones" title="Enlace directo al 5. Buscar actualizaciones y retractaciones" translate="no">​</a></h3>
+<p><a href="https://www.crossref.org/services/crossmark" target="_blank" rel="noopener noreferrer" class="">Crossmark</a> permite comunicar el estado actual de un contenido y enlazar correcciones, retractaciones u otras actualizaciones. Busca campos de actualización en el registro, el botón Crossmark en la página editorial o el PDF y cualquier aviso separado.</p>
+<p>Crossref también distribuye datos de <a href="https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/" target="_blank" rel="noopener noreferrer" class="">Retraction Watch</a> mediante la API y un dataset descargable. Una consulta exploratoria puede localizar registros marcados como retractados:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error --get \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode "filter=update-type:retraction" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode "rows=20" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  "https://api.crossref.org/works"</span><br></span></code></pre></div></div>
+<p>No cierres el análisis con una bandera. Abre el aviso de retractación o corrección, comprueba el DOI afectado, la fecha, el editor y el alcance. Una corrección de una errata no equivale a invalidar los resultados; una expresión de preocupación no es una retractación; una reinstauración cambia de nuevo el contexto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corroborar-en-las-fuentes-primarias">6. Corroborar en las fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#6-corroborar-en-las-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 6. Corroborar en las fuentes primarias" title="Enlace directo al 6. Corroborar en las fuentes primarias" translate="no">​</a></h3>
+<p>Vuelve a la página editorial y al documento. Comprueba:</p>
+<ul>
+<li class="">que el título y el DOI coinciden;</li>
+<li class="">que la cifra citada aparece en el lugar indicado;</li>
+<li class="">qué población, periodo y método se utilizaron;</li>
+<li class="">si hay anexos, datos o código;</li>
+<li class="">si el aviso posterior afecta justo al resultado usado;</li>
+<li class="">si la licencia permite el uso previsto;</li>
+<li class="">si el registro institucional o del financiador añade contexto.</li>
+</ul>
+<p>Para cuestiones jurídicas, clínicas o financieras, el metadato sirve para orientar la búsqueda, no sustituye la revisión experta del contenido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-documentar-una-consulta-reproducible">7. Documentar una consulta reproducible<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#7-documentar-una-consulta-reproducible" class="hash-link" aria-label="Enlace directo al 7. Documentar una consulta reproducible" title="Enlace directo al 7. Documentar una consulta reproducible" translate="no">​</a></h3>
+<p>Anota la URL o consulta, la fecha y hora, los filtros y los campos utilizados. Conserva la respuesta JSON cuando sea proporcional y permitido. Si automatizas, identifica tu aplicación y respeta los límites publicados en la documentación de <a href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/access-and-authentication/" target="_blank" rel="noopener noreferrer" class="">acceso y autenticación</a>. Ante un <code>429</code>, reduce el ritmo y la concurrencia.</p>
+<p>No descargues millones de registros si cinco consultas resuelven el caso. Crossref ofrece ficheros públicos para análisis masivos legítimos; escoger API o descarga depende del volumen, la reproducibilidad y el impacto sobre el servicio.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-doi-no-es-un-sello-de-calidad">Un DOI no es un sello de calidad<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#un-doi-no-es-un-sello-de-calidad" class="hash-link" aria-label="Enlace directo al Un DOI no es un sello de calidad" title="Enlace directo al Un DOI no es un sello de calidad" translate="no">​</a></h3>
+<p>El DOI ofrece persistencia e identificación. No garantiza revisión por pares, ausencia de conflicto de interés, calidad metodológica ni veracidad. Crossref registra diversos tipos de contenido, no solo artículos de revistas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-metadatos-pueden-ser-incompletos-o-cambiar">Los metadatos pueden ser incompletos o cambiar<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#los-metadatos-pueden-ser-incompletos-o-cambiar" class="hash-link" aria-label="Enlace directo al Los metadatos pueden ser incompletos o cambiar" title="Enlace directo al Los metadatos pueden ser incompletos o cambiar" translate="no">​</a></h3>
+<p>Autorías sin ORCID, afiliaciones vacías, referencias no depositadas y licencias ausentes son escenarios normales. Además, <a href="https://www.crossref.org/documentation/register-maintain-records/maintaining-your-metadata/updating-your-metadata/" target="_blank" rel="noopener noreferrer" class="">Crossref permite actualizar los metadatos</a> sin cambiar el DOI. Una captura antigua y una consulta actual pueden diferir legítimamente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-citas-no-equivalen-a-respaldo">Las citas no equivalen a respaldo<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#las-citas-no-equivalen-a-respaldo" class="hash-link" aria-label="Enlace directo al Las citas no equivalen a respaldo" title="Enlace directo al Las citas no equivalen a respaldo" translate="no">​</a></h3>
+<p>Una obra puede citar otra para criticarla, corregirla o aportar contexto histórico. El recuento tampoco representa todas las citas existentes: depende de referencias depositadas, emparejadas y accesibles al servicio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-nombres-no-identifican-por-sí-solos-a-una-persona">Los nombres no identifican por sí solos a una persona<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#los-nombres-no-identifican-por-s%C3%AD-solos-a-una-persona" class="hash-link" aria-label="Enlace directo al Los nombres no identifican por sí solos a una persona" title="Enlace directo al Los nombres no identifican por sí solos a una persona" translate="no">​</a></h3>
+<p>Iniciales, transliteraciones, cambios de apellido y homónimos producen colisiones. Un ORCID declarado ayuda, pero debe comprobarse en su fuente. Nunca atribuyas una retractación o un conflicto a alguien solo por una coincidencia nominal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-alerta-no-significa-ausencia-de-problema">Ausencia de alerta no significa ausencia de problema<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#ausencia-de-alerta-no-significa-ausencia-de-problema" class="hash-link" aria-label="Enlace directo al Ausencia de alerta no significa ausencia de problema" title="Enlace directo al Ausencia de alerta no significa ausencia de problema" translate="no">​</a></h3>
+<p>Puede no existir aviso, no estar depositado, aparecer con retraso o estar registrado en otra infraestructura. Consulta siempre la página editorial y, cuando la decisión lo justifique, bases complementarias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opsec-ética-y-privacidad">OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al OPSEC, ética y privacidad" title="Enlace directo al OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con una finalidad legítima y una pregunta acotada.</li>
+<li class="">Recoge solo los datos personales necesarios para identificar una obra o evaluar una declaración pública.</li>
+<li class="">No publiques correos, domicilios ni perfiles irrelevantes encontrados en documentos.</li>
+<li class="">Separa hechos documentales, inferencias e incógnitas.</li>
+<li class="">Da derecho de réplica antes de asociar una anomalía con mala conducta.</li>
+<li class="">Evita búsquedas masivas sobre personas cuando basta con consultar una publicación.</li>
+<li class="">Conserva respuestas y capturas según una política de retención, no indefinidamente.</li>
+<li class="">Describe las limitaciones del registro y el momento exacto de la consulta.</li>
+</ul>
+<p>La integridad científica es un terreno sensible. Una retractación puede responder a error honesto, duplicación, problemas editoriales o conducta indebida; el aviso y las fuentes responsables determinan qué puede afirmarse.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Crossref es una pieza del puzle. Según la pregunta, combínala con:</p>
+<ul>
+<li class=""><strong>DataCite</strong>, para DOI y relaciones de datasets, software y otros resultados;</li>
+<li class=""><strong>ORCID</strong>, para identificadores de investigadores declarados por sus titulares;</li>
+<li class=""><strong>OpenAlex</strong>, para descubrimiento y análisis de la literatura a escala;</li>
+<li class=""><strong>PubMed</strong>, cuando el contexto biomédico y los tipos de publicación sean relevantes;</li>
+<li class=""><strong>registros editoriales e institucionales</strong>, como fuente primaria del estado del documento;</li>
+<li class=""><strong>repositorios de datos y código</strong>, para intentar reproducir o auditar el resultado.</li>
+</ul>
+<p>La próxima vez que una afirmación venga respaldada por «un estudio con DOI», no preguntes solo si el enlace funciona. Identifica el objeto exacto, separa sus fechas, recorre sus relaciones, busca actualizaciones y vuelve al contenido original. El takeaway es operativo: <strong>Crossref construye el mapa; la evidencia aparece cuando verificas cada conexión en su fuente y documentas lo que el mapa no puede saber</strong>.</p>
+<p>Como siguiente tema, merece la pena comparar Crossref y DataCite sobre un mismo caso ficticio para entender qué relaciones aparecen en cada infraestructura y cómo evitar dobles conteos.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Metadatos</category>
+            <category>Research</category>
+            <category>Datos</category>
+        </item>
         <item>
             <title><![CDATA[Espacenet en OSINT: patentes, familias y citas sin confundir publicación con vigencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto</link>
@@ -2824,153 +2948,6 @@
             <category>Phishing</category>
             <category>Threat Intelligence</category>
             <category>Web</category>
-            <category>Defensa</category>
-            <category>Verificacion</category>
-        </item>
-        <item>
-            <title><![CDATA[MalwareBazaar en OSINT: muestras, hashes y contexto defensivo antes de bloquear]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo</guid>
-            <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando hashes, reglas YARA, etiquetas de malware y notas de triage defensivo sin marcas reales]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando hashes, reglas YARA, etiquetas de malware y notas de triage defensivo sin marcas reales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-03-malwarebazaar-osint-muestras-hashes-contexto-defensivo-4329fb49fd44bfd9f0f4d378ec318f8e.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/malwarebazaar-osint-muestras-hashes-contexto-defensivo.m4a">Descargar el podcast</a></p>
-<p>Un hash aislado puede parecer una respuesta definitiva. En realidad, muchas veces es solo el principio: necesitas saber de donde salio, si corresponde a una muestra confirmada, que familia se le atribuye, que etiquetas arrastra, cuando se vio y que parte de esa informacion se puede usar sin poner en riesgo a tu organizacion ni a terceros. <code>MalwareBazaar</code> encaja en ese punto: aporta contexto comunitario sobre muestras de malware, pero exige disciplina para no confundir una coincidencia tecnica con una conclusion cerrada.</p>
-<p>Revisando la documentacion publica de abuse.ch y Spamhaus el <strong>3 de julio de 2026</strong>, <code>MalwareBazaar</code> se presenta como una plataforma para compartir muestras de malware con la comunidad de seguridad, proveedores antivirus y equipos de inteligencia de amenazas. Su FAQ indicaba mas de <code>1.102.446</code> muestras confirmadas compartidas, mas de <code>500</code> consumidores diarios de feeds/exportaciones y alrededor de <code>100</code> millones de peticiones API en 30 dias, segun una estadistica de octubre de 2024. La clave OSINT no esta en descargar muestras por curiosidad, sino en usar los metadatos disponibles para enriquecer alertas, validar indicadores y decidir que evidencia falta.</p>
-<p>Este articulo esta escrito para analistas defensivos, equipos <code>SOC</code>, <code>CERT/CSIRT</code>, respuesta a incidentes y threat hunting autorizado. No contiene instrucciones para ejecutar malware, evadir controles, intruir sistemas, perseguir personas ni descargar muestras fuera de un laboratorio controlado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-malwarebazaar-y-para-que-sirve">Que es MalwareBazaar y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#que-es-malwarebazaar-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es MalwareBazaar y para que sirve" title="Enlace directo al Que es MalwareBazaar y para que sirve" translate="no">​</a></h2>
-<p><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class=""><code>MalwareBazaar</code></a> es un proyecto operado por abuse.ch, en colaboracion con Spamhaus, orientado a recopilar y compartir muestras de malware para ayudar a investigadores y analistas a proteger a sus organizaciones y clientes frente a amenazas. En la practica, funciona como una base consultable de muestras, hashes, etiquetas, firmas, resultados de analisis y referencias externas.</p>
-<p>En un flujo OSINT defensivo, su valor aparece cuando necesitas responder preguntas concretas:</p>
-<ul>
-<li class="">si un hash observado en una alerta aparece asociado a una muestra confirmada;</li>
-<li class="">que <code>SHA256</code>, <code>SHA1</code>, <code>MD5</code>, <code>TLSH</code>, <code>imphash</code> u otros identificadores acompanian a la muestra;</li>
-<li class="">que familia, firma, etiqueta o tipo de fichero se le atribuye;</li>
-<li class="">cuando fue vista o subida;</li>
-<li class="">si hay reglas <code>YARA</code>, firmas <code>ClamAV</code>, resultados de sandbox o referencias externas;</li>
-<li class="">si la informacion sirve para enriquecer un caso, alimentar detecciones o priorizar contencion;</li>
-<li class="">y que parte del hallazgo necesita verificacion adicional antes de bloquear, notificar o atribuir.</li>
-</ul>
-<p>La plataforma tambien ofrece una <code>Community API</code> para integraciones defensivas y consultas automatizadas bajo principios de uso justo. Segun la documentacion, para interactuar con la API hace falta un <code>Auth-Key</code>, y las operaciones cubren consultas por hash, etiqueta, firma, tipo de fichero, <code>imphash</code>, <code>TLSH</code>, reglas <code>YARA</code>, certificados de firma de codigo y muestras recientes, entre otras.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que el <code>EDR</code> de una empresa ficticia, <code>Iberia Logistics Lab</code>, genera una alerta por un adjunto bloqueado antes de ejecutarse. El equipo no necesita "probar" el fichero ni abrirlo en un puesto normal. Tiene datos suficientes para empezar de forma segura:</p>
-<ul>
-<li class=""><code>SHA256</code>: <code>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</code>;</li>
-<li class="">nombre observado: <code>invoice_q3_review.zip</code>;</li>
-<li class="">host interno afectado: <code>FIN-WS-042</code>;</li>
-<li class="">fecha local de deteccion: <code>2026-07-03 09:14 CEST</code>;</li>
-<li class="">origen: correo entrante ya cuarentenado.</li>
-</ul>
-<p>Un flujo prudente con <code>MalwareBazaar</code> seria:</p>
-<ol>
-<li class="">Consultar el hash en la interfaz o en la API desde un entorno de analisis autorizado.</li>
-<li class="">Registrar si hay coincidencia exacta y guardar la URL de la entrada, no solo una captura suelta.</li>
-<li class="">Revisar metadatos: firma, etiquetas, tipo de fichero, primera observacion, referencias y resultados de analisis.</li>
-<li class="">Separar dato observado de inferencia: "el hash aparece asociado a una muestra etiquetada como X" no es lo mismo que "la organizacion fue comprometida por X".</li>
-<li class="">Cruzar con telemetria propia: correo, proxy, DNS, <code>EDR</code>, reglas de deteccion y otros hashes del mismo incidente.</li>
-<li class="">Decidir medidas proporcionales: cuarentena, busqueda retrospectiva, bloqueo por hash si procede, regla de deteccion temporal o escalado a respuesta a incidentes.</li>
-</ol>
-<p>El ejemplo deliberadamente usa un hash ficticio. En un informe real, no conviene pegar indicadores sensibles sin contexto, ni publicar datos que puedan revelar clientes, victimas, rutas internas o muestras no compartibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-alcance">1. Empieza por el alcance<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#1-empieza-por-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Empieza por el alcance" title="Enlace directo al 1. Empieza por el alcance" translate="no">​</a></h3>
-<p>Antes de buscar nada, escribe por que tienes legitimidad para analizar ese indicador: alerta propia, muestra recibida en un canal defensivo, investigacion de abuso sobre infraestructura propia, colaboracion <code>CERT</code> o caso periodistico con interes publico claro. Esa linea evita que el flujo derive hacia curiosidad sin control.</p>
-<p>Tambien define que no vas a hacer:</p>
-<ul>
-<li class="">no ejecutar muestras en equipos de usuario;</li>
-<li class="">no descargar malware salvo en laboratorio aislado y con autorizacion;</li>
-<li class="">no compartir muestras dudosas como si fueran confirmadas;</li>
-<li class="">no publicar nombres de personas, victimas o rutas internas;</li>
-<li class="">no convertir una etiqueta comunitaria en atribucion de actor.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-por-hash-antes-de-pivotar">2. Consulta por hash antes de pivotar<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#2-consulta-por-hash-antes-de-pivotar" class="hash-link" aria-label="Enlace directo al 2. Consulta por hash antes de pivotar" title="Enlace directo al 2. Consulta por hash antes de pivotar" translate="no">​</a></h3>
-<p>El hash criptografico es el punto de partida mas limpio cuando existe. <code>MalwareBazaar</code> permite consultar muestras por hash, y eso reduce mucho el ruido frente a buscar por nombres de archivo o etiquetas genericas. Si no hay coincidencia exacta, no fuerces la historia: anota <code>sin resultado</code>, revisa si tienes otro hash del contenedor o del payload y cruza con fuentes internas.</p>
-<p>Si hay coincidencia, documenta:</p>
-<ul>
-<li class="">hash consultado;</li>
-<li class="">fecha y hora de consulta;</li>
-<li class="">URL de la entrada;</li>
-<li class="">firma o familia mostrada;</li>
-<li class="">etiquetas;</li>
-<li class="">tipo de fichero;</li>
-<li class="">primera observacion;</li>
-<li class="">fuentes o referencias externas relevantes;</li>
-<li class="">limitaciones del dato.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-etiquetas-y-firmas-como-contexto-no-como-sentencia">3. Usa etiquetas y firmas como contexto, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#3-usa-etiquetas-y-firmas-como-contexto-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 3. Usa etiquetas y firmas como contexto, no como sentencia" title="Enlace directo al 3. Usa etiquetas y firmas como contexto, no como sentencia" translate="no">​</a></h3>
-<p>Las etiquetas ayudan a navegar corpus grandes: <code>doc</code>, <code>exe</code>, <code>powershell</code>, <code>loader</code>, nombres de familias, campañas o familias de empaquetado. Pero una etiqueta no siempre tiene el mismo peso que una regla especifica, un informe tecnico o tu propia telemetria.</p>
-<p>Trata las etiquetas como pistas:</p>
-<ul>
-<li class="">una familia puede estar mal clasificada o cambiar de nombre entre proveedores;</li>
-<li class="">un empaquetador puede aparecer en varias amenazas;</li>
-<li class="">un nombre de fichero puede ser senal de delivery, no de autor;</li>
-<li class="">una coincidencia por similitud puede sugerir relacion, no demostrarla;</li>
-<li class="">una muestra antigua puede seguir siendo util para contexto, pero no necesariamente para una decision urgente.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-revisa-reglas-yara-certificados-y-referencias-con-cuidado">4. Revisa reglas YARA, certificados y referencias con cuidado<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#4-revisa-reglas-yara-certificados-y-referencias-con-cuidado" class="hash-link" aria-label="Enlace directo al 4. Revisa reglas YARA, certificados y referencias con cuidado" title="Enlace directo al 4. Revisa reglas YARA, certificados y referencias con cuidado" translate="no">​</a></h3>
-<p>Las paginas de muestra pueden incluir resultados de <code>YARA</code>, firmas <code>ClamAV</code>, referencias de sandbox, enlaces externos y datos de certificados de firma de codigo. La documentacion publica indica que <code>MalwareBazaar</code> usa reglas <code>YARA</code> de repositorios publicos y no publicos, y que solo se muestran resultados de reglas <code>TLP:CLEAR</code>.</p>
-<p>Esto es util para triage, pero no elimina el juicio:</p>
-<ul>
-<li class="">una regla <code>YARA</code> puede detectar una tecnica o familia, no siempre una campana concreta;</li>
-<li class="">un certificado de firma de codigo listado puede apoyar una investigacion defensiva, pero necesita contexto temporal;</li>
-<li class="">una referencia de sandbox puede contener comportamiento observado en condiciones concretas;</li>
-<li class="">una firma generica puede ser demasiado amplia para una conclusion fuerte.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-integra-sin-automatizar-decisiones-irreversibles">5. Integra sin automatizar decisiones irreversibles<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#5-integra-sin-automatizar-decisiones-irreversibles" class="hash-link" aria-label="Enlace directo al 5. Integra sin automatizar decisiones irreversibles" title="Enlace directo al 5. Integra sin automatizar decisiones irreversibles" translate="no">​</a></h3>
-<p>La API y los feeds hacen tentador automatizar bloqueos. Hazlo con cautela. Una integracion sana suele separar tres capas:</p>
-<ul>
-<li class=""><strong>enriquecimiento</strong>: anadir contexto a alertas existentes;</li>
-<li class=""><strong>deteccion</strong>: crear reglas de busqueda o hunting con revision;</li>
-<li class=""><strong>bloqueo</strong>: aplicar controles cuando hay confianza suficiente y rollback claro.</li>
-</ul>
-<p>Para muchas organizaciones, el primer uso razonable es enriquecer casos en el <code>SIEM</code> o en la plataforma de inteligencia, no bloquear cada hash que aparezca en un feed externo. Los feeds publicos tienen valor, pero tu entorno decide impacto, prioridad y riesgo operativo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>MalwareBazaar</code> no es un antivirus multi-motor ni una verdad absoluta sobre autoria. Su propia FAQ contrasta su enfoque con VirusTotal: se centra en muestras de malware confirmadas y no pretende funcionar como motor multi-antivirus para decidir si cualquier fichero es benigno o malicioso.</p>
-<p>Limitaciones practicas:</p>
-<ul>
-<li class=""><strong>Cobertura</strong>: que un hash no aparezca no demuestra que el fichero sea limpio.</li>
-<li class=""><strong>Temporalidad</strong>: una muestra puede ser historica, reutilizada o irrelevante para tu incidente actual.</li>
-<li class=""><strong>Clasificacion</strong>: firmas y etiquetas pueden variar entre proveedores y comunidades.</li>
-<li class=""><strong>Riesgo operativo</strong>: descargar muestras exige laboratorio, controles y autorizacion.</li>
-<li class=""><strong>Privacidad</strong>: comentarios, nombres de fichero o referencias pueden revelar mas contexto del necesario.</li>
-<li class=""><strong>Automatizacion</strong>: un feed externo sin validacion puede crear bloqueos ruidosos o alertas inutiles.</li>
-</ul>
-<p>Tambien hay una regla editorial importante: no subas "por si acaso". La politica de envio pide muestras confirmadas, evita adware/PUA, desaconseja muestras antiguas y excluye file infectors o worms. Si no puedes defender que un fichero es malware confirmado y compartible bajo <code>TLP:CLEAR</code>, no lo subas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Trabajar con muestras de malware tiene mas riesgo que consultar un dominio o una noticia. La buena practica empieza antes de abrir la herramienta:</p>
-<ul>
-<li class="">Usa cuentas, redes y entornos autorizados para investigacion defensiva.</li>
-<li class="">Mantén las descargas fuera de estaciones de trabajo normales.</li>
-<li class="">No pegues indicadores internos sensibles en servicios publicos sin revisar exposicion.</li>
-<li class="">No subas muestras que contengan datos personales, secretos corporativos o informacion de victimas.</li>
-<li class="">Documenta la cadena de custodia analitica: quien consulto, cuando, que resultado obtuvo y que decision se tomo.</li>
-<li class="">Aplica minimizacion: comparte hashes y contexto necesario, no todo el material bruto.</li>
-<li class="">Marca la confianza de cada conclusion y evita atribuir actor si solo tienes una familia tecnica.</li>
-<li class="">Respeta <code>TLP</code> y acuerdos de intercambio de informacion.</li>
-</ul>
-<p>La posicion responsable es clara: <code>MalwareBazaar</code> sirve para proteger, detectar y aprender de muestras maliciosas confirmadas. No sirve para coleccionar malware, improvisar ejecuciones ni publicar datos que puedan danar a victimas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Segun la pregunta, <code>MalwareBazaar</code> suele combinar bien con otras capas:</p>
-<ul>
-<li class=""><code>ThreatFox</code>, para indicadores de compromiso asociados a malware y contexto comunitario;</li>
-<li class=""><code>URLhaus</code>, si el eje principal son URLs maliciosas y payloads asociados;</li>
-<li class=""><code>VirusTotal</code>, cuando necesitas otra vista de relaciones, motores y artefactos, respetando sus limites y licencias;</li>
-<li class=""><code>MISP</code> u <code>OpenCTI</code>, para registrar indicadores con taxonomias, relaciones, confianza y distribucion;</li>
-<li class="">sandboxes controlados, cuando el equipo tiene autorizacion y capacidad para analizar comportamiento;</li>
-<li class="">telemetria propia de <code>EDR</code>, correo, proxy, DNS y firewall, que suele ser la evidencia mas importante.</li>
-</ul>
-<p>La takeaway accionable es sencilla: usa <code>MalwareBazaar</code> para <strong>enriquecer y contextualizar muestras confirmadas</strong>, no para reemplazar tu analisis. Si un hash aparece en la plataforma, anota la fuente, valida etiquetas, cruza con telemetria interna y decide medidas proporcionales. El siguiente paso natural para el blog seria una comparativa practica entre <code>MalwareBazaar</code>, <code>ThreatFox</code> y <code>URLhaus</code>: misma alerta ficticia, tres capas distintas y una decision defensiva trazable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/malwarebazaar-osint-muestras-hashes-contexto-defensivo#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="">MalwareBazaar</a></li>
-<li class=""><a href="https://bazaar.abuse.ch/about/" target="_blank" rel="noopener noreferrer" class="">MalwareBazaar About</a></li>
-<li class=""><a href="https://bazaar.abuse.ch/api/" target="_blank" rel="noopener noreferrer" class="">MalwareBazaar Community API</a></li>
-<li class=""><a href="https://bazaar.abuse.ch/faq/" target="_blank" rel="noopener noreferrer" class="">MalwareBazaar FAQ</a></li>
-<li class=""><a href="https://bazaar.abuse.ch/upload/" target="_blank" rel="noopener noreferrer" class="">MalwareBazaar Upload Malware Sample</a></li>
-<li class=""><a href="https://bazaar.abuse.ch/sample/e2a24ab94f865caeacdf2c3ad015f31f23008ac6db8312c2cbfb32e4a5466ea2/" target="_blank" rel="noopener noreferrer" class="">Ejemplo de entrada de muestra en MalwareBazaar</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Malware</category>
-            <category>Threat Intelligence</category>
-            <category>IoC</category>
             <category>Defensa</category>
             <category>Verificacion</category>
         </item>
