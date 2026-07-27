@@ -9,6 +9,9 @@ image: /img/blog/2026-07-27-world-bank-projects-operations-osint-trazabilidad.pn
 
 ![Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados](/img/blog/2026-07-27-world-bank-projects-operations-osint-trazabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/world-bank-projects-operations-osint-trazabilidad.m4a)
+
+
 Una constructora afirma haber ejecutado «el gran proyecto de agua del Banco Mundial» en una región. La frase parece verificable, pero puede esconder varias confusiones: un proyecto aprobado no es una obra terminada, un importe comprometido no equivale a dinero cobrado por una empresa y un aviso de licitación no demuestra una adjudicación. `World Bank Projects & Operations` permite ordenar esas piezas alrededor de un identificador común, siempre que mantengamos separadas **propuesta, financiación, ejecución, contratación y resultado**.
 
 <!-- truncate -->
