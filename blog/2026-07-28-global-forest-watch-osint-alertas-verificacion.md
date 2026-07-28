@@ -9,6 +9,9 @@ image: /img/blog/2026-07-28-global-forest-watch-osint-alertas-verificacion.png
 
 ![Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación](/img/blog/2026-07-28-global-forest-watch-osint-alertas-verificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/global-forest-watch-osint-alertas-verificacion.m4a)
+
+
 Una organización asegura que una carretera ha provocado tala ilegal dentro de una reserva. En el mapa aparecen píxeles de alerta, una cicatriz lineal y pérdida de cobertura arbórea. La historia parece cerrada, pero todavía faltan preguntas decisivas: ¿la señal corresponde a una perturbación reciente?, ¿el límite de la reserva está actualizado?, ¿hubo fuego, tormenta, cosecha forestal o nubes?, ¿qué norma se habría infringido? `Global Forest Watch` ayuda a encontrar dónde mirar, pero no convierte automáticamente una anomalía satelital en una causa, un responsable o un delito.
 
 <!-- truncate -->
