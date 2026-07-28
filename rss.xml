@@ -4,10 +4,145 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Mon, 27 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Global Forest Watch en OSINT: alertas de vegetación, contexto y verificación sobre el terreno]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion</guid>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-28-global-forest-watch-osint-alertas-verificacion-e3bdb6afe1dde4c98631a21bf2001945.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una organización asegura que una carretera ha provocado tala ilegal dentro de una reserva. En el mapa aparecen píxeles de alerta, una cicatriz lineal y pérdida de cobertura arbórea. La historia parece cerrada, pero todavía faltan preguntas decisivas: ¿la señal corresponde a una perturbación reciente?, ¿el límite de la reserva está actualizado?, ¿hubo fuego, tormenta, cosecha forestal o nubes?, ¿qué norma se habría infringido? <code>Global Forest Watch</code> ayuda a encontrar dónde mirar, pero no convierte automáticamente una anomalía satelital en una causa, un responsable o un delito.</p>
+<p>Este artículo propone un flujo responsable para periodismo ambiental, seguimiento de compromisos, investigación académica y debida diligencia. Trabajaremos con lugares y entidades ficticios. El objetivo es priorizar comprobaciones y conservar la trazabilidad, no vigilar a comunidades, señalar a trabajadores ni publicar coordenadas sensibles sin evaluar el daño.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-global-forest-watch-y-para-qué-sirve-en-osint">Qué es Global Forest Watch y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#qu%C3%A9-es-global-forest-watch-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Global Forest Watch y para qué sirve en OSINT" title="Enlace directo al Qué es Global Forest Watch y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><a href="https://www.globalforestwatch.org/about/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch</a> es una iniciativa del World Resources Institute que reúne datos y herramientas públicas para monitorizar bosques. Su mapa permite superponer cobertura arbórea, pérdida, incendios, alertas de perturbación, áreas protegidas, concesiones y otros límites, según la disponibilidad de cada país.</p>
+<p>Para una investigación abierta resulta útil en cuatro tareas:</p>
+<ul>
+<li class=""><strong>descubrir cambios</strong> que merecen una revisión más detallada;</li>
+<li class=""><strong>situarlos en el tiempo</strong> mediante fechas de alerta y capas anuales;</li>
+<li class=""><strong>cruzarlos con límites</strong> administrativos, ambientales o productivos;</li>
+<li class=""><strong>crear un expediente reproducible</strong> con área de interés, periodo, capas y fuentes.</li>
+</ul>
+<p>La distinción clave está entre capas. La pérdida anual de cobertura arbórea sirve para estudiar tendencias históricas; las alertas se diseñan como señal temprana. Ninguna de las dos demuestra por sí sola deforestación permanente, ilegalidad o atribución.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-aportan-las-alertas-integradas-en-2026">Qué aportan las alertas integradas en 2026<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#qu%C3%A9-aportan-las-alertas-integradas-en-2026" class="hash-link" aria-label="Enlace directo al Qué aportan las alertas integradas en 2026" title="Enlace directo al Qué aportan las alertas integradas en 2026" translate="no">​</a></h3>
+<p>La capa de <a href="https://www.globalforestwatch.org/blog/data-and-tools/integrated-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">alertas integradas de perturbación</a> combina sistemas ópticos y de radar. En 2026 incorporó <code>DIST-ALERT</code>, basado en datos armonizados de Landsat y Sentinel-2, para ampliar la observación a vegetación de todo el mundo, dentro y fuera de bosques. La combinación también expresa distintos niveles de confianza y puede reflejar perturbaciones repetidas.</p>
+<p>Eso mejora la detección, pero no elimina la incertidumbre:</p>
+<ul>
+<li class="">las nubes, sombras, nieve y geometría de observación pueden retrasar o degradar una señal;</li>
+<li class="">los productos tienen resoluciones, coberturas y frecuencias diferentes;</li>
+<li class="">una perturbación puede deberse a tala, incendio, tormenta, deslizamiento, cosecha o cambio estacional;</li>
+<li class="">la fecha mostrada describe el comportamiento del producto, no necesariamente el instante exacto de una acción humana;</li>
+<li class="">una confianza alta indica mejor respaldo entre observaciones o sistemas, no una conclusión legal.</li>
+</ul>
+<p>La documentación del <a href="https://data-api.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="">API de datos de GFW</a> expone metadatos como procedencia, licencia, cobertura y versión. Conviene conservarlos porque una capa puede actualizarse y producir resultados distintos al repetir la consulta meses después.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-una-alerta-junto-a-la-reserva-sierra-clara">Caso ficticio: una alerta junto a la reserva Sierra Clara<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#caso-ficticio-una-alerta-junto-a-la-reserva-sierra-clara" class="hash-link" aria-label="Enlace directo al Caso ficticio: una alerta junto a la reserva Sierra Clara" title="Enlace directo al Caso ficticio: una alerta junto a la reserva Sierra Clara" translate="no">​</a></h2>
+<p>Imaginemos una investigación sobre <code>Maderas Horizonte</code>, concesionaria ficticia próxima a la reserva <code>Sierra Clara</code>. Una asociación local comparte una captura de GFW y afirma que se ha abierto una pista dentro del área protegida durante junio.</p>
+<p>Una revisión prudente separaría tres hipótesis:</p>
+<ol>
+<li class="">existe una perturbación reciente de vegetación;</li>
+<li class="">la perturbación cruza realmente el límite legal vigente;</li>
+<li class="">la actividad es atribuible a la concesionaria y contraviene una autorización concreta.</li>
+</ol>
+<p>GFW puede aportar indicios sólidos sobre la primera y ayudar a explorar la segunda. La tercera requiere fuentes adicionales: cartografía oficial, permisos, catastro de concesiones, imágenes fechadas, inspecciones y una respuesta de las partes afectadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-la-señal-al-expediente-verificable">Flujo recomendado: de la señal al expediente verificable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#flujo-recomendado-de-la-se%C3%B1al-al-expediente-verificable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de la señal al expediente verificable" title="Enlace directo al Flujo recomendado: de la señal al expediente verificable" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-pregunta-falsable">1. Formula una pregunta falsable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#1-formula-una-pregunta-falsable" class="hash-link" aria-label="Enlace directo al 1. Formula una pregunta falsable" title="Enlace directo al 1. Formula una pregunta falsable" translate="no">​</a></h3>
+<p>Evita empezar con «demostrar que hubo tala ilegal». Una pregunta mejor sería: «¿qué cambios de vegetación detectan las fuentes disponibles entre el 1 y el 30 de junio dentro del polígono oficial de Sierra Clara?».</p>
+<p>Anota antes de buscar:</p>
+<ul>
+<li class="">área y periodo;</li>
+<li class="">evento que esperas observar;</li>
+<li class="">explicaciones alternativas;</li>
+<li class="">evidencia mínima para aceptar o descartar cada hipótesis.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-obtén-el-límite-desde-una-fuente-competente">2. Obtén el límite desde una fuente competente<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#2-obt%C3%A9n-el-l%C3%ADmite-desde-una-fuente-competente" class="hash-link" aria-label="Enlace directo al 2. Obtén el límite desde una fuente competente" title="Enlace directo al 2. Obtén el límite desde una fuente competente" translate="no">​</a></h3>
+<p>No redibujes una reserva a ojo desde una captura. Descarga el polígono del organismo responsable y registra fecha, sistema de coordenadas y versión. Si GFW ofrece una capa equivalente, compara ambas geometrías: diferencias de pocos metros importan cuando una alerta cae junto al borde.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-de-cada-capa">3. Lee la ficha de cada capa<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#3-lee-la-ficha-de-cada-capa" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha de cada capa" title="Enlace directo al 3. Lee la ficha de cada capa" translate="no">​</a></h3>
+<p>Antes de contar píxeles, abre la información de la capa y registra:</p>
+<ul>
+<li class="">productor y método;</li>
+<li class="">resolución espacial;</li>
+<li class="">cobertura geográfica y temporal;</li>
+<li class="">frecuencia de actualización;</li>
+<li class="">definición de alerta y confianza;</li>
+<li class="">licencia y limitaciones conocidas.</li>
+</ul>
+<p>No mezcles en una misma serie cifras anuales de pérdida con alertas casi en tiempo real sin explicar qué mide cada producto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-empieza-por-el-patrón-no-por-el-culpable">4. Empieza por el patrón, no por el culpable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#4-empieza-por-el-patr%C3%B3n-no-por-el-culpable" class="hash-link" aria-label="Enlace directo al 4. Empieza por el patrón, no por el culpable" title="Enlace directo al 4. Empieza por el patrón, no por el culpable" translate="no">​</a></h3>
+<p>Traza un área de interés ajustada y compara:</p>
+<ul>
+<li class="">distribución y concentración de alertas;</li>
+<li class="">fecha inicial y persistencia;</li>
+<li class="">forma del cambio: lineal, rectangular, dispersa o asociada a un incendio;</li>
+<li class="">continuidad fuera del límite;</li>
+<li class="">carreteras, ríos, relieve y usos previos del suelo.</li>
+</ul>
+<p>Una línea estrecha puede ser una pista, un cortafuegos o un artefacto. Un bloque regular puede encajar con una parcela productiva, pero la geometría no atribuye autoría.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-contrasta-con-imágenes-y-sistemas-independientes">5. Contrasta con imágenes y sistemas independientes<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#5-contrasta-con-im%C3%A1genes-y-sistemas-independientes" class="hash-link" aria-label="Enlace directo al 5. Contrasta con imágenes y sistemas independientes" title="Enlace directo al 5. Contrasta con imágenes y sistemas independientes" translate="no">​</a></h3>
+<p>Busca escenas anteriores y posteriores con fecha conocida. Una imagen óptica clara permite interpretar mejor color, suelo expuesto y forma; el radar puede aportar observaciones cuando las nubes impiden ver el terreno. Si varios productos detectan cambio, aumenta la confianza en que ocurrió una perturbación, no necesariamente en su causa.</p>
+<p>La guía oficial sobre <a href="https://www.globalforestwatch.org/blog/data-and-tools/glad-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">alertas GLAD</a> recuerda que también pueden aparecer plantaciones, fuegos, tormentas, deslizamientos y otras alteraciones del dosel. Mantén esas alternativas vivas hasta contrastarlas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-comprueba-causa-autorización-y-cronología">6. Comprueba causa, autorización y cronología<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#6-comprueba-causa-autorizaci%C3%B3n-y-cronolog%C3%ADa" class="hash-link" aria-label="Enlace directo al 6. Comprueba causa, autorización y cronología" title="Enlace directo al 6. Comprueba causa, autorización y cronología" translate="no">​</a></h3>
+<p>Consulta la fuente primaria adecuada para cada afirmación:</p>
+<ul>
+<li class="">organismo forestal o ambiental para permisos y sanciones;</li>
+<li class="">registro de áreas protegidas para límites y categorías;</li>
+<li class="">autoridad de emergencias para incendios o tormentas;</li>
+<li class="">concesiones y evaluaciones ambientales para actividad autorizada;</li>
+<li class="">comunicados locales y trabajo de campo para contexto.</li>
+</ul>
+<p>Si utilizas la capa experimental de conductores de pérdida, trata la clasificación automatizada como una pista. La explicación oficial de <a href="https://www.globalforestwatch.org/blog/data-and-tools/drivers-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">conductores de alertas</a> advierte que la cobertura, el periodo y la confianza del modelo son específicos y que algunas etiquetas pueden actualizarse al llegar más observaciones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-conserva-un-paquete-reproducible">7. Conserva un paquete reproducible<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#7-conserva-un-paquete-reproducible" class="hash-link" aria-label="Enlace directo al 7. Conserva un paquete reproducible" title="Enlace directo al 7. Conserva un paquete reproducible" translate="no">​</a></h3>
+<p>Guarda un registro como este:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">caso: sierra-clara-2026-06</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">area: poligono_oficial_reserva_2026-05.geojson</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">periodo: 2026-06-01/2026-06-30</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">capas: nombre exacto, productor y version consultada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta: 2026-07-28T10:15:00+02:00</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">hallazgo: concentracion de alertas junto al limite norte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">alternativas: fuego, corta autorizada, error geometrico</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">pendiente: permiso forestal e imagen sin nubes</span><br></span></code></pre></div></div>
+<p>Exporta los datos permitidos, captura la leyenda y conserva los enlaces. Un pantallazo sin escala, fecha, capa ni procedencia es difícil de auditar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pérdida-de-cobertura-no-equivale-siempre-a-deforestación">Pérdida de cobertura no equivale siempre a deforestación<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#p%C3%A9rdida-de-cobertura-no-equivale-siempre-a-deforestaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Pérdida de cobertura no equivale siempre a deforestación" title="Enlace directo al Pérdida de cobertura no equivale siempre a deforestación" translate="no">​</a></h3>
+<p>La cobertura arbórea puede desaparecer temporalmente por explotación planificada, incendio o fenómeno meteorológico y recuperarse después. La deforestación implica una conversión de uso más duradera. Si el dato mide pérdida de dosel, escribe «pérdida de cobertura» o «perturbación» hasta disponer de evidencia de conversión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-alerta-no-determina-legalidad">Una alerta no determina legalidad<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#una-alerta-no-determina-legalidad" class="hash-link" aria-label="Enlace directo al Una alerta no determina legalidad" title="Enlace directo al Una alerta no determina legalidad" translate="no">​</a></h3>
+<p>El satélite no conoce permisos, deslindes en disputa ni excepciones normativas. Incluso un cambio inequívoco dentro de un polígono exige comprobar jurisdicción, fecha de vigencia y autorización.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-bordes-engañan">Los bordes engañan<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#los-bordes-enga%C3%B1an" class="hash-link" aria-label="Enlace directo al Los bordes engañan" title="Enlace directo al Los bordes engañan" translate="no">​</a></h3>
+<p>Resolución del píxel, reproyección y calidad del límite pueden colocar una señal aparentemente dentro o fuera. Cuando el caso depende de unos metros, informa de la incertidumbre y solicita datos de mayor precisión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-alertas-no-demuestra-ausencia-de-cambio">Ausencia de alertas no demuestra ausencia de cambio<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#ausencia-de-alertas-no-demuestra-ausencia-de-cambio" class="hash-link" aria-label="Enlace directo al Ausencia de alertas no demuestra ausencia de cambio" title="Enlace directo al Ausencia de alertas no demuestra ausencia de cambio" translate="no">​</a></h3>
+<p>Nubes persistentes, nieve, baja intensidad, cobertura del producto o retrasos de observación pueden ocultar eventos. Formula la conclusión como «no se detectaron alertas con estas capas, área y fechas», no como «no ocurrió nada».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-automatización-clasifica-no-sentencia">La automatización clasifica, no sentencia<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#la-automatizaci%C3%B3n-clasifica-no-sentencia" class="hash-link" aria-label="Enlace directo al La automatización clasifica, no sentencia" title="Enlace directo al La automatización clasifica, no sentencia" translate="no">​</a></h3>
+<p>Los modelos de conductores ayudan a priorizar revisiones. Sus etiquetas dependen de muestras, regiones y señales visibles. No conviertas una clase probable en una acusación contra una empresa o comunidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga actividades y afirmaciones de interés público, no rutinas de personas.</li>
+<li class="">No publiques coordenadas de comunidades aisladas, especies amenazadas o patrullas si eso aumenta el riesgo.</li>
+<li class="">Usa cuentas y dispositivos de trabajo cuando una investigación pueda generar exposición.</li>
+<li class="">Minimiza los datos personales en notas, capturas y archivos compartidos.</li>
+<li class="">Separa observación, inferencia y conclusión con etiquetas explícitas.</li>
+<li class="">Ofrece derecho de respuesta antes de atribuir una actividad perjudicial.</li>
+<li class="">Consulta a especialistas locales: un patrón satelital sin conocimiento del territorio puede inducir a errores graves.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>GFW funciona mejor como centro de descubrimiento y contraste, no como única fuente. Según la pregunta, puedes combinarlo con:</p>
+<ul>
+<li class=""><code>Copernicus Browser</code> o visores Landsat/Sentinel para inspeccionar escenas concretas;</li>
+<li class=""><code>NASA FIRMS</code> para comprobar anomalías térmicas e incendios;</li>
+<li class="">geoportales nacionales para límites, permisos y concesiones;</li>
+<li class=""><code>QGIS</code> para medir, reproyectar y documentar geometrías;</li>
+<li class="">observación de campo responsable o socios locales para validar causas.</li>
+</ul>
+<p>El siguiente paso práctico es sencillo: elige un área que conozcas, define un periodo de treinta días y crea una ficha con <strong>una alerta, dos explicaciones alternativas y dos fuentes independientes para comprobarla</strong>. La calidad del análisis no se mide por cuántos píxeles coloreados encuentras, sino por lo bien que explicas qué significan y qué todavía no puedes afirmar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.globalforestwatch.org/about/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: acerca del proyecto</a></li>
+<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/integrated-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: alertas integradas de perturbación</a></li>
+<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/glad-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: guía de alertas GLAD</a></li>
+<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/drivers-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: conductores de alertas y limitaciones</a></li>
+<li class=""><a href="https://data-api.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch Data API</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>GEOINT</category>
+            <category>Verificacion</category>
+            <category>Investigacion</category>
+            <category>Datos</category>
+            <category>Metodologia</category>
+        </item>
         <item>
             <title><![CDATA[World Bank Projects & Operations en OSINT: proyectos, financiación y contratos con trazabilidad]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad</link>
@@ -2874,152 +3009,6 @@
             <category>Verificacion</category>
             <category>Privacidad</category>
             <category>Investigacion</category>
-        </item>
-        <item>
-            <title><![CDATA[OpenRefine en OSINT: limpiar datasets, reconciliar entidades y no fabricar certezas]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto</guid>
-            <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de un analista OSINT limpiando datasets publicos, agrupando nombres duplicados y reconciliando entidades con fuentes de confianza]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de un analista OSINT limpiando datasets publicos, agrupando nombres duplicados y reconciliando entidades con fuentes de confianza" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-07-openrefine-osint-limpieza-datos-reconciliacion-contexto-10306967df546eb1dafc6ddaaec69c62.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/openrefine-osint-limpieza-datos-reconciliacion-contexto-93db68f0465b0543a435b0cef9431e4d.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una investigacion OSINT rara vez se rompe por falta de datos. Se rompe cuando una misma empresa aparece con cinco nombres, una direccion cambia de formato, una fecha viene como texto, un CSV mezcla codificaciones y alguien decide que dos entidades "seguro que son la misma" porque se parecen. <code>OpenRefine</code> encaja justo en ese punto incomodo: no encuentra secretos, pero ayuda a <strong>limpiar, normalizar y reconciliar datos abiertos sin convertir el ruido en certeza</strong>.</p>
-<p>Revisando la documentacion publica el <strong>7 de julio de 2026</strong>, <code>OpenRefine</code> se presenta como una herramienta libre y de codigo abierto para trabajar con datos desordenados: limpiarlos, transformarlos entre formatos y extenderlos con servicios web y datos externos. Su pagina oficial destaca facetas, clustering, reconciliacion, historial de operaciones, trabajo local y soporte de Wikibase/Wikidata. La lista de releases de GitHub mostraba <code>OpenRefine 3.10.1</code> como version estable mas reciente, publicada el <code>4 de marzo de 2026</code>.</p>
-<p>Este articulo esta escrito para analistas, periodistas de datos, equipos de cumplimiento, investigadores defensivos y personas que necesitan ordenar datasets publicos con trazabilidad. No contiene tecnicas para doxxing, stalking, enriquecimiento invasivo de personas ni scraping abusivo. El foco es metodologico: reducir errores antes de escribir conclusiones.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-openrefine-y-para-que-sirve">Que es OpenRefine y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#que-es-openrefine-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenRefine y para que sirve" title="Enlace directo al Que es OpenRefine y para que sirve" translate="no">​</a></h2>
-<p><a href="https://openrefine.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenRefine</code></a> es una aplicacion local, manejada desde navegador, orientada a preparar y transformar datos tabulares. En OSINT resulta especialmente util cuando trabajas con:</p>
-<ul>
-<li class="">listados de sociedades, cargos, licitaciones o sanciones;</li>
-<li class="">CSV exportados de registros publicos;</li>
-<li class="">dominios, URLs, IPs o certificados recogidos desde varias fuentes;</li>
-<li class="">nombres de personas juridicas con variantes ortograficas;</li>
-<li class="">ubicaciones, fechas y codigos administrativos inconsistentes;</li>
-<li class="">tablas que necesitan pasar de "legibles a mano" a "consultables con criterio".</li>
-</ul>
-<p>Su valor no esta en hacer magia. Esta en obligarte a mirar la calidad del dato antes de pivotar. Las facetas te muestran patrones y rarezas; el clustering agrupa valores parecidos para corregir variantes; las transformaciones permiten normalizar campos; la reconciliacion ayuda a enlazar valores con entidades externas; y el historial permite revisar que operaciones aplicaste.</p>
-<p>En una investigacion seria, eso cambia mucho la conversacion. En vez de decir "he unido estos registros porque se parecen", puedes decir: "he normalizado mayusculas, espacios y puntuacion; he revisado clusters manualmente; he separado coincidencias fuertes de dudosas; y he dejado el proceso documentado".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una revision de proveedores para una ONG ficticia, <code>Puentes Civicos</code>. El equipo tiene tres fuentes abiertas:</p>
-<table><thead><tr><th>Fuente</th><th>Campo problematico</th><th>Riesgo metodologico</th></tr></thead><tbody><tr><td>Registro mercantil</td><td><code>Nombre legal</code></td><td>Variantes con siglas, acentos y formas societarias</td></tr><tr><td>Portal de contratacion</td><td><code>Adjudicatario</code></td><td>Nombres comerciales mezclados con entidades legales</td></tr><tr><td>Lista de donantes</td><td><code>Organizacion</code></td><td>Errores de escritura y abreviaturas internas</td></tr></tbody></table>
-<p>El objetivo legitimo no es "perfilar a todo el mundo", sino responder una pregunta limitada:</p>
-<p><strong>Que entidades aparecen en mas de una fuente y cuales requieren verificacion documental antes de cerrar una conclusion?</strong></p>
-<p>Un flujo prudente con <code>OpenRefine</code> seria:</p>
-<ol>
-<li class="">importar cada tabla conservando una copia bruta;</li>
-<li class="">crear columnas normalizadas para comparar sin destruir el dato original;</li>
-<li class="">usar facetas para localizar valores vacios, formatos raros y categorias inesperadas;</li>
-<li class="">aplicar clustering sobre nombres de organizaciones;</li>
-<li class="">aceptar solo merges revisados manualmente;</li>
-<li class="">reconciliar contra una fuente externa cuando tenga sentido, por ejemplo Wikidata o una base propia;</li>
-<li class="">exportar una tabla con <code>valor original</code>, <code>valor normalizado</code>, <code>decision</code>, <code>fuente</code> y <code>nota</code>.</li>
-</ol>
-<p>La salida correcta no es una lista de acusaciones. Es una tabla de trabajo con tres niveles: coincidencia confirmada, coincidencia plausible y coincidencia descartada o pendiente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-conserva-el-dato-bruto">1. Conserva el dato bruto<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#1-conserva-el-dato-bruto" class="hash-link" aria-label="Enlace directo al 1. Conserva el dato bruto" title="Enlace directo al 1. Conserva el dato bruto" translate="no">​</a></h3>
-<p>Antes de tocar nada, guarda el fichero original y anota origen, fecha de descarga, URL, licencia y cualquier filtro aplicado. En <code>OpenRefine</code>, crea nuevas columnas para normalizar en vez de sobrescribir el campo original demasiado pronto.</p>
-<p>Una regla practica:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">nombre_original -&gt; nombre_limpio -&gt; nombre_canonico -&gt; decision_analitica</span><br></span></code></pre></div></div>
-<p>Si solo conservas <code>nombre_canonico</code>, pierdes la capacidad de explicar por que <code>Iber Atlas SL</code>, <code>IberAtlas S.L.</code> e <code>IBER ATLAS SOCIEDAD LIMITADA</code> acabaron juntos o separados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-facetas-para-entender-el-dataset-antes-de-limpiar">2. Usa facetas para entender el dataset antes de limpiar<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#2-usa-facetas-para-entender-el-dataset-antes-de-limpiar" class="hash-link" aria-label="Enlace directo al 2. Usa facetas para entender el dataset antes de limpiar" title="Enlace directo al 2. Usa facetas para entender el dataset antes de limpiar" translate="no">​</a></h3>
-<p>Las facetas son una de las mejores defensas contra el exceso de confianza. La documentacion de <code>OpenRefine</code> las presenta como una forma de explorar patrones, filtrar filas y aplicar operaciones sobre vistas filtradas. En OSINT, eso sirve para preguntas muy concretas:</p>
-<ul>
-<li class="">cuantos valores estan vacios;</li>
-<li class="">que categorias aparecen una sola vez;</li>
-<li class="">si una columna mezcla fechas, textos y numeros;</li>
-<li class="">que dominios, paises o tipos de entidad dominan la muestra;</li>
-<li class="">donde hay outliers que merecen revision manual.</li>
-</ul>
-<p>No empieces corrigiendo. Empieza mirando distribuciones. Muchas decisiones malas nacen de arreglar una fila llamativa sin entender el conjunto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-con-transformaciones-pequeñas-y-auditables">3. Normaliza con transformaciones pequeñas y auditables<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#3-normaliza-con-transformaciones-peque%C3%B1as-y-auditables" class="hash-link" aria-label="Enlace directo al 3. Normaliza con transformaciones pequeñas y auditables" title="Enlace directo al 3. Normaliza con transformaciones pequeñas y auditables" translate="no">​</a></h3>
-<p><code>OpenRefine</code> permite transformar celdas con expresiones. Su lenguaje <code>GREL</code> se parece a JavaScript y trabaja con variables como <code>value</code>. Para OSINT basta con expresiones sencillas:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.trim()</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.toLowercase()</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.replace(".", "")</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">value.replace(" sociedad limitada", " sl")</span><br></span></code></pre></div></div>
-<p>El punto no es escribir formulas brillantes. Es hacer operaciones pequeñas, revisar la previsualizacion y dejar claro que ha cambiado. Si normalizas demasiado agresivamente, puedes unir cosas que no son iguales. Si normalizas demasiado poco, puedes perder relaciones evidentes.</p>
-<p>Una buena practica es crear columnas intermedias:</p>
-<table><thead><tr><th>Columna</th><th>Proposito</th></tr></thead><tbody><tr><td><code>nombre_original</code></td><td>Lo que venia en la fuente</td></tr><tr><td><code>nombre_limpio</code></td><td>Espacios, mayusculas y signos normalizados</td></tr><tr><td><code>nombre_sin_forma</code></td><td>Variante sin <code>sl</code>, <code>sa</code>, <code>ltd</code>, etc., si procede</td></tr><tr><td><code>decision_cluster</code></td><td>Merge aceptado, pendiente o rechazado</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-trata-el-clustering-como-propuesta-no-como-veredicto">4. Trata el clustering como propuesta, no como veredicto<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#4-trata-el-clustering-como-propuesta-no-como-veredicto" class="hash-link" aria-label="Enlace directo al 4. Trata el clustering como propuesta, no como veredicto" title="Enlace directo al 4. Trata el clustering como propuesta, no como veredicto" translate="no">​</a></h3>
-<p>El clustering de <code>OpenRefine</code> agrupa valores parecidos para corregir inconsistencias. La documentacion tecnica distingue familias como <code>key collision</code>, rapidas pero a veces demasiado estrictas o laxas, y metodos de vecino mas cercano, que introducen umbrales de distancia. Traducido a investigacion: el algoritmo sugiere, el analista decide.</p>
-<p>Ejemplo ficticio:</p>
-<table><thead><tr><th>Cluster sugerido</th><th>Decision responsable</th></tr></thead><tbody><tr><td><code>Iber Atlas SL</code> / <code>IberAtlas S.L.</code></td><td>Probable misma entidad, revisar numero registral</td></tr><tr><td><code>Atlas Iberia SL</code> / <code>Iber Atlas SL</code></td><td>No fusionar sin otra evidencia</td></tr><tr><td><code>Juan A. Martin</code> / <code>Juan Martin</code></td><td>Pendiente: puede ser la misma persona o no</td></tr><tr><td><code>Acme Logistics Ltd</code> / <code>Acme Logistic Limited</code></td><td>Revisar jurisdiccion y numero de compania</td></tr></tbody></table>
-<p>El error mas peligroso es aceptar merges en masa porque "parecen razonables". En nombres de personas, empresas y lugares, una letra puede separar dos entidades reales. Y en OSINT, una fusion mala contamina todas las conclusiones posteriores.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reconciliar-no-es-identificar-automaticamente">5. Reconciliar no es identificar automaticamente<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#5-reconciliar-no-es-identificar-automaticamente" class="hash-link" aria-label="Enlace directo al 5. Reconciliar no es identificar automaticamente" title="Enlace directo al 5. Reconciliar no es identificar automaticamente" translate="no">​</a></h3>
-<p>La reconciliacion permite enlazar valores de una columna con entidades de servicios externos. La documentacion de <code>OpenRefine</code> explica que, tras reconciliar, aparecen facetas como puntuacion del mejor candidato y juicio de coincidencia; tambien recomienda trabajar por lotes y reconciliar contra tipos especificos, de lo concreto a lo amplio.</p>
-<p>Ese consejo es oro. Si tienes una columna de organizaciones, no reconcilies contra "cualquier cosa" y aceptes el primer candidato bonito. Acota el tipo, revisa puntuacion, mira candidatos alternativos y conserva el juicio humano.</p>
-<p>Una lectura sana:</p>
-<ul>
-<li class=""><strong>match fuerte</strong>: nombre, identificador y contexto encajan;</li>
-<li class=""><strong>match plausible</strong>: hay similitud, pero falta confirmar jurisdiccion, fecha o fuente;</li>
-<li class=""><strong>no match</strong>: el servicio no encontro entidad fiable;</li>
-<li class=""><strong>nuevo o pendiente</strong>: puede ser entidad real no cubierta por la fuente externa.</li>
-</ul>
-<p>Reconciliar contra Wikidata, Wikibase u otro servicio puede aportar contexto, pero tambien arrastra cobertura desigual, sesgos de idioma, entidades incompletas y homonimias. En informes sensibles, el enlace externo abre una pista; no sustituye al documento primario.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-exporta-decisiones-no-solo-datos-limpios">6. Exporta decisiones, no solo datos limpios<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#6-exporta-decisiones-no-solo-datos-limpios" class="hash-link" aria-label="Enlace directo al 6. Exporta decisiones, no solo datos limpios" title="Enlace directo al 6. Exporta decisiones, no solo datos limpios" translate="no">​</a></h3>
-<p>Una tabla final que solo contiene el dato "bonito" oculta el trabajo. En investigaciones revisables conviene exportar tambien:</p>
-<ul>
-<li class="">fuente original;</li>
-<li class="">valor original;</li>
-<li class="">valor normalizado;</li>
-<li class="">regla o operacion aplicada;</li>
-<li class="">cluster aceptado o rechazado;</li>
-<li class="">identificador externo si existe;</li>
-<li class="">confianza;</li>
-<li class="">nota breve;</li>
-<li class="">fecha de revision.</li>
-</ul>
-<p>Esto permite que otra persona audite el camino. Tambien te protege de ti mismo: dentro de dos semanas no recordaras por que aceptaste un cluster concreto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>OpenRefine</code> mejora el control del dato, pero no convierte datos sucios en verdad.</p>
-<ul>
-<li class=""><strong>Cobertura externa</strong>: la reconciliacion depende del servicio usado y de sus sesgos.</li>
-<li class=""><strong>Homonimias</strong>: dos personas o empresas pueden compartir nombre.</li>
-<li class=""><strong>Cambios temporales</strong>: una entidad puede cambiar de nombre, fusionarse o desaparecer.</li>
-<li class=""><strong>Normalizacion excesiva</strong>: borrar signos, sufijos o palabras puede unir entidades distintas.</li>
-<li class=""><strong>Campos incompletos</strong>: sin pais, fecha, identificador o fuente, la confianza baja.</li>
-<li class=""><strong>Automatizacion tentadora</strong>: aceptar clusters o matches en bloque puede multiplicar errores.</li>
-<li class=""><strong>Privacidad</strong>: limpiar datos personales no justifica conservarlos si no son necesarios.</li>
-</ul>
-<p>La regla editorial es sencilla: cuanto mas sensible sea la conclusion, menos debes depender de una coincidencia de texto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque <code>OpenRefine</code> trabaje localmente, el dataset puede contener informacion sensible. Trata el proyecto como parte del expediente:</p>
-<ul>
-<li class="">separa datos publicos, notas internas y datos personales;</li>
-<li class="">minimiza columnas que no necesitas;</li>
-<li class="">no subas datos personales a servicios de reconciliacion sin base legitima;</li>
-<li class="">revisa licencias y terminos de uso de cada fuente;</li>
-<li class="">evita enriquecer identidades individuales si la pregunta puede resolverse a nivel organizacion;</li>
-<li class="">guarda operaciones y decisiones junto con el dataset;</li>
-<li class="">cifra o restringe proyectos cuando haya datos sensibles;</li>
-<li class="">elimina exportaciones intermedias que ya no necesites.</li>
-</ul>
-<p>La privacidad no empieza cuando publicas. Empieza cuando decides que columnas importas y que campos conservas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>OpenRefine</code> encaja especialmente bien entre la descarga de datos y el analisis final. Segun el caso, puede combinarse con:</p>
-<ul>
-<li class=""><code>SQLite</code> y <code>Datasette</code>, para publicar o consultar tablas ya normalizadas;</li>
-<li class=""><code>OpenAleph</code>, si el problema es documental y relacional;</li>
-<li class=""><code>Wikidata</code> o un <code>Wikibase</code> propio, si necesitas reconciliacion estructurada;</li>
-<li class="">hojas de calculo, cuando el volumen es pequeno y el equipo no necesita historial complejo;</li>
-<li class="">scripts reproducibles en Python o <code>jq</code>, si el flujo debe ejecutarse de forma automatica;</li>
-<li class="">registros primarios, siempre que una conclusion dependa de identidad legal o vigencia.</li>
-</ul>
-<p>El takeaway accionable: usa <code>OpenRefine</code> para <strong>hacer visible la calidad del dato antes de analizarlo</strong>. Un buen cluster no es una prueba; una buena reconciliacion no es identidad confirmada; una tabla limpia no borra la incertidumbre. Pero si documentas origen, transformaciones, decisiones y limites, tu investigacion sera mucho mas defendible.</p>
-<p>Como siguiente paso natural del blog, tendria sentido bajar a un caso practico comparando <code>OpenRefine</code>, <code>SQLite</code> y <code>Datasette</code>: mismo CSV publico, tres capas distintas para limpiar, consultar y publicar resultados sin perder trazabilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openrefine-osint-limpieza-datos-reconciliacion-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://openrefine.org/" target="_blank" rel="noopener noreferrer" class="">OpenRefine, pagina principal</a></li>
-<li class=""><a href="https://github.com/OpenRefine/OpenRefine/releases" target="_blank" rel="noopener noreferrer" class="">OpenRefine, releases en GitHub</a></li>
-<li class=""><a href="https://openrefine.org/docs/manual/facets" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Exploring facets</a></li>
-<li class=""><a href="https://openrefine.org/docs/manual/cellediting" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Cell editing</a></li>
-<li class=""><a href="https://openrefine.org/docs/manual/grel" target="_blank" rel="noopener noreferrer" class="">OpenRefine, General Refine Expression Language</a></li>
-<li class=""><a href="https://openrefine.org/docs/technical-reference/clustering-in-depth" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Clustering Methods In-depth</a></li>
-<li class=""><a href="https://openrefine.org/docs/manual/reconciling" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Reconciling</a></li>
-<li class=""><a href="https://openrefine.org/docs/manual/wikibase/reconciling" target="_blank" rel="noopener noreferrer" class="">OpenRefine, Reconciling with Wikibase</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Datos</category>
-            <category>Metodologia</category>
-            <category>Verificacion</category>
-            <category>Tooling</category>
-            <category>Privacidad</category>
         </item>
     </channel>
 </rss>
