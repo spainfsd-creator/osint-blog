@@ -9,6 +9,9 @@ image: /img/blog/2026-07-29-registro-transparencia-ue-osint.png
 
 ![Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional](/img/blog/2026-07-29-registro-transparencia-ue-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/registro-transparencia-ue-osint-intereses-reuniones-contexto.m4a)
+
+
 Una asociación aparece en la agenda de un alto cargo europeo días antes de que se publique una propuesta regulatoria. Su ficha declara un presupuesto considerable y varios asuntos de interés. La secuencia resulta relevante, pero todavía no demuestra qué se dijo, qué petición se formuló ni si la reunión cambió una sola línea. El `Registro de Transparencia de la UE` ayuda a reconstruir **quién declara representar qué intereses, con qué recursos y en qué contexto institucional**; no es una máquina para convertir proximidad temporal en influencia probada.
 
 <!-- truncate -->
