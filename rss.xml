@@ -4,10 +4,167 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 28 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 29 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Registro de Transparencia de la UE en OSINT: intereses, reuniones y contexto sin atribuir influencia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto</guid>
+            <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-29-registro-transparencia-ue-osint-cf90407da600491bd8bdb08915b69b65.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una asociación aparece en la agenda de un alto cargo europeo días antes de que se publique una propuesta regulatoria. Su ficha declara un presupuesto considerable y varios asuntos de interés. La secuencia resulta relevante, pero todavía no demuestra qué se dijo, qué petición se formuló ni si la reunión cambió una sola línea. El <code>Registro de Transparencia de la UE</code> ayuda a reconstruir <strong>quién declara representar qué intereses, con qué recursos y en qué contexto institucional</strong>; no es una máquina para convertir proximidad temporal en influencia probada.</p>
+<p>Este artículo propone un flujo responsable para periodismo, debida diligencia, investigación académica y control democrático. Usaremos organizaciones y expedientes ficticios. El objetivo es formular preguntas verificables sobre representación de intereses, no etiquetar el diálogo institucional como conducta ilícita ni perfilar a trabajadores particulares.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-el-registro-de-transparencia-de-la-ue">Qué es el Registro de Transparencia de la UE<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#qu%C3%A9-es-el-registro-de-transparencia-de-la-ue" class="hash-link" aria-label="Enlace directo al Qué es el Registro de Transparencia de la UE" title="Enlace directo al Qué es el Registro de Transparencia de la UE" translate="no">​</a></h2>
+<p>El <a href="https://transparency-register.europa.eu/index_es" target="_blank" rel="noopener noreferrer" class="">Registro de Transparencia</a> es una base pública común del Parlamento Europeo, el Consejo de la Unión Europea y la Comisión Europea. Incluye organizaciones, asociaciones, grupos, redes y personas autónomas que realizan actividades dirigidas a influir en la formulación o aplicación de políticas y legislación de la UE o en los procesos de decisión de sus instituciones.</p>
+<p>Una inscripción puede aportar, según el tipo de declarante:</p>
+<ul>
+<li class="">identidad, sede, forma y categoría de la organización;</li>
+<li class="">objetivos, intereses representados y políticas o expedientes seguidos;</li>
+<li class="">clientes, miembros o entidades cubiertas por la declaración;</li>
+<li class="">personas implicadas y estimaciones de recursos humanos;</li>
+<li class="">gastos de representación de intereses, ingresos de clientes u otras cifras financieras;</li>
+<li class="">financiación, donaciones y patrocinios declarados;</li>
+<li class="">participaciones en consultas, grupos, foros u otras actividades;</li>
+<li class="">enlaces a reuniones publicadas por las instituciones.</li>
+</ul>
+<p>La ficha sirve como <strong>índice de afirmaciones declaradas</strong>. La organización es responsable de que la información sea exacta y esté actualizada. La Secretaría comprueba solicitudes y calidad de datos, pero la inscripción no constituye reconocimiento, aprobación, acreditación general ni auditoría de cada cifra. Las <a href="https://transparency-register.europa.eu/guidance/guidelines_es" target="_blank" rel="noopener noreferrer" class="">directrices oficiales</a> lo dejan claro: el contenido procede de los declarantes y debe interpretarse dentro de las reglas y categorías del registro.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="obligatorio-no-significa-cobertura-total">«Obligatorio» no significa cobertura total<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#obligatorio-no-significa-cobertura-total" class="hash-link" aria-label="Enlace directo al «Obligatorio» no significa cobertura total" title="Enlace directo al «Obligatorio» no significa cobertura total" translate="no">​</a></h3>
+<p>El Acuerdo Interinstitucional de 2021 estableció un marco de condicionalidad: determinadas actividades con las instituciones firmantes exigen estar inscrito. Por ejemplo, las instituciones pueden vincular el acceso a reuniones, audiencias, intergrupos, grupos de expertos o locales a una inscripción válida. Por eso se suele describir como un registro obligatorio <em>de facto</em>.</p>
+<p>Sin embargo, no es un censo universal de toda conversación relacionada con políticas europeas. Hay actividades excluidas, entidades que no tienen que registrarse en determinados supuestos y medidas de condicionalidad diferentes según institución y actividad. Tampoco toda interacción deja el mismo rastro público. La pregunta correcta no es «¿está todo el lobbying aquí?», sino «¿qué actividad cubre esta fuente, bajo qué regla y durante qué periodo?».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-expediente-ficticio-de-baterías">Caso legítimo: el expediente ficticio de baterías<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#caso-leg%C3%ADtimo-el-expediente-ficticio-de-bater%C3%ADas" class="hash-link" aria-label="Enlace directo al Caso legítimo: el expediente ficticio de baterías" title="Enlace directo al Caso legítimo: el expediente ficticio de baterías" translate="no">​</a></h2>
+<p>Imaginemos que la Comisión prepara una iniciativa sobre la reparación y reutilización de baterías. Una empresa ficticia, <code>Acumuladores Boreal</code>, afirma defender criterios técnicos neutrales. Una ONG sostiene, también sin aportar pruebas suficientes, que la empresa «dictó la norma» después de reunirse con un gabinete.</p>
+<p>La investigación debería separar al menos cinco proposiciones:</p>
+<ol>
+<li class=""><code>Acumuladores Boreal</code> o una entidad que la representa figura en el registro.</li>
+<li class="">Su ficha declara interés en la política o expediente analizado.</li>
+<li class="">Existió una reunión publicada, con fecha, participantes institucionales y asunto.</li>
+<li class="">La organización presentó una posición concreta antes o durante el proceso.</li>
+<li class="">Esa posición explica una modificación verificable del texto normativo.</li>
+</ol>
+<p>Las tres primeras pueden explorarse con el registro y las agendas institucionales. La cuarta exige localizar consultas, documentos de posición, actas, cartas o declaraciones. La quinta requiere comparar versiones, cronología y justificación normativa, además de considerar explicaciones alternativas. Ninguna casilla anterior demuestra automáticamente la siguiente.</p>
+<p>Un resultado proporcionado podría decir:</p>
+<blockquote>
+<p>La entidad registrada declaró interés en economía circular y participó en una reunión publicada sobre baterías el 12 de marzo. Un documento de posición fechado el 5 de marzo propuso este criterio. La versión de la iniciativa publicada el 28 de abril contiene una redacción semejante, pero las fuentes consultadas no permiten atribuir el cambio a esa reunión ni descartar aportaciones coincidentes de otros actores.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-delimita-la-afirmación-el-periodo-y-la-institución">1. Delimita la afirmación, el periodo y la institución<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#1-delimita-la-afirmaci%C3%B3n-el-periodo-y-la-instituci%C3%B3n" class="hash-link" aria-label="Enlace directo al 1. Delimita la afirmación, el periodo y la institución" title="Enlace directo al 1. Delimita la afirmación, el periodo y la institución" translate="no">​</a></h3>
+<p>Convierte la sospecha en preguntas observables:</p>
+<ul>
+<li class="">¿qué organización, filial, asociación o consultora buscamos?;</li>
+<li class="">¿qué propuesta, consulta, acto delegado o fase de ejecución está en juego?;</li>
+<li class="">¿qué institución y responsables tenían competencia en ese momento?;</li>
+<li class="">¿qué intervalo temporal permitiría observar preparación, reunión y resultado?;</li>
+<li class="">¿qué hecho demostraría o refutaría cada hipótesis?</li>
+</ul>
+<p>Conserva la URL o documento que originó la investigación, su fecha y su redacción exacta. «Influyó en Bruselas» es demasiado ambiguo; «declaró seguir el expediente ficticio <code>COM(2026) 999</code> y se reunió con este gabinete entre enero y abril» sí se puede comprobar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-resuelve-la-identidad-antes-de-comparar-cifras">2. Resuelve la identidad antes de comparar cifras<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#2-resuelve-la-identidad-antes-de-comparar-cifras" class="hash-link" aria-label="Enlace directo al 2. Resuelve la identidad antes de comparar cifras" title="Enlace directo al 2. Resuelve la identidad antes de comparar cifras" translate="no">​</a></h3>
+<p>Busca nombre oficial, variantes, nombres anteriores y número público de registro. Después contrasta:</p>
+<ul>
+<li class="">web y aviso legal de la entidad;</li>
+<li class="">registros mercantiles o de asociaciones pertinentes;</li>
+<li class="">grupo empresarial, filiales y marcas;</li>
+<li class="">miembros de una asociación;</li>
+<li class="">consultoras o intermediarios que declaren representarla.</li>
+</ul>
+<p>Dos fichas parecidas pueden corresponder a entidades distintas. A la inversa, una empresa puede aparecer indirectamente como cliente de una consultora o miembro de una federación. Documenta la relación: no la supongas por coincidencia nominal, dominio web o sector.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-como-una-declaración-fechada">3. Lee la ficha como una declaración fechada<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#3-lee-la-ficha-como-una-declaraci%C3%B3n-fechada" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha como una declaración fechada" title="Enlace directo al 3. Lee la ficha como una declaración fechada" translate="no">​</a></h3>
+<p>Registra al menos:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Consulta: 2026-07-29T10:30:00+02:00</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Entidad y número de registro: [valor observado]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Estado de la ficha: activa / suspendida / retirada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Última actualización visible: [fecha]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Intereses y expedientes: [texto relevante]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Clientes o miembros: [relación declarada]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Magnitud financiera y periodo: [campo, rango, moneda, ejercicio]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Personas/ETC dedicados: [valor y definición]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">URL archivada o copia de trabajo: [ruta]</span><br></span></code></pre></div></div>
+<p>No mezcles ejercicios ni campos financieros. Dependiendo del tipo de entidad, el formulario pide gastos de representación, ingresos atribuibles a clientes u otra información. Un rango estimado no es una factura y dos cifras con etiquetas diferentes no son comparables aunque ambas estén en euros.</p>
+<p>Las directrices recomiendan actualizar los cambios sin demora y, en todo caso, dentro de tres meses, además de realizar una actualización anual. Esto introduce una latencia posible: una ficha consultada hoy puede describir el último ejercicio cerrado o una situación anterior. Conserva tanto la fecha de consulta como el periodo al que se refiere cada dato.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-recupera-el-histórico-antes-de-afirmar-que-algo-desapareció">4. Recupera el histórico antes de afirmar que algo «desapareció»<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#4-recupera-el-hist%C3%B3rico-antes-de-afirmar-que-algo-desapareci%C3%B3" class="hash-link" aria-label="Enlace directo al 4. Recupera el histórico antes de afirmar que algo «desapareció»" title="Enlace directo al 4. Recupera el histórico antes de afirmar que algo «desapareció»" translate="no">​</a></h3>
+<p>El portal <a href="https://data.europa.eu/data/datasets/transparency-register?locale=es" target="_blank" rel="noopener noreferrer" class="">data.europa.eu publica el conjunto del Registro de Transparencia</a>, con descargas actuales y series históricas. Es útil para:</p>
+<ul>
+<li class="">comparar nombres, categorías y estados entre cortes;</li>
+<li class="">detectar clientes, miembros o asuntos añadidos o retirados;</li>
+<li class="">observar cambios en rangos financieros o recursos humanos;</li>
+<li class="">reproducir análisis de varias entidades sin copiar fichas a mano.</li>
+</ul>
+<p>Una diferencia entre dos cortes es una pista, no una confesión. Puede deberse a una corrección, cambio de formulario, reorganización, actualización del ejercicio, nueva interpretación de una categoría o error de extracción. Conserva los archivos originales, su fecha y, cuando sea posible, un hash; normaliza por número de registro y no solo por nombre.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-une-la-ficha-con-reuniones-y-documentos">5. Une la ficha con reuniones y documentos<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#5-une-la-ficha-con-reuniones-y-documentos" class="hash-link" aria-label="Enlace directo al 5. Une la ficha con reuniones y documentos" title="Enlace directo al 5. Une la ficha con reuniones y documentos" translate="no">​</a></h3>
+<p>La <a href="https://commission.europa.eu/about/service-standards-and-principles/transparency/transparency-register_es" target="_blank" rel="noopener noreferrer" class="">Comisión publica información y actas de reuniones</a> de comisarios, miembros de gabinete y personal con funciones de dirección con representantes de intereses. Desde 2024 se reforzaron las reglas aplicables a esas reuniones relacionadas con formulación o ejecución de legislación y políticas.</p>
+<p>Para cada reunión, anota:</p>
+<ul>
+<li class="">fecha y asunto publicado;</li>
+<li class="">responsable, gabinete o dirección general;</li>
+<li class="">organización o intermediario;</li>
+<li class="">expediente en la fase que tenía ese día;</li>
+<li class="">documento de posición, consulta o contribución relacionado;</li>
+<li class="">fecha de publicación de la agenda o acta;</li>
+<li class="">límites del registro: asunto resumido, participantes incompletos o falta de contenido sustantivo.</li>
+</ul>
+<p>Después busca evidencia documental alrededor de la reunión: consultas en <code>Have Your Say</code>, agendas legislativas, informes de ponentes, enmiendas, actas de comités, evaluaciones de impacto, cartas públicas y versiones de textos. Compara formulaciones específicas, no solo palabras sectoriales inevitables.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-construye-una-cronología-con-carriles-separados">6. Construye una cronología con carriles separados<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#6-construye-una-cronolog%C3%ADa-con-carriles-separados" class="hash-link" aria-label="Enlace directo al 6. Construye una cronología con carriles separados" title="Enlace directo al 6. Construye una cronología con carriles separados" translate="no">​</a></h3>
+<p>Una tabla evita que la narrativa se adelante a los hechos:</p>
+<table><thead><tr><th>Fecha</th><th>Carril</th><th>Hecho verificable</th><th>Fuente</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>05-03</td><td>Posición</td><td>Boreal publica una propuesta técnica</td><td>Documento y metadatos</td><td>Que fuese entregada o aceptada</td></tr><tr><td>12-03</td><td>Acceso</td><td>Reunión publicada sobre baterías</td><td>Agenda institucional</td><td>Contenido exacto ni acuerdo</td></tr><tr><td>20-03</td><td>Participación</td><td>Respuesta a consulta pública</td><td>Portal de consulta</td><td>Peso otorgado a esa respuesta</td></tr><tr><td>28-04</td><td>Decisión</td><td>Nueva versión del texto</td><td>Documento oficial</td><td>Autoría causal de una cláusula</td></tr></tbody></table>
+<p>Si dos eventos están próximos, escribe «precede», «coincide» o «es consistente con», según corresponda. Reserva «provocó», «consiguió» o «impuso» para casos con evidencia causal adicional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-contrasta-y-ofrece-derecho-de-respuesta">7. Contrasta y ofrece derecho de respuesta<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#7-contrasta-y-ofrece-derecho-de-respuesta" class="hash-link" aria-label="Enlace directo al 7. Contrasta y ofrece derecho de respuesta" title="Enlace directo al 7. Contrasta y ofrece derecho de respuesta" translate="no">​</a></h3>
+<p>Antes de publicar una conclusión relevante:</p>
+<ol>
+<li class="">busca la misma entidad en registros nacionales y fuentes corporativas;</li>
+<li class="">verifica clientes e intermediarios desde ambos lados;</li>
+<li class="">consulta la documentación del expediente y no solo la agenda;</li>
+<li class="">compara con aportaciones de ONG, sindicatos, universidades y otros sectores;</li>
+<li class="">pregunta a la entidad y a la institución por discrepancias concretas;</li>
+<li class="">incorpora la respuesta o deja constancia de que no llegó a tiempo.</li>
+</ol>
+<p>El contraste no consiste en enviar una acusación genérica. Facilita fechas, campos y documentos para que el interlocutor pueda corregir un error comprobable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="autodeclaración-y-categorías-heterogéneas">Autodeclaración y categorías heterogéneas<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#autodeclaraci%C3%B3n-y-categor%C3%ADas-heterog%C3%A9neas" class="hash-link" aria-label="Enlace directo al Autodeclaración y categorías heterogéneas" title="Enlace directo al Autodeclaración y categorías heterogéneas" translate="no">​</a></h3>
+<p>La organización aporta buena parte de los datos. Aunque existen controles, código de conducta y un mecanismo de denuncias, los campos pueden ser incompletos, desactualizados o interpretados de forma distinta. Una ficha validada no transforma todas sus afirmaciones en hechos auditados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-no-equivale-a-inexistencia">Ausencia no equivale a inexistencia<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#ausencia-no-equivale-a-inexistencia" class="hash-link" aria-label="Enlace directo al Ausencia no equivale a inexistencia" title="Enlace directo al Ausencia no equivale a inexistencia" translate="no">​</a></h3>
+<p>No encontrar una reunión puede significar que no ocurrió, que quedó fuera del ámbito publicado, que participó otra entidad, que el nombre cambió o que la fuente aún no se actualizó. Expón el alcance de la búsqueda y evita «no hubo contacto» cuando solo puedes sostener «no se localizó en estos registros y fechas».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="presupuesto-no-equivale-a-influencia">Presupuesto no equivale a influencia<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#presupuesto-no-equivale-a-influencia" class="hash-link" aria-label="Enlace directo al Presupuesto no equivale a influencia" title="Enlace directo al Presupuesto no equivale a influencia" translate="no">​</a></h3>
+<p>Los recursos declarados aproximan capacidad dedicada, no resultados políticos. Un presupuesto alto puede financiar investigación, eventos, personal o campañas sin que una propuesta prospere. Una organización pequeña puede aportar evidencia decisiva sin gastar mucho. No construyas rankings morales a partir de una sola columna.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reunión-no-equivale-a-acuerdo">Reunión no equivale a acuerdo<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#reuni%C3%B3n-no-equivale-a-acuerdo" class="hash-link" aria-label="Enlace directo al Reunión no equivale a acuerdo" title="Enlace directo al Reunión no equivale a acuerdo" translate="no">​</a></h3>
+<p>Una agenda demuestra acceso documentado dentro de su cobertura. El asunto suele ser resumido y no revela necesariamente peticiones, desacuerdos ni compromisos. Una misma política puede reunir a empresas, consumidores, administraciones, sindicatos y sociedad civil.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="similitud-textual-no-equivale-a-copia">Similitud textual no equivale a copia<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#similitud-textual-no-equivale-a-copia" class="hash-link" aria-label="Enlace directo al Similitud textual no equivale a copia" title="Enlace directo al Similitud textual no equivale a copia" translate="no">​</a></h3>
+<p>El lenguaje regulatorio comparte términos técnicos y fórmulas jurídicas. Para sostener una transferencia relevante hacen falta secuencias distintivas, versiones, fechas y vías plausibles de transmisión. Incluso entonces, la redacción puede proceder de conocimiento común o de una tercera fuente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con identidades jurídicas y cargos públicos relevantes; evita recopilar domicilios, teléfonos o perfiles personales sin necesidad.</li>
+<li class="">No publiques datos personales que una descarga histórica conserve si no son imprescindibles para el interés público.</li>
+<li class="">Separa participación legítima, conflicto de interés, incumplimiento administrativo y corrupción: son categorías distintas.</li>
+<li class="">No presentes la pertenencia a una asociación como adhesión automática a cada postura de esa asociación.</li>
+<li class="">Conserva consultas, archivos y transformaciones para que otra persona pueda reproducir el análisis.</li>
+<li class="">Registra incertidumbre, hipótesis alternativas y respuestas recibidas.</li>
+<li class="">Si detectas un posible incumplimiento del código, reúne evidencia antes de usar el <a href="https://transparency-register.europa.eu/complaints_es" target="_blank" rel="noopener noreferrer" class="">mecanismo oficial de denuncias</a>; no lo utilices como instrumento de presión o señalamiento.</li>
+</ul>
+<p>La privacidad también protege la calidad de la investigación. Acumular nombres de empleados sin función decisoria añade riesgo y raramente mejora una hipótesis sobre políticas públicas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-publicación">Checklist de publicación<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#checklist-de-publicaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de publicación" title="Enlace directo al Checklist de publicación" translate="no">​</a></h2>
+<p>Antes de cerrar el informe, comprueba:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La entidad está desambiguada y el número de registro coincide.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada importe conserva campo, moneda, rango, periodo y fecha de consulta.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se consultaron datos históricos cuando la conclusión depende de un cambio.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Reuniones, consultas, documentos y versiones normativas están en carriles separados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La redacción distingue acceso, posición, coincidencia e influencia demostrada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se buscaron explicaciones alternativas y fuentes institucionales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las partes afectadas tuvieron una oportunidad concreta de responder.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe no expone datos personales irrelevantes.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>El registro es un punto de partida, no un expediente completo. Combínalo con:</p>
+<ul>
+<li class=""><code>Have Your Say</code>, para consultas, evaluaciones e iniciativas de la Comisión;</li>
+<li class="">el Observatorio Legislativo del Parlamento Europeo (<code>OEIL</code>), para procedimientos y documentos;</li>
+<li class="">agendas, declaraciones de intereses y páginas de transparencia institucional;</li>
+<li class=""><code>TED</code>, para contratación pública, sin confundir contratos con representación de intereses;</li>
+<li class="">registros mercantiles y de beneficiarios reales disponibles legalmente;</li>
+<li class="">archivos web y el portal europeo de datos para comparar estados históricos.</li>
+</ul>
+<p>La regla práctica es sencilla: usa el Registro de Transparencia para <strong>descubrir actores, declaraciones y puntos de contacto</strong>, y baja después a los documentos del expediente. Si no puedes enlazar una afirmación con una fuente, una fecha y el alcance exacto de esa fuente, todavía tienes una hipótesis, no una conclusión.</p>
+<p>El siguiente paso útil sería aprender a comparar versiones de una propuesta europea y sus documentos preparatorios, construyendo una cronología que permita distinguir participación pública, cambios técnicos e influencia demostrable.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Due Diligence</category>
+            <category>Metodologia</category>
+            <category>Datos</category>
+        </item>
         <item>
             <title><![CDATA[Global Forest Watch en OSINT: alertas de vegetación, contexto y verificación sobre el terreno]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion</link>
@@ -2863,153 +3020,6 @@
             <category>Research</category>
             <category>Metodologia</category>
             <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Companies House en OSINT: registro societario, PSC y filings con contexto]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto</guid>
-            <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando documentos societarios publicos, historial de filings, personas con control significativo y una linea temporal de verificacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando documentos societarios publicos, historial de filings, personas con control significativo y una linea temporal de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-08-companies-house-osint-registro-societario-psc-filings-contexto-c6d4ca4e86c2e3af911e482f34a284d2.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/companies-house-osint-registro-societario-psc-filings-contexto-e35f8f163c5ae09787eb087d56884b6c.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una sociedad puede parecer limpia en una web corporativa, pero cambiar de forma cuando lees su numero registral, sus cuentas, sus cargos, sus personas con control significativo, sus direcciones historicas y sus documentos presentados. <code>Companies House</code> es una de esas fuentes que obligan a bajar del relato comercial al registro primario: no resuelve una investigacion por si sola, pero ayuda a convertir sospechas vagas en preguntas verificables.</p>
-<p>Revisando la documentacion publica el <strong>8 de julio de 2026</strong>, el servicio <code>Find and update company information</code> permite buscar gratis datos publicos de empresas britanicas, ver documentos, cargos, personas descalificadas, informacion de hipotecas/charges, insolvencia y seguir empresas para recibir alertas. La guia oficial fue actualizada el <strong>9 de junio de 2026</strong> y recuerda un limite clave: la informacion disponible no debe tratarse como fuente completa de derecho societario ni como sustituto de asesoramiento profesional. Ademas, las reformas de la <code>Economic Crime and Corporate Transparency Act</code> han introducido verificaciones de identidad, nuevos poderes de comprobacion y cambios en la calidad del registro.</p>
-<p>Este articulo esta escrito para analistas OSINT, equipos de compliance, periodistas, investigadores corporativos y defensores que trabajan con fuentes abiertas de forma proporcionada. No contiene instrucciones para acosar personas, perfilar vidas privadas, doxxing ni automatizacion abusiva contra servicios publicos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-companies-house-y-para-que-sirve">Que es Companies House y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#que-es-companies-house-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es Companies House y para que sirve" title="Enlace directo al Que es Companies House y para que sirve" translate="no">​</a></h2>
-<p><a href="https://www.gov.uk/government/organisations/companies-house" target="_blank" rel="noopener noreferrer" class=""><code>Companies House</code></a> es el registro mercantil del Reino Unido para sociedades constituidas bajo el marco correspondiente de Inglaterra y Gales, Escocia o Irlanda del Norte. Su funcion practica para OSINT es permitir que una investigacion societaria empiece por una entidad legal concreta, no solo por una marca, dominio o nombre comercial.</p>
-<p>El servicio publico <a href="https://find-and-update.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class=""><code>Find and update company information</code></a> permite buscar por nombre de empresa, numero societario u oficial. La pagina de busqueda muestra funciones como ver datos y documentos, buscar directores descalificados, seguir empresas, consultar busqueda avanzada y acceder a registros disueltos.</p>
-<p>Para un flujo de investigacion responsable, Companies House ayuda a responder preguntas como estas:</p>
-<ul>
-<li class="">que entidad legal concreta existe detras de un nombre;</li>
-<li class="">cual es su numero de compania y su estado actual;</li>
-<li class="">cuando se incorporo, si esta activa, disuelta, en liquidacion o con otra situacion;</li>
-<li class="">que direccion registrada declara y como ha cambiado;</li>
-<li class="">que <code>SIC codes</code> usa para describir su actividad;</li>
-<li class="">que cuentas, confirmation statements y otros documentos ha presentado;</li>
-<li class="">que cargos actuales o historicos aparecen;</li>
-<li class="">que personas con control significativo (<code>PSC</code>) declara;</li>
-<li class="">que cargas, hipotecas o insolvencias figuran cuando aplica;</li>
-<li class="">que fechas de proximas cuentas o declaraciones conviene vigilar.</li>
-</ul>
-<p>La guia oficial de busqueda explica que los datos publicos pueden verse gratis sin registrarse y que tambien existe una <code>API</code> para acceder a actualizaciones en tiempo real. Esa combinacion es potente: interfaz web para revision humana, <code>API</code> para flujos documentados y alertas de seguimiento para cambios relevantes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que una ONG ficticia, <code>Puente Claro</code>, evalua un proveedor britanico que ofrece servicios de verificacion documental. La web habla de "grupo internacional", "oficinas en Londres" y "decadas de experiencia", pero el equipo de due diligence necesita separar tres planos:</p>
-<table><thead><tr><th>Pregunta</th><th>Dato que buscaria</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>Identidad legal</td><td>Numero de compania, estado y fecha de incorporacion</td><td>Confirma que entidad estas investigando, no si es fiable</td></tr><tr><td>Continuidad</td><td>Filing history, cuentas y confirmation statements</td><td>Muestra habitos de presentacion, no calidad operativa</td></tr><tr><td>Control</td><td>PSC y cargos</td><td>Sugiere estructura formal, no control real fuera del registro</td></tr><tr><td>Actividad</td><td>SIC codes y cuentas</td><td>Ayuda a contextualizar, pero puede ser generico</td></tr><tr><td>Riesgo temporal</td><td>cambios recientes de direccion, cargos o nombre</td><td>Senala preguntas, no culpabilidad</td></tr></tbody></table>
-<p>Un flujo sano no empezaria con una acusacion. Empezaria con una ficha de entidad:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Entidad: Northbridge Verification Services Ltd (ficticia)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Numero: 00000000 (ficticio)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Estado: active / dissolved / liquidation, segun registro</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de consulta: 2026-07-08</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente primaria: URL de Companies House</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Hipotesis: comprobar si el proveedor real coincide con la entidad legal citada</span><br></span></code></pre></div></div>
-<p>Despues vendria la trazabilidad: capturar la URL consultada, anotar fecha y hora, descargar solo documentos necesarios, guardar hashes de los documentos relevantes y separar hechos registrales de inferencias analiticas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-identificador-estable">1. Empieza por el identificador estable<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#1-empieza-por-el-identificador-estable" class="hash-link" aria-label="Enlace directo al 1. Empieza por el identificador estable" title="Enlace directo al 1. Empieza por el identificador estable" translate="no">​</a></h3>
-<p>El nombre de una empresa puede tener variantes, errores, marcas comerciales o traducciones. El numero de compania es mucho mas estable. Si partes de una web, factura o nota de prensa, busca:</p>
-<ul>
-<li class="">razon social exacta;</li>
-<li class="">numero de compania;</li>
-<li class="">direccion registrada;</li>
-<li class="">nombres anteriores;</li>
-<li class="">dominios o marcas que la propia entidad declare.</li>
-</ul>
-<p>Si varias empresas se parecen, no las fusiones deprisa. Crea una tabla de candidatos y descarta con evidencia: jurisdiccion, fecha, direccion, cargos, documento fuente y relacion declarada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-lee-el-perfil-como-una-linea-temporal">2. Lee el perfil como una linea temporal<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#2-lee-el-perfil-como-una-linea-temporal" class="hash-link" aria-label="Enlace directo al 2. Lee el perfil como una linea temporal" title="Enlace directo al 2. Lee el perfil como una linea temporal" translate="no">​</a></h3>
-<p>El error habitual es abrir el perfil actual y copiar tres campos. En investigacion, la pregunta suele ser temporal:</p>
-<ul>
-<li class="">cuando se creo la sociedad;</li>
-<li class="">cuando cambio de nombre;</li>
-<li class="">cuando cambio de direccion;</li>
-<li class="">cuando entraron o salieron cargos;</li>
-<li class="">cuando se presentaron cuentas;</li>
-<li class="">si hubo periodos de retraso, strike off, disolucion o restauracion;</li>
-<li class="">que documentos explican cada cambio.</li>
-</ul>
-<p>La <code>filing history</code> es el hilo conductor. No todos los documentos tienen el mismo peso, y muchos solo registran una declaracion formal. Aun asi, ordenarlos por fecha permite detectar cambios que merecen verificacion adicional.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trata-los-psc-como-senal-no-como-sentencia">3. Trata los PSC como senal, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#3-trata-los-psc-como-senal-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 3. Trata los PSC como senal, no como sentencia" title="Enlace directo al 3. Trata los PSC como senal, no como sentencia" translate="no">​</a></h3>
-<p>Las personas con control significativo (<code>PSC</code>) son una pieza central de transparencia societaria, pero conviene leerlas con cuidado. Un PSC puede aparecer por porcentaje de acciones, derechos de voto, capacidad de nombrar directores u otras formas de influencia significativa. La ausencia, el cambio o la naturaleza de una declaracion PSC no deberian convertirse automaticamente en acusacion.</p>
-<p>Desde el <strong>18 de noviembre de 2025</strong>, la verificacion de identidad paso a ser requisito legal para directores y PSC dentro de un periodo transitorio de 12 meses, segun la pagina oficial de cambios de Companies House. Para OSINT, esto no significa que todo dato historico sea perfecto ni que la verificacion resuelva estructuras complejas. Significa que el contexto normativo esta cambiando y que los informes deben fechar claramente la consulta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-cruza-con-fuentes-primarias-no-solo-agregadores">4. Cruza con fuentes primarias, no solo agregadores<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#4-cruza-con-fuentes-primarias-no-solo-agregadores" class="hash-link" aria-label="Enlace directo al 4. Cruza con fuentes primarias, no solo agregadores" title="Enlace directo al 4. Cruza con fuentes primarias, no solo agregadores" translate="no">​</a></h3>
-<p><code>OpenCorporates</code>, bases de sanciones, prensa, webs corporativas, dominios, registros de contratacion y archivos web pueden ayudar a encontrar pistas. Pero cuando investigas una sociedad britanica, Companies House debe funcionar como fuente primaria para los datos registrales britanicos.</p>
-<p>Un cruce razonable seria:</p>
-<ul>
-<li class="">Companies House para entidad, filings, cargos, PSC y cambios;</li>
-<li class="">web corporativa para afirmaciones comerciales;</li>
-<li class="">Wayback Machine o Archive.today para versiones historicas de la web;</li>
-<li class="">OpenSanctions si hay coincidencias de sanciones o PEP que deban verificarse;</li>
-<li class="">OpenCorporates si necesitas ampliar a otras jurisdicciones;</li>
-<li class="">registros de contratacion o licitaciones si el caso trata de proveedor publico;</li>
-<li class="">prensa y comunicados solo como contexto, nunca como sustituto del documento registral.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-usa-la-api-con-moderacion-y-trazabilidad">5. Usa la API con moderacion y trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#5-usa-la-api-con-moderacion-y-trazabilidad" class="hash-link" aria-label="Enlace directo al 5. Usa la API con moderacion y trazabilidad" title="Enlace directo al 5. Usa la API con moderacion y trazabilidad" translate="no">​</a></h3>
-<p>El <code>Developer Hub</code> de Companies House describe una <code>REST API</code> que devuelve datos en <code>JSON</code> y una lista de especificaciones <code>OpenAPI</code>. La autenticacion de API usa una clave mediante autenticacion basica; algunas funciones requieren <code>OAuth 2.0</code>.</p>
-<p>Para un flujo OSINT responsable, la API tiene sentido cuando:</p>
-<ul>
-<li class="">necesitas revisar cambios de una lista acotada de entidades;</li>
-<li class="">quieres construir una tabla reproducible con campos concretos;</li>
-<li class="">vas a documentar consultas y fechas;</li>
-<li class="">respetas limites, terminos y uso aceptable;</li>
-<li class="">evitas descargar mas informacion personal de la necesaria.</li>
-</ul>
-<p>No uses automatizacion para degradar el servicio, hacer scraping masivo innecesario ni construir bases de datos de personas sin base legitima. La propia guia de servicio advierte que las bases de datos buscables no estan pensadas como fuente de descargas masivas y que el uso que degrade el servicio puede ser bloqueado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Companies House es fuerte porque es una fuente primaria, pero no es infalible. La guia oficial incluye varios matices que deberian aparecer en cualquier informe serio:</p>
-<ul>
-<li class="">el servicio no pretende ser una fuente completa de derecho societario;</li>
-<li class="">puede haber errores u omisiones;</li>
-<li class="">algunos documentos se revisan con comprobaciones basicas, no con auditoria sustantiva completa;</li>
-<li class="">el registro puede contener informacion que despues se corrige, elimina o anota;</li>
-<li class="">los enlaces externos dentro de documentos no implican respaldo;</li>
-<li class="">los datos personales publicados deben tratarse con minimizacion y proporcionalidad.</li>
-</ul>
-<p>Tambien hay falsos positivos tipicos:</p>
-<ul>
-<li class="">dos personas con el mismo nombre tratadas como una sola;</li>
-<li class="">empresas con nombres parecidos mezcladas por error;</li>
-<li class="">direccion de agente o proveedor leida como oficina operativa;</li>
-<li class="">SIC code generico tratado como descripcion exacta del negocio;</li>
-<li class="">PSC formal interpretado como beneficiario real absoluto;</li>
-<li class="">documento presentado tarde interpretado automaticamente como fraude;</li>
-<li class="">sociedad disuelta confundida con actividad actual.</li>
-</ul>
-<p>La buena practica es escribir en condicional cuando toca. "Figura como director" no es lo mismo que "controla". "Comparte direccion registrada" no es lo mismo que "opera desde el mismo lugar". "Cambio de nombre" no es lo mismo que "intento de ocultacion".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Trabajar con registros societarios no elimina la obligacion de cuidar a personas reales. Algunas recomendaciones practicas:</p>
-<ul>
-<li class="">minimiza datos personales en notas, capturas y entregables;</li>
-<li class="">evita publicar fechas de nacimiento parciales o direcciones si no aportan valor proporcional;</li>
-<li class="">separa empresas, cargos y personas en entidades distintas;</li>
-<li class="">documenta fuentes, fechas y capturas sin crear expedientes innecesarios;</li>
-<li class="">no contactes a domicilios, familiares ni terceros no relacionados;</li>
-<li class="">no uses la investigacion para acoso, exposicion publica o presion personal;</li>
-<li class="">da derecho de replica o verificacion adicional cuando el contexto lo exija;</li>
-<li class="">conserva evidencias de forma segura y con control de acceso.</li>
-</ul>
-<p>En due diligence, la pregunta no es "cuanto puedo encontrar", sino "que necesito saber para tomar una decision proporcionada y verificable".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Companies House funciona muy bien para entidades britanicas. Si el caso cruza fronteras o sectores, conviene combinarlo con:</p>
-<ul>
-<li class=""><code>OpenCorporates</code>, para descubrir entidades en varias jurisdicciones y llegar a registros primarios;</li>
-<li class=""><code>OpenOwnership</code>, para modelos de beneficiarios reales cuando existan datos estructurados;</li>
-<li class=""><code>OpenSanctions</code>, para revisar coincidencias de sanciones, PEP y listas relevantes con cautela;</li>
-<li class=""><code>EDGAR</code>, si hay companias cotizadas o filings estadounidenses;</li>
-<li class="">registros mercantiles nacionales, cuando la entidad no sea britanica;</li>
-<li class="">herramientas de limpieza como <code>OpenRefine</code>, si vas a reconciliar muchas variantes de nombres.</li>
-</ul>
-<p>El takeaway accionable es sencillo: usa Companies House como <strong>registro primario fechado</strong>, no como maquina de conclusiones. Primero identifica la entidad correcta, luego ordena documentos en una linea temporal, despues cruza con fuentes independientes y solo al final formula hipotesis. En investigacion societaria, la precision suele venir de escribir menos y comprobar mas.</p>
-<p>Como siguiente paso editorial, tendria sentido construir una plantilla de due diligence OSINT para entidades legales: campos minimos, fuentes primarias, criterios de incertidumbre y un ejemplo ficticio completo de informe.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/companies-house-osint-registro-societario-psc-filings-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://find-and-update.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class="">Companies House: Find and update company information</a></li>
-<li class=""><a href="https://www.gov.uk/guidance/searching-the-companies-house-register" target="_blank" rel="noopener noreferrer" class="">Searching the Companies House register - GOV.UK</a></li>
-<li class=""><a href="https://developer.company-information.service.gov.uk/" target="_blank" rel="noopener noreferrer" class="">Companies House API overview</a></li>
-<li class=""><a href="https://developer.company-information.service.gov.uk/overview" target="_blank" rel="noopener noreferrer" class="">Companies House REST API</a></li>
-<li class=""><a href="https://developer.company-information.service.gov.uk/authentication" target="_blank" rel="noopener noreferrer" class="">API authentication - Companies House Developer Hub</a></li>
-<li class=""><a href="https://changestoukcompanylaw.campaign.gov.uk/identity-verification/" target="_blank" rel="noopener noreferrer" class="">Identity verification - Changes to UK company law</a></li>
-<li class=""><a href="https://changestoukcompanylaw.campaign.gov.uk/changes-at-a-glance/" target="_blank" rel="noopener noreferrer" class="">Changes at a glance - Changes to UK company law</a></li>
-<li class=""><a href="https://www.gov.uk/government/news/progress-made-in-cleaning-up-companies-house-register-as-further-steps-taken-to-tackle-economic-crime" target="_blank" rel="noopener noreferrer" class="">Progress made in cleaning up Companies House register - GOV.UK</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Due Diligence</category>
-            <category>Datos</category>
-            <category>Verificacion</category>
-            <category>Privacidad</category>
-            <category>Investigacion</category>
         </item>
     </channel>
 </rss>
