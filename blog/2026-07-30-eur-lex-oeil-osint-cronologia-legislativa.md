@@ -9,6 +9,9 @@ image: /img/blog/2026-07-30-eur-lex-oeil-osint-cronologia-legislativa.png
 
 ![Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental](/img/blog/2026-07-30-eur-lex-oeil-osint-cronologia-legislativa.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/eur-lex-oeil-osint-cronologia-legislativa.m4a)
+
+
 Una asociación publica una propuesta técnica. Meses después, una frase muy parecida aparece en una ley europea. La captura de pantalla parece perfecta para denunciar que «Bruselas copió el texto», pero faltan casi todas las piezas importantes: qué versión se está comparando, quién presentó la enmienda, cuándo entró en el expediente, qué otras fuentes usaron la misma fórmula y cuál fue el texto finalmente aprobado. `EUR-Lex` y el Observatorio Legislativo del Parlamento Europeo (`OEIL`) permiten reconstruir esa historia documental; no convierten una semejanza verbal en prueba de autoría o influencia.
 
 <!-- truncate -->
