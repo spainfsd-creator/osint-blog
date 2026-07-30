@@ -2,11 +2,177 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-07-29T00:00:00.000Z</updated>
+    <updated>2026-07-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[EUR-Lex y OEIL en OSINT: reconstruir una ley europea sin inventar quién cambió qué]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa"/>
+        <updated>2026-07-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-30-eur-lex-oeil-osint-cronologia-legislativa-96da6b7e594e6dcdd57a1673401fb073.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una asociación publica una propuesta técnica. Meses después, una frase muy parecida aparece en una ley europea. La captura de pantalla parece perfecta para denunciar que «Bruselas copió el texto», pero faltan casi todas las piezas importantes: qué versión se está comparando, quién presentó la enmienda, cuándo entró en el expediente, qué otras fuentes usaron la misma fórmula y cuál fue el texto finalmente aprobado. <code>EUR-Lex</code> y el Observatorio Legislativo del Parlamento Europeo (<code>OEIL</code>) permiten reconstruir esa historia documental; no convierten una semejanza verbal en prueba de autoría o influencia.</p>
+<p>Este artículo propone un método responsable para periodismo, debida diligencia, investigación académica y seguimiento regulatorio. El expediente y las organizaciones del ejemplo son ficticios. El objetivo es documentar <strong>estados, fechas, actores institucionales y cambios de redacción</strong> sin atribuir intenciones que las fuentes no sostienen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-eur-lex-y-oeil">Qué son EUR-Lex y OEIL<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#qu%C3%A9-son-eur-lex-y-oeil" class="hash-link" aria-label="Enlace directo al Qué son EUR-Lex y OEIL" title="Enlace directo al Qué son EUR-Lex y OEIL" translate="no">​</a></h2>
+<p><a href="https://eur-lex.europa.eu/homepage.html?locale=es" target="_blank" rel="noopener noreferrer" class="">EUR-Lex</a> es el portal de acceso al Derecho de la Unión Europea. Reúne, entre otros materiales, tratados, actos jurídicos, documentos preparatorios, jurisprudencia y ediciones del Diario Oficial de la Unión Europea. Sus fichas permiten pasar del texto a metadatos, relaciones documentales y, según el tipo de acto, vistas de procedimiento, medidas nacionales de transposición o versiones consolidadas.</p>
+<p>El <a href="https://oeil.europarl.europa.eu/oeil/en/find-out-more" target="_blank" rel="noopener noreferrer" class="">Observatorio Legislativo del Parlamento Europeo</a> permite seguir procedimientos legislativos y no legislativos que pasan por el Parlamento. Cada ficha de procedimiento utiliza una referencia única y reúne:</p>
+<ul>
+<li class="">información básica y estado del expediente;</li>
+<li class="">comisión parlamentaria competente, ponentes y otros actores;</li>
+<li class="">acontecimientos ordenados cronológicamente;</li>
+<li class="">base jurídica y tipo de procedimiento;</li>
+<li class="">documentos del Parlamento, la Comisión, el Consejo y otras instituciones;</li>
+<li class="">resúmenes factuales de los hitos principales;</li>
+<li class="">enlace al acto final publicado, cuando existe.</li>
+</ul>
+<p>Las dos fuentes se complementan. <code>OEIL</code> funciona bien como <strong>mapa del expediente</strong>; <code>EUR-Lex</code>, como <strong>repositorio jurídico y documental</strong>. Ninguna sustituye la lectura de los documentos originales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cuatro-identificadores-que-evitan-mezclar-expedientes">Cuatro identificadores que evitan mezclar expedientes<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#cuatro-identificadores-que-evitan-mezclar-expedientes" class="hash-link" aria-label="Enlace directo al Cuatro identificadores que evitan mezclar expedientes" title="Enlace directo al Cuatro identificadores que evitan mezclar expedientes" translate="no">​</a></h3>
+<p>Antes de descargar nada, registra los identificadores observados en la ficha:</p>
+<table><thead><tr><th>Identificador</th><th>Ejemplo de formato</th><th>Para qué sirve</th></tr></thead><tbody><tr><td>Referencia del procedimiento</td><td><code>AAAA/NNNN(COD)</code></td><td>Seguir el expediente interinstitucional</td></tr><tr><td>Documento de la Comisión</td><td><code>COM(AAAA) NNN final</code></td><td>Identificar una propuesta o comunicación concreta</td></tr><tr><td>Documento del Consejo</td><td><code>ST NNNNN AAAA INIT</code>, <code>REV</code> o <code>ADD</code></td><td>Distinguir documento, revisión y anexo</td></tr><tr><td>CELEX</td><td>Cadena estructurada propia de EUR-Lex</td><td>Localizar y enlazar de forma persistente un documento</td></tr></tbody></table>
+<p>Los ejemplos son formatos, no expedientes reales. Copia siempre el valor desde la fuente: un dígito, un sufijo o un año equivocado puede llevarte a otro texto. EUR-Lex explica cómo crear <a href="https://eur-lex.europa.eu/content/help/data-reuse/linking.html?locale=es" target="_blank" rel="noopener noreferrer" class="">enlaces permanentes mediante CELEX, ELI y otros identificadores</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-la-enmienda-ficticia-sobre-baterías">Caso legítimo: la enmienda ficticia sobre baterías<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#caso-leg%C3%ADtimo-la-enmienda-ficticia-sobre-bater%C3%ADas" class="hash-link" aria-label="Enlace directo al Caso legítimo: la enmienda ficticia sobre baterías" title="Enlace directo al Caso legítimo: la enmienda ficticia sobre baterías" translate="no">​</a></h2>
+<p>Imaginemos una propuesta europea para facilitar la reparación de baterías. La empresa ficticia <code>Acumuladores Boreal</code> publica el 3 de febrero una posición que pide conservar datos técnicos durante diez años. Un texto parlamentario fechado el 20 de mayo contiene una obligación aparentemente similar. En redes se afirma que Boreal «escribió la ley».</p>
+<p>Para evaluar la afirmación habría que separar al menos estas proposiciones:</p>
+<ol>
+<li class="">Boreal publicó esa redacción antes de la enmienda.</li>
+<li class="">La aportación llegó a una institución o actor del expediente.</li>
+<li class="">Un documento oficial incorporó una fórmula sustancialmente coincidente.</li>
+<li class="">Puede identificarse quién presentó o negoció el cambio.</li>
+<li class="">La propuesta de Boreal explica el cambio mejor que otras fuentes posibles.</li>
+<li class="">La redacción sobrevivió hasta el acto adoptado y publicado.</li>
+</ol>
+<p>Las fechas y versiones pueden sostener las proposiciones primera y tercera. Una lista de enmiendas quizá ayude con la cuarta. Las proposiciones segunda y quinta requieren evidencia adicional: registro de consulta, carta, reunión, acta, justificación, declaración o testimonio verificable. La sexta exige llegar al Diario Oficial. No saltes de la coincidencia textual a la causalidad.</p>
+<p>Un resultado proporcionado podría decir:</p>
+<blockquote>
+<p>La posición de Boreal, fechada el 3 de febrero, precede al documento parlamentario del 20 de mayo y ambos contienen una fórmula semejante sobre conservación durante diez años. La enmienda aparece atribuida en el documento a estos miembros, pero las fuentes consultadas no demuestran que proceda de Boreal ni descartan que derive del informe técnico publicado en enero. El acto final reduce el plazo a siete años.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-el-punto-final">1. Define la afirmación y el punto final<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#1-define-la-afirmaci%C3%B3n-y-el-punto-final" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y el punto final" title="Enlace directo al 1. Define la afirmación y el punto final" translate="no">​</a></h3>
+<p>Escribe una pregunta comprobable:</p>
+<ul>
+<li class="">¿cuándo apareció por primera vez esta frase en el expediente?;</li>
+<li class="">¿qué institución produjo cada versión?;</li>
+<li class="">¿qué enmiendas llegaron al texto aprobado?;</li>
+<li class="">¿qué documentos preparatorios citan la evidencia técnica?;</li>
+<li class="">¿la norma está propuesta, acordada, adoptada, publicada o ya es aplicable?</li>
+</ul>
+<p>Fija también el periodo y el tipo de procedimiento. Una propuesta, una posición de negociación, un acuerdo provisional y un reglamento publicado no son estados intercambiables.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-oeil-para-construir-el-esqueleto-cronológico">2. Usa OEIL para construir el esqueleto cronológico<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#2-usa-oeil-para-construir-el-esqueleto-cronol%C3%B3gico" class="hash-link" aria-label="Enlace directo al 2. Usa OEIL para construir el esqueleto cronológico" title="Enlace directo al 2. Usa OEIL para construir el esqueleto cronológico" translate="no">​</a></h3>
+<p>Busca por referencia, título o materia y abre la ficha del procedimiento. Registra:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Referencia:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Título:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Tipo de procedimiento:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Estado observado:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Comisión parlamentaria y ponencia:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de consulta:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">URL permanente o ficha:</span><br></span></code></pre></div></div>
+<p>Después recorre los acontecimientos y la pasarela documental. No empieces comparando PDF al azar: primero sitúa cada documento en su fase y en su institución. Ten en cuenta que las fichas y resúmenes de OEIL están en inglés y francés, aunque muchos documentos enlazados ofrecen otras lenguas.</p>
+<p>La cronología de OEIL es un índice editorial actualizado, no una transcripción completa de cada negociación. Conserva el documento fuente enlazado y anota cuándo consultaste la ficha.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-baja-a-eur-lex-y-conserva-la-identidad-documental">3. Baja a EUR-Lex y conserva la identidad documental<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#3-baja-a-eur-lex-y-conserva-la-identidad-documental" class="hash-link" aria-label="Enlace directo al 3. Baja a EUR-Lex y conserva la identidad documental" title="Enlace directo al 3. Baja a EUR-Lex y conserva la identidad documental" translate="no">​</a></h3>
+<p>En EUR-Lex, revisa la vista de información del documento:</p>
+<ul>
+<li class="">título oficial y tipo de acto;</li>
+<li class="">autor e institución;</li>
+<li class="">fecha del documento y de publicación;</li>
+<li class="">referencia, CELEX y, cuando exista, ELI;</li>
+<li class="">Diario Oficial, serie y número;</li>
+<li class="">documentos relacionados y actos que modifica o que lo modifican;</li>
+<li class="">lenguas y formatos disponibles.</li>
+</ul>
+<p>Guarda el PDF o HTML junto con un pequeño registro:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente: EUR-Lex</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Identificador:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Versión o estado:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha del documento:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de descarga:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">URL:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">SHA-256 del fichero:</span><br></span></code></pre></div></div>
+<p>No uses el nombre descargado como único identificador. Dos archivos llamados <code>proposal_es.pdf</code> pueden corresponder a fases distintas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-completa-el-carril-del-consejo">4. Completa el carril del Consejo<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#4-completa-el-carril-del-consejo" class="hash-link" aria-label="Enlace directo al 4. Completa el carril del Consejo" title="Enlace directo al 4. Completa el carril del Consejo" translate="no">​</a></h3>
+<p>El <a href="https://www.consilium.europa.eu/es/documents/public-register/" target="_blank" rel="noopener noreferrer" class="">registro público del Consejo</a> contiene documentos legislativos preparatorios y documentación de reuniones desde 1999. Los documentos vinculados a una propuesta comparten un código de expediente interinstitucional, útil para recuperar el conjunto sin depender de palabras clave.</p>
+<p>Clasifica por separado:</p>
+<ul>
+<li class="">propuesta recibida;</li>
+<li class="">documentos de grupos de trabajo;</li>
+<li class="">compromisos de la Presidencia;</li>
+<li class="">orientación general o mandato negociador;</li>
+<li class="">revisiones (<code>REV</code>) y adiciones (<code>ADD</code>);</li>
+<li class="">resultados de reuniones y votaciones.</li>
+</ul>
+<p>Que una referencia aparezca en el registro no garantiza que el contenido esté inmediatamente disponible. Algunos documentos requieren una solicitud de acceso y pueden publicarse total o parcialmente. Registra la ausencia; no reconstruyas el texto perdido mediante rumores o versiones de terceros.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-separa-los-carriles-institucionales">5. Separa los carriles institucionales<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#5-separa-los-carriles-institucionales" class="hash-link" aria-label="Enlace directo al 5. Separa los carriles institucionales" title="Enlace directo al 5. Separa los carriles institucionales" translate="no">​</a></h3>
+<p>Una tabla sencilla evita fabricar una única «versión de Bruselas»:</p>
+<table><thead><tr><th>Fecha</th><th>Carril</th><th>Documento</th><th>Estado</th><th>Qué permite afirmar</th></tr></thead><tbody><tr><td>03-02</td><td>Actor externo</td><td>Posición de Boreal</td><td>Publicada</td><td>Qué pidió públicamente</td></tr><tr><td>15-03</td><td>Comisión</td><td>Propuesta</td><td>Presentada</td><td>Punto de partida formal</td></tr><tr><td>20-05</td><td>Parlamento</td><td>Enmiendas de comisión</td><td>Presentadas</td><td>Cambios propuestos y autoría formal visible</td></tr><tr><td>18-06</td><td>Consejo</td><td>Compromiso de Presidencia</td><td>Borrador</td><td>Estado de negociación documentado</td></tr><tr><td>12-09</td><td>Interinstitucional</td><td>Acuerdo provisional</td><td>Pendiente de aprobación</td><td>Compromiso político, aún no acto final</td></tr><tr><td>30-11</td><td>Diario Oficial</td><td>Reglamento</td><td>Publicado</td><td>Texto adoptado y publicación oficial</td></tr></tbody></table>
+<p>En el procedimiento legislativo ordinario, Parlamento y Consejo actúan como colegisladores. Los trílogos pueden acercar posiciones, pero un acuerdo informal debe ser aprobado formalmente por las instituciones. La <a href="https://www.consilium.europa.eu/es/council-eu/decision-making/ordinary-legislative-procedure/" target="_blank" rel="noopener noreferrer" class="">explicación oficial del Consejo</a> ayuda a no confundir negociación con adopción.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-compara-texto-no-maquetación">6. Compara texto, no maquetación<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#6-compara-texto-no-maquetaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 6. Compara texto, no maquetación" title="Enlace directo al 6. Compara texto, no maquetación" translate="no">​</a></h3>
+<p>Descarga versiones en la misma lengua cuando sea posible. Conserva los originales y trabaja sobre copias:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">pdftotext -layout propuesta.pdf propuesta.txt</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">pdftotext -layout posicion-parlamento.pdf parlamento.txt</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">diff -u propuesta.txt parlamento.txt &gt; cambios.diff</span><br></span></code></pre></div></div>
+<p>La extracción automática puede romper columnas, notas, guiones y numeración. Verifica cada cambio importante contra el PDF o HTML oficial. Para artículos complejos resulta más fiable construir una matriz:</p>
+<table><thead><tr><th>Unidad</th><th>Comisión</th><th>Parlamento</th><th>Consejo</th><th>Texto final</th><th>Nota</th></tr></thead><tbody><tr><td>Art. 8.2</td><td>10 años</td><td>10 años</td><td>5 años</td><td>7 años</td><td>Cambia plazo</td></tr><tr><td>Art. 8.3</td><td>No existe</td><td>Nueva excepción</td><td>Excepción distinta</td><td>Suprimido</td><td>No llega al acto</td></tr></tbody></table>
+<p>Compara unidades jurídicas completas —considerando, artículo, apartado, anexo— y no frases aisladas. Una traducción puede variar sin que cambie el efecto normativo; ante una duda sustantiva, revisa más de una versión lingüística y la formulación aprobada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-busca-la-vía-plausible-de-transmisión">7. Busca la vía plausible de transmisión<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#7-busca-la-v%C3%ADa-plausible-de-transmisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 7. Busca la vía plausible de transmisión" title="Enlace directo al 7. Busca la vía plausible de transmisión" translate="no">​</a></h3>
+<p>Una coincidencia gana valor cuando aparece acompañada de:</p>
+<ul>
+<li class="">contribución publicada en una consulta;</li>
+<li class="">carta o documento entregado con fecha verificable;</li>
+<li class="">enmienda que identifica proponente;</li>
+<li class="">acta o agenda que sitúa a los actores;</li>
+<li class="">informe que cita expresamente la fuente;</li>
+<li class="">secuencia de borradores que conserva una formulación distintiva.</li>
+</ul>
+<p>También debes buscar explicaciones alternativas: estándares técnicos, legislación previa, documentos de otra jurisdicción, informes científicos o aportaciones coincidentes. Las fórmulas jurídicas comunes tienen poco poder atributivo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-llega-al-diario-oficial-y-comprueba-aplicabilidad">8. Llega al Diario Oficial y comprueba aplicabilidad<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#8-llega-al-diario-oficial-y-comprueba-aplicabilidad" class="hash-link" aria-label="Enlace directo al 8. Llega al Diario Oficial y comprueba aplicabilidad" title="Enlace directo al 8. Llega al Diario Oficial y comprueba aplicabilidad" translate="no">​</a></h3>
+<p>El punto final no es «se alcanzó un acuerdo». Comprueba el acto publicado en el Diario Oficial, su fecha de entrada en vigor y, si procede, fechas de aplicación escalonadas. Solo los actos publicados oficialmente son vinculantes en los términos que correspondan.</p>
+<p>EUR-Lex ofrece textos consolidados que integran el acto inicial con modificaciones y correcciones para mostrar las reglas aplicables en una fecha. Son muy útiles para orientarse y comparar estados, pero <a href="https://eur-lex.europa.eu/collection/eu-law/consleg.html?locale=es" target="_blank" rel="noopener noreferrer" class="">los textos consolidados no tienen efecto jurídico propio</a>. Para una cita jurídica sensible, vuelve al acto publicado y a sus modificaciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-fecha-visible-puede-no-ser-la-fecha-de-circulación">Una fecha visible puede no ser la fecha de circulación<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#una-fecha-visible-puede-no-ser-la-fecha-de-circulaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Una fecha visible puede no ser la fecha de circulación" title="Enlace directo al Una fecha visible puede no ser la fecha de circulación" translate="no">​</a></h3>
+<p>Fecha del documento, registro, publicación, votación y aplicación responden a hechos distintos. Un PDF subido hoy puede reproducir un texto acordado antes. Conserva todas las fechas con su etiqueta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-estado-del-procedimiento-puede-tener-latencia">El estado del procedimiento puede tener latencia<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#el-estado-del-procedimiento-puede-tener-latencia" class="hash-link" aria-label="Enlace directo al El estado del procedimiento puede tener latencia" title="Enlace directo al El estado del procedimiento puede tener latencia" translate="no">​</a></h3>
+<p>OEIL se actualiza de forma continuada, pero ninguna ficha elimina el desfase entre un acontecimiento y su registro. Escribe «la ficha consultada el día X muestra…», especialmente en expedientes abiertos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="init-rev-add-y-cor-no-son-adornos"><code>INIT</code>, <code>REV</code>, <code>ADD</code> y <code>COR</code> no son adornos<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#init-rev-add-y-cor-no-son-adornos" class="hash-link" aria-label="Enlace directo al init-rev-add-y-cor-no-son-adornos" title="Enlace directo al init-rev-add-y-cor-no-son-adornos" translate="no">​</a></h3>
+<p>Una revisión puede sustituir contenido; una adición puede contener un anexo esencial; una corrección puede afectar solo a metadatos o a texto sustantivo. No ordenes versiones únicamente por el número principal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="consolidación-no-equivale-a-texto-original">Consolidación no equivale a texto original<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#consolidaci%C3%B3n-no-equivale-a-texto-original" class="hash-link" aria-label="Enlace directo al Consolidación no equivale a texto original" title="Enlace directo al Consolidación no equivale a texto original" translate="no">​</a></h3>
+<p>El consolidado facilita leer el estado de una norma en una fecha, pero mezcla el acto base con cambios posteriores y no es el documento jurídicamente vinculante. Tampoco aparecerá un consolidado si el acto nunca fue modificado o corregido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-documento-no-demuestra-negociación-secreta">Ausencia de documento no demuestra negociación secreta<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#ausencia-de-documento-no-demuestra-negociaci%C3%B3n-secreta" class="hash-link" aria-label="Enlace directo al Ausencia de documento no demuestra negociación secreta" title="Enlace directo al Ausencia de documento no demuestra negociación secreta" translate="no">​</a></h3>
+<p>Puede haber retrasos, excepciones de acceso, documentos no producidos, referencias distintas o búsquedas mal formuladas. Describe repositorios, identificadores, lenguas y fechas consultadas antes de concluir que falta transparencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="similitud-no-equivale-a-autoría">Similitud no equivale a autoría<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#similitud-no-equivale-a-autor%C3%ADa" class="hash-link" aria-label="Enlace directo al Similitud no equivale a autoría" title="Enlace directo al Similitud no equivale a autoría" translate="no">​</a></h3>
+<p>Dos textos pueden compartir vocabulario porque resuelven el mismo problema técnico, copian una norma anterior o siguen una plantilla. Atribuir autoría exige una vía de transmisión y evidencia adicional. La proximidad temporal solo establece orden.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga expedientes, organizaciones y cargos con función pública relevante; no acumules datos personales de personal técnico sin necesidad.</li>
+<li class="">Separa autoría formal de una enmienda, participación en una reunión e influencia causal.</li>
+<li class="">Conserva originales, hashes, notas de extracción y reglas de normalización.</li>
+<li class="">Enlaza documentos permanentes y registra la fecha de consulta de las fichas dinámicas.</li>
+<li class="">No presentes una solicitud de acceso como acusación ni publiques datos personales incidentales obtenidos en anexos.</li>
+<li class="">Ofrece derecho de respuesta cuando una conclusión pueda afectar a una organización o persona.</li>
+<li class="">Expresa incertidumbre con precisión: «no localizado», «precede», «coincide», «es consistente con» y «no permite atribuir».</li>
+</ul>
+<p>Este método ayuda a investigar, pero no sustituye asesoramiento jurídico. Si la conclusión depende de vigencia, interpretación o efectos legales, contrástala con una persona cualificada y con la versión oficial aplicable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-publicar">Checklist antes de publicar<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#checklist-antes-de-publicar" class="hash-link" aria-label="Enlace directo al Checklist antes de publicar" title="Enlace directo al Checklist antes de publicar" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El expediente está identificado con una referencia copiada de la fuente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada documento conserva institución, estado, fecha, identificador y URL.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las versiones comparadas pertenecen al mismo expediente y unidad jurídica.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los cambios automáticos se verificaron contra el original.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Propuesta, posición, acuerdo, adopción, publicación y aplicación están separados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se buscaron explicaciones alternativas para las coincidencias textuales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La conclusión no atribuye autoría o influencia sin una vía de transmisión.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El texto final se comprobó en el Diario Oficial.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Amplía el expediente con:</p>
+<ul>
+<li class=""><a href="https://commission.europa.eu/law/law-making-process/planning-and-proposing-law_es" target="_blank" rel="noopener noreferrer" class="">Have Your Say</a>, para convocatorias, consultas, propuestas y evaluaciones de impacto;</li>
+<li class="">el registro documental del Consejo, para documentos preparatorios y de reuniones;</li>
+<li class="">webs de comisiones y plenos del Parlamento, para enmiendas, informes y votaciones;</li>
+<li class=""><code>IPEX</code>, para actividad de parlamentos nacionales;</li>
+<li class="">registros de transparencia y agendas institucionales, sin confundir reunión con resultado;</li>
+<li class="">archivos web, cuando necesites demostrar cómo se presentó públicamente una posición en una fecha.</li>
+</ul>
+<p>La regla práctica es: <strong>OEIL para orientarte, identificadores para no mezclar, documentos originales para demostrar y Diario Oficial para cerrar</strong>. Si todavía no puedes decir qué versión, qué institución y qué fecha sostienen una frase, aún no tienes una cronología: tienes una impresión.</p>
+<p>El siguiente paso natural sería aplicar esta matriz a un expediente europeo ya cerrado y publicar, junto al análisis, un paquete reproducible de identificadores, hashes y diferencias verificadas.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Due Diligence" term="Due Diligence"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Datos" term="Datos"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Registro de Transparencia de la UE en OSINT: intereses, reuniones y contexto sin atribuir influencia]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto</id>
@@ -2923,182 +3089,6 @@
         <category label="Datos" term="Datos"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Google Fact Check Explorer en OSINT: verificar afirmaciones sin delegar el análisis]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto"/>
-        <updated>2026-07-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando una afirmación pública con verificaciones independientes, fuentes y una línea temporal]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando una afirmación pública con verificaciones independientes, fuentes y una línea temporal" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-09-google-fact-check-explorer-osint-verificar-afirmaciones-contexto-3c3c57381ec294dd887750ed85b6d63a.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/google-fact-check-explorer-osint-verificar-afirmaciones-contexto-22e75e705bb65ce7da24a0ddd0103040.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una afirmación viral llega acompañada de una captura, una fecha y miles de interacciones. Parece nueva, pero quizá circuló hace tres años con otro país, otra fotografía o una cifra ligeramente distinta. Antes de reconstruir toda la historia desde cero, conviene preguntar algo más básico: <strong>¿ha verificado ya esta afirmación una organización especializada y qué evidencia utilizó?</strong></p>
-<p><a href="https://toolbox.google.com/factcheck/explorer" target="_blank" rel="noopener noreferrer" class=""><code>Google Fact Check Explorer</code></a> sirve para localizar verificaciones publicadas por organizaciones independientes. No decide qué es verdad, no sustituye la lectura de las fuentes y tampoco convierte una etiqueta en prueba. Su utilidad OSINT es más concreta: encontrar antecedentes, descubrir formulaciones alternativas de una afirmación y abrir nuevas rutas de verificación.</p>
-<p>Revisando la documentación oficial el <strong>9 de julio de 2026</strong>, Google mantiene el explorador y una <code>Fact Check Tools API</code> capaz de buscar afirmaciones verificadas mediante texto o imagen. Hay, sin embargo, un cambio que no debe pasar desapercibido: Google está retirando gradualmente el soporte de <code>ClaimReview</code> en los resultados de Search, aunque confirma que ese marcado continúa siendo compatible con Fact Check Explorer.</p>
-<p>Este artículo está dirigido a periodistas, analistas, equipos de verificación, investigadores académicos y organizaciones que trabajan con información pública. El objetivo es evaluar afirmaciones de interés público, no perfilar personas, amplificar rumores ni señalar a particulares.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-google-fact-check-explorer-y-para-qué-sirve">Qué es Google Fact Check Explorer y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#qu%C3%A9-es-google-fact-check-explorer-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Google Fact Check Explorer y para qué sirve" title="Enlace directo al Qué es Google Fact Check Explorer y para qué sirve" translate="no">​</a></h2>
-<p>Fact Check Explorer es un buscador especializado sobre verificaciones ya publicadas. Sus resultados pueden mostrar la afirmación revisada, quién la formuló cuando ese dato está disponible, la organización que hizo la comprobación, la fecha, la valoración textual y el enlace al artículo original.</p>
-<p>Buena parte de esa estructura se apoya en <a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class=""><code>ClaimReview</code></a>, un tipo de dato de <code>Schema.org</code> diseñado para describir una revisión factual. La documentación de la <a href="https://developers.google.com/fact-check/tools/api/reference/rest/" target="_blank" rel="noopener noreferrer" class=""><code>Fact Check Tools API</code></a> expone dos vías de consulta sobre afirmaciones:</p>
-<ul>
-<li class="">búsqueda textual mediante <code>claims.search</code>;</li>
-<li class="">búsqueda a partir de una imagen mediante <code>claims.imageSearch</code>.</li>
-</ul>
-<p>La API también dispone de operaciones para gestionar marcado <code>ClaimReview</code> en páginas, pero esa función está orientada a quienes publican verificaciones. Para una investigación OSINT, la parte relevante suele ser la búsqueda y la lectura crítica de los resultados.</p>
-<p>El explorador resulta útil para:</p>
-<ul>
-<li class="">comprobar si una afirmación o imagen ya circuló en otro contexto;</li>
-<li class="">localizar distintas redacciones de un mismo rumor;</li>
-<li class="">comparar verificaciones de varios medios y países;</li>
-<li class="">identificar fuentes primarias citadas por los verificadores;</li>
-<li class="">reconstruir cuándo empezó a documentarse una narrativa;</li>
-<li class="">detectar que una pieza antigua se presenta como actual.</li>
-</ul>
-<p>No es una base de datos universal. Que no aparezca un resultado no demuestra que nadie haya verificado la afirmación, y mucho menos que esta sea verdadera.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que una asociación vecinal recibe una imagen compartida por mensajería. El texto afirma que una supuesta normativa europea obligará a cerrar todos los mercados municipales a partir del mes siguiente. La captura no enlaza a ningún documento oficial.</p>
-<p>El equipo de comunicación quiere responder sin agrandar el rumor. Plantea una investigación mínima:</p>
-<ol>
-<li class="">conservar la imagen y anotar cuándo y por qué canal llegó;</li>
-<li class="">transcribir literalmente la afirmación, separándola de comentarios y emojis;</li>
-<li class="">buscar la frase completa y después sus conceptos distintivos;</li>
-<li class="">consultar Fact Check Explorer en castellano y en otros idiomas relevantes;</li>
-<li class="">abrir las verificaciones encontradas y seguir sus enlaces hasta normas, comunicados o registros oficiales;</li>
-<li class="">comprobar si la supuesta fecha, institución y alcance territorial coinciden;</li>
-<li class="">redactar una conclusión limitada a lo demostrado.</li>
-</ol>
-<p>Supongamos que aparecen dos verificaciones antiguas sobre un rumor parecido, pero referido a otro país. Ese hallazgo no resuelve el caso. Sí aporta tres pistas: el rumor tiene antecedentes, la imagen puede estar reciclada y quizá existe una fuente normativa concreta que conviene consultar.</p>
-<p>La conclusión responsable no sería «Fact Check Explorer dice que es falso». Sería algo parecido a esto:</p>
-<blockquote>
-<p>Hemos encontrado antecedentes de una afirmación similar, pero no idéntica. La normativa citada no contiene el cierre descrito y el organismo competente no ha publicado esa medida. Conservamos las diferencias de fecha y territorio como límites de la comparación.</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-verificación">Flujo recomendado de verificación<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#flujo-recomendado-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de verificación" title="Enlace directo al Flujo recomendado de verificación" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-convertir-el-contenido-en-una-afirmación-comprobable">1. Convertir el contenido en una afirmación comprobable<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#1-convertir-el-contenido-en-una-afirmaci%C3%B3n-comprobable" class="hash-link" aria-label="Enlace directo al 1. Convertir el contenido en una afirmación comprobable" title="Enlace directo al 1. Convertir el contenido en una afirmación comprobable" translate="no">​</a></h3>
-<p>Una publicación puede mezclar hechos, opiniones, predicciones y acusaciones. Separa la proposición factual:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Afirmación ficticia:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">"La norma X cerrará todos los mercados municipales el 1 de agosto".</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Elementos comprobables:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- existe una norma X;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- la norma afecta a mercados municipales;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- ordena cierres;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- entra en vigor el 1 de agosto;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">- su alcance es general.</span><br></span></code></pre></div></div>
-<p>Esta descomposición evita buscar un párrafo emocional entero y ayuda a localizar variantes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-diseñar-varias-consultas">2. Diseñar varias consultas<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#2-dise%C3%B1ar-varias-consultas" class="hash-link" aria-label="Enlace directo al 2. Diseñar varias consultas" title="Enlace directo al 2. Diseñar varias consultas" translate="no">​</a></h3>
-<p>Empieza por una frase distintiva entre comillas. Si no funciona, reduce la consulta a sujeto, acción y cifra o fecha. Prueba sinónimos y traducciones cuando la afirmación pueda haber cruzado fronteras.</p>
-<p>Una secuencia razonable para el ejemplo sería:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">"cerrar todos los mercados municipales"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">"markets must close" regulation</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">mercados municipales norma agosto</span><br></span></code></pre></div></div>
-<p>No fuerces la coincidencia. Dos afirmaciones que comparten palabras pueden referirse a medidas, lugares o periodos diferentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-el-resultado-como-índice-no-como-sentencia">3. Leer el resultado como índice, no como sentencia<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#3-leer-el-resultado-como-%C3%ADndice-no-como-sentencia" class="hash-link" aria-label="Enlace directo al 3. Leer el resultado como índice, no como sentencia" title="Enlace directo al 3. Leer el resultado como índice, no como sentencia" translate="no">​</a></h3>
-<p>Abre el artículo de verificación. Comprueba:</p>
-<ul>
-<li class="">qué formulación exacta revisa;</li>
-<li class="">dónde y cuándo apareció;</li>
-<li class="">qué fuentes primarias aporta;</li>
-<li class="">qué metodología explica;</li>
-<li class="">cuándo fue actualizado;</li>
-<li class="">qué significa su escala de valoración;</li>
-<li class="">si distingue hechos comprobados de inferencias.</li>
-</ul>
-<p>La etiqueta «falso», «engañoso» o «sin contexto» solo tiene sentido dentro del análisis y de la escala editorial de cada organización.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-volver-a-las-fuentes-primarias">4. Volver a las fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#4-volver-a-las-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 4. Volver a las fuentes primarias" title="Enlace directo al 4. Volver a las fuentes primarias" translate="no">​</a></h3>
-<p>La propia guía de Google para <code>ClaimReview</code> exige atribuir claramente la afirmación y pide análisis trazables, transparentes y respaldados con referencias a fuentes primarias. Esa exigencia editorial también es una buena regla para el analista.</p>
-<p>Según el caso, vuelve a:</p>
-<ul>
-<li class="">boletines y diarios oficiales;</li>
-<li class="">sentencias o expedientes públicos;</li>
-<li class="">estadísticas con metodología;</li>
-<li class="">transcripciones y vídeos completos;</li>
-<li class="">archivos web;</li>
-<li class="">imágenes originales o de mayor calidad;</li>
-<li class="">comunicados de los organismos competentes.</li>
-</ul>
-<p>Una verificación previa acelera el trabajo, pero no hereda automáticamente autoridad sobre un caso nuevo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-registrar-coincidencias-y-diferencias">5. Registrar coincidencias y diferencias<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#5-registrar-coincidencias-y-diferencias" class="hash-link" aria-label="Enlace directo al 5. Registrar coincidencias y diferencias" title="Enlace directo al 5. Registrar coincidencias y diferencias" translate="no">​</a></h3>
-<p>Usa una tabla sencilla:</p>
-<table><thead><tr><th>Elemento</th><th>Afirmación investigada</th><th>Verificación encontrada</th><th>Coincide</th></tr></thead><tbody><tr><td>Acción</td><td>Cierre obligatorio</td><td>Restricción horaria</td><td>No</td></tr><tr><td>Territorio</td><td>Toda la UE</td><td>Un municipio</td><td>No</td></tr><tr><td>Fecha</td><td>Agosto de 2026</td><td>Enero de 2024</td><td>No</td></tr><tr><td>Imagen</td><td>Captura sin fuente</td><td>Fotograma archivado</td><td>Parcial</td></tr></tbody></table>
-<p>Las diferencias suelen ser más informativas que la semejanza general.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-conservar-una-conclusión-proporcional">6. Conservar una conclusión proporcional<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#6-conservar-una-conclusi%C3%B3n-proporcional" class="hash-link" aria-label="Enlace directo al 6. Conservar una conclusión proporcional" title="Enlace directo al 6. Conservar una conclusión proporcional" translate="no">​</a></h3>
-<p>Clasifica internamente el resultado como confirmado, refutado, no demostrado o pendiente, pero explica siempre por qué. Si falta el documento original o no puedes fijar la fecha, dilo. Una conclusión estrecha y reproducible vale más que una etiqueta contundente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-con-la-api-sin-convertirla-en-oráculo">Automatización con la API, sin convertirla en oráculo<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#automatizaci%C3%B3n-con-la-api-sin-convertirla-en-or%C3%A1culo" class="hash-link" aria-label="Enlace directo al Automatización con la API, sin convertirla en oráculo" title="Enlace directo al Automatización con la API, sin convertirla en oráculo" translate="no">​</a></h2>
-<p>La documentación de <a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims/search" target="_blank" rel="noopener noreferrer" class=""><code>claims.search</code></a> describe filtros por consulta textual, idioma, sitio del editor, antigüedad máxima y paginación. La respuesta puede incluir texto de la afirmación, autor atribuido, fecha y una o varias revisiones con editor, URL, título, fecha, valoración e idioma.</p>
-<p>Esto permite construir un monitor para asuntos de interés público o ayudar a un equipo a encontrar antecedentes. Un esquema de trabajo prudente sería:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">entrada -&gt; normalizar consulta -&gt; buscar candidatos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        -&gt; deduplicar URLs -&gt; revisión humana</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        -&gt; abrir fuentes primarias -&gt; documentar conclusión</span><br></span></code></pre></div></div>
-<p>La API requiere credenciales y sus resultados deben tratarse como candidatos. No conviene:</p>
-<ul>
-<li class="">asignar automáticamente una valoración a contenido nuevo;</li>
-<li class="">bloquear una URL o cuenta solo por semejanza textual;</li>
-<li class="">mezclar escalas editoriales como si fueran equivalentes;</li>
-<li class="">guardar datos personales que no sean necesarios;</li>
-<li class="">publicar acusaciones generadas por una coincidencia aproximada.</li>
-</ul>
-<p>Además, la documentación denomina <code>v1alpha1</code> a los recursos actuales. Ese identificador y cualquier límite operativo deben comprobarse antes de integrar la API en producción; no hay que asumir estabilidad contractual por el mero hecho de que el servicio esté documentado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
-<p>Los resultados dependen de las verificaciones publicadas, del marcado que pueda interpretar el servicio y de la indexación. Habrá más cobertura en unos idiomas, países y asuntos que en otros.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-resultado">Ausencia de resultado<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#ausencia-de-resultado" class="hash-link" aria-label="Enlace directo al Ausencia de resultado" title="Enlace directo al Ausencia de resultado" translate="no">​</a></h3>
-<p>No encontrar nada solo significa que la consulta no devolvió una coincidencia útil. Puede fallar por idioma, redacción, fecha, cobertura o porque nadie haya publicado una verificación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="afirmaciones-parecidas-hechos-distintos">Afirmaciones parecidas, hechos distintos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#afirmaciones-parecidas-hechos-distintos" class="hash-link" aria-label="Enlace directo al Afirmaciones parecidas, hechos distintos" title="Enlace directo al Afirmaciones parecidas, hechos distintos" translate="no">​</a></h3>
-<p>Un rumor se adapta. Cambian el lugar, la cifra o el protagonista mientras conserva la misma imagen. La coincidencia temática es una pista, no identidad factual.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="escalas-editoriales-incompatibles">Escalas editoriales incompatibles<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#escalas-editoriales-incompatibles" class="hash-link" aria-label="Enlace directo al Escalas editoriales incompatibles" title="Enlace directo al Escalas editoriales incompatibles" translate="no">​</a></h3>
-<p>«Falso», «mayormente falso» y «engañoso» no son valores universales. Cada publicación puede definirlos de forma diferente. Lee la metodología y la explicación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-actualidad-cambia-la-respuesta">La actualidad cambia la respuesta<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#la-actualidad-cambia-la-respuesta" class="hash-link" aria-label="Enlace directo al La actualidad cambia la respuesta" title="Enlace directo al La actualidad cambia la respuesta" translate="no">​</a></h3>
-<p>Una verificación correcta en 2024 puede no resolver una afirmación sobre 2026. Revisa fecha, jurisdicción y vigencia de las fuentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-en-el-ecosistema">Cambios en el ecosistema<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#cambios-en-el-ecosistema" class="hash-link" aria-label="Enlace directo al Cambios en el ecosistema" title="Enlace directo al Cambios en el ecosistema" translate="no">​</a></h3>
-<p>Google indica que está retirando el soporte de <code>ClaimReview</code> en los resultados de Google Search, pero mantiene su compatibilidad con Fact Check Explorer. Son superficies distintas. Un artículo que confunda ambas puede describir una capacidad que ya no funciona como antes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Busca afirmaciones de interés público, no excusas para investigar la vida privada de alguien.</li>
-<li class="">No subas documentos sensibles ni material innecesario a servicios externos.</li>
-<li class="">Recorta o redacta datos personales antes de trabajar con capturas cuando no sean relevantes.</li>
-<li class="">Evita repetir literalmente contenido dañino más veces de las necesarias; una investigación también puede amplificarlo.</li>
-<li class="">Conserva URL, fecha de acceso, consulta utilizada y una copia o referencia archivada cuando sea legal.</li>
-<li class="">Distingue al autor de la afirmación, quien la comparte y quien aparece en la pieza: pueden ser personas distintas.</li>
-<li class="">No publiques una atribución basada solo en nombres, fotografías o cuentas parecidas.</li>
-<li class="">Ofrece mecanismo de corrección y deja trazable qué evidencia cambiaría tu conclusión.</li>
-</ul>
-<p>La verificación responsable no consiste en ganar una discusión. Consiste en producir una explicación que otra persona pueda revisar sin confiar ciegamente en ti.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Fact Check Explorer debe convivir con otras capas:</p>
-<ul>
-<li class="">buscadores generales para localizar la circulación abierta;</li>
-<li class="">búsqueda inversa de imágenes y análisis de fotogramas;</li>
-<li class=""><code>Wayback Machine</code> para contexto histórico;</li>
-<li class="">registros y portales oficiales para evidencia primaria;</li>
-<li class="">hemerotecas para reconstruir cronologías;</li>
-<li class="">bases de verificadores y medios especializados;</li>
-<li class="">herramientas locales para ordenar notas, hashes y capturas.</li>
-</ul>
-<p>Si publicas verificaciones, estudia también la definición de <a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class=""><code>ClaimReview</code></a> y las <a href="https://developers.google.com/search/docs/appearance/structured-data/factcheck" target="_blank" rel="noopener noreferrer" class="">directrices de Google</a>. Estas últimas subrayan transparencia, atribución, política de correcciones y coherencia entre el marcado y el contenido visible.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
-<p>Antes de cerrar una investigación:</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He aislado la afirmación factual.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He buscado variantes, traducciones y fechas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He abierto los artículos completos, no solo las etiquetas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He identificado coincidencias y diferencias.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He vuelto a las fuentes primarias.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado vigencia, territorio y contexto.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He registrado consultas, URLs y fechas de acceso.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He limitado los datos personales recopilados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión explica la evidencia y sus límites.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La ausencia de resultados no se presenta como prueba.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://toolbox.google.com/factcheck/explorer" target="_blank" rel="noopener noreferrer" class="">Google Fact Check Explorer</a>.</li>
-<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/" target="_blank" rel="noopener noreferrer" class="">Referencia de la Fact Check Tools API</a>.</li>
-<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims/search" target="_blank" rel="noopener noreferrer" class="">Método <code>claims.search</code> y sus filtros</a>.</li>
-<li class=""><a href="https://developers.google.com/fact-check/tools/api/reference/rest/v1alpha1/claims" target="_blank" rel="noopener noreferrer" class="">Modelo de datos del recurso <code>Claim</code></a>.</li>
-<li class=""><a href="https://developers.google.com/search/docs/appearance/structured-data/factcheck" target="_blank" rel="noopener noreferrer" class="">Directrices de Google para <code>ClaimReview</code></a>.</li>
-<li class=""><a href="https://schema.org/ClaimReview" target="_blank" rel="noopener noreferrer" class="">Definición de <code>ClaimReview</code> en Schema.org</a>.</li>
-<li class=""><a href="https://support.google.com/websearch/answer/12003459" target="_blank" rel="noopener noreferrer" class="">Guía de Google para evaluar información encontrada en la web</a>.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/google-fact-check-explorer-osint-verificar-afirmaciones-contexto#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
-<p>Google Fact Check Explorer aporta velocidad y memoria: ayuda a saber si una afirmación, una imagen o una narrativa ya fueron examinadas. Su límite es igualmente importante: <strong>recupera verificaciones; no verifica por ti</strong>.</p>
-<p>La próxima vez que una captura viral parezca urgente, extrae primero la afirmación, busca antecedentes, compara contexto y vuelve a la fuente primaria. Como siguiente tema, merece la pena profundizar en una técnica complementaria: construir una cronología reproducible de un rumor sin amplificarlo.</p>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Research" term="Research"/>
-        <category label="Metodologia" term="Metodologia"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>

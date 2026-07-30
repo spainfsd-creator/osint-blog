@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkosint_blog=globalThis.webpackChunkosint_blog||[]).push([[1903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/osint-blog/","blogTitle":"Blog","authorsListPath":"/osint-blog/authors"}')}}]);
