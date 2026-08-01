@@ -9,6 +9,9 @@ image: /img/blog/2026-08-01-tmview-osint-marcas-titulares-cronologias-contexto.p
 
 ![Ilustración editorial de una analista OSINT comparando marcas, titulares, clases y cronologías registrales con trazabilidad](/img/blog/2026-08-01-tmview-osint-marcas-titulares-cronologias-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/tmview-osint-marcas-titulares-cronologias-contexto.m4a)
+
+
 Una empresa recién creada anuncia que lleva años comercializando una tecnología bajo una marca «consolidada». Una búsqueda rápida devuelve un nombre idéntico, varios logotipos parecidos y solicitudes en distintos países. La tentación es convertir esos resultados en una historia cerrada. Sin embargo, un expediente de marca demuestra actos registrales, no ventas, control efectivo de una web ni uso real en una fecha concreta. `TMview` resulta valioso precisamente cuando se utiliza para **formular mejores preguntas y reconstruir una cronología verificable**, no para rellenar huecos con conclusiones.
 
 <!-- truncate -->
