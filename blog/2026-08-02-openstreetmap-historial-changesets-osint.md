@@ -9,6 +9,9 @@ image: /img/blog/2026-08-02-openstreetmap-historial-changesets-osint.png
 
 ![Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología](/img/blog/2026-08-02-openstreetmap-historial-changesets-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openstreetmap-historial-changesets-osint.m4a)
+
+
 Un vídeo asegura que una carretera de acceso apareció después de una emergencia. El mapa actual muestra la vía, pero una captura antigua no la incluye. Parece una cronología perfecta hasta que surge la pregunta incómoda: **¿cambió el terreno o solo cambió el mapa?** El historial de `OpenStreetMap` permite reconstruir versiones, etiquetas y grupos de ediciones; no convierte la fecha de una contribución en la fecha de construcción de una carretera.
 
 <!-- truncate -->
