@@ -2,11 +2,149 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-01T00:00:00.000Z</updated>
+    <updated>2026-08-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[El historial de OpenStreetMap en OSINT: cambios cartográficos, cronología y contexto]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint"/>
+        <updated>2026-08-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-02-openstreetmap-historial-changesets-osint-072ee3c52cfa647a09c7cf038e9199b3.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Un vídeo asegura que una carretera de acceso apareció después de una emergencia. El mapa actual muestra la vía, pero una captura antigua no la incluye. Parece una cronología perfecta hasta que surge la pregunta incómoda: <strong>¿cambió el terreno o solo cambió el mapa?</strong> El historial de <code>OpenStreetMap</code> permite reconstruir versiones, etiquetas y grupos de ediciones; no convierte la fecha de una contribución en la fecha de construcción de una carretera.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-el-historial-de-openstreetmap-y-para-qué-sirve-en-osint">Qué es el historial de OpenStreetMap y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#qu%C3%A9-es-el-historial-de-openstreetmap-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es el historial de OpenStreetMap y para qué sirve en OSINT" title="Enlace directo al Qué es el historial de OpenStreetMap y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><code>OpenStreetMap</code> (<code>OSM</code>) es una base de datos geográfica colaborativa. Sus piezas básicas son nodos, vías y relaciones, acompañadas por etiquetas. La <a href="https://wiki.openstreetmap.org/wiki/API_v0.6" target="_blank" rel="noopener noreferrer" class="">documentación de la API 0.6</a> explica que cada elemento tiene un número de versión que cambia cuando se edita y que la API permite solicitar tanto una versión concreta como el historial del objeto.</p>
+<p>Las modificaciones se agrupan en <code>changesets</code>. Un changeset puede incluir comentario, aplicación de edición, fuente declarada, caja geográfica, autor, marcas de tiempo y la lista de objetos modificados. Es parecido a un commit en un proyecto de software, pero con una diferencia esencial: agrupa <strong>ediciones de la base cartográfica</strong>, no necesariamente un único acontecimiento del mundo real.</p>
+<p>En una investigación legítima, este historial puede ayudar a:</p>
+<ul>
+<li class="">descubrir cuándo apareció, desapareció o cambió una entidad cartográfica;</li>
+<li class="">comparar nombres, accesos, usos del suelo o geometrías entre dos estados de la base;</li>
+<li class="">identificar el changeset responsable de una versión y leer su contexto declarado;</li>
+<li class="">acotar una ventana temporal para buscar después imágenes, documentos o noticias;</li>
+<li class="">detectar una corrección, importación o reversión que explique una anomalía del mapa.</li>
+</ul>
+<p>No sirve para localizar personas ni para atribuir intenciones a un colaborador. Tampoco prueba por sí solo que un edificio se levantara, demoliera o cambiara de uso en la fecha de edición.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-vía-que-aparece-tras-una-inundación">Caso de uso legítimo: una vía que «aparece» tras una inundación<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#caso-de-uso-leg%C3%ADtimo-una-v%C3%ADa-que-aparece-tras-una-inundaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una vía que «aparece» tras una inundación" title="Enlace directo al Caso de uso legítimo: una vía que «aparece» tras una inundación" translate="no">​</a></h2>
+<p>Imaginemos <code>Valdemora</code>, municipio ficticio afectado por una inundación en octubre de 2025. Una organización humanitaria prepara una revisión de accesibilidad y observa que <code>Camino del Molino</code> figura hoy como vía de servicio, aunque no aparece en una exportación cartográfica anterior al episodio.</p>
+<p>La pregunta responsable no es «¿quién ocultó la carretera?», sino esta:</p>
+<blockquote>
+<p>¿Qué cambió en OSM, cuándo se editó y qué fuentes independientes permiten fechar el cambio físico?</p>
+</blockquote>
+<p>El historial muestra una vía creada el 18 de octubre dentro de un changeset cuyo comentario dice «actualización tras ortofoto». Ese dato permite formular hipótesis, no resolverlas. La vía podía existir antes y haber sido cartografiada tarde; la imagen utilizada podía ser anterior; el trazado podía proceder de conocimiento local; o la edición podía contener un error.</p>
+<p>Para fechar la realidad habría que contrastar ortofotos con fecha conocida, imágenes de satélite, expedientes municipales, fotografías geolocalizadas y testimonios obtenidos de forma ética. La contribución de OSM queda como una pieza de procedencia cartográfica, no como reloj infalible del terreno.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-objeto-y-la-afirmación-que-quieres-comprobar">1. Define el objeto y la afirmación que quieres comprobar<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#1-define-el-objeto-y-la-afirmaci%C3%B3n-que-quieres-comprobar" class="hash-link" aria-label="Enlace directo al 1. Define el objeto y la afirmación que quieres comprobar" title="Enlace directo al 1. Define el objeto y la afirmación que quieres comprobar" translate="no">​</a></h3>
+<p>Escribe una pregunta falsable y limita el área. Por ejemplo: «¿Cómo evolucionó la representación de este acceso entre el 1 de septiembre y el 30 de noviembre de 2025?». Conserva también:</p>
+<ul>
+<li class="">coordenadas o polígono del área de interés;</li>
+<li class="">intervalo temporal y zona horaria;</li>
+<li class="">tipo de elemento esperado;</li>
+<li class="">nombres y etiquetas alternativas;</li>
+<li class="">fuente de la afirmación original.</li>
+</ul>
+<p>Evita empezar por una cuenta de usuario. El sujeto de la investigación debe ser el cambio cartográfico relevante, no la vida digital de quien editó el mapa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-localiza-el-elemento-actual-y-guarda-su-identificador">2. Localiza el elemento actual y guarda su identificador<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#2-localiza-el-elemento-actual-y-guarda-su-identificador" class="hash-link" aria-label="Enlace directo al 2. Localiza el elemento actual y guarda su identificador" title="Enlace directo al 2. Localiza el elemento actual y guarda su identificador" translate="no">​</a></h3>
+<p>Abre el objeto en <code>openstreetmap.org</code> y registra su tipo e ID: <code>node</code>, <code>way</code> o <code>relation</code>. El nombre visible no es un identificador estable; puede corregirse, traducirse o repetirse en muchos lugares.</p>
+<p>Para un elemento ficticio <code>way/123456789</code>, la lectura del historial tendría esta forma:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -H 'Accept: application/json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://api.openstreetmap.org/api/0.6/way/123456789/history.json'</span><br></span></code></pre></div></div>
+<p>El ID del ejemplo es deliberadamente ficticio. Sustitúyelo solo por un objeto dentro de un caso legítimo y respeta los límites de la API. La respuesta permite comparar versiones y enlazar cada una con un changeset.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-geometría-etiquetas-y-visibilidad">3. Separa geometría, etiquetas y visibilidad<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#3-separa-geometr%C3%ADa-etiquetas-y-visibilidad" class="hash-link" aria-label="Enlace directo al 3. Separa geometría, etiquetas y visibilidad" title="Enlace directo al 3. Separa geometría, etiquetas y visibilidad" translate="no">​</a></h3>
+<p>No reduzcas el análisis a «antes no estaba / ahora está». Para cada versión registra:</p>
+<table><thead><tr><th>Campo</th><th>Qué documenta</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td><code>version</code></td><td>Orden de versiones del objeto</td><td>Importancia del cambio</td></tr><tr><td><code>timestamp</code></td><td>Momento de subida a OSM</td><td>Momento del cambio físico</td></tr><tr><td><code>changeset</code></td><td>Grupo de edición asociado</td><td>Una única acción sobre el terreno</td></tr><tr><td>etiquetas</td><td>Clasificación declarada en esa versión</td><td>Uso real o situación jurídica</td></tr><tr><td>geometría</td><td>Representación de nodos y trazado</td><td>Precisión topográfica absoluta</td></tr><tr><td>visibilidad</td><td>Estado del objeto en la base</td><td>Desaparición física del elemento</td></tr></tbody></table>
+<p>Una variación de <code>highway=track</code> a <code>highway=service</code>, por ejemplo, puede ser una reclasificación sin cambio geométrico. Un desplazamiento de nodos puede corregir una desalineación de la imagen base, no una obra.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-lee-el-changeset-como-contexto-no-como-testimonio-verificado">4. Lee el changeset como contexto, no como testimonio verificado<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#4-lee-el-changeset-como-contexto-no-como-testimonio-verificado" class="hash-link" aria-label="Enlace directo al 4. Lee el changeset como contexto, no como testimonio verificado" title="Enlace directo al 4. Lee el changeset como contexto, no como testimonio verificado" translate="no">​</a></h3>
+<p>La <a href="https://wiki.openstreetmap.org/wiki/Changeset" target="_blank" rel="noopener noreferrer" class="">documentación de changesets</a> describe los comentarios y metadatos que los editores pueden añadir. Consulta el changeset, su comentario y, cuando sea pertinente, la discusión pública. Anota de forma literal lo que declara la fuente y separa tus inferencias.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Hecho: la versión 4 se subió a OSM el 18-10-2025 a las 16:42 UTC.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Hecho: el comentario del changeset menciona una ortofoto.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Inferencia: la edición pudo basarse en imagen aérea.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">No probado: la vía se construyó el 18-10-2025.</span><br></span></code></pre></div></div>
+<p>El comentario puede ser incompleto, genérico o equivocado. La caja geográfica de un changeset tampoco equivale al contorno exacto de todos sus cambios: la propia documentación de la API advierte que puede incorporar un margen.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-compara-estados-temporales-con-la-herramienta-adecuada">5. Compara estados temporales con la herramienta adecuada<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#5-compara-estados-temporales-con-la-herramienta-adecuada" class="hash-link" aria-label="Enlace directo al 5. Compara estados temporales con la herramienta adecuada" title="Enlace directo al 5. Compara estados temporales con la herramienta adecuada" translate="no">​</a></h3>
+<p>Para pocos objetos, la web de OSM y la API principal suelen bastar. Para un área o periodo, dos opciones útiles son:</p>
+<ul>
+<li class=""><code>Overpass API</code> con datos históricos o <code>attic</code>, cuando la instancia los conserve y la consulta esté bien acotada;</li>
+<li class=""><a href="https://docs.ohsome.org/ohsome-api/stable/endpoints.html" target="_blank" rel="noopener noreferrer" class="">ohsome API</a>, que ofrece estados en una fecha y extracción de historial completo con <code>validFrom</code> y <code>validTo</code>.</li>
+</ul>
+<p>Una consulta ficticia y acotada a <code>ohsome API</code> podría comparar vías de servicio dentro de una caja pequeña:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -X POST 'https://api.ohsome.org/v1/elementsFullHistory/geometry' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'bboxes=-3.705,40.415,-3.700,40.420' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'time=2025-09-01,2025-11-30' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'filter=highway=service and type:way' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'properties=tags,metadata'</span><br></span></code></pre></div></div>
+<p>Las coordenadas solo ilustran la sintaxis y no representan el caso ficticio. <code>ohsome API</code> trabaja con tiempo UTC y documenta el estado temporal de su base subyacente; guarda la petición, la respuesta, la versión de API y la marca de actualización. Para estudios a escala planetaria existe el <a href="https://wiki.openstreetmap.org/wiki/History_Planet" target="_blank" rel="noopener noreferrer" class="">full-history dump de OSM</a>, pero su tamaño y complejidad lo hacen innecesario para la mayoría de investigaciones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-construye-una-cronología-de-dos-relojes">6. Construye una cronología de dos relojes<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#6-construye-una-cronolog%C3%ADa-de-dos-relojes" class="hash-link" aria-label="Enlace directo al 6. Construye una cronología de dos relojes" title="Enlace directo al 6. Construye una cronología de dos relojes" translate="no">​</a></h3>
+<p>Separa siempre:</p>
+<ol>
+<li class=""><strong>reloj de la base de datos</strong>: creación, modificación, borrado, reversión;</li>
+<li class=""><strong>reloj del mundo real</strong>: construcción, cierre, inundación, demolición, cambio de nombre oficial.</li>
+</ol>
+<p>Una tabla de trabajo puede quedar así:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">2025-09-03  ortofoto disponible         fuente: organismo cartográfico</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2025-10-12  inundación documentada      fuente: parte oficial</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2025-10-18  vía añadida a OSM           fuente: versión + changeset</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2025-10-21  acceso visible en imagen     fuente: satélite, fecha verificada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2025-11-02  etiqueta corregida           fuente: versión + changeset</span><br></span></code></pre></div></div>
+<p>Solo una fuente fechada del terreno permite afirmar qué existía físicamente. El historial OSM ayuda a explicar cuándo entró esa información en el mapa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-preserva-y-corrobora">7. Preserva y corrobora<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#7-preserva-y-corrobora" class="hash-link" aria-label="Enlace directo al 7. Preserva y corrobora" title="Enlace directo al 7. Preserva y corrobora" translate="no">​</a></h3>
+<p>Guarda URL, ID, versión, changeset, consulta, respuesta original y fecha de acceso. Calcula un hash si el material formará parte de una evidencia revisable. Después busca corroboración en:</p>
+<ul>
+<li class="">cartografía u ortofotos oficiales;</li>
+<li class="">imágenes satelitales con metadatos temporales claros;</li>
+<li class="">permisos, expedientes o boletines públicos;</li>
+<li class="">fotografías cuya procedencia pueda verificarse;</li>
+<li class="">fuentes locales fiables, sin dirigir acoso hacia colaboradores.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fecha-de-edición-no-equivale-a-fecha-del-hecho">Fecha de edición no equivale a fecha del hecho<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#fecha-de-edici%C3%B3n-no-equivale-a-fecha-del-hecho" class="hash-link" aria-label="Enlace directo al Fecha de edición no equivale a fecha del hecho" title="Enlace directo al Fecha de edición no equivale a fecha del hecho" translate="no">​</a></h3>
+<p>Es el error más peligroso. OSM puede incorporar tarde algo antiguo, corregir de inmediato un cambio reciente o importar un conjunto creado en otra fecha. Formula las conclusiones como «cartografiado en OSM a partir de» y reserva «construido» o «demolido» para fuentes que realmente lo demuestren.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-changeset-no-es-una-unidad-narrativa-perfecta">Un changeset no es una unidad narrativa perfecta<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#un-changeset-no-es-una-unidad-narrativa-perfecta" class="hash-link" aria-label="Enlace directo al Un changeset no es una unidad narrativa perfecta" title="Enlace directo al Un changeset no es una unidad narrativa perfecta" translate="no">​</a></h3>
+<p>Puede contener muchas ediciones, abarcar lugares separados o mezclar correcciones distintas. Revisa el diff y los objetos concretos. No atribuyas a todos ellos el comentario como si describiera con precisión cada cambio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-historial-puede-incluir-errores-y-reversiones">El historial puede incluir errores y reversiones<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#el-historial-puede-incluir-errores-y-reversiones" class="hash-link" aria-label="Enlace directo al El historial puede incluir errores y reversiones" title="Enlace directo al El historial puede incluir errores y reversiones" translate="no">​</a></h3>
+<p>Una versión breve entre dos estados estables puede ser vandalismo, accidente o prueba. Comprueba versiones posteriores, discusiones y reversiones antes de presentar una anomalía como hecho.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-en-el-mapa-no-significa-ausencia-en-el-terreno">Ausencia en el mapa no significa ausencia en el terreno<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#ausencia-en-el-mapa-no-significa-ausencia-en-el-terreno" class="hash-link" aria-label="Enlace directo al Ausencia en el mapa no significa ausencia en el terreno" title="Enlace directo al Ausencia en el mapa no significa ausencia en el terreno" translate="no">​</a></h3>
+<p>La cobertura varía por lugar, fecha y tipo de objeto. Una entidad puede carecer de nombre, estar representada con otra etiqueta, integrarse en una relación o no haber sido cartografiada todavía.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-id-puede-cambiar-al-remodelar-la-geometría">El ID puede cambiar al remodelar la geometría<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#el-id-puede-cambiar-al-remodelar-la-geometr%C3%ADa" class="hash-link" aria-label="Enlace directo al El ID puede cambiar al remodelar la geometría" title="Enlace directo al El ID puede cambiar al remodelar la geometría" translate="no">​</a></h3>
+<p>Dividir o fusionar una vía puede crear identificadores nuevos. Sigue los changesets y las relaciones espaciales; no presupongas continuidad solo por proximidad ni ruptura solo porque cambie el ID.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>La <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer" class="">política de privacidad de la OpenStreetMap Foundation</a> indica que las ediciones se registran con ID de usuario y marca temporal. Que ese dato sea público no autoriza a perfilar a una persona.</p>
+<ul>
+<li class="">Investiga el objeto y la afirmación, no al colaborador salvo necesidad excepcional y proporcionada.</li>
+<li class="">No enlaces una cuenta cartográfica con identidades externas mediante conjeturas.</li>
+<li class="">No publiques rutinas, domicilios ni patrones temporales de editores.</li>
+<li class="">No contactes ni coordines presión sobre una cuenta por una discrepancia exploratoria.</li>
+<li class="">Usa los canales comunitarios de corrección y comentarios con tono técnico y sin acusaciones.</li>
+<li class="">Minimiza identificadores personales en capturas e informes cuando no sean esenciales.</li>
+<li class="">Respeta los términos, límites de consulta y la <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" class="">atribución de OpenStreetMap</a> al reutilizar datos.</li>
+</ul>
+<p>Si el caso afecta a infraestructuras sensibles, población vulnerable o una decisión de alto impacto, eleva el umbral de corroboración y revisa qué detalles es seguro publicar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Combina el historial OSM con la fuente adecuada para cada pregunta:</p>
+<ul>
+<li class=""><code>Overpass turbo</code>, para explorar consultas espaciales acotadas y estados históricos cuando la instancia lo admita;</li>
+<li class=""><code>ohsome API</code>, para series temporales, contribuciones e historial de elementos a escala de área;</li>
+<li class=""><code>Mapillary</code> y otras secuencias públicas, para contexto visual cuya fecha y procedencia deben verificarse;</li>
+<li class="">ortofotos y catastros oficiales, para geometría y situación administrativa dentro de sus límites;</li>
+<li class="">imágenes satelitales multitemporales, para contrastar cambios visibles;</li>
+<li class="">archivos web y boletines, para reconstruir anuncios, obras o cambios de nombre.</li>
+</ul>
+<p>Ninguna alternativa elimina la necesidad de entender el origen del dato. Un mapa colaborativo, una ortofoto, un catastro y una imagen comercial responden a preguntas distintas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-publicar-un-hallazgo">Checklist antes de publicar un hallazgo<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#checklist-antes-de-publicar-un-hallazgo" class="hash-link" aria-label="Enlace directo al Checklist antes de publicar un hallazgo" title="Enlace directo al Checklist antes de publicar un hallazgo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta, el área y el intervalo temporal están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conservan tipo, ID, versión y changeset de cada elemento relevante.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se compararon etiquetas, geometría y visibilidad por separado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La fecha de edición no se presenta como fecha del cambio físico.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se revisaron versiones posteriores, reversiones y posibles IDs sucesores.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El comentario del changeset se trata como declaración, no como hecho probado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La cronología OSM se corroboró con al menos una fuente independiente del terreno.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Consultas, respuestas, fechas de acceso y atribución quedaron registradas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los identificadores de colaboradores se minimizaron y no se usaron para perfilar personas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hechos, inferencias y huecos aparecen separados en la conclusión.</li>
+</ul>
+<p>La takeaway accionable es simple: <strong>usa el historial de OpenStreetMap para fechar la evolución del dato cartográfico; usa fuentes independientes para fechar la evolución del lugar</strong>. Si ambos relojes coinciden, tienes una pista fuerte. Si no coinciden, acabas de encontrar la pregunta que de verdad merece investigación. El siguiente paso natural será aprender a comparar cobertura y calidad de mapas abiertos sin confundir densidad de ediciones con calidad del territorio.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="GEOINT" term="GEOINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[TMview en OSINT: marcas, titulares y cronologías sin confundir registro con actividad]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/tmview-osint-marcas-titulares-cronologias-contexto</id>
@@ -2928,144 +3066,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Herramientas" term="Herramientas"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Global Fishing Watch en OSINT: actividad marítima, AIS y SAR con contexto]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto"/>
-        <updated>2026-07-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando actividad marítima abierta, trazas AIS, detecciones SAR, notas de verificación y un mapa oceánico sin embarcaciones identificables]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando actividad marítima abierta, trazas AIS, detecciones SAR, notas de verificación y un mapa oceánico sin embarcaciones identificables" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-12-global-fishing-watch-osint-actividad-maritima-ais-sar-contexto-b1f88a3c07fca17a517844993e70b584.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto-7e3b1cddc4a1aaef3b2945276c5a38bd.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una mancha de calor sobre el océano puede parecer una historia cerrada: barcos, ruta, zona protegida y una hora aproximada. En investigación marítima responsable, sin embargo, esa imagen solo abre una pregunta: <strong>qué actividad pública se observa, con qué datos, con qué retraso y con qué nivel de incertidumbre</strong>. <code>Global Fishing Watch</code> ayuda justo ahí, no como radar infalible, sino como una capa abierta para estudiar actividad humana en el mar con método.</p>
-<p>Revisando su documentación oficial el <strong>12 de julio de 2026</strong>, la plataforma combina datos de seguimiento de embarcaciones, modelos de aprendizaje automático, capas ambientales, detecciones satelitales y APIs para explorar actividad pesquera aparente, presencia de buques, encuentros, eventos AIS apagado y detecciones SAR. La palabra clave es "aparente": el dato puede orientar una investigación, pero no sustituye la corroboración con registros, autorizaciones, imágenes, contexto local y fuentes primarias.</p>
-<p>Este artículo está escrito para analistas OSINT, periodistas, equipos ambientales, investigadores académicos y organizaciones que trabajan con fuentes abiertas de forma proporcionada. No es una guía para perseguir tripulaciones, acosar armadores, exponer rutas sensibles ni convertir una coincidencia algorítmica en acusación.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-global-fishing-watch-y-para-qué-sirve">Qué es Global Fishing Watch y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#qu%C3%A9-es-global-fishing-watch-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Global Fishing Watch y para qué sirve" title="Enlace directo al Qué es Global Fishing Watch y para qué sirve" translate="no">​</a></h2>
-<p><a href="https://globalfishingwatch.org/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch</code></a> es una organización y plataforma de datos orientada a hacer más transparente la actividad humana en el océano. Su mapa público permite visualizar capas como esfuerzo pesquero aparente, presencia de embarcaciones, encuentros, eventos de apagado AIS, detecciones nocturnas, capas de referencia y zonas marítimas.</p>
-<p>Su valor OSINT no está en "verlo todo". Está en formular preguntas mejores:</p>
-<ul>
-<li class="">dónde se concentra actividad pesquera aparente en una zona y periodo;</li>
-<li class="">qué diferencias hay entre presencia de buques y actividad clasificada como pesca;</li>
-<li class="">si una zona protegida, EEZ o área de gestión merece una revisión temporal;</li>
-<li class="">qué eventos podrían requerir contraste documental, como encuentros o apagados AIS;</li>
-<li class="">qué parte del análisis procede de AIS, VMS, SAR, VIIRS, modelos o capas de referencia;</li>
-<li class="">qué límites de cobertura, latencia, identidad y clasificación afectan a la lectura.</li>
-</ul>
-<p>La guía de usuario explica que el esfuerzo pesquero aparente se calcula analizando datos AIS de buques conocidos o posibles pesqueros y aplicando un algoritmo basado en cambios de velocidad y dirección. Esa distinción importa: el sistema clasifica puntos de transmisión como aparentemente pescando o no pescando, pero no observa directamente una red, una captura ni una infracción.</p>
-<p>La documentación de APIs, por su parte, muestra una plataforma más amplia que el mapa. En la versión 3 aparecen endpoints y datasets para visualización, presencia AIS, esfuerzo pesquero aparente, detecciones SAR, eventos, buques, insights, datasets y descargas masivas. Para un analista, esto permite pasar de una exploración manual a un flujo reproducible, siempre que se respeten licencias, límites y finalidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-ejemplo-ficticio">Caso de uso legítimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#caso-de-uso-leg%C3%ADtimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una ONG ficticia, <code>Costa Clara</code>, que prepara un informe sobre presión pesquera alrededor de una reserva marina. El objetivo no es identificar personas ni señalar a una embarcación concreta en redes sociales. El objetivo es construir una pregunta verificable:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: ¿hubo concentración anómala de actividad pesquera aparente cerca del límite exterior de la reserva?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Zona: polígono público de la reserva y franja de 20 millas náuticas alrededor</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Periodo: enero a marzo de 2026</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Unidad de análisis: celdas/agregados y eventos para revisión, no acusaciones individuales</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuentes auxiliares: normativa de la reserva, autorizaciones públicas, comunicados, imágenes satelitales y entrevistas autorizadas</span><br></span></code></pre></div></div>
-<p>Un primer mapa puede revelar horas de actividad aparente cerca del límite. Eso no prueba pesca ilegal. Puede tratarse de tránsito, actividad permitida, errores de clasificación, desfases temporales, cobertura desigual o límites geográficos mal entendidos. La utilidad real consiste en ordenar qué merece revisión:</p>
-<table><thead><tr><th>Señal</th><th>Lectura prudente</th><th>Siguiente comprobación</th></tr></thead><tbody><tr><td>Alta actividad aparente en una celda</td><td>Posible concentración de esfuerzo</td><td>Comparar fechas, artes, bandera y límites oficiales</td></tr><tr><td>Presencia sin pesca aparente</td><td>Tránsito, espera u otra actividad</td><td>Contrastar con rutas, puertos y condiciones</td></tr><tr><td>Encuentros entre buques</td><td>Indicador para revisar, no prueba de transbordo</td><td>Mirar duración, distancia a puerto, tipo de buque y contexto</td></tr><tr><td>AIS apagado</td><td>Hueco de señal, intencional o técnico</td><td>Corroborar con SAR, historial y explicación plausible</td></tr><tr><td>Detección SAR no emparejada</td><td>Posible buque sin AIS visible</td><td>Revisar resolución, confianza, climatología y fuentes externas</td></tr></tbody></table>
-<p>El resultado defendible no sería "estos barcos cometieron una infracción". Sería algo más estrecho:</p>
-<blockquote>
-<p>Entre enero y marzo se observa actividad pesquera aparente agregada en varias celdas próximas al límite de la reserva. Recomendamos contrastar esas fechas con autorizaciones, normativa aplicable y observaciones independientes antes de atribuir conducta irregular.</p>
-</blockquote>
-<p>Ese matiz protege la investigación y a las personas afectadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-una-pregunta-geográfica-y-temporal">1. Empezar por una pregunta geográfica y temporal<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#1-empezar-por-una-pregunta-geogr%C3%A1fica-y-temporal" class="hash-link" aria-label="Enlace directo al 1. Empezar por una pregunta geográfica y temporal" title="Enlace directo al 1. Empezar por una pregunta geográfica y temporal" translate="no">​</a></h3>
-<p>No abras el mapa para "buscar cosas raras". Define zona, periodo y decisión analítica:</p>
-<ul>
-<li class="">zona exacta: EEZ, área marina protegida, puerto, corredor o polígono propio;</li>
-<li class="">periodo: fechas cerradas y zona horaria documentada;</li>
-<li class="">métrica: horas de esfuerzo aparente, presencia, eventos, detecciones o comparación entre capas;</li>
-<li class="">hipótesis: qué esperas comprobar y qué dato la refutaría.</li>
-</ul>
-<p>En OSINT marítimo, una mala geometría contamina todo. Si el polígono de una reserva, una frontera marítima o un buffer no corresponde a la fuente oficial adecuada, el análisis puede parecer preciso y estar desplazado desde el primer paso.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-presencia-pesca-aparente-y-detección">2. Separar presencia, pesca aparente y detección<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#2-separar-presencia-pesca-aparente-y-detecci%C3%B3n" class="hash-link" aria-label="Enlace directo al 2. Separar presencia, pesca aparente y detección" title="Enlace directo al 2. Separar presencia, pesca aparente y detección" translate="no">​</a></h3>
-<p><code>Global Fishing Watch</code> distingue capas con significados diferentes. Conviene escribirlos en tus notas:</p>
-<ul>
-<li class=""><code>AIS vessel presence</code>: presencia derivada de posiciones AIS, no limitada a pesca;</li>
-<li class=""><code>AIS apparent fishing effort</code>: clasificación de posible actividad pesquera por patrones de movimiento;</li>
-<li class=""><code>SAR vessel detections</code>: detecciones en imágenes radar, útiles también cuando no hay AIS visible;</li>
-<li class=""><code>VMS</code>: datos de sistemas de seguimiento pesquero cuando están disponibles para países o acuerdos concretos;</li>
-<li class="">eventos: encuentros, loitering, visitas a puerto, actividad pesquera aparente o apagados AIS, según cobertura.</li>
-</ul>
-<p>Mezclar esas capas en una sola frase suele producir conclusiones exageradas. "Había presencia de buques" no es lo mismo que "había pesca aparente", y "SAR detectó un objeto compatible" no es lo mismo que "identificamos un buque concreto".</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-trabajar-primero-en-agregado">3. Trabajar primero en agregado<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#3-trabajar-primero-en-agregado" class="hash-link" aria-label="Enlace directo al 3. Trabajar primero en agregado" title="Enlace directo al 3. Trabajar primero en agregado" translate="no">​</a></h3>
-<p>Para un informe responsable, empieza por patrones:</p>
-<ol>
-<li class="">selecciona el área y el rango temporal;</li>
-<li class="">compara actividad antes, durante y después del periodo de interés;</li>
-<li class="">revisa si el patrón se concentra en el borde de una zona, en rutas conocidas o en puntos aislados;</li>
-<li class="">documenta capas activas, filtros y fecha de consulta;</li>
-<li class="">exporta solo lo necesario para replicar el análisis;</li>
-<li class="">pasa a eventos o buques concretos solo cuando exista una razón legítima y proporcionada.</li>
-</ol>
-<p>La propia disponibilidad de datos indica que muchos productos son dinámicos y de "near real time" con retrasos como 72 horas, mientras otros son datasets estables actualizados diaria, mensual o históricamente. Esa mezcla obliga a anotar qué versión o estado se consultó.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-tratar-eventos-como-indicadores-de-revisión">4. Tratar eventos como indicadores de revisión<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#4-tratar-eventos-como-indicadores-de-revisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 4. Tratar eventos como indicadores de revisión" title="Enlace directo al 4. Tratar eventos como indicadores de revisión" translate="no">​</a></h3>
-<p>Los eventos son atractivos porque parecen narrativos: dos buques se encuentran, una señal desaparece, una embarcación entra o sale de puerto. Pero son salidas de modelos o reglas aplicadas a datos imperfectos.</p>
-<p>Por ejemplo, la FAQ de encuentros explica que un evento se clasifica cuando dos embarcaciones aparecen dentro de 500 metros durante al menos dos horas, a baja velocidad y lejos de un fondeadero costero. La misma página advierte que los encuentros pueden deberse a transbordo, suministros, cambios de tripulación, seguridad u otros motivos, y que la proximidad se calcula con posiciones estimadas en una malla temporal.</p>
-<p>La forma sana de escribirlo es:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Correcto: "El sistema marca un evento de encuentro que requiere revisión."</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Incorrecto: "El mapa demuestra un transbordo ilegal."</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corroborar-antes-de-atribuir">5. Corroborar antes de atribuir<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#5-corroborar-antes-de-atribuir" class="hash-link" aria-label="Enlace directo al 5. Corroborar antes de atribuir" title="Enlace directo al 5. Corroborar antes de atribuir" translate="no">​</a></h3>
-<p>Una línea de evidencia no basta. Según el caso, combina:</p>
-<ul>
-<li class="">normativa y límites oficiales de la zona;</li>
-<li class="">registros de autorizaciones, licencias o listas RFMO;</li>
-<li class="">información de puertos y escalas;</li>
-<li class="">imágenes SAR o ópticas cuando sean pertinentes;</li>
-<li class="">meteorología, estado de mar y visibilidad;</li>
-<li class="">registros corporativos o de propiedad cuando el análisis sea societario;</li>
-<li class="">respuesta de las partes afectadas si se va a publicar una conclusión sensible.</li>
-</ul>
-<p>La pregunta no es "qué puedo inferir". La pregunta es "qué inferencia sobreviviría a una revisión técnica y legal".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p><code>Global Fishing Watch</code> es potente precisamente porque hace visibles patrones que antes estaban dispersos. Pero sus límites son parte del dato:</p>
-<ul>
-<li class=""><code>AIS</code> nació como sistema de seguridad y evitación de colisiones, no como registro forense universal;</li>
-<li class="">no todos los buques están obligados a emitir AIS en todos los contextos;</li>
-<li class="">las señales pueden faltar, ser irregulares, estar mal configuradas o cambiar de identidad aparente;</li>
-<li class="">la clasificación de pesca depende de modelos que interpretan movimiento, no capturas reales;</li>
-<li class="">la cobertura SAR ayuda a detectar buques sin AIS visible, pero también requiere lectura de confianza, fecha, resolución y contexto;</li>
-<li class="">los límites marítimos, áreas protegidas y autorizaciones pueden variar por fuente;</li>
-<li class="">el dato bruto AIS usado por la plataforma no está disponible libremente, aunque existan datasets derivados y muestras anonimizadas;</li>
-<li class="">una ausencia en el mapa no demuestra ausencia de actividad en el mar.</li>
-</ul>
-<p>La documentación técnica también recuerda problemas de identidad: una búsqueda de buque puede devolver varios identificadores porque las transmisiones AIS y los registros no siempre encajan limpiamente. Un cambio real de bandera, nombre o puerto puede parecerse a una transmisión incompleta; una transmisión incompleta puede crear registros separados para el mismo buque.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<p>El OSINT marítimo toca actividades económicas, tripulaciones, comunidades costeras, investigación ambiental, cumplimiento regulatorio y, a veces, conflictos. Esa combinación exige prudencia:</p>
-<ul>
-<li class="">evita publicar rutas operativas recientes si no hay interés público claro;</li>
-<li class="">trabaja con agregados cuando baste para responder la pregunta;</li>
-<li class="">no conviertas nombres de buques, banderas o empresas en acusaciones sin contraste;</li>
-<li class="">separa dato observado, salida de modelo, inferencia y conclusión;</li>
-<li class="">respeta términos de uso, límites de API y licencias de datos;</li>
-<li class="">documenta capturas, consultas, fechas y filtros;</li>
-<li class="">minimiza datos personales y evita señalar tripulantes;</li>
-<li class="">si el caso puede tener consecuencias legales, pide revisión especializada antes de publicar.</li>
-</ul>
-<p>La transparencia no consiste en exponerlo todo. Consiste en que el análisis sea verificable, proporcional y honesto sobre sus incertidumbres.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>Global Fishing Watch</code> encaja especialmente bien cuando la pregunta es marítima, espacial y temporal. Según el caso, puede complementarse con:</p>
-<ul>
-<li class="">registros oficiales de buques y autorizaciones pesqueras;</li>
-<li class=""><code>MarineTraffic</code>, <code>VesselFinder</code> u otros servicios AIS comerciales, teniendo en cuenta licencias y cobertura;</li>
-<li class=""><code>Sentinel Hub EO Browser</code> o <code>Copernicus Browser</code> para imágenes satelitales;</li>
-<li class=""><code>NASA FIRMS</code> si la investigación toca incendios, anomalías térmicas o actividad costera;</li>
-<li class=""><code>OpenStreetMap</code> y cartas náuticas para contexto geográfico;</li>
-<li class="">registros societarios y sanciones cuando el análisis se mueva de actividad marítima a propiedad, control o cumplimiento.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>Global Fishing Watch</code> para <strong>convertir actividad marítima visible en preguntas reproducibles</strong>, no para cerrar casos por intuición. Si una señal parece importante, el siguiente paso no es endurecer el titular, sino comprobar fuente, modelo, zona, fecha, autorización y explicación alternativa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/global-fishing-watch-osint-actividad-maritima-ais-sar-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://globalfishingwatch.org/user-guide/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch</code>, mapa y guía de usuario</a>, consultado el <code>12 de julio de 2026</code>.</li>
-<li class=""><a href="https://globalfishingwatch.org/our-apis/documentation" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch API Documentation</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
-<li class=""><a href="https://globalfishingwatch.org/global-fishing-watch-data-availability/" target="_blank" rel="noopener noreferrer" class=""><code>Global Fishing Watch Data Availability</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
-<li class=""><a href="https://globalfishingwatch.org/faqs/can-i-download-raw-ais-data/" target="_blank" rel="noopener noreferrer" class=""><code>Can I download raw AIS data?</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
-<li class=""><a href="https://globalfishingwatch.org/faqs/what-is-a-vessel-encounter/" target="_blank" rel="noopener noreferrer" class=""><code>What is a vessel encounter?</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
-<li class=""><a href="https://globalfishingwatch.org/article/journal-article-clarifies-how-global-fishing-watch-fishing-data-is-generated/" target="_blank" rel="noopener noreferrer" class=""><code>Journal article clarifies how Global Fishing Watch fishing data is generated</code></a>, consultado el <code>12 de julio de 2026</code>.</li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Maritimo" term="Maritimo"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Investigacion" term="Investigacion"/>
     </entry>
 </feed>
