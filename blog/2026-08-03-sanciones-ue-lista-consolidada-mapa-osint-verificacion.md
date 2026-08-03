@@ -9,6 +9,9 @@ image: /img/blog/2026-08-03-sanciones-ue-osint-lista-mapa-verificacion.png
 
 ![Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos](/img/blog/2026-08-03-sanciones-ue-osint-lista-mapa-verificacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sanciones-ue-lista-consolidada-mapa-osint-verificacion.m4a)
+
+
 Una búsqueda por nombre devuelve una persona sancionada y, a pocos kilómetros, una empresa con un administrador homónimo. La coincidencia parece suficiente para detener una operación o publicar una acusación. No lo es. Entre un nombre parecido y una identificación responsable faltan alias, fecha de nacimiento, nacionalidad, domicilio, identificadores, régimen aplicable, vigencia y —sobre todo— el acto jurídico que sostiene la medida. La lista consolidada de sanciones financieras de la Unión Europea y el `EU Sanctions Map` ayudan a recorrer ese camino sin convertir una alerta en un veredicto.
 
 <!-- truncate -->
