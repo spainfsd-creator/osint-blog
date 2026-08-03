@@ -4,10 +4,144 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 02 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Sanciones de la UE en OSINT: lista consolidada, mapa y verificación sin acusaciones precipitadas]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion</guid>
+            <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-03-sanciones-ue-osint-lista-mapa-verificacion-82742e727b4decfcc8b078c20154e469.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una búsqueda por nombre devuelve una persona sancionada y, a pocos kilómetros, una empresa con un administrador homónimo. La coincidencia parece suficiente para detener una operación o publicar una acusación. No lo es. Entre un nombre parecido y una identificación responsable faltan alias, fecha de nacimiento, nacionalidad, domicilio, identificadores, régimen aplicable, vigencia y —sobre todo— el acto jurídico que sostiene la medida. La lista consolidada de sanciones financieras de la Unión Europea y el <code>EU Sanctions Map</code> ayudan a recorrer ese camino sin convertir una alerta en un veredicto.</p>
+<p>Este artículo explica un flujo de investigación con fuentes públicas para debida diligencia, periodismo y verificación corporativa. No sustituye el asesoramiento jurídico ni los controles de cumplimiento de una organización. Todas las personas, empresas y operaciones del ejemplo son ficticias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-la-lista-consolidada-y-el-eu-sanctions-map">Qué son la lista consolidada y el EU Sanctions Map<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#qu%C3%A9-son-la-lista-consolidada-y-el-eu-sanctions-map" class="hash-link" aria-label="Enlace directo al Qué son la lista consolidada y el EU Sanctions Map" title="Enlace directo al Qué son la lista consolidada y el EU Sanctions Map" translate="no">​</a></h2>
+<p>La <a href="https://finance.ec.europa.eu/eu-and-world/sanctions-restrictive-measures/overview-sanctions-and-related-resources_en" target="_blank" rel="noopener noreferrer" class="">Comisión Europea reúne sus principales recursos sobre sanciones</a> en una página que conviene usar como punto de partida. Allí distingue dos herramientas complementarias:</p>
+<ul>
+<li class="">la <strong>lista consolidada de sanciones financieras</strong>, gestionada por la Dirección General de Estabilidad Financiera, Servicios Financieros y Unión de los Mercados de Capitales (<code>DG FISMA</code>), refleja los textos adoptados oficialmente y reúne personas, grupos y organizaciones sujetos a medidas financieras de la UE;</li>
+<li class="">el <a href="https://www.sanctionsmap.eu/" target="_blank" rel="noopener noreferrer" class="">EU Sanctions Map</a> organiza los regímenes de sanciones de la Unión y enlaza sus actos jurídicos, incluidos los regímenes del Consejo de Seguridad de Naciones Unidas incorporados al marco europeo.</li>
+</ul>
+<p>No son dos buscadores equivalentes. La lista responde bien a «¿aparece este sujeto entre los destinatarios de medidas financieras?». El mapa ayuda con «¿qué régimen existe, qué tipos de restricción contiene y qué norma debo leer?». Para saber exactamente qué se prohíbe, a quién, desde cuándo y con qué excepciones, hay que llegar al acto publicado en el Diario Oficial mediante <code>EUR-Lex</code>.</p>
+<p>La <a href="https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions?locale=es" target="_blank" rel="noopener noreferrer" class="">ficha del conjunto de datos en el portal europeo</a> ofrece la lista en formatos reutilizables como <code>CSV</code> y <code>XML</code>, además de accesos a la versión de consulta. Esto permite documentar búsquedas y comparaciones reproducibles. También obliga a conservar la fecha de descarga: una lista viva no demuestra cuál era el estado en una fecha anterior si no guardaste la copia consultada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-un-proveedor-con-un-nombre-coincidente">Caso de uso legítimo: un proveedor con un nombre coincidente<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#caso-de-uso-leg%C3%ADtimo-un-proveedor-con-un-nombre-coincidente" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: un proveedor con un nombre coincidente" title="Enlace directo al Caso de uso legítimo: un proveedor con un nombre coincidente" translate="no">​</a></h2>
+<p>Imaginemos que <code>Brújula Solar SL</code>, empresa española ficticia, estudia contratar componentes a <code>Danubio Instrumentation DOO</code>, también ficticia. Un control inicial encuentra en la lista consolidada a <code>Milan Petrović</code>, mientras que el registro mercantil del proveedor muestra a un administrador con el mismo nombre.</p>
+<p>La pregunta incorrecta sería:</p>
+<blockquote>
+<p>¿Cómo demostramos que el administrador es la persona sancionada?</p>
+</blockquote>
+<p>Esa formulación busca confirmar una conclusión previa. La pregunta responsable es:</p>
+<blockquote>
+<p>¿Qué identificadores públicos permiten confirmar o descartar que ambos registros se refieren al mismo sujeto, y qué norma sería aplicable a la operación?</p>
+</blockquote>
+<p>Para trabajar sin exponer datos reales, asignamos identificadores internos:</p>
+<table><thead><tr><th>Registro</th><th>Dato observado</th><th>Estado</th></tr></thead><tbody><tr><td><code>S-01</code></td><td>Nombre y alias de la entrada sancionada</td><td>Fuente oficial consultada</td></tr><tr><td><code>M-01</code></td><td>Administrador de la sociedad proveedora</td><td>Registro mercantil pendiente de certificar</td></tr><tr><td><code>C-01</code></td><td>Contrato y contraparte de la operación</td><td>Documentación aportada voluntariamente</td></tr><tr><td><code>R-01</code></td><td>Régimen y acto jurídico enlazado</td><td>Pendiente de lectura completa</td></tr></tbody></table>
+<p>El nombre solo abre la comparación. El objetivo no es recopilar más datos personales de los necesarios, sino buscar identificadores discriminantes y documentar las diferencias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-verificación">Flujo recomendado de verificación<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#flujo-recomendado-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de verificación" title="Enlace directo al Flujo recomendado de verificación" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fija-el-objeto-la-jurisdicción-y-la-fecha">1. Fija el objeto, la jurisdicción y la fecha<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#1-fija-el-objeto-la-jurisdicci%C3%B3n-y-la-fecha" class="hash-link" aria-label="Enlace directo al 1. Fija el objeto, la jurisdicción y la fecha" title="Enlace directo al 1. Fija el objeto, la jurisdicción y la fecha" translate="no">​</a></h3>
+<p>Antes de buscar, escribe tres líneas:</p>
+<ul>
+<li class="">qué sujeto u operación estás comprobando;</li>
+<li class="">por qué existe una base legítima para hacerlo;</li>
+<li class="">qué jurisdicción y fecha son relevantes.</li>
+</ul>
+<p>La fecha importa porque los regímenes se adoptan, modifican, prorrogan, suspenden o levantan. La jurisdicción importa porque una lista de la UE no es intercambiable con las listas de terceros países. El <a href="https://www.consilium.europa.eu/en/policies/sanctions-adoption-review-procedure/" target="_blank" rel="noopener noreferrer" class="">Consejo de la UE explica el proceso de adopción y revisión</a>: las decisiones y reglamentos se publican en el Diario Oficial, y la aplicación y ejecución corresponden principalmente a los Estados miembros.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-de-forma-amplia-pero-registra-la-consulta-exacta">2. Busca de forma amplia, pero registra la consulta exacta<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#2-busca-de-forma-amplia-pero-registra-la-consulta-exacta" class="hash-link" aria-label="Enlace directo al 2. Busca de forma amplia, pero registra la consulta exacta" title="Enlace directo al 2. Busca de forma amplia, pero registra la consulta exacta" translate="no">​</a></h3>
+<p>Consulta en la lista consolidada el nombre completo, variantes razonables y alias que ya estén documentados. Si descargas <code>CSV</code> o <code>XML</code>, conserva:</p>
+<ul>
+<li class="">URL y fecha/hora de consulta;</li>
+<li class="">nombre y fecha del archivo;</li>
+<li class="">términos buscados y reglas de normalización;</li>
+<li class="">hash del fichero si el resultado formará parte de un expediente;</li>
+<li class="">filas candidatas sin editar, junto a una copia de trabajo separada.</li>
+</ul>
+<p>No elimines tildes, transliteraciones o segundos apellidos sin dejar rastro. Una normalización útil para descubrir candidatos puede destruir información necesaria para descartarlos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-coincidencia-de-nombre-e-identidad">3. Separa coincidencia de nombre e identidad<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#3-separa-coincidencia-de-nombre-e-identidad" class="hash-link" aria-label="Enlace directo al 3. Separa coincidencia de nombre e identidad" title="Enlace directo al 3. Separa coincidencia de nombre e identidad" translate="no">​</a></h3>
+<p>Construye una matriz mínima de correspondencia:</p>
+<table><thead><tr><th>Campo</th><th>Entrada de sanciones</th><th>Contraparte</th><th>Valor probatorio</th></tr></thead><tbody><tr><td>Nombre y alias</td><td>Coincide / no coincide</td><td>Coincide / no coincide</td><td>Bajo si está aislado</td></tr><tr><td>Fecha de nacimiento</td><td>Dato oficial, si consta</td><td>Fuente primaria o aportada</td><td>Alto cuando es completa</td></tr><tr><td>Nacionalidad</td><td>Según la entrada</td><td>Según fuente verificable</td><td>Medio; puede ser múltiple</td></tr><tr><td>Documento o identificador</td><td>Según la entrada</td><td>Documento validado</td><td>Alto, sujeto a autenticidad</td></tr><tr><td>Domicilio o lugar de nacimiento</td><td>Según la entrada</td><td>Fuente pertinente</td><td>Contextual, no concluyente solo</td></tr><tr><td>Organización relacionada</td><td>Relación expresamente recogida</td><td>Cargo o propiedad acreditada</td><td>Requiere fechas y naturaleza del vínculo</td></tr></tbody></table>
+<p>Un campo vacío no equivale a coincidencia ni a descarte. Un dato incompatible y bien documentado puede ser mucho más informativo que cinco coincidencias vagas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-localiza-el-régimen-y-el-acto-jurídico">4. Localiza el régimen y el acto jurídico<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#4-localiza-el-r%C3%A9gimen-y-el-acto-jur%C3%ADdico" class="hash-link" aria-label="Enlace directo al 4. Localiza el régimen y el acto jurídico" title="Enlace directo al 4. Localiza el régimen y el acto jurídico" translate="no">​</a></h3>
+<p>Usa el mapa para pasar del resultado nominal al régimen correspondiente. Registra:</p>
+<ol>
+<li class="">nombre del régimen;</li>
+<li class="">tipo de medida relevante;</li>
+<li class="">decisión y reglamento asociados;</li>
+<li class="">anexos donde se identifica a los sujetos;</li>
+<li class="">modificaciones posteriores;</li>
+<li class="">fecha de entrada en vigor y, cuando proceda, revisión o expiración.</li>
+</ol>
+<p>Después abre el texto en <a href="https://eur-lex.europa.eu/homepage.html?locale=es" target="_blank" rel="noopener noreferrer" class="">EUR-Lex</a>. La página de recursos de la Comisión recuerda que <code>EUR-Lex</code> es la puerta oficial a los actos jurídicos de la UE publicados en el Diario Oficial. Lee el articulado y el anexo: el mapa orienta, pero la norma define el alcance.</p>
+<p>Una congelación de activos, una prohibición de viaje y una restricción sectorial no producen el mismo análisis. Tampoco puede deducirse de una lista nominal que todas las operaciones relacionadas con un país estén prohibidas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-comprueba-control-propiedad-y-fecha-por-separado">5. Comprueba control, propiedad y fecha por separado<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#5-comprueba-control-propiedad-y-fecha-por-separado" class="hash-link" aria-label="Enlace directo al 5. Comprueba control, propiedad y fecha por separado" title="Enlace directo al 5. Comprueba control, propiedad y fecha por separado" translate="no">​</a></h3>
+<p>Que una sociedad no aparezca por nombre no resuelve automáticamente el análisis si existe una cuestión fundada sobre propiedad o control. Pero una relación indirecta, una dirección compartida o una noticia tampoco demuestran control.</p>
+<p>Documenta cada arista con su propia fuente:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Persona candidata ──cargo registrado──&gt; Sociedad A</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Sociedad A ──participación declarada──&gt; Sociedad B</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Sociedad B ──contrato fechado──&gt; Proveedor</span><br></span></code></pre></div></div>
+<p>Para cada relación anota porcentaje, cargo, fecha de inicio y fin, fuente primaria y cualquier limitación. No conviertas un grafo visual en una conclusión jurídica automática.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-escala-la-duda-al-canal-competente">6. Escala la duda al canal competente<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#6-escala-la-duda-al-canal-competente" class="hash-link" aria-label="Enlace directo al 6. Escala la duda al canal competente" title="Enlace directo al 6. Escala la duda al canal competente" translate="no">​</a></h3>
+<p>Si la decisión afecta a pagos, exportaciones, bienes de doble uso, transporte o congelación de activos, el trabajo OSINT debe terminar donde empieza la interpretación especializada. La Comisión publica un <a href="https://finance.ec.europa.eu/document/download/803d74d5-84a0-4bf4-a735-30f1fe5ae6dd_en?filename=national-competent-authorities-sanctions-implementation_en.pdf" target="_blank" rel="noopener noreferrer" class="">directorio de autoridades nacionales competentes</a> por Estado miembro y materia.</p>
+<p>Las pymes europeas también disponen del <a href="https://eu-sanctions-compliance-helpdesk.europa.eu/index_en" target="_blank" rel="noopener noreferrer" class="">EU Sanctions Helpdesk</a>, que ofrece recursos y apoyo para comprobaciones de debida diligencia. Guardar la consulta, la respuesta y la versión de los documentos forma parte de la trazabilidad; no basta una captura de pantalla sin contexto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-homónimos-son-una-alerta-no-una-identidad">Los homónimos son una alerta, no una identidad<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#los-hom%C3%B3nimos-son-una-alerta-no-una-identidad" class="hash-link" aria-label="Enlace directo al Los homónimos son una alerta, no una identidad" title="Enlace directo al Los homónimos son una alerta, no una identidad" translate="no">​</a></h3>
+<p>Nombres comunes, transliteraciones variables y cambios de orden pueden producir coincidencias llamativas. Publicar o bloquear basándose solo en el nombre puede dañar a una persona o empresa ajena al régimen.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-en-la-lista-no-significa-sin-riesgo">La ausencia en la lista no significa «sin riesgo»<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#la-ausencia-en-la-lista-no-significa-sin-riesgo" class="hash-link" aria-label="Enlace directo al La ausencia en la lista no significa «sin riesgo»" title="Enlace directo al La ausencia en la lista no significa «sin riesgo»" translate="no">​</a></h3>
+<p>La lista consolidada se centra en sujetos de sanciones financieras. Una operación puede verse afectada por restricciones sectoriales, comerciales, territoriales, de transporte o de exportación que exigen leer el régimen. También puede haber obligaciones nacionales pertinentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-dato-actual-no-reconstruye-solo-el-pasado">El dato actual no reconstruye solo el pasado<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#el-dato-actual-no-reconstruye-solo-el-pasado" class="hash-link" aria-label="Enlace directo al El dato actual no reconstruye solo el pasado" title="Enlace directo al El dato actual no reconstruye solo el pasado" translate="no">​</a></h3>
+<p>Una consulta hecha hoy acredita el estado observado hoy. Para una cronología histórica necesitas actos jurídicos y versiones fechadas. Conserva el identificador <code>CELEX</code>, la referencia del Diario Oficial y las modificaciones relevantes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-agregador-no-sustituye-la-fuente-oficial">Un agregador no sustituye la fuente oficial<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#un-agregador-no-sustituye-la-fuente-oficial" class="hash-link" aria-label="Enlace directo al Un agregador no sustituye la fuente oficial" title="Enlace directo al Un agregador no sustituye la fuente oficial" translate="no">​</a></h3>
+<p>Herramientas como <code>OpenSanctions</code> son valiosas para descubrimiento, normalización y grafos, pero el cierre de una verificación europea debe volver a la lista, al acto jurídico y a la autoridad competente. Si dos fuentes discrepan, registra la discrepancia; no elijas silenciosamente la que confirma tu hipótesis.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="relacionado-con-no-equivale-a-sancionado">«Relacionado con» no equivale a «sancionado»<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#relacionado-con-no-equivale-a-sancionado" class="hash-link" aria-label="Enlace directo al «Relacionado con» no equivale a «sancionado»" title="Enlace directo al «Relacionado con» no equivale a «sancionado»" translate="no">​</a></h3>
+<p>Compartir domicilio, agente, accionista minoritario, dominio de correo o consejero histórico puede justificar una comprobación adicional. No autoriza a etiquetar a toda la red como sancionada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con una finalidad legítima, alcance escrito y minimización de datos.</li>
+<li class="">No contactes a familiares, empleados o terceros para forzar información personal.</li>
+<li class="">Separa el expediente de descubrimiento del informe que verá quien toma la decisión.</li>
+<li class="">Usa perfiles de navegador y almacenamiento adecuados al nivel de sensibilidad del caso.</li>
+<li class="">Conserva fuentes, versiones, consultas y hashes; evita acumular documentos personales irrelevantes.</li>
+<li class="">Redacta con grados de confianza: <code>coincidencia nominal</code>, <code>candidato probable</code>, <code>identidad confirmada</code> o <code>descartado</code>, explicando el criterio.</li>
+<li class="">Permite revisión humana y corrección antes de una decisión adversa.</li>
+<li class="">No publiques identificadores personales salvo que sean imprescindibles, legales y proporcionales al interés público.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Combina cada herramienta con la fuente que responde a la pregunta concreta:</p>
+<ul>
+<li class=""><code>OpenSanctions</code>, para descubrir variantes, conjuntos y relaciones antes de volver a las fuentes primarias;</li>
+<li class="">registros mercantiles oficiales, para cargos, titulares y fechas societarias;</li>
+<li class=""><code>GLEIF</code>, cuando exista un <code>LEI</code> que ayude a resolver identidad corporativa;</li>
+<li class=""><code>EUR-Lex</code> y el Diario Oficial, para texto, anexos y vigencia jurídica;</li>
+<li class="">autoridades nacionales y asesores especializados, para aplicación a una operación real;</li>
+<li class="">listas oficiales de otras jurisdicciones, únicamente cuando su alcance sea pertinente y sin mezclarlas bajo una etiqueta genérica.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-cerrar-una-comprobación">Checklist para cerrar una comprobación<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#checklist-para-cerrar-una-comprobaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist para cerrar una comprobación" title="Enlace directo al Checklist para cerrar una comprobación" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se fijaron sujeto, operación, jurisdicción y fecha relevante.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se guardó la consulta exacta y la versión de la lista.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La identidad se contrastó con más de un identificador discriminante.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se distinguieron coincidencias, incompatibilidades y campos desconocidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se localizó el régimen correcto en el mapa.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se leyó el acto jurídico y su anexo vigente en <code>EUR-Lex</code>.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Propiedad, control y relaciones se documentaron por separado y con fechas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las dudas jurídicas se escalaron al canal competente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe evita acusaciones y datos personales innecesarios.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://finance.ec.europa.eu/eu-and-world/sanctions-restrictive-measures/overview-sanctions-and-related-resources_en" target="_blank" rel="noopener noreferrer" class="">Comisión Europea: visión general y recursos sobre sanciones</a></li>
+<li class=""><a href="https://www.sanctionsmap.eu/" target="_blank" rel="noopener noreferrer" class="">EU Sanctions Map</a></li>
+<li class=""><a href="https://data.europa.eu/data/datasets/consolidated-list-of-persons-groups-and-entities-subject-to-eu-financial-sanctions?locale=es" target="_blank" rel="noopener noreferrer" class="">Portal de Datos Europeos: lista consolidada de sanciones financieras de la UE</a></li>
+<li class=""><a href="https://www.consilium.europa.eu/en/policies/sanctions-adoption-review-procedure/" target="_blank" rel="noopener noreferrer" class="">Consejo de la UE: adopción y revisión de sanciones</a></li>
+<li class=""><a href="https://eur-lex.europa.eu/homepage.html?locale=es" target="_blank" rel="noopener noreferrer" class="">EUR-Lex</a></li>
+<li class=""><a href="https://eu-sanctions-compliance-helpdesk.europa.eu/index_en" target="_blank" rel="noopener noreferrer" class="">EU Sanctions Helpdesk</a></li>
+</ul>
+<p>La takeaway accionable es sencilla: <strong>usa la lista para descubrir candidatos, el mapa para encontrar el régimen y el acto jurídico para sostener la conclusión</strong>. Si solo coincide el nombre, todavía no tienes una identidad. Si el caso afecta a una operación real, documenta el análisis y escálalo antes de actuar. El siguiente paso natural será construir una matriz reproducible para resolver entidades entre listas oficiales sin convertir la automatización en una máquina de falsos positivos.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Due Diligence</category>
+            <category>Privacidad</category>
+            <category>Metodologia</category>
+        </item>
         <item>
             <title><![CDATA[El historial de OpenStreetMap en OSINT: cambios cartográficos, cronología y contexto]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint</link>
@@ -2859,135 +2993,6 @@
             <category>Verificacion</category>
             <category>Datos</category>
             <category>Defensa</category>
-        </item>
-        <item>
-            <title><![CDATA[OpenAQ en OSINT: calidad del aire, sensores y contexto antes de atribuir causas]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto</guid>
-            <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una analista OSINT revisando datos abiertos de calidad del aire, sensores, series temporales, mapas y notas de verificacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando datos abiertos de calidad del aire, sensores, series temporales, mapas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-13-openaq-osint-calidad-aire-datos-abiertos-contexto-b919c0339f75d466a3006dcc0f8e1461.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/openaq-osint-calidad-aire-datos-abiertos-contexto-725dea64d19b4903f844469291ba8df8.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Un pico de contaminacion en una grafica puede parecer una acusacion lista para publicar: una fabrica cercana, una carretera saturada, una columna de humo y una hora concreta. En OSINT ambiental responsable, sin embargo, el primer deber no es senalar un culpable, sino preguntar <strong>que midio realmente el sensor, de donde procede el dato, que licencia lo cubre y que explicaciones alternativas siguen abiertas</strong>.</p>
-<p><a href="https://openaq.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenAQ</code></a> ayuda en esa fase de contexto. Agrega y armoniza datos abiertos de calidad del aire de muchas fuentes, los expone mediante una plataforma web y una API, y permite trabajar con mediciones historicas o recientes sin depender solo de una captura aislada. Revisando su documentacion oficial el <strong>13 de julio de 2026</strong>, la API publica recursos para ubicaciones, sensores, mediciones, ultimos valores, parametros, proveedores, propietarios y licencias; usa <code>X-API-Key</code> para autenticar peticiones; y documenta limites generales de <code>60</code> solicitudes por minuto y <code>2.000</code> por hora para uso gratuito.</p>
-<p>Este articulo esta escrito para periodistas de datos, analistas OSINT, equipos ambientales, investigadores academicos y organizaciones que necesitan contrastar informacion publica sobre calidad del aire. No es una guia para acosar instalaciones, exponer domicilios, fabricar alarmas sanitarias ni convertir una correlacion temporal en atribucion causal.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-openaq-y-para-que-sirve">Que es OpenAQ y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#que-es-openaq-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenAQ y para que sirve" title="Enlace directo al Que es OpenAQ y para que sirve" translate="no">​</a></h2>
-<p><code>OpenAQ</code> es una plataforma abierta de datos de calidad del aire. Su objetivo practico es reunir datos de distintas fuentes, armonizarlos y hacerlos consultables con una estructura comun. Para una investigacion OSINT, eso permite pasar de "he visto una grafica" a preguntas mas defendibles:</p>
-<ul>
-<li class="">que sensores existen cerca de una zona;</li>
-<li class="">que parametros mide cada sensor;</li>
-<li class="">quien es el proveedor y, cuando consta, quien gestiona la estacion;</li>
-<li class="">que unidades y contaminantes se estan observando;</li>
-<li class="">que mediciones recientes o historicas hay para un periodo;</li>
-<li class="">que licencia y condiciones de atribucion afectan al uso del dato;</li>
-<li class="">si una senal aparece en un sensor aislado o se repite en estaciones cercanas.</li>
-</ul>
-<p>La documentacion de la API describe un enfoque <code>REST</code> con respuestas <code>JSON</code> y recursos orientados a entidades. Tambien acota el tipo de datos que conviene esperar: OpenAQ se centra sobre todo en contaminantes criterio como <code>PM2.5</code>, <code>PM10</code>, <code>SO2</code>, <code>NO2</code>, <code>CO</code>, <code>O3</code>, carbono negro, humedad relativa y temperatura, con cobertura limitada para otros parametros como <code>PM1</code>, <code>PM4</code>, <code>CO2</code>, <code>NO</code>, <code>NOx</code>, <code>CH4</code> y particulas ultrafinas.</p>
-<p>Ese matiz importa. OpenAQ no es un laboratorio forense, no reemplaza a las autoridades ambientales y no observa causas. Es una capa de datos para formular mejores hipotesis, detectar huecos y decidir que corroboracion hace falta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina que una redaccion local recibe quejas por olor y particulas en el barrio ficticio de <code>Ribera Norte</code>. En redes circula una captura que acusa directamente a una planta industrial. La redaccion quiere comprobar si hubo una anomalia ambiental real sin amplificar una acusacion que todavia no esta probada.</p>
-<p>Un flujo prudente podria empezar asi:</p>
-<ol>
-<li class="">delimitar la zona y la ventana temporal de la queja;</li>
-<li class="">buscar ubicaciones de OpenAQ dentro de un radio razonable;</li>
-<li class="">identificar que sensores miden <code>PM2.5</code>, <code>PM10</code>, <code>NO2</code> u otros parametros relevantes;</li>
-<li class="">anotar proveedor, propietario, zona horaria, licencia y estado activo de cada ubicacion;</li>
-<li class="">comparar la serie del sensor cercano con estaciones de referencia y estaciones de fondo;</li>
-<li class="">contrastar meteorologia, direccion del viento, trafico, obras, incendios, avisos oficiales y comunicados;</li>
-<li class="">escribir una conclusion limitada a lo observado.</li>
-</ol>
-<p>El resultado responsable no seria "OpenAQ demuestra que la planta X contamino". Seria algo mas estrecho:</p>
-<blockquote>
-<p>En la tarde del 12 de julio se observa un aumento de PM2.5 en dos sensores cercanos a Ribera Norte. La senal coincide con viento del oeste y no basta para atribuir causa. Hemos pedido datos oficiales, revisado estaciones de referencia y conservado el rango horario para contraste.</p>
-</blockquote>
-<p>La diferencia es clave: el dato abre una investigacion, no condena a nadie.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empezar-por-ubicaciones-no-por-conclusiones">1. Empezar por ubicaciones, no por conclusiones<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#1-empezar-por-ubicaciones-no-por-conclusiones" class="hash-link" aria-label="Enlace directo al 1. Empezar por ubicaciones, no por conclusiones" title="Enlace directo al 1. Empezar por ubicaciones, no por conclusiones" translate="no">​</a></h3>
-<p>Antes de buscar mediciones, localiza las estaciones o sensores que cubren la zona. El recurso de <code>locations</code> documenta nombres, coordenadas, zona horaria, proveedor, propietario cuando existe, sensores asociados y detalles como si una estacion es movil o fija.</p>
-<p>En un cuaderno de investigacion, conviene registrar:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Zona ficticia: Ribera Norte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: hubo una anomalia de PM2.5 o PM10 durante la tarde del 12 de julio?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente base: OpenAQ locations y measurements</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Radio inicial: 5 km, ampliable si hay pocos sensores</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Unidad temporal: hora local documentada y UTC cuando se exporte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: detectar senal ambiental que merezca contraste, no atribuir causa</span><br></span></code></pre></div></div>
-<p>Una ausencia de sensores cercanos no significa ausencia de contaminacion. Significa ausencia de observacion en esa capa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separar-parametro-sensor-y-proveedor">2. Separar parametro, sensor y proveedor<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#2-separar-parametro-sensor-y-proveedor" class="hash-link" aria-label="Enlace directo al 2. Separar parametro, sensor y proveedor" title="Enlace directo al 2. Separar parametro, sensor y proveedor" translate="no">​</a></h3>
-<p>No mezcles todo bajo la etiqueta "contaminacion". <code>PM2.5</code>, <code>PM10</code>, <code>NO2</code> y <code>O3</code> cuentan historias diferentes. Tambien cambia mucho si el dato procede de una estacion regulatoria, una red universitaria, un sensor comunitario o un proveedor privado.</p>
-<p>OpenAQ ayuda a separar esas piezas con recursos como:</p>
-<table><thead><tr><th>Recurso</th><th>Utilidad OSINT</th><th>Riesgo si lo ignoras</th></tr></thead><tbody><tr><td><code>parameters</code></td><td>Entender contaminante, unidad y descripcion</td><td>Comparar cosas que no son equivalentes</td></tr><tr><td><code>locations</code></td><td>Situar estaciones, zona horaria y sensores</td><td>Creer que un punto cubre toda una ciudad</td></tr><tr><td><code>sensors</code></td><td>Ver que mide cada instrumento</td><td>Tratar un valor como si viniera de cualquier sensor</td></tr><tr><td><code>providers</code></td><td>Saber quien suministra el dato</td><td>Perder trazabilidad de origen</td></tr><tr><td><code>owners</code></td><td>Identificar quien gestiona la estacion cuando consta</td><td>Atribuir mal la responsabilidad del dato</td></tr><tr><td><code>licenses</code></td><td>Comprobar permisos y atribucion</td><td>Reutilizar datos incumpliendo condiciones</td></tr></tbody></table>
-<p>La trazabilidad no es burocracia. Es lo que permite que otro analista revise tu lectura.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usar-latest-solo-para-triage-rapido">3. Usar <code>latest</code> solo para triage rapido<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#3-usar-latest-solo-para-triage-rapido" class="hash-link" aria-label="Enlace directo al 3-usar-latest-solo-para-triage-rapido" title="Enlace directo al 3-usar-latest-solo-para-triage-rapido" translate="no">​</a></h3>
-<p>El recurso <code>latest</code> sirve para ver mediciones recientes y ubicacion geografica. Es util para una primera orientacion, pero no deberia cerrar una historia sensible. Un valor reciente puede estar afectado por latencia, calibracion, mantenimiento, condiciones meteorologicas o ruido local.</p>
-<p>Para una pieza publicable, pasa cuanto antes a mediciones por sensor y a agregaciones adecuadas. La propia documentacion de <code>measurements</code> distingue valores originales y distintos niveles de agregacion. Decide si necesitas dato puntual, media horaria, comparacion diaria o contexto historico.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-documentar-la-api-y-sus-limites">4. Documentar la API y sus limites<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#4-documentar-la-api-y-sus-limites" class="hash-link" aria-label="Enlace directo al 4. Documentar la API y sus limites" title="Enlace directo al 4. Documentar la API y sus limites" translate="no">​</a></h3>
-<p>La API requiere clave en la cabecera <code>X-API-Key</code>. Los ejemplos oficiales usan un placeholder que no funciona por si solo, y la documentacion indica que hay que registrarse en OpenAQ Explorer para obtener una clave propia.</p>
-<p>Un ejemplo responsable, con coordenadas ficticias, seria:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --request GET \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --url "https://api.openaq.org/v3/locations?coordinates=-3.7038,40.4168&amp;radius=5000&amp;limit=100" \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --header "X-API-Key: TU_CLAVE_OPENAQ"</span><br></span></code></pre></div></div>
-<p>No automatices a ciegas. Si tu flujo necesita volumen, respeta los limites, pagina resultados, cachea respuestas y registra que endpoints consultaste. En julio de 2026, la documentacion de rate limits indica <code>60</code> peticiones por minuto y <code>2.000</code> por hora para el uso gratuito general.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corroborar-fuera-de-openaq">5. Corroborar fuera de OpenAQ<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#5-corroborar-fuera-de-openaq" class="hash-link" aria-label="Enlace directo al 5. Corroborar fuera de OpenAQ" title="Enlace directo al 5. Corroborar fuera de OpenAQ" translate="no">​</a></h3>
-<p>Una serie ambiental nunca deberia interpretarse sola. Como minimo, contrasta:</p>
-<ul>
-<li class="">estaciones oficiales cercanas y de fondo urbano;</li>
-<li class="">meteorologia, especialmente viento, lluvia e inversiones termicas;</li>
-<li class="">mapas de trafico, obras y actividad portuaria o industrial cuando sea pertinente;</li>
-<li class="">avisos de autoridades ambientales;</li>
-<li class="">imagenes satelitales o datos de incendios si el caso apunta a humo;</li>
-<li class="">cronologia de quejas, comunicados y observaciones sobre el terreno autorizadas.</li>
-</ul>
-<p>Si la senal solo aparece en un sensor y no en otros, no la descartes ni la conviertas en titular. Tratarla como pista aislada suele ser mas honesto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>OpenAQ es valioso precisamente porque reduce friccion, pero tiene limites que deben aparecer en cualquier analisis serio:</p>
-<ul>
-<li class="">la cobertura geografica es desigual;</li>
-<li class="">no todos los sensores miden todos los parametros;</li>
-<li class="">los sensores de bajo coste pueden necesitar calibracion y contexto;</li>
-<li class="">una estacion puede estar fuera de servicio, moverse o cambiar de proveedor;</li>
-<li class="">los datos pueden llegar con retraso o correcciones posteriores;</li>
-<li class="">las unidades y agregaciones deben leerse con cuidado;</li>
-<li class="">una correlacion temporal no prueba fuente, intencion ni responsabilidad;</li>
-<li class="">la licencia puede exigir atribucion o limitar ciertos usos;</li>
-<li class="">el dato ambiental puede afectar a comunidades reales, por lo que el lenguaje importa.</li>
-</ul>
-<p>El falso positivo clasico es confundir proximidad con causalidad: "el sensor esta cerca de una instalacion, luego la instalacion causo el pico". En realidad pueden intervenir viento, trafico, obras, polvo sahariano, incendios, calefaccion residencial, mantenimiento del sensor o un error de lectura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque la calidad del aire parezca un tema menos sensible que personas o infraestructura critica, el dano por mala atribucion puede ser real. Un informe precipitado puede alarmar a vecinos, perjudicar a trabajadores, estigmatizar una zona o acusar a una organizacion sin base suficiente.</p>
-<p>Buenas practicas:</p>
-<ul>
-<li class="">trabaja con datos agregados cuando no necesites granularidad extrema;</li>
-<li class="">evita publicar coordenadas de sensores privados o comunitarios si pueden identificar domicilios;</li>
-<li class="">no presentes sensores ciudadanos como equivalentes automaticos a estaciones regulatorias;</li>
-<li class="">conserva consultas, fechas, zona horaria, endpoint, parametros y version de salida;</li>
-<li class="">cita proveedor, propietario y licencia cuando el dataset lo indique;</li>
-<li class="">separa observacion, hipotesis y conclusion;</li>
-<li class="">ofrece derecho de respuesta cuando una pieza mencione a una entidad concreta;</li>
-<li class="">deja claro que OpenAQ aporta mediciones, no atribucion causal.</li>
-</ul>
-<p>En OSINT responsable, la prudencia no rebaja el trabajo: lo hace mas util.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>OpenAQ encaja bien cuando necesitas datos abiertos de calidad del aire con API y trazabilidad. Segun la pregunta, puede combinarse con:</p>
-<ul>
-<li class="">portales oficiales de calidad del aire de administraciones nacionales, regionales o municipales;</li>
-<li class=""><code>NASA FIRMS</code>, si el contexto apunta a incendios o anomalias termicas;</li>
-<li class="">meteorologia oficial y reanalisis atmosfericos para viento y dispersion;</li>
-<li class=""><code>Overpass Turbo</code> u <code>OpenStreetMap</code> para contexto territorial;</li>
-<li class=""><code>GDELT</code> o hemerotecas si quieres mapear cobertura mediatica de un episodio;</li>
-<li class=""><code>Datasette</code>, <code>SQLite</code> u <code>OpenRefine</code> para limpiar y auditar series descargadas.</li>
-</ul>
-<p>La takeaway accionable es simple: usa <code>OpenAQ</code> para <strong>convertir una sospecha ambiental en una pregunta verificable</strong>, no para saltar de una grafica a una acusacion. Si detectas una senal, guarda la consulta, compara sensores, revisa licencias y busca corroboracion independiente antes de publicar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openaq-osint-calidad-aire-datos-abiertos-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://openaq.org/" target="_blank" rel="noopener noreferrer" class="">OpenAQ</a></li>
-<li class=""><a href="https://docs.openaq.org/about/about" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: About the API</a></li>
-<li class=""><a href="https://docs.openaq.org/api" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: API overview</a></li>
-<li class=""><a href="https://docs.openaq.org/resources/locations" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Locations</a></li>
-<li class=""><a href="https://docs.openaq.org/resources/measurements" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Measurements</a></li>
-<li class=""><a href="https://docs.openaq.org/resources/latest" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Latest</a></li>
-<li class=""><a href="https://docs.openaq.org/using-the-api/api-key" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: API key</a></li>
-<li class=""><a href="https://docs.openaq.org/using-the-api/rate-limits" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Rate limits</a></li>
-<li class=""><a href="https://docs.openaq.org/resources/licenses" target="_blank" rel="noopener noreferrer" class="">OpenAQ Docs: Licenses</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>GEOINT</category>
-            <category>Datos</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
-            <category>Herramientas</category>
         </item>
     </channel>
 </rss>
