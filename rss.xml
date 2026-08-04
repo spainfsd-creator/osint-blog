@@ -4,10 +4,158 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Resolución de entidades en OSINT: normalización, bloqueo y evidencia sin fusionar homónimos]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia</guid>
+            <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-04-resolucion-entidades-osint-8f0afad211c47783dd2046d872c4e40f.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Dos listas públicas contienen a <code>Aleksandar Petrović</code>. Una añade un segundo apellido; otra translitera el nombre como <code>Aleksandr Petrovic</code>. Comparten país, pero las fechas de nacimiento no encajan y solo uno de los registros tiene identificador oficial. Un buscador difuso puede devolver una puntuación alta. Una investigación responsable debe hacer algo bastante más difícil: <strong>explicar por qué compara ambos registros, qué datos apoyan la unión, qué datos la contradicen y cuándo debe negarse a fusionarlos</strong>.</p>
+<p>La resolución de entidades —también llamada <em>entity resolution</em> o <em>record linkage</em>— sirve para decidir si dos registros describen a la misma persona, empresa, buque u objeto. No es una máquina de producir identidades. Es un proceso de reducción de incertidumbre que necesita datos proporcionados, reglas documentadas y revisión humana, especialmente si una coincidencia puede provocar una acusación, un bloqueo o cualquier otra decisión adversa.</p>
+<p>Todos los nombres, organizaciones e identificadores del ejemplo son ficticios.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-la-resolución-de-entidades-y-para-qué-sirve">Qué es la resolución de entidades y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#qu%C3%A9-es-la-resoluci%C3%B3n-de-entidades-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es la resolución de entidades y para qué sirve" title="Enlace directo al Qué es la resolución de entidades y para qué sirve" translate="no">​</a></h2>
+<p>En OSINT rara vez recibimos una identidad limpia y universal. Una misma organización puede aparecer con razón social, marca, abreviatura, nombre traducido y denominaciones antiguas. Una persona puede figurar con varios alfabetos, orden de apellidos distinto, iniciales o fechas incompletas. Al mismo tiempo, dos sujetos diferentes pueden compartir nombre y país.</p>
+<p>Resolver entidades consiste en comparar registros y clasificarlos, como mínimo, en tres grupos:</p>
+<ul>
+<li class=""><strong>coincidencia confirmada</strong>, respaldada por identificadores o un conjunto robusto de señales compatibles;</li>
+<li class=""><strong>posible coincidencia</strong>, que merece revisión pero conserva contradicciones o campos desconocidos;</li>
+<li class=""><strong>no coincidencia</strong>, porque existen incompatibilidades suficientes o falta una base razonable para unirlos.</li>
+</ul>
+<p>La distinción entre deduplicación y enlace también ayuda. La <strong>deduplicación</strong> busca copias de una entidad dentro de una misma colección. El <strong>enlace de registros</strong> cruza colecciones distintas. En ambos casos el error más peligroso suele ser el mismo: tratar similitud textual como identidad.</p>
+<p>Herramientas como <a href="https://moj-analytical-services.github.io/splink/" target="_blank" rel="noopener noreferrer" class="">Splink</a> implementan enlace probabilístico a escala y explican el modelo de Fellegi-Sunter que sustenta su metodología. <a href="https://docs.dedupe.io/en/stable/" target="_blank" rel="noopener noreferrer" class="">Dedupe</a> aprende pesos y reglas de bloqueo a partir de pares etiquetados por personas. <a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener noreferrer" class="">OpenSanctions</a> documenta un enfoque basado en señales explicables: una coincidencia de nombre puede verse reforzada por identificadores compatibles o penalizada por fechas, países y otros atributos contradictorios. Ninguna de estas herramientas elimina la necesidad de conocer los datos y validar el resultado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-cruzar-dos-listas-de-proveedores">Caso de uso legítimo: cruzar dos listas de proveedores<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#caso-de-uso-leg%C3%ADtimo-cruzar-dos-listas-de-proveedores" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: cruzar dos listas de proveedores" title="Enlace directo al Caso de uso legítimo: cruzar dos listas de proveedores" translate="no">​</a></h2>
+<p>Imaginemos que una ONG revisa la integridad de sus proveedores antes de renovar contratos. La lista interna contiene a <code>Aurora Logística del Norte SL</code>, con NIF ficticio <code>ES-B00000014</code>, domicilio mercantil en León y fecha de constitución en 2019. Una fuente pública devuelve estos candidatos:</p>
+<table><thead><tr><th>Candidato</th><th>Nombre</th><th>Identificador</th><th>País</th><th>Fecha</th><th>Primera lectura</th></tr></thead><tbody><tr><td><code>P-01</code></td><td>Aurora Logistica Norte S.L.</td><td><code>ES-B00000014</code></td><td>ES</td><td>2019</td><td>Identificador y contexto compatibles</td></tr><tr><td><code>P-02</code></td><td>Aurora Logística del Norte SA</td><td><code>ES-A00000481</code></td><td>ES</td><td>1998</td><td>Nombre cercano, identificador incompatible</td></tr><tr><td><code>P-03</code></td><td>Aurora North Logistics Ltd</td><td>desconocido</td><td>GB</td><td>desconocida</td><td>Traducción plausible, evidencia insuficiente</td></tr></tbody></table>
+<p><code>P-01</code> es un candidato fuerte, pero todavía hay que volver al registro oficial y comprobar que el identificador no fue copiado por una fuente secundaria. <code>P-02</code> no debe fusionarse solo porque el nombre se parezca: el tipo societario, el identificador y la cronología contradicen la unión. <code>P-03</code> queda sin resolver; traducir palabras no demuestra relación jurídica.</p>
+<p>La pregunta útil no es «¿qué porcentaje de similitud tienen los nombres?», sino esta:</p>
+<blockquote>
+<p>¿Qué combinación de identificadores, atributos, fechas y fuentes permite confirmar, mantener abierta o descartar cada hipótesis de identidad?</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-entidad-la-decisión-y-el-coste-del-error">1. Define la entidad, la decisión y el coste del error<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#1-define-la-entidad-la-decisi%C3%B3n-y-el-coste-del-error" class="hash-link" aria-label="Enlace directo al 1. Define la entidad, la decisión y el coste del error" title="Enlace directo al 1. Define la entidad, la decisión y el coste del error" translate="no">​</a></h3>
+<p>Antes de comparar, fija el tipo de entidad y el uso del resultado. No se ponderan igual una empresa y una persona; tampoco una tarea de limpieza interna y una comprobación que puede suspender un pago.</p>
+<p>Escribe dos riesgos por separado:</p>
+<ul>
+<li class=""><strong>falso positivo</strong>: fusionar sujetos distintos;</li>
+<li class=""><strong>falso negativo</strong>: dejar separados registros de la misma entidad.</li>
+</ul>
+<p>Cuanto mayor sea el impacto sobre una persona u organización, más conservador debe ser el umbral automático y más clara la revisión humana.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-el-dato-original-y-normaliza-en-columnas-nuevas">2. Conserva el dato original y normaliza en columnas nuevas<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#2-conserva-el-dato-original-y-normaliza-en-columnas-nuevas" class="hash-link" aria-label="Enlace directo al 2. Conserva el dato original y normaliza en columnas nuevas" title="Enlace directo al 2. Conserva el dato original y normaliza en columnas nuevas" translate="no">​</a></h3>
+<p>Nunca sustituyas la evidencia por su versión limpia. Guarda el valor original, la fuente, la fecha de acceso y cada transformación aplicada. Después crea campos derivados para comparar:</p>
+<ul>
+<li class="">mayúsculas y minúsculas uniformes;</li>
+<li class="">espacios y puntuación normalizados;</li>
+<li class="">formas societarias separadas del nombre base;</li>
+<li class="">fechas expresadas en un formato común;</li>
+<li class="">países codificados de manera consistente;</li>
+<li class="">alias y transliteraciones conservados como valores distintos;</li>
+<li class="">identificadores sin separadores ornamentales, pero con su esquema y jurisdicción.</li>
+</ul>
+<p>Eliminar tildes puede ayudar a generar candidatos; no autoriza a borrar la grafía original. Traducir o transliterar también introduce decisiones. Registra qué sistema utilizaste y conserva ambas formas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-genera-candidatos-con-reglas-de-bloqueo">3. Genera candidatos con reglas de bloqueo<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#3-genera-candidatos-con-reglas-de-bloqueo" class="hash-link" aria-label="Enlace directo al 3. Genera candidatos con reglas de bloqueo" title="Enlace directo al 3. Genera candidatos con reglas de bloqueo" translate="no">​</a></h3>
+<p>Comparar cada registro con todos los demás crece rápidamente y produce ruido. El <strong>bloqueo</strong> reduce el espacio de pares: solo compara registros que cumplen al menos una regla preliminar. La <a href="https://moj-analytical-services.github.io/splink/topic_guides/blocking/blocking_rules.html" target="_blank" rel="noopener noreferrer" class="">documentación de Splink sobre reglas de bloqueo</a> recalca que los pares candidatos son los que satisfacen alguna de esas reglas.</p>
+<p>Para empresas ficticias podríamos proponer bloques como:</p>
+<ol>
+<li class="">mismo identificador registral normalizado;</li>
+<li class="">mismo país y primeros tokens significativos del nombre;</li>
+<li class="">mismo dominio corporativo aportado por una fuente oficial;</li>
+<li class="">nombre transliterado compatible y mismo año de constitución.</li>
+</ol>
+<p>Usa varias reglas complementarias. Una demasiado estricta puede perder cambios de nombre; una demasiado amplia recrea casi todas las comparaciones y multiplica falsos positivos. La <a href="https://docs.dedupe.io/en/latest/how-it-works/Making-smart-comparisons.html" target="_blank" rel="noopener noreferrer" class="">guía de Dedupe sobre comparaciones y bloqueo</a> muestra precisamente que combinar predicados sirve para construir bloques más útiles para cada conjunto de datos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-señales-no-solo-cadenas">4. Compara señales, no solo cadenas<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#4-compara-se%C3%B1ales-no-solo-cadenas" class="hash-link" aria-label="Enlace directo al 4. Compara señales, no solo cadenas" title="Enlace directo al 4. Compara señales, no solo cadenas" translate="no">​</a></h3>
+<p>Para cada par candidato construye una matriz visible:</p>
+<table><thead><tr><th>Señal</th><th>Estado</th><th>Fuerza orientativa</th><th>Motivo</th></tr></thead><tbody><tr><td>Identificador oficial</td><td>coincide</td><td>muy alta</td><td>Es específico del esquema y la jurisdicción</td></tr><tr><td>Nombre normalizado</td><td>parecido</td><td>media</td><td>Puede variar o compartirse</td></tr><tr><td>Fecha de constitución</td><td>coincide</td><td>media-alta</td><td>Refuerza, pero una fuente puede estar desactualizada</td></tr><tr><td>País</td><td>coincide</td><td>baja-media</td><td>Millones de entidades lo comparten</td></tr><tr><td>Tipo societario</td><td>contradice</td><td>media</td><td>Puede indicar otra entidad o una transformación jurídica</td></tr><tr><td>Domicilio</td><td>desconocido</td><td>ninguna</td><td>La ausencia no equivale a contradicción</td></tr></tbody></table>
+<p>Separa siempre <strong>coincidencia</strong>, <strong>contradicción</strong>, <strong>ausencia</strong> y <strong>dato no comparable</strong>. Un campo vacío no debería recibir el mismo tratamiento que dos identificadores oficiales incompatibles.</p>
+<p>El enfoque probabilístico de <a href="https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html" target="_blank" rel="noopener noreferrer" class="">Fellegi-Sunter explicado por Splink</a> asigna más peso a acuerdos raros y discriminantes que a acuerdos comunes. También parte de supuestos que deben revisarse, como la independencia entre comparaciones. En la práctica, nombre, domicilio y país pueden estar correlacionados; una puntuación no debe presentarse como una probabilidad infalible si el modelo no está calibrado para esos datos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-aprende-y-calibra-con-pares-representativos">5. Aprende y calibra con pares representativos<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#5-aprende-y-calibra-con-pares-representativos" class="hash-link" aria-label="Enlace directo al 5. Aprende y calibra con pares representativos" title="Enlace directo al 5. Aprende y calibra con pares representativos" translate="no">​</a></h3>
+<p>Si usas aprendizaje automático, etiqueta ejemplos reales del dominio: coincidencias fáciles, homónimos, cambios de razón social, transliteraciones y casos fronterizos. <code>Dedupe</code> utiliza ejemplos humanos para aprender pesos y reglas, mientras que OpenSanctions publica información sobre sus <a href="https://www.opensanctions.org/docs/opensource/pairs/" target="_blank" rel="noopener noreferrer" class="">datos de entrenamiento de pares</a>, lo que ilustra el valor de conservar juicios trazables.</p>
+<p>Divide los pares etiquetados para entrenar y evaluar. Mide por separado precisión y exhaustividad; una única cifra puede ocultar que el sistema encuentra muchas coincidencias a costa de unir inocentes. Revisa además resultados por idioma, alfabeto, país, calidad de la fuente y tipo de entidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-decide-con-zonas-no-con-un-umbral-mágico">6. Decide con zonas, no con un umbral mágico<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#6-decide-con-zonas-no-con-un-umbral-m%C3%A1gico" class="hash-link" aria-label="Enlace directo al 6. Decide con zonas, no con un umbral mágico" title="Enlace directo al 6. Decide con zonas, no con un umbral mágico" translate="no">​</a></h3>
+<p>Una política sencilla puede usar tres zonas:</p>
+<ul>
+<li class=""><strong>alta confianza</strong>: pasa a verificación de fuente primaria antes de fusionar;</li>
+<li class=""><strong>revisión manual</strong>: un analista inspecciona señales y contradicciones;</li>
+<li class=""><strong>rechazo provisional</strong>: no se fusiona, aunque el par puede conservarse para auditoría.</li>
+</ul>
+<p>Los límites deben calibrarse con datos etiquetados y con el coste del error del caso. La <a href="https://www.opensanctions.org/docs/api/tuning/" target="_blank" rel="noopener noreferrer" class="">guía de ajuste de OpenSanctions</a> recuerda que un flujo de <em>matching</em> no se comporta como una búsqueda de texto: devolver una larga lista de resultados no es necesariamente útil. Registra el algoritmo, la configuración y el umbral utilizados en cada ejecución.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-verifica-en-la-fuente-primaria-y-deja-una-pista-de-auditoría">7. Verifica en la fuente primaria y deja una pista de auditoría<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#7-verifica-en-la-fuente-primaria-y-deja-una-pista-de-auditor%C3%ADa" class="hash-link" aria-label="Enlace directo al 7. Verifica en la fuente primaria y deja una pista de auditoría" title="Enlace directo al 7. Verifica en la fuente primaria y deja una pista de auditoría" translate="no">​</a></h3>
+<p>Antes de afirmar que dos registros son la misma entidad:</p>
+<ol>
+<li class="">abre el documento o registro primario;</li>
+<li class="">comprueba el significado y la vigencia de los identificadores;</li>
+<li class="">conserva URL, fecha de consulta y, cuando sea proporcionado, una copia o hash;</li>
+<li class="">documenta qué señales resolvieron el caso;</li>
+<li class="">registra quién revisó la decisión y cuándo;</li>
+<li class="">permite separar de nuevo una unión errónea.</li>
+</ol>
+<p>Una tabla final debería incluir <code>registro_a</code>, <code>registro_b</code>, <code>decisión</code>, <code>señales_a_favor</code>, <code>contradicciones</code>, <code>campos_desconocidos</code>, <code>fuentes</code>, <code>fecha</code>, <code>regla_o_modelo</code> y <code>revisor</code>. La explicación es parte del resultado, no una decoración posterior.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-nombres-no-son-identificadores">Los nombres no son identificadores<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#los-nombres-no-son-identificadores" class="hash-link" aria-label="Enlace directo al Los nombres no son identificadores" title="Enlace directo al Los nombres no son identificadores" translate="no">​</a></h3>
+<p>Distancias de edición, similitud fonética y solapamiento de tokens detectan variantes útiles, pero también acercan homónimos. Los nombres muy frecuentes requieren más evidencia, no menos. Un alias encontrado en una base agregada debe rastrearse hasta su procedencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-identificadores-también-necesitan-contexto">Los identificadores también necesitan contexto<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#los-identificadores-tambi%C3%A9n-necesitan-contexto" class="hash-link" aria-label="Enlace directo al Los identificadores también necesitan contexto" title="Enlace directo al Los identificadores también necesitan contexto" translate="no">​</a></h3>
+<p>Un número puede estar mal copiado, reciclado, truncado o pertenecer a otro esquema. Guarda prefijo, jurisdicción, tipo y fuente. Dos valores distintos pueden demostrar incompatibilidad; un valor idéntico en una web secundaria no confirma por sí solo la identidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-tiempo-cambia-las-entidades">El tiempo cambia las entidades<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#el-tiempo-cambia-las-entidades" class="hash-link" aria-label="Enlace directo al El tiempo cambia las entidades" title="Enlace directo al El tiempo cambia las entidades" translate="no">​</a></h3>
+<p>Empresas que se fusionan, cambian de nombre o trasladan domicilio no son simples duplicados. Modela intervalos de validez y relaciones como <code>antes llamada</code>, <code>absorbida por</code> o <code>filial de</code>, en lugar de colapsar toda la historia en una sola fila.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-etiquetados-heredan-sesgos">Los datos etiquetados heredan sesgos<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#los-datos-etiquetados-heredan-sesgos" class="hash-link" aria-label="Enlace directo al Los datos etiquetados heredan sesgos" title="Enlace directo al Los datos etiquetados heredan sesgos" translate="no">​</a></h3>
+<p>Un modelo entrenado sobre nombres occidentales o registros completos puede rendir peor con otros alfabetos, convenciones patronímicas o campos ausentes. Evalúa subgrupos relevantes y crea una vía de revisión y corrección. No conviertas una baja calidad de datos en sospecha sobre el sujeto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trata solo los datos necesarios para una finalidad legítima y documentada.</li>
+<li class="">Evita enriquecer perfiles personales por curiosidad o buscar familiares para completar huecos.</li>
+<li class="">Separa el entorno de pruebas del expediente real y usa datos sintéticos al diseñar reglas.</li>
+<li class="">Restringe acceso, retención y exportación de identificadores personales.</li>
+<li class="">No envíes datos sensibles a servicios externos sin base legal, autorización y evaluación del proveedor.</li>
+<li class="">Mantén revisión humana antes de decisiones adversas y un canal para corregir errores.</li>
+<li class="">Informa con grados de confianza y enumera las contradicciones, no solo la puntuación final.</li>
+<li class="">Conserva la procedencia de cada atributo y respeta licencias, términos de uso y límites de consulta.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>La herramienta depende del volumen y del tipo de problema:</p>
+<ul>
+<li class="">una hoja de cálculo y una matriz explícita pueden bastar para decenas de pares;</li>
+<li class=""><code>OpenRefine</code> ayuda a normalizar, agrupar y reconciliar datos con revisión visual;</li>
+<li class=""><code>Dedupe</code> resulta útil cuando se dispone de ejemplos humanos representativos;</li>
+<li class=""><code>Splink</code> permite construir enlace probabilístico reproducible sobre conjuntos grandes;</li>
+<li class=""><code>OpenSanctions</code> ofrece señales y algoritmos orientados a entidades de listas de interés, pero sus resultados deben volver a las fuentes originales;</li>
+<li class="">identificadores sectoriales como <code>LEI</code>, <code>IMO</code>, <code>DOI</code> u <code>ORCID</code> ayudan cuando su ámbito encaja y su procedencia está verificada.</li>
+</ul>
+<p>No empieces por la plataforma. Empieza por el daño que causaría una unión errónea, los campos realmente disponibles y la evidencia mínima que aceptarás.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-fusionar-dos-registros">Checklist antes de fusionar dos registros<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#checklist-antes-de-fusionar-dos-registros" class="hash-link" aria-label="Enlace directo al Checklist antes de fusionar dos registros" title="Enlace directo al Checklist antes de fusionar dos registros" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El tipo de entidad y la finalidad del cruce están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conservaron valores originales, fuentes y fechas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Normalización y transliteración son reproducibles.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las reglas de bloqueo no dependen de una única grafía.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Coincidencias, contradicciones y ausencias se puntuaron por separado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los umbrales se calibraron con pares representativos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se revisaron sesgos por idioma, país y calidad de datos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La fuente primaria confirma los identificadores decisivos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una persona revisó los casos de impacto alto o ambiguos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La decisión puede auditarse, corregirse y deshacerse.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://moj-analytical-services.github.io/splink/" target="_blank" rel="noopener noreferrer" class="">Splink: documentación y guía de inicio</a></li>
+<li class=""><a href="https://moj-analytical-services.github.io/splink/topic_guides/blocking/blocking_rules.html" target="_blank" rel="noopener noreferrer" class="">Splink: reglas de bloqueo</a></li>
+<li class=""><a href="https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html" target="_blank" rel="noopener noreferrer" class="">Splink: modelo de Fellegi-Sunter</a></li>
+<li class=""><a href="https://docs.dedupe.io/en/stable/" target="_blank" rel="noopener noreferrer" class="">Dedupe: documentación estable</a></li>
+<li class=""><a href="https://docs.dedupe.io/en/latest/how-it-works/Making-smart-comparisons.html" target="_blank" rel="noopener noreferrer" class="">Dedupe: comparaciones y reglas de bloqueo</a></li>
+<li class=""><a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener noreferrer" class="">OpenSanctions: algoritmos de matching</a></li>
+<li class=""><a href="https://www.opensanctions.org/docs/api/tuning/" target="_blank" rel="noopener noreferrer" class="">OpenSanctions: ajuste del algoritmo</a></li>
+</ul>
+<p>La takeaway accionable es esta: <strong>una coincidencia de nombre genera un candidato; una identidad exige señales compatibles, contradicciones resueltas y procedencia verificable</strong>. Para practicar, toma dos pequeñas tablas sintéticas, conserva sus valores originales y construye primero la matriz de decisión a mano. El siguiente paso natural será medir la calidad del enlace con un conjunto de referencia sin esconder los errores detrás de una puntuación media.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Metodologia</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Sanciones de la UE en OSINT: lista consolidada, mapa y verificación sin acusaciones precipitadas]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion</link>
@@ -2854,146 +3002,6 @@
             <category>Verificacion</category>
             <category>Privacidad</category>
             <category>Tradecraft</category>
-        </item>
-        <item>
-            <title><![CDATA[NVD en OSINT: CVE, CPE y contexto antes de priorizar vulnerabilidades]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto</guid>
-            <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustracion editorial de una mesa de analisis OSINT defensivo con registros CVE abstractos, inventario CPE, puntuaciones de severidad y notas de verificacion]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT defensivo con registros CVE abstractos, inventario CPE, puntuaciones de severidad y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-14-nvd-osint-cve-cpe-priorizacion-contexto-70f4e1726dc1c862fb47ddc430c9d24f.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/nvd-osint-cve-cpe-priorizacion-contexto-5fa27da0c6291651232c42d205db4860.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una vulnerabilidad con puntuacion alta puede encender todas las alarmas y, aun asi, no ser la primera que debas corregir. Tambien puede ocurrir lo contrario: una entrada discreta, con descripcion pobre o analisis pendiente, puede afectar a un producto critico de tu inventario. <code>NVD</code>, la National Vulnerability Database de NIST, ayuda a ordenar ese caos siempre que la uses como <strong>fuente de contexto estructurado</strong>, no como oraculo automatico de prioridad.</p>
-<p>Revisando la documentacion oficial el <strong>14 de julio de 2026</strong>, la API de vulnerabilidades de NVD expone registros <code>CVE</code>, filtros por identificador, <code>CPE</code>, severidad <code>CVSS</code>, <code>CWE</code>, estado, fechas de publicacion o modificacion, inclusion en <code>CISA KEV</code> y paginacion por <code>startIndex</code> y <code>resultsPerPage</code>. La documentacion publica indicaba <code>365.253</code> registros CVE en la base. NVD tambien mantiene una API de productos para el diccionario oficial <code>CPE</code>, una API de historial de cambios y feeds JSON 2.0, con feeds <code>recent</code> y <code>modified</code> actualizados cada dos horas.</p>
-<p>Este articulo esta escrito para analistas OSINT defensivos, equipos de gestion de vulnerabilidades, responsables de inventario, periodistas tecnicos y personas que necesitan leer datos publicos de seguridad sin sobrerreaccionar. No es una guia para explotar sistemas, localizar victimas ni convertir CVE en instrucciones de ataque.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-nvd-y-para-que-sirve">Que es NVD y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#que-es-nvd-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es NVD y para que sirve" title="Enlace directo al Que es NVD y para que sirve" translate="no">​</a></h2>
-<p><a href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer" class=""><code>NVD</code></a> es la base nacional de vulnerabilidades mantenida por el National Institute of Standards and Technology de Estados Unidos. En la practica, agrega y enriquece informacion alrededor de identificadores <code>CVE</code>: descripcion, fechas, referencias, debilidades <code>CWE</code>, metricas <code>CVSS</code>, configuraciones afectadas y relaciones con productos mediante <code>CPE</code>.</p>
-<p>Su utilidad OSINT no consiste en "saber que se puede atacar". Consiste en responder preguntas defensivas y verificables:</p>
-<ul>
-<li class="">que se ha publicado sobre una vulnerabilidad concreta;</li>
-<li class="">que productos o familias aparecen asociados mediante <code>CPE</code>;</li>
-<li class="">que puntuacion y vector <code>CVSS</code> se han asignado;</li>
-<li class="">que referencias primarias conviene leer despues;</li>
-<li class="">cuando se publico o modifico el registro;</li>
-<li class="">si aparece marcado como conocido explotado en <code>CISA KEV</code>;</li>
-<li class="">que parte del dato procede de una fuente externa y que parte es enriquecimiento de NVD.</li>
-</ul>
-<p>Esa estructura permite pasar de una alerta suelta a un expediente minimo. Pero tambien introduce una trampa: cuanto mas tabular parece el dato, mas facil es olvidar que sigue siendo incompleto, temporal y dependiente de interpretacion.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una cooperativa sanitaria ficticia, <code>Clara Salud</code>, con un inventario limitado:</p>
-<table><thead><tr><th>Activo</th><th>Producto declarado</th><th>Rol</th><th>Criticidad</th></tr></thead><tbody><tr><td>Portal externo</td><td>Gestor web ficticio 4.2</td><td>Citas publicas</td><td>Alta</td></tr><tr><td>Servidor interno</td><td>Motor documental ficticio 2.8</td><td>Archivo clinico</td><td>Muy alta</td></tr><tr><td>Puesto administrativo</td><td>Cliente VPN ficticio 6.1</td><td>Acceso remoto</td><td>Media</td></tr></tbody></table>
-<p>El equipo recibe tres avisos de vulnerabilidad durante la semana. La mala practica seria ordenar todo solo por severidad numerica. Un flujo mas sano con NVD haria otra cosa:</p>
-<ol>
-<li class="">resolver primero si el producto real del inventario corresponde al <code>CPE</code> citado;</li>
-<li class="">comprobar estado del <code>CVE</code>, fechas y cambios recientes;</li>
-<li class="">leer referencias del proveedor y advisories oficiales;</li>
-<li class="">revisar si existe entrada en <code>CISA KEV</code> o evidencia publica fiable de explotacion;</li>
-<li class="">cruzar con exposicion real, controles compensatorios y criticidad del activo;</li>
-<li class="">documentar la decision de priorizacion y sus dudas.</li>
-</ol>
-<p>La salida responsable no seria "CVSS 9.8, parchear todo ya". Seria algo mas defendible:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">CVE ficticio: CVE-20XX-0001</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Producto del inventario: gestor web ficticio 4.2</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">CPE compatible: pendiente de confirmar con vendor advisory</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Severidad NVD: alta / critica segun vector publicado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Explotacion conocida: no confirmada en fuentes primarias revisadas</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Exposicion propia: portal publico con autenticacion delante</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: prioridad alta, validar version exacta y parche disponible antes de ventana de cambio</span><br></span></code></pre></div></div>
-<p>Ese matiz no baja la urgencia. La hace auditable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-empieza-por-el-inventario-no-por-el-titular">1. Empieza por el inventario, no por el titular<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#1-empieza-por-el-inventario-no-por-el-titular" class="hash-link" aria-label="Enlace directo al 1. Empieza por el inventario, no por el titular" title="Enlace directo al 1. Empieza por el inventario, no por el titular" translate="no">​</a></h3>
-<p>NVD funciona mucho mejor cuando ya sabes que productos tienes. Si partes solo de una noticia, corres el riesgo de buscar una cadena de texto parecida y asumir que afecta a tu entorno.</p>
-<p>La API de productos de NVD trabaja con el diccionario oficial <code>CPE</code>. Un nombre <code>CPE</code> tiene trece componentes separados por dos puntos y sirve para describir producto, proveedor, parte, version y otros atributos. En OSINT defensivo, esto ayuda a convertir nombres comerciales ambiguos en selectores mas precisos.</p>
-<p>Un ejemplo seguro de nota interna seria:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Producto observado: "Acme Portal Server" (ficticio)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Version instalada: 4.2.7</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente del inventario: CMDB interna y banner validado por administracion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta NVD: que CVE se asocian a un CPE compatible?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Riesgo metodologico: el nombre comercial puede no coincidir con el CPE exacto</span><br></span></code></pre></div></div>
-<p>Si el <code>CPE</code> no encaja, no fuerces la coincidencia. Una mala correspondencia producto-vulnerabilidad produce tanto ruido como una alerta falsa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-consulta-cve-con-filtros-acotados">2. Consulta CVE con filtros acotados<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#2-consulta-cve-con-filtros-acotados" class="hash-link" aria-label="Enlace directo al 2. Consulta CVE con filtros acotados" title="Enlace directo al 2. Consulta CVE con filtros acotados" translate="no">​</a></h3>
-<p>La API de vulnerabilidades de NVD permite recuperar un <code>CVE</code> concreto o colecciones de resultados. Para trabajo reproducible, evita busquedas amplias sin pregunta. Mejor usar filtros acotados:</p>
-<ul>
-<li class=""><code>cveIds</code>, cuando ya conoces uno o varios identificadores;</li>
-<li class=""><code>cpeName</code>, cuando tienes un producto normalizado;</li>
-<li class=""><code>isVulnerable</code>, cuando quieres limitar resultados asociados a un <code>CPE</code> vulnerable;</li>
-<li class=""><code>pubStartDate</code> y <code>pubEndDate</code>, para ventanas de publicacion;</li>
-<li class=""><code>lastModStartDate</code> y <code>lastModEndDate</code>, para cambios recientes;</li>
-<li class=""><code>cvssV3Severity</code> o <code>cvssV4Severity</code>, como filtro auxiliar, no como veredicto;</li>
-<li class=""><code>hasKev</code>, si quieres separar entradas incluidas en el catalogo <code>Known Exploited Vulnerabilities</code> de CISA.</li>
-</ul>
-<p>La propia documentacion recomienda usar rangos de fecha para mantenerse actualizado sin descargarlo todo. Ese detalle importa: un flujo responsable respeta limites, pagina resultados y registra la consulta exacta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-el-vector-no-solo-la-etiqueta">3. Lee el vector, no solo la etiqueta<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#3-lee-el-vector-no-solo-la-etiqueta" class="hash-link" aria-label="Enlace directo al 3. Lee el vector, no solo la etiqueta" title="Enlace directo al 3. Lee el vector, no solo la etiqueta" translate="no">​</a></h3>
-<p><code>CRITICAL</code>, <code>HIGH</code> o <code>MEDIUM</code> son utiles para clasificar, pero esconden detalles. El vector <code>CVSS</code> explica por que una vulnerabilidad recibio esa puntuacion: vector de ataque, complejidad, privilegios requeridos, interaccion de usuario, impacto sobre confidencialidad, integridad y disponibilidad, entre otros factores.</p>
-<p>En una revision rapida, anota al menos:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Puntuacion base:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Vector:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Version de CVSS:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Interaccion de usuario:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Privilegios requeridos:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Alcance:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Impacto principal:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Lo que el vector no dice: exposicion real, mitigaciones locales, explotacion observada</span><br></span></code></pre></div></div>
-<p>Una vulnerabilidad remota sin autenticacion en un servicio expuesto no se gestiona igual que una vulnerabilidad local que requiere usuario, permisos previos y una configuracion que no usas. Las dos pueden ser importantes; no son la misma decision.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-el-historial-de-cambios-para-no-congelar-una-foto-vieja">4. Usa el historial de cambios para no congelar una foto vieja<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#4-usa-el-historial-de-cambios-para-no-congelar-una-foto-vieja" class="hash-link" aria-label="Enlace directo al 4. Usa el historial de cambios para no congelar una foto vieja" title="Enlace directo al 4. Usa el historial de cambios para no congelar una foto vieja" translate="no">​</a></h3>
-<p>Los registros cambian. NVD documenta una API de historial para ver eventos como recepcion del CVE, analisis inicial, reanalisis, modificaciones por la fuente, cambios de <code>CPE</code>, remapeos <code>CWE</code>, etiquetas de referencia o rechazo de CVE.</p>
-<p>Esto es especialmente util cuando una alerta parece contradecir lo que viste dias antes. En vez de discutir sobre capturas antiguas, revisa:</p>
-<ul>
-<li class="">cuando se modifico el registro;</li>
-<li class="">quien aporto el cambio;</li>
-<li class="">si cambio el estado;</li>
-<li class="">si se ajustaron referencias, <code>CPE</code>, <code>CWE</code> o metricas;</li>
-<li class="">si el CVE fue rechazado o corregido.</li>
-</ul>
-<p>En informes sensibles, una frase como "consultado el 14 de julio de 2026, con ultimo cambio observado en..." vale mas que una captura sin fecha.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-complementa-con-fuentes-primarias">5. Complementa con fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#5-complementa-con-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 5. Complementa con fuentes primarias" title="Enlace directo al 5. Complementa con fuentes primarias" translate="no">​</a></h3>
-<p>NVD es una capa excelente, pero no debe ser la unica. Para cada vulnerabilidad relevante, abre tambien:</p>
-<ul>
-<li class="">advisory del proveedor;</li>
-<li class="">notas de CISA si aplica;</li>
-<li class="">repositorio o changelog oficial del proyecto;</li>
-<li class="">documentacion de mitigacion;</li>
-<li class="">paquetes o versiones realmente instaladas;</li>
-<li class="">inventario interno, exposicion externa y controles compensatorios;</li>
-<li class="">tickets de cambio y evidencias de parcheo.</li>
-</ul>
-<p>La pregunta clave no es "que dice NVD?". La pregunta defendible es:</p>
-<p><strong>que dice NVD, que dice el proveedor, que vemos en nuestro inventario y que conclusion minima soportan todas esas fuentes juntas?</strong></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>NVD baja mucho la friccion, pero no elimina problemas clasicos:</p>
-<ul>
-<li class=""><strong>Retraso y estado de analisis</strong>: algunas entradas pueden estar recibidas, pendientes o modificadas despues de la primera publicacion.</li>
-<li class=""><strong>CPE ambiguo</strong>: el producto instalado puede no mapear limpiamente con el <code>CPE</code> publicado.</li>
-<li class=""><strong>Versiones y backports</strong>: una distribucion puede parchear sin cambiar la version visible como esperas.</li>
-<li class=""><strong>Severidad no equivale a riesgo propio</strong>: <code>CVSS</code> no conoce tu topologia, segmentacion, exposicion ni controles.</li>
-<li class=""><strong>Referencias desiguales</strong>: un CVE puede tener muchas referencias tecnicas o apenas una descripcion minima.</li>
-<li class=""><strong>Rechazos y disputas</strong>: un identificador puede acabar rechazado, disputado o corregido.</li>
-<li class=""><strong>Automatizacion ruidosa</strong>: importar todo sin deduplicar ni normalizar puede llenar el backlog de falsos positivos.</li>
-</ul>
-<p>El error mas frecuente es tratar la base como una lista de tareas cerrada. NVD te da estructura; la priorizacion real exige contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>Aunque NVD sea publico, la forma de usarlo importa:</p>
-<ul>
-<li class="">consulta vulnerabilidades para activos propios, autorizados o de interes publico legitimo;</li>
-<li class="">no publiques listas de sistemas de terceros "posiblemente vulnerables";</li>
-<li class="">no mezcles CVE con instrucciones de explotacion ni pruebas contra infraestructura ajena;</li>
-<li class="">minimiza datos internos cuando compartas tickets o informes;</li>
-<li class="">documenta incertidumbre en vez de ocultarla;</li>
-<li class="">respeta terminos de uso, paginacion y limites de APIs;</li>
-<li class="">separa observacion, inferencia y decision de remediacion.</li>
-</ul>
-<p>Un buen analista no presume de haber encontrado el CVE mas grave. Demuestra por que una decision de parcheo, mitigacion o seguimiento era proporcional con los datos disponibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>NVD encaja especialmente bien como capa base de vulnerabilidades. Segun la pregunta, combinala con:</p>
-<ul>
-<li class=""><code>CISA KEV</code>, para priorizar vulnerabilidades con explotacion conocida documentada;</li>
-<li class="">advisories de proveedores, para versiones, mitigaciones y parches concretos;</li>
-<li class=""><code>OSV</code>, si trabajas con dependencias de codigo abierto y ecosistemas de paquetes;</li>
-<li class=""><code>GitHub Security Advisories</code>, cuando el caso vive en repositorios y dependencias;</li>
-<li class="">scanners internos autorizados, para confirmar presencia real;</li>
-<li class="">inventario y SBOM, para saber que software existe antes de buscar CVE;</li>
-<li class=""><code>OpenCTI</code> o <code>MISP</code>, si necesitas integrarlo en flujos de inteligencia defensiva.</li>
-</ul>
-<p>La takeaway accionable es sencilla: usa <code>NVD</code> para <strong>estructurar preguntas sobre vulnerabilidades</strong>, no para automatizar conclusiones sin inventario. Si sabes que producto tienes, que CVE aplica, que cambio se produjo y que fuente primaria lo respalda, ya no estas persiguiendo ruido: estas gestionando evidencia.</p>
-<p>Como siguiente paso editorial, tendria sentido comparar <code>NVD</code>, <code>CISA KEV</code> y <code>OSV</code> sobre un caso ficticio de inventario mixto para ver que responde cada fuente y donde empieza la decision propia del equipo.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/nvd-osint-cve-cpe-priorizacion-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://nvd.nist.gov/developers/vulnerabilities" target="_blank" rel="noopener noreferrer" class="">NVD, Vulnerability APIs</a></li>
-<li class=""><a href="https://nvd.nist.gov/developers/products" target="_blank" rel="noopener noreferrer" class="">NVD, Product APIs</a></li>
-<li class=""><a href="https://nvd.nist.gov/vuln/data-feeds" target="_blank" rel="noopener noreferrer" class="">NVD, Data Feeds</a></li>
-<li class=""><a href="https://nvd.nist.gov/general/news/change-timeline" target="_blank" rel="noopener noreferrer" class="">NVD, Change Timeline</a></li>
-<li class=""><a href="https://nvd.nist.gov/general/news/cisa-exploit-catalog" target="_blank" rel="noopener noreferrer" class="">NVD, Known Exploited Vulnerabilities</a></li>
-<li class=""><a href="https://www.first.org/cvss/" target="_blank" rel="noopener noreferrer" class="">FIRST, Common Vulnerability Scoring System</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Gestion de vulnerabilidades</category>
-            <category>CVE</category>
-            <category>Verificacion</category>
-            <category>Datos</category>
-            <category>Defensa</category>
         </item>
     </channel>
 </rss>
