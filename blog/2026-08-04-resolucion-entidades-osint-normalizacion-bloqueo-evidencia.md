@@ -9,6 +9,9 @@ image: /img/blog/2026-08-04-resolucion-entidades-osint.png
 
 ![Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable](/img/blog/2026-08-04-resolucion-entidades-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/resolucion-entidades-osint-normalizacion-bloqueo-evidencia.m4a)
+
+
 Dos listas públicas contienen a `Aleksandar Petrović`. Una añade un segundo apellido; otra translitera el nombre como `Aleksandr Petrovic`. Comparten país, pero las fechas de nacimiento no encajan y solo uno de los registros tiene identificador oficial. Un buscador difuso puede devolver una puntuación alta. Una investigación responsable debe hacer algo bastante más difícil: **explicar por qué compara ambos registros, qué datos apoyan la unión, qué datos la contradicen y cuándo debe negarse a fusionarlos**.
 
 <!-- truncate -->
