@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-04T00:00:00.000Z</updated>
+    <updated>2026-08-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[ROR en OSINT: identificar organizaciones de investigación sin confundir afiliación con vínculo actual]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad"/>
+        <updated>2026-08-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-05-ror-osint-organizaciones-investigacion-3df9f3638ef2695c67fdfee36b1cb506.png" width="1376" height="768" class="img_ev3q"></p>
+<p>Una memoria de proyecto menciona a la «Universidad Central», un artículo firma como «UC Research Centre» y una ficha de financiación usa el nombre anterior de la institución. El grafo parece mostrar tres organizaciones; quizá solo haya una, o quizá estemos a punto de fusionar entidades distintas. <code>ROR</code>, el <strong>Research Organization Registry</strong>, ayuda a ordenar ese problema con identificadores persistentes y metadatos abiertos. Lo que no hace —y conviene decirlo desde el principio— es demostrar que una persona trabaja hoy en una institución, que dos entidades comparten control o que una publicación es fiable.</p>
+<p>Este artículo propone un flujo responsable para debida diligencia académica, verificación de expertos, análisis de financiación y trazabilidad de producción científica. El caso es ficticio y los ejemplos de API se limitan a datos institucionales públicos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-ror-y-para-qué-sirve-en-osint">Qué es ROR y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#qu%C3%A9-es-ror-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es ROR y para qué sirve en OSINT" title="Enlace directo al Qué es ROR y para qué sirve en OSINT" translate="no">​</a></h2>
+<p><a href="https://ror.org/about/" target="_blank" rel="noopener noreferrer" class="">ROR</a> es un registro global, comunitario y abierto de identificadores persistentes para organizaciones vinculadas con la investigación. Un identificador se expresa como una URL resoluble —por ejemplo, <code>https://ror.org/05r78ng12</code>— y apunta a un registro con nombres, acrónimos, localización, dominios, estado, tipos, relaciones y cruces con otros sistemas cuando están disponibles.</p>
+<p>Su ámbito importa tanto como sus campos. La <a href="https://ror.org/registry/" target="_blank" rel="noopener noreferrer" class="">política del registro</a> incluye organizaciones que producen, financian, facilitan, gestionan o publican investigación. No pretende inventariar todas las empresas ni representar cada departamento universitario. Una entidad puede estar en ROR sin ser una persona jurídica independiente; una facultad puede quedar fuera aunque exista administrativamente.</p>
+<p>Para una investigación legítima, ROR resulta útil para:</p>
+<ul>
+<li class="">distinguir instituciones con nombres o siglas parecidos;</li>
+<li class="">conservar una clave estable cuando una organización cambia de nombre;</li>
+<li class="">normalizar afiliaciones escritas como texto libre;</li>
+<li class="">recorrer relaciones institucionales como pistas que después deben comprobarse;</li>
+<li class="">enlazar metadatos de publicaciones, datasets, autores y financiadores;</li>
+<li class="">cruzar, cuando constan, identificadores como <code>Wikidata</code>, <code>ISNI</code> o el antiguo <code>GRID</code>;</li>
+<li class="">documentar qué versión del registro se consultó y por qué se eligió un candidato.</li>
+</ul>
+<p>Los datos de ROR se publican bajo <code>CC0</code> y pueden consultarse mediante buscador web, API REST o volcados en <code>JSON</code> y <code>CSV</code>. El registro se actualiza de forma continua y publica nuevas versiones aproximadamente cada mes. Esa apertura facilita la reproducibilidad, pero también obliga a fechar la consulta: un registro actual no describe necesariamente cómo figuraba una institución años atrás.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-red-de-colaboración">Caso de uso legítimo: verificar una red de colaboración<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#caso-de-uso-leg%C3%ADtimo-verificar-una-red-de-colaboraci%C3%B3n" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una red de colaboración" title="Enlace directo al Caso de uso legítimo: verificar una red de colaboración" translate="no">​</a></h2>
+<p>Imaginemos que la fundación ficticia <code>Horizonte Abierto</code> evalúa una propuesta sobre reutilización de agua. El dossier enumera cuatro afiliaciones con grafías inconsistentes y cita artículos, datasets y una convocatoria pública. El objetivo no es investigar la vida de las personas firmantes, sino responder tres preguntas proporcionadas:</p>
+<ol>
+<li class="">¿Qué organizaciones de investigación aparecen realmente?</li>
+<li class="">¿Qué identificador persistente corresponde a cada una?</li>
+<li class="">¿Qué fuentes primarias sostienen la colaboración y en qué fechas?</li>
+</ol>
+<p>La mesa de trabajo podría empezar así:</p>
+<table><thead><tr><th>Evidencia</th><th>Texto observado</th><th>Hipótesis</th><th>Estado</th></tr></thead><tbody><tr><td><code>D-01</code></td><td>Afiliación libre en un artículo</td><td>Universidad matriz</td><td>Pendiente de normalizar</td></tr><tr><td><code>D-02</code></td><td>Acrónimo en un dataset</td><td>Instituto o unidad interna</td><td>Ambiguo</td></tr><tr><td><code>D-03</code></td><td>Identificador ROR en un DOI</td><td>Organización concreta</td><td>Verificar en ROR y editor</td></tr><tr><td><code>D-04</code></td><td>Logo en la memoria del proyecto</td><td>Colaborador aparente</td><td>No prueba relación jurídica</td></tr></tbody></table>
+<p>El identificador permite unir referencias compatibles; no autoriza a completar los huecos por intuición. La colaboración debe volver a la convocatoria, el repositorio del proyecto, los metadatos del DOI y, si procede, la web institucional archivada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-conserva-el-texto-original">1. Define la afirmación y conserva el texto original<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#1-define-la-afirmaci%C3%B3n-y-conserva-el-texto-original" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y conserva el texto original" title="Enlace directo al 1. Define la afirmación y conserva el texto original" translate="no">​</a></h3>
+<p>Antes de buscar, escribe qué quieres verificar: «la organización X participó en el proyecto Y entre 2024 y 2025» es mejor que «averigua todo sobre X». Guarda cada afiliación exactamente como aparece, junto con:</p>
+<ul>
+<li class="">URL o referencia documental;</li>
+<li class="">fecha de publicación y fecha de acceso;</li>
+<li class="">autor o sistema que suministra el dato;</li>
+<li class="">contexto —artículo, dataset, subvención, página institucional—;</li>
+<li class="">transformación aplicada en cualquier columna derivada.</li>
+</ul>
+<p>No reemplaces <code>Dept.</code>, nombres traducidos, tildes o acrónimos por una forma normalizada sin conservar el original. Esos detalles pueden separar organizaciones distintas o explicar por qué un algoritmo eligió mal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-manualmente-antes-de-automatizar">2. Busca manualmente antes de automatizar<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#2-busca-manualmente-antes-de-automatizar" class="hash-link" aria-label="Enlace directo al 2. Busca manualmente antes de automatizar" title="Enlace directo al 2. Busca manualmente antes de automatizar" translate="no">​</a></h3>
+<p>El buscador de ROR es adecuado cuando una persona revisa los resultados. Prueba el nombre completo, una variante lingüística y la localización conocida. En la ficha candidata comprueba:</p>
+<ul>
+<li class="">nombres etiquetados, alias y acrónimos;</li>
+<li class="">país y ciudad, sin asumir que la sede cubre todas las instalaciones;</li>
+<li class="">dominios institucionales;</li>
+<li class=""><code>status</code> del registro;</li>
+<li class="">año de establecimiento, si consta;</li>
+<li class="">tipos y relaciones;</li>
+<li class="">identificadores externos.</li>
+</ul>
+<p>Un dominio compatible es una señal útil, no una prueba suficiente: las instituciones pueden compartir infraestructura, migrar de dominio o mantener direcciones antiguas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-el-parámetro-affiliation-para-texto-desordenado">3. Usa el parámetro <code>affiliation</code> para texto desordenado<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#3-usa-el-par%C3%A1metro-affiliation-para-texto-desordenado" class="hash-link" aria-label="Enlace directo al 3-usa-el-parámetro-affiliation-para-texto-desordenado" title="Enlace directo al 3-usa-el-parámetro-affiliation-para-texto-desordenado" translate="no">​</a></h3>
+<p>La <a href="https://ror.readme.io/docs/api-affiliation" target="_blank" rel="noopener noreferrer" class="">API de afiliaciones de ROR</a> está diseñada para cadenas con nombre institucional, departamento, dirección y puntuación irregular. A fecha de este artículo, el formato documentado es:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl 'https://api.ror.org/v2/organizations?affiliation=&lt;TEXTO_CODIFICADO&gt;'</span><br></span></code></pre></div></div>
+<p>Un ejemplo público de la propia documentación puede comprobarse así:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl 'https://api.ror.org/v2/organizations?affiliation=Instituto%20de%20Investigaci%C3%B3n%20en%20Inform%C3%A1tica%20de%20Albacete%20%28I3A%29%2C%20Universidad%20de%20Castilla-La%20Mancha%2C%20Albacete%2C%20Spain'</span><br></span></code></pre></div></div>
+<p>Consultado el 5 de agosto de 2026, el resultado marca <code>chosen: true</code> para <code>https://ror.org/05r78ng12</code>, el registro de la Universidad de Castilla-La Mancha. También devuelve alternativas. Conviene guardar la cadena enviada, la fecha, la respuesta completa y la versión de la lógica utilizada.</p>
+<p>Desde el <a href="https://ror.readme.io/changelog/2026-05-26-default-affiliation-matching-strategy-is-now-single-search" target="_blank" rel="noopener noreferrer" class="">26 de mayo de 2026</a>, <code>affiliation</code> usa por defecto la estrategia <code>single search</code>. La estrategia anterior puede solicitarse con <code>&amp;multisearch</code>. No mezcles resultados obtenidos con estrategias diferentes sin anotarlo: el cambio afecta a la reproducibilidad de un lote histórico.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-respeta-chosen-true-y-revisa-la-evidencia">4. Respeta <code>chosen: true</code> y revisa la evidencia<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#4-respeta-chosen-true-y-revisa-la-evidencia" class="hash-link" aria-label="Enlace directo al 4-respeta-chosen-true-y-revisa-la-evidencia" title="Enlace directo al 4-respeta-chosen-true-y-revisa-la-evidencia" translate="no">​</a></h3>
+<p>La documentación hace una advertencia poco habitual y muy valiosa: si ningún candidato tiene <code>chosen: true</code>, no hay que seleccionar automáticamente el primero ni fijar un umbral arbitrario sobre <code>score</code>. Puede faltar contexto, existir varias instituciones plausibles o no estar la organización en ROR.</p>
+<p>Incluso con <code>chosen: true</code>, revisa manualmente los casos que puedan causar una decisión adversa. Una coincidencia automática propone un identificador; la fuente original y el contexto temporal sostienen la afirmación.</p>
+<p>Una tabla de decisión sencilla ayuda:</p>
+<table><thead><tr><th>Señal</th><th>Qué apoya</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>Nombre o alias</td><td>Compatibilidad nominal</td><td>Identidad por sí solo</td></tr><tr><td>Dominio</td><td>Vínculo técnico declarado</td><td>Propiedad o vigencia histórica</td></tr><tr><td>Localización</td><td>Contexto geográfico</td><td>Que la actividad ocurrió allí</td></tr><tr><td>Relación ROR</td><td>Pista estructurada entre registros</td><td>Control societario o contractual</td></tr><tr><td>ID en metadatos DOI</td><td>Afiliación depositada con identificador</td><td>Empleo actual ni calidad científica</td></tr><tr><td><code>status: active</code></td><td>Estado del registro ROR</td><td>Actividad legal o económica en tiempo real</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-pivota-hacia-las-fuentes-que-contienen-la-afirmación">5. Pivota hacia las fuentes que contienen la afirmación<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#5-pivota-hacia-las-fuentes-que-contienen-la-afirmaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 5. Pivota hacia las fuentes que contienen la afirmación" title="Enlace directo al 5. Pivota hacia las fuentes que contienen la afirmación" translate="no">​</a></h3>
+<p>ROR identifica organizaciones; otros sistemas describen objetos distintos. <a href="https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/" target="_blank" rel="noopener noreferrer" class="">Crossref recomienda ROR</a> para hacer las afiliaciones de publicaciones más descubribles y desambiguables. <a href="https://info.orcid.org/documentation/integration-guide/working-with-organization-identifiers/" target="_blank" rel="noopener noreferrer" class="">ORCID también admite y recomienda ROR</a> en afiliaciones, pero una entrada de ORCID puede haber sido aportada por la persona o por una organización y debe leerse con su procedencia.</p>
+<p>Trabaja por capas:</p>
+<ol>
+<li class="">ROR para identificar la organización candidata.</li>
+<li class="">Crossref o DataCite para inspeccionar el objeto y sus metadatos depositados.</li>
+<li class="">ORCID para revisar afiliaciones declaradas y su fuente, sin confundir perfil con certificación universal.</li>
+<li class="">Repositorio, convocatoria, resolución o web institucional para confirmar la relación concreta.</li>
+<li class="">Archivo web o copia fechada para afirmaciones históricas.</li>
+</ol>
+<p>El cruce más fuerte no es el que acumula más enlaces, sino el que conecta identificadores compatibles con documentos primarios y fechas coherentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-congela-un-resultado-reproducible">6. Congela un resultado reproducible<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#6-congela-un-resultado-reproducible" class="hash-link" aria-label="Enlace directo al 6. Congela un resultado reproducible" title="Enlace directo al 6. Congela un resultado reproducible" translate="no">​</a></h3>
+<p>Para unos pocos registros basta exportar la respuesta y calcular su hash. Para lotes grandes, el <a href="https://ror.readme.io/docs/data-dump" target="_blank" rel="noopener noreferrer" class="">volcado oficial de ROR</a> evita depender de consultas repetidas y permite fijar una versión. Registra al menos:</p>
+<ul>
+<li class="">versión o fecha del dump;</li>
+<li class="">licencia y URL de descarga;</li>
+<li class="">hash del fichero original;</li>
+<li class="">script y reglas de normalización;</li>
+<li class="">candidatos aceptados, rechazados y no resueltos;</li>
+<li class="">revisión humana y motivo de la decisión.</li>
+</ul>
+<p>No sobrescribas una clasificación antigua cuando cambie ROR. Añade una nueva observación y conserva el estado que sustentó el informe original.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ror-no-es-un-registro-mercantil">ROR no es un registro mercantil<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#ror-no-es-un-registro-mercantil" class="hash-link" aria-label="Enlace directo al ROR no es un registro mercantil" title="Enlace directo al ROR no es un registro mercantil" translate="no">​</a></h3>
+<p>Una organización puede estar incluida por su papel en la investigación sin coincidir con una entidad jurídica. Para propiedad, administradores, disolución o domicilio legal hay que acudir al registro competente. Tampoco conviertas una relación <code>parent</code>, <code>child</code>, <code>related</code>, <code>predecessor</code> o <code>successor</code> en prueba automática de control societario.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-granularidad-institucional-no-siempre-coincide-con-el-documento">La granularidad institucional no siempre coincide con el documento<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#la-granularidad-institucional-no-siempre-coincide-con-el-documento" class="hash-link" aria-label="Enlace directo al La granularidad institucional no siempre coincide con el documento" title="Enlace directo al La granularidad institucional no siempre coincide con el documento" translate="no">​</a></h3>
+<p>Departamentos y facultades suelen quedar fuera del alcance de ROR. Una afiliación muy específica puede resolverse a la universidad matriz, mientras que el texto original sigue siendo necesario para entender la unidad real. El identificador no debe borrar esa granularidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-metadatos-pueden-estar-incompletos-o-desactualizados">Los metadatos pueden estar incompletos o desactualizados<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#los-metadatos-pueden-estar-incompletos-o-desactualizados" class="hash-link" aria-label="Enlace directo al Los metadatos pueden estar incompletos o desactualizados" title="Enlace directo al Los metadatos pueden estar incompletos o desactualizados" translate="no">​</a></h3>
+<p>Nombres, relaciones, dominios y localizaciones cambian. ROR mantiene sus registros mediante curación comunitaria, no mediante sincronización instantánea con todas las jurisdicciones. La ausencia de una organización no prueba que no exista ni que no investigue.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-grafo-multiplica-errores-con-facilidad">Un grafo multiplica errores con facilidad<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#un-grafo-multiplica-errores-con-facilidad" class="hash-link" aria-label="Enlace directo al Un grafo multiplica errores con facilidad" title="Enlace directo al Un grafo multiplica errores con facilidad" translate="no">​</a></h3>
+<p>Si asignas un ROR incorrecto a cien publicaciones, el error aparentará estar corroborado cien veces. Es repetición de un mismo emparejamiento, no cien fuentes independientes. Mide la calidad sobre una muestra revisada y conserva una categoría <code>sin resolver</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga organizaciones y relaciones relevantes para una finalidad legítima; no uses afiliaciones para perfilar la vida privada de investigadores.</li>
+<li class="">Minimiza nombres personales en exports, capturas y prompts enviados a servicios externos.</li>
+<li class="">No contactes a empleados para «validar» una hipótesis que puede resolverse con fuentes institucionales.</li>
+<li class="">Separa hechos, metadatos depositados e inferencias analíticas en el informe.</li>
+<li class="">Conserva contradicciones y periodos de validez; una afiliación histórica no es necesariamente falsa.</li>
+<li class="">Respeta límites de API, términos de los sistemas enlazados y licencias de cada dataset.</li>
+<li class="">Exige revisión humana cuando una coincidencia afecte a financiación, reputación, contratación o cumplimiento.</li>
+<li class="">Publica solo lo necesario y ofrece una vía de corrección si el análisis identifica mal una organización.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>ROR encaja especialmente bien en el ecosistema académico. Para otros tipos de entidad, combina o sustituye según la pregunta:</p>
+<ul>
+<li class=""><code>LEI/GLEIF</code> para identidad jurídica y relaciones declaradas de determinadas entidades financieras y corporativas;</li>
+<li class="">registros mercantiles para existencia legal, administradores y filings;</li>
+<li class=""><code>Wikidata</code> para conocimiento enlazado más amplio, siempre revisando referencias y cambios;</li>
+<li class=""><code>OpenAlex</code> para explorar redes de obras, autores e instituciones antes de volver a fuentes primarias;</li>
+<li class=""><code>Crossref</code> y <code>DataCite</code> para metadatos de publicaciones y datasets;</li>
+<li class=""><code>OpenRefine</code> con reconciliación ROR para limpiar lotes con revisión visual.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-aceptar-un-ror">Checklist antes de aceptar un ROR<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#checklist-antes-de-aceptar-un-ror" class="hash-link" aria-label="Enlace directo al Checklist antes de aceptar un ROR" title="Enlace directo al Checklist antes de aceptar un ROR" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta y el periodo temporal están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conserva la afiliación original y su procedencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se revisaron nombres, localización, dominio, estado y tipo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La granularidad del registro coincide con la afirmación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La estrategia de matching y la fecha quedaron anotadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Si falta <code>chosen: true</code>, el caso sigue sin resolver o fue revisado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Relaciones y crosswalks se trataron como pistas, no como prueba final.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una fuente primaria confirma la colaboración o afiliación relevante.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El resultado puede reproducirse, corregirse y deshacerse.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No se recopilaron datos personales innecesarios.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://ror.org/about/" target="_blank" rel="noopener noreferrer" class="">ROR: qué es el registro</a></li>
+<li class=""><a href="https://ror.org/registry/" target="_blank" rel="noopener noreferrer" class="">ROR: alcance, curación, licencia y acceso a los datos</a></li>
+<li class=""><a href="https://ror.readme.io/docs/api-affiliation" target="_blank" rel="noopener noreferrer" class="">ROR API: parámetro de afiliación y cautelas de matching</a></li>
+<li class=""><a href="https://ror.readme.io/changelog/2026-05-26-default-affiliation-matching-strategy-is-now-single-search" target="_blank" rel="noopener noreferrer" class="">ROR: cambio de <code>affiliation</code> a <code>single search</code> por defecto</a></li>
+<li class=""><a href="https://ror.readme.io/docs/data-dump" target="_blank" rel="noopener noreferrer" class="">ROR: volcado de datos</a></li>
+<li class=""><a href="https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/" target="_blank" rel="noopener noreferrer" class="">Crossref: afiliaciones e identificadores ROR</a></li>
+<li class=""><a href="https://info.orcid.org/documentation/integration-guide/working-with-organization-identifiers/" target="_blank" rel="noopener noreferrer" class="">ORCID: identificadores de organizaciones y afiliaciones</a></li>
+</ul>
+<p>La takeaway accionable es sencilla: <strong>usa ROR para convertir nombres institucionales ambiguos en candidatos trazables, pero vuelve siempre al documento que afirma la relación y conserva una salida honesta: “sin resolver”</strong>. Como siguiente práctica, toma veinte afiliaciones públicas, registra el texto original y compara la búsqueda manual con <code>affiliation</code>; mide los errores antes de automatizar un corpus entero.</p>]]></content>
+        <author>
+            <name>OSINT Writter</name>
+            <uri>https://github.com/spainfsd-creator</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Research" term="Research"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metadatos" term="Metadatos"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Resolución de entidades en OSINT: normalización, bloqueo y evidencia sin fusionar homónimos]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia</id>
@@ -2940,147 +3095,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Privacidad" term="Privacidad"/>
         <category label="Investigacion" term="Investigacion"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OpenSecrets en OSINT: dinero en politica, donaciones y lobby sin convertir indicios en acusaciones]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto"/>
-        <updated>2026-07-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con documentos publicos de financiacion politica, graficos de flujo de dinero, comites anonimizados y notas de verificacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con documentos publicos de financiacion politica, graficos de flujo de dinero, comites anonimizados y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-15-opensecrets-osint-dinero-politica-donaciones-lobbying-contexto-9ead7453a04d2fd3f41c4fa1ecfe7197.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto-45fbc4085c46a2bc027764a426d97850.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una donacion politica rara vez cuenta una historia completa. Puede apuntar a afinidad, acceso, interes sectorial, cumplimiento normativo, activismo, simple coincidencia de nombres o ruido administrativo. En OSINT responsable, la pregunta no es "a quien pillamos", sino <strong>que flujo publico de dinero se observa, de que registro procede, que cobertura tiene y que inferencias siguen sin estar demostradas</strong>.</p>
-<p><a href="https://www.opensecrets.org/" target="_blank" rel="noopener noreferrer" class=""><code>OpenSecrets</code></a> ayuda en esa fase: organiza datos y analisis sobre dinero en la politica estadounidense, con herramientas para donantes, candidatos, comites, gasto externo, lobby, industrias, organizaciones, publicidad politica, "revolving door" y dinero oscuro. Revisando sus paginas publicas el <strong>15 de julio de 2026</strong>, la propia organizacion se presenta como un grupo independiente y sin animo de lucro dedicado a seguir el dinero en la politica de Estados Unidos. Hay un cambio operativo importante: su pagina de API indica que las APIs publicas de OpenSecrets quedaron discontinuadas el <strong>15 de abril de 2025</strong>, por lo que en 2026 conviene tratar la web, los productos de datos y las fuentes oficiales como piezas separadas, no como un endpoint publico garantizado.</p>
-<p>Este articulo esta escrito para periodistas, analistas de debida diligencia, investigadores civicos, equipos de compliance y personas que necesitan leer financiacion politica con metodo. No es una guia para acosar donantes, exponer domicilios, fabricar listas negras ni sugerir corrupcion a partir de una coincidencia nominal.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-opensecrets-y-para-que-sirve">Que es OpenSecrets y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#que-es-opensecrets-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es OpenSecrets y para que sirve" title="Enlace directo al Que es OpenSecrets y para que sirve" translate="no">​</a></h2>
-<p><code>OpenSecrets</code> es una capa de investigacion sobre dinero, elecciones e influencia politica en Estados Unidos. Su valor OSINT esta en reducir friccion: permite pasar de una pregunta difusa sobre donaciones, comites o lobby a una exploracion mas ordenada por entidades, ciclos, sectores, candidatos, organizaciones y tipos de gasto.</p>
-<p>La utilidad practica aparece en preguntas como estas:</p>
-<ul>
-<li class="">que donaciones publicas aparecen asociadas a un nombre, empleador u organizacion;</li>
-<li class="">que industrias figuran entre los apoyos financieros de un candidato o cargo;</li>
-<li class="">que comites, PACs o grupos de gasto externo aparecen en una carrera;</li>
-<li class="">que organizaciones declaran actividad de lobby y sobre que asuntos;</li>
-<li class="">que trayectorias de "revolving door" merecen comprobacion adicional;</li>
-<li class="">que parte del dato viene de registros oficiales y que parte es agregacion, clasificacion o analisis editorial;</li>
-<li class="">que lagunas de cobertura, desfases temporales o umbrales de publicacion pueden afectar a la lectura.</li>
-</ul>
-<p>La primera cautela es obvia pero se olvida a menudo: <code>OpenSecrets</code> no sustituye al registro primario. En materia federal, la <a href="https://www.fec.gov/data/" target="_blank" rel="noopener noreferrer" class=""><code>FEC</code></a> permite explorar como candidatos y comites recaudan y gastan dinero, consultar contribuciones de individuos, comites, filings, informes y descargas masivas. Para datos estatales, <a href="https://www.followthemoney.org/" target="_blank" rel="noopener noreferrer" class=""><code>FollowTheMoney.org</code></a> conserva un sitio integrado en OpenSecrets que muestra datos de financiacion estatal hasta el ciclo 2024, con el aviso de que el sitio no se mantiene activamente mientras se integra con OpenSecrets.</p>
-<p>La segunda cautela es temporal. Un dato politico puede cambiar por enmiendas, filings tardios, reclasificaciones, devoluciones, agregaciones y diferencias de calendario. En OSINT serio, siempre anotas fecha de consulta, ciclo electoral, fuente primaria, pagina agregada y decision analitica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una redaccion local que investiga una propuesta de regulacion energetica en el estado ficticio de <code>Nueva Sierra</code>. La pregunta de partida no es si alguien "compro" una decision. Esa conclusion seria grave y exigiria pruebas que una tabla de donaciones no aporta por si sola.</p>
-<p>Una pregunta defendible seria:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Pregunta: que actores con interes publico declarado aparecen financiando campanas, comites o lobby alrededor del debate energetico?</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Ambito: ciclo electoral 2026 y filings disponibles hasta la fecha de consulta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Actores iniciales: candidato ficticio A, comite ficticio B, asociacion sectorial ficticia C</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuentes base: OpenSecrets, FEC, registro estatal, documentos de lobby, agenda publica y hemeroteca</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Decision: mapa de contexto, no atribucion de influencia indebida</span><br></span></code></pre></div></div>
-<p>El flujo responsable separaria cuatro capas:</p>
-<table><thead><tr><th>Capa</th><th>Que observas</th><th>Que no debes concluir todavia</th></tr></thead><tbody><tr><td>Donacion individual</td><td>Nombre, fecha, cantidad, empleador/ocupacion si consta</td><td>Que el donante actua coordinado con su empresa</td></tr><tr><td>Comite o PAC</td><td>Recaudacion, gasto, beneficiarios, ciclo</td><td>Que cada gasto produce una decision politica concreta</td></tr><tr><td>Lobby</td><td>Cliente, firma, asunto, periodo, importe declarado</td><td>Que una reunion o pago demuestra captura regulatoria</td></tr><tr><td>Industria</td><td>Agregaciones sectoriales y tendencias</td><td>Que todo un sector actua como bloque unico</td></tr></tbody></table>
-<p>Una salida prudente podria decir:</p>
-<blockquote>
-<p>En el ciclo revisado se observan aportaciones y gasto de entidades vinculadas al sector energetico alrededor de varias candidaturas y comites. El patron justifica revisar filings, agendas, declaraciones de lobby y documentos regulatorios, pero no permite afirmar causalidad ni influencia indebida sin evidencia adicional.</p>
-</blockquote>
-<p>Ese matiz no debilita la investigacion. La hace publicable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-pregunta-acotada">1. Formula una pregunta acotada<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#1-formula-una-pregunta-acotada" class="hash-link" aria-label="Enlace directo al 1. Formula una pregunta acotada" title="Enlace directo al 1. Formula una pregunta acotada" translate="no">​</a></h3>
-<p>OpenSecrets invita a navegar mucho. Esa comodidad puede ser peligrosa si empiezas por nombres sueltos y acabas coleccionando capturas. Antes de buscar, define:</p>
-<ul>
-<li class="">jurisdiccion: federal, estatal o local;</li>
-<li class="">ciclo o periodo: 2024, 2026, trimestre de lobby, fecha de filing;</li>
-<li class="">actor: candidato, comite, organizacion, industria, lobby firm o donante;</li>
-<li class="">decision analitica: contexto, verificacion, cronologia, priorizacion o visualizacion;</li>
-<li class="">estandar de salida: nota interna, pieza periodistica, due diligence o expediente de compliance.</li>
-</ul>
-<p>Si no puedes escribir la pregunta en una frase, aun no estas listo para interpretar resultados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-opensecrets-para-orientarte">2. Empieza por OpenSecrets para orientarte<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#2-empieza-por-opensecrets-para-orientarte" class="hash-link" aria-label="Enlace directo al 2. Empieza por OpenSecrets para orientarte" title="Enlace directo al 2. Empieza por OpenSecrets para orientarte" translate="no">​</a></h3>
-<p>Usa OpenSecrets como capa de descubrimiento:</p>
-<ul>
-<li class="">perfiles de candidatos y cargos para ver tendencias de recaudacion y apoyo sectorial;</li>
-<li class="">busqueda de donantes para localizar registros publicos asociados a nombres;</li>
-<li class="">herramientas de lobby para identificar clientes, firmas, asuntos y gasto declarado;</li>
-<li class="">perfiles de organizaciones e industrias para entender agregaciones;</li>
-<li class="">secciones de gasto externo, publicidad politica y dinero oscuro para detectar actores indirectos;</li>
-<li class="">recursos de aprendizaje para entender terminos de financiacion electoral estadounidense.</li>
-</ul>
-<p>No copies una cifra aislada sin registrar el contexto. En donaciones politicas, el ciclo, el tipo de comite y la definicion de "recaudado" o "gastado" importan tanto como el importe.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-baja-a-la-fuente-primaria">3. Baja a la fuente primaria<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#3-baja-a-la-fuente-primaria" class="hash-link" aria-label="Enlace directo al 3. Baja a la fuente primaria" title="Enlace directo al 3. Baja a la fuente primaria" translate="no">​</a></h3>
-<p>Para datos federales, la FEC debe funcionar como verificacion primaria. Su portal de datos permite buscar contribuciones individuales, candidatos, comites, gastos, prestamos, filings e informes. Tambien ofrece descargas masivas y descripciones de ficheros.</p>
-<p>Un ejemplo metodologico: la descripcion del fichero de contribuciones individuales de la FEC explica que el archivo es un subconjunto de contribuciones itemizadas de individuos. Desde 2015 incluye, entre otras reglas, contribuciones cuyo acumulado de ciclo supera 200 dolares para comites de candidato y cuyo acumulado anual supera 200 dolares para PACs y comites de partido. Eso afecta directamente a la lectura: la ausencia de una persona en ese fichero no significa necesariamente ausencia de actividad politica.</p>
-<p>Cuando una cifra importe, guarda:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente agregada: URL de OpenSecrets consultada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente primaria: URL de FEC, imagen de filing o descarga usada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fecha de consulta: 2026-07-15</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Ciclo/periodo: especificar</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Entidad exacta: candidato, comite, donante u organizacion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Campo usado: importe, fecha, empleador, ocupacion, asunto de lobby, filing</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Advertencia: dato agregado / dato primario / dato pendiente de corroborar</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-normaliza-nombres-sin-borrar-ambiguedad">4. Normaliza nombres sin borrar ambiguedad<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#4-normaliza-nombres-sin-borrar-ambiguedad" class="hash-link" aria-label="Enlace directo al 4. Normaliza nombres sin borrar ambiguedad" title="Enlace directo al 4. Normaliza nombres sin borrar ambiguedad" translate="no">​</a></h3>
-<p>Los nombres personales y corporativos son una fuente constante de falsos positivos. Dos personas pueden llamarse igual. Un empleador puede aparecer con variantes. Una organizacion puede donar mediante PAC, empleados, directivos, filiales o entidades no equivalentes.</p>
-<p>Trabaja con una tabla de resolucion:</p>
-<table><thead><tr><th>Campo</th><th>Pregunta</th></tr></thead><tbody><tr><td>Nombre</td><td>Hay homonimos plausibles?</td></tr><tr><td>Ciudad/estado</td><td>Encaja con otros datos publicos o solo parece coincidir?</td></tr><tr><td>Empleador/ocupacion</td><td>Es declarado por el contribuyente, normalizado o inferido?</td></tr><tr><td>Comite receptor</td><td>Es el comite correcto para el ciclo analizado?</td></tr><tr><td>Fecha</td><td>Corresponde al periodo de la decision que investigas?</td></tr><tr><td>Fuente</td><td>Es filing oficial, agregador, noticia o analisis?</td></tr></tbody></table>
-<p>Si tienes que explicar una coincidencia con demasiadas suposiciones, todavia no tienes una coincidencia: tienes una pista.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-construye-una-cronologia-no-una-insinuacion">5. Construye una cronologia, no una insinuacion<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#5-construye-una-cronologia-no-una-insinuacion" class="hash-link" aria-label="Enlace directo al 5. Construye una cronologia, no una insinuacion" title="Enlace directo al 5. Construye una cronologia, no una insinuacion" translate="no">​</a></h3>
-<p>El error narrativo mas comun es poner una donacion antes de una decision y sugerir causalidad. A veces la secuencia importa; muchas veces no basta.</p>
-<p>Una cronologia util deberia incluir:</p>
-<ol>
-<li class="">fecha de la donacion o gasto;</li>
-<li class="">fecha de filing y fecha de disponibilidad publica;</li>
-<li class="">periodo de lobby declarado;</li>
-<li class="">reuniones, audiencias o documentos regulatorios publicos;</li>
-<li class="">declaraciones, votos o decisiones;</li>
-<li class="">cobertura periodistica y respuestas de las partes;</li>
-<li class="">hechos que contradicen o debilitan la hipotesis.</li>
-</ol>
-<p>La pregunta correcta no es "que dato confirma mi sospecha", sino "que tendria que ser cierto para sostener esta lectura y que datos la podrian refutar".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>OpenSecrets y las fuentes oficiales son potentes, pero tienen limites claros:</p>
-<ul>
-<li class="">la API publica de OpenSecrets ya no estaba disponible en 2026, asi que no conviene disenar flujos nuevos que dependan de ella;</li>
-<li class="">los datos agregados pueden usar clasificaciones sectoriales utiles, pero discutibles en casos frontera;</li>
-<li class="">los filings pueden enmendarse, llegar tarde o tener errores de captura;</li>
-<li class="">los umbrales de publicacion dejan fuera parte de la actividad de bajo importe;</li>
-<li class="">el empleador u ocupacion de un donante no prueba que la empresa haya decidido donar;</li>
-<li class="">el gasto externo no siempre implica coordinacion con una campana;</li>
-<li class="">el lobby declarado no prueba el resultado de una reunion ni la influencia real;</li>
-<li class="">los nombres, direcciones y organizaciones exigen desambiguacion antes de cualquier atribucion;</li>
-<li class="">Estados Unidos tiene reglas federales, estatales y locales distintas, con cobertura y granularidad desigual.</li>
-</ul>
-<p>Tambien hay una limitacion etica: que un dato sea publico no significa que deba amplificarse sin proporcionalidad. El interes publico, el contexto y la minimizacion importan.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<p>El trabajo con dinero politico toca datos personales, intereses economicos y reputaciones. Algunas reglas practicas:</p>
-<ul>
-<li class="">no publiques domicilios ni detalles personales innecesarios de donantes individuales;</li>
-<li class="">evita listas de "enemigos" o llamadas a presionar personas por donaciones legales;</li>
-<li class="">distingue siempre entre persona, empresa, PAC, industria y comite;</li>
-<li class="">conserva capturas, URLs, hashes o exportes cuando el hallazgo sea relevante;</li>
-<li class="">cita fuentes primarias cuando hagas afirmaciones concretas;</li>
-<li class="">da oportunidad de respuesta si la conclusion puede afectar reputaciones;</li>
-<li class="">documenta incertidumbre y no la escondas en notas internas;</li>
-<li class="">revisa terminos de uso y licencias antes de reutilizar datos a escala;</li>
-<li class="">no combines datos politicos con informacion sensible ajena al interes publico.</li>
-</ul>
-<p>En investigaciones delicadas, una frase como "aparece en registros publicos" no basta. Explica que registro, que fecha, que campo y que limite tiene.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>OpenSecrets encaja muy bien como punto de entrada para dinero en politica estadounidense. Segun la pregunta, conviene combinarlo con:</p>
-<ul>
-<li class=""><code>FEC</code>, para contribuciones, comites, filings, gastos y descargas federales oficiales;</li>
-<li class=""><code>FollowTheMoney.org</code>, para datos estatales historicos y herramientas heredadas de la integracion con OpenSecrets;</li>
-<li class="">registros estatales de financiacion electoral, cuando el caso no sea federal;</li>
-<li class="">registros de lobby federales o estatales, para asuntos, clientes y periodos;</li>
-<li class=""><code>LittleSis</code>, si necesitas mapear relaciones de poder, cargos, donaciones e interlocks con referencias;</li>
-<li class=""><code>OpenCorporates</code>, <code>Companies House</code> o registros mercantiles, si el salto pasa de politica a estructura societaria;</li>
-<li class=""><code>OpenRefine</code> o <code>Datasette</code>, si necesitas limpiar, reconciliar y auditar un dataset propio.</li>
-</ul>
-<p>La takeaway accionable es sencilla: usa <code>OpenSecrets</code> para <strong>orientar y estructurar preguntas sobre dinero politico</strong>, no para cerrar acusaciones. Si una ruta parece relevante, baja a filings, registra el ciclo, desambigua entidades y escribe conclusiones proporcionadas. El siguiente buen tema seria una guia practica sobre como construir una cronologia reproducible con FEC, registros de lobby y hemeroteca sin mezclar correlacion con causalidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/opensecrets-osint-dinero-politica-donaciones-lobbying-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.opensecrets.org/" target="_blank" rel="noopener noreferrer" class="">OpenSecrets</a></li>
-<li class=""><a href="https://www.opensecrets.org/api" target="_blank" rel="noopener noreferrer" class="">OpenSecrets API</a></li>
-<li class=""><a href="https://www.followthemoney.org/" target="_blank" rel="noopener noreferrer" class="">FollowTheMoney.org</a></li>
-<li class=""><a href="https://www.fec.gov/data/" target="_blank" rel="noopener noreferrer" class="">FEC Campaign finance data</a></li>
-<li class=""><a href="https://www.fec.gov/data/browse-data/?tab=bulk-data" target="_blank" rel="noopener noreferrer" class="">FEC Browse data and bulk data</a></li>
-<li class=""><a href="https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/" target="_blank" rel="noopener noreferrer" class="">FEC Contributions by individuals file description</a></li>
-<li class=""><a href="https://api.open.fec.gov/developers/" target="_blank" rel="noopener noreferrer" class="">OpenFEC API Documentation</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-        <category label="Tradecraft" term="Tradecraft"/>
     </entry>
 </feed>
