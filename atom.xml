@@ -13,7 +13,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad"/>
         <updated>2026-08-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-05-ror-osint-organizaciones-investigacion-3df9f3638ef2695c67fdfee36b1cb506.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-05-ror-osint-organizaciones-investigacion-3df9f3638ef2695c67fdfee36b1cb506.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad-960db8dc7f8822e00795297becf7e1e8.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una memoria de proyecto menciona a la «Universidad Central», un artículo firma como «UC Research Centre» y una ficha de financiación usa el nombre anterior de la institución. El grafo parece mostrar tres organizaciones; quizá solo haya una, o quizá estemos a punto de fusionar entidades distintas. <code>ROR</code>, el <strong>Research Organization Registry</strong>, ayuda a ordenar ese problema con identificadores persistentes y metadatos abiertos. Lo que no hace —y conviene decirlo desde el principio— es demostrar que una persona trabaja hoy en una institución, que dos entidades comparten control o que una publicación es fiable.</p>
 <p>Este artículo propone un flujo responsable para debida diligencia académica, verificación de expertos, análisis de financiación y trazabilidad de producción científica. El caso es ficticio y los ejemplos de API se limitan a datos institucionales públicos.</p>
@@ -153,8 +153,8 @@
 </ul>
 <p>La takeaway accionable es sencilla: <strong>usa ROR para convertir nombres institucionales ambiguos en candidatos trazables, pero vuelve siempre al documento que afirma la relación y conserva una salida honesta: “sin resolver”</strong>. Como siguiente práctica, toma veinte afiliaciones públicas, registra el texto original y compara la búsqueda manual con <code>affiliation</code>; mide los errores antes de automatizar un corpus entero.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -169,7 +169,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/resolucion-entidades-osint-normalizacion-bloqueo-evidencia"/>
         <updated>2026-08-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-04-resolucion-entidades-osint-8f0afad211c47783dd2046d872c4e40f.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando registros, alias, identificadores y contradicciones en una matriz explicable" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-04-resolucion-entidades-osint-8f0afad211c47783dd2046d872c4e40f.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/resolucion-entidades-osint-normalizacion-bloqueo-evidencia-03787c21bc423abdb9e143f9347496ba.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Dos listas públicas contienen a <code>Aleksandar Petrović</code>. Una añade un segundo apellido; otra translitera el nombre como <code>Aleksandr Petrovic</code>. Comparten país, pero las fechas de nacimiento no encajan y solo uno de los registros tiene identificador oficial. Un buscador difuso puede devolver una puntuación alta. Una investigación responsable debe hacer algo bastante más difícil: <strong>explicar por qué compara ambos registros, qué datos apoyan la unión, qué datos la contradicen y cuándo debe negarse a fusionarlos</strong>.</p>
 <p>La resolución de entidades —también llamada <em>entity resolution</em> o <em>record linkage</em>— sirve para decidir si dos registros describen a la misma persona, empresa, buque u objeto. No es una máquina de producir identidades. Es un proceso de reducción de incertidumbre que necesita datos proporcionados, reglas documentadas y revisión humana, especialmente si una coincidencia puede provocar una acusación, un bloqueo o cualquier otra decisión adversa.</p>
@@ -306,8 +306,8 @@
 </ul>
 <p>La takeaway accionable es esta: <strong>una coincidencia de nombre genera un candidato; una identidad exige señales compatibles, contradicciones resueltas y procedencia verificable</strong>. Para practicar, toma dos pequeñas tablas sintéticas, conserva sus valores originales y construye primero la matriz de decisión a mano. El siguiente paso natural será medir la calidad del enlace con un conjunto de referencia sin esconder los errores detrás de una puntuación media.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -322,7 +322,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/sanciones-ue-lista-consolidada-mapa-osint-verificacion"/>
         <updated>2026-08-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-03-sanciones-ue-osint-lista-mapa-verificacion-82742e727b4decfcc8b078c20154e469.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una lista de sanciones, un mapa europeo, alias y actos jurídicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-03-sanciones-ue-osint-lista-mapa-verificacion-82742e727b4decfcc8b078c20154e469.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/sanciones-ue-lista-consolidada-mapa-osint-verificacion-081432a5ae3c1d4e408abc93f951d72d.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una búsqueda por nombre devuelve una persona sancionada y, a pocos kilómetros, una empresa con un administrador homónimo. La coincidencia parece suficiente para detener una operación o publicar una acusación. No lo es. Entre un nombre parecido y una identificación responsable faltan alias, fecha de nacimiento, nacionalidad, domicilio, identificadores, régimen aplicable, vigencia y —sobre todo— el acto jurídico que sostiene la medida. La lista consolidada de sanciones financieras de la Unión Europea y el <code>EU Sanctions Map</code> ayudan a recorrer ese camino sin convertir una alerta en un veredicto.</p>
 <p>Este artículo explica un flujo de investigación con fuentes públicas para debida diligencia, periodismo y verificación corporativa. No sustituye el asesoramiento jurídico ni los controles de cumplimiento de una organización. Todas las personas, empresas y operaciones del ejemplo son ficticias.</p>
@@ -445,8 +445,8 @@
 </ul>
 <p>La takeaway accionable es sencilla: <strong>usa la lista para descubrir candidatos, el mapa para encontrar el régimen y el acto jurídico para sostener la conclusión</strong>. Si solo coincide el nombre, todavía no tienes una identidad. Si el caso afecta a una operación real, documenta el análisis y escálalo antes de actuar. El siguiente paso natural será construir una matriz reproducible para resolver entidades entre listas oficiales sin convertir la automatización en una máquina de falsos positivos.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -461,7 +461,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint"/>
         <updated>2026-08-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-02-openstreetmap-historial-changesets-osint-072ee3c52cfa647a09c7cf038e9199b3.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dos versiones de un mapa y sus cambios dentro de una cronología" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-02-openstreetmap-historial-changesets-osint-072ee3c52cfa647a09c7cf038e9199b3.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/openstreetmap-historial-changesets-osint-741b9b81fd8b145d4e3d9c847b53c082.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Un vídeo asegura que una carretera de acceso apareció después de una emergencia. El mapa actual muestra la vía, pero una captura antigua no la incluye. Parece una cronología perfecta hasta que surge la pregunta incómoda: <strong>¿cambió el terreno o solo cambió el mapa?</strong> El historial de <code>OpenStreetMap</code> permite reconstruir versiones, etiquetas y grupos de ediciones; no convierte la fecha de una contribución en la fecha de construcción de una carretera.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-el-historial-de-openstreetmap-y-para-qué-sirve-en-osint">Qué es el historial de OpenStreetMap y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/openstreetmap-historial-changesets-osint#qu%C3%A9-es-el-historial-de-openstreetmap-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es el historial de OpenStreetMap y para qué sirve en OSINT" title="Enlace directo al Qué es el historial de OpenStreetMap y para qué sirve en OSINT" translate="no">​</a></h2>
@@ -584,8 +584,8 @@
 </ul>
 <p>La takeaway accionable es simple: <strong>usa el historial de OpenStreetMap para fechar la evolución del dato cartográfico; usa fuentes independientes para fechar la evolución del lugar</strong>. Si ambos relojes coinciden, tienes una pista fuerte. Si no coinciden, acabas de encontrar la pregunta que de verdad merece investigación. El siguiente paso natural será aprender a comparar cobertura y calidad de mapas abiertos sin confundir densidad de ediciones con calidad del territorio.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="GEOINT" term="GEOINT"/>
@@ -600,7 +600,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/tmview-osint-marcas-titulares-cronologias-contexto"/>
         <updated>2026-08-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando marcas, titulares, clases y cronologías registrales con trazabilidad]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando marcas, titulares, clases y cronologías registrales con trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-01-tmview-osint-marcas-titulares-cronologias-contexto-d28e4aa07f362aaca9fa88b25efa7e26.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando marcas, titulares, clases y cronologías registrales con trazabilidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-01-tmview-osint-marcas-titulares-cronologias-contexto-d28e4aa07f362aaca9fa88b25efa7e26.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/tmview-osint-marcas-titulares-cronologias-contexto-a534822e54ada2ffff9f04ad630f7151.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una empresa recién creada anuncia que lleva años comercializando una tecnología bajo una marca «consolidada». Una búsqueda rápida devuelve un nombre idéntico, varios logotipos parecidos y solicitudes en distintos países. La tentación es convertir esos resultados en una historia cerrada. Sin embargo, un expediente de marca demuestra actos registrales, no ventas, control efectivo de una web ni uso real en una fecha concreta. <code>TMview</code> resulta valioso precisamente cuando se utiliza para <strong>formular mejores preguntas y reconstruir una cronología verificable</strong>, no para rellenar huecos con conclusiones.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-tmview-y-para-qué-sirve-en-osint">Qué es TMview y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/tmview-osint-marcas-titulares-cronologias-contexto#qu%C3%A9-es-tmview-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es TMview y para qué sirve en OSINT" title="Enlace directo al Qué es TMview y para qué sirve en OSINT" translate="no">​</a></h2>
@@ -717,8 +717,8 @@
 </ul>
 <p>La takeaway accionable es esta: <strong>usa TMview para descubrir candidatos y ordenar la cronología; usa el expediente oficial para afirmar; usa fuentes independientes para demostrar actividad</strong>. Si tu conclusión todavía depende de que «el nombre se parece», aún no has terminado la investigación. El siguiente paso natural sería aplicar la misma disciplina a <code>DesignView</code> y aprender a separar diseño registrado, marca figurativa y aspecto real de un producto.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -733,7 +733,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/eur-lex-oeil-osint-cronologia-legislativa"/>
         <updated>2026-07-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-30-eur-lex-oeil-osint-cronologia-legislativa-96da6b7e594e6dcdd57a1673401fb073.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando versiones de una propuesta europea dentro de una cronología documental" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-30-eur-lex-oeil-osint-cronologia-legislativa-96da6b7e594e6dcdd57a1673401fb073.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/eur-lex-oeil-osint-cronologia-legislativa-33c6f51271bf7819c30f4d51a69b30e1.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una asociación publica una propuesta técnica. Meses después, una frase muy parecida aparece en una ley europea. La captura de pantalla parece perfecta para denunciar que «Bruselas copió el texto», pero faltan casi todas las piezas importantes: qué versión se está comparando, quién presentó la enmienda, cuándo entró en el expediente, qué otras fuentes usaron la misma fórmula y cuál fue el texto finalmente aprobado. <code>EUR-Lex</code> y el Observatorio Legislativo del Parlamento Europeo (<code>OEIL</code>) permiten reconstruir esa historia documental; no convierten una semejanza verbal en prueba de autoría o influencia.</p>
 <p>Este artículo propone un método responsable para periodismo, debida diligencia, investigación académica y seguimiento regulatorio. El expediente y las organizaciones del ejemplo son ficticios. El objetivo es documentar <strong>estados, fechas, actores institucionales y cambios de redacción</strong> sin atribuir intenciones que las fuentes no sostienen.</p>
@@ -884,8 +884,8 @@
 <p>La regla práctica es: <strong>OEIL para orientarte, identificadores para no mezclar, documentos originales para demostrar y Diario Oficial para cerrar</strong>. Si todavía no puedes decir qué versión, qué institución y qué fecha sostienen una frase, aún no tienes una cronología: tienes una impresión.</p>
 <p>El siguiente paso natural sería aplicar esta matriz a un expediente europeo ya cerrado y publicar, junto al análisis, un paquete reproducible de identificadores, hashes y diferencias verificadas.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -900,7 +900,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/registro-transparencia-ue-osint-intereses-reuniones-contexto"/>
         <updated>2026-07-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-29-registro-transparencia-ue-osint-cf90407da600491bd8bdb08915b69b65.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando declaraciones de intereses, reuniones públicas, presupuestos y una cronología institucional" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-29-registro-transparencia-ue-osint-cf90407da600491bd8bdb08915b69b65.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/registro-transparencia-ue-osint-intereses-reuniones-contexto-929262112dc1d4481f564e3397ce7601.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una asociación aparece en la agenda de un alto cargo europeo días antes de que se publique una propuesta regulatoria. Su ficha declara un presupuesto considerable y varios asuntos de interés. La secuencia resulta relevante, pero todavía no demuestra qué se dijo, qué petición se formuló ni si la reunión cambió una sola línea. El <code>Registro de Transparencia de la UE</code> ayuda a reconstruir <strong>quién declara representar qué intereses, con qué recursos y en qué contexto institucional</strong>; no es una máquina para convertir proximidad temporal en influencia probada.</p>
 <p>Este artículo propone un flujo responsable para periodismo, debida diligencia, investigación académica y control democrático. Usaremos organizaciones y expedientes ficticios. El objetivo es formular preguntas verificables sobre representación de intereses, no etiquetar el diálogo institucional como conducta ilícita ni perfilar a trabajadores particulares.</p>
@@ -1046,8 +1046,8 @@
 <p>La regla práctica es sencilla: usa el Registro de Transparencia para <strong>descubrir actores, declaraciones y puntos de contacto</strong>, y baja después a los documentos del expediente. Si no puedes enlazar una afirmación con una fuente, una fecha y el alcance exacto de esa fuente, todavía tienes una hipótesis, no una conclusión.</p>
 <p>El siguiente paso útil sería aprender a comparar versiones de una propuesta europea y sus documentos preparatorios, construyendo una cronología que permita distinguir participación pública, cambios técnicos e influencia demostrable.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -1062,7 +1062,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion"/>
         <updated>2026-07-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-28-global-forest-watch-osint-alertas-verificacion-e3bdb6afe1dde4c98631a21bf2001945.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-28-global-forest-watch-osint-alertas-verificacion-e3bdb6afe1dde4c98631a21bf2001945.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/global-forest-watch-osint-alertas-verificacion-4425d8f8b381b5776a10f7905d5bb84f.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una organización asegura que una carretera ha provocado tala ilegal dentro de una reserva. En el mapa aparecen píxeles de alerta, una cicatriz lineal y pérdida de cobertura arbórea. La historia parece cerrada, pero todavía faltan preguntas decisivas: ¿la señal corresponde a una perturbación reciente?, ¿el límite de la reserva está actualizado?, ¿hubo fuego, tormenta, cosecha forestal o nubes?, ¿qué norma se habría infringido? <code>Global Forest Watch</code> ayuda a encontrar dónde mirar, pero no convierte automáticamente una anomalía satelital en una causa, un responsable o un delito.</p>
 <p>Este artículo propone un flujo responsable para periodismo ambiental, seguimiento de compromisos, investigación académica y debida diligencia. Trabajaremos con lugares y entidades ficticios. El objetivo es priorizar comprobaciones y conservar la trazabilidad, no vigilar a comunidades, señalar a trabajadores ni publicar coordenadas sensibles sin evaluar el daño.</p>
@@ -1186,8 +1186,8 @@
 <li class=""><a href="https://data-api.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch Data API</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="GEOINT" term="GEOINT"/>
@@ -1202,7 +1202,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad"/>
         <updated>2026-07-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-27-world-bank-projects-operations-osint-trazabilidad-d7bc27bb10dde04814896867dd9995dd.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-27-world-bank-projects-operations-osint-trazabilidad-d7bc27bb10dde04814896867dd9995dd.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/world-bank-projects-operations-osint-trazabilidad-04063aa88be3f2a572f1975229d23209.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una constructora afirma haber ejecutado «el gran proyecto de agua del Banco Mundial» en una región. La frase parece verificable, pero puede esconder varias confusiones: un proyecto aprobado no es una obra terminada, un importe comprometido no equivale a dinero cobrado por una empresa y un aviso de licitación no demuestra una adjudicación. <code>World Bank Projects &amp; Operations</code> permite ordenar esas piezas alrededor de un identificador común, siempre que mantengamos separadas <strong>propuesta, financiación, ejecución, contratación y resultado</strong>.</p>
 <p>Este artículo propone un flujo responsable para debida diligencia, periodismo de datos, seguimiento de políticas públicas y evaluación de afirmaciones corporativas. Trabajaremos con una organización y un proyecto ficticios. El objetivo es reconstruir hechos institucionales publicados, no perfilar a empleados, hostigar a licitadores ni presentar una coincidencia nominal como prueba de fraude.</p>
@@ -1393,8 +1393,8 @@
 <p>El siguiente ejercicio práctico es pequeño y útil: elige un proyecto cerrado, conserva su Project ID y construye una línea temporal con solo seis documentos —información inicial, evaluación, acuerdo, primer ISR, última reestructuración e informe de cierre—. Después intenta explicar, en diez líneas y sin adjetivos acusatorios, <strong>qué se prometió, qué cambió, qué se contrató y qué se informó como resultado</strong>.</p>
 <p>Esa disciplina convierte un portal enorme en una investigación auditable. El siguiente tema natural sería comparar una muestra de proyectos entre <code>Projects &amp; Operations</code> e <code>IATI</code> para medir diferencias de cobertura sin confundirlas con contradicciones.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Due Diligence" term="Due Diligence"/>
@@ -1409,7 +1409,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto"/>
         <updated>2026-07-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comprobando la procedencia, las citas, las versiones y las actualizaciones de varios registros académicos]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comprobando la procedencia, las citas, las versiones y las actualizaciones de varios registros académicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-26-crossref-osint-metadatos-verificacion-4f1dbccbdc1e5f92368a98a2f654e75a.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comprobando la procedencia, las citas, las versiones y las actualizaciones de varios registros académicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-26-crossref-osint-metadatos-verificacion-4f1dbccbdc1e5f92368a98a2f654e75a.png" width="1376" height="768" class="img_ev3q"></p>
 <p>Una consultora presenta un estudio como «la prueba definitiva» de que su producto reduce un riesgo industrial. El documento tiene DOI, autores reconocibles y decenas de citas. Parece una referencia sólida hasta que aparecen una corrección posterior, una afiliación incompleta y dos versiones con fechas distintas. <code>Crossref</code> ayuda a ordenar esas pistas, pero obliga a conservar una distinción esencial: <strong>un DOI identifica un objeto; no certifica que sus conclusiones sean ciertas, que siga vigente ni que sus metadatos estén completos</strong>.</p>
 <p>Este artículo propone un flujo responsable para examinar publicaciones en debida diligencia, verificación periodística, revisión bibliográfica e investigación de integridad científica. El objetivo es reconstruir procedencia y estado documental, no elaborar perfiles de investigadores ni convertir una anomalía bibliográfica en una acusación.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-crossref-y-para-qué-sirve-en-osint">Qué es Crossref y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/crossref-osint-doi-metadatos-retractaciones-contexto#qu%C3%A9-es-crossref-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Crossref y para qué sirve en OSINT" title="Enlace directo al Qué es Crossref y para qué sirve en OSINT" translate="no">​</a></h2>
@@ -1521,8 +1521,8 @@
 <p>La próxima vez que una afirmación venga respaldada por «un estudio con DOI», no preguntes solo si el enlace funciona. Identifica el objeto exacto, separa sus fechas, recorre sus relaciones, busca actualizaciones y vuelve al contenido original. El takeaway es operativo: <strong>Crossref construye el mapa; la evidencia aparece cuando verificas cada conexión en su fuente y documentas lo que el mapa no puede saber</strong>.</p>
 <p>Como siguiente tema, merece la pena comparar Crossref y DataCite sobre un mismo caso ficticio para entender qué relaciones aparecen en cada infraestructura y cómo evitar dobles conteos.</p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Investigacion" term="Investigacion"/>
@@ -1537,7 +1537,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/espacenet-osint-patentes-familias-citas-contexto"/>
         <updated>2026-07-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-25-espacenet-osint-patentes-familias-citas-contexto-e08f3b6d11757f4e1c3a5ed6ef644bd5.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando dibujos técnicos, clasificaciones, citas, familias de patentes y un registro público" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-25-espacenet-osint-patentes-familias-citas-contexto-e08f3b6d11757f4e1c3a5ed6ef644bd5.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/espacenet-osint-patentes-familias-citas-contexto-9ed99dafd53479e567259303b5a26f70.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una empresa afirma haber inventado una tecnología «única» para evitar el sobrecalentamiento de baterías. La nota de prensa es rotunda; la cronología, no tanto. Hay solicitudes con nombres parecidos, varios países, inventores que cambian y documentos citados muchos años antes. <code>Espacenet</code> permite reconstruir ese paisaje, pero exige una disciplina básica: <strong>una publicación no demuestra que una patente esté concedida, vigente, sea propiedad actual de quien aparece en la ficha ni cubra exactamente lo que anuncia una campaña comercial</strong>.</p>
 <p>Este artículo propone un flujo responsable para usar información de patentes en debida diligencia, periodismo tecnológico, análisis competitivo e investigación académica. El objetivo es comprobar afirmaciones públicas y entender trayectorias técnicas, no apropiarse de secretos, acosar a inventores ni convertir coincidencias de nombres en acusaciones.</p>
@@ -1715,8 +1715,8 @@
 <li class=""><a href="https://www.epo.org/en/searching-for-patents/technical/publication-server" target="_blank" rel="noopener noreferrer" class="">EPO: European Publication Server</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Herramientas" term="Herramientas"/>
@@ -1731,7 +1731,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto"/>
         <updated>2026-07-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contexto-f1d57acdaf5f985f7721bc3ccdae22c7.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contexto-f1d57acdaf5f985f7721bc3ccdae22c7.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/wikimedia-commons-osint-procedencia-metadatos-contexto-7f98f5f6a826fb0a502b561056954796.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una fotografía antigua aparece en un informe y parece resolver el caso: edificio correcto, década plausible y una descripción muy precisa. Además, procede de Wikimedia Commons, así que la tentación es tratarla como una imagen ya verificada. Es justo ahí donde empieza el trabajo. Commons puede ofrecer <strong>ficha, autoría declarada, historial de versiones, categorías, datos estructurados y licencia</strong>, pero ninguna de esas capas convierte por sí sola una descripción comunitaria en un hecho probado.</p>
 <p>Usado con método, Wikimedia Commons es mucho más que un banco de imágenes. Es un punto de partida para reconstruir la procedencia de un archivo, localizar colecciones relacionadas y documentar qué se sabía —o qué se afirmaba— en un momento concreto. Usado deprisa, también puede amplificar fechas heredadas, atribuciones circulares y categorías demasiado optimistas.</p>
@@ -1877,8 +1877,8 @@
 <li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/Modeling/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Structured data modeling</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Verificacion" term="Verificacion"/>
@@ -1893,7 +1893,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos"/>
         <updated>2026-07-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-23-google-dataset-search-osint-descubrir-validar-datos-284a51a8a6dd0a78e8ca1ef42d91ce4a.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-23-google-dataset-search-osint-descubrir-validar-datos-284a51a8a6dd0a78e8ca1ef42d91ce4a.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/google-dataset-search-osint-descubrir-validar-datos-e6a19bc497b5824683bb512ee3acf672.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Un informe asegura que una ciudad ha reducido a la mitad sus incidentes de tráfico. La gráfica parece convincente, pero no explica si cambió la definición de «incidente», si faltan meses ni quién mantiene los datos. Antes de discutir la conclusión necesitamos encontrar el dataset original, su cobertura, su licencia y su metodología. <code>Google Dataset Search</code> puede acortar esa búsqueda, siempre que recordemos una regla sencilla: <strong>encontrar un conjunto de datos no equivale a validarlo</strong>.</p>
 <p>Este artículo propone un flujo responsable para localizar datos públicos y convertir un resultado de búsqueda en una fuente evaluable. Está pensado para periodismo de datos, investigación académica, debida diligencia y análisis de políticas públicas. No es una invitación a combinar datasets para identificar, perfilar o señalar a personas.</p>
@@ -2030,8 +2030,8 @@
 <li class=""><a href="https://schema.org/DataCatalog" target="_blank" rel="noopener noreferrer" class="">Schema.org: DataCatalog</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Datos" term="Datos"/>
@@ -2046,7 +2046,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/mapillary-osint-geolocalizacion-visual-contexto"/>
         <updated>2026-07-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-22-mapillary-osint-geolocalizacion-visual-contexto-ea034adcceebd0fd1915fef0ac8cc9f2.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando imágenes urbanas ficticias, un mapa, filtros temporales y una cronología de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-22-mapillary-osint-geolocalizacion-visual-contexto-ea034adcceebd0fd1915fef0ac8cc9f2.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/mapillary-osint-geolocalizacion-visual-contexto-96e65874978bf54d489cda4dff458d3c.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una fotografía muestra una calle sin rótulos legibles: una marquesina, tres bolardos, una señal parcialmente tapada y una fachada en obras. Alguien asegura que fue tomada ayer junto a una sede concreta. La escena parece reconocible, pero <strong>parecerse no basta</strong>. Antes de ubicarla hay que encontrar una vista comparable, comprobar cuándo se capturó, separar rasgos estables de detalles pasajeros y buscar una segunda fuente independiente. <code>Mapillary</code> puede aportar esa vista a pie de calle, siempre que el analista trate cada imagen como una observación situada en el tiempo y no como una respuesta automática.</p>
 <p>Este artículo propone un método responsable para usar imágenes públicas de nivel de calle en verificación geográfica. No está pensado para identificar domicilios particulares, seguir personas ni explorar zonas sensibles. La pregunta legítima es otra: <strong>¿qué elementos públicos y no personales permiten comprobar o refutar una hipótesis de lugar sin sobrepasar la evidencia?</strong></p>
@@ -2194,8 +2194,8 @@
 <li class=""><a href="https://github.com/mapillary/mapillary-python-sdk" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de Mapillary Python SDK</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="GEOINT" term="GEOINT"/>
@@ -2210,7 +2210,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/vies-osint-validar-iva-intracomunitario-contexto"/>
         <updated>2026-07-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-21-vies-osint-validar-iva-intracomunitario-contexto-47f69bc0c697a71c40d3ff016cb4021e.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista contrastando una factura ficticia, un número de IVA intracomunitario y un registro de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-21-vies-osint-validar-iva-intracomunitario-contexto-47f69bc0c697a71c40d3ff016cb4021e.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/vies-osint-validar-iva-intracomunitario-contexto-15e3f346ae97efc8d181ae2f61d5fd18.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una empresa recién llegada propone entregar material por valor de cinco cifras, envía una factura impecable y asegura operar desde otro país de la Unión Europea. El membrete convence; el número de IVA también parece plausible. Antes de convertir esa apariencia en confianza, hay una comprobación pequeña y muy útil: <strong>preguntar a VIES si ese identificador está registrado para operaciones intracomunitarias y guardar el resultado con fecha, contexto y límites claros</strong>.</p>
 <p>VIES no decide si el proveedor existe realmente, si controla una cuenta bancaria o si cumplirá el contrato. Tampoco emite números fiscales. Bien utilizado, aporta una pieza oficial y reproducible a una investigación de due diligence. Mal utilizado, convierte un simple <code>válido</code> en una garantía que el sistema nunca prometió.</p>
@@ -2314,8 +2314,8 @@
 </ul>
 <p><em>Fuentes revisadas el 21 de julio de 2026. Los procedimientos fiscales pueden cambiar y las reglas nacionales pueden añadir requisitos: verifica siempre la información vigente para la jurisdicción y la operación concretas.</em></p>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Due Diligence" term="Due Diligence"/>
@@ -2330,7 +2330,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias"/>
         <updated>2026-07-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando mapas de comercio, códigos de producto, documentos aduaneros y una cronología reproducible]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando mapas de comercio, códigos de producto, documentos aduaneros y una cronología reproducible" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-20-un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias-dad2ed7eeb734e3aa4ade1b99b2489d7.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando mapas de comercio, códigos de producto, documentos aduaneros y una cronología reproducible" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-20-un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias-dad2ed7eeb734e3aa4ade1b99b2489d7.png" width="1376" height="768" class="img_ev3q"></p>
 <p>Una gráfica asegura que las exportaciones de un producto se han disparado. Otra, construida con el país socio, cuenta algo distinto. Antes de hablar de evasión, desvíos o una nueva ruta comercial, quedan preguntas bastante menos vistosas: <strong>¿qué país informó el dato, qué código de producto se usó, qué revisión estaba vigente y se están comparando importaciones CIF con exportaciones FOB?</strong> <code>UN Comtrade</code> sirve para responderlas con estadísticas oficiales abiertas, siempre que el analista trate cada cifra como una observación documentada y no como una acusación.</p>
 <p>Revisando la documentación oficial el <strong>20 de julio de 2026</strong>, la División de Estadística de Naciones Unidas describe <code>UN Comtrade</code> como una plataforma que agrega estadísticas comerciales anuales y mensuales por producto y socio, comunicadas por las autoridades estadísticas de los países y territorios. El portal permite explorar mercancías y servicios, consultar clasificaciones como <code>HS</code>, <code>SITC</code> y <code>BEC</code>, descargar resultados y trabajar mediante API. También advierte que los datos se incorporan y revisan continuamente, y que no existe un calendario fijo para la publicación de cada país.</p>
 <p>Eso la convierte en una fuente extraordinaria para investigar tendencias agregadas, dependencias comerciales o aparentes discrepancias. No la convierte en un registro de envíos individuales ni en una prueba directa sobre una empresa o una persona. Este artículo está pensado para periodistas de datos, analistas de riesgo, investigadores académicos y equipos de debida diligencia. No es una guía para perfilar individuos, eludir controles comerciales o señalar conductas ilícitas sin evidencia primaria.</p>
@@ -2502,8 +2502,8 @@
 <li class=""><a href="https://unstats.un.org/unsd/trade/data/tables.asp" target="_blank" rel="noopener noreferrer" class="">UNSD — tablas analíticas de comercio y notas sobre revisiones</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Datos" term="Datos"/>
@@ -2518,7 +2518,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad"/>
         <updated>2026-07-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-19-ted-osint-contratacion-publica-europea-trazabilidad-dbeb38289be7995d0892900154e11cd6.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista revisando anuncios de contratación pública, categorías CPV y una cronología documental europea" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-19-ted-osint-contratacion-publica-europea-trazabilidad-dbeb38289be7995d0892900154e11cd6.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/ted-osint-contratacion-publica-europea-trazabilidad-46bf2a751b5e7b544750d0b457be4c4d.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una cifra llamativa en un contrato público puede parecer el final de una investigación. En realidad, suele ser el principio: ¿era una estimación o el importe adjudicado?, ¿hablamos de un lote o del procedimiento completo?, ¿hubo una corrección posterior?, ¿la empresa mencionada ganó o solo presentó una oferta? <code>TED</code>, la versión en línea del suplemento del Diario Oficial de la Unión Europea, permite reconstruir buena parte de esa historia con fuentes abiertas. El reto no es encontrar un nombre, sino <strong>seguir el procedimiento sin convertir un anuncio aislado en una conclusión</strong>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-ted-y-para-qué-sirve-en-osint">Qué es TED y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/ted-osint-contratacion-publica-europea-trazabilidad#qu%C3%A9-es-ted-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es TED y para qué sirve en OSINT" title="Enlace directo al Qué es TED y para qué sirve en OSINT" translate="no">​</a></h2>
@@ -2654,8 +2654,8 @@
 <li class=""><a href="https://docs.ted.europa.eu/eforms/latest/schema/documents-forms-and-notices.html" target="_blank" rel="noopener noreferrer" class="">Documentación eForms: formularios y tipos de anuncio</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Due Diligence" term="Due Diligence"/>
@@ -2670,7 +2670,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/gleif-lei-osint-identidad-corporativa-contexto"/>
         <updated>2026-07-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-18-gleif-lei-osint-identidad-corporativa-contexto-d479f6d3c767ddcbb01ddf15376238e7.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con identificadores LEI, documentos registrales publicos, grafo de entidades y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-18-gleif-lei-osint-identidad-corporativa-contexto-d479f6d3c767ddcbb01ddf15376238e7.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/gleif-lei-osint-identidad-corporativa-contexto-c672988aef316908fb7193b06515fe72.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Una empresa puede aparecer con tres nombres comerciales, dos domicilios, una filial local y un intermediario que usa una abreviatura parecida. En ese punto, el riesgo OSINT no es quedarse sin datos: es <strong>unir entidades distintas porque se parecen, o separar la misma entidad porque cambia de idioma, jurisdiccion o registro</strong>. El identificador <code>LEI</code>, mantenido en el ecosistema de <code>GLEIF</code>, ayuda justo en esa zona gris: convertir nombres corporativos en identidades legales mas trazables antes de hablar de ownership, riesgo o responsabilidad.</p>
 <p>Revisando la documentacion oficial el <strong>18 de julio de 2026</strong>, <code>GLEIF</code> describe el <code>Legal Entity Identifier</code> como un codigo alfanumerico unico de <code>20</code> caracteres que permite acceder a datos claros de identificacion de una entidad juridica. La documentacion del <code>Global LEI Index</code> lo presenta como un repositorio central con registros historicos y actuales, abierto para consulta gratuita mediante buscador web, descargas y <code>API</code>. Una consulta minima a la API el mismo dia devolvio <code>goldenCopy.publishDate=2026-07-17T16:00:00Z</code> y <code>3.376.314</code> registros, una fotografia util para contextualizar escala sin tratarla como cifra permanente.</p>
@@ -2806,8 +2806,8 @@
 <li class=""><a href="https://www.gleif.org/en/lei-data/access-and-use-lei-data/supporting-documents" target="_blank" rel="noopener noreferrer" class="">Supporting Documents - GLEIF</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Due Diligence" term="Due Diligence"/>
@@ -2822,7 +2822,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/iati-osint-ayuda-humanitaria-flujos-financiacion-contexto"/>
         <updated>2026-07-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustracion editorial de una analista OSINT revisando datos abiertos de ayuda humanitaria, flujos de financiacion, tablas CSV, mapas y notas de verificacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando datos abiertos de ayuda humanitaria, flujos de financiacion, tablas CSV, mapas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-17-iati-osint-ayuda-humanitaria-flujos-financiacion-contexto-6fd61134b862b645f6efbd6f8022271f.png" width="1408" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una analista OSINT revisando datos abiertos de ayuda humanitaria, flujos de financiacion, tablas CSV, mapas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-17-iati-osint-ayuda-humanitaria-flujos-financiacion-contexto-6fd61134b862b645f6efbd6f8022271f.png" width="1408" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/podcasts/iati-osint-ayuda-humanitaria-flujos-financiacion-contexto.m4a">Descargar el podcast</a></p>
 <p>Una cifra de ayuda internacional puede viajar muy rapido: un titular, una promesa de financiacion, una tabla de proyecto y una captura de mapa. El problema es que en cooperacion y accion humanitaria <strong>dinero anunciado, comprometido, desembolsado y gastado no significan lo mismo</strong>. <code>IATI</code> ayuda a poner orden en ese terreno, siempre que el analista trate sus datos como una pista estructurada y no como una sentencia automatica sobre impacto, fraude o responsabilidad.</p>
 <p>Revisando la documentacion oficial el <strong>17 de julio de 2026</strong>, la <code>International Aid Transparency Initiative</code> se presenta como una iniciativa global para mejorar la transparencia de los recursos de desarrollo y humanitarios. Su pagina principal mostraba <code>1.038.446</code> actividades publicadas y <code>1.846</code> publicadores. La plataforma permite explorar datos mediante <code>d-portal</code>, <code>Country Development Finance Data</code>, <code>Datastore Search</code> y <code>Datastore API v3</code>, con salidas en <code>XML</code>, <code>JSON</code> y <code>CSV</code> para analisis posterior.</p>
@@ -2932,8 +2932,8 @@
 <li class=""><a href="https://iatistandard.org/en/iati-standard/203/organisation-standard/" target="_blank" rel="noopener noreferrer" class="">Organisation Standard 2.03</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Datos" term="Datos"/>
@@ -2948,7 +2948,7 @@
         <link href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto"/>
         <updated>2026-07-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-contexto-16ddeaf45094510cfa36ce38d9daa1d8.png" width="1376" height="768" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-contexto-16ddeaf45094510cfa36ce38d9daa1d8.png" width="1376" height="768" class="img_ev3q"></p>
 <p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/courtlistener-recap-osint-expedientes-judiciales-contexto-7e551eddfa9fb59d7c2f17786356da13.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p>Un expediente judicial puede parecer una prueba definitiva porque suena formal, viene de un tribunal y tiene numero de caso. En OSINT responsable, esa sensacion es peligrosa: una demanda no es una sentencia, una entrada de docket no cuenta todo el litigio y una coincidencia de nombre puede arruinar una investigacion si no se valida jurisdiccion, fecha, parte, documento y estado procesal. <code>CourtListener</code> y <code>RECAP</code> ayudan justo en ese punto: abrir registros legales publicos con trazabilidad, pero sin convertir cada hallazgo en acusacion.</p>
 <p>Revisando la documentacion oficial el <strong>16 de julio de 2026</strong>, <code>CourtListener</code>, proyecto de <code>Free Law Project</code>, se presenta como un archivo searchable de opiniones judiciales, alegaciones orales, jueces, declaraciones financieras judiciales y filings federales. Su pagina de proyecto indica que incluye mas de <code>10 millones</code> de opiniones en cientos de jurisdicciones, el archivo <code>RECAP</code> de datos <code>PACER</code> con cientos de millones de entradas de docket y decenas de millones de documentos, alertas para monitorizar casos o terminos de busqueda, y APIs para investigadores y desarrolladores. La API documentada en ese momento era <code>REST API v4.4</code>.</p>
@@ -3087,8 +3087,8 @@
 <li class=""><a href="https://free.law/2026/05/07/api-included-in-memberships/" target="_blank" rel="noopener noreferrer" class="">Full CourtListener Data Access via API Now Included with Membership</a></li>
 </ul>]]></content>
         <author>
-            <name>OSINT Writter</name>
-            <uri>https://github.com/spainfsd-creator</uri>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
         </author>
         <category label="OSINT" term="OSINT"/>
         <category label="Due Diligence" term="Due Diligence"/>
