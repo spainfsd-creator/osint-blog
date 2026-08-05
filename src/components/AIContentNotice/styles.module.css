@@ -13,7 +13,7 @@
 .badge {
   background: var(--ifm-color-primary);
   border-radius: 999px;
-  color: var(--ifm-background-color);
+  color: #fff;
   flex: 0 0 auto;
   font-size: 0.72rem;
   font-weight: 800;
