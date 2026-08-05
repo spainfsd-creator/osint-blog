@@ -9,6 +9,9 @@ image: /img/blog/2026-08-05-ror-osint-organizaciones-investigacion.png
 
 ![Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación](/img/blog/2026-08-05-ror-osint-organizaciones-investigacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad.m4a)
+
+
 Una memoria de proyecto menciona a la «Universidad Central», un artículo firma como «UC Research Centre» y una ficha de financiación usa el nombre anterior de la institución. El grafo parece mostrar tres organizaciones; quizá solo haya una, o quizá estemos a punto de fusionar entidades distintas. `ROR`, el **Research Organization Registry**, ayuda a ordenar ese problema con identificadores persistentes y metadatos abiertos. Lo que no hace —y conviene decirlo desde el principio— es demostrar que una persona trabaja hoy en una institución, que dos entidades comparten control o que una publicación es fiable.
 
 <!-- truncate -->
