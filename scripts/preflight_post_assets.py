@@ -6,7 +6,16 @@ import sys
 from pathlib import Path
 
 
-REQUIRED_FRONTMATTER_KEYS = {"title", "slug", "authors", "tags", "date", "image"}
+REQUIRED_FRONTMATTER_KEYS = {
+    "title",
+    "slug",
+    "authors",
+    "tags",
+    "date",
+    "image",
+    "aiDisclosure",
+    "humanReviewed",
+}
 
 
 def read_text(path: Path) -> str:
@@ -63,6 +72,12 @@ def check_post(repo: Path, post_path: Path) -> list[str]:
     missing = REQUIRED_FRONTMATTER_KEYS - set(fm.keys())
     if missing:
         errors.append(f"Faltan claves de frontmatter: {', '.join(sorted(missing))}")
+
+    if fm.get("aiDisclosure") != "generated":
+        errors.append("`aiDisclosure` debe ser `generated` en este experimento automatizado")
+
+    if fm.get("humanReviewed", "").lower() != "false":
+        errors.append("`humanReviewed` debe ser `false`: las entradas no pasan revisión humana")
 
     image_value = fm.get("image", "")
     if image_value:

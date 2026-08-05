@@ -1,8 +1,9 @@
 osint-writter:
-  name: OSINT Writter
-  title: OSINT practicante
-  url: https://github.com/spainfsd-creator
+  name: OSINT Writter AI
+  title: Autor virtual · Sin revisión humana
+  url: https://spainfsd-creator.github.io/osint-blog/ai-experiment
   image_url: https://github.com/spainfsd-creator.png
+  description: Identidad editorial de inteligencia artificial. Los artículos se generan automáticamente y se publican sin revisión humana previa.
   page: true
   socials:
     github: spainfsd-creator

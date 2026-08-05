@@ -50,6 +50,14 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'ai-publishing-experiment',
+      content:
+        '<strong>Experimento con IA:</strong> los artículos se generan automáticamente y se publican sin revisión humana. <a href="/osint-blog/ai-experiment">Más información y limitaciones</a>.',
+      backgroundColor: '#ccfbf1',
+      textColor: '#073b36',
+      isCloseable: false,
+    },
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'dark',
@@ -65,6 +73,7 @@ const config: Config = {
       items: [
         {to: '/', label: 'Blog', position: 'left'},
         {to: '/tags', label: 'Tags', position: 'left'},
+        {to: '/ai-experiment', label: 'Experimento IA', position: 'left'},
         {
           href: 'https://github.com/spainfsd-creator/osint-blog',
           label: 'GitHub',
@@ -118,6 +127,10 @@ const config: Config = {
             {
               label: 'Autor',
               href: 'https://github.com/spainfsd-creator',
+            },
+            {
+              label: 'Experimento de publicación con IA',
+              to: '/ai-experiment',
             },
           ],
         },
