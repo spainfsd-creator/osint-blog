@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-05T00:00:00.000Z</updated>
+    <updated>2026-08-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Open Food Facts en OSINT: códigos de barras, etiquetas y trazabilidad sin confundir datos colaborativos con prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad"/>
+        <updated>2026-08-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una mesa de investigación OSINT con un envase ficticio, código de barras, fotografías de etiqueta y controles de calidad]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una mesa de investigación OSINT con un envase ficticio, código de barras, fotografías de etiqueta y controles de calidad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-06-open-food-facts-osint-verificacion-ef43569973278ef9ed36598e6a49e283.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una fotografía borrosa de un lote retirado muestra media etiqueta, un código de barras y una marca que parece distinta de la citada en el aviso oficial. En pocos minutos aparecen tres fichas del producto, dos ingredientes incompatibles y una fecha de edición posterior a la alerta. El código de barras promete una respuesta única, pero solo ofrece una <strong>clave de búsqueda</strong>. Para convertirla en evidencia hacen falta imágenes, revisiones, fechas, procedencia y una fuente primaria que cierre la comprobación.</p>
+<p><a href="https://openfoodfacts.github.io/documentation/docs/" target="_blank" rel="noopener noreferrer" class="">Open Food Facts</a> puede ayudar en investigaciones legítimas sobre retiradas de producto, verificación de fotografías, transparencia alimentaria, fraude comercial o cambios de etiquetado. Su valor está en reunir datos estructurados y fotografías aportadas por una comunidad. Su límite nace exactamente del mismo lugar: una ficha colaborativa puede estar incompleta, desactualizada o equivocada. Este artículo propone usarla como <strong>índice de pistas</strong>, nunca como sustituto de la etiqueta física, del fabricante o de la autoridad competente.</p>
+<p>Todos los productos, empresas, lotes y documentos del caso práctico son ficticios. No se ofrecen recomendaciones médicas ni conclusiones sobre la seguridad de alimentos reales.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-open-food-facts-y-para-qué-sirve-en-osint">Qué es Open Food Facts y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#qu%C3%A9-es-open-food-facts-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Open Food Facts y para qué sirve en OSINT" title="Enlace directo al Qué es Open Food Facts y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Open Food Facts es una base colaborativa y abierta de productos alimentarios. Sus fichas pueden contener el código de barras, denominación, marcas, cantidad, categorías, países de venta, ingredientes, alérgenos, valores nutricionales, etiquetas, envase y fotografías del frontal, ingredientes y tabla nutricional. También ofrece una API y volcados para reutilización a escala.</p>
+<p>La <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/" target="_blank" rel="noopener noreferrer" class="">documentación oficial de la API</a> advierte expresamente que los datos son aportados voluntariamente y que no existe garantía de que sean exactos, completos o fiables. Esa frase define la posición correcta de la herramienta en un flujo OSINT:</p>
+<ul>
+<li class="">sirve para localizar rápidamente una ficha a partir de un GTIN, EAN o UPC;</li>
+<li class="">ayuda a comparar lo estructurado con las fotografías que lo originaron;</li>
+<li class="">permite detectar variantes de idioma, formato, mercado o envase;</li>
+<li class="">aporta metadatos de creación, modificación, autoría y revisión;</li>
+<li class="">facilita descubrir inconsistencias que después deben corroborarse;</li>
+<li class="">no demuestra por sí sola quién fabricó una unidad, dónde se vendió ni si un lote estaba afectado por una alerta.</li>
+</ul>
+<p>El <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product/" target="_blank" rel="noopener noreferrer" class="">esquema de producto</a> trata las imágenes como fuente primaria de los datos estructurados de la ficha. Es una pista metodológica excelente: si el campo dice «contiene almendras», busca la fotografía legible de ingredientes que respalde esa transcripción. Si no existe, marca el dato como pendiente; no rellenes la ausencia con confianza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-código-de-barras-identifica-una-referencia-no-toda-la-historia">El código de barras identifica una referencia, no toda la historia<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#el-c%C3%B3digo-de-barras-identifica-una-referencia-no-toda-la-historia" class="hash-link" aria-label="Enlace directo al El código de barras identifica una referencia, no toda la historia" title="Enlace directo al El código de barras identifica una referencia, no toda la historia" translate="no">​</a></h2>
+<p>Un código de barras no es una matrícula universal de cada unidad física. Normalmente identifica una referencia comercial, pero no prueba por sí solo el lote, la fecha de fabricación, el establecimiento, la autenticidad del envase ni la composición vigente en todos los mercados.</p>
+<p>Además, los códigos pueden representarse con distinta longitud. La <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-barcode-normalization/" target="_blank" rel="noopener noreferrer" class="">referencia de normalización</a> explica cómo Open Food Facts añade ceros iniciales en determinados UPC y EAN para evitar duplicados. Conviene conservar siempre dos valores:</p>
+<ol>
+<li class="">el código observado literalmente en la imagen o el objeto;</li>
+<li class="">el código normalizado devuelto por la plataforma.</li>
+</ol>
+<p>Esa separación evita afirmar que la fuente mostraba trece dígitos cuando en realidad mostraba doce. También permite reconstruir por qué dos consultas aparentemente distintas llegaron a la misma ficha.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-alerta-de-alérgenos">Caso de uso legítimo: comprobar una alerta de alérgenos<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#caso-de-uso-leg%C3%ADtimo-comprobar-una-alerta-de-al%C3%A9rgenos" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una alerta de alérgenos" title="Enlace directo al Caso de uso legítimo: comprobar una alerta de alérgenos" translate="no">​</a></h2>
+<p>Imaginemos que la asociación ficticia <code>Mesa Clara</code> recibe una fotografía pública de una caja de barritas <code>Bosque Norte</code>. Una alerta autonómica menciona un lote con posible presencia no declarada de almendra. La imagen difundida muestra un código de barras legible y parte del lote, pero la ficha comunitaria contiene dos listas de ingredientes distintas.</p>
+<p>El objetivo proporcionado no es identificar a quien subió la foto ni rastrear compradores. Es responder:</p>
+<ol>
+<li class="">¿La referencia de producto parece coincidir con la descrita en la alerta?</li>
+<li class="">¿Qué versión de la etiqueta muestran las fotografías disponibles?</li>
+<li class="">¿Qué dato sigue sin poder verificarse y qué fuente primaria falta?</li>
+</ol>
+<p>Una tabla de trabajo mínima podría ser esta:</p>
+<table><thead><tr><th>ID</th><th>Evidencia</th><th>Observación</th><th>Fuerza</th><th>Siguiente paso</th></tr></thead><tbody><tr><td><code>IMG-01</code></td><td>Fotografía recibida</td><td>GTIN visible; lote parcial</td><td>Media</td><td>Preservar original y calcular hash</td></tr><tr><td><code>OFF-01</code></td><td>Ficha comunitaria</td><td>Coincide el GTIN; dos ediciones</td><td>Indicio</td><td>Revisar imágenes y revisiones</td></tr><tr><td><code>AUT-01</code></td><td>Aviso oficial</td><td>Producto y lote afectados</td><td>Alta</td><td>Confirmar fecha y alcance territorial</td></tr><tr><td><code>FAB-01</code></td><td>Comunicado del fabricante</td><td>Diseño de envase y canales</td><td>Alta</td><td>Comparar con <code>IMG-01</code></td></tr></tbody></table>
+<p>La pregunta decisiva no es «¿qué dice Open Food Facts?», sino «¿qué afirmación concreta está respaldada por qué imagen, en qué revisión y frente a qué documento oficial?».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-hipótesis-y-el-umbral-de-prueba">1. Define la hipótesis y el umbral de prueba<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#1-define-la-hip%C3%B3tesis-y-el-umbral-de-prueba" class="hash-link" aria-label="Enlace directo al 1. Define la hipótesis y el umbral de prueba" title="Enlace directo al 1. Define la hipótesis y el umbral de prueba" translate="no">​</a></h3>
+<p>Escribe una pregunta falsable antes de buscar. Por ejemplo: «La fotografía muestra la misma referencia y el mismo lote que el aviso publicado el 4 de agosto». Separa los componentes: referencia, lote, mercado, fecha, envase y composición.</p>
+<p>Decide también qué resultado admitirás: confirmado, compatible, contradictorio o no verificable. Una coincidencia de marca y color de caja no basta para confirmar una retirada; un código de barras coincidente tampoco resuelve el lote.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-preserva-la-observación-original">2. Preserva la observación original<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#2-preserva-la-observaci%C3%B3n-original" class="hash-link" aria-label="Enlace directo al 2. Preserva la observación original" title="Enlace directo al 2. Preserva la observación original" translate="no">​</a></h3>
+<p>Guarda la fotografía o captura tal como se recibió, anota URL, fecha y zona horaria, y calcula un hash. Conserva una copia de trabajo para recortar o mejorar contraste sin sustituir el original. Registra literalmente:</p>
+<ul>
+<li class="">dígitos visibles del código;</li>
+<li class="">lote, fecha de consumo y cantidad si se leen;</li>
+<li class="">idioma y mercado aparente;</li>
+<li class="">ingredientes y alérgenos visibles;</li>
+<li class="">rasgos del envase que puedan cambiar entre versiones.</li>
+</ul>
+<p>No publiques datos personales incidentales: tickets, nombres, direcciones, reflejos o metadatos de quien tomó la foto rara vez son necesarios para verificar un producto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-consulta-por-código-y-pide-solo-los-campos-necesarios">3. Consulta por código y pide solo los campos necesarios<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#3-consulta-por-c%C3%B3digo-y-pide-solo-los-campos-necesarios" class="hash-link" aria-label="Enlace directo al 3. Consulta por código y pide solo los campos necesarios" title="Enlace directo al 3. Consulta por código y pide solo los campos necesarios" translate="no">​</a></h3>
+<p>La API permite recuperar una ficha por código sin autenticación de lectura, aunque exige identificar la aplicación con un <code>User-Agent</code>. Una consulta reproducible puede limitar la respuesta:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://world.openfoodfacts.org/api/v3/product/0000000000000' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --header 'User-Agent: InvestigacionDoc/1.0 (contacto@example.invalid)' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'fields=code,product_name,brands,quantity,ingredients_text,allergens_tags,countries_tags,images,rev,created_t,last_modified_t,last_updated_t,data_quality_tags'</span><br></span></code></pre></div></div>
+<p>El código es deliberadamente ficticio. Sustitúyelo solo por una referencia que tengas derecho y motivo legítimo para investigar. Conserva la petición, el estado HTTP, la respuesta y la hora. La documentación fija límites distintos para lecturas de producto y búsquedas; si necesitas cientos de fichas, usa los volcados oficiales en vez de raspar el sitio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-contrasta-cada-campo-con-su-fotografía">4. Contrasta cada campo con su fotografía<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#4-contrasta-cada-campo-con-su-fotograf%C3%ADa" class="hash-link" aria-label="Enlace directo al 4. Contrasta cada campo con su fotografía" title="Enlace directo al 4. Contrasta cada campo con su fotografía" translate="no">​</a></h3>
+<p>Abre las imágenes del frontal, ingredientes y nutrición en el idioma pertinente. Comprueba que pertenecen a la misma presentación y que son suficientemente legibles. Una ficha puede mezclar fotografías tomadas en fechas o mercados distintos. Señala, por cada campo:</p>
+<ul>
+<li class=""><strong>observado</strong>, si se lee directamente en la fotografía;</li>
+<li class=""><strong>derivado</strong>, si lo calcula la plataforma a partir de categoría o ingredientes;</li>
+<li class=""><strong>declarado</strong>, si procede de una fuente de fabricante;</li>
+<li class=""><strong>sin respaldo visible</strong>, si no encuentras la imagen o procedencia.</li>
+</ul>
+<p>No uses Nutri-Score, NOVA, Green-Score u otros valores derivados como prueba de la composición. Son resultados calculados a partir de campos previos; si la entrada es incompleta, la salida también puede inducir a error.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-lee-procedencia-revisiones-y-calidad">5. Lee procedencia, revisiones y calidad<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#5-lee-procedencia-revisiones-y-calidad" class="hash-link" aria-label="Enlace directo al 5. Lee procedencia, revisiones y calidad" title="Enlace directo al 5. Lee procedencia, revisiones y calidad" translate="no">​</a></h3>
+<p>El esquema incluye <code>creator</code>, <code>last_modified_by</code>, marcas de tiempo, número de revisión (<code>rev</code>) y fuentes. La <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/ref-cheatsheet/" target="_blank" rel="noopener noreferrer" class="">chuleta oficial de la API</a> documenta además el parámetro <code>blame=1</code> de la API v2, que atribuye la última modificación de cada campo a una revisión y fecha.</p>
+<p>Esto no convierte la identidad del editor en un objetivo de investigación. Sirve para responder algo más limitado: si dos campos contradictorios nacieron en revisiones distintas, si una corrección es posterior a la fotografía o si un valor fue importado y no transcrito desde la imagen visible.</p>
+<p>Revisa también <code>data_quality_errors_tags</code>, <code>data_quality_warnings_tags</code> y campos equivalentes del <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product_quality/" target="_blank" rel="noopener noreferrer" class="">esquema de calidad</a>. Una ausencia de avisos no certifica exactitud; solo indica que los controles automáticos conocidos no detectaron ese problema.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-construye-una-cronología-de-dos-relojes">6. Construye una cronología de dos relojes<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#6-construye-una-cronolog%C3%ADa-de-dos-relojes" class="hash-link" aria-label="Enlace directo al 6. Construye una cronología de dos relojes" title="Enlace directo al 6. Construye una cronología de dos relojes" translate="no">​</a></h3>
+<p>No mezcles la fecha del producto con la fecha del registro:</p>
+<table><thead><tr><th>Reloj del mundo</th><th>Reloj de la base</th></tr></thead><tbody><tr><td>fabricación o lote</td><td>creación de la ficha</td></tr><tr><td>impresión o rediseño de etiqueta</td><td>subida de una imagen</td></tr><tr><td>venta o retirada</td><td>edición de un campo</td></tr><tr><td>publicación del aviso oficial</td><td>recálculo de datos derivados</td></tr></tbody></table>
+<p><code>last_modified_t</code> se relaciona con cambios en datos primarios, mientras <code>last_updated_t</code> puede cambiar también al recalcular datos secundarios. Por tanto, una actualización reciente no demuestra que alguien fotografiara ese día un nuevo envase.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-vuelve-a-la-fuente-primaria">7. Vuelve a la fuente primaria<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#7-vuelve-a-la-fuente-primaria" class="hash-link" aria-label="Enlace directo al 7. Vuelve a la fuente primaria" title="Enlace directo al 7. Vuelve a la fuente primaria" translate="no">​</a></h3>
+<p>Cierra el caso con fuentes adecuadas a la afirmación:</p>
+<ul>
+<li class="">autoridad de seguridad alimentaria para alertas y retiradas;</li>
+<li class="">fabricante o distribuidor para variantes oficiales de envase;</li>
+<li class="">etiqueta física legible para ingredientes y lote de esa unidad;</li>
+<li class="">GS1 o la organización nacional correspondiente para cuestiones sobre asignación del identificador, cuando el acceso y el caso lo permitan;</li>
+<li class="">laboratorio acreditado si la pregunta exige determinar composición real.</li>
+</ul>
+<p>Archiva la versión consultada. Una ficha viva puede cambiar después y la <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/ref-api-and-product-schema-change-log/" target="_blank" rel="noopener noreferrer" class="">historia del esquema</a> confirma que campos y versiones de API evolucionan. La reproducibilidad exige registrar versión, campos solicitados y fecha.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mismo-código-producto-aparentemente-distinto">Mismo código, producto aparentemente distinto<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#mismo-c%C3%B3digo-producto-aparentemente-distinto" class="hash-link" aria-label="Enlace directo al Mismo código, producto aparentemente distinto" title="Enlace directo al Mismo código, producto aparentemente distinto" translate="no">​</a></h3>
+<p>Puede haber un error de transcripción, una reutilización indebida del código, cambios de presentación o fotografías mezcladas. No elijas la explicación más grave sin corroboración. Documenta la contradicción y consulta fabricante, autoridad o registro de códigos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="distinto-código-producto-visualmente-idéntico">Distinto código, producto visualmente idéntico<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#distinto-c%C3%B3digo-producto-visualmente-id%C3%A9ntico" class="hash-link" aria-label="Enlace directo al Distinto código, producto visualmente idéntico" title="Enlace directo al Distinto código, producto visualmente idéntico" translate="no">​</a></h3>
+<p>Formatos, mercados o multipacks pueden usar identificadores distintos. La similitud visual no demuestra que ingredientes, cantidad o lote coincidan.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="campo-estructurado-sin-imagen-legible">Campo estructurado sin imagen legible<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#campo-estructurado-sin-imagen-legible" class="hash-link" aria-label="Enlace directo al Campo estructurado sin imagen legible" title="Enlace directo al Campo estructurado sin imagen legible" translate="no">​</a></h3>
+<p>Trátalo como dato colaborativo no verificado. Puede orientar una búsqueda, pero no sostener por sí solo una acusación, una alerta sanitaria ni una decisión de compra sensible.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="imagen-antigua-con-ficha-actual">Imagen antigua con ficha actual<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#imagen-antigua-con-ficha-actual" class="hash-link" aria-label="Enlace directo al Imagen antigua con ficha actual" title="Enlace directo al Imagen antigua con ficha actual" translate="no">​</a></h3>
+<p>Las etiquetas cambian. Compara diseño, idiomas, dirección del operador, cantidad y revisiones. Expresa la conclusión con tiempo: «compatible con la presentación documentada en esta fecha», no «este producto siempre contenía».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-sin-contexto">Automatización sin contexto<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#automatizaci%C3%B3n-sin-contexto" class="hash-link" aria-label="Enlace directo al Automatización sin contexto" title="Enlace directo al Automatización sin contexto" translate="no">​</a></h3>
+<p>Los datos admiten análisis masivo, pero una exportación no elimina duplicados conceptuales, mercados desiguales ni sesgos de cobertura. La ausencia de una ficha no demuestra que un producto no exista; la abundancia de campos tampoco demuestra que la ficha esté actualizada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga productos y afirmaciones proporcionadas, no a consumidores ni colaboradores.</li>
+<li class="">Minimiza y oculta datos personales accidentales presentes en tickets o fotografías.</li>
+<li class="">No contactes a editores comunitarios para presionarlos ni intentes atribuirles una intención.</li>
+<li class="">No edites una ficha para «probar» una hipótesis; separa investigación de contribución.</li>
+<li class="">Si corriges datos, aporta fotografías propias y legibles, respeta las reglas de la comunidad y evita información sensible.</li>
+<li class="">No conviertas una discrepancia en acusación de fraude. Puede ser una variante, un cambio legítimo o un simple error.</li>
+<li class="">En asuntos sanitarios, enlaza la alerta oficial y remite a profesionales o autoridades competentes.</li>
+<li class="">Respeta las licencias: la base usa <code>ODbL</code>, los contenidos individuales <code>DbCL</code> y las imágenes <code>CC BY-SA</code>, con posibles derechos adicionales sobre elementos del envase. La <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/license-be-on-the-legal-side/" target="_blank" rel="noopener noreferrer" class="">guía oficial de licencias</a> explica las obligaciones de reutilización y atribución.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-verificación">Checklist de verificación<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#checklist-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de verificación" title="Enlace directo al Checklist de verificación" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He conservado la observación original y su procedencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado código observado de código normalizado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He distinguido referencia, variante, lote, mercado y fecha.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada campo relevante tiene fotografía o fuente identificada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado metadatos, revisión y avisos de calidad.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado cambios primarios de recálculos derivados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He consultado la autoridad o el fabricante para cerrar la afirmación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión expresa incertidumbre y alcance temporal.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No he expuesto datos personales innecesarios.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado consulta, respuesta, versión de API y fecha.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Open Food Facts funciona bien como punto de entrada, pero no cubre todo el ciclo:</p>
+<ul>
+<li class=""><code>GS1</code> y sus organizaciones miembro ayudan a entender estándares e identificación comercial;</li>
+<li class="">los portales de alertas alimentarias nacionales y europeos son la referencia para retiradas;</li>
+<li class="">las webs archivadas del fabricante permiten comparar descripciones y envases históricos;</li>
+<li class=""><code>ExifTool</code> ayuda a inspeccionar metadatos de una fotografía conservando sus límites;</li>
+<li class="">una hoja de cálculo o <code>Datasette/SQLite</code> permite comparar fichas y revisiones con trazabilidad;</li>
+<li class=""><code>Wikidata</code> puede aportar identificadores y contexto corporativo, siempre antes de volver a registros primarios.</li>
+</ul>
+<p>La takeaway accionable es sencilla: <strong>trata el código de barras como una llave, la ficha como una colección de hipótesis y la fotografía como evidencia que todavía necesita fecha y contexto</strong>. En tu próxima comprobación, construye primero la matriz <code>campo → imagen → revisión → fuente primaria</code>; descubrirás muy pronto qué sabes y qué solo parecía estar rellenado.</p>
+<p>Un siguiente tema útil sería cómo verificar avisos de retirada entre portales europeos y nacionales sin confundir publicación, actualización y alcance territorial.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/open-food-facts-osint-codigos-barras-etiquetas-trazabilidad#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://openfoodfacts.github.io/documentation/docs/" target="_blank" rel="noopener noreferrer" class="">Documentación general de Open Food Facts</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/" target="_blank" rel="noopener noreferrer" class="">Introducción y límites de la API de Product Opener</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product/" target="_blank" rel="noopener noreferrer" class="">Esquema oficial de producto</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-barcode-normalization/" target="_blank" rel="noopener noreferrer" class="">Referencia de normalización de códigos de barras</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product_quality/" target="_blank" rel="noopener noreferrer" class="">Esquema de controles de calidad</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/ref-api-and-product-schema-change-log/" target="_blank" rel="noopener noreferrer" class="">Historial de versiones de API y esquema</a></li>
+<li class=""><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorials/license-be-on-the-legal-side/" target="_blank" rel="noopener noreferrer" class="">Licencias de datos, contenidos e imágenes</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Herramientas" term="Herramientas"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ROR en OSINT: identificar organizaciones de investigación sin confundir afiliación con vínculo actual]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad</id>
@@ -2941,160 +3096,5 @@
         <category label="Due Diligence" term="Due Diligence"/>
         <category label="Privacidad" term="Privacidad"/>
         <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CourtListener y RECAP en OSINT: expedientes judiciales, alertas y contexto antes de citar]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto"/>
-        <updated>2026-07-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustracion editorial de una mesa de analisis OSINT con expedientes judiciales publicos, grafos de citas, documentos redactados, alertas y notas de verificacion" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-16-courtlistener-recap-osint-expedientes-judiciales-contexto-16ddeaf45094510cfa36ce38d9daa1d8.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/courtlistener-recap-osint-expedientes-judiciales-contexto-7e551eddfa9fb59d7c2f17786356da13.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Un expediente judicial puede parecer una prueba definitiva porque suena formal, viene de un tribunal y tiene numero de caso. En OSINT responsable, esa sensacion es peligrosa: una demanda no es una sentencia, una entrada de docket no cuenta todo el litigio y una coincidencia de nombre puede arruinar una investigacion si no se valida jurisdiccion, fecha, parte, documento y estado procesal. <code>CourtListener</code> y <code>RECAP</code> ayudan justo en ese punto: abrir registros legales publicos con trazabilidad, pero sin convertir cada hallazgo en acusacion.</p>
-<p>Revisando la documentacion oficial el <strong>16 de julio de 2026</strong>, <code>CourtListener</code>, proyecto de <code>Free Law Project</code>, se presenta como un archivo searchable de opiniones judiciales, alegaciones orales, jueces, declaraciones financieras judiciales y filings federales. Su pagina de proyecto indica que incluye mas de <code>10 millones</code> de opiniones en cientos de jurisdicciones, el archivo <code>RECAP</code> de datos <code>PACER</code> con cientos de millones de entradas de docket y decenas de millones de documentos, alertas para monitorizar casos o terminos de busqueda, y APIs para investigadores y desarrolladores. La API documentada en ese momento era <code>REST API v4.4</code>.</p>
-<p>Este articulo esta escrito para periodistas, equipos de compliance, analistas de debida diligencia, investigadores civicos y tecnicos que necesitan leer material judicial estadounidense con metodo. No es asesoramiento legal, no sustituye a un abogado y no debe usarse para acosar personas, doxxear litigantes, fabricar listas negras ni presentar alegaciones no resueltas como hechos probados.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-es-courtlistener-y-para-que-sirve">Que es CourtListener y para que sirve<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#que-es-courtlistener-y-para-que-sirve" class="hash-link" aria-label="Enlace directo al Que es CourtListener y para que sirve" title="Enlace directo al Que es CourtListener y para que sirve" translate="no">​</a></h2>
-<p><code>CourtListener</code> es un buscador y archivo publico de datos legales mantenido por <code>Free Law Project</code>, una organizacion sin animo de lucro centrada en hacer mas accesible el ecosistema legal. Para OSINT, su valor no esta en "encontrar trapos sucios", sino en reducir friccion cuando una pregunta legitima necesita contraste documental:</p>
-<ul>
-<li class="">si una empresa aparece como parte en litigios federales;</li>
-<li class="">si una opinion judicial cita otra y en que contexto;</li>
-<li class="">que filings publicos existen en un caso concreto;</li>
-<li class="">si una busqueda merece una alerta para detectar cambios;</li>
-<li class="">que documentos estan realmente disponibles y cuales solo aparecen como metadato;</li>
-<li class="">que parte de un hallazgo viene de CourtListener, de PACER, de RECAP o de una opinion judicial.</li>
-</ul>
-<p>La pieza clave es distinguir colecciones. <code>CourtListener</code> no es una sola base plana. Mezcla opiniones judiciales, datos de <code>RECAP</code>, jueces, argumentos orales, alertas, citas y datasets masivos. Para un analista, eso obliga a etiquetar bien cada hallazgo: no es lo mismo una opinion publicada que una queja inicial, una orden procesal, un docket entry o una mencion en una busqueda.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="que-aporta-recap-frente-a-pacer">Que aporta RECAP frente a PACER<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#que-aporta-recap-frente-a-pacer" class="hash-link" aria-label="Enlace directo al Que aporta RECAP frente a PACER" title="Enlace directo al Que aporta RECAP frente a PACER" translate="no">​</a></h2>
-<p><code>PACER</code> es el sistema de acceso electronico a documentos de tribunales federales de Estados Unidos. <code>RECAP</code>, mantenido por Free Law Project, funciona como una capa de archivo y reutilizacion: cuando usuarios de PACER contribuyen documentos mediante la extension RECAP u otros mecanismos, esos materiales pueden quedar disponibles en CourtListener para el publico.</p>
-<p>La documentacion de cobertura de CourtListener describe <code>RECAP Archive</code> como la mayor coleccion abierta de datos PACER en Internet. Indica que contiene cientos de millones de entradas de docket, casi todos los casos federales y millones de documentos, y que en un dia normal puede ganar nuevos dockets, miles de documentos y alrededor de <code>100.000</code> entradas de docket. Ese volumen lo vuelve util para investigacion, pero tambien obliga a no exagerar:</p>
-<ul>
-<li class="">que un caso exista no significa que la acusacion prosperase;</li>
-<li class="">que un documento este ausente no significa que no exista en PACER;</li>
-<li class="">que un docket cambie no explica por si solo el fondo del litigio;</li>
-<li class="">que haya muchas entradas no equivale a gravedad;</li>
-<li class="">que una fuente sea publica no elimina deberes de privacidad y proporcionalidad.</li>
-</ul>
-<p>La pregunta sana no es "que puedo encontrar sobre alguien", sino "que afirmacion concreta necesito verificar y que documento primario la sostiene".</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legitimo-con-ejemplo-ficticio">Caso de uso legitimo con ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#caso-de-uso-legitimo-con-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legitimo con ejemplo ficticio" title="Enlace directo al Caso de uso legitimo con ejemplo ficticio" translate="no">​</a></h2>
-<p>Imagina una investigacion de debida diligencia sobre una compania ficticia, <code>Atlas Meridian Components LLC</code>, que aspira a un contrato publico. El objetivo no es desacreditarla, sino comprobar si hay litigios relevantes que deban explicarse antes de adjudicar, invertir o publicar una pieza periodistica.</p>
-<p>Un flujo proporcionado con CourtListener podria ser:</p>
-<ol>
-<li class="">Buscar el nombre legal exacto y variantes razonables, no solo la marca comercial.</li>
-<li class="">Acotar por jurisdiccion y tipo de coleccion: opiniones, datos PACER/RECAP o ambas.</li>
-<li class="">Revisar si los resultados son de la misma entidad: direccion, jurisdiccion, abogados, numero de caso, fechas y contexto.</li>
-<li class="">Leer el docket como cronologia, no como conclusion.</li>
-<li class="">Abrir los documentos disponibles y separar demanda, mociones, ordenes, acuerdos y sentencia.</li>
-<li class="">Contrastar fuera de CourtListener cuando proceda: registro mercantil, web corporativa, comunicados, SEC/EDGAR si aplica, registros estatales o contacto formal.</li>
-<li class="">Redactar el hallazgo con estado procesal y fecha: "segun el docket consultado el 16 de julio de 2026..." es mas defendible que "la empresa fue acusada de...".</li>
-</ol>
-<p>En este ejemplo, una conclusion prudente podria ser: "aparecen dos casos federales asociados a una entidad con el mismo nombre; uno fue desestimado voluntariamente y otro sigue activo segun el docket, por lo que requiere comprobacion adicional antes de inferir responsabilidad". Eso no suena tan rotundo como un titular agresivo, pero es mucho mas util.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-y-el-alcance">1. Define la pregunta y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#1-define-la-pregunta-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta y el alcance" title="Enlace directo al 1. Define la pregunta y el alcance" translate="no">​</a></h3>
-<p>Antes de buscar, escribe una pregunta verificable. Por ejemplo:</p>
-<ul>
-<li class="">"Existe una opinion judicial publicada que mencione esta empresa?"</li>
-<li class="">"Hay filings federales recientes relacionados con esta entidad?"</li>
-<li class="">"Que documentos sostienen la afirmacion de que hubo una demanda?"</li>
-<li class="">"La cita legal que aparece en un informe existe y corresponde al caso citado?"</li>
-</ul>
-<p>Evita preguntas tipo "a ver que sale". En fuentes judiciales, esa forma de buscar multiplica homonimias, casos irrelevantes y sesgos de confirmacion.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-persona-entidad-y-caso">2. Separa persona, entidad y caso<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#2-separa-persona-entidad-y-caso" class="hash-link" aria-label="Enlace directo al 2. Separa persona, entidad y caso" title="Enlace directo al 2. Separa persona, entidad y caso" translate="no">​</a></h3>
-<p>Muchos errores vienen de mezclar capas. Una persona puede compartir nombre con otra. Una empresa puede tener filiales con nombres parecidos. Un caso puede incluir partes, abogados, terceros, testigos y menciones laterales. Cada resultado debe bajar a identificadores concretos:</p>
-<ul>
-<li class="">numero de docket;</li>
-<li class="">tribunal;</li>
-<li class="">fecha de presentacion y ultima actualizacion;</li>
-<li class="">rol procesal de cada parte;</li>
-<li class="">documentos disponibles;</li>
-<li class="">estado del caso;</li>
-<li class="">fuente original del dato.</li>
-</ul>
-<p>Si no puedes distinguir dos entidades, no las unas en el informe.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-el-docket-como-una-linea-temporal">3. Lee el docket como una linea temporal<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#3-lee-el-docket-como-una-linea-temporal" class="hash-link" aria-label="Enlace directo al 3. Lee el docket como una linea temporal" title="Enlace directo al 3. Lee el docket como una linea temporal" translate="no">​</a></h3>
-<p>El docket sirve para reconstruir actividad procesal: demanda, respuestas, mociones, ordenes, audiencias, acuerdos, cierres. Su lectura correcta es cronologica. Un filing llamativo puede quedar desmentido, limitado o resuelto mas adelante.</p>
-<p>Una practica util es crear una tabla minima:</p>
-<table><thead><tr><th>Fecha</th><th>Entrada</th><th>Tipo</th><th>Que afirma</th><th>Que no demuestra</th></tr></thead><tbody><tr><td>2026-02-03</td><td>Complaint</td><td>Alegacion inicial</td><td>La parte demandante sostiene X</td><td>Que X sea cierto</td></tr><tr><td>2026-04-18</td><td>Motion to dismiss</td><td>Peticion procesal</td><td>La defensa pide desestimar</td><td>Que el tribunal aceptase</td></tr><tr><td>2026-06-01</td><td>Order</td><td>Decision judicial</td><td>El tribunal decide Y</td><td>Otros hechos fuera del alcance</td></tr></tbody></table>
-<p>La ultima columna evita que una investigacion se convierta en una cadena de inferencias invisibles.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-alertas-sin-delegar-el-criterio">4. Usa alertas sin delegar el criterio<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#4-usa-alertas-sin-delegar-el-criterio" class="hash-link" aria-label="Enlace directo al 4. Usa alertas sin delegar el criterio" title="Enlace directo al 4. Usa alertas sin delegar el criterio" translate="no">​</a></h3>
-<p>CourtListener documenta tres tipos de alertas: busqueda, docket y citas. Las alertas de docket permiten seguir casos federales y recibir avisos cuando hay nuevas entradas; las de busqueda pueden monitorizar terminos; y las de citas ayudan a seguir menciones legales. La propia ayuda recuerda que las alertas dependen de sus fuentes y cobertura: en casos activos pueden llegar rapido, pero en otros puede haber retrasos o ausencia de avisos.</p>
-<p>Para OSINT, una alerta es una campana, no una conclusion. Conviene guardar:</p>
-<ul>
-<li class="">consulta exacta;</li>
-<li class="">fecha de creacion;</li>
-<li class="">razon de la alerta;</li>
-<li class="">resultado esperado;</li>
-<li class="">criterio para cerrarla.</li>
-</ul>
-<p>Si no defines cuando una alerta deja de ser util, acabara produciendo ruido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-automatiza-con-moderacion">5. Automatiza con moderacion<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#5-automatiza-con-moderacion" class="hash-link" aria-label="Enlace directo al 5. Automatiza con moderacion" title="Enlace directo al 5. Automatiza con moderacion" translate="no">​</a></h3>
-<p>La documentacion de <code>REST API v4.4</code> indica que CourtListener ofrece APIs para case law, PACER/RECAP, busqueda, jueces, financial disclosures, argumentos orales, citas, alertas, tags y visualizaciones. Tambien recomienda autenticacion por token para acceso programatico, permite explorar endpoints con <code>OPTIONS</code> y documenta limites por defecto para usuarios autenticados: <code>5</code> solicitudes por minuto, <code>50</code> por hora y <code>125</code> por dia, con opciones de membresia para ampliar acceso.</p>
-<p>Un uso responsable de API en OSINT deberia:</p>
-<ul>
-<li class="">consultar solo lo necesario;</li>
-<li class="">seleccionar campos para reducir payload;</li>
-<li class="">cachear resultados;</li>
-<li class="">registrar URL, parametros y fecha;</li>
-<li class="">respetar rate limits;</li>
-<li class="">no crear cuentas multiples para esquivar throttling;</li>
-<li class="">evitar scraping paralelo cuando existe endpoint documentado.</li>
-</ul>
-<p>Para analisis de gran escala, los datos bulk pueden ser mas apropiados que golpear la busqueda repetidamente. La documentacion de bulk data describe tablas como courts, dockets, opinion clusters, opinions, citation map, financial disclosures, judges y oral arguments, con regeneracion trimestral de ficheros bulk en calendario previsto. Esa via exige mas preparacion tecnica, pero ofrece mejor reproducibilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
-<p>CourtListener es grande, no total. Puede haber documentos sellados, no disponibles, no contribuidos a RECAP, sujetos a retrasos, fuera de cobertura o presentes solo como metadato. La ausencia de un documento en CourtListener no demuestra ausencia en el tribunal.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lenguaje-legal-ambiguo">Lenguaje legal ambiguo<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#lenguaje-legal-ambiguo" class="hash-link" aria-label="Enlace directo al Lenguaje legal ambiguo" title="Enlace directo al Lenguaje legal ambiguo" translate="no">​</a></h3>
-<p>Una "complaint" contiene alegaciones. Una "motion" pide algo. Una "order" decide algo concreto. Un "settlement" puede cerrar sin admision de responsabilidad. Si el analista no distingue estos generos, convertira el sistema judicial en una maquina de rumores con membrete oficial.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homonimias-y-entidades-parecidas">Homonimias y entidades parecidas<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#homonimias-y-entidades-parecidas" class="hash-link" aria-label="Enlace directo al Homonimias y entidades parecidas" title="Enlace directo al Homonimias y entidades parecidas" translate="no">​</a></h3>
-<p>Nombres de personas, empresas y organizaciones pueden repetirse. En investigaciones sensibles, una coincidencia debe sostenerse con varios campos: jurisdiccion, direccion, representantes, fechas, numero de registro, web oficial o documentos corporativos. Si solo tienes un nombre, tienes una pista debil.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="datos-publicos-que-siguen-siendo-sensibles">Datos publicos que siguen siendo sensibles<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#datos-publicos-que-siguen-siendo-sensibles" class="hash-link" aria-label="Enlace directo al Datos publicos que siguen siendo sensibles" title="Enlace directo al Datos publicos que siguen siendo sensibles" translate="no">​</a></h3>
-<p>Que algo sea publico no significa que sea proporcionado republicarlo. CourtListener incluye politicas de ayuda y remocion: su pagina de ayuda indica que no eliminan contenido de sus sistemas salvo orden judicial valida, aunque normalmente pueden retirarlo de buscadores publicos como Google bajo solicitud. Para el analista, esto es una advertencia: la permanencia tecnica de un documento no autoriza exposicion innecesaria.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-de-acceso-y-api">Cambios de acceso y API<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#cambios-de-acceso-y-api" class="hash-link" aria-label="Enlace directo al Cambios de acceso y API" title="Enlace directo al Cambios de acceso y API" translate="no">​</a></h3>
-<p>La API, membresias y limites cambian. En mayo de 2026, Free Law Project anuncio que cualquier miembro de CourtListener podia conectar directamente con todas sus APIs, incluido acceso a APIs PACER que antes requerian permiso especial. Si vas a automatizar, lee la documentacion viva, no una nota antigua ni un tutorial reciclado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-practicas-de-opsec-etica-y-privacidad">Buenas practicas de OPSEC, etica y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#buenas-practicas-de-opsec-etica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" title="Enlace directo al Buenas practicas de OPSEC, etica y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con cuentas y navegadores separados para investigacion profesional, especialmente si vas a crear alertas.</li>
-<li class="">No busques por curiosidad personal ni por conflictos privados; define interes publico, mandato o base legitima.</li>
-<li class="">Minimiza nombres de personas privadas en notas y capturas.</li>
-<li class="">Redacta datos personales no necesarios antes de compartir hallazgos internamente.</li>
-<li class="">Distingue siempre "documento presentado por una parte" de "hecho establecido por el tribunal".</li>
-<li class="">Conserva enlaces, hashes o capturas solo cuando aporten trazabilidad real.</li>
-<li class="">No publiques domicilios, telefonos, identificadores personales ni datos de menores salvo necesidad editorial excepcional y revisada.</li>
-<li class="">Si un caso afecta a una persona vulnerable o no publica, eleva el umbral de publicacion.</li>
-<li class="">Anota fecha y hora de consulta, porque un docket puede cambiar.</li>
-<li class="">Consulta asesoramiento legal antes de publicar acusaciones basadas en expedientes judiciales.</li>
-</ul>
-<p>La regla simple: usa CourtListener para entender mejor documentos publicos, no para amplificar dano.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>CourtListener encaja bien en investigaciones centradas en Estados Unidos, pero no vive solo. Segun la pregunta, conviene combinarlo con:</p>
-<ul>
-<li class=""><code>PACER</code>, cuando necesitas comprobar directamente el expediente oficial y asumir sus condiciones de acceso;</li>
-<li class="">webs de tribunales estatales o federales, si el dato primario no esta completo en RECAP;</li>
-<li class=""><code>EDGAR</code>, si el litigio afecta a una compania cotizada o aparece en filings regulatorios;</li>
-<li class="">registros mercantiles estatales, para confirmar entidad legal, jurisdiccion y estado;</li>
-<li class=""><code>OpenCorporates</code> o <code>OpenOwnership</code>, si necesitas contexto societario transfronterizo;</li>
-<li class=""><code>OpenSanctions</code>, si hay preguntas de sanciones, PEP o listas regulatorias;</li>
-<li class="">hemerotecas y comunicados oficiales, para separar proceso judicial de narrativa publica;</li>
-<li class=""><code>Datasette</code> o <code>SQLite</code>, si vas a construir un corpus propio reproducible con resultados, documentos y notas.</li>
-</ul>
-<p>El takeaway accionable es este: <code>CourtListener</code> y <code>RECAP</code> son excelentes para <strong>bajar a documento, fecha y contexto procesal</strong>. La investigacion mejora cuando cada afirmacion responde a tres preguntas: que documento lo sostiene, que estado procesal tiene y que inferencia queda todavia sin demostrar. El siguiente tema natural seria un post practico sobre como convertir dockets y documentos publicos en una matriz de evidencia sin perder privacidad ni trazabilidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/courtlistener-recap-osint-expedientes-judiciales-contexto#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://free.law/projects/courtlistener/" target="_blank" rel="noopener noreferrer" class="">CourtListener Research and Awareness Website</a></li>
-<li class=""><a href="https://www.courtlistener.com/help/coverage/recap/" target="_blank" rel="noopener noreferrer" class="">RECAP Archive Coverage: What PACER Data Does CourtListener Have?</a></li>
-<li class=""><a href="https://www.courtlistener.com/help/alerts/" target="_blank" rel="noopener noreferrer" class="">Help with Search and Docket Alerts</a></li>
-<li class=""><a href="https://wiki.free.law/c/courtlistener/help/api/rest/v4/overview" target="_blank" rel="noopener noreferrer" class="">REST API v4.4 - Free Law Project Wiki</a></li>
-<li class=""><a href="https://wiki.free.law/c/courtlistener/help/api/bulk-data/bulk-legal-data" target="_blank" rel="noopener noreferrer" class="">Bulk Legal Data - Free Law Project Wiki</a></li>
-<li class=""><a href="https://free.law/2026/05/07/api-included-in-memberships/" target="_blank" rel="noopener noreferrer" class="">Full CourtListener Data Access via API Now Included with Membership</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-        <category label="Investigacion" term="Investigacion"/>
     </entry>
 </feed>
