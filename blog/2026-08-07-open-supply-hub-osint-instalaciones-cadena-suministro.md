@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT contrastando instalaciones productivas, listas públicas, procedencia y señales contradictorias](/img/blog/2026-08-07-open-supply-hub-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/open-supply-hub-osint-instalaciones-cadena-suministro.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una marca publica dos listas de proveedores con seis meses de diferencia. Una fábrica cambia ligeramente de nombre, otra aparece desplazada varios kilómetros y una tercera figura también en la lista de un certificador. El mapa parece resolver el caso de un vistazo. En realidad, solo abre preguntas: **¿es la misma instalación?, ¿quién aportó cada dato?, ¿qué fecha describe y qué significa exactamente que dos organizaciones aparezcan conectadas?**
