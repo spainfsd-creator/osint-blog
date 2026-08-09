@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un flujo OSINT que contrasta topónimos, jerarquías geográficas, coordenadas y fuentes](/img/blog/2026-08-09-geonames-osint-toponimos-jerarquias.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/geonames-osint-toponimos-jerarquias-contexto.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una nota de transporte menciona «San Martín», una fotografía conserva medio letrero y un comunicado sitúa el incidente en «el distrito Central». La búsqueda devuelve decenas de lugares compatibles en varios países. Elegir el primero que encaja en el mapa sería rápido; también podría desplazar toda la investigación cientos de kilómetros. En este tipo de problema, `GeoNames` ayuda a convertir un nombre ambiguo en una lista ordenada de hipótesis mediante variantes lingüísticas, clases de entidad, códigos administrativos y jerarquías. **No geolocaliza por arte de magia ni convierte unas coordenadas en evidencia cerrada.**
