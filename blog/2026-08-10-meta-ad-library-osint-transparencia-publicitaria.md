@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una investigación OSINT sobre anuncios, cronologías, financiación declarada y verificación de fuentes](/img/blog/2026-08-10-meta-ad-library-osint-transparencia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/meta-ad-library-osint-transparencia-publicitaria.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una asociación vecinal recibe capturas de tres anuncios que prometen la apertura de una planta industrial. Cada pieza usa un nombre de página distinto, dos fechas no coinciden y nadie conserva el enlace original. La tentación es decidir cuál es «el anuncio verdadero» mirando el diseño. El método más sólido empieza en otro sitio: **comprobar qué registra la plataforma, fijar una cronología y contrastar cada afirmación fuera de la plataforma**.
