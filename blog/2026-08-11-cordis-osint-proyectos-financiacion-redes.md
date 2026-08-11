@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT contrastando proyectos europeos, participantes, cronologías, financiación y procedencia](/img/blog/2026-08-11-cordis-osint-proyectos-financiacion-redes.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/cordis-osint-proyectos-financiacion-redes.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una universidad anuncia que lidera una tecnología «financiada por Europa», una empresa presenta el mismo proyecto como prueba de experiencia comercial y una nota de prensa convierte un prototipo en una solución ya desplegada. Las tres afirmaciones pueden partir de un hecho real y, aun así, describir cosas distintas. Antes de copiar titulares, una investigación responsable necesita reconstruir **qué proyecto fue financiado, quién figuraba como participante, durante qué periodo y qué resultados públicos existen realmente**.
