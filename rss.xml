@@ -4,10 +4,146 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Mon, 10 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[CORDIS en OSINT: proyectos europeos, participantes y resultados sin confundir financiación con impacto]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes</guid>
+            <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando proyectos europeos, participantes, cronologías, financiación y procedencia]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando proyectos europeos, participantes, cronologías, financiación y procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-11-cordis-osint-proyectos-financiacion-redes-0910a527327e38c65146609b592970ea.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una universidad anuncia que lidera una tecnología «financiada por Europa», una empresa presenta el mismo proyecto como prueba de experiencia comercial y una nota de prensa convierte un prototipo en una solución ya desplegada. Las tres afirmaciones pueden partir de un hecho real y, aun así, describir cosas distintas. Antes de copiar titulares, una investigación responsable necesita reconstruir <strong>qué proyecto fue financiado, quién figuraba como participante, durante qué periodo y qué resultados públicos existen realmente</strong>.</p>
+<p><a href="https://cordis.europa.eu/about" target="_blank" rel="noopener noreferrer" class="">CORDIS</a> permite ordenar esa primera capa. Es la principal fuente de la Comisión Europea sobre proyectos y resultados de los programas marco de investigación e innovación de la UE, desde el Primer Programa Marco hasta Horizonte Europa. Su valor OSINT está en reunir fichas, participantes, fechas, importes, informes, entregables y publicaciones en una estructura consultable. Su límite también importa: documenta información administrativa y resultados comunicados, pero no certifica por sí solo el impacto comercial, la propiedad actual de una tecnología ni la veracidad de cada afirmación promocional.</p>
+<p>Todos los nombres, organizaciones, acrónimos, importes y lugares del caso práctico son ficticios.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-cordis-y-para-qué-sirve">Qué es CORDIS y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#qu%C3%A9-es-cordis-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es CORDIS y para qué sirve" title="Enlace directo al Qué es CORDIS y para qué sirve" translate="no">​</a></h2>
+<p>CORDIS son las siglas de <em>Community Research and Development Information Service</em>. La <a href="https://cordis.europa.eu/about" target="_blank" rel="noopener noreferrer" class="">descripción oficial del servicio</a> lo presenta como un repositorio público de la información que mantiene la Comisión sobre proyectos europeos de investigación: fichas, participantes, informes, entregables y enlaces a publicaciones en acceso abierto.</p>
+<p>En una investigación legítima puede ayudar a:</p>
+<ul>
+<li class="">confirmar que un proyecto y su convenio de subvención existen;</li>
+<li class="">fijar fechas de inicio y fin, programa, convocatoria y tema de financiación;</li>
+<li class="">identificar coordinadores y participantes declarados;</li>
+<li class="">distinguir el coste total del proyecto de la contribución de la UE;</li>
+<li class="">seguir cambios de denominación o de composición del consorcio con cautela;</li>
+<li class="">localizar resúmenes periódicos, entregables públicos y publicaciones asociadas;</li>
+<li class="">comparar carteras de colaboración entre organizaciones;</li>
+<li class="">preparar una verificación posterior en registros mercantiles, repositorios científicos y fuentes financieras.</li>
+</ul>
+<p>La <a href="https://cordis.europa.eu/projects/en" target="_blank" rel="noopener noreferrer" class="">página oficial de proyectos y resultados</a> también ofrece descargas de programas completos, mapas de conexiones y herramientas de análisis. Estas vistas son útiles para descubrir patrones, no para resolver por sí solas qué entidad controla a otra, cuánto dinero recibió finalmente cada participante o si un resultado continúa operativo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lee-cada-campo-como-una-afirmación-acotada">Lee cada campo como una afirmación acotada<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#lee-cada-campo-como-una-afirmaci%C3%B3n-acotada" class="hash-link" aria-label="Enlace directo al Lee cada campo como una afirmación acotada" title="Enlace directo al Lee cada campo como una afirmación acotada" translate="no">​</a></h2>
+<p>Una ficha de proyecto mezcla niveles distintos de evidencia. Separarlos evita muchas conclusiones precipitadas:</p>
+<table><thead><tr><th>Elemento</th><th>Qué permite sostener</th><th>Qué no demuestra por sí solo</th></tr></thead><tbody><tr><td>Identificador del proyecto</td><td>Que la ficha se refiere a un expediente concreto</td><td>Que cualquier web con el mismo acrónimo pertenezca al proyecto</td></tr><tr><td>Fechas y estado</td><td>El periodo administrativo mostrado por CORDIS</td><td>Que toda actividad empezase o terminase exactamente entonces</td></tr><tr><td>Coste total y contribución UE</td><td>Magnitudes declaradas para el proyecto</td><td>El pago final recibido por cada socio o la rentabilidad obtenida</td></tr><tr><td>Coordinador y participantes</td><td>La composición publicada del consorcio</td><td>Propiedad societaria, control efectivo o colaboración actual</td></tr><tr><td>Objetivos</td><td>Lo que el proyecto se propuso hacer</td><td>Que esos objetivos se alcanzaran</td></tr><tr><td>Informes y entregables</td><td>Resultados públicos asociados y su contexto</td><td>Validación independiente, adopción comercial o ausencia de limitaciones</td></tr><tr><td>Publicaciones</td><td>Producción académica enlazada al proyecto</td><td>Que todo autor o institución participara durante todo el periodo</td></tr></tbody></table>
+<p>La propia <a href="https://cordis.europa.eu/about/content" target="_blank" rel="noopener noreferrer" class="">explicación de contenidos de CORDIS</a> señala que la información de los proyectos procede de los convenios de subvención firmados y que las modificaciones contractuales pueden trasladarse a la ficha. Los resúmenes de informes, a su vez, nacen de versiones publicables presentadas por los participantes y aprobadas antes de su publicación. Por eso conviene describir su procedencia con precisión, en lugar de llamarlos «auditorías independientes».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-de-una-promesa-comercial-al-expediente">Caso ficticio: de una promesa comercial al expediente<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#caso-ficticio-de-una-promesa-comercial-al-expediente" class="hash-link" aria-label="Enlace directo al Caso ficticio: de una promesa comercial al expediente" title="Enlace directo al Caso ficticio: de una promesa comercial al expediente" translate="no">​</a></h2>
+<p>Imaginemos que <code>Sensores del Norte SL</code> afirma haber desarrollado <code>AQUA-TRACE</code>, un sistema para detectar fugas de agua «validado por un programa europeo». La web menciona a la ficticia <code>Universidad de Puerto Claro</code>, pero no incluye número de proyecto, convocatoria ni publicación técnica.</p>
+<p>La pregunta investigable no es «¿miente la empresa?», sino esta:</p>
+<blockquote>
+<p>¿Existe un proyecto europeo compatible con el nombre, las entidades, las fechas y el ámbito descritos, y qué resultados públicos permiten delimitar lo que se hizo?</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-convierte-la-afirmación-en-selectores">1. Convierte la afirmación en selectores<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#1-convierte-la-afirmaci%C3%B3n-en-selectores" class="hash-link" aria-label="Enlace directo al 1. Convierte la afirmación en selectores" title="Enlace directo al 1. Convierte la afirmación en selectores" translate="no">​</a></h3>
+<p>Anota por separado el acrónimo, las variantes del nombre de la empresa, la universidad, palabras técnicas poco comunes y un intervalo temporal aproximado. Conserva la URL, fecha de consulta y una copia o captura permitida de la afirmación original.</p>
+<p>No empieces buscando a una persona. El objeto legítimo de la investigación es el proyecto público y las organizaciones que aparecen en fuentes institucionales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-de-ancho-a-estrecho">2. Busca de ancho a estrecho<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#2-busca-de-ancho-a-estrecho" class="hash-link" aria-label="Enlace directo al 2. Busca de ancho a estrecho" title="Enlace directo al 2. Busca de ancho a estrecho" translate="no">​</a></h3>
+<p>La <a href="https://cordis.europa.eu/about/services" target="_blank" rel="noopener noreferrer" class="">documentación de servicios de CORDIS</a> indica que su buscador admite operadores booleanos básicos como <code>AND</code>, <code>OR</code> y <code>NOT</code>, además de filtros y edición avanzada de consultas. Una secuencia prudente sería:</p>
+<ol>
+<li class="">buscar el acrónimo exacto;</li>
+<li class="">probar el nombre largo o dos términos técnicos distintivos;</li>
+<li class="">filtrar por programa, fechas o país solo después de observar los primeros resultados;</li>
+<li class="">buscar cada organización con variantes jurídicas y lingüísticas;</li>
+<li class="">registrar también resultados incompatibles, porque ayudan a explicar descartes.</li>
+</ol>
+<p>En el ejemplo podrían aparecer dos proyectos con acrónimos parecidos. Uno terminó años antes de la constitución de la empresa; el otro incluye a la universidad, pero no a <code>Sensores del Norte SL</code>. Esa contradicción no prueba engaño: la empresa pudo ser subcontratista, licenciataria posterior, <em>spin-off</em> o simplemente una entidad distinta con nombre parecido. Cada hipótesis exige otra fuente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-fija-la-identidad-del-proyecto">3. Fija la identidad del proyecto<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#3-fija-la-identidad-del-proyecto" class="hash-link" aria-label="Enlace directo al 3. Fija la identidad del proyecto" title="Enlace directo al 3. Fija la identidad del proyecto" translate="no">​</a></h3>
+<p>Abre la ficha candidata y captura al menos:</p>
+<ul>
+<li class="">identificador y URL canónica;</li>
+<li class="">título y acrónimo;</li>
+<li class="">programa, convocatoria y tema;</li>
+<li class="">fechas y estado mostrados;</li>
+<li class="">coste total y contribución de la UE, sin intercambiarlos;</li>
+<li class="">coordinador y lista de participantes;</li>
+<li class="">última fecha de consulta;</li>
+<li class="">informes, entregables y publicaciones pertinentes.</li>
+</ul>
+<p>Trabaja con el identificador, no solo con el acrónimo. Los acrónimos se reutilizan y los nombres institucionales cambian. Para cada organización, anota la denominación exacta de la ficha, el país, el papel y cualquier identificador disponible; después contrasta la entidad en un registro oficial adecuado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-construye-una-cronología-con-capas">4. Construye una cronología con capas<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#4-construye-una-cronolog%C3%ADa-con-capas" class="hash-link" aria-label="Enlace directo al 4. Construye una cronología con capas" title="Enlace directo al 4. Construye una cronología con capas" translate="no">​</a></h3>
+<p>No mezcles en una sola columna hechos administrativos y mensajes promocionales. Una tabla mínima puede separar:</p>
+<table><thead><tr><th>Fecha</th><th>Capa</th><th>Observación</th><th>Fuente</th><th>Confianza</th></tr></thead><tbody><tr><td>14/03/2023</td><td>Administrativa</td><td>Inicio del proyecto ficticio</td><td>Ficha CORDIS</td><td>Alta para el dato publicado</td></tr><tr><td>08/11/2024</td><td>Resultado comunicado</td><td>Resumen menciona un piloto</td><td>Informe público</td><td>Media; declaración del proyecto</td></tr><tr><td>17/02/2025</td><td>Corporativa</td><td>Empresa anuncia «despliegue»</td><td>Web corporativa archivada</td><td>Media para la afirmación, baja para el hecho</td></tr><tr><td>30/06/2025</td><td>Independiente</td><td>Contrato público describe una prueba limitada</td><td>Portal oficial ficticio</td><td>Alta dentro del alcance documental</td></tr></tbody></table>
+<p>La distinción más importante es entre <strong>existencia de la afirmación</strong> y <strong>verdad de lo afirmado</strong>. Una nota de prensa prueba que alguien publicó una frase en una fecha; no prueba automáticamente que el despliegue ocurriera como se describe.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-contrasta-el-dinero-en-la-fuente-apropiada">5. Contrasta el dinero en la fuente apropiada<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#5-contrasta-el-dinero-en-la-fuente-apropiada" class="hash-link" aria-label="Enlace directo al 5. Contrasta el dinero en la fuente apropiada" title="Enlace directo al 5. Contrasta el dinero en la fuente apropiada" translate="no">​</a></h3>
+<p>CORDIS sirve para entender la arquitectura y la contribución del proyecto. Si la pregunta es cuánto se contabilizó como financiación recibida directamente desde el presupuesto de la UE, hay que revisar también el <a href="https://commission.europa.eu/about/service-standards-and-principles/transparency/funding-recipients_en" target="_blank" rel="noopener noreferrer" class="">Sistema de Transparencia Financiera</a>, que publica beneficiarios, finalidad, ubicación, importe, tipo de gasto, servicio responsable y ejercicio contable para los fondos que cubre.</p>
+<p>No esperes coincidencia literal entre todas las cifras. Pueden representar conceptos, periodos y niveles de agregación diferentes. Documenta la etiqueta exacta de cada importe y evita sumar cantidades sin comprobar si se solapan.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-valida-resultados-fuera-del-ecosistema-promocional">6. Valida resultados fuera del ecosistema promocional<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#6-valida-resultados-fuera-del-ecosistema-promocional" class="hash-link" aria-label="Enlace directo al 6. Valida resultados fuera del ecosistema promocional" title="Enlace directo al 6. Valida resultados fuera del ecosistema promocional" translate="no">​</a></h3>
+<p>Para una conclusión sólida, busca dos clases de corroboración:</p>
+<ul>
+<li class=""><strong>primaria externa</strong>: registro mercantil, contrato, patente, repositorio institucional, publicación científica, dataset o acto administrativo;</li>
+<li class=""><strong>independiente</strong>: evaluación, estudio replicado, adopción verificable o cobertura que enlace documentación original.</li>
+</ul>
+<p>Si solo encuentras fuentes del propio consorcio, la formulación correcta será «el proyecto informó de…», no «se demostró que…». Si un entregable es público, conserva título, versión, fecha y URL; si no lo es, no infieras su contenido a partir del nombre.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="escalar-el-análisis-sin-perder-trazabilidad">Escalar el análisis sin perder trazabilidad<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#escalar-el-an%C3%A1lisis-sin-perder-trazabilidad" class="hash-link" aria-label="Enlace directo al Escalar el análisis sin perder trazabilidad" title="Enlace directo al Escalar el análisis sin perder trazabilidad" translate="no">​</a></h2>
+<p>Para una consulta puntual, la interfaz web suele bastar. Para comparar decenas de proyectos, CORDIS ofrece resultados descargables y conjuntos abiertos. Su <a href="https://cordis.europa.eu/about/services" target="_blank" rel="noopener noreferrer" class="">catálogo de servicios</a> menciona exportaciones, descargas masivas por programa, RSS y datos enlazados. También existe una <a href="https://cordis.europa.eu/about/dataextractions-api" target="_blank" rel="noopener noreferrer" class="">API oficial de extracción</a> orientada a automatizar extracciones; requiere registro y clave, está sujeta a límites y no debe utilizarse para eludirlos.</p>
+<p>Antes de automatizar, define un esquema de procedencia:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">project_id</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">source_url</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">retrieved_at</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">field_name</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">raw_value</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">normalised_value</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">transformation_note</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">confidence</span><br></span></code></pre></div></div>
+<p>Guarda el valor original junto al normalizado. Si <code>Universidad de Puerto Claro</code>, <code>U. Puerto Claro</code> y <code>UPC Research Foundation</code> parecen relacionadas, no las fusiones solo por similitud textual. Exige identificadores, dirección, país, dominio institucional, registro o documentación del propio proyecto. Una red dibujada sobre coincidencias débiles solo convierte errores pequeños en una imagen convincente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Los errores más habituales no proceden de una búsqueda fallida, sino de leer demasiado en un resultado correcto:</p>
+<ul>
+<li class=""><strong>Acrónimos repetidos</strong>: dos proyectos pueden compartir una abreviatura.</li>
+<li class=""><strong>Nombres históricos</strong>: una institución puede cambiar de denominación, fusionarse o usar una fundación vinculada.</li>
+<li class=""><strong>Consorcio no equivale a propiedad</strong>: participar juntos no prueba control, inversión ni alianza permanente.</li>
+<li class=""><strong>Presupuesto no equivale a pago</strong>: coste, contribución máxima, importe contabilizado y gasto final no son sinónimos.</li>
+<li class=""><strong>Objetivo no equivale a resultado</strong>: la descripción inicial expresa una intención.</li>
+<li class=""><strong>Resultado comunicado no equivale a validación independiente</strong>: el proyecto es una fuente interesada sobre su propio trabajo.</li>
+<li class=""><strong>Ausencia no equivale a inexistencia</strong>: puede haber retrasos, cambios contractuales, datos no públicos o un programa fuera del alcance de la consulta.</li>
+<li class=""><strong>Una publicación no hereda toda la ficha</strong>: revisa autores, afiliaciones, agradecimientos de financiación y fechas.</li>
+</ul>
+<p>La <a href="https://cordis.europa.eu/about/faq" target="_blank" rel="noopener noreferrer" class="">FAQ oficial</a> explica que los datos se alimentan desde sistemas internos de la Comisión y que ciertas correcciones deben pasar por el responsable del proyecto o por resúmenes nuevamente presentados y aprobados. Esto refuerza una práctica básica: fechar cada observación y conservar la ruta de la fuente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Investiga proyectos y organizaciones públicas con una finalidad legítima y proporcional.</li>
+<li class="">No uses formularios de contacto para acosar a participantes ni para recopilar correos personales.</li>
+<li class="">Minimiza datos personales; una persona mencionada en un documento no se convierte en objetivo de investigación.</li>
+<li class="">No confundas participación en un proyecto con responsabilidad por todas sus decisiones o resultados.</li>
+<li class="">Respeta términos de uso, límites de API, licencias y restricciones de los documentos descargados.</li>
+<li class="">Registra contradicciones y grado de confianza; no borres un dato porque estropee una hipótesis.</li>
+<li class="">Da oportunidad de contextualizar cuando una publicación pueda afectar a una organización o persona.</li>
+<li class="">Publica solo los campos necesarios para sostener la conclusión y evita volcados masivos sin propósito.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-cerrar-el-expediente">Checklist antes de cerrar el expediente<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#checklist-antes-de-cerrar-el-expediente" class="hash-link" aria-label="Enlace directo al Checklist antes de cerrar el expediente" title="Enlace directo al Checklist antes de cerrar el expediente" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He identificado el proyecto por su número, no solo por el acrónimo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado coste total, contribución de la UE y pagos o importes de otras fuentes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He fechado la composición del consorcio y comprobado variantes de entidad.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He distinguido objetivos, resultados comunicados y validación independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado URL, fecha de consulta, versión y procedencia de cada documento.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He buscado contradicciones y candidatos homónimos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He limitado el tratamiento de datos personales a lo estrictamente necesario.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión dice también qué no se puede demostrar.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/cordis-osint-proyectos-financiacion-redes#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>CORDIS es el punto natural para proyectos de los programas marco de investigación. Según la pregunta, combínalo con:</p>
+<ul>
+<li class="">el Sistema de Transparencia Financiera para importes y beneficiarios dentro de su cobertura;</li>
+<li class="">el portal Funding &amp; Tenders para convocatorias, oportunidades y documentación del programa;</li>
+<li class="">registros mercantiles y de beneficiarios reales para identidad y control societario;</li>
+<li class="">OpenAlex, Crossref u OpenAIRE para publicaciones, autores y afiliaciones;</li>
+<li class="">Espacenet para familias de patentes y cronologías documentales;</li>
+<li class="">TED para contratación pública relacionada, sin confundir contratos con subvenciones.</li>
+</ul>
+<p>El <em>takeaway</em> es sencillo: <strong>usa CORDIS para convertir una narrativa sobre “financiación europea” en un expediente de proyecto con identificadores, participantes, fechas y resultados trazables; después valida cada conclusión en la fuente que realmente responde a esa pregunta</strong>. Un próximo paso útil sería construir una plantilla reproducible para comparar consorcios entre convocatorias sin fusionar organizaciones homónimas.</p>
+<blockquote>
+<p>Esta entrada ha sido generada mediante inteligencia artificial y publicada sin revisión humana. Verifica los datos y las fuentes antes de utilizarlos en una investigación real.</p>
+</blockquote>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Investigacion</category>
+            <category>Research</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Due Diligence</category>
+        </item>
         <item>
             <title><![CDATA[Meta Ad Library en OSINT: investigar campañas publicitarias sin confundir transparencia con prueba]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/meta-ad-library-osint-transparencia-publicitaria</link>
@@ -2866,190 +3002,6 @@
             <category>Verificacion</category>
             <category>Investigacion</category>
             <category>Privacidad</category>
-            <category>Metodologia</category>
-        </item>
-        <item>
-            <title><![CDATA[UN Comtrade en OSINT: flujos comerciales, códigos HS y asimetrías sin falsas certezas]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias</guid>
-            <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista OSINT comparando mapas de comercio, códigos de producto, documentos aduaneros y una cronología reproducible]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando mapas de comercio, códigos de producto, documentos aduaneros y una cronología reproducible" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-20-un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias-dad2ed7eeb734e3aa4ade1b99b2489d7.png" width="1376" height="768" class="img_ev3q"></p>
-<p>Una gráfica asegura que las exportaciones de un producto se han disparado. Otra, construida con el país socio, cuenta algo distinto. Antes de hablar de evasión, desvíos o una nueva ruta comercial, quedan preguntas bastante menos vistosas: <strong>¿qué país informó el dato, qué código de producto se usó, qué revisión estaba vigente y se están comparando importaciones CIF con exportaciones FOB?</strong> <code>UN Comtrade</code> sirve para responderlas con estadísticas oficiales abiertas, siempre que el analista trate cada cifra como una observación documentada y no como una acusación.</p>
-<p>Revisando la documentación oficial el <strong>20 de julio de 2026</strong>, la División de Estadística de Naciones Unidas describe <code>UN Comtrade</code> como una plataforma que agrega estadísticas comerciales anuales y mensuales por producto y socio, comunicadas por las autoridades estadísticas de los países y territorios. El portal permite explorar mercancías y servicios, consultar clasificaciones como <code>HS</code>, <code>SITC</code> y <code>BEC</code>, descargar resultados y trabajar mediante API. También advierte que los datos se incorporan y revisan continuamente, y que no existe un calendario fijo para la publicación de cada país.</p>
-<p>Eso la convierte en una fuente extraordinaria para investigar tendencias agregadas, dependencias comerciales o aparentes discrepancias. No la convierte en un registro de envíos individuales ni en una prueba directa sobre una empresa o una persona. Este artículo está pensado para periodistas de datos, analistas de riesgo, investigadores académicos y equipos de debida diligencia. No es una guía para perfilar individuos, eludir controles comerciales o señalar conductas ilícitas sin evidencia primaria.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-comtrade-y-para-qué-sirve">Qué es UN Comtrade y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#qu%C3%A9-es-un-comtrade-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es UN Comtrade y para qué sirve" title="Enlace directo al Qué es UN Comtrade y para qué sirve" translate="no">​</a></h2>
-<p><code>UN Comtrade</code> reúne estadísticas oficiales de comercio exterior. Su unidad de análisis habitual combina varias dimensiones:</p>
-<ul>
-<li class=""><strong>reporter</strong>: el país o territorio que comunica el dato;</li>
-<li class=""><strong>partner</strong>: el socio comercial atribuido;</li>
-<li class=""><strong>flow</strong>: importación, exportación u otro flujo disponible;</li>
-<li class=""><strong>period</strong>: año o mes;</li>
-<li class=""><strong>commodity</strong>: producto clasificado con un código como <code>HS</code>;</li>
-<li class=""><strong>value</strong>, peso y cantidades: medidas cuya disponibilidad y calidad varían;</li>
-<li class="">metadatos adicionales, cuando el informante los aporta, como modo de transporte o procedimiento aduanero.</li>
-</ul>
-<p>La distinción entre <em>reporter</em> y <em>partner</em> es crucial. Si España declara importaciones procedentes del país ficticio <code>Litoralia</code>, observamos la estadística española. Si <code>Litoralia</code> declara exportaciones hacia España, observamos otra estadística oficial sobre el flujo espejo. Parecen dos caras de la misma operación agregada, pero rara vez coinciden exactamente.</p>
-<p>Para OSINT responsable, Comtrade resulta especialmente útil en cuatro tareas:</p>
-<ol>
-<li class="">comprobar si una afirmación pública encaja con la tendencia agregada;</li>
-<li class="">comparar productos, socios y periodos con una consulta reproducible;</li>
-<li class="">detectar anomalías que merecen una segunda fuente;</li>
-<li class="">construir contexto antes de revisar aduanas nacionales, memorias empresariales, sanciones, contratos o registros sectoriales.</li>
-</ol>
-<p>No revela por sí sola quién envió una mercancía, qué buque la transportó ni por qué cambió el flujo. Una tabla nacional no debe convertirse mágicamente en una atribución empresarial.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-narrativa-sobre-componentes-solares">Caso de uso legítimo: comprobar una narrativa sobre componentes solares<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#caso-de-uso-leg%C3%ADtimo-comprobar-una-narrativa-sobre-componentes-solares" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una narrativa sobre componentes solares" title="Enlace directo al Caso de uso legítimo: comprobar una narrativa sobre componentes solares" translate="no">​</a></h2>
-<p>Imagina que una asociación sectorial afirma que <code>Puerto Claro</code>, un país ficticio, duplicó en un año sus importaciones de componentes solares desde <code>Sierra Norte</code>. El objetivo del analista no es demostrar contrabando ni buscar personas. Es comprobar si la narrativa cuantitativa está bien construida.</p>
-<p>La primera tarea consiste en traducir “componentes solares” a una clasificación concreta. Una etiqueta periodística puede abarcar células fotovoltaicas, módulos completos, inversores, conectores y piezas que viven en partidas diferentes. Elegir un único código sin documentarlo puede fabricar el salto que queríamos encontrar.</p>
-<p>Un flujo prudente tendría esta forma:</p>
-<ol>
-<li class="">identificar la revisión <code>HS</code> usada por el informante y leer la descripción oficial del código;</li>
-<li class="">consultar a <code>Puerto Claro</code> como <em>reporter</em>, <code>Sierra Norte</code> como <em>partner</em> y las importaciones como <em>flow</em>;</li>
-<li class="">descargar varios años, no solo los dos que producen el titular más llamativo;</li>
-<li class="">repetir con el flujo espejo: exportaciones declaradas por <code>Sierra Norte</code> hacia <code>Puerto Claro</code>;</li>
-<li class="">anotar fecha de extracción, parámetros y posibles revisiones;</li>
-<li class="">contrastar la anomalía con estadísticas nacionales, cambios arancelarios, capacidad logística y documentación sectorial.</li>
-</ol>
-<p>El resultado podría confirmar la dirección del cambio, mostrar que solo afecta a una subpartida o revelar que el supuesto crecimiento aparece porque se compararon revisiones incompatibles. Cualquiera de esos resultados es útil. Ninguno autoriza a atribuir intención ilícita.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-hipótesis-que-pueda-fallar">1. Formula una hipótesis que pueda fallar<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#1-formula-una-hip%C3%B3tesis-que-pueda-fallar" class="hash-link" aria-label="Enlace directo al 1. Formula una hipótesis que pueda fallar" title="Enlace directo al 1. Formula una hipótesis que pueda fallar" translate="no">​</a></h3>
-<p>Evita empezar con “voy a demostrar un desvío comercial”. Una formulación más sana sería: “quiero comprobar si el valor declarado para este producto, reportero y socio cambia de forma anómala frente a su propia serie y frente al flujo espejo”.</p>
-<p>Define antes de consultar:</p>
-<ul>
-<li class="">producto y nivel de agregación;</li>
-<li class="">revisión de la clasificación;</li>
-<li class="">informante y socio;</li>
-<li class="">importaciones o exportaciones;</li>
-<li class="">frecuencia y ventana temporal;</li>
-<li class="">moneda, valor, peso o cantidad que analizarás;</li>
-<li class="">umbral que justificaría ampliar la investigación.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-resuelve-el-código-de-producto-no-solo-su-nombre">2. Resuelve el código de producto, no solo su nombre<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#2-resuelve-el-c%C3%B3digo-de-producto-no-solo-su-nombre" class="hash-link" aria-label="Enlace directo al 2. Resuelve el código de producto, no solo su nombre" title="Enlace directo al 2. Resuelve el código de producto, no solo su nombre" translate="no">​</a></h3>
-<p>El <code>Harmonized System</code> organiza mercancías en una jerarquía de códigos. Las revisiones cambian con el tiempo y una conversión entre versiones puede agrupar, dividir o dejar sin equivalencia exacta determinadas partidas. La documentación histórica de Naciones Unidas recuerda además que no toda conversión es reversible: transformar datos hacia una clasificación anterior no equivale a reconstruir una clasificación posterior con el mismo detalle.</p>
-<p>Guarda siempre:</p>
-<ul>
-<li class="">el código y su descripción;</li>
-<li class="">la revisión <code>HS</code> o la clasificación alternativa;</li>
-<li class="">el nivel de dígitos consultado;</li>
-<li class="">cualquier tabla de correspondencia aplicada;</li>
-<li class="">las partidas incluidas y excluidas por decisión analítica.</li>
-</ul>
-<p>Para una primera exploración suele ser sensato empezar con una categoría amplia y bajar de nivel solo cuando la pregunta lo exige. El detalle aparente no compensa una clasificación equivocada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-una-consulta-mínima-y-reproducible">3. Construye una consulta mínima y reproducible<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#3-construye-una-consulta-m%C3%ADnima-y-reproducible" class="hash-link" aria-label="Enlace directo al 3. Construye una consulta mínima y reproducible" title="Enlace directo al 3. Construye una consulta mínima y reproducible" translate="no">​</a></h3>
-<p>En la interfaz web, fija explícitamente producto, frecuencia, periodo, informante, socio y flujo. Si usas la API, conserva la URL o los parámetros y la respuesta original. Una consulta pública de validación puede seguir esta estructura conceptual:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">type=C</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">freqCode=A</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">clCode=HS</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">period=2024</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">reporterCode=&lt;código del informante&gt;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">partnerCode=&lt;código del socio&gt;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">cmdCode=&lt;código HS&gt;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">flowCode=M</span><br></span></code></pre></div></div>
-<p>Los nombres y límites concretos del servicio deben comprobarse en el portal de desarrolladores antes de automatizar. El acceso gratuito registrado anuncia hasta <code>100.000</code> registros por llamada y <code>500</code> llamadas diarias, pero esas condiciones pueden cambiar. Diseña caché, consultas acotadas y pausas razonables en vez de depender de cifras permanentes.</p>
-<p>Para que otra persona pueda repetir el hallazgo, conserva un pequeño manifiesto junto al fichero descargado:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">fuente</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> UN Comtrade</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">extraido_utc</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token datetime number">2026-07-20T00:00:00Z</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">reporter</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"código y nombre"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">partner</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"código y nombre"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">flow</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> importaciones</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">clasificacion</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"HS y revisión"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">producto</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"código y descripción"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">periodos</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token number">2021</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">2022</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">2023</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token number">2024</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">archivo_original</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> comtrade_export.csv</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"&lt;hash del fichero&gt;"</span><br></span></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-dato-comunicado-agregado-y-estimado">4. Separa dato comunicado, agregado y estimado<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#4-separa-dato-comunicado-agregado-y-estimado" class="hash-link" aria-label="Enlace directo al 4. Separa dato comunicado, agregado y estimado" title="Enlace directo al 4. Separa dato comunicado, agregado y estimado" translate="no">​</a></h3>
-<p>No todas las columnas significan “dato bruto entregado por aduanas”. Comtrade procesa, valida y agrega información; determinados productos analíticos también pueden emplear estimaciones para cubrir ausencias. Revisa los indicadores disponibles en cada descarga y no mezcles sin advertencia:</p>
-<ul>
-<li class="">valores comunicados por el país;</li>
-<li class="">agregaciones calculadas;</li>
-<li class="">cantidades estimadas o imputadas;</li>
-<li class="">totales mundiales;</li>
-<li class="">datos de mercancías y datos de servicios.</li>
-</ul>
-<p>Si una dimensión no está disponible —por ejemplo, modo de transporte—, su ausencia no significa que la mercancía no viajara por ese medio. Significa que ese desglose no está publicado para esa observación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-compara-el-espejo-sin-exigir-simetría-perfecta">5. Compara el espejo sin exigir simetría perfecta<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#5-compara-el-espejo-sin-exigir-simetr%C3%ADa-perfecta" class="hash-link" aria-label="Enlace directo al 5. Compara el espejo sin exigir simetría perfecta" title="Enlace directo al 5. Compara el espejo sin exigir simetría perfecta" translate="no">​</a></h3>
-<p>Las importaciones declaradas por A desde B pueden compararse con las exportaciones declaradas por B hacia A. Esa pareja ayuda a detectar retrasos, diferencias persistentes o problemas de clasificación, pero no debería igualarse de forma automática.</p>
-<p>Entre las causas legítimas de asimetría están:</p>
-<ul>
-<li class="">importaciones valoradas habitualmente sobre base <code>CIF</code> y exportaciones sobre base <code>FOB</code>;</li>
-<li class="">diferencias de calendario y momento de registro;</li>
-<li class="">tránsito o reexportación por terceros países;</li>
-<li class="">país de origen frente a país de último destino conocido;</li>
-<li class="">confidencialidad estadística;</li>
-<li class="">umbrales y prácticas nacionales de compilación;</li>
-<li class="">revisiones de datos y conversiones entre clasificaciones;</li>
-<li class="">errores de cantidad, unidad o socio.</li>
-</ul>
-<p>La discrepancia es una señal para investigar el método, no un marcador automático de fraude.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-fuera-de-comtrade">6. Corrobora fuera de Comtrade<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#6-corrobora-fuera-de-comtrade" class="hash-link" aria-label="Enlace directo al 6. Corrobora fuera de Comtrade" title="Enlace directo al 6. Corrobora fuera de Comtrade" translate="no">​</a></h3>
-<p>Una conclusión sensible necesita fuentes adicionales. Según la hipótesis, busca:</p>
-<ul>
-<li class="">la oficina estadística o aduanera del país informante;</li>
-<li class="">notas metodológicas y calendarios de revisión;</li>
-<li class="">legislación arancelaria o cambios de clasificación;</li>
-<li class="">informes sectoriales con metodología transparente;</li>
-<li class="">registros portuarios o logísticos agregados y legalmente accesibles;</li>
-<li class="">documentos empresariales públicos, si la pregunta ya está acotada;</li>
-<li class="">resoluciones regulatorias o judiciales, si existe un procedimiento formal.</li>
-</ul>
-<p>Documenta qué parte procede de Comtrade, cuál de una fuente nacional y cuál es una inferencia tuya.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>El error más común es confundir estadística agregada con trazabilidad transaccional. Un aumento bilateral no identifica empresa, contrato, ruta ni destinatario final. Tampoco prueba una relación causal con una noticia ocurrida en fechas cercanas.</p>
-<p>Otros falsos positivos frecuentes nacen de:</p>
-<ul>
-<li class="">comparar valores nominales sin considerar inflación o tipo de cambio;</li>
-<li class="">interpretar un cambio de código como cambio económico real;</li>
-<li class="">sumar niveles jerárquicos y contar dos veces el mismo comercio;</li>
-<li class="">mezclar datos mensuales incompletos con años cerrados;</li>
-<li class="">escoger kilos, unidades suplementarias y valor como si midieran lo mismo;</li>
-<li class="">ignorar que los datos históricos pueden revisarse;</li>
-<li class="">tratar <code>World</code> como suma inmutable de todos los socios visibles;</li>
-<li class="">usar el valor unitario como si fuera el precio exacto de cada operación;</li>
-<li class="">comparar mercancías y servicios sin respetar sus metodologías.</li>
-</ul>
-<p>Las cifras extraordinarias merecen una comprobación adicional de unidad, escala y agregación. Un cero puede ser comercio nulo, dato ausente, confidencial o una selección incorrecta. La interfaz no elimina esa ambigüedad por ti.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<p>Trabajar con estadísticas comerciales agregadas reduce algunos riesgos personales, pero no elimina la responsabilidad analítica.</p>
-<ul>
-<li class="">Investiga una pregunta de interés legítimo y proporcional.</li>
-<li class="">No uses un agregado nacional para insinuar culpa individual.</li>
-<li class="">Evita enriquecer tablas con datos personales que no sean necesarios.</li>
-<li class="">Protege claves de API, descargas y anotaciones internas.</li>
-<li class="">Respeta licencias, límites de uso y condiciones de redistribución.</li>
-<li class="">Conserva el dato original separado de columnas calculadas.</li>
-<li class="">Etiqueta hechos, transformaciones e inferencias de forma distinta.</li>
-<li class="">Publica parámetros y limitaciones suficientes para permitir revisión.</li>
-<li class="">Corrige el análisis si Naciones Unidas o el informante revisan la serie.</li>
-<li class="">Solicita contraste experto antes de publicar una acusación económica o regulatoria.</li>
-</ul>
-<p>La OPSEC también consiste en no revelar hipótesis sensibles mediante nombres de ficheros, consultas compartidas o repositorios públicos. Para ejemplos y pruebas, utiliza países, empresas y productos ficticios o datos agregados inocuos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-citar-una-anomalía">Checklist antes de citar una anomalía<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#checklist-antes-de-citar-una-anomal%C3%ADa" class="hash-link" aria-label="Enlace directo al Checklist antes de citar una anomalía" title="Enlace directo al Checklist antes de citar una anomalía" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He definido informante, socio, flujo, periodo y frecuencia.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado código, descripción y revisión de la clasificación.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Sé si analizo valor, peso, cantidad o una medida derivada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado disponibilidad, flags y metadatos del conjunto.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado registros comunicados, agregados y estimados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado al menos tres periodos comparables.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He contrastado el flujo espejo sin exigir igualdad automática.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He considerado CIF/FOB, tránsito, calendario y confidencialidad.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He conservado consulta, descarga, fecha y hash.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He verificado cualquier conclusión sensible en una fuente nacional.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He evitado atribuir el agregado a una empresa o persona.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Otra persona puede reproducir mis pasos y discutir mis supuestos.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p><code>UN Comtrade</code> funciona mejor como columna vertebral estadística que como fuente única. Puedes combinarla con:</p>
-<ul>
-<li class="">oficinas nacionales de estadística y aduanas, para el dato primario y sus revisiones;</li>
-<li class=""><code>Eurostat</code>, si necesitas detalle armonizado dentro del marco europeo;</li>
-<li class=""><code>UNCTADstat</code> o estadísticas de la <code>OMC</code>, para indicadores y contexto comercial;</li>
-<li class=""><code>OpenRefine</code>, para limpiar códigos, socios y periodos conservando el historial;</li>
-<li class=""><code>Datasette</code> o <code>SQLite</code>, para publicar una extracción acotada y consultable;</li>
-<li class="">registros mercantiles, <code>GLEIF</code> u otras fuentes societarias, solo cuando exista una pregunta legítima de identidad corporativa;</li>
-<li class="">datos de contratación, sanciones o transporte únicamente como capas separadas y verificadas.</li>
-</ul>
-<p>El takeaway accionable es sencillo: elige un producto inocuo, descarga cuatro años para un informante y un socio, repite la consulta desde el espejo y escribe cinco explicaciones alternativas para cualquier diferencia antes de elegir una. <strong>Si tu hipótesis sobrevive al código, la revisión, el calendario y la valoración, entonces merece una segunda fuente.</strong> Un siguiente tema útil sería aprender a construir un cuaderno reproducible que compare flujos espejo sin borrar sus metadatos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación-oficial">Fuentes y documentación oficial<a href="https://spainfsd-creator.github.io/osint-blog/un-comtrade-osint-flujos-comerciales-codigos-hs-asimetrias#fuentes-y-documentaci%C3%B3n-oficial" class="hash-link" aria-label="Enlace directo al Fuentes y documentación oficial" title="Enlace directo al Fuentes y documentación oficial" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://comtradeplus.un.org/" target="_blank" rel="noopener noreferrer" class="">UN Comtrade — portal oficial</a></li>
-<li class=""><a href="https://unstats.un.org/unsd/trade/" target="_blank" rel="noopener noreferrer" class="">División de Estadística de Naciones Unidas — Trade Statistics</a></li>
-<li class=""><a href="https://comtradeplus.un.org/TradeFlow" target="_blank" rel="noopener noreferrer" class="">UN Comtrade — explorador de flujos y condiciones de acceso</a></li>
-<li class=""><a href="https://comtradeapi.un.org/files/v1/app/wiki/MethodologyGuideforComtradePlus.pdf" target="_blank" rel="noopener noreferrer" class="">Methodology Guide for UN Comtrade</a></li>
-<li class=""><a href="https://comtradeapi.un.org/files/v1/app/wiki/UNSD_Method_trade_data_processing_v6-17_Jun_2019.pdf" target="_blank" rel="noopener noreferrer" class="">UN Comtrade — metodología de procesamiento y validación</a></li>
-<li class=""><a href="https://unstats.un.org/unsd/trade/dataextract/dataclass.htm" target="_blank" rel="noopener noreferrer" class="">UNSD — clasificaciones de mercancías HS y SITC</a></li>
-<li class=""><a href="https://unstats.un.org/unsd/trade/imts/methodology.asp" target="_blank" rel="noopener noreferrer" class="">UNSD — metodología de estadísticas internacionales de mercancías</a></li>
-<li class=""><a href="https://unstats.un.org/unsd/trade/data/tables.asp" target="_blank" rel="noopener noreferrer" class="">UNSD — tablas analíticas de comercio y notas sobre revisiones</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Datos</category>
-            <category>Comercio</category>
-            <category>Verificacion</category>
-            <category>Investigacion</category>
             <category>Metodologia</category>
         </item>
     </channel>
