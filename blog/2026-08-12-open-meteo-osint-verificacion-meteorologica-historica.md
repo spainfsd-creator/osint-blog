@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un análisis OSINT que contrasta una rejilla meteorológica, una estación oficial, gráficas horarias y notas de procedencia](/img/blog/2026-08-12-open-meteo-verificacion-meteorologica-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/open-meteo-osint-verificacion-meteorologica-historica.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un vídeo asegura que una concentración pública terminó bajo una tormenta; una fotografía muestra paraguas; y una publicación, subida varias horas después, habla de «viento imposible». Las tres pistas pueden encajar y, aun así, no demostrar qué ocurrió en el lugar y minuto investigados. Antes de tratar el tiempo como un sello de autenticidad, hay que separar **la observación, la estimación de un modelo, la hora de publicación y la hora real del suceso**.
