@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT contrastando registros societarios, identificadores, fechas y documentos oficiales](/img/blog/2026-08-13-opencorporates-osint-registros-societarios.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/opencorporates-osint-registros-societarios.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una factura llega firmada por «Atlántica Circular», la web habla de una filial europea y el contrato menciona una sociedad con nombre casi idéntico en otro país. El error peligroso sería elegir el primer resultado del buscador y construir sobre él una historia convincente. En investigación societaria, **un nombre orienta; la pareja jurisdicción–número registral identifica**.
