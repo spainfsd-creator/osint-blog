@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT organizando capturas, vídeos, sellos temporales, hashes y notas de procedencia](/img/blog/2026-08-14-auto-archiver-preservacion-evidencias-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/auto-archiver-preservacion-evidencias-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un vídeo público cambia de título, una publicación desaparece y la captura que guardaste ya no permite saber qué URL abriste ni cuándo. El hallazgo quizá era bueno; la preservación, no. En OSINT, **guardar un archivo es solo el principio**: para que otra persona pueda revisarlo necesitas conservar origen, momento, método, resultado y límites.
