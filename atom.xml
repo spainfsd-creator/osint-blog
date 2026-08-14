@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-13T00:00:00.000Z</updated>
+    <updated>2026-08-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Auto Archiver en OSINT: preservar contenido público sin confundir copia con prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint"/>
+        <updated>2026-08-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT organizando capturas, vídeos, sellos temporales, hashes y notas de procedencia]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT organizando capturas, vídeos, sellos temporales, hashes y notas de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-14-auto-archiver-preservacion-evidencias-osint-308b9b8715cf915720d2992f66f90650.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Un vídeo público cambia de título, una publicación desaparece y la captura que guardaste ya no permite saber qué URL abriste ni cuándo. El hallazgo quizá era bueno; la preservación, no. En OSINT, <strong>guardar un archivo es solo el principio</strong>: para que otra persona pueda revisarlo necesitas conservar origen, momento, método, resultado y límites.</p>
+<p><a href="https://github.com/bellingcat/auto-archiver" target="_blank" rel="noopener noreferrer" class="">Auto Archiver</a>, desarrollado por Bellingcat, automatiza esa primera capa de preservación. Recibe URL desde la línea de comandos, un CSV, Google Sheets u otros conectores; intenta extraer páginas y medios; puede enriquecer el resultado con metadatos, miniaturas, hashes o sellos temporales; y lo guarda localmente o en almacenamiento remoto. Es útil para equipos de verificación, redacciones, observatorios y proyectos académicos que trabajan con material abierto y volátil.</p>
+<p>Pero conviene fijar la frontera desde el inicio: <strong>una copia no demuestra que el contenido sea verdadero</strong>, un hash no identifica a su autor y una fecha de descarga no equivale a la fecha del suceso. La herramienta ayuda a preservar y documentar; la autenticación, la corroboración y la valoración jurídica requieren pasos adicionales.</p>
+<p>Todos los nombres, dominios, identificadores y situaciones del caso práctico son ficticios. El método se limita a material público, pertinente y obtenido de forma legítima.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-auto-archiver-y-para-qué-sirve">Qué es Auto Archiver y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#qu%C3%A9-es-auto-archiver-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Auto Archiver y para qué sirve" title="Enlace directo al Qué es Auto Archiver y para qué sirve" translate="no">​</a></h2>
+<p>La <a href="https://auto-archiver.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer" class="">documentación oficial</a> define Auto Archiver como una herramienta Python para archivar contenido web de manera segura y verificable. Su valor práctico no está en una única descarga, sino en una tubería configurable que separa funciones:</p>
+<ul>
+<li class="">los <strong>feeders</strong> entregan las URL, por ejemplo desde CLI, CSV o Google Sheets;</li>
+<li class="">los <strong>extractors</strong> intentan recuperar la página, imagen, vídeo o publicación;</li>
+<li class="">los <strong>enrichers</strong> añaden elementos como metadatos, miniaturas, hashes, WACZ o sellos temporales;</li>
+<li class="">los <strong>storages</strong> conservan los objetos localmente, en Google Drive o en un almacén compatible con S3;</li>
+<li class="">los <strong>databases</strong> registran estados y resultados en consola, CSV, Sheets u otros destinos;</li>
+<li class="">los <strong>formatters</strong> crean una salida manejable, como una representación HTML.</li>
+</ul>
+<p>Este diseño modular permite construir un flujo proporcional. Una investigación pequeña puede empezar con una URL y almacenamiento local. Un equipo puede usar una hoja compartida como bandeja de entrada, almacenamiento privado y un registro tabular. No hace falta activar todos los módulos: <strong>más artefactos no significan necesariamente mejor evidencia</strong>.</p>
+<p>La documentación consultada el <strong>14 de agosto de 2026</strong> muestra la versión <code>1.2.7</code> y ofrece instalación mediante paquete Python o contenedor. Comprueba siempre la <a href="https://auto-archiver.readthedocs.io/en/latest/installation/" target="_blank" rel="noopener noreferrer" class="">guía de instalación vigente</a> antes de desplegarlo; dependencias, plataformas compatibles y módulos pueden cambiar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-una-retirada-de-producto-anunciada-en-abierto">Caso ficticio: una retirada de producto anunciada en abierto<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#caso-ficticio-una-retirada-de-producto-anunciada-en-abierto" class="hash-link" aria-label="Enlace directo al Caso ficticio: una retirada de producto anunciada en abierto" title="Enlace directo al Caso ficticio: una retirada de producto anunciada en abierto" translate="no">​</a></h2>
+<p>Imagina que la cooperativa ficticia <strong>Puerto Claro</strong> anuncia en su web y en dos perfiles públicos la retirada preventiva de un lote. Tu tarea legítima consiste en documentar qué comunicó la entidad y cómo evolucionó el aviso, no en identificar a clientes ni empleados.</p>
+<p>Dispones de cuatro URL públicas:</p>
+<ol>
+<li class="">el comunicado corporativo;</li>
+<li class="">una publicación social que enlaza al comunicado;</li>
+<li class="">un vídeo explicativo del fabricante;</li>
+<li class="">la ficha pública del producto afectado.</li>
+</ol>
+<p>Si solo haces capturas, puedes perder el vídeo, el HTML, los metadatos de recuperación o la relación entre las piezas. Si solo descargas los archivos, puedes olvidar de dónde procedían. Auto Archiver permite tratar cada URL como una unidad de trabajo y producir un registro consistente.</p>
+<p>La pregunta correcta no es «¿puedo guardarlo todo?», sino «¿qué necesito preservar para verificar esta afirmación concreta?». En este caso, la respuesta puede incluir la URL original, el contenido recuperado, la hora de archivo en UTC, el estado del proceso, un hash del fichero y una nota que explique por qué se recogió.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado, paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado, paso a paso" title="Enlace directo al Flujo recomendado, paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-alcance-y-criterio-de-inclusión">1. Define alcance y criterio de inclusión<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#1-define-alcance-y-criterio-de-inclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al 1. Define alcance y criterio de inclusión" title="Enlace directo al 1. Define alcance y criterio de inclusión" translate="no">​</a></h3>
+<p>Antes de ejecutar nada, escribe una frase verificable: «documentar los comunicados públicos sobre el lote ficticio PC-2408 entre el 10 y el 14 de agosto». Añade qué dominios y cuentas oficiales entran, qué queda fuera y cuándo termina la recogida.</p>
+<p>Ese límite evita dos problemas: acumular datos personales irrelevantes y convertir una investigación acotada en vigilancia permanente. Si una URL contiene comentarios de terceros, valora si son necesarios o si basta con preservar el comunicado principal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prepara-una-entrada-mínima-y-trazable">2. Prepara una entrada mínima y trazable<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#2-prepara-una-entrada-m%C3%ADnima-y-trazable" class="hash-link" aria-label="Enlace directo al 2. Prepara una entrada mínima y trazable" title="Enlace directo al 2. Prepara una entrada mínima y trazable" translate="no">​</a></h3>
+<p>Para una prueba controlada puedes usar la línea de comandos; para varias URL, un CSV resulta fácil de revisar y versionar. La <a href="https://auto-archiver.readthedocs.io/en/latest/installation/configurations.html" target="_blank" rel="noopener noreferrer" class="">configuración oficial</a> explica que la primera ejecución puede generar un <code>orchestration.yaml</code> y que el orden de los módulos se declara en <code>steps</code>.</p>
+<p>Una hoja de control debería separar, al menos:</p>
+<ul>
+<li class=""><code>source_url</code>: URL recibida sin acortadores cuando sea posible;</li>
+<li class=""><code>collected_at_utc</code>: momento de la consulta;</li>
+<li class=""><code>case_id</code>: identificador interno no sensible;</li>
+<li class=""><code>reason</code>: afirmación que esa fuente puede ayudar a contrastar;</li>
+<li class=""><code>status</code>: éxito, parcial o fallo;</li>
+<li class=""><code>notes</code>: redirecciones, bloqueo, contenido dinámico o incidencia.</li>
+</ul>
+<p>No incluyas credenciales en el CSV ni en un repositorio. La configuración admite autenticación para determinados módulos, pero cualquier secreto exige un almacén y controles de acceso adecuados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-empieza-con-una-configuración-pequeña">3. Empieza con una configuración pequeña<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#3-empieza-con-una-configuraci%C3%B3n-peque%C3%B1a" class="hash-link" aria-label="Enlace directo al 3. Empieza con una configuración pequeña" title="Enlace directo al 3. Empieza con una configuración pequeña" translate="no">​</a></h3>
+<p>El <a href="https://github.com/bellingcat/auto-archiver" target="_blank" rel="noopener noreferrer" class="">repositorio oficial</a> documenta dos arranques de alto nivel: una imagen Docker o <code>pip install auto-archiver</code>. Tras instalar en un entorno aislado y consultar <code>auto-archiver --help</code>, prueba una URL propia o una página creada para el ejercicio.</p>
+<p>Una primera tubería razonable contiene:</p>
+<ul>
+<li class="">feeder de CLI o CSV;</li>
+<li class="">extractor genérico;</li>
+<li class="">enriquecedor de metadatos;</li>
+<li class="">enriquecedor de hash;</li>
+<li class="">almacenamiento local;</li>
+<li class="">registro CSV.</li>
+</ul>
+<p>No copies comandos antiguos de artículos sin contrastarlos. En la arquitectura actual, el fichero de orquestación distingue módulos y configuraciones, y las opciones de CLI pueden sobrescribir lo guardado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-conserva-contenido-y-contexto-por-separado">4. Conserva contenido y contexto por separado<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#4-conserva-contenido-y-contexto-por-separado" class="hash-link" aria-label="Enlace directo al 4. Conserva contenido y contexto por separado" title="Enlace directo al 4. Conserva contenido y contexto por separado" translate="no">​</a></h3>
+<p>El fichero descargado es un artefacto; la ficha de recogida es otro. Mantén juntos, mediante un identificador estable:</p>
+<ul>
+<li class="">el objeto original recuperado;</li>
+<li class="">su URL de origen y las redirecciones observadas;</li>
+<li class="">el instante de recuperación y la zona horaria;</li>
+<li class="">el módulo y resultado de la extracción;</li>
+<li class="">el hash calculado;</li>
+<li class="">los errores y elementos que no se pudieron guardar;</li>
+<li class="">las notas analíticas, claramente separadas de los datos obtenidos.</li>
+</ul>
+<p>El <code>hash_enricher</code> ofrece cálculo de hash y la configuración de ejemplo usa <code>SHA-256</code>. Ese valor permite comprobar más tarde si <strong>ese fichero</strong> cambió. No prueba quién lo publicó, cuándo se creó originalmente ni si representa un hecho real.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-elige-almacenamiento-según-el-riesgo">5. Elige almacenamiento según el riesgo<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#5-elige-almacenamiento-seg%C3%BAn-el-riesgo" class="hash-link" aria-label="Enlace directo al 5. Elige almacenamiento según el riesgo" title="Enlace directo al 5. Elige almacenamiento según el riesgo" translate="no">​</a></h3>
+<p>La documentación ofrece <a href="https://auto-archiver.readthedocs.io/en/latest/modules/autogen/storage/local_storage.html" target="_blank" rel="noopener noreferrer" class="">almacenamiento local</a>, Google Drive y <a href="https://auto-archiver.readthedocs.io/en/latest/modules/autogen/storage/s3_storage.html" target="_blank" rel="noopener noreferrer" class="">almacenamiento S3</a>. Elige según volumen, sensibilidad, recuperación y trabajo en equipo.</p>
+<p>Para una prueba, una carpeta local cifrada y con copia de seguridad puede bastar. Para un equipo, separa permisos de lectura, escritura y administración; habilita versionado o retención cuando proceda; y registra quién exporta o comparte material. No publiques automáticamente el archivo: que la fuente fuese pública no significa que replicarla indefinidamente sea necesaria o responsable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-verifica-la-salida-no-solo-el-estado-éxito">6. Verifica la salida, no solo el estado «éxito»<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#6-verifica-la-salida-no-solo-el-estado-%C3%A9xito" class="hash-link" aria-label="Enlace directo al 6. Verifica la salida, no solo el estado «éxito»" title="Enlace directo al 6. Verifica la salida, no solo el estado «éxito»" translate="no">​</a></h3>
+<p>Abre una muestra de los resultados. Comprueba que el vídeo reproduce, que el audio existe, que la captura corresponde a la URL, que el HTML no es una pantalla de consentimiento y que la marca temporal pertenece a la descarga correcta. Recalcula algunos hashes fuera de la herramienta y compáralos.</p>
+<p>En el ejemplo de Puerto Claro, crea una tabla de cobertura:</p>
+<table><thead><tr><th>Fuente</th><th>Contenido</th><th>Metadatos</th><th>Hash</th><th>Revisión visual</th><th>Incidencia</th></tr></thead><tbody><tr><td>Comunicado</td><td>HTML y captura</td><td>Sí</td><td>Sí</td><td>Correcta</td><td>Ninguna</td></tr><tr><td>Publicación</td><td>Captura parcial</td><td>Parciales</td><td>Sí</td><td>Correcta</td><td>Falta el hilo</td></tr><tr><td>Vídeo</td><td>Vídeo y miniaturas</td><td>Sí</td><td>Sí</td><td>Correcta</td><td>Sin subtítulos</td></tr><tr><td>Ficha</td><td>HTML</td><td>Sí</td><td>Sí</td><td>Correcta</td><td>Redirección anotada</td></tr></tbody></table>
+<p>La fila parcial no debe maquillarse. Un fallo documentado es más útil que una falsa sensación de completitud.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sellos-temporales-wacz-y-wayback-qué-aportan">Sellos temporales, WACZ y Wayback: qué aportan<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#sellos-temporales-wacz-y-wayback-qu%C3%A9-aportan" class="hash-link" aria-label="Enlace directo al Sellos temporales, WACZ y Wayback: qué aportan" title="Enlace directo al Sellos temporales, WACZ y Wayback: qué aportan" translate="no">​</a></h2>
+<p>Auto Archiver dispone de módulos para <a href="https://auto-archiver.readthedocs.io/en/latest/modules/autogen/enricher/opentimestamps_enricher.html" target="_blank" rel="noopener noreferrer" class="">OpenTimestamps</a>, WACZ y Wayback Machine. Son complementos, no sinónimos.</p>
+<ul>
+<li class="">Un <strong>hash</strong> detecta cambios en un objeto concreto.</li>
+<li class="">Un <strong>sello temporal criptográfico</strong> puede ayudar a demostrar que un compromiso sobre ese objeto existía no más tarde de cierto momento, según el mecanismo empleado.</li>
+<li class="">Un <strong>WACZ</strong> empaqueta contenido web archivado e información de reproducción en un formato interoperable.</li>
+<li class=""><strong>Wayback Machine</strong> aporta una copia mantenida por un tercero y puede ofrecer capturas anteriores o posteriores.</li>
+</ul>
+<p>Ninguno resuelve por sí solo autenticidad, atribución o admisibilidad. Si el caso puede terminar en un procedimiento formal, define el protocolo con asesoramiento jurídico y forense antes de recoger material, no después.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>La web moderna es hostil al archivo perfecto. El extractor genérico puede depender de herramientas y reglas que cambian; las plataformas introducen autenticación, contenido dinámico, límites, geobloqueos y medidas anti-bot. Un resultado exitoso puede contener solo una miniatura o una página intermedia. Un fallo puede ser temporal y no significar que el contenido nunca existió.</p>
+<p>También aparecen errores analíticos:</p>
+<ul>
+<li class="">atribuir una cuenta por el nombre visible sin verificar su control;</li>
+<li class="">confundir la hora de descarga con la hora de publicación;</li>
+<li class="">asumir que una URL redirigida siempre mostró el mismo contenido;</li>
+<li class="">tratar metadatos aportados por la plataforma como hechos independientes;</li>
+<li class="">considerar dos archivos iguales solo porque se parecen visualmente;</li>
+<li class="">creer que un hash «certifica» la verdad de lo archivado;</li>
+<li class="">ignorar ediciones, comentarios, contexto previo o contenido incrustado.</li>
+</ul>
+<p>Registra versiones, fecha de consulta y configuración utilizada. Si repites la recogida, conserva los resultados como ejecuciones distintas: sobrescribir elimina precisamente la cronología que intentas estudiar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opsec-ética-y-privacidad">OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al OPSEC, ética y privacidad" title="Enlace directo al OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>La automatización amplifica tanto el método como los errores. Aplica estas salvaguardas:</p>
+<ul>
+<li class="">trabaja con una cuenta y un entorno destinados al proyecto, nunca con perfiles personales innecesarios;</li>
+<li class="">limita las URL al alcance legítimo y evita espacios privados o credenciales obtenidas sin autorización;</li>
+<li class="">minimiza datos personales, especialmente comentarios, rostros, teléfonos y ubicaciones incidentales;</li>
+<li class="">cifra secretos y archivos sensibles; no pegues tokens en comandos que queden en el historial;</li>
+<li class="">restringe el acceso y fija plazos de conservación y borrado;</li>
+<li class="">no eludas controles técnicos o condiciones de servicio sin base legal y autorización;</li>
+<li class="">separa material sin verificar, evidencia corroborada y conclusiones analíticas;</li>
+<li class="">documenta cualquier transformación, recorte, conversión o transcripción.</li>
+</ul>
+<p>La <a href="https://auto-archiver.bellingcat.com/" target="_blank" rel="noopener noreferrer" class="">demostración alojada por Bellingcat</a> se describe como un prototipo de mejor esfuerzo y advierte que no debe usarse para datos sensibles ni críticos. Para un proyecto serio, evalúa el despliegue propio, la seguridad del almacenamiento y la gobernanza del equipo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Auto Archiver resulta especialmente útil cuando necesitas una tubería repetible y varios tipos de contenido. Para una sola página, una captura manual acompañada de notas, una exportación WARC/WACZ o un servicio de archivo puede ser suficiente. <strong>Hunchly</strong> ayuda a capturar sesiones de navegación; <strong>Webrecorder</strong> trabaja con archivos web reproducibles; <strong>Wayback Machine</strong> añade una copia de tercero; y herramientas como <code>yt-dlp</code>, <code>ffmpeg</code> o <code>wget</code> cubren tareas concretas cuando se documentan bien.</p>
+<p>La alternativa no debe elegirse por número de funciones, sino por la pregunta, el tipo de fuente, el riesgo y la capacidad de otra persona para repetir la revisión.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He definido una afirmación y un periodo concretos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Solo recojo URL públicas y pertinentes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Conservo URL, hora UTC, método, estado y notas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Guardo el objeto y su registro de procedencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Verifico visualmente una muestra y documento fallos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Compruebo hashes de forma independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Distingo publicación, descarga, suceso y sello temporal.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Protejo secretos y limito accesos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He fijado retención, copia de seguridad y borrado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Corroboro antes de atribuir o publicar conclusiones.</li>
+</ul>
+<p>El takeaway es sencillo: <strong>archiva temprano, pero concluye tarde</strong>. Una buena tubería evita perder contenido; una buena investigación conserva además el contexto, admite sus huecos y permite que otra persona reconstruya cada decisión. El siguiente paso natural es profundizar en WACZ y la reproducción verificable de capturas web sin depender de una sola plataforma.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://github.com/bellingcat/auto-archiver" target="_blank" rel="noopener noreferrer" class="">Repositorio oficial de Bellingcat Auto Archiver</a></li>
+<li class=""><a href="https://auto-archiver.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer" class="">Documentación oficial de Auto Archiver</a></li>
+<li class=""><a href="https://auto-archiver.readthedocs.io/en/latest/installation/configurations.html" target="_blank" rel="noopener noreferrer" class="">Configuración y arquitectura modular</a></li>
+<li class=""><a href="https://auto-archiver.readthedocs.io/en/latest/installation/requirements.html" target="_blank" rel="noopener noreferrer" class="">Requisitos de sistema y almacenamiento</a></li>
+<li class=""><a href="https://www.bellingcat.com/resources/2022/09/22/preserve-vital-online-content-with-bellingcats-auto-archiver-tool/" target="_blank" rel="noopener noreferrer" class="">Bellingcat: Preserve Vital Online Content With Bellingcat's Auto Archiver</a></li>
+<li class=""><a href="https://www.bellingcat.com/resources/2025/08/13/the-open-source-tool-that-has-preserved-150000-pieces-of-online-evidence/" target="_blank" rel="noopener noreferrer" class="">Bellingcat: The Open Source Tool That Has Preserved 150,000 Pieces of Online Evidence</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenCorporates en OSINT: identificar sociedades sin confundir coincidencias con vínculos]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios</id>
@@ -2955,159 +3110,6 @@
         <category label="IMINT" term="IMINT"/>
         <category label="Metadatos" term="Metadatos"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Google Dataset Search en OSINT: descubrir datos sin confundir índice con evidencia]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos"/>
-        <updated>2026-07-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT revisando metadatos, procedencia, licencia y cobertura antes de utilizar un dataset" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-23-google-dataset-search-osint-descubrir-validar-datos-284a51a8a6dd0a78e8ca1ef42d91ce4a.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/google-dataset-search-osint-descubrir-validar-datos-e6a19bc497b5824683bb512ee3acf672.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Un informe asegura que una ciudad ha reducido a la mitad sus incidentes de tráfico. La gráfica parece convincente, pero no explica si cambió la definición de «incidente», si faltan meses ni quién mantiene los datos. Antes de discutir la conclusión necesitamos encontrar el dataset original, su cobertura, su licencia y su metodología. <code>Google Dataset Search</code> puede acortar esa búsqueda, siempre que recordemos una regla sencilla: <strong>encontrar un conjunto de datos no equivale a validarlo</strong>.</p>
-<p>Este artículo propone un flujo responsable para localizar datos públicos y convertir un resultado de búsqueda en una fuente evaluable. Está pensado para periodismo de datos, investigación académica, debida diligencia y análisis de políticas públicas. No es una invitación a combinar datasets para identificar, perfilar o señalar a personas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-google-dataset-search-y-para-qué-sirve">Qué es Google Dataset Search y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#qu%C3%A9-es-google-dataset-search-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Google Dataset Search y para qué sirve" title="Enlace directo al Qué es Google Dataset Search y para qué sirve" translate="no">​</a></h2>
-<p><code>Google Dataset Search</code> es un buscador especializado en <strong>descubrir datasets publicados en la web</strong>. Google Research explica que el sistema agrega, normaliza y reconcilia metadatos que los proveedores incorporan a sus propias páginas mediante estándares abiertos. En particular, se apoya en descripciones estructuradas como <code>Dataset</code> y <code>DataCatalog</code> de <code>Schema.org</code>.</p>
-<p>La distinción importa:</p>
-<ul>
-<li class="">Dataset Search ayuda a localizar la ficha de un conjunto de datos;</li>
-<li class="">el proveedor sigue siendo responsable de los datos, su mantenimiento y sus condiciones;</li>
-<li class="">el resultado puede conducir a un portal público, un repositorio científico, una organización o una empresa;</li>
-<li class="">la calidad del índice depende, en parte, de la calidad de los metadatos publicados en origen.</li>
-</ul>
-<p>No es una base de datos única ni una auditoría editorial de todo lo que indexa. Es una <strong>capa de descubrimiento</strong> sobre un ecosistema abierto y heterogéneo. Un estudio de usuarios publicado por Google Research en 2024 destacó precisamente ese valor transversal, pero también las dificultades de interpretar conjuntos muy distintos y aprender a buscarlos con criterio.</p>
-<p>Para OSINT, resulta útil cuando la pregunta exige:</p>
-<ol>
-<li class="">localizar posibles fuentes de datos sobre un tema, lugar o periodo;</li>
-<li class="">descubrir el repositorio original detrás de una tabla citada por terceros;</li>
-<li class="">comparar cobertura, formatos, licencias y fechas de actualización;</li>
-<li class="">hallar un dataset complementario para contrastar una afirmación;</li>
-<li class="">documentar por qué se eligió una fuente y se descartaron otras.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-afirmación-municipal">Caso de uso legítimo: comprobar una afirmación municipal<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#caso-de-uso-leg%C3%ADtimo-comprobar-una-afirmaci%C3%B3n-municipal" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una afirmación municipal" title="Enlace directo al Caso de uso legítimo: comprobar una afirmación municipal" translate="no">​</a></h2>
-<p>Imaginemos la ciudad ficticia de <code>Puerto Claro</code>. Una nota de prensa afirma que los incidentes con bicicletas compartidas descendieron un <code>48 %</code> entre 2024 y 2025. El documento enlaza una infografía, pero no a los datos.</p>
-<p>La pregunta de investigación no debería ser «¿dónde encuentro una cifra que confirme el 48 %?», sino algo más neutral:</p>
-<blockquote>
-<p>¿Qué datos públicos permiten comparar incidentes de bicicletas compartidas en Puerto Claro entre 2024 y 2025, y son realmente comparables?</p>
-</blockquote>
-<p>Una búsqueda inicial puede combinar conceptos observables: <code>shared bicycle incidents Puerto Claro 2024 2025 dataset</code>. Si no funciona, conviene variar el vocabulario —<code>crashes</code>, <code>collisions</code>, <code>mobility</code>, <code>open data</code>— sin introducir todavía la conclusión esperada.</p>
-<p>Supongamos que aparecen tres candidatos:</p>
-<ul>
-<li class="">un CSV del portal municipal actualizado cada trimestre;</li>
-<li class="">un dataset universitario que termina en 2023;</li>
-<li class="">una copia republicada por una plataforma comercial sin metodología visible.</li>
-</ul>
-<p>El primer resultado parece el mejor, pero aún no prueba nada. Debemos abrir la página del proveedor y averiguar si «incidente» incluye avisos sin daños, si cambió el sistema de notificación, si 2025 está completo y si los registros se deduplicaron. El dataset universitario puede servir para contexto histórico; la copia comercial, como pista para localizar el origen, no como sustituto automático.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-resultado-a-fuente-trazable">Flujo recomendado: de resultado a fuente trazable<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#flujo-recomendado-de-resultado-a-fuente-trazable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de resultado a fuente trazable" title="Enlace directo al Flujo recomendado: de resultado a fuente trazable" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribir-la-necesidad-de-datos-antes-de-buscar">1. Escribir la necesidad de datos antes de buscar<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#1-escribir-la-necesidad-de-datos-antes-de-buscar" class="hash-link" aria-label="Enlace directo al 1. Escribir la necesidad de datos antes de buscar" title="Enlace directo al 1. Escribir la necesidad de datos antes de buscar" translate="no">​</a></h3>
-<p>Define en una frase:</p>
-<ul>
-<li class="">la <strong>unidad de análisis</strong>: incidentes, contratos, estaciones o mediciones;</li>
-<li class="">el <strong>ámbito geográfico</strong>;</li>
-<li class="">el <strong>periodo</strong>;</li>
-<li class="">las variables mínimas;</li>
-<li class="">el nivel de agregación aceptable;</li>
-<li class="">la finalidad legítima de la investigación.</li>
-</ul>
-<p>Esta ficha evita que adaptes la pregunta al primer dataset atractivo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-buscar-conceptos-sinónimos-y-entidades">2. Buscar conceptos, sinónimos y entidades<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#2-buscar-conceptos-sin%C3%B3nimos-y-entidades" class="hash-link" aria-label="Enlace directo al 2. Buscar conceptos, sinónimos y entidades" title="Enlace directo al 2. Buscar conceptos, sinónimos y entidades" translate="no">​</a></h3>
-<p>Empieza con términos concretos y prueba variantes en el idioma del posible proveedor. Los títulos institucionales no siempre usan el vocabulario periodístico. Una administración puede publicar <code>siniestros viales</code>, mientras que un repositorio académico habla de <code>road safety events</code>.</p>
-<p>Registra la consulta y la fecha. Dataset Search cambia a medida que los proveedores publican, retiran o mejoran metadatos; una búsqueda reproducible necesita algo más que una captura.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-abrir-siempre-la-página-de-origen">3. Abrir siempre la página de origen<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#3-abrir-siempre-la-p%C3%A1gina-de-origen" class="hash-link" aria-label="Enlace directo al 3. Abrir siempre la página de origen" title="Enlace directo al 3. Abrir siempre la página de origen" translate="no">​</a></h3>
-<p>No evalúes un dataset solo con la tarjeta del buscador. En la ficha original comprueba:</p>
-<ul>
-<li class="">organización responsable y canal de contacto;</li>
-<li class="">descripción de variables y metodología;</li>
-<li class="">cobertura espacial y temporal;</li>
-<li class="">fecha de publicación, actualización y versión;</li>
-<li class="">formatos y tamaño;</li>
-<li class="">licencia y restricciones de uso;</li>
-<li class="">identificador persistente, como un DOI, si existe;</li>
-<li class="">historial de cambios, documentación o código de preparación.</li>
-</ul>
-<p><code>Schema.org</code> contempla propiedades como licencia, proveedor, cobertura espacial, cobertura temporal, versión e identificador. Que una propiedad pueda publicarse no significa que esté presente o sea correcta: hay que verificarla en origen.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-descargar-una-muestra-y-perfilarla">4. Descargar una muestra y perfilarla<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#4-descargar-una-muestra-y-perfilarla" class="hash-link" aria-label="Enlace directo al 4. Descargar una muestra y perfilarla" title="Enlace directo al 4. Descargar una muestra y perfilarla" translate="no">​</a></h3>
-<p>Antes de construir una historia, inspecciona:</p>
-<ul>
-<li class="">nombres y tipos de columnas;</li>
-<li class="">valores nulos y duplicados;</li>
-<li class="">rangos de fechas;</li>
-<li class="">categorías inesperadas;</li>
-<li class="">cambios bruscos en el volumen;</li>
-<li class="">codificación, separadores y unidades;</li>
-<li class="">presencia de datos personales o cuasiidentificadores.</li>
-</ul>
-<p>Guarda el archivo sin modificar y calcula un hash. Trabaja sobre una copia, conserva la URL de descarga y anota la hora. Si el proveedor reemplaza el fichero sin versionarlo, al menos podrás demostrar qué examinaste.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-leer-la-metodología-como-parte-del-dato">5. Leer la metodología como parte del dato<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#5-leer-la-metodolog%C3%ADa-como-parte-del-dato" class="hash-link" aria-label="Enlace directo al 5. Leer la metodología como parte del dato" title="Enlace directo al 5. Leer la metodología como parte del dato" translate="no">​</a></h3>
-<p>Una columna no se interpreta sola. Pregunta cómo se recogió, quién podía quedar fuera y qué cambió entre periodos. Un descenso puede reflejar menos incidencias, pero también una nueva app, una definición más estrecha, retrasos de carga o una huelga de personal.</p>
-<p>El diccionario de datos, las notas técnicas y el calendario de actualización son evidencia metodológica. Si faltan, la incertidumbre debe quedar visible en el análisis.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-triangular-con-una-fuente-independiente">6. Triangular con una fuente independiente<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#6-triangular-con-una-fuente-independiente" class="hash-link" aria-label="Enlace directo al 6. Triangular con una fuente independiente" title="Enlace directo al 6. Triangular con una fuente independiente" translate="no">​</a></h3>
-<p>Contrasta el patrón con otra capa:</p>
-<ul>
-<li class="">memorias oficiales;</li>
-<li class="">actas o presupuestos;</li>
-<li class="">otro portal institucional;</li>
-<li class="">publicaciones académicas;</li>
-<li class="">documentación del sistema que genera los registros;</li>
-<li class="">series agregadas de una autoridad distinta.</li>
-</ul>
-<p>La segunda fuente no tiene que repetir cada cifra. Puede confirmar que la definición cambió, que hubo meses incompletos o que el ámbito geográfico no coincide.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-crear-una-ficha-de-procedencia">7. Crear una ficha de procedencia<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#7-crear-una-ficha-de-procedencia" class="hash-link" aria-label="Enlace directo al 7. Crear una ficha de procedencia" title="Enlace directo al 7. Crear una ficha de procedencia" translate="no">​</a></h3>
-<p>Para cada candidato, conserva al menos:</p>
-<table><thead><tr><th>Campo</th><th>Qué registrar</th></tr></thead><tbody><tr><td>Consulta</td><td>Términos usados y fecha</td></tr><tr><td>Resultado</td><td>URL de Dataset Search o posición observada</td></tr><tr><td>Fuente primaria</td><td>URL y organización responsable</td></tr><tr><td>Versión</td><td>Fecha, edición o identificador</td></tr><tr><td>Cobertura</td><td>Geografía, periodo y población</td></tr><tr><td>Licencia</td><td>Condiciones y atribución</td></tr><tr><td>Transformaciones</td><td>Limpieza, filtros y cálculos</td></tr><tr><td>Integridad</td><td>Hash del archivo original</td></tr><tr><td>Límites</td><td>Sesgos, faltantes y dudas abiertas</td></tr></tbody></table>
-<p>Esta ficha convierte una búsqueda puntual en un proceso que otra persona puede revisar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metadatos-ricos-no-garantizan-datos-buenos">Metadatos ricos no garantizan datos buenos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#metadatos-ricos-no-garantizan-datos-buenos" class="hash-link" aria-label="Enlace directo al Metadatos ricos no garantizan datos buenos" title="Enlace directo al Metadatos ricos no garantizan datos buenos" translate="no">​</a></h3>
-<p>Una ficha completa puede describir con precisión un dataset deficiente. También puede ocurrir lo contrario: una fuente pública sólida puede tener metadatos pobres y aparecer peor posicionada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="copias-y-versiones-pueden-parecer-equivalentes">Copias y versiones pueden parecer equivalentes<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#copias-y-versiones-pueden-parecer-equivalentes" class="hash-link" aria-label="Enlace directo al Copias y versiones pueden parecer equivalentes" title="Enlace directo al Copias y versiones pueden parecer equivalentes" translate="no">​</a></h3>
-<p>Un mismo conjunto puede estar en el portal original, un repositorio académico y varios agregadores. Comprueba si son espejos, derivados o versiones distintas. La fecha de la página no siempre es la fecha de los datos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-en-el-buscador-no-demuestra-inexistencia">La ausencia en el buscador no demuestra inexistencia<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#la-ausencia-en-el-buscador-no-demuestra-inexistencia" class="hash-link" aria-label="Enlace directo al La ausencia en el buscador no demuestra inexistencia" title="Enlace directo al La ausencia en el buscador no demuestra inexistencia" translate="no">​</a></h3>
-<p>El proveedor puede no publicar marcado estructurado, bloquear el rastreo o usar una página difícil de indexar. Complementa con catálogos oficiales, búsquedas web normales y repositorios sectoriales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-licencia-visible-puede-ser-incompleta">La licencia visible puede ser incompleta<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#la-licencia-visible-puede-ser-incompleta" class="hash-link" aria-label="Enlace directo al La licencia visible puede ser incompleta" title="Enlace directo al La licencia visible puede ser incompleta" translate="no">​</a></h3>
-<p>No confundas «descargable» con «reutilizable sin condiciones». Lee la licencia completa, sus requisitos de atribución y las posibles restricciones sobre datos personales, redistribución o uso comercial.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-agregados-también-pueden-causar-daño">Los datos agregados también pueden causar daño<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#los-datos-agregados-tambi%C3%A9n-pueden-causar-da%C3%B1o" class="hash-link" aria-label="Enlace directo al Los datos agregados también pueden causar daño" title="Enlace directo al Los datos agregados también pueden causar daño" translate="no">​</a></h3>
-<p>Cruzar varias fuentes puede volver identificables grupos pequeños. Minimiza variables, trabaja con el nivel de detalle necesario y documenta una evaluación de riesgo antes de publicar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Busca desde un perfil de investigación separado cuando el tema sea sensible.</li>
-<li class="">No subas datasets confidenciales a servicios de terceros para «analizarlos más rápido».</li>
-<li class="">Evita descargar campos personales que no necesitas.</li>
-<li class="">No intentes reidentificar registros anonimizados.</li>
-<li class="">Respeta licencias, términos y límites razonables de acceso.</li>
-<li class="">Separa hechos observados, transformaciones propias e inferencias.</li>
-<li class="">Redacta o agrega resultados cuando el detalle pueda perjudicar a personas.</li>
-<li class="">Conserva una bitácora suficiente para auditar el trabajo, pero protege copias locales y credenciales.</li>
-</ul>
-<p>El objetivo no es acumular datos. Es responder una pregunta legítima con la mínima exposición necesaria y una cadena de procedencia clara.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Dataset Search funciona mejor como puerta de entrada que como única herramienta. Según el caso, conviene combinarlo con:</p>
-<ul>
-<li class="">portales oficiales como <code>datos.gob.es</code>, el catálogo europeo <code>data.europa.eu</code> o catálogos municipales;</li>
-<li class="">repositorios científicos como <code>Zenodo</code>, <code>Figshare</code> o <code>Dataverse</code>;</li>
-<li class=""><code>DataCite</code> para seguir DOI y metadatos de investigación;</li>
-<li class=""><code>Schema.org</code> para entender qué describe la ficha;</li>
-<li class=""><code>OpenRefine</code>, <code>Datasette</code> o <code>SQLite</code> para perfilar, limpiar y consultar una copia con trazabilidad.</li>
-</ul>
-<p>La próxima vez que encuentres el dataset «perfecto», no empieces por la gráfica. Empieza por una ficha de procedencia y formula cinco preguntas: <strong>quién lo publica, qué mide, a quién deja fuera, cuándo se actualizó y bajo qué licencia puede reutilizarse</strong>. Si una de esas respuestas falta, no has encontrado una evidencia terminada; has encontrado una pista que aún debe validarse.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/google-dataset-search-osint-descubrir-validar-datos#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://datasetsearch.research.google.com/" target="_blank" rel="noopener noreferrer" class="">Google Dataset Search</a></li>
-<li class=""><a href="https://research.google/pubs/google-dataset-search-building-a-search-engine-for-datasets-in-an-open-web-ecosystem/" target="_blank" rel="noopener noreferrer" class="">Google Dataset Search: Building a search engine for datasets in an open Web ecosystem</a></li>
-<li class=""><a href="https://research.google/blog/an-analysis-of-online-datasets-using-dataset-search-published-in-part-as-a-dataset/" target="_blank" rel="noopener noreferrer" class="">An Analysis of Online Datasets Using Dataset Search</a></li>
-<li class=""><a href="https://research.google/pubs/discovering-datasets-on-the-web-scale-challenges-and-recommendations-for-google-dataset-search/" target="_blank" rel="noopener noreferrer" class="">Discovering Datasets on the Web Scale: Challenges and Recommendations for Google Dataset Search</a></li>
-<li class=""><a href="https://schema.org/Dataset" target="_blank" rel="noopener noreferrer" class="">Schema.org: Dataset</a></li>
-<li class=""><a href="https://schema.org/DataCatalog" target="_blank" rel="noopener noreferrer" class="">Schema.org: DataCatalog</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Metodologia" term="Metodologia"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
