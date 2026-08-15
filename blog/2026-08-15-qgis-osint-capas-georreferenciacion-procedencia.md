@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT que contrasta capas públicas, sistemas de coordenadas, cronología y una cartografía georreferenciada](/img/blog/2026-08-15-qgis-osint-capas-georreferenciacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/qgis-osint-capas-georreferenciacion-procedencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un plano antiguo sitúa una conducción junto a un río; un portal municipal publica obras recientes; y una fotografía abierta parece mostrar el mismo lugar. Superponerlo todo produce un mapa convincente en pocos minutos. El problema es que **encajar visualmente no equivale a demostrar una relación**: una capa puede estar desplazada, otra puede describir otro año y el plano quizá solo sea orientativo. QGIS ayuda a hacer explícitas esas diferencias antes de que una composición bonita se convierta en una conclusión falsa.
