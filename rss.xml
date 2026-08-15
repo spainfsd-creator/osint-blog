@@ -4,10 +4,184 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Fri, 14 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[QGIS en OSINT: unir capas, tiempo y procedencia sin confundir proximidad con prueba]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia</guid>
+            <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista OSINT que contrasta capas públicas, sistemas de coordenadas, cronología y una cartografía georreferenciada]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT que contrasta capas públicas, sistemas de coordenadas, cronología y una cartografía georreferenciada" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-15-qgis-osint-capas-georreferenciacion-7c4e789168b0747d39058115871ed0c2.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Un plano antiguo sitúa una conducción junto a un río; un portal municipal publica obras recientes; y una fotografía abierta parece mostrar el mismo lugar. Superponerlo todo produce un mapa convincente en pocos minutos. El problema es que <strong>encajar visualmente no equivale a demostrar una relación</strong>: una capa puede estar desplazada, otra puede describir otro año y el plano quizá solo sea orientativo. QGIS ayuda a hacer explícitas esas diferencias antes de que una composición bonita se convierta en una conclusión falsa.</p>
+<p><a href="https://www.qgis.org/" target="_blank" rel="noopener noreferrer" class="">QGIS</a> es un sistema de información geográfica libre y de código abierto, integrado en OSGeo. En OSINT sirve como mesa de trabajo para organizar datos espaciales públicos, comparar fuentes, georreferenciar documentos, formular preguntas y producir salidas revisables. No descubre por sí solo quién hizo algo, no autentica una imagen y no convierte una coincidencia espacial en causalidad.</p>
+<p>Todos los nombres, lugares secundarios, identificadores y hechos del caso práctico son ficticios. El flujo está pensado para periodismo de datos, verificación ambiental, investigación académica y <em>due diligence</em> proporcionada, nunca para seguir a personas ni publicar ubicaciones sensibles.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-qgis-y-para-qué-sirve-en-osint">Qué es QGIS y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#qu%C3%A9-es-qgis-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es QGIS y para qué sirve en OSINT" title="Enlace directo al Qué es QGIS y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Un GIS no es únicamente un programa para dibujar mapas. Es un entorno donde cada objeto conserva geometría, atributos, sistema de coordenadas y, si trabajamos bien, procedencia y tiempo. QGIS permite abrir formatos ráster y vectoriales, tablas, bases de datos y servicios web; estilizar capas; realizar uniones; medir; filtrar; georreferenciar y exportar resultados.</p>
+<p>En una investigación legítima puede ayudar a:</p>
+<ul>
+<li class="">ordenar fuentes heterogéneas sobre un mismo territorio;</li>
+<li class="">comparar límites administrativos, infraestructuras, imágenes y observaciones públicas;</li>
+<li class="">asociar una tabla a una geometría mediante un identificador estable;</li>
+<li class="">comprobar qué elementos se encuentran dentro, intersectan o quedan cerca de un área;</li>
+<li class="">situar un plano escaneado mediante puntos de control verificables;</li>
+<li class="">explorar una secuencia temporal sin mezclar fechas de captura, publicación y vigencia;</li>
+<li class="">documentar cada capa con fuente, licencia, fecha de descarga y limitaciones;</li>
+<li class="">crear un mapa explicativo que otra persona pueda auditar.</li>
+</ul>
+<p>La <a href="https://docs.qgis.org/3.44/en/docs/about/foreword.html" target="_blank" rel="noopener noreferrer" class="">guía oficial de QGIS</a> describe el proyecto como un GIS de código abierto capaz de trabajar con numerosos formatos ráster y vectoriales. La documentación consultada el <strong>15 de agosto de 2026</strong> corresponde a la rama <code>3.44</code>; usa siempre la ayuda que acompaña a tu instalación, porque menús y capacidades evolucionan.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-verificar-una-cronología-de-obras-fluviales">Caso ficticio: verificar una cronología de obras fluviales<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#caso-ficticio-verificar-una-cronolog%C3%ADa-de-obras-fluviales" class="hash-link" aria-label="Enlace directo al Caso ficticio: verificar una cronología de obras fluviales" title="Enlace directo al Caso ficticio: verificar una cronología de obras fluviales" translate="no">​</a></h2>
+<p>La asociación ficticia <strong>Ribera Clara</strong> afirma que unas defensas junto al río Azul ya estaban terminadas cuando se produjo una crecida. El ayuntamiento ficticio de Valdearenas publica contratos, un visor de obras y actas con fechas; un repositorio regional ofrece límites y cauces; y una memoria técnica contiene un plano sin coordenadas.</p>
+<p>La pregunta no es «¿qué historia puedo dibujar?», sino algo más acotado:</p>
+<blockquote>
+<p>¿Qué tramos aparecen como ejecutados en fuentes públicas antes de la fecha de la crecida, y qué incertidumbre espacial y temporal tiene cada afirmación?</p>
+</blockquote>
+<p>Creamos un inventario mínimo antes de abrir QGIS:</p>
+<table><thead><tr><th>Capa</th><th>Fuente</th><th>Tiempo que representa</th><th>Geometría</th><th>Limitación principal</th></tr></thead><tbody><tr><td>Límites municipales</td><td>portal regional oficial</td><td>versión publicada en 2026</td><td>polígonos</td><td>el límite no prueba competencias sobre una obra</td></tr><tr><td>Red hidrográfica</td><td>organismo de cuenca</td><td>edición declarada por la fuente</td><td>líneas</td><td>escala y generalización variables</td></tr><tr><td>Contratos ficticios</td><td>portal municipal</td><td>adjudicación y formalización</td><td>tabla sin geometría</td><td>contratar no significa ejecutar</td></tr><tr><td>Tramos de obra</td><td>visor municipal</td><td>estado declarado en cada actualización</td><td>líneas</td><td>puede reflejar planificación, no inspección física</td></tr><tr><td>Plano de la memoria</td><td>expediente público</td><td>fecha del documento</td><td>imagen sin referencia espacial</td><td>diseño previsto, deformación del escaneo</td></tr><tr><td>Crecida</td><td>boletín oficial</td><td>fecha y estación de medida</td><td>punto</td><td>una estación no describe cada tramo del río</td></tr></tbody></table>
+<p>Esta tabla ya evita el primer error: tratar capas distintas como si fueran observaciones equivalentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-y-el-alcance">1. Define la pregunta y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#1-define-la-pregunta-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta y el alcance" title="Enlace directo al 1. Define la pregunta y el alcance" translate="no">​</a></h3>
+<p>Escribe la hipótesis, el territorio, el intervalo temporal y el estándar de corroboración. Decide también qué queda fuera. En este ejemplo no se investigan domicilios, trabajadores ni movimientos individuales; solo documentos e infraestructuras de interés público.</p>
+<p>Separa cuatro tiempos que suelen mezclarse:</p>
+<ol>
+<li class="">fecha del fenómeno o hecho;</li>
+<li class="">fecha que el dato afirma representar;</li>
+<li class="">fecha de publicación o actualización;</li>
+<li class="">fecha de recuperación por el analista.</li>
+</ol>
+<p>Una capa descargada hoy puede representar información de hace años. Una fotografía publicada hoy puede haberse tomado antes. QGIS mostrará lo que le indiquen los atributos, no resolverá esa ambigüedad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-crea-un-manifiesto-de-fuentes">2. Crea un manifiesto de fuentes<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#2-crea-un-manifiesto-de-fuentes" class="hash-link" aria-label="Enlace directo al 2. Crea un manifiesto de fuentes" title="Enlace directo al 2. Crea un manifiesto de fuentes" translate="no">​</a></h3>
+<p>Mantén una tabla fuera y dentro del proyecto con campos como estos:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">layer_id | titulo | url_origen | editor | licencia | fecha_dato |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">fecha_publicacion | fecha_descarga | crs_declarado | hash | notas</span><br></span></code></pre></div></div>
+<p>Usa un identificador interno que no dependa del nombre visible de la capa. Conserva el archivo original sin modificar y trabaja sobre una copia. Cuando la fuente ofrezca metadatos, diccionario de campos o metodología, descárgalos también.</p>
+<p>QGIS permite añadir <a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/general_tools.html#documenting-your-data" target="_blank" rel="noopener noreferrer" class="">metadatos y notas de capa</a>: título, identificador, extensión espacial y temporal, derechos, restricciones, enlaces e historial. Es una ayuda para la trazabilidad, pero no sustituye el manifiesto ni la copia de la fuente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-identificadores-antes-de-unir">3. Normaliza identificadores antes de unir<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#3-normaliza-identificadores-antes-de-unir" class="hash-link" aria-label="Enlace directo al 3. Normaliza identificadores antes de unir" title="Enlace directo al 3. Normaliza identificadores antes de unir" translate="no">​</a></h3>
+<p>Una unión por nombre es frágil: <code>Valdearenas</code>, <code>Ayuntamiento de Valdearenas</code> y <code>VALDEARENAS</code> pueden referirse a la misma entidad, mientras dos tramos llamados <code>Ribera Norte</code> pueden ser diferentes. Prioriza códigos oficiales y conserva el valor original.</p>
+<p>Antes de unir:</p>
+<ul>
+<li class="">comprueba tipo, longitud y formato de la clave;</li>
+<li class="">identifica nulos y duplicados en ambos lados;</li>
+<li class="">no elimines ceros iniciales;</li>
+<li class="">crea una tabla de equivalencias documentada si debes normalizar;</li>
+<li class="">cuenta registros antes y después de la operación;</li>
+<li class="">exporta también los elementos que no encontraron pareja.</li>
+</ul>
+<p>La <a href="https://docs.qgis.org/3.44/en/docs/user_manual/working_with_vector/joins_relations.html" target="_blank" rel="noopener noreferrer" class="">documentación de uniones y relaciones</a> advierte de un detalle decisivo: una unión simple se basa en un solo campo y, si la tabla asociada contiene varias coincidencias, puede tomar únicamente la primera. Un mapa aparentemente completo puede ocultar una relación uno-a-muchos mal modelada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-comprueba-el-sistema-de-coordenadas-no-solo-la-apariencia">4. Comprueba el sistema de coordenadas, no solo la apariencia<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#4-comprueba-el-sistema-de-coordenadas-no-solo-la-apariencia" class="hash-link" aria-label="Enlace directo al 4. Comprueba el sistema de coordenadas, no solo la apariencia" title="Enlace directo al 4. Comprueba el sistema de coordenadas, no solo la apariencia" translate="no">​</a></h3>
+<p>Cada capa debe tener un CRS conocido. <code>Asignar CRS</code> y <code>reproyectar</code> no son sinónimos:</p>
+<ul>
+<li class=""><strong>asignar</strong> declara cómo deben interpretarse unas coordenadas existentes;</li>
+<li class=""><strong>reproyectar</strong> calcula nuevas coordenadas en otro sistema.</li>
+</ul>
+<p>QGIS puede reproyectar capas «al vuelo» para visualizarlas juntas. Eso facilita el trabajo, pero también puede ocultar que los datos originales usan sistemas, transformaciones o precisiones distintas. Para medir distancias o áreas, elige una proyección adecuada al territorio y documenta la transformación aplicada. No uses grados como si fueran metros.</p>
+<p>Una desviación pequeña puede importar mucho al decidir si una obra cae dentro de una parcela o si dos puntos coinciden. Registra la escala de captura, la precisión declarada y el margen de error; no presentes más decimales de los que la fuente permite sostener.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-georreferencia-el-plano-con-puntos-independientes">5. Georreferencia el plano con puntos independientes<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#5-georreferencia-el-plano-con-puntos-independientes" class="hash-link" aria-label="Enlace directo al 5. Georreferencia el plano con puntos independientes" title="Enlace directo al 5. Georreferencia el plano con puntos independientes" translate="no">​</a></h3>
+<p>El <a href="https://documentation.qgis.org/3.44/en/docs/user_manual/managing_data_source/georeferencer.html" target="_blank" rel="noopener noreferrer" class="">Georreferenciador de QGIS</a> permite alinear un ráster o vector sin referencia con una capa conocida mediante puntos de control terrestre o GCP. En el caso ficticio, elegimos elementos estables visibles tanto en el plano como en cartografía fiable: cruces de puentes, esquinas de edificios públicos antiguos o intersecciones de cauces.</p>
+<p>Buenas prácticas:</p>
+<ol>
+<li class="">distribuye los puntos por toda la imagen, no solo en una esquina;</li>
+<li class="">evita elementos móviles, difusos o transformados desde la fecha del plano;</li>
+<li class="">reserva al menos un punto fiable para comprobar el resultado en vez de ajustarlo;</li>
+<li class="">guarda los GCP, el método de transformación y los residuos;</li>
+<li class="">prueba si el resultado es razonable a la escala de la pregunta;</li>
+<li class="">conserva el escaneo original y exporta la capa derivada con otro nombre.</li>
+</ol>
+<p>Añadir más puntos no arregla puntos malos. Tampoco existe un error RMS mágico que convierta un plano esquemático en una medición topográfica. Si los residuos revelan deformaciones locales o el documento no permite un ajuste defendible, úsalo como orientación y dilo expresamente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-une-por-relación-espacial-con-una-pregunta-concreta">6. Une por relación espacial con una pregunta concreta<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#6-une-por-relaci%C3%B3n-espacial-con-una-pregunta-concreta" class="hash-link" aria-label="Enlace directo al 6. Une por relación espacial con una pregunta concreta" title="Enlace directo al 6. Une por relación espacial con una pregunta concreta" translate="no">​</a></h3>
+<p>QGIS ofrece operaciones como unir por localización, por proximidad o por valor de campo. Elige el predicado que responde a la pregunta:</p>
+<ul>
+<li class=""><code>intersects</code>: los objetos comparten algún punto;</li>
+<li class=""><code>within</code>: una geometría está dentro de otra;</li>
+<li class=""><code>contains</code>: una geometría contiene a otra;</li>
+<li class=""><code>nearest</code>: busca el elemento más próximo, con o sin distancia máxima.</li>
+</ul>
+<p>«Más cercano» no significa «relacionado». Un contrato cercano a un tramo no demuestra que lo financie; una empresa próxima a una obra no demuestra participación. Conserva la distancia calculada, fija un umbral justificado y revisa manualmente los empates, bordes y casos sin coincidencia.</p>
+<p>Para la cronología ficticia, la unión espacial solo asigna a cada tramo la zona administrativa y la estación de medida más próxima como contexto. La relación contractual se comprueba por identificador de expediente en documentos oficiales, no por distancia en el mapa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-activa-el-tiempo-y-evita-la-falsa-simultaneidad">7. Activa el tiempo y evita la falsa simultaneidad<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#7-activa-el-tiempo-y-evita-la-falsa-simultaneidad" class="hash-link" aria-label="Enlace directo al 7. Activa el tiempo y evita la falsa simultaneidad" title="Enlace directo al 7. Activa el tiempo y evita la falsa simultaneidad" translate="no">​</a></h3>
+<p>El <a href="https://docs.qgis.org/3.44/en/docs/user_manual/map_views/map_view.html#time-based-control-on-the-map-canvas" target="_blank" rel="noopener noreferrer" class="">control temporal del mapa</a> filtra elementos según atributos de tiempo configurados en las capas. Antes de animar una cronología:</p>
+<ul>
+<li class="">convierte fechas y horas a un formato consistente;</li>
+<li class="">conserva la zona horaria original;</li>
+<li class="">distingue instantes de intervalos;</li>
+<li class="">decide si el extremo final es inclusivo;</li>
+<li class="">documenta valores aproximados o desconocidos;</li>
+<li class="">no sustituyas una fecha ausente por la de descarga.</li>
+</ul>
+<p>Una animación es una forma de explorar y comunicar. No aporta precisión adicional a los datos. Exporta también una tabla de eventos para que la secuencia pueda comprobarse sin depender del vídeo o del estilo del mapa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-guarda-un-paquete-revisable">8. Guarda un paquete revisable<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#8-guarda-un-paquete-revisable" class="hash-link" aria-label="Enlace directo al 8. Guarda un paquete revisable" title="Enlace directo al 8. Guarda un paquete revisable" translate="no">​</a></h3>
+<p>El <a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/project_files.html" target="_blank" rel="noopener noreferrer" class="">archivo de proyecto de QGIS</a> conserva capas enlazadas, estilos, vistas, relaciones, consultas y diseños, pero no necesariamente incorpora todos los datos de origen. Un <code>.qgz</code> que abre sin capas no es un expediente reproducible.</p>
+<p>Una entrega mínima puede contener:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">00_manifiesto/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">01_fuentes_originales/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">02_datos_normalizados/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">03_capas_derivadas/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">04_proyecto_qgis/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">05_salidas/</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">README_metodo.md</span><br></span></code></pre></div></div>
+<p>Usa rutas relativas cuando sea posible. GeoPackage resulta práctico para agrupar varias capas y sus metadatos, pero conserva aparte los originales y sus licencias. En el README anota versión de QGIS, complementos utilizados, CRS del proyecto, transformaciones, filtros, expresiones, decisiones manuales y hashes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-mapa-no-es-el-territorio-ni-la-fuente">Un mapa no es el territorio ni la fuente<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#un-mapa-no-es-el-territorio-ni-la-fuente" class="hash-link" aria-label="Enlace directo al Un mapa no es el territorio ni la fuente" title="Enlace directo al Un mapa no es el territorio ni la fuente" translate="no">​</a></h3>
+<p>La geometría puede ser aproximada, generalizada o antigua. Un polígono catastral, un límite administrativo y el perímetro real de una instalación responden a preguntas diferentes. Revisa la escala, la finalidad y el organismo editor.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="superposición-no-implica-causalidad">Superposición no implica causalidad<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#superposici%C3%B3n-no-implica-causalidad" class="hash-link" aria-label="Enlace directo al Superposición no implica causalidad" title="Enlace directo al Superposición no implica causalidad" translate="no">​</a></h3>
+<p>Dos objetos pueden coincidir por azar, por resolución insuficiente o porque una capa usa centroides. Formula la relación en términos observables: «el punto publicado cae dentro del polígono según estas capas y este CRS», no «la entidad controla el lugar».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-en-una-capa-no-equivale-a-inexistencia">Ausencia en una capa no equivale a inexistencia<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#ausencia-en-una-capa-no-equivale-a-inexistencia" class="hash-link" aria-label="Enlace directo al Ausencia en una capa no equivale a inexistencia" title="Enlace directo al Ausencia en una capa no equivale a inexistencia" translate="no">​</a></h3>
+<p>El dato puede estar incompleto, desactualizado, filtrado o fuera de cobertura. Conserva los no emparejados y consulta la metodología del proveedor antes de convertir un vacío en hallazgo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="geocodificar-introduce-decisiones">Geocodificar introduce decisiones<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#geocodificar-introduce-decisiones" class="hash-link" aria-label="Enlace directo al Geocodificar introduce decisiones" title="Enlace directo al Geocodificar introduce decisiones" translate="no">​</a></h3>
+<p>Un nombre puede devolver varios lugares; una dirección puede resolverse al centro de una calle o municipio. Conserva la consulta, el servicio, la respuesta original, la confianza y la validación manual. No envíes datos sensibles a servicios externos sin base legítima y autorización.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-complementos-amplían-también-el-riesgo">Los complementos amplían también el riesgo<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#los-complementos-ampl%C3%ADan-tambi%C3%A9n-el-riesgo" class="hash-link" aria-label="Enlace directo al Los complementos amplían también el riesgo" title="Enlace directo al Los complementos amplían también el riesgo" translate="no">​</a></h3>
+<p>Los <em>plugins</em> pueden acceder a archivos, red o credenciales según su función. Instala solo los necesarios desde fuentes confiables, revisa mantenimiento y permisos, registra su versión y evita abrir proyectos o macros de procedencia dudosa en tu entorno habitual.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">trabaja solo con datos obtenidos de forma legítima y pertinentes para la pregunta;</li>
+<li class="">minimiza datos personales y excluye domicilios, rutinas o ubicaciones que no aporten interés público;</li>
+<li class="">agrega o difumina la salida cuando una precisión exacta pueda causar daño;</li>
+<li class="">separa el equipo o perfil de investigación de las cuentas personales;</li>
+<li class="">evita servicios web innecesarios si una capa contiene información reservada;</li>
+<li class="">no incluyas claves de API, rutas personales ni credenciales en el proyecto;</li>
+<li class="">trata proyectos, estilos y complementos de terceros como contenido potencialmente no confiable;</li>
+<li class="">conserva licencias y atribuciones de cada capa en la publicación;</li>
+<li class="">distingue en la leyenda datos observados, declarados, estimados e inferidos;</li>
+<li class="">somete las conclusiones sensibles a revisión independiente y vuelve a las fuentes primarias.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-publicar-un-mapa-osint">Checklist antes de publicar un mapa OSINT<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#checklist-antes-de-publicar-un-mapa-osint" class="hash-link" aria-label="Enlace directo al Checklist antes de publicar un mapa OSINT" title="Enlace directo al Checklist antes de publicar un mapa OSINT" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta y el intervalo temporal están escritos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada capa tiene editor, URL, licencia y fecha de recuperación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los originales se conservan separados de los derivados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El CRS de cada capa y del proyecto está documentado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las mediciones usan unidades y proyección adecuadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las claves de unión fueron auditadas para nulos y duplicados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los registros sin pareja siguen visibles.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los puntos de control y residuos de georreferenciación están guardados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Fecha del dato, publicación y descarga no se confunden.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las relaciones espaciales se describen sin inferir causalidad.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las ubicaciones sensibles se han eliminado o generalizado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Otra persona puede abrir el paquete y reproducir la salida.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>QGIS es apropiado cuando necesitas análisis espacial local, control de datos y salidas reproducibles. Otras herramientas cubren piezas concretas:</p>
+<ul>
+<li class=""><strong>GeoPandas</strong> o <strong>DuckDB Spatial</strong> para flujos repetibles mediante código;</li>
+<li class=""><strong>PostGIS</strong> para consultas multiusuario y conjuntos grandes;</li>
+<li class=""><strong>Kepler.gl</strong> o <strong>Felt</strong> para exploración y comunicación visual, revisando antes privacidad y alojamiento;</li>
+<li class=""><strong>Google Earth Pro</strong> para contexto e imágenes históricas disponibles en su interfaz;</li>
+<li class=""><strong>Copernicus Browser</strong> o <strong>EO Browser</strong> para comparar observación de la Tierra;</li>
+<li class=""><strong>OpenStreetMap</strong> y <strong>Overpass Turbo</strong> para consultar objetos cartográficos abiertos, respetando procedencia y vigencia.</li>
+</ul>
+<p>El aprendizaje más útil no es memorizar botones: <strong>cada capa debe declarar qué representa, cuándo, con qué precisión y de dónde procede</strong>. Empieza con dos fuentes públicas y una pregunta estrecha; crea el manifiesto, audita CRS y claves, conserva los casos que no encajan y redacta la conclusión antes de diseñar el mapa. El siguiente paso natural sería aplicar este mismo rigor a una guía específica de simbología de incertidumbre para no comunicar como exacto lo que solo es aproximado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/qgis-osint-capas-georreferenciacion-procedencia#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.qgis.org/3.44/en/docs/about/foreword.html" target="_blank" rel="noopener noreferrer" class="">QGIS: introducción y alcance del proyecto</a></li>
+<li class=""><a href="https://documentation.qgis.org/3.44/en/docs/user_manual/managing_data_source/georeferencer.html" target="_blank" rel="noopener noreferrer" class="">QGIS: Georreferenciador</a></li>
+<li class=""><a href="https://docs.qgis.org/3.44/en/docs/user_manual/working_with_vector/joins_relations.html" target="_blank" rel="noopener noreferrer" class="">QGIS: uniones y relaciones entre capas</a></li>
+<li class=""><a href="https://docs.qgis.org/3.44/en/docs/user_manual/map_views/map_view.html#time-based-control-on-the-map-canvas" target="_blank" rel="noopener noreferrer" class="">QGIS: control temporal del mapa</a></li>
+<li class=""><a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/general_tools.html#documenting-your-data" target="_blank" rel="noopener noreferrer" class="">QGIS: metadatos y notas de capa</a></li>
+<li class=""><a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/project_files.html" target="_blank" rel="noopener noreferrer" class="">QGIS: archivos de proyecto y generación de salidas</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>GEOINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Auto Archiver en OSINT: preservar contenido público sin confundir copia con prueba]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/auto-archiver-preservacion-evidencias-osint</link>
@@ -2875,164 +3049,6 @@
             <category>Verificacion</category>
             <category>Datos</category>
             <category>Due Diligence</category>
-        </item>
-        <item>
-            <title><![CDATA[Wikimedia Commons en OSINT: procedencia, metadatos e historial antes de reutilizar una imagen]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto</guid>
-            <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando una fotografía histórica ficticia con su ficha, historial, metadatos, licencia y registro de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-24-wikimedia-commons-osint-procedencia-metadatos-contexto-f1d57acdaf5f985f7721bc3ccdae22c7.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/wikimedia-commons-osint-procedencia-metadatos-contexto-7f98f5f6a826fb0a502b561056954796.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una fotografía antigua aparece en un informe y parece resolver el caso: edificio correcto, década plausible y una descripción muy precisa. Además, procede de Wikimedia Commons, así que la tentación es tratarla como una imagen ya verificada. Es justo ahí donde empieza el trabajo. Commons puede ofrecer <strong>ficha, autoría declarada, historial de versiones, categorías, datos estructurados y licencia</strong>, pero ninguna de esas capas convierte por sí sola una descripción comunitaria en un hecho probado.</p>
-<p>Usado con método, Wikimedia Commons es mucho más que un banco de imágenes. Es un punto de partida para reconstruir la procedencia de un archivo, localizar colecciones relacionadas y documentar qué se sabía —o qué se afirmaba— en un momento concreto. Usado deprisa, también puede amplificar fechas heredadas, atribuciones circulares y categorías demasiado optimistas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-wikimedia-commons-y-para-qué-sirve-en-osint">Qué es Wikimedia Commons y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#qu%C3%A9-es-wikimedia-commons-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Wikimedia Commons y para qué sirve en OSINT" title="Enlace directo al Qué es Wikimedia Commons y para qué sirve en OSINT" translate="no">​</a></h2>
-<p><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons</a> es el repositorio multimedia libre del ecosistema Wikimedia. Aloja fotografías, ilustraciones, mapas, audio, vídeo y documentos digitalizados. Para una investigación legítima resulta útil en tres tareas:</p>
-<ul>
-<li class=""><strong>Descubrimiento:</strong> localizar archivos mediante texto, categorías y conceptos relacionados.</li>
-<li class=""><strong>Contextualización:</strong> leer descripciones, fechas, autorías, fuentes, categorías y elementos representados.</li>
-<li class=""><strong>Trazabilidad:</strong> conservar la URL de la ficha, la revisión consultada y los datos técnicos del archivo.</li>
-</ul>
-<p>Su <a href="https://commons.wikimedia.org/wiki/Commons:Media_search" target="_blank" rel="noopener noreferrer" class="">buscador multimedia</a> no se limita al nombre del fichero. MediaSearch combina categorías, texto wiki, datos estructurados y etiquetas o alias de Wikidata. Esto mejora el descubrimiento multilingüe, pero también introduce una precaución importante: un resultado puede aparecer por una relación semántica amplia, no porque la imagen demuestre literalmente todos los términos de la consulta.</p>
-<p>Cada archivo tiene una página propia. En ella pueden convivir dos capas:</p>
-<ol>
-<li class=""><strong>Información de la ficha:</strong> descripción en texto, fuente, autor, fecha, permiso, licencia y categorías.</li>
-<li class=""><strong>Datos estructurados:</strong> pies multilingües y declaraciones como «representa», creador, licencia o valoración de calidad.</li>
-</ol>
-<p>La <a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/en" target="_blank" rel="noopener noreferrer" class="">documentación de datos estructurados</a> explica que esta segunda capa está pensada para ser legible por máquinas y consultable a escala. Eso la hace valiosa para filtrar y agrupar, no infalible: las declaraciones pueden estar incompletas, haber cambiado o necesitar una fuente externa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-fotografía-histórica-ficticia">Caso de uso legítimo: verificar una fotografía histórica ficticia<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#caso-de-uso-leg%C3%ADtimo-verificar-una-fotograf%C3%ADa-hist%C3%B3rica-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una fotografía histórica ficticia" title="Enlace directo al Caso de uso legítimo: verificar una fotografía histórica ficticia" translate="no">​</a></h2>
-<p>Imaginemos que una asociación cultural de <strong>Villa del Olmo</strong>, municipio inventado, recibe una fotografía atribuida a la inauguración de su estación en 1932. Quiere utilizarla en una exposición y comprobar tres cosas:</p>
-<ul>
-<li class="">si representa realmente esa estación;</li>
-<li class="">si la fecha de 1932 tiene respaldo;</li>
-<li class="">y bajo qué condiciones puede reproducirse.</li>
-</ul>
-<p>Una búsqueda en Commons devuelve un archivo titulado «Estación de Villa del Olmo, 1932». La coincidencia es prometedora, pero todavía no es una conclusión. El título pudo elegirlo quien subió el archivo décadas después; la fecha puede referirse a la toma, a una copia o a una estimación; y una categoría geográfica puede haber sido añadida por semejanza.</p>
-<p>El objetivo responsable no es identificar personas ni exponer datos privados. Es <strong>evaluar una pieza patrimonial</strong>, documentar incertidumbres y decidir si la evidencia permite usarla en una exposición.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-verificación">Flujo recomendado de verificación<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#flujo-recomendado-de-verificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de verificación" title="Enlace directo al Flujo recomendado de verificación" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-hipótesis-separadas">1. Formula hipótesis separadas<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#1-formula-hip%C3%B3tesis-separadas" class="hash-link" aria-label="Enlace directo al 1. Formula hipótesis separadas" title="Enlace directo al 1. Formula hipótesis separadas" translate="no">​</a></h3>
-<p>Antes de buscar, divide la afirmación en componentes verificables:</p>
-<ul>
-<li class=""><strong>Lugar:</strong> ¿qué rasgos arquitectónicos o geográficos permiten situar la escena?</li>
-<li class=""><strong>Fecha:</strong> ¿qué intervalo temporal sugieren el tren, la señalización, la ropa o el soporte fotográfico?</li>
-<li class=""><strong>Autoría y custodia:</strong> ¿quién creó el original, quién conserva la copia y quién la subió?</li>
-<li class=""><strong>Derechos:</strong> ¿qué licencia o situación de dominio público se declara y sobre qué fundamento?</li>
-</ul>
-<p>Separar hipótesis evita que un título convincente arrastre todas las respuestas a la vez.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-por-conceptos-y-explora-categorías">2. Busca por conceptos y explora categorías<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#2-busca-por-conceptos-y-explora-categor%C3%ADas" class="hash-link" aria-label="Enlace directo al 2. Busca por conceptos y explora categorías" title="Enlace directo al 2. Busca por conceptos y explora categorías" translate="no">​</a></h3>
-<p>Empieza en MediaSearch con términos amplios y variantes lingüísticas: tipo de edificio, localidad, antigua compañía ferroviaria o elemento visual singular. Después abre las categorías del archivo y recórrelas en ambas direcciones.</p>
-<p>Las categorías son especialmente útiles para descubrir:</p>
-<ul>
-<li class="">otras fotografías de la misma colección;</li>
-<li class="">edificios o lugares próximos;</li>
-<li class="">obras atribuidas al mismo creador;</li>
-<li class="">digitalizaciones procedentes de la misma institución.</li>
-</ul>
-<p>No confundas pertenencia a una categoría con prueba. Una categoría es una decisión editorial revisable. Registra cuál te llevó al archivo y qué relación exacta propone.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-como-una-cadena-de-afirmaciones">3. Lee la ficha como una cadena de afirmaciones<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#3-lee-la-ficha-como-una-cadena-de-afirmaciones" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha como una cadena de afirmaciones" title="Enlace directo al 3. Lee la ficha como una cadena de afirmaciones" translate="no">​</a></h3>
-<p>No copies el bloque de información como si fuera una unidad homogénea. Para cada campo, anota quién parece sostenerlo y dónde podría comprobarse:</p>
-<table><thead><tr><th>Campo</th><th>Pregunta de control</th><th>Corroboración útil</th></tr></thead><tbody><tr><td>Fecha</td><td>¿Toma, publicación, digitalización o estimación?</td><td>Catálogo del archivo, prensa de época, inventario</td></tr><tr><td>Autor</td><td>¿Creador original, institución custodiante o usuario que subió el fichero?</td><td>Registro de colección, firma, autoridad bibliográfica</td></tr><tr><td>Fuente</td><td>¿Enlace al objeto original o mención genérica?</td><td>Identificador persistente, catálogo institucional</td></tr><tr><td>Descripción</td><td>¿Distingue hechos de interpretación?</td><td>Elementos visibles y fuentes independientes</td></tr><tr><td>Licencia</td><td>¿Quién tenía capacidad para aplicarla?</td><td>Aviso de derechos de la institución y norma aplicable</td></tr></tbody></table>
-<p>Guarda la URL de la ficha y su <strong>enlace permanente</strong>. Si el análisis es relevante, anota también la fecha y hora de consulta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-información-textual-y-datos-estructurados">4. Compara información textual y datos estructurados<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#4-compara-informaci%C3%B3n-textual-y-datos-estructurados" class="hash-link" aria-label="Enlace directo al 4. Compara información textual y datos estructurados" title="Enlace directo al 4. Compara información textual y datos estructurados" translate="no">​</a></h3>
-<p>Abre la pestaña de datos estructurados. Comprueba si las declaraciones de «representa», creador, ubicación o licencia coinciden con la ficha textual. Una discrepancia no decide cuál es correcta; señala un punto que necesita revisión.</p>
-<p>Los datos estructurados son muy útiles para encontrar archivos relacionados y detectar huecos. También pueden contener referencias, lo que permite seguir la afirmación hasta su fuente. Si una declaración carece de referencia, trátala como una etiqueta comunitaria pendiente de validación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-revisa-el-historial-de-la-página-y-del-archivo">5. Revisa el historial de la página y del archivo<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#5-revisa-el-historial-de-la-p%C3%A1gina-y-del-archivo" class="hash-link" aria-label="Enlace directo al 5. Revisa el historial de la página y del archivo" title="Enlace directo al 5. Revisa el historial de la página y del archivo" translate="no">​</a></h3>
-<p>El historial ayuda a responder:</p>
-<ul>
-<li class="">cuándo apareció una atribución;</li>
-<li class="">qué usuario cambió una fecha o categoría;</li>
-<li class="">si hubo una corrección explicada;</li>
-<li class="">y si se sustituyó el fichero por una nueva versión.</li>
-</ul>
-<p>Esto aporta trazabilidad editorial, no una máquina del tiempo. Que una descripción figure desde la primera edición solo demuestra que ya se afirmaba entonces. Tampoco la fecha de subida equivale a la fecha de creación de la obra.</p>
-<p>Para tareas repetibles, la <a href="https://www.mediawiki.org/wiki/API:Imageinfo/en" target="_blank" rel="noopener noreferrer" class="">API <code>imageinfo</code> de MediaWiki</a> devuelve información del archivo y su historial de subidas. Puede ayudar a registrar marcas temporales, tamaño, tipo MIME, URL y huellas del fichero. Automatizar la captura no automatiza el juicio: conserva la respuesta original, limita las consultas y revisa manualmente los casos ambiguos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-examina-el-archivo-no-solo-la-miniatura">6. Examina el archivo, no solo la miniatura<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#6-examina-el-archivo-no-solo-la-miniatura" class="hash-link" aria-label="Enlace directo al 6. Examina el archivo, no solo la miniatura" title="Enlace directo al 6. Examina el archivo, no solo la miniatura" translate="no">​</a></h3>
-<p>Descarga la resolución original desde la ficha y calcula una huella criptográfica para tu registro de evidencias. Después:</p>
-<ul>
-<li class="">inspecciona dimensiones, formato y metadatos disponibles;</li>
-<li class="">amplía detalles visuales que puedan contrastarse;</li>
-<li class="">busca copias anteriores o de mayor calidad;</li>
-<li class="">y compara recortes para detectar que dos resultados son en realidad la misma imagen.</li>
-</ul>
-<p>Los metadatos embebidos pueden haberse perdido al digitalizar o editar. Su ausencia no demuestra manipulación; su presencia tampoco prueba autenticidad. Para una revisión local puedes combinar este paso con ExifTool, búsqueda inversa y análisis visual, siempre con datos propios o material públicamente reutilizable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-sigue-la-procedencia-hasta-la-institución-original">7. Sigue la procedencia hasta la institución original<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#7-sigue-la-procedencia-hasta-la-instituci%C3%B3n-original" class="hash-link" aria-label="Enlace directo al 7. Sigue la procedencia hasta la institución original" title="Enlace directo al 7. Sigue la procedencia hasta la institución original" translate="no">​</a></h3>
-<p>La mejor pista de una ficha suele ser un identificador de museo, biblioteca o archivo. Abre el catálogo original y contrasta:</p>
-<ul>
-<li class="">título e identificador;</li>
-<li class="">descripción y datación;</li>
-<li class="">creador y colección;</li>
-<li class="">resolución o número de inventario;</li>
-<li class="">y declaración de derechos.</li>
-</ul>
-<p>Si Commons remite a un agregador, intenta llegar a la entidad custodiante. Si la entidad enlaza de vuelta a Commons sin aportar documentación propia, anota la posible circularidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-lugar-y-fecha-con-fuentes-independientes">8. Corrobora lugar y fecha con fuentes independientes<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#8-corrobora-lugar-y-fecha-con-fuentes-independientes" class="hash-link" aria-label="Enlace directo al 8. Corrobora lugar y fecha con fuentes independientes" title="Enlace directo al 8. Corrobora lugar y fecha con fuentes independientes" translate="no">​</a></h3>
-<p>En el caso ficticio, la forma de la cubierta puede compararse con planos municipales; el rótulo, con fotografías de prensa; y el modelo de locomotora, con un catálogo ferroviario. Busca al menos dos apoyos que no copien la misma descripción.</p>
-<p>Una conclusión proporcionada podría ser:</p>
-<blockquote>
-<p>La ficha de Commons atribuye la escena a Villa del Olmo y 1932. La arquitectura coincide con un plano fechado entre 1929 y 1935, y un catálogo institucional identifica la misma copia con ese lugar, pero no aporta día ni mes. La ubicación tiene respaldo razonable; la fecha exacta permanece sin confirmar.</p>
-</blockquote>
-<p>Eso es más útil que un «verdadero» o «falso» sin matices.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="descripciones-comunitarias-y-errores-heredados">Descripciones comunitarias y errores heredados<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#descripciones-comunitarias-y-errores-heredados" class="hash-link" aria-label="Enlace directo al Descripciones comunitarias y errores heredados" title="Enlace directo al Descripciones comunitarias y errores heredados" translate="no">​</a></h3>
-<p>Commons permite corregir y enriquecer archivos, pero una descripción puede proceder de la institución que digitalizó la obra, de una publicación secundaria o de quien la subió. Varias páginas repitiendo el mismo texto no equivalen a varias fuentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fechas-con-significados-distintos">Fechas con significados distintos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#fechas-con-significados-distintos" class="hash-link" aria-label="Enlace directo al Fechas con significados distintos" title="Enlace directo al Fechas con significados distintos" translate="no">​</a></h3>
-<p>Creación, primera publicación, copia física, escaneado y subida son eventos diferentes. Un campo llamado «fecha» puede ocultar esa distinción. Representa cada evento por separado en tu cronología.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="categorías-amplias-y-resultados-semánticos">Categorías amplias y resultados semánticos<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#categor%C3%ADas-amplias-y-resultados-sem%C3%A1nticos" class="hash-link" aria-label="Enlace directo al Categorías amplias y resultados semánticos" title="Enlace directo al Categorías amplias y resultados semánticos" translate="no">​</a></h3>
-<p>Las categorías pueden mezclar región, tema, época, colección o estilo. MediaSearch amplía la consulta con información vinculada; por eso un resultado relevante para explorar puede ser insuficiente para demostrar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="historial-incompleto-fuera-de-commons">Historial incompleto fuera de Commons<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#historial-incompleto-fuera-de-commons" class="hash-link" aria-label="Enlace directo al Historial incompleto fuera de Commons" title="Enlace directo al Historial incompleto fuera de Commons" translate="no">​</a></h3>
-<p>El historial de Commons comienza cuando la página o el archivo entra en la plataforma. No reconstruye automáticamente la vida anterior de la obra ni las ediciones realizadas antes de subirla.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="licencia-no-equivale-a-autenticidad">Licencia no equivale a autenticidad<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#licencia-no-equivale-a-autenticidad" class="hash-link" aria-label="Enlace directo al Licencia no equivale a autenticidad" title="Enlace directo al Licencia no equivale a autenticidad" translate="no">​</a></h3>
-<p>La licencia responde a condiciones de uso; la procedencia responde a de dónde viene el objeto; la autenticidad responde a qué es. Son preguntas relacionadas, pero distintas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con una finalidad legítima y minimiza los datos personales.</li>
-<li class="">No uses fotografías de personas para perseguir, perfilar o identificar a particulares.</li>
-<li class="">No contactes a usuarios de Commons para presionarlos ni conviertas discrepancias editoriales en acusaciones.</li>
-<li class="">Conserva enlaces, revisiones, huellas y notas de decisión sin recopilar más información de la necesaria.</li>
-<li class="">Si una imagen puede poner en riesgo a una persona, evalúa si debe publicarse, aunque su licencia permita reutilizarla.</li>
-<li class="">Distingue siempre entre <strong>observación</strong>, <strong>dato declarado</strong>, <strong>inferencia</strong> y <strong>hecho corroborado</strong>.</li>
-</ul>
-<p>La guía oficial de <a href="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en" target="_blank" rel="noopener noreferrer" class="">reutilización de contenido</a> recuerda que cada archivo puede imponer condiciones distintas, como atribución, enlace a la licencia o compartir las obras derivadas bajo términos compatibles. También advierte que Wikimedia no garantiza la exactitud del estado de copyright y que pueden existir derechos de imagen, marcas, derechos morales u otras restricciones.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-herramientas-complementarias">Alternativas y herramientas complementarias<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#alternativas-y-herramientas-complementarias" class="hash-link" aria-label="Enlace directo al Alternativas y herramientas complementarias" title="Enlace directo al Alternativas y herramientas complementarias" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Catálogos de archivos y museos:</strong> suelen ser la fuente primaria de custodia e inventario.</li>
-<li class=""><strong>Europeana y repositorios nacionales:</strong> útiles para localizar copias, colecciones y metadatos institucionales.</li>
-<li class=""><strong>Búsqueda inversa de imágenes:</strong> ayuda a encontrar publicaciones anteriores, recortes y atribuciones divergentes.</li>
-<li class=""><strong>ExifTool e InVID:</strong> complementan el examen técnico y la verificación multimedia.</li>
-<li class=""><strong>Wikidata:</strong> permite explorar entidades relacionadas, pero sus declaraciones también requieren referencias y contexto.</li>
-<li class=""><strong>API de MediaWiki:</strong> facilita capturas reproducibles cuando se analizan muchos archivos con un alcance definido.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-para-una-ficha-de-evidencia">Checklist para una ficha de evidencia<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#checklist-para-una-ficha-de-evidencia" class="hash-link" aria-label="Enlace directo al Checklist para una ficha de evidencia" title="Enlace directo al Checklist para una ficha de evidencia" translate="no">​</a></h2>
-<p>Antes de citar o reutilizar un archivo, confirma:</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->URL de la ficha y revisión permanente guardadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Archivo original descargado y huella registrada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Fecha de creación separada de digitalización y subida.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Autor, usuario que subió el archivo e institución custodiante diferenciados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Fuente primaria o catálogo original consultados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Datos estructurados comparados con la descripción textual.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cambios relevantes del historial revisados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Lugar y fecha corroborados con fuentes independientes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Licencia, atribución y posibles restricciones adicionales evaluadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Conclusión redactada con nivel de confianza y lagunas pendientes.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
-<p>Wikimedia Commons ofrece algo muy valioso para OSINT: no solo una imagen, sino un conjunto de pistas sobre cómo fue descrita, clasificada, modificada y licenciada. El método consiste en no confundir esas pistas con la respuesta. <strong>Busca de forma amplia, fija la revisión, separa las afirmaciones, sigue la fuente hasta su origen y corrobora fuera de Commons.</strong></p>
-<p>El siguiente paso práctico es elegir una fotografía patrimonial sin personas identificables y construir una ficha de evidencia con la checklist anterior. Un buen tema para continuar sería cómo usar Europeana y los catálogos GLAM para triangular colecciones digitalizadas sin perder la procedencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/wikimedia-commons-osint-procedencia-metadatos-contexto#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Media_search" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: MediaSearch</a></li>
-<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Structured Data</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/API:Imageinfo/en" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Imageinfo</a></li>
-<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Reusing content outside Wikimedia</a></li>
-<li class=""><a href="https://commons.wikimedia.org/wiki/Commons:Structured_data/Modeling/en" target="_blank" rel="noopener noreferrer" class="">Wikimedia Commons: Structured data modeling</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Verificacion</category>
-            <category>IMINT</category>
-            <category>Metadatos</category>
-            <category>Investigacion</category>
-            <category>Privacidad</category>
         </item>
     </channel>
 </rss>
