@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT contrastando proyectos, publicaciones, datos, software, repositorios y financiación pública](/img/blog/2026-08-16-openaire-osint-proyectos-resultados-repositorios.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openaire-osint-proyectos-resultados-repositorios.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un consorcio afirma que una subvención pública produjo «una plataforma abierta, tres conjuntos de datos y resultados validados por universidades europeas». La nota de prensa enlaza el proyecto, pero no los resultados; el repositorio muestra varias versiones; y una publicación menciona la ayuda sin explicar qué pagó. **Que proyecto, obra y organización aparezcan conectados en un grafo no demuestra por sí solo autoría, financiación, entrega ni impacto.** OpenAIRE ayuda a encontrar esas relaciones, siempre que volvamos a la procedencia y a los documentos originales.
