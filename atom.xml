@@ -8,134 +8,155 @@
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
     <entry>
-        <title type="html"><![CDATA[OpenAlex en OSINT: conectar investigación académica sin confundir un grafo con una prueba]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica"/>
+        <title type="html"><![CDATA[OpenAIRE en OSINT: seguir proyectos, resultados y repositorios sin confundir enlaces con pruebas]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios"/>
         <updated>2026-08-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando publicaciones, autores, instituciones, citas y financiación en un grafo académico]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando publicaciones, autores, instituciones, citas y financiación en un grafo académico" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-16-openalex-osint-grafo-investigacion-academica-7de1dc4b022b66aa412280a82cc0e6f7.png" width="1376" height="768" class="img_ev3q"></p>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando proyectos, publicaciones, datos, software, repositorios y financiación pública]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando proyectos, publicaciones, datos, software, repositorios y financiación pública" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-16-openaire-osint-proyectos-resultados-repositorios-ac4291394462fba9ad2c224364df28f6.png" width="1376" height="768" class="img_ev3q"></p>
 <p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una empresa afirma que su tecnología nació de una colaboración universitaria, una nota de prensa cita «decenas de estudios» y dos autores homónimos parecen unir todas las piezas. El grafo queda convincente en minutos. El problema es que <strong>una relación bibliográfica no demuestra una relación contractual, una afiliación histórica no equivale a un empleo actual y una cita no implica respaldo</strong>. OpenAlex ayuda a ordenar esas pistas, siempre que conservemos identificadores, fechas, procedencia y contradicciones.</p>
-<p><a href="https://openalex.org/" target="_blank" rel="noopener noreferrer" class="">OpenAlex</a> es un catálogo abierto del sistema mundial de investigación. Conecta obras, autores, instituciones, fuentes, editoriales, financiadores y temas, y permite explorarlos mediante una interfaz web, una API REST y una instantánea de datos. En OSINT resulta útil para <em>due diligence</em> tecnológica, periodismo científico, análisis de políticas públicas y verificación de afirmaciones sobre producción académica.</p>
-<p>No es un registro laboral, un sistema de acreditación ni una autoridad que certifique autoría, financiación o impacto. Agrega y normaliza metadatos de numerosas fuentes; además, parte de sus enlaces —como la desambiguación de autores o la asignación temática— se obtiene mediante procesos algorítmicos. Todos los nombres, organizaciones, identificadores y hechos del caso práctico que sigue son ficticios.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-openalex-y-para-qué-sirve">Qué es OpenAlex y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#qu%C3%A9-es-openalex-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es OpenAlex y para qué sirve" title="Enlace directo al Qué es OpenAlex y para qué sirve" translate="no">​</a></h2>
-<p>La <a href="https://help.openalex.org/hc/en-us/articles/24397285563671-About-the-data" target="_blank" rel="noopener noreferrer" class="">documentación sobre los datos</a> describe un grafo cuyo núcleo son las obras académicas: artículos, libros, capítulos, tesis, conjuntos de datos y otros resultados. A cada obra pueden asociarse autores, afiliaciones, fuentes de publicación, referencias, citas, temas, acceso abierto y financiadores.</p>
-<p>OpenAlex combina registros procedentes de proyectos como Crossref, DataCite, ORCID, ROR, DOAJ, PubMed, arXiv, Zenodo y repositorios institucionales, entre otros. Esa integración ofrece una vista amplia, pero también hereda diferencias de calidad, cobertura y actualización. Un campo ausente puede significar «no comunicado», «no importado», «no resuelto» o «realmente inexistente»; la interfaz no permite distinguirlo por intuición.</p>
-<p>Para una investigación responsable, OpenAlex puede ayudar a:</p>
+<p>Un consorcio afirma que una subvención pública produjo «una plataforma abierta, tres conjuntos de datos y resultados validados por universidades europeas». La nota de prensa enlaza el proyecto, pero no los resultados; el repositorio muestra varias versiones; y una publicación menciona la ayuda sin explicar qué pagó. <strong>Que proyecto, obra y organización aparezcan conectados en un grafo no demuestra por sí solo autoría, financiación, entrega ni impacto.</strong> OpenAIRE ayuda a encontrar esas relaciones, siempre que volvamos a la procedencia y a los documentos originales.</p>
+<p><a href="https://explore.openaire.eu/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Explore</a> permite buscar producción académica, datos, software, proyectos, organizaciones y fuentes del ecosistema de ciencia abierta. Se apoya en <a href="https://graph.openaire.eu/docs/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph</a>, una colección abierta que agrega metadatos, los limpia, enriquece y enlaza para facilitar descubrimiento, seguimiento y análisis.</p>
+<p>En OSINT responsable resulta útil para revisar afirmaciones sobre proyectos financiados, localizar resultados declarados, seguir versiones entre repositorios y editoriales, y construir una lista auditable de pistas. No es un registro contable, una certificación de cumplimiento ni una evaluación humana de la calidad científica. Todos los nombres, códigos, importes y hechos del caso práctico son ficticios.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-openaire-y-para-qué-sirve">Qué es OpenAIRE y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#qu%C3%A9-es-openaire-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es OpenAIRE y para qué sirve" title="Enlace directo al Qué es OpenAIRE y para qué sirve" translate="no">​</a></h2>
+<p>El <a href="https://graph.openaire.eu/docs/data-model/" target="_blank" rel="noopener noreferrer" class="">modelo de datos oficial</a> distingue varias entidades: productos de investigación, fuentes de datos, organizaciones, proyectos, financiadores, líneas de financiación, comunidades y personas. Los productos pueden ser publicaciones, conjuntos de datos, software u otros resultados. Las fuentes incluyen repositorios, revistas, agregadores y bases de financiadores.</p>
+<p>OpenAIRE agrega registros de proveedores como Crossref, DataCite, ORCID, Unpaywall, DOAJ y repositorios registrados en directorios especializados, entre otros. Después aplica procesos de limpieza, deduplicación, enriquecimiento y minería de texto. El resultado es especialmente interesante cuando una pregunta cruza tres capas:</p>
 <ul>
-<li class="">localizar una obra mediante DOI, PMID u otros identificadores;</li>
-<li class="">separar autores homónimos y detectar perfiles que necesitan revisión;</li>
-<li class="">reconstruir qué afiliación se declaró en una publicación concreta;</li>
-<li class="">explorar referencias y citas sin asumir acuerdo intelectual;</li>
-<li class="">identificar fuentes, repositorios y versiones de acceso abierto;</li>
-<li class="">formular series temporales sobre un tema o una institución;</li>
-<li class="">encontrar pistas de financiación declarada para contrastarlas con la fuente primaria;</li>
-<li class="">exportar un conjunto reproducible de candidatos antes de verificarlos uno por uno.</li>
+<li class=""><strong>financiación:</strong> qué proyecto o ayuda pública aparece declarada;</li>
+<li class=""><strong>producción:</strong> qué publicación, dato, software u otro resultado se relaciona con ella;</li>
+<li class=""><strong>procedencia:</strong> qué repositorio, revista o proveedor entregó cada metadato.</li>
 </ul>
-<p>Su mayor ventaja no es «saberlo todo», sino ofrecer identificadores estables y una estructura común para plantear preguntas mejores.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-comprobar-una-colaboración-tecnológica">Caso ficticio: comprobar una colaboración tecnológica<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#caso-ficticio-comprobar-una-colaboraci%C3%B3n-tecnol%C3%B3gica" class="hash-link" aria-label="Enlace directo al Caso ficticio: comprobar una colaboración tecnológica" title="Enlace directo al Caso ficticio: comprobar una colaboración tecnológica" translate="no">​</a></h2>
-<p>La empresa ficticia <strong>Nácar Vectorial</strong> declara en su web que su sistema de reciclaje fue «desarrollado junto con el Instituto Público del Ebro» entre 2022 y 2024. Como apoyo enlaza una búsqueda genérica y cita a una investigadora llamada «Laura Martín». Una fundación quiere evaluar la afirmación antes de conceder una ayuda.</p>
-<p>La pregunta investigable será:</p>
+<p>Para una investigación legítima puede ayudar a:</p>
+<ul>
+<li class="">localizar un proyecto por acrónimo, título, identificador o financiador;</li>
+<li class="">enumerar resultados públicamente relacionados con ese proyecto;</li>
+<li class="">distinguir publicaciones, datos, software y otros productos;</li>
+<li class="">encontrar DOI, ORCID, ROR y otros identificadores persistentes;</li>
+<li class="">comparar repositorios o ubicaciones que ofrecen distintas versiones;</li>
+<li class="">explorar organizaciones participantes sin inferir relaciones actuales;</li>
+<li class="">documentar acceso, licencia, fecha y fuente declarados;</li>
+<li class="">preparar consultas repetibles mediante la API pública.</li>
+</ul>
+<p>Su valor está en reunir pistas dispersas con su contexto. El error empieza cuando el analista convierte automáticamente una relación de metadatos en una afirmación jurídica o causal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-auditar-los-resultados-de-un-proyecto-público">Caso ficticio: auditar los resultados de un proyecto público<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#caso-ficticio-auditar-los-resultados-de-un-proyecto-p%C3%BAblico" class="hash-link" aria-label="Enlace directo al Caso ficticio: auditar los resultados de un proyecto público" title="Enlace directo al Caso ficticio: auditar los resultados de un proyecto público" translate="no">​</a></h2>
+<p>La fundación ficticia <strong>Horizonte Claro</strong> revisa el proyecto europeo imaginario <code>REUSA-DELTA</code>, ejecutado entre 2021 y 2024. La web del coordinador afirma que recibió 2,4 millones de euros y produjo una plataforma, tres datasets y una metodología «adoptada por cinco ciudades».</p>
+<p>La pregunta se formula así:</p>
 <blockquote>
-<p>¿Qué resultados académicos públicos relacionan de forma explícita la tecnología, la empresa, la investigadora y el instituto durante el periodo declarado, y qué parte de esa relación está respaldada por fuentes primarias?</p>
+<p>¿Qué proyecto oficial corresponde a <code>REUSA-DELTA</code>, qué resultados públicos están enlazados con él, qué fuente sostiene cada relación y cuáles de las afirmaciones requieren corroboración adicional?</p>
 </blockquote>
-<p>Antes de buscar, descomponemos la afirmación:</p>
-<table><thead><tr><th>Elemento</th><th>Identificador deseable</th><th>Qué no demuestra por sí solo</th></tr></thead><tbody><tr><td>Obra</td><td>DOI u OpenAlex Work ID</td><td>que la tecnología funcione</td></tr><tr><td>Autora</td><td>ORCID y OpenAlex Author ID</td><td>que sea la persona homónima buscada</td></tr><tr><td>Institución</td><td>ROR y OpenAlex Institution ID</td><td>empleo actual o participación contractual</td></tr><tr><td>Empresa</td><td>número registral y dominio oficial</td><td>financiación o propiedad intelectual</td></tr><tr><td>Financiación</td><td>identificador de ayuda y resolución oficial</td><td>que financiara exactamente esa obra</td></tr><tr><td>Cita</td><td>Work ID de origen y destino</td><td>apoyo, colaboración o aprobación</td></tr></tbody></table>
-<p>Esta tabla impide que una línea del grafo cargue con más significado del que tiene.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-conserva-la-afirmación-original">1. Conserva la afirmación original<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#1-conserva-la-afirmaci%C3%B3n-original" class="hash-link" aria-label="Enlace directo al 1. Conserva la afirmación original" title="Enlace directo al 1. Conserva la afirmación original" translate="no">​</a></h3>
-<p>Guarda la URL pública, la fecha de consulta en UTC, el texto exacto y, cuando sea proporcionado, una captura o copia archivada. Separa la fecha de publicación de la fecha del hecho alegado. Si la web cambia, tu nota debe permitir reconstruir qué comprobaste.</p>
-<p>No recopiles perfiles personales irrelevantes ni amplíes el alcance a familiares, domicilios o cuentas privadas. La unidad de análisis es la afirmación pública sobre investigación y colaboración.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-resuelve-entidades-antes-de-contar-relaciones">2. Resuelve entidades antes de contar relaciones<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#2-resuelve-entidades-antes-de-contar-relaciones" class="hash-link" aria-label="Enlace directo al 2. Resuelve entidades antes de contar relaciones" title="Enlace directo al 2. Resuelve entidades antes de contar relaciones" translate="no">​</a></h3>
-<p>Empieza por la obra más específica: un DOI, título exacto o identificador de repositorio. Desde ahí, anota los OpenAlex ID de la obra, los autores y las instituciones declaradas en esa autoría. Después contrasta los identificadores externos:</p>
+<p>Creamos un inventario antes de buscar:</p>
+<table><thead><tr><th>Afirmación</th><th>Identificador o documento deseable</th><th>Qué no basta</th></tr></thead><tbody><tr><td>existe una ayuda</td><td>código de proyecto y resolución oficial</td><td>una mención en una publicación</td></tr><tr><td>hubo 2,4 millones</td><td>ficha o contrato del financiador</td><td>presupuesto total del consorcio sin desglose</td></tr><tr><td>se publicó un dataset</td><td>DOI de DataCite y repositorio</td><td>un título sin archivo accesible</td></tr><tr><td>se creó software</td><td>repositorio, versión y licencia</td><td>una URL de organización o una captura</td></tr><tr><td>participaron cinco ciudades</td><td>entregable, convenio o fuente municipal</td><td>aparecer citadas en una noticia</td></tr><tr><td>el resultado fue adoptado</td><td>evidencia de uso y fecha</td><td>una relación semántica o una cita</td></tr></tbody></table>
+<p>Esta separación evita investigar una conclusión predeterminada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-preserva-la-afirmación-y-fija-alcance">1. Preserva la afirmación y fija alcance<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#1-preserva-la-afirmaci%C3%B3n-y-fija-alcance" class="hash-link" aria-label="Enlace directo al 1. Preserva la afirmación y fija alcance" title="Enlace directo al 1. Preserva la afirmación y fija alcance" translate="no">​</a></h3>
+<p>Guarda la URL, el texto exacto, la fecha de consulta en UTC y el periodo investigado. Separa lo que dice la empresa, lo que declara el consorcio y lo que publica el financiador. Define también qué queda fuera: personas sin función pública, cuentas privadas, domicilios o cualquier dato personal irrelevante.</p>
+<p>En el caso ficticio, el alcance cubre la existencia del proyecto, su financiación declarada, sus participantes institucionales y sus resultados abiertos hasta el 16 de agosto de 2026. No intenta evaluar la vida privada de investigadores ni atribuir fraude.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-empieza-por-el-proyecto-no-por-el-acrónimo">2. Empieza por el proyecto, no por el acrónimo<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#2-empieza-por-el-proyecto-no-por-el-acr%C3%B3nimo" class="hash-link" aria-label="Enlace directo al 2. Empieza por el proyecto, no por el acrónimo" title="Enlace directo al 2. Empieza por el proyecto, no por el acrónimo" translate="no">​</a></h3>
+<p>Los acrónimos se repiten y cambian de formato. Busca el candidato en Explore, pero no avances hasta confirmar título, identificador, financiador, fechas y organización coordinadora. Contrasta después esos campos con la ficha oficial del programa de financiación.</p>
+<p>Registra una tabla mínima:</p>
+<table><thead><tr><th>Campo</th><th>Valor ficticio</th><th>Fuente</th></tr></thead><tbody><tr><td>Project ID</td><td><code>101000000</code></td><td>ficha oficial imaginaria</td></tr><tr><td>Acrónimo</td><td><code>REUSA-DELTA</code></td><td>OpenAIRE y resolución</td></tr><tr><td>Periodo</td><td>2021–2024</td><td>contrato o portal del financiador</td></tr><tr><td>Coordinador</td><td>Instituto Delta Circular</td><td>ficha oficial</td></tr><tr><td>OpenAIRE ID</td><td>identificador interno observado</td><td>OpenAIRE Graph</td></tr></tbody></table>
+<p>El OpenAIRE ID facilita repetir consultas; el código de la ayuda permite volver a la autoridad que concedió los fondos. Conserva ambos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-explora-relaciones-y-vuelve-a-cada-fuente">3. Explora relaciones y vuelve a cada fuente<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#3-explora-relaciones-y-vuelve-a-cada-fuente" class="hash-link" aria-label="Enlace directo al 3. Explora relaciones y vuelve a cada fuente" title="Enlace directo al 3. Explora relaciones y vuelve a cada fuente" translate="no">​</a></h3>
+<p>Desde la ficha del proyecto, clasifica los resultados por tipo: publicación, dataset, software u otro producto. Para cada uno captura:</p>
 <ul>
-<li class="">el DOI en la página del editor o en Crossref;</li>
-<li class="">el ORCID en el registro de la persona, si existe y es público;</li>
-<li class="">el ROR en la ficha de la institución;</li>
-<li class="">la afiliación en el PDF o la página original de la publicación;</li>
-<li class="">la empresa en su registro mercantil competente.</li>
+<li class="">título y tipo declarado;</li>
+<li class="">identificador persistente, si existe;</li>
+<li class="">fecha de publicación o depósito;</li>
+<li class="">proyecto relacionado y procedencia de esa relación;</li>
+<li class="">fuente que aloja o aportó el registro;</li>
+<li class="">acceso y licencia declarados;</li>
+<li class="">autores y organizaciones tal como aparecen en la versión original;</li>
+<li class="">fecha de recuperación.</li>
 </ul>
-<p>No resuelvas una persona solo por nombre. La <a href="https://help.openalex.org/hc/en-us/articles/24347048891543-Author-disambiguation" target="_blank" rel="noopener noreferrer" class="">explicación oficial de la desambiguación</a> señala que OpenAlex usa señales como variantes del nombre, coautorías, afiliaciones, temas, citas y ORCID. El método puede dividir a una persona en varios perfiles o fusionar personas distintas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-la-web-para-explorar-y-la-api-para-repetir">3. Usa la web para explorar y la API para repetir<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#3-usa-la-web-para-explorar-y-la-api-para-repetir" class="hash-link" aria-label="Enlace directo al 3. Usa la web para explorar y la API para repetir" title="Enlace directo al 3. Usa la web para explorar y la API para repetir" translate="no">​</a></h3>
-<p>La interfaz web permite encontrar candidatos sin escribir código. Cuando la consulta ya está definida, la <a href="https://developers.openalex.org/api-reference/introduction" target="_blank" rel="noopener noreferrer" class="">API de OpenAlex</a> facilita documentar filtros y resultados. El patrón seguro consiste en resolver primero un ID y filtrar después por ese ID.</p>
-<p>Ejemplo ficticio y deliberadamente limitado:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"># 1. Resolver la institución candidata y revisar manualmente sus identificadores.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl "https://api.openalex.org/institutions?search=Instituto%20Publico%20del%20Ebro&amp;api_key=TU_CLAVE"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># 2. Tras validar el ID ficticio, pedir solo campos necesarios del periodo.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl "https://api.openalex.org/works?filter=authorships.institutions.id:I000000000,from_publication_date:2022-01-01,to_publication_date:2024-12-31&amp;select=id,doi,title,publication_date,authorships,primary_location,funders&amp;per_page=100&amp;api_key=TU_CLAVE"</span><br></span></code></pre></div></div>
-<p><code>I000000000</code> no representa una institución real. No publiques la clave ni la incrustes en el repositorio. La <a href="https://developers.openalex.org/guides/authentication" target="_blank" rel="noopener noreferrer" class="">guía vigente de autenticación y precios</a> exige una clave de API y explica los límites y costes actuales; consúltala antes de automatizar porque el servicio ha cambiado respecto a tutoriales antiguos que usaban <code>mailto</code> o el llamado <em>polite pool</em>.</p>
-<p>Registra junto a la consulta:</p>
-<ul>
-<li class="">URL o parámetros exactos;</li>
-<li class="">instante de recuperación en UTC;</li>
-<li class="">versión local del script, si la hay;</li>
-<li class="">número de resultados y criterio de paginación;</li>
-<li class="">campos seleccionados;</li>
-<li class="">errores, reintentos y respuestas parciales;</li>
-<li class="">hash del fichero exportado cuando vaya a conservarse como artefacto.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-construye-una-cronología-de-dos-niveles">4. Construye una cronología de dos niveles<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#4-construye-una-cronolog%C3%ADa-de-dos-niveles" class="hash-link" aria-label="Enlace directo al 4. Construye una cronología de dos niveles" title="Enlace directo al 4. Construye una cronología de dos niveles" translate="no">​</a></h3>
-<p>Para cada pista separa el tiempo de la obra del tiempo de la relación alegada:</p>
-<table><thead><tr><th>Fecha</th><th>Evento observable</th><th>Fuente</th><th>Inferencia permitida</th></tr></thead><tbody><tr><td>2022-05-10</td><td>afiliación declarada en una obra ficticia</td><td>PDF y metadatos</td><td>la autora declaró esa afiliación en esa obra</td></tr><tr><td>2023-02-18</td><td>depósito de otra versión</td><td>repositorio</td><td>existía esa versión en esa fecha</td></tr><tr><td>2023-09-01</td><td>concesión ficticia publicada</td><td>resolución oficial</td><td>la ayuda fue concedida según la resolución</td></tr><tr><td>2024-04-12</td><td>nota corporativa</td><td>web de la empresa</td><td>la empresa hizo esa afirmación</td></tr></tbody></table>
-<p>Una afiliación publicada en 2022 no prueba que continuara en 2024. Una fecha de depósito no siempre coincide con la de aceptación o publicación. Una ayuda concedida a una institución no demuestra que financiara todas las obras de sus investigadores.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-interpreta-citas-temas-y-financiación-con-cautela">5. Interpreta citas, temas y financiación con cautela<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#5-interpreta-citas-temas-y-financiaci%C3%B3n-con-cautela" class="hash-link" aria-label="Enlace directo al 5. Interpreta citas, temas y financiación con cautela" title="Enlace directo al 5. Interpreta citas, temas y financiación con cautela" translate="no">​</a></h3>
-<p>Una cita puede criticar, reutilizar un método, aportar contexto o aparecer de forma tangencial. Lee el texto citante antes de describir la relación. Los recuentos también dependen de la cobertura, la deduplicación y el momento de consulta: úsalos como observables fechados, no como una verdad permanente sobre calidad o impacto.</p>
-<p>Los <a href="https://help.openalex.org/hc/en-us/articles/24736129405719-Topics" target="_blank" rel="noopener noreferrer" class="">temas de OpenAlex</a> se asignan mediante una metodología que combina redes de citación y clasificación automática. Son útiles para descubrir conjuntos y comparar tendencias, pero una etiqueta temática no demuestra que una obra trate exactamente la cuestión investigada. Revisa título, resumen, texto disponible y fuente original.</p>
-<p>Con la financiación ocurre lo mismo. El nombre de un financiador o una ayuda en metadatos abre una pista; la resolución de concesión, el repositorio oficial y los agradecimientos de la obra determinan qué puede afirmarse.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-vuelve-a-las-fuentes-primarias">6. Vuelve a las fuentes primarias<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#6-vuelve-a-las-fuentes-primarias" class="hash-link" aria-label="Enlace directo al 6. Vuelve a las fuentes primarias" title="Enlace directo al 6. Vuelve a las fuentes primarias" translate="no">​</a></h3>
-<p>Para cerrar el caso ficticio, la fundación debería buscar confirmación independiente en:</p>
+<p>No te limites al registro representativo. Abre el DOI, el repositorio y las instancias disponibles. Un mismo resultado puede tener preprint, manuscrito aceptado, versión editorial y copia de repositorio, con fechas y licencias diferentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-repite-la-consulta-con-la-api">4. Repite la consulta con la API<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#4-repite-la-consulta-con-la-api" class="hash-link" aria-label="Enlace directo al 4. Repite la consulta con la API" title="Enlace directo al 4. Repite la consulta con la API" translate="no">​</a></h3>
+<p>La interfaz es adecuada para explorar; la <a href="https://graph.openaire.eu/docs/apis/graph-api/overview/" target="_blank" rel="noopener noreferrer" class="">API Graph v3</a> permite dejar una consulta reproducible. La documentación actual recomienda v3 para nuevos flujos y agrupa las entidades bajo rutas consistentes.</p>
+<p>Ejemplo ficticio y limitado:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"># Resolver primero el proyecto y revisar sus identificadores.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://api.openaire.eu/graph/v3/projects' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'search=REUSA-DELTA' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'pageSize=10'</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"># Tras validar el ID o el nombre inequívoco, pedir resultados relacionados.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://api.openaire.eu/graph/v3/research-products' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'relProject=REUSA-DELTA' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'fromPublicationYear=2021' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'toPublicationYear=2026' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'pageSize=100'</span><br></span></code></pre></div></div>
+<p>El proyecto no existe y la consulta es ilustrativa. Antes de automatizar, revisa el esquema vigente, las condiciones del servicio y la paginación. Guarda parámetros, instante de consulta, cabeceras relevantes, número de resultados, cursor o página, errores y hash del JSON conservado. No satures el servicio ni recojas campos que no necesitas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-entiende-la-deduplicación-antes-de-contar">5. Entiende la deduplicación antes de contar<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#5-entiende-la-deduplicaci%C3%B3n-antes-de-contar" class="hash-link" aria-label="Enlace directo al 5. Entiende la deduplicación antes de contar" title="Enlace directo al 5. Entiende la deduplicación antes de contar" translate="no">​</a></h3>
+<p>La <a href="https://graph.openaire.eu/docs/graph-production-workflow/deduplication/" target="_blank" rel="noopener noreferrer" class="">metodología de deduplicación</a> explica que el grafo agrupa registros solapados y construye un registro representativo manteniendo información de procedencia e instancias. Usa señales como identificadores, compatibilidad del tipo, títulos y autores. Las fechas no siempre separan productos porque un preprint y la versión publicada pueden pertenecer al mismo resultado.</p>
+<p>Esto tiene dos consecuencias prácticas:</p>
 <ol>
-<li class="">el PDF o registro original de cada obra;</li>
-<li class="">el repositorio institucional y su historial;</li>
-<li class="">ORCID y ROR para validar identificadores, sin convertirlos en prueba exclusiva;</li>
-<li class="">resoluciones públicas de financiación;</li>
-<li class="">registros de patentes o contratos, si la afirmación concreta los menciona;</li>
-<li class="">una respuesta oficial de las organizaciones cuando la decisión lo justifique.</li>
+<li class="">contar filas de repositorios puede inflar la producción;</li>
+<li class="">aceptar sin revisión un grupo deduplicado puede ocultar diferencias entre versiones.</li>
 </ol>
-<p>El resultado puede ser «colaboración documentada», «solo coincidencia bibliográfica», «afirmación parcialmente sustentada» o «evidencia pública insuficiente». Esta última es una conclusión válida: ausencia en OpenAlex no equivale a inexistencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Los errores más habituales son previsibles:</p>
+<p>Para cada resultado importante, compara DOI, título, autores, tipo, versión y archivo. Si dos datasets comparten título pero difieren en contenido o DOI, no los fusiones por intuición. Si el grafo los agrupa, documenta la agrupación y verifica las instancias.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-separa-cuatro-relaciones-que-suelen-confundirse">6. Separa cuatro relaciones que suelen confundirse<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#6-separa-cuatro-relaciones-que-suelen-confundirse" class="hash-link" aria-label="Enlace directo al 6. Separa cuatro relaciones que suelen confundirse" title="Enlace directo al 6. Separa cuatro relaciones que suelen confundirse" translate="no">​</a></h3>
 <ul>
-<li class=""><strong>Homónimos:</strong> perfiles fusionados o separados, especialmente sin ORCID.</li>
-<li class=""><strong>Afiliaciones históricas:</strong> una institución asociada a una obra no describe necesariamente la relación actual.</li>
-<li class=""><strong>Metadatos incompletos:</strong> faltan DOI, resúmenes, referencias, ayudas o fechas.</li>
-<li class=""><strong>Duplicados y versiones:</strong> preprint, versión aceptada y artículo final pueden parecer obras diferentes o quedar enlazados de forma imperfecta.</li>
-<li class=""><strong>Cobertura desigual:</strong> idiomas, disciplinas, editoriales y repositorios no aportan el mismo detalle.</li>
-<li class=""><strong>Clasificación automática:</strong> temas y conexiones derivadas son pistas, no decisiones humanas verificadas.</li>
-<li class=""><strong>Citas mal interpretadas:</strong> citar no significa respaldar ni colaborar.</li>
-<li class=""><strong>Datos cambiantes:</strong> correcciones y nuevas fuentes pueden modificar perfiles, métricas y relaciones.</li>
+<li class=""><strong>Producto–proyecto:</strong> el metadato declara una relación con la ayuda.</li>
+<li class=""><strong>Producto–organización:</strong> una autoría o afiliación vincula una entidad en un momento concreto.</li>
+<li class=""><strong>Proyecto–organización:</strong> la entidad figura como participante, coordinadora u otro rol declarado.</li>
+<li class=""><strong>Producto–fuente:</strong> el registro fue recogido o alojado en un repositorio, revista o agregador.</li>
 </ul>
-<p>La propia documentación ofrece vías para <a href="https://help.openalex.org/hc/en-us/articles/27714298573719-Fix-errors-in-OpenAlex" target="_blank" rel="noopener noreferrer" class="">corregir errores</a>. Si detectas uno, conserva el registro observado, aporta la fuente primaria y no presentes una solicitud pendiente como si ya hubiera sido aceptada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>Ninguna equivale automáticamente a propiedad intelectual, subcontratación, pago efectivo o adopción. Para esas afirmaciones necesitas contratos, resoluciones, entregables, cuentas, licencias o fuentes oficiales pertinentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-construye-una-cronología-con-distintos-relojes">7. Construye una cronología con distintos relojes<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#7-construye-una-cronolog%C3%ADa-con-distintos-relojes" class="hash-link" aria-label="Enlace directo al 7. Construye una cronología con distintos relojes" title="Enlace directo al 7. Construye una cronología con distintos relojes" translate="no">​</a></h3>
+<p>No mezcles:</p>
+<ol>
+<li class="">inicio y fin del proyecto;</li>
+<li class="">fecha del resultado;</li>
+<li class="">fecha de depósito o actualización en el repositorio;</li>
+<li class="">fecha de recogida o actualización del metadato;</li>
+<li class="">fecha en que el analista consultó el sistema.</li>
+</ol>
+<p>Un dataset depositado después del cierre puede ser un resultado tardío legítimo. Una actualización reciente no prueba que el contenido existiera durante la ejecución. Una obra anterior puede haberse enlazado al proyecto posteriormente. Cada conclusión debe indicar qué reloj utiliza.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-financiación-entregables-y-adopción">8. Corrobora financiación, entregables y adopción<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#8-corrobora-financiaci%C3%B3n-entregables-y-adopci%C3%B3n" class="hash-link" aria-label="Enlace directo al 8. Corrobora financiación, entregables y adopción" title="Enlace directo al 8. Corrobora financiación, entregables y adopción" translate="no">​</a></h3>
+<p>Para cerrar el caso, compara el grafo con:</p>
 <ul>
-<li class="">Trabaja con una pregunta legítima, un periodo y criterios de cierre definidos.</li>
-<li class="">Minimiza datos personales; una bibliografía no autoriza a perfilar la vida de sus autores.</li>
-<li class="">No publiques API keys, notas internas ni exportaciones con información irrelevante.</li>
-<li class="">Conserva identificadores y fuentes, no solo capturas del grafo.</li>
-<li class="">Distingue hechos observados, inferencias y contradicciones en columnas separadas.</li>
-<li class="">Evita rankings personales automáticos: las métricas dependen de cobertura, disciplina y antigüedad.</li>
-<li class="">Usa límites de consulta, caché y pausas; respeta las condiciones y el presupuesto de la API.</li>
-<li class="">Obtén una segunda revisión antes de una decisión adversa o una publicación sensible.</li>
-<li class="">Permite corrección y réplica cuando una conclusión afecte a una persona u organización.</li>
+<li class="">portal y resolución del financiador;</li>
+<li class="">acuerdo de subvención o ficha pública equivalente;</li>
+<li class="">repositorio oficial de entregables;</li>
+<li class="">DOI y landing page del editor o repositorio;</li>
+<li class="">archivos y versiones del software, junto con su licencia;</li>
+<li class="">portales de datos de las ciudades que supuestamente adoptaron el resultado;</li>
+<li class="">respuestas institucionales cuando la decisión lo justifique.</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>OpenAlex no sustituye a todas las fuentes. Combínalo según la pregunta:</p>
+<p>La conclusión puede ser: «resultado enlazado y corroborado», «relación declarada pendiente de confirmar», «versión no identificada», «adopción no demostrada» o «evidencia pública insuficiente». Ausencia en OpenAIRE no demuestra que el resultado no exista.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
 <ul>
-<li class=""><strong>Crossref</strong> para metadatos DOI y relaciones registradas por los depositantes;</li>
-<li class=""><strong>ORCID</strong> para identificadores de investigadores y datos que ellos mantienen;</li>
-<li class=""><strong>ROR</strong> para identidad y jerarquía de organizaciones de investigación;</li>
-<li class=""><strong>Unpaywall</strong> para localizar estados y ubicaciones de acceso abierto;</li>
-<li class=""><strong>OpenAIRE</strong> para producción, proyectos y repositorios del ecosistema europeo;</li>
-<li class=""><strong>repositorios institucionales y páginas editoriales</strong> para versiones y documentos originales;</li>
-<li class=""><strong>registros oficiales de ayudas, contratos y patentes</strong> para comprobar afirmaciones jurídicas o financieras.</li>
+<li class=""><strong>Cobertura desigual:</strong> no todos los repositorios, programas o disciplinas aportan los mismos metadatos.</li>
+<li class=""><strong>Enlaces inferidos o aportados:</strong> la relación puede proceder de texto minado, proveedor, reclamación o enriquecimiento; revisa la procedencia.</li>
+<li class=""><strong>Duplicados imperfectos:</strong> versiones distintas pueden fusionarse o quedar separadas.</li>
+<li class=""><strong>Tipos inconsistentes:</strong> un mismo objeto puede llegar como publicación, dato, software u «otro» según la fuente.</li>
+<li class=""><strong>Identidad institucional:</strong> nombres históricos, fusiones y filiales exigen ROR y registros oficiales.</li>
+<li class=""><strong>Afiliación temporal:</strong> participar en una obra no acredita empleo o colaboración actual.</li>
+<li class=""><strong>Acceso y licencia:</strong> «abierto» en metadatos no sustituye la comprobación del archivo y su licencia.</li>
+<li class=""><strong>Financiación:</strong> una mención de ayuda no demuestra importe imputado, pago ni cumplimiento.</li>
+<li class=""><strong>Métricas cambiantes:</strong> recuentos y relaciones varían al actualizarse el grafo.</li>
 </ul>
-<p>El takeaway accionable es sencillo: toma una afirmación académica pública, conviértela en una tabla de entidades e identificadores y exige una fuente primaria para cada relación importante. <strong>OpenAlex es excelente para descubrir y ordenar el mapa; la prueba empieza cuando abandonas la línea bonita del grafo y verificas qué significa realmente.</strong></p>
-<p>Un siguiente tema útil sería analizar OpenAIRE como puente entre publicaciones, proyectos europeos y repositorios, con especial atención a versiones, financiación y cobertura.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openalex-osint-grafo-investigacion-academica#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
 <ul>
-<li class=""><a href="https://help.openalex.org/hc/en-us/articles/24397285563671-About-the-data" target="_blank" rel="noopener noreferrer" class="">OpenAlex: acerca de los datos</a></li>
-<li class=""><a href="https://developers.openalex.org/api-reference/introduction" target="_blank" rel="noopener noreferrer" class="">OpenAlex Developers: visión general de la API</a></li>
-<li class=""><a href="https://developers.openalex.org/guides/authentication" target="_blank" rel="noopener noreferrer" class="">OpenAlex Developers: autenticación y precios</a></li>
-<li class=""><a href="https://help.openalex.org/hc/en-us/articles/24347048891543-Author-disambiguation" target="_blank" rel="noopener noreferrer" class="">OpenAlex: desambiguación de autores</a></li>
-<li class=""><a href="https://help.openalex.org/hc/en-us/articles/24736129405719-Topics" target="_blank" rel="noopener noreferrer" class="">OpenAlex: metodología de temas</a></li>
-<li class=""><a href="https://help.openalex.org/hc/en-us/articles/27714298573719-Fix-errors-in-OpenAlex" target="_blank" rel="noopener noreferrer" class="">OpenAlex: corrección de errores</a></li>
+<li class="">Define una finalidad legítima y proporcional antes de descargar datos.</li>
+<li class="">Minimiza información personal y evita perfiles individuales automatizados.</li>
+<li class="">Conserva identificadores, consultas, fecha y procedencia, no solo capturas.</li>
+<li class="">Separa observación, inferencia y contradicción en columnas distintas.</li>
+<li class="">No publiques claves, notas internas ni ficheros masivos sin necesidad.</li>
+<li class="">Respeta licencias, condiciones de uso y límites técnicos de cada fuente.</li>
+<li class="">No conviertas una ausencia o error de metadatos en acusación.</li>
+<li class="">Solicita segunda revisión antes de una publicación sensible o decisión adversa.</li>
+<li class="">Ofrece vía de corrección y réplica a las entidades afectadas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>OpenAIRE funciona mejor acompañado:</p>
+<ul>
+<li class=""><strong>CORDIS</strong> para proyectos y resultados comunicados en programas de la UE;</li>
+<li class=""><strong>portales nacionales y del financiador</strong> para resoluciones y situación oficial;</li>
+<li class=""><strong>Crossref y DataCite</strong> para metadatos de DOI;</li>
+<li class=""><strong>ORCID y ROR</strong> para identidades persistentes de personas y organizaciones;</li>
+<li class=""><strong>Zenodo y repositorios institucionales</strong> para archivos, versiones y comunidades;</li>
+<li class=""><strong>Software Heritage y repositorios de código</strong> para preservar y revisar software público;</li>
+<li class=""><strong>OpenAlex</strong> para una vista bibliográfica complementaria, sin asumir equivalencia de cobertura o deduplicación.</li>
+</ul>
+<p>El takeaway accionable es este: elige un proyecto público, exporta sus resultados por tipo y añade a cada fila tres columnas obligatorias —procedencia, identificador y corroboración primaria—. <strong>OpenAIRE descubre conexiones valiosas; una investigación sólida explica quién creó cada enlace, qué significa y qué sigue sin demostrar.</strong></p>
+<p>Un siguiente tema práctico sería estudiar DataCite para seguir versiones, relaciones entre datasets y software, y DOI sin confundir registro con contenido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/openaire-osint-proyectos-resultados-repositorios#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://graph.openaire.eu/docs/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph: visión general</a></li>
+<li class=""><a href="https://graph.openaire.eu/docs/data-model/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph: modelo de datos</a></li>
+<li class=""><a href="https://graph.openaire.eu/docs/apis/graph-api/overview/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph API v3: visión general</a></li>
+<li class=""><a href="https://graph.openaire.eu/docs/graph-production-workflow/deduplication/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph: deduplicación y procedencia</a></li>
+<li class=""><a href="https://graph.openaire.eu/docs/apis/graph-api/organizations/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph API: organizaciones</a></li>
+<li class=""><a href="https://graph.openaire.eu/docs/apis/graph-api/data-sources/" target="_blank" rel="noopener noreferrer" class="">OpenAIRE Graph API: fuentes de datos</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter AI</name>
