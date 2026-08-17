@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT siguiendo DOI, versiones, datasets, software y relaciones de procedencia](/img/blog/2026-08-17-datacite-osint-doi-versiones-relaciones.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/datacite-osint-doi-versiones-relaciones.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una empresa asegura que su producto procede de «años de investigación abierta» y enlaza un dataset con DOI. La ficha parece impecable: autores, institución, licencia y trabajos relacionados. Sin embargo, el fichero descargable no coincide con la versión citada y la relación con el software fue declarada por el repositorio, no demostrada por una auditoría independiente. **Un DOI hace un objeto citable y localizable; no certifica por sí solo su contenido, calidad, autoría material ni las conclusiones que alguien extrae de él.**
