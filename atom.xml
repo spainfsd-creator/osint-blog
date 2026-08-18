@@ -2,11 +2,171 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-17T00:00:00.000Z</updated>
+    <updated>2026-08-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Software Heritage en OSINT: preservar código, versiones y procedencia sin confundir archivo con prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia"/>
+        <updated>2026-08-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT comparando un repositorio vivo, una captura histórica, identificadores criptográficos y una cronología de procedencia]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando un repositorio vivo, una captura histórica, identificadores criptográficos y una cronología de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-18-software-heritage-osint-codigo-preservado-5e312f9f6371714ba615879d72bbe951.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una empresa afirma que una función crítica ya existía cuando ganó un contrato público. Su repositorio muestra hoy el código y una etiqueta con el nombre correcto, pero ambas cosas pudieron cambiar después. Una captura aislada tampoco basta: necesitamos saber <strong>qué objeto observamos, en qué visita fue archivado y si el contenido coincide byte a byte</strong>. Software Heritage ayuda a fijar esas preguntas; no convierte automáticamente un repositorio preservado en prueba de autoría, fecha de creación o cumplimiento contractual.</p>
+<p>Consultada el <strong>18 de agosto de 2026</strong>, la documentación oficial define <a href="https://www.softwareheritage.org/" target="_blank" rel="noopener noreferrer" class="">Software Heritage</a> como una infraestructura dedicada a recopilar, preservar y compartir código fuente disponible públicamente. Para OSINT responsable, su archivo puede servir para recuperar estados históricos, distinguir objetos de software y citar contenido mediante identificadores persistentes.</p>
+<p>Todos los nombres, repositorios, contratos y hechos del caso práctico son ficticios. El método está pensado para investigación académica, periodismo, respuesta a incidentes y <em>due diligence</em> proporcionada; no para perfilar desarrolladores, explotar secretos expuestos ni eludir controles de acceso.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-software-heritage-y-para-qué-sirve-en-osint">Qué es Software Heritage y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#qu%C3%A9-es-software-heritage-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Software Heritage y para qué sirve en OSINT" title="Enlace directo al Qué es Software Heritage y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Software Heritage no es simplemente otra forja. GitHub, GitLab o una instancia propia alojan proyectos vivos y facilitan su desarrollo; el archivo conserva objetos recogidos de distintos orígenes y visitas. Esa separación importa cuando un repositorio desaparece, cambia de nombre, reescribe referencias o ya no muestra el estado que motivó una afirmación.</p>
+<p>El <a href="https://docs.softwareheritage.org/devel/swh-model/data-model.html" target="_blank" rel="noopener noreferrer" class="">modelo de datos</a> permite razonar con varias piezas:</p>
+<ul>
+<li class=""><strong>origen (<em>origin</em>):</strong> la URL desde la que se obtuvo el software;</li>
+<li class=""><strong>visita (<em>visit</em>):</strong> un intento fechado de recuperar ese origen;</li>
+<li class=""><strong>captura (<em>snapshot</em>):</strong> el estado observado de sus ramas y etiquetas durante una visita;</li>
+<li class=""><strong>revisión (<em>revision</em>):</strong> un cambio con su árbol, metadatos y relaciones de historial;</li>
+<li class=""><strong>publicación (<em>release</em>):</strong> un objeto que apunta a otro objeto, normalmente asociado a una versión publicada;</li>
+<li class=""><strong>directorio (<em>directory</em>):</strong> un árbol de nombres y objetos;</li>
+<li class=""><strong>contenido (<em>content</em>):</strong> los bytes de un archivo.</li>
+</ul>
+<p>No son sinónimos. La URL del origen responde <strong>de dónde se intentó recoger</strong>; la visita, <strong>cuándo lo observó el archivador</strong>; la captura, <strong>qué referencias vio</strong>; y el contenido, <strong>qué bytes conserva</strong>. Ninguna de esas capas demuestra por sí sola cuándo se escribió una idea, quién controlaba una cuenta o qué código llegó a producción.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="swhid-identificar-antes-de-interpretar">SWHID: identificar antes de interpretar<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#swhid-identificar-antes-de-interpretar" class="hash-link" aria-label="Enlace directo al SWHID: identificar antes de interpretar" title="Enlace directo al SWHID: identificar antes de interpretar" translate="no">​</a></h3>
+<p>Los <a href="https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html" target="_blank" rel="noopener noreferrer" class="">SoftWare Hash IDentifiers o SWHID</a> identifican objetos mediante una forma como:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">swh:1:&lt;tipo&gt;:&lt;identificador_intrinseco&gt;</span><br></span></code></pre></div></div>
+<p>Los tipos de núcleo documentados son <code>snp</code>, <code>rel</code>, <code>rev</code>, <code>dir</code> y <code>cnt</code>. El identificador incorpora una huella calculada a partir del objeto. Además, puede llevar calificadores como <code>origin</code>, <code>visit</code>, <code>anchor</code>, <code>path</code> o <code>lines</code> para conservar contexto y señalar una ruta o líneas concretas.</p>
+<p>Ese contexto evita una trampa frecuente. Un mismo archivo puede aparecer en varios repositorios o revisiones; un SWHID de contenido permite comprobar igualdad del objeto, pero no escoge automáticamente la procedencia relevante. Para una cita sólida conviene guardar el SWHID núcleo y, cuando corresponda, el origen, la visita, el ancla, la ruta y el intervalo de líneas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-entrega-de-software">Caso de uso legítimo: verificar una entrega de software<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#caso-de-uso-leg%C3%ADtimo-verificar-una-entrega-de-software" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una entrega de software" title="Enlace directo al Caso de uso legítimo: verificar una entrega de software" translate="no">​</a></h2>
+<p>Imagina que el ayuntamiento ficticio de <strong>Puerto Claro</strong> adjudicó en 2024 un contrato para publicar una biblioteca de cálculo ambiental. En 2026, el proveedor <strong>Nébula Datos SL</strong> afirma que la versión <code>2.1</code> ya incluía un control de integridad exigido en el pliego. La forja actual muestra una etiqueta <code>v2.1</code>, un fichero <code>integrity.py</code> y una nota de publicación aparentemente coherente.</p>
+<p>La pregunta prudente no es «¿Software Heritage demuestra que la empresa cumplió?», sino una secuencia más pequeña:</p>
+<ol>
+<li class="">¿El origen estaba archivado y qué visitas existen?</li>
+<li class="">¿Qué captura conservó las referencias visibles en cada visita?</li>
+<li class="">¿A qué revisión y directorio apuntaba entonces <code>v2.1</code>?</li>
+<li class="">¿El fichero concreto ya estaba en ese árbol y cuál es su SWHID?</li>
+<li class="">¿La documentación contractual identifica esa misma versión o artefacto?</li>
+<li class="">¿Hay fuentes independientes que expliquen qué se desplegó y cuándo?</li>
+</ol>
+<p>Un hallazgo útil podría ser: «La visita archivada el 12 de noviembre observó una referencia <code>v2.1</code> que resolvía a este árbol, donde estaba este contenido». Sería excesivo escribir: «El archivo prueba que el control funcionaba en producción desde esa fecha». La visita fecha la observación del archivador, no la creación material ni el despliegue.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado, paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado, paso a paso" title="Enlace directo al Flujo recomendado, paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-congela-la-pregunta-y-el-alcance">1. Congela la pregunta y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#1-congela-la-pregunta-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Congela la pregunta y el alcance" title="Enlace directo al 1. Congela la pregunta y el alcance" translate="no">​</a></h3>
+<p>Define de antemano qué afirmación vas a comprobar, qué repositorio público es pertinente y qué periodo importa. Guarda la URL exacta, fecha y hora UTC, finalidad, base legal cuando proceda y criterios de descarte. Evita descargar historiales completos si un directorio o fichero responde a la pregunta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-primero-el-origen-vivo">2. Conserva primero el origen vivo<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#2-conserva-primero-el-origen-vivo" class="hash-link" aria-label="Enlace directo al 2. Conserva primero el origen vivo" title="Enlace directo al 2. Conserva primero el origen vivo" translate="no">​</a></h3>
+<p>Registra la URL, referencias visibles, identificadores nativos y documentos asociados. Si el origen es público y no aparece en el archivo, la interfaz <a href="https://archive.softwareheritage.org/save/" target="_blank" rel="noopener noreferrer" class="">Save Code Now</a> permite solicitar su archivado. Una solicitud aceptada o una visita programada no garantizan una captura inmediata, completa ni exitosa; anota el estado que devuelve el servicio.</p>
+<p>No uses esta función para forzar la ingestión de material privado, credenciales filtradas o contenido cuya publicación resulte dudosa. Preservar más no siempre es preservar mejor.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-visita-de-fecha-del-código">3. Separa visita de fecha del código<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#3-separa-visita-de-fecha-del-c%C3%B3digo" class="hash-link" aria-label="Enlace directo al 3. Separa visita de fecha del código" title="Enlace directo al 3. Separa visita de fecha del código" translate="no">​</a></h3>
+<p>En el archivo, revisa el historial de visitas y sus estados. La <a href="https://docs.softwareheritage.org/devel/swh-web/uri-scheme-api.html" target="_blank" rel="noopener noreferrer" class="">API web</a> documenta consultas de visitas por origen y devuelve, entre otros campos, fecha, estado, tipo y captura asociada. Una visita puede ser completa, parcial, estar en curso o carecer de captura válida.</p>
+<p>Crea una tabla mínima:</p>
+<table><thead><tr><th>Campo</th><th>Qué anotar</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>Origen</td><td>URL canónica consultada</td><td>Propiedad del proyecto</td></tr><tr><td>Visita</td><td>Fecha UTC, estado y tipo</td><td>Fecha de creación del código</td></tr><tr><td>Captura</td><td>SWHID y referencias observadas</td><td>Que cada rama estuviera completa</td></tr><tr><td>Revisión o <em>release</em></td><td>SWHID, objetivo y metadatos</td><td>Autoría material o despliegue</td></tr><tr><td>Directorio o contenido</td><td>SWHID, ruta y tamaño</td><td>Licencia, seguridad o intención</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-fija-el-objeto-adecuado">4. Fija el objeto adecuado<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#4-fija-el-objeto-adecuado" class="hash-link" aria-label="Enlace directo al 4. Fija el objeto adecuado" title="Enlace directo al 4. Fija el objeto adecuado" translate="no">​</a></h3>
+<p>Escoge el nivel que responde a tu pregunta:</p>
+<ul>
+<li class="">usa <code>cnt</code> para citar bytes concretos de un fichero;</li>
+<li class="">usa <code>dir</code> para un árbol de código reproducible;</li>
+<li class="">usa <code>rev</code> cuando el contexto de una revisión sea esencial;</li>
+<li class="">usa <code>rel</code> si investigas una publicación etiquetada;</li>
+<li class="">usa <code>snp</code> para el mapa de referencias observado en una captura.</li>
+</ul>
+<p>La documentación recomienda con frecuencia un SWHID de directorio para referenciar un artefacto de código robusto y añadir un ancla cuando se necesita recuperar el contexto. No pegues solo una URL larga en tus notas: conserva también el identificador como dato separado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-verifica-el-contenido-no-solo-el-visor">5. Verifica el contenido, no solo el visor<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#5-verifica-el-contenido-no-solo-el-visor" class="hash-link" aria-label="Enlace directo al 5. Verifica el contenido, no solo el visor" title="Enlace directo al 5. Verifica el contenido, no solo el visor" translate="no">​</a></h3>
+<p>Resuelve el SWHID en la interfaz o mediante el endpoint de resolución documentado. Descarga únicamente el objeto necesario. El <strong>Vault</strong> puede reconstruir determinados objetos como paquetes descargables, pero un paquete reconstruido no tiene por qué coincidir byte a byte con un archivo comprimido distribuido originalmente: puede representar el mismo árbol con otro empaquetado.</p>
+<p>Cuando el impacto lo justifique:</p>
+<ol>
+<li class="">conserva el fichero o directorio recuperado sin modificar;</li>
+<li class="">registra su tamaño y una huella moderna adicional para tu expediente;</li>
+<li class="">recalcula localmente el SWHID con una herramienta compatible;</li>
+<li class="">compara rutas, contenido y estructura con el objeto citado;</li>
+<li class="">guarda la respuesta, la hora y cualquier error de resolución.</li>
+</ol>
+<p>El objetivo es demostrar que analizaste el objeto identificado, no solo una representación visual cambiante.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-tiempo-autoría-y-uso-fuera-del-archivo">6. Corrobora tiempo, autoría y uso fuera del archivo<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#6-corrobora-tiempo-autor%C3%ADa-y-uso-fuera-del-archivo" class="hash-link" aria-label="Enlace directo al 6. Corrobora tiempo, autoría y uso fuera del archivo" title="Enlace directo al 6. Corrobora tiempo, autoría y uso fuera del archivo" translate="no">​</a></h3>
+<p>Contrasta la captura con el repositorio original, registros de paquetes, notas firmadas, documentación de publicación, DOI, Software Bill of Materials, expedientes de contratación o evidencias de despliegue autorizadas. Lee cada fuente según lo que realmente puede afirmar.</p>
+<p>Un nombre y correo en una revisión son metadatos, no una verificación de identidad. Una etiqueta puede haberse creado después. Una fecha de autor puede diferir de la fecha de integración. Una coincidencia de contenido prueba igualdad del objeto; no explica necesariamente quién lo escribió primero ni bajo qué condiciones se usó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-redacta-en-capas-de-certeza">7. Redacta en capas de certeza<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#7-redacta-en-capas-de-certeza" class="hash-link" aria-label="Enlace directo al 7. Redacta en capas de certeza" title="Enlace directo al 7. Redacta en capas de certeza" translate="no">​</a></h3>
+<p>Separa siempre:</p>
+<ul>
+<li class=""><strong>observado:</strong> «el archivo conserva este contenido»;</li>
+<li class=""><strong>contexto:</strong> «aparece bajo esta ruta y ancla en esta captura»;</li>
+<li class=""><strong>corroborado:</strong> «el registro de publicación independiente enlaza la misma versión»;</li>
+<li class=""><strong>inferido:</strong> «es consistente con que el componente existiera antes de la entrega»;</li>
+<li class=""><strong>no demostrado:</strong> «no acredita qué binario se desplegó ni quién escribió cada línea».</li>
+</ul>
+<p>Esta estructura hace que el informe pueda corregirse si aparece una visita anterior, una procedencia distinta o documentación contractual más precisa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Cobertura incompleta:</strong> no todo el código público está archivado ni todas las visitas terminan con éxito.</li>
+<li class=""><strong>Retraso de recogida:</strong> la fecha de visita puede ser posterior a la creación o publicación real.</li>
+<li class=""><strong>Capturas parciales:</strong> referencias ausentes pueden deberse al cargador, al origen o al estado de la visita.</li>
+<li class=""><strong>Historia reescrita:</strong> una forja viva y una captura antigua pueden discrepar sin que una de ellas sea necesariamente fraudulenta.</li>
+<li class=""><strong>Objetos compartidos:</strong> el mismo contenido puede existir en muchos orígenes; igualdad no implica procedencia exclusiva.</li>
+<li class=""><strong>Metadatos no autenticados:</strong> autor, correo, mensaje y fecha pueden ser erróneos, importados o manipulados.</li>
+<li class=""><strong>Etiqueta frente a <em>release</em>:</strong> una referencia de la forja no equivale siempre a un objeto <code>rel</code> archivado.</li>
+<li class=""><strong>Artefacto frente a fuente:</strong> un árbol preservado no identifica automáticamente el paquete o binario desplegado.</li>
+<li class=""><strong>Licencia incierta:</strong> que el código sea accesible no significa que pueda reutilizarse sin revisar derechos y licencias.</li>
+<li class=""><strong>Información sensible:</strong> historiales públicos pueden contener datos personales o secretos publicados por error.</li>
+<li class=""><strong>Retiradas y enmascarado:</strong> ciertos objetos pueden dejar de estar accesibles por motivos jurídicos o de protección de datos.</li>
+<li class=""><strong>Ausencia no concluyente:</strong> no encontrar un objeto no demuestra que nunca existiera.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>La <a href="https://www.softwareheritage.org/legal/content-policy/" target="_blank" rel="noopener noreferrer" class="">política de contenido</a> explica que el archivo recoge código fuente públicamente accesible y su historia, y contempla solicitudes relacionadas con derechos y protección de datos. Los <a href="https://www.softwareheritage.org/legal/bulk-access-terms-of-use/" target="_blank" rel="noopener noreferrer" class="">términos de acceso masivo</a> prohíben usos que perjudiquen injustificadamente la privacidad o seguridad y advierten de límites técnicos y de exactitud.</p>
+<ul>
+<li class="">Minimiza la recogida y limita el análisis a una finalidad legítima.</li>
+<li class="">No conviertas nombres y correos históricos en perfiles de desarrolladores.</li>
+<li class="">No publiques secretos, tokens, claves o datos personales hallados en código antiguo.</li>
+<li class="">Si aparece una credencial, detén la difusión, documenta lo imprescindible y usa un canal responsable de notificación.</li>
+<li class="">Respeta cuotas, términos, licencias y mecanismos de retirada; no intentes sortearlos.</li>
+<li class="">Guarda los identificadores técnicos separados de notas sensibles y controla el acceso al expediente.</li>
+<li class="">Solicita revisión humana antes de atribuir conducta, incumplimiento o autoría.</li>
+<li class="">Ofrece a las partes una forma concreta de responder y corregir errores.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-validación">Checklist de validación<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#checklist-de-validaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de validación" title="Enlace directo al Checklist de validación" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta, el periodo y la finalidad están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado la URL exacta del origen y la hora UTC.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Distingo fecha del código, fecha de revisión y fecha de visita.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La visita tiene estado y captura documentados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He elegido el tipo de SWHID adecuado para la afirmación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Conservo núcleo, calificadores, ruta y ancla cuando corresponden.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He verificado el objeto recuperado, no solo una captura de pantalla.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado código fuente, paquete, binario y despliegue.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Autoría, licencia y cronología tienen corroboración independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He anotado candidatos descartados, vacíos y explicaciones alternativas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No expongo credenciales ni datos personales irrelevantes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La conclusión dice con claridad qué no puede demostrarse.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Software Heritage funciona mejor junto a otras fuentes:</p>
+<ul>
+<li class="">la forja original y sus registros de auditoría para el estado vivo y su administración;</li>
+<li class="">registros como npm, PyPI, Maven Central o crates.io para publicaciones de paquetes;</li>
+<li class=""><strong>Sigstore</strong> para verificar determinadas firmas y registros de transparencia;</li>
+<li class=""><strong>SPDX</strong> o <strong>CycloneDX</strong> para describir componentes en un SBOM, sin asumir que la lista sea completa;</li>
+<li class=""><strong>DataCite</strong> o <strong>Zenodo</strong> para DOI, depósitos y metadatos de resultados de investigación;</li>
+<li class=""><strong>Internet Archive</strong> para documentación web asociada;</li>
+<li class="">el expediente contractual, el sistema de compilación y registros autorizados para demostrar entrega o despliegue.</li>
+</ul>
+<p>El takeaway accionable es este: toma un repositorio público y no sensible, elige una visita, identifica una captura y baja hasta un directorio concreto. Registra <strong>origen, visita, captura, SWHID, ancla, ruta y corroboración</strong>. Si una columna queda vacía, no la rellenes con intuición: convierte el vacío en una limitación explícita.</p>
+<p>Como siguiente tema, sería útil estudiar <strong>Sigstore</strong> para separar identidad declarada, firma, certificado, registro de transparencia y verificación de un artefacto sin confundir firma válida con software seguro.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.softwareheritage.org/" target="_blank" rel="noopener noreferrer" class="">Documentación de Software Heritage</a></li>
+<li class=""><a href="https://docs.softwareheritage.org/devel/swh-model/data-model.html" target="_blank" rel="noopener noreferrer" class="">Modelo de datos de Software Heritage</a></li>
+<li class=""><a href="https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html" target="_blank" rel="noopener noreferrer" class="">Especificación y uso de SWHID</a></li>
+<li class=""><a href="https://docs.softwareheritage.org/devel/swh-web/uri-scheme-api.html" target="_blank" rel="noopener noreferrer" class="">API web: visitas, objetos y resolución</a></li>
+<li class=""><a href="https://www.softwareheritage.org/legal/content-policy/" target="_blank" rel="noopener noreferrer" class="">Política de contenido</a></li>
+<li class=""><a href="https://www.softwareheritage.org/legal/bulk-access-terms-of-use/" target="_blank" rel="noopener noreferrer" class="">Términos de uso para acceso masivo</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DataCite en OSINT: seguir DOI, versiones y relaciones sin confundir metadatos con pruebas]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones</id>
@@ -2947,213 +3107,6 @@
         <category label="GEOINT" term="GEOINT"/>
         <category label="Verificacion" term="Verificacion"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Metodologia" term="Metodologia"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[World Bank Projects & Operations en OSINT: proyectos, financiación y contratos con trazabilidad]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad"/>
-        <updated>2026-07-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT relacionando un proyecto ficticio con documentos públicos, financiación, contratación y resultados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-27-world-bank-projects-operations-osint-trazabilidad-d7bc27bb10dde04814896867dd9995dd.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/world-bank-projects-operations-osint-trazabilidad-04063aa88be3f2a572f1975229d23209.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una constructora afirma haber ejecutado «el gran proyecto de agua del Banco Mundial» en una región. La frase parece verificable, pero puede esconder varias confusiones: un proyecto aprobado no es una obra terminada, un importe comprometido no equivale a dinero cobrado por una empresa y un aviso de licitación no demuestra una adjudicación. <code>World Bank Projects &amp; Operations</code> permite ordenar esas piezas alrededor de un identificador común, siempre que mantengamos separadas <strong>propuesta, financiación, ejecución, contratación y resultado</strong>.</p>
-<p>Este artículo propone un flujo responsable para debida diligencia, periodismo de datos, seguimiento de políticas públicas y evaluación de afirmaciones corporativas. Trabajaremos con una organización y un proyecto ficticios. El objetivo es reconstruir hechos institucionales publicados, no perfilar a empleados, hostigar a licitadores ni presentar una coincidencia nominal como prueba de fraude.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-world-bank-projects--operations-y-para-qué-sirve">Qué es World Bank Projects &amp; Operations y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#qu%C3%A9-es-world-bank-projects--operations-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es World Bank Projects &amp; Operations y para qué sirve" title="Enlace directo al Qué es World Bank Projects &amp; Operations y para qué sirve" translate="no">​</a></h2>
-<p><a href="https://projects.worldbank.org/" target="_blank" rel="noopener noreferrer" class="">Projects &amp; Operations</a> es el portal público de operaciones del Banco Mundial. Permite buscar proyectos y consultar fichas con datos básicos, financiación, documentos y, cuando están disponibles, avisos o adjudicaciones relacionados. El <a href="https://datacatalog.worldbank.org/search/dataset/0037800/world-bank-projects-operations" target="_blank" rel="noopener noreferrer" class="">catálogo oficial del conjunto de datos</a> explica que las distintas tablas operativas se conectan mediante el <strong>Project ID</strong>, un código con formato parecido a <code>P012345</code>.</p>
-<p>Ese identificador es la mejor ancla para una investigación porque reduce la ambigüedad de títulos traducidos, siglas parecidas y programas con varias fases. Con él podemos recorrer varias capas:</p>
-<ul>
-<li class=""><strong>Ficha del proyecto:</strong> país o región, estado, objetivo declarado, instrumento, sectores, fechas e importe comprometido.</li>
-<li class=""><strong>Financiación:</strong> préstamos, créditos o donaciones asociados, sin confundir compromiso con desembolso.</li>
-<li class=""><strong>Documentos públicos:</strong> notas conceptuales, evaluaciones, acuerdos, planes, informes de implementación y cierre.</li>
-<li class=""><strong>Contratación:</strong> avisos, oportunidades y adjudicaciones cuando el portal las vincula al proyecto.</li>
-<li class=""><strong>Evaluación:</strong> informes de resultados y validaciones independientes disponibles al final del ciclo.</li>
-</ul>
-<p>No es una base de «empresas culpables» ni un registro completo de todo el gasto público de un país. Es un sistema de descubrimiento y trazabilidad de operaciones financiadas por el Banco Mundial. La ausencia de un documento o contrato puede deberse a fase, política de divulgación, antigüedad, migración de sistemas o publicación por parte de otra institución.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="antes-de-investigar-cinco-conceptos-que-no-son-equivalentes">Antes de investigar: cinco conceptos que no son equivalentes<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#antes-de-investigar-cinco-conceptos-que-no-son-equivalentes" class="hash-link" aria-label="Enlace directo al Antes de investigar: cinco conceptos que no son equivalentes" title="Enlace directo al Antes de investigar: cinco conceptos que no son equivalentes" translate="no">​</a></h2>
-<p>La mayoría de errores nace al mezclar columnas que responden a preguntas distintas.</p>
-<ol>
-<li class=""><strong>Proyecto:</strong> operación con un objetivo, alcance, calendario y código propios. Un programa puede contener varias operaciones o fases.</li>
-<li class=""><strong>Compromiso:</strong> financiación aprobada bajo determinadas condiciones. No demuestra por sí solo que todo el importe se haya desembolsado o gastado.</li>
-<li class=""><strong>Desembolso:</strong> fondos efectivamente liberados según el instrumento y el avance. Tampoco identifica automáticamente al proveedor final.</li>
-<li class=""><strong>Aviso de contratación:</strong> convocatoria, solicitud de expresiones de interés u otra comunicación. Presentarse o aparecer en un documento no equivale a ganar.</li>
-<li class=""><strong>Adjudicación:</strong> resultado publicado de un proceso concreto. Debe leerse junto con lotes, moneda, fecha, entidad compradora, modificaciones y alcance.</li>
-</ol>
-<p>También conviene distinguir al <strong>Banco Mundial</strong>, que financia y supervisa según el tipo de operación, del <strong>prestatario y la agencia implementadora</strong>, que suelen preparar y ejecutar el proyecto y gestionar la contratación. La explicación oficial del <a href="https://www.worldbank.org/en/projects-operations/products-and-services/brief/projectcycle" target="_blank" rel="noopener noreferrer" class="">ciclo del proyecto</a> separa identificación, preparación, evaluación, negociación/aprobación, implementación y cierre/evaluación. Cada fase produce documentos diferentes y permite conclusiones diferentes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-la-carretera-de-valle-claro">Caso legítimo: la carretera de Valle Claro<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#caso-leg%C3%ADtimo-la-carretera-de-valle-claro" class="hash-link" aria-label="Enlace directo al Caso legítimo: la carretera de Valle Claro" title="Enlace directo al Caso legítimo: la carretera de Valle Claro" translate="no">​</a></h2>
-<p>Imaginemos que <code>Infraestructura Horizonte</code>, empresa ficticia, incluye en su web esta frase:</p>
-<blockquote>
-<p>Participamos en el proyecto del Banco Mundial que modernizó 240 kilómetros de carreteras rurales en Valle Claro.</p>
-</blockquote>
-<p>Una organización local quiere comprobar la afirmación antes de citarla en un informe. Todavía no sabemos:</p>
-<ul>
-<li class="">el nombre oficial ni el código del proyecto;</li>
-<li class="">si la cifra de 240 kilómetros era un objetivo, un lote o un resultado;</li>
-<li class="">qué organismo contrató las obras;</li>
-<li class="">si la empresa fue adjudicataria, subcontratista o simple licitadora;</li>
-<li class="">si «participamos» se refiere a construcción, consultoría, suministro o una fase distinta;</li>
-<li class="">ni si el proyecto terminó con el alcance previsto.</li>
-</ul>
-<p>La pregunta investigable no es «¿miente la empresa?», sino: <strong>¿qué registros públicos conectan a la entidad, la actividad y el resultado alegado con una operación concreta, y qué incertidumbres quedan?</strong></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-investigación">Flujo recomendado de investigación<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#flujo-recomendado-de-investigaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de investigación" title="Enlace directo al Flujo recomendado de investigación" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-conserva-la-afirmación-original">1. Conserva la afirmación original<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#1-conserva-la-afirmaci%C3%B3n-original" class="hash-link" aria-label="Enlace directo al 1. Conserva la afirmación original" title="Enlace directo al 1. Conserva la afirmación original" translate="no">​</a></h3>
-<p>Guarda la URL, fecha de consulta, captura o copia del documento y la frase exacta. Anota las variantes del nombre empresarial, el país, el sector, el periodo y cualquier cifra. No normalices silenciosamente una cantidad ni traduzcas un título como si fuera el oficial.</p>
-<p>Elabora una tabla de hipótesis:</p>
-<table><thead><tr><th>Afirmación</th><th>Evidencia mínima esperable</th><th>Fuente de corroboración</th></tr></thead><tbody><tr><td>Existía un proyecto financiado</td><td>Ficha con Project ID y financiación</td><td>Projects &amp; Operations</td></tr><tr><td>La empresa obtuvo un contrato</td><td>Adjudicación o registro del comprador</td><td>Portal del Banco y contratación nacional</td></tr><tr><td>El contrato cubría carreteras</td><td>Objeto, lote y documentos contractuales</td><td>Aviso, adjudicación y pliego</td></tr><tr><td>Se completaron 240 km</td><td>Indicador de resultado o informe de cierre</td><td>ISR, ICR y fuente local</td></tr></tbody></table>
-<p>Esta separación evita que una sola coincidencia aparente resuelva cuatro preguntas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-encuentra-el-project-id-correcto">2. Encuentra el Project ID correcto<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#2-encuentra-el-project-id-correcto" class="hash-link" aria-label="Enlace directo al 2. Encuentra el Project ID correcto" title="Enlace directo al 2. Encuentra el Project ID correcto" translate="no">​</a></h3>
-<p>Busca por país, palabras del título, sector y periodo en <a href="https://projects.worldbank.org/" target="_blank" rel="noopener noreferrer" class="">Projects &amp; Operations</a>. Abre los candidatos y compara objetivo, ubicación, agencia implementadora y fechas. Si una operación tiene fases, conserva todos los códigos, pero no los mezcles.</p>
-<p>Registra:</p>
-<ul>
-<li class="">Project ID;</li>
-<li class="">título oficial y variantes;</li>
-<li class="">estado mostrado y fecha de consulta;</li>
-<li class="">país o cobertura regional;</li>
-<li class="">fecha de aprobación y cierre prevista o revisada;</li>
-<li class="">instrumento y prestatario;</li>
-<li class="">agencia o agencias implementadoras;</li>
-<li class="">importe y moneda tal como aparecen.</li>
-</ul>
-<p>El ID debe acompañar cada nota, descarga y captura. Es la clave que permite volver al mismo objeto aunque cambie el título visible.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-una-cronología-documental">3. Construye una cronología documental<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#3-construye-una-cronolog%C3%ADa-documental" class="hash-link" aria-label="Enlace directo al 3. Construye una cronología documental" title="Enlace directo al 3. Construye una cronología documental" translate="no">​</a></h3>
-<p>No leas únicamente la ficha actual. Abre la pestaña de documentos y ordénalos por <strong>fecha del documento</strong>, <strong>fecha de divulgación</strong>, <strong>tipo</strong> y <strong>fase</strong>. El repositorio <a href="https://documents.worldbank.org/" target="_blank" rel="noopener noreferrer" class="">Documents &amp; Reports</a> reúne documentos finales y oficiales divulgados conforme a la política de acceso a la información. Su <a href="https://documents.worldbank.org/en/publication/documents-reports/api" target="_blank" rel="noopener noreferrer" class="">API pública</a> admite búsquedas por Project ID y devuelve metadatos en JSON o XML, una opción útil para inventarios reproducibles.</p>
-<p>Una cronología básica puede incluir:</p>
-<ul>
-<li class=""><code>PID</code> o documento de información inicial: problema, alcance y objetivo propuesto;</li>
-<li class="">evaluación ambiental y social: riesgos, impactos, consultas y medidas previstas;</li>
-<li class="">documento de evaluación: diseño aprobado, componentes, indicadores y costes;</li>
-<li class="">acuerdo legal: obligaciones y condiciones;</li>
-<li class="">plan de contratación: paquetes previstos, método y calendario, sujetos a cambios;</li>
-<li class="">informe de situación y resultados (<code>ISR</code>): progreso y valoraciones durante la ejecución;</li>
-<li class="">reestructuración: cambios de fechas, componentes, indicadores o financiación;</li>
-<li class="">informe de cierre (<code>ICR</code>): resultados declarados, dificultades y lecciones.</li>
-</ul>
-<p>Guarda los PDFs con un nombre estable y calcula un hash si van a sostener un informe. Conserva también la URL de la ficha, porque un PDF sin metadatos pierde contexto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-presupuesto-compromiso-y-ejecución">4. Separa presupuesto, compromiso y ejecución<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#4-separa-presupuesto-compromiso-y-ejecuci%C3%B3n" class="hash-link" aria-label="Enlace directo al 4. Separa presupuesto, compromiso y ejecución" title="Enlace directo al 4. Separa presupuesto, compromiso y ejecución" translate="no">​</a></h3>
-<p>Crea columnas distintas para:</p>
-<ul>
-<li class="">coste total estimado;</li>
-<li class="">compromiso de cada fuente;</li>
-<li class="">cancelaciones o reestructuraciones;</li>
-<li class="">desembolso informado a una fecha;</li>
-<li class="">importe de cada contrato;</li>
-<li class="">moneda y tipo de cambio usado, si haces comparaciones.</li>
-</ul>
-<p>No sumes cifras de documentos de fechas distintas sin explicar la versión. Tampoco conviertas automáticamente dólares de compromiso en ingresos de una empresa: el proyecto puede financiar obras, consultoría, bienes, costes operativos y varias agencias o lotes.</p>
-<p>Una formulación prudente sería: «La ficha consultada el 27 de julio de 2026 mostraba un compromiso de X; el documento Y, divulgado en otra fecha, presupuestaba Z para este componente». Así queda visible qué dato procede de qué versión.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-sigue-la-contratación-no-solo-las-menciones">5. Sigue la contratación, no solo las menciones<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#5-sigue-la-contrataci%C3%B3n-no-solo-las-menciones" class="hash-link" aria-label="Enlace directo al 5. Sigue la contratación, no solo las menciones" title="Enlace directo al 5. Sigue la contratación, no solo las menciones" translate="no">​</a></h3>
-<p>El portal de <a href="https://projects.worldbank.org/en/projects-operations/procurement" target="_blank" rel="noopener noreferrer" class="">avisos de contratación</a> permite buscar convocatorias vinculadas a proyectos. La sección de <a href="https://projects.worldbank.org/en/projects-operations/opportunities" target="_blank" rel="noopener noreferrer" class="">oportunidades</a> distingue oportunidades actuales, próximas y potenciales; estas últimas son indicativas y pueden cambiar o no materializarse.</p>
-<p>Para cada registro relevante anota:</p>
-<ul>
-<li class="">Project ID y número de referencia;</li>
-<li class="">tipo de aviso;</li>
-<li class="">descripción y lote;</li>
-<li class="">entidad compradora;</li>
-<li class="">fechas de publicación, cierre y adjudicación;</li>
-<li class="">empresa o consorcio tal como figure;</li>
-<li class="">importe y moneda;</li>
-<li class="">enlace al documento original.</li>
-</ul>
-<p>Después corrobora en el portal de contratación del prestatario, boletín oficial, registro mercantil y web corporativa. Una adjudicación puede mostrar una denominación abreviada; una empresa puede pertenecer a un consorcio; y un nombre parecido en otro país puede ser una entidad distinta. Usa identificadores mercantiles cuando sean públicos y pertinentes, minimizando datos personales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-contrasta-ejecución-con-resultados">6. Contrasta ejecución con resultados<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#6-contrasta-ejecuci%C3%B3n-con-resultados" class="hash-link" aria-label="Enlace directo al 6. Contrasta ejecución con resultados" title="Enlace directo al 6. Contrasta ejecución con resultados" translate="no">​</a></h3>
-<p>La aprobación responde «qué se autorizó». Los informes de implementación responden «qué se comunicó durante el camino». El cierre intenta responder «qué se consiguió y qué problemas hubo». No son intercambiables.</p>
-<p>Extrae cada indicador con:</p>
-<ul>
-<li class="">definición exacta;</li>
-<li class="">línea de base;</li>
-<li class="">meta original y revisada;</li>
-<li class="">valor comunicado;</li>
-<li class="">fecha de medición;</li>
-<li class="">unidad;</li>
-<li class="">fuente o metodología declarada.</li>
-</ul>
-<p>En el ejemplo de Valle Claro, «240 km modernizados» podría significar kilómetros contratados, intervenidos, rehabilitados conforme a una norma o simplemente una meta revisada. El informe debería indicar cuál de esas definiciones usa.</p>
-<p>Cuando exista, busca la valoración del <a href="https://ieg.worldbankgroup.org/" target="_blank" rel="noopener noreferrer" class="">Independent Evaluation Group</a>. El ciclo oficial indica que IEG valida las autoevaluaciones de cierre y selecciona operaciones para evaluaciones más profundas. Una valoración posterior no borra los documentos anteriores: aporta otra capa con fecha, alcance y método propios.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-documenta-hallazgos-y-huecos">7. Documenta hallazgos y huecos<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#7-documenta-hallazgos-y-huecos" class="hash-link" aria-label="Enlace directo al 7. Documenta hallazgos y huecos" title="Enlace directo al 7. Documenta hallazgos y huecos" translate="no">​</a></h3>
-<p>El entregable final debería separar:</p>
-<ul>
-<li class=""><strong>hechos confirmados</strong>, con documento, página y fecha;</li>
-<li class=""><strong>inferencias razonables</strong>, explicando el puente lógico;</li>
-<li class=""><strong>afirmaciones no corroboradas</strong>;</li>
-<li class=""><strong>conflictos entre versiones</strong>;</li>
-<li class=""><strong>datos ausentes o no divulgados</strong>;</li>
-<li class=""><strong>próximas fuentes que consultar</strong>.</li>
-</ul>
-<p>Si un documento esperado no está disponible, el portal de <a href="https://www.worldbank.org/ext/en/access-to-information/find-information" target="_blank" rel="noopener noreferrer" class="">Acceso a la Información</a> explica dónde buscar información divulgada y cómo solicitarla. La ausencia pública no autoriza a inventar el contenido ni prueba que exista una irregularidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-prudente-y-reproducible">Automatización prudente y reproducible<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#automatizaci%C3%B3n-prudente-y-reproducible" class="hash-link" aria-label="Enlace directo al Automatización prudente y reproducible" title="Enlace directo al Automatización prudente y reproducible" translate="no">​</a></h2>
-<p>Para decenas de proyectos, automatizar la descarga de metadatos puede ahorrar tiempo. Empieza con una lista de Project ID conocida y consulta la documentación oficial de la API antes de programar. Conserva:</p>
-<ul>
-<li class="">URL exacta de cada petición;</li>
-<li class="">fecha y hora;</li>
-<li class="">parámetros;</li>
-<li class="">respuesta original;</li>
-<li class="">hash del fichero;</li>
-<li class="">versión del script;</li>
-<li class="">reglas de normalización;</li>
-<li class="">errores, vacíos y reintentos.</li>
-</ul>
-<p>No interpretes un campo vacío como <code>0</code>, <code>no existe</code> o <code>no ocurrió</code>. Puede significar «no proporcionado», «no aplicable», «no divulgado» o «no recuperado». Valida una muestra manual antes de escalar y respeta límites técnicos, licencias y condiciones de uso.</p>
-<p>La automatización debe producir una <strong>cola de revisión</strong>, no acusaciones automáticas. Por ejemplo, una diferencia entre importe comprometido y contratos localizados es una señal para revisar cobertura, fechas y fuentes; no una medida de dinero desaparecido.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos-frecuentes">Limitaciones y falsos positivos frecuentes<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#limitaciones-y-falsos-positivos-frecuentes" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos frecuentes" title="Enlace directo al Limitaciones y falsos positivos frecuentes" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-y-desfase-temporal">Cobertura y desfase temporal<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#cobertura-y-desfase-temporal" class="hash-link" aria-label="Enlace directo al Cobertura y desfase temporal" title="Enlace directo al Cobertura y desfase temporal" translate="no">​</a></h3>
-<p>Los portales pueden actualizarse en momentos distintos. Un documento recién divulgado puede tardar en aparecer en la ficha, y los registros antiguos pueden tener menos detalle o apuntar a archivos históricos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cambios-durante-el-ciclo">Cambios durante el ciclo<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#cambios-durante-el-ciclo" class="hash-link" aria-label="Enlace directo al Cambios durante el ciclo" title="Enlace directo al Cambios durante el ciclo" translate="no">​</a></h3>
-<p>Fechas, componentes, agencias, indicadores y financiación pueden cambiar. Comparar el plan inicial con el cierre sin incluir reestructuraciones fabrica una contradicción.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="identidades-corporativas-ambiguas">Identidades corporativas ambiguas<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#identidades-corporativas-ambiguas" class="hash-link" aria-label="Enlace directo al Identidades corporativas ambiguas" title="Enlace directo al Identidades corporativas ambiguas" translate="no">​</a></h3>
-<p>Razones sociales parecidas, transliteraciones, consorcios y filiales generan falsos positivos. El nombre visible no basta para atribuir un contrato.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contratación-distribuida">Contratación distribuida<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#contrataci%C3%B3n-distribuida" class="hash-link" aria-label="Enlace directo al Contratación distribuida" title="Enlace directo al Contratación distribuida" translate="no">​</a></h3>
-<p>Parte de la evidencia puede estar en el sistema nacional o en la agencia implementadora. Projects &amp; Operations es un buen pivote, no necesariamente el expediente completo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="resultados-declarados-frente-a-efectos-causales">Resultados declarados frente a efectos causales<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#resultados-declarados-frente-a-efectos-causales" class="hash-link" aria-label="Enlace directo al Resultados declarados frente a efectos causales" title="Enlace directo al Resultados declarados frente a efectos causales" translate="no">​</a></h3>
-<p>Un informe puede documentar que se construyeron instalaciones o se alcanzó un indicador. Eso no demuestra por sí solo que el proyecto causara todos los cambios sociales o económicos observados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="transparencia-no-significa-ausencia-de-riesgo">Transparencia no significa ausencia de riesgo<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#transparencia-no-significa-ausencia-de-riesgo" class="hash-link" aria-label="Enlace directo al Transparencia no significa ausencia de riesgo" title="Enlace directo al Transparencia no significa ausencia de riesgo" translate="no">​</a></h3>
-<p>Que un dato sea público no elimina riesgos para comunidades, denunciantes o personal local. Publica solo lo necesario para sostener el interés público y evita compilar datos personales sin justificación.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Define una finalidad legítima y un alcance antes de recopilar.</li>
-<li class="">Trabaja con IDs de proyecto, contrato y entidad; evita pivotar sobre datos personales.</li>
-<li class="">Usa un perfil de investigación separado y no descargues documentos desde cuentas sensibles.</li>
-<li class="">Conserva originales, hashes y fechas; analiza copias.</li>
-<li class="">No contactes a personas individuales hasta tener una necesidad editorial clara y un protocolo seguro.</li>
-<li class="">Ofrece derecho de respuesta cuando una conclusión pueda afectar a una organización.</li>
-<li class="">Distingue error administrativo, retraso, cambio de alcance e indicio de irregularidad.</li>
-<li class="">Redacta ubicaciones sensibles y datos de contacto que no aporten valor probatorio.</li>
-<li class="">Publica el camino de verificación suficiente para que otra persona pueda reproducirlo.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-cierre">Checklist de cierre<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#checklist-de-cierre" class="hash-link" aria-label="Enlace directo al Checklist de cierre" title="Enlace directo al Checklist de cierre" translate="no">​</a></h2>
-<p>Antes de publicar un hallazgo, comprueba:</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿He identificado el proyecto por su código, no solo por el título?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿Distingo compromiso, desembolso, presupuesto y contrato?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿He leído las reestructuraciones entre aprobación y cierre?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿La empresa está identificada con suficiente certeza?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿Un aviso se está confundiendo con una adjudicación?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿Cada cifra conserva moneda, fecha, unidad y fuente?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿Los resultados usan la definición exacta del indicador?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿He contrastado el portal del Banco con fuentes del prestatario?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿He separado hecho, inferencia y ausencia de datos?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->¿La publicación minimiza datos personales y daño innecesario?</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/world-bank-projects-operations-osint-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Según la pregunta, conviene combinar Projects &amp; Operations con:</p>
-<ul>
-<li class=""><a href="https://iatistandard.org/" target="_blank" rel="noopener noreferrer" class="">IATI</a> para comparar actividades y flujos publicados por múltiples organizaciones;</li>
-<li class="">portales nacionales de contratación y presupuesto para llegar al expediente del comprador;</li>
-<li class="">registros mercantiles oficiales para resolver identidades corporativas;</li>
-<li class=""><a href="https://opencorporates.com/" target="_blank" rel="noopener noreferrer" class="">OpenCorporates</a> u otros agregadores como capa de descubrimiento, no como fuente final;</li>
-<li class=""><a href="https://www.opensanctions.org/" target="_blank" rel="noopener noreferrer" class="">OpenSanctions</a> para controles de entidades y listas, con revisión humana;</li>
-<li class="">archivos web para conservar versiones públicas que cambien.</li>
-</ul>
-<p>El siguiente ejercicio práctico es pequeño y útil: elige un proyecto cerrado, conserva su Project ID y construye una línea temporal con solo seis documentos —información inicial, evaluación, acuerdo, primer ISR, última reestructuración e informe de cierre—. Después intenta explicar, en diez líneas y sin adjetivos acusatorios, <strong>qué se prometió, qué cambió, qué se contrató y qué se informó como resultado</strong>.</p>
-<p>Esa disciplina convierte un portal enorme en una investigación auditable. El siguiente tema natural sería comparar una muestra de proyectos entre <code>Projects &amp; Operations</code> e <code>IATI</code> para medir diferencias de cobertura sin confundirlas con contradicciones.</p>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Due Diligence" term="Due Diligence"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
         <category label="Datos" term="Datos"/>
         <category label="Metodologia" term="Metodologia"/>
     </entry>
