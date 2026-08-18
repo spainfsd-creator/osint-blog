@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando un repositorio vivo, una captura histórica, identificadores criptográficos y una cronología de procedencia](/img/blog/2026-08-18-software-heritage-osint-codigo-preservado.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/software-heritage-osint-codigo-preservado-swhid-procedencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una empresa afirma que una función crítica ya existía cuando ganó un contrato público. Su repositorio muestra hoy el código y una etiqueta con el nombre correcto, pero ambas cosas pudieron cambiar después. Una captura aislada tampoco basta: necesitamos saber **qué objeto observamos, en qué visita fue archivado y si el contenido coincide byte a byte**. Software Heritage ayuda a fijar esas preguntas; no convierte automáticamente un repositorio preservado en prueba de autoría, fecha de creación o cumplimiento contractual.
