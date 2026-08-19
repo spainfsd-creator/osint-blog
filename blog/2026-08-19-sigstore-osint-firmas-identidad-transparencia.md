@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT separando identidad, firma digital, registro de transparencia, digest del artefacto y política de verificación](/img/blog/2026-08-19-sigstore-osint-firmas-identidad-transparencia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sigstore-osint-firmas-identidad-transparencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un proveedor asegura que el binario entregado a una administración es «el oficial» porque su firma aparece en un registro público. El certificado nombra un flujo de integración continua conocido y el digest coincide. Parece una conclusión cerrada, pero todavía faltan preguntas decisivas: **¿verificamos el artefacto exacto, esperábamos esa identidad y ese emisor, y la política de publicación autorizaba ese flujo?** Sigstore aporta evidencia criptográfica y transparencia; no certifica que el programa sea seguro, esté libre de componentes maliciosos o cumpla un contrato.
