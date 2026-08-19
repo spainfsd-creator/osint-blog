@@ -2,11 +2,145 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-18T00:00:00.000Z</updated>
+    <updated>2026-08-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Sigstore en OSINT: verificar firmas, identidad y transparencia sin confundirlas con seguridad]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia"/>
+        <updated>2026-08-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT separando identidad, firma digital, registro de transparencia, digest del artefacto y política de verificación]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT separando identidad, firma digital, registro de transparencia, digest del artefacto y política de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-19-sigstore-osint-firmas-identidad-transparencia-1d455c3fe8ec1a699db8d7dca834404d.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Un proveedor asegura que el binario entregado a una administración es «el oficial» porque su firma aparece en un registro público. El certificado nombra un flujo de integración continua conocido y el digest coincide. Parece una conclusión cerrada, pero todavía faltan preguntas decisivas: <strong>¿verificamos el artefacto exacto, esperábamos esa identidad y ese emisor, y la política de publicación autorizaba ese flujo?</strong> Sigstore aporta evidencia criptográfica y transparencia; no certifica que el programa sea seguro, esté libre de componentes maliciosos o cumpla un contrato.</p>
+<p>Consultada el <strong>19 de agosto de 2026</strong>, la <a href="https://docs.sigstore.dev/about/tooling/" target="_blank" rel="noopener noreferrer" class="">documentación oficial de Sigstore</a> presenta un conjunto de tecnologías para firmar y verificar artefactos de software, gestionar certificados de corta duración y registrar eventos de firma de forma auditable. En una investigación OSINT legítima, permite comprobar afirmaciones públicas sobre procedencia y publicación sin convertir una firma válida en un veredicto universal de confianza.</p>
+<p>Todos los nombres, repositorios, contratos, identidades y digests del caso siguiente son ficticios. El método sirve para <em>due diligence</em>, respuesta a incidentes, investigación académica y verificación de la cadena de suministro; no para acceder a sistemas, explotar artefactos ni perfilar a desarrolladores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-sigstore-y-para-qué-sirve-en-osint">Qué es Sigstore y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#qu%C3%A9-es-sigstore-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Sigstore y para qué sirve en OSINT" title="Enlace directo al Qué es Sigstore y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Sigstore reduce parte de la fricción clásica de la firma de software. En su modalidad basada en identidad, una persona o carga de trabajo se autentica mediante OpenID Connect (OIDC), <strong>Fulcio</strong> emite un certificado de firma de corta duración que vincula una clave efímera con esa identidad y <strong>Rekor</strong> registra material verificable sobre el evento. <strong>Cosign</strong> reúne estas piezas para firmar y verificar contenedores y otros artefactos.</p>
+<p>Conviene separar desde el principio cinco capas:</p>
+<table><thead><tr><th>Capa</th><th>Pregunta que responde</th><th>Lo que no demuestra por sí sola</th></tr></thead><tbody><tr><td>artefacto y digest</td><td>¿qué bytes o manifiesto quedaron cubiertos?</td><td>que ese contenido sea seguro o funcional</td></tr><tr><td>firma</td><td>¿la clave correspondiente produjo una firma válida?</td><td>quién debía estar autorizado a firmar</td></tr><tr><td>certificado</td><td>¿qué identidad y emisor quedaron vinculados a la clave?</td><td>intención, cargo actual o aprobación contractual</td></tr><tr><td>transparencia</td><td>¿hay evidencia de inclusión en el registro y de un momento anterior a su incorporación?</td><td>fecha de creación del código o ausencia de compromisos</td></tr><tr><td>política</td><td>¿coinciden identidad, emisor, repositorio, flujo y referencia con lo esperado?</td><td>que una política incompleta cubra todos los riesgos</td></tr></tbody></table>
+<p>La <a href="https://docs.sigstore.dev/cosign/signing/overview/" target="_blank" rel="noopener noreferrer" class="">visión oficial de la firma basada en identidad</a> explica que la clave efímera se genera para la operación, el certificado vincula esa clave con una identidad OIDC y el evento se anota en Rekor. La raíz de confianza necesaria para verificar Fulcio y Rekor se distribuye mediante The Update Framework (TUF). El resultado es auditable, pero solo es útil si el investigador conserva qué raíz, artefacto y expectativas empleó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-bundle-no-es-un-simple-justificante">Un bundle no es un simple justificante<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#un-bundle-no-es-un-simple-justificante" class="hash-link" aria-label="Enlace directo al Un bundle no es un simple justificante" title="Enlace directo al Un bundle no es un simple justificante" translate="no">​</a></h3>
+<p>Para un fichero, Cosign puede reunir la firma, el certificado y la prueba del registro en un <strong>bundle</strong>. La documentación actual recomienda aportar ese bundle a <code>cosign verify-blob</code>. Esto permite conservar el material de verificación junto al objeto, incluso para determinados flujos sin conexión, pero el bundle debe corresponder al fichero exacto y verificarse contra una raíz de confianza apropiada.</p>
+<p>En contenedores, además, hay una diferencia importante entre una etiqueta mutable y un digest. <code>proveedor/app:estable</code> puede resolver mañana a otra imagen; <code>proveedor/app@sha256:…</code> identifica un manifiesto concreto. Una investigación reproducible registra ambos, pero formula conclusiones sobre el digest observado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-una-entrega-pública">Caso de uso legítimo: comprobar una entrega pública<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#caso-de-uso-leg%C3%ADtimo-comprobar-una-entrega-p%C3%BAblica" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar una entrega pública" title="Enlace directo al Caso de uso legítimo: comprobar una entrega pública" translate="no">​</a></h2>
+<p>La empresa ficticia <strong>Faro Norte Sistemas SL</strong> publica <code>validador-2.4.1.tar.gz</code> y afirma que es el mismo artefacto evaluado en el contrato imaginario <code>EXP-2026-041</code>. Junto al fichero ofrece <code>validador-2.4.1.sigstore.json</code>. La documentación del proyecto dice que las versiones solo son oficiales cuando las firma este flujo:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">https://github.com/faro-norte/validador/.github/workflows/release.yml@refs/tags/v*</span><br></span></code></pre></div></div>
+<p>y cuando el emisor es:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">https://token.actions.githubusercontent.com</span><br></span></code></pre></div></div>
+<p>La pregunta prudente no es «¿Sigstore confirma que el proveedor cumplió?», sino:</p>
+<blockquote>
+<p>¿El bundle verifica el archivo descargado, qué identidad y emisor certifica, qué inclusión en transparencia acredita y coincide todo ello con la política publicada para esa versión?</p>
+</blockquote>
+<p>Antes de ejecutar nada, construimos una tabla de afirmaciones:</p>
+<table><thead><tr><th>Afirmación</th><th>Evidencia esperada</th><th>Corroboración independiente</th></tr></thead><tbody><tr><td>el fichero no cambió</td><td>digest calculado y firma válida sobre esos bytes</td><td>hash del expediente o repositorio oficial</td></tr><tr><td>lo firmó el flujo previsto</td><td>identidad exacta y emisor del certificado</td><td>política de publicación versionada</td></tr><tr><td>la firma era observable</td><td>prueba de inclusión y tiempo integrado en Rekor</td><td>bundle conservado y verificación criptográfica</td></tr><tr><td>corresponde a la versión 2.4.1</td><td>etiqueta, commit, procedencia de compilación</td><td>repositorio, notas y, si existe, atestación</td></tr><tr><td>fue el artefacto entregado</td><td>identificador o hash en el expediente</td><td>acta, registro de entrega o sistema autorizado</td></tr><tr><td>es seguro</td><td>evaluación técnica y controles específicos</td><td>análisis reproducible, no la firma</td></tr></tbody></table>
+<p>Esta última fila es esencial: la firma puede ser perfectamente válida sobre software vulnerable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado, paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado, paso a paso" title="Enlace directo al Flujo recomendado, paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-congela-la-afirmación-y-el-alcance">1. Congela la afirmación y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#1-congela-la-afirmaci%C3%B3n-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Congela la afirmación y el alcance" title="Enlace directo al 1. Congela la afirmación y el alcance" translate="no">​</a></h3>
+<p>Guarda la página que formula la afirmación, URL exacta de descarga, fecha y hora UTC, nombre anunciado, tamaño y headers relevantes. Define qué identidad, emisor, repositorio, flujo y referencia deberían aceptarse <strong>antes</strong> de inspeccionar el resultado. Si adaptas la expectativa después de verlo, documenta el cambio.</p>
+<p>Trabaja con un artefacto público, no sensible y necesario para la investigación. No ejecutes un binario desconocido: la verificación de procedencia puede hacerse sobre sus bytes sin concederle ejecución.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-el-artefacto-y-calcula-su-digest">2. Conserva el artefacto y calcula su digest<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#2-conserva-el-artefacto-y-calcula-su-digest" class="hash-link" aria-label="Enlace directo al 2. Conserva el artefacto y calcula su digest" title="Enlace directo al 2. Conserva el artefacto y calcula su digest" translate="no">​</a></h3>
+<p>Descarga el fichero y el bundle desde la fuente declarada. Mantén una copia original de solo lectura y calcula al menos SHA-256 con una herramienta local. Registra el comando, la ruta, el resultado y la hora. Si existe un digest publicado en el expediente, compáralo como una afirmación independiente.</p>
+<p>No renombres una copia y asumas equivalencia: el nombre no forma parte de la garantía criptográfica. Tampoco uses el hash como prueba de autoría; solo identifica contenido cuando el algoritmo y los bytes coinciden.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-verifica-con-expectativas-explícitas">3. Verifica con expectativas explícitas<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#3-verifica-con-expectativas-expl%C3%ADcitas" class="hash-link" aria-label="Enlace directo al 3. Verifica con expectativas explícitas" title="Enlace directo al 3. Verifica con expectativas explícitas" translate="no">​</a></h3>
+<p>Para el ejemplo ficticio, la forma general documentada por Cosign es:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">cosign verify-blob validador-2.4.1.tar.gz \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --bundle validador-2.4.1.sigstore.json \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --certificate-identity \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://github.com/faro-norte/validador/.github/workflows/release.yml@refs/tags/v2.4.1' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'</span><br></span></code></pre></div></div>
+<p>La sintaxis se muestra como patrón didáctico con datos ficticios; antes de usarla hay que contrastarla con la <a href="https://docs.sigstore.dev/cosign/verifying/verify/" target="_blank" rel="noopener noreferrer" class="">documentación vigente de <code>verify-blob</code></a>. Evita comodines amplios y expresiones regulares permisivas. «Cualquier flujo del repositorio» no equivale a «el flujo de publicación autorizado».</p>
+<p>Conserva la salida completa y el código de retorno. Un éxito significa que las comprobaciones ejecutadas pasaron bajo esas expectativas; no amplíes la conclusión a propiedades que el comando no evaluó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-inspecciona-certificado-identidad-y-emisor">4. Inspecciona certificado, identidad y emisor<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#4-inspecciona-certificado-identidad-y-emisor" class="hash-link" aria-label="Enlace directo al 4. Inspecciona certificado, identidad y emisor" title="Enlace directo al 4. Inspecciona certificado, identidad y emisor" translate="no">​</a></h3>
+<p>Registra el sujeto del certificado, el emisor OIDC y las extensiones pertinentes para la identidad de carga de trabajo. En automatización, la identidad puede codificar repositorio, archivo de workflow y referencia. Esas cadenas son sensibles a cambios: una rama, una etiqueta y una solicitud de cambios no representan el mismo contexto de publicación.</p>
+<p>Pregunta quién controla la cuenta o workflow, qué protección tenía la referencia y qué política estaba vigente. Fulcio acredita la relación con una identidad presentada por un emisor confiado durante la emisión; no prueba que el operador actuara correctamente ni que sus credenciales no estuvieran comprometidas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-comprueba-transparencia-sin-sobrefechar">5. Comprueba transparencia sin sobrefechar<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#5-comprueba-transparencia-sin-sobrefechar" class="hash-link" aria-label="Enlace directo al 5. Comprueba transparencia sin sobrefechar" title="Enlace directo al 5. Comprueba transparencia sin sobrefechar" translate="no">​</a></h3>
+<p><a href="https://docs.sigstore.dev/logging/overview/" target="_blank" rel="noopener noreferrer" class="">Rekor</a> utiliza una estructura verificable y de solo adición para registrar metadatos firmados. La prueba de inclusión permite comprobar que una entrada se incorporó al registro; la verificación del árbol ayuda a detectar alteraciones o inconsistencias.</p>
+<p>La marca temporal integrada sostiene una afirmación acotada: el material existía antes de cierto momento de registro. No demuestra cuándo se escribió el código, cuándo empezó a usarse, cuándo se entregó contractualmente ni quién revisó su seguridad. Además, el <a href="https://docs.sigstore.dev/about/security/" target="_blank" rel="noopener noreferrer" class="">modelo de seguridad de Sigstore</a> subraya la importancia de monitorizar los registros: la transparencia facilita detectar certificados o firmas inesperados, pero alguien debe mirar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-une-la-firma-con-la-política-y-la-procedencia">6. Une la firma con la política y la procedencia<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#6-une-la-firma-con-la-pol%C3%ADtica-y-la-procedencia" class="hash-link" aria-label="Enlace directo al 6. Une la firma con la política y la procedencia" title="Enlace directo al 6. Une la firma con la política y la procedencia" translate="no">​</a></h3>
+<p>Verifica la política de publicación en una revisión histórica pertinente, no solo en el estado actual del repositorio. Relaciona el digest con la etiqueta o commit, el workflow, las notas de versión y, cuando existan, atestaciones de procedencia. Mantén separadas estas proposiciones:</p>
+<ul>
+<li class="">«el artefacto está firmado»;</li>
+<li class="">«la identidad satisface nuestra política»;</li>
+<li class="">«el artefacto procede de este proceso de compilación»;</li>
+<li class="">«el expediente recibió exactamente estos bytes»;</li>
+<li class="">«el contenido superó una evaluación de seguridad».</li>
+</ul>
+<p>Una firma resuelve bien la primera y puede contribuir a las siguientes; no las fusiona.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-corrobora-fuera-de-sigstore">7. Corrobora fuera de Sigstore<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#7-corrobora-fuera-de-sigstore" class="hash-link" aria-label="Enlace directo al 7. Corrobora fuera de Sigstore" title="Enlace directo al 7. Corrobora fuera de Sigstore" translate="no">​</a></h3>
+<p>Busca el digest en el registro OCI, las notas oficiales, el archivo del expediente o un catálogo de paquetes. Revisa el commit y la configuración de compilación preservados en la fecha relevante. Si la investigación afecta a una decisión adversa, exige una segunda revisión y permite al proveedor explicar rotaciones de identidad, migraciones de workflow o firmas legítimas ausentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Identidad comprometida:</strong> una cuenta o proveedor OIDC comprometidos pueden originar certificados no autorizados; el registro mejora su detectabilidad, no impide todo abuso.</li>
+<li class=""><strong>Workflow demasiado amplio:</strong> una identidad válida puede corresponder a un flujo que no debería publicar versiones.</li>
+<li class=""><strong>Etiqueta mutable:</strong> verificar una referencia por nombre sin fijar digest puede mezclar artefactos distintos.</li>
+<li class=""><strong>Bundle equivocado:</strong> un bundle válido de otro fichero no acredita el objeto investigado.</li>
+<li class=""><strong>Ausencia de entrada:</strong> puede indicar un fallo de publicación, infraestructura distinta o material antiguo; no prueba manipulación por sí sola.</li>
+<li class=""><strong>Firma posterior:</strong> alguien autorizado puede firmar hoy un artefacto antiguo. La integración no retrotrae la fecha de creación.</li>
+<li class=""><strong>Registro sin monitorización:</strong> la transparencia aporta auditabilidad, pero la detección depende de verificadores y monitores.</li>
+<li class=""><strong>Software firmado y dañino:</strong> autenticidad e integridad no equivalen a seguridad, calidad, licencia correcta o cumplimiento.</li>
+<li class=""><strong>Raíz de confianza incorrecta:</strong> una verificación contra infraestructura privada requiere conocer la raíz y política correspondientes; no debe asumirse la pública por defecto.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Define una finalidad legítima y proporcional; evita buscar firmas para elaborar perfiles personales.</li>
+<li class="">Usa artefactos públicos y no ejecutes contenido desconocido en el equipo de investigación.</li>
+<li class="">Conserva originales, digests, bundles, raíces de confianza, comandos y salidas en un expediente controlado.</li>
+<li class="">Minimiza la exposición de correos u otras identidades presentes en certificados y registros públicos.</li>
+<li class="">No publiques tokens OIDC, credenciales, secretos encontrados ni rutas internas irrelevantes.</li>
+<li class="">Respeta condiciones de uso y cuotas; una API pública no autoriza una recolección indiscriminada.</li>
+<li class="">Distingue observación, inferencia y conclusión; cita exactamente qué comprobó cada herramienta.</li>
+<li class="">Evita acusaciones basadas en una ausencia o cambio de workflow sin pedir contexto.</li>
+<li class="">Solicita revisión humana antes de atribuir incumplimiento, autoría o conducta maliciosa.</li>
+<li class="">Establece retención y acceso adecuados para bundles y notas que puedan contener identidades.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-validación">Checklist de validación<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#checklist-de-validaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de validación" title="Enlace directo al Checklist de validación" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La afirmación, el periodo y la finalidad están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El artefacto se conserva sin ejecutarlo y tiene digest local.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La referencia mutable se ha resuelto a contenido concreto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El bundle corresponde exactamente al artefacto objetivo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Identidad y emisor esperados se fijaron antes de verificar.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La verificación conserva comando, salida, versión de herramienta y raíz.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La inclusión en Rekor se interpreta con un alcance temporal prudente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La política de publicación histórica autoriza ese flujo y referencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Procedencia, entrega contractual y seguridad se corroboran aparte.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se han registrado explicaciones alternativas y resultados negativos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los datos personales se han minimizado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una persona revisará cualquier conclusión sensible.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Sigstore encaja mejor como una pieza de un sistema de procedencia:</p>
+<ul>
+<li class=""><strong>in-toto</strong> y atestaciones para describir pasos y materiales de la cadena de suministro;</li>
+<li class=""><strong>SLSA</strong> como marco para razonar sobre procedencia y niveles de garantía;</li>
+<li class=""><strong>TUF</strong> para distribuir metadatos confiables y resistir ciertos ataques de actualización;</li>
+<li class=""><strong>SPDX</strong> o <strong>CycloneDX</strong> para inventariar componentes mediante SBOM, sin asumir exhaustividad;</li>
+<li class="">firmas con claves gestionadas, KMS o hardware cuando la política requiera otro modelo;</li>
+<li class=""><strong>Software Heritage</strong> y la forja original para preservar código y contexto histórico;</li>
+<li class="">análisis de dependencias, revisión reproducible y pruebas de seguridad para evaluar el contenido.</li>
+</ul>
+<p>El takeaway accionable es este: elige un artefacto público firmado, fija <strong>digest, identidad, emisor y política esperados</strong>, verifica su bundle y crea cinco columnas: <strong>integridad, identidad, transparencia, procedencia y seguridad</strong>. Rellena solo lo que la evidencia permita. Una firma válida es una respuesta precisa a una pregunta precisa, no un sello mágico.</p>
+<p>Como siguiente tema, sería útil estudiar <strong>SLSA e in-toto</strong> para distinguir una firma del artefacto de una atestación sobre cómo, dónde y con qué materiales se produjo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/sigstore-osint-firmas-identidad-transparencia#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.sigstore.dev/about/tooling/" target="_blank" rel="noopener noreferrer" class="">Herramientas y componentes de Sigstore</a></li>
+<li class=""><a href="https://docs.sigstore.dev/cosign/signing/overview/" target="_blank" rel="noopener noreferrer" class="">Firma basada en identidad con Cosign</a></li>
+<li class=""><a href="https://docs.sigstore.dev/cosign/verifying/verify/" target="_blank" rel="noopener noreferrer" class="">Verificación de firmas con Cosign</a></li>
+<li class=""><a href="https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-blob.md" target="_blank" rel="noopener noreferrer" class="">Referencia oficial de <code>cosign verify-blob</code></a></li>
+<li class=""><a href="https://docs.sigstore.dev/logging/overview/" target="_blank" rel="noopener noreferrer" class="">Rekor: registro de transparencia</a></li>
+<li class=""><a href="https://docs.sigstore.dev/about/security/" target="_blank" rel="noopener noreferrer" class="">Modelo de seguridad y límites de Sigstore</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Software Heritage en OSINT: preservar código, versiones y procedencia sin confundir archivo con prueba]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/software-heritage-osint-codigo-preservado-swhid-procedencia</id>
@@ -2970,145 +3104,5 @@
         <category label="Due Diligence" term="Due Diligence"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Datos" term="Datos"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Global Forest Watch en OSINT: alertas de vegetación, contexto y verificación sobre el terreno]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion"/>
-        <updated>2026-07-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando alertas de perturbación de vegetación, imágenes satelitales y notas de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-07-28-global-forest-watch-osint-alertas-verificacion-e3bdb6afe1dde4c98631a21bf2001945.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/global-forest-watch-osint-alertas-verificacion-4425d8f8b381b5776a10f7905d5bb84f.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una organización asegura que una carretera ha provocado tala ilegal dentro de una reserva. En el mapa aparecen píxeles de alerta, una cicatriz lineal y pérdida de cobertura arbórea. La historia parece cerrada, pero todavía faltan preguntas decisivas: ¿la señal corresponde a una perturbación reciente?, ¿el límite de la reserva está actualizado?, ¿hubo fuego, tormenta, cosecha forestal o nubes?, ¿qué norma se habría infringido? <code>Global Forest Watch</code> ayuda a encontrar dónde mirar, pero no convierte automáticamente una anomalía satelital en una causa, un responsable o un delito.</p>
-<p>Este artículo propone un flujo responsable para periodismo ambiental, seguimiento de compromisos, investigación académica y debida diligencia. Trabajaremos con lugares y entidades ficticios. El objetivo es priorizar comprobaciones y conservar la trazabilidad, no vigilar a comunidades, señalar a trabajadores ni publicar coordenadas sensibles sin evaluar el daño.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-global-forest-watch-y-para-qué-sirve-en-osint">Qué es Global Forest Watch y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#qu%C3%A9-es-global-forest-watch-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Global Forest Watch y para qué sirve en OSINT" title="Enlace directo al Qué es Global Forest Watch y para qué sirve en OSINT" translate="no">​</a></h2>
-<p><a href="https://www.globalforestwatch.org/about/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch</a> es una iniciativa del World Resources Institute que reúne datos y herramientas públicas para monitorizar bosques. Su mapa permite superponer cobertura arbórea, pérdida, incendios, alertas de perturbación, áreas protegidas, concesiones y otros límites, según la disponibilidad de cada país.</p>
-<p>Para una investigación abierta resulta útil en cuatro tareas:</p>
-<ul>
-<li class=""><strong>descubrir cambios</strong> que merecen una revisión más detallada;</li>
-<li class=""><strong>situarlos en el tiempo</strong> mediante fechas de alerta y capas anuales;</li>
-<li class=""><strong>cruzarlos con límites</strong> administrativos, ambientales o productivos;</li>
-<li class=""><strong>crear un expediente reproducible</strong> con área de interés, periodo, capas y fuentes.</li>
-</ul>
-<p>La distinción clave está entre capas. La pérdida anual de cobertura arbórea sirve para estudiar tendencias históricas; las alertas se diseñan como señal temprana. Ninguna de las dos demuestra por sí sola deforestación permanente, ilegalidad o atribución.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-aportan-las-alertas-integradas-en-2026">Qué aportan las alertas integradas en 2026<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#qu%C3%A9-aportan-las-alertas-integradas-en-2026" class="hash-link" aria-label="Enlace directo al Qué aportan las alertas integradas en 2026" title="Enlace directo al Qué aportan las alertas integradas en 2026" translate="no">​</a></h3>
-<p>La capa de <a href="https://www.globalforestwatch.org/blog/data-and-tools/integrated-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">alertas integradas de perturbación</a> combina sistemas ópticos y de radar. En 2026 incorporó <code>DIST-ALERT</code>, basado en datos armonizados de Landsat y Sentinel-2, para ampliar la observación a vegetación de todo el mundo, dentro y fuera de bosques. La combinación también expresa distintos niveles de confianza y puede reflejar perturbaciones repetidas.</p>
-<p>Eso mejora la detección, pero no elimina la incertidumbre:</p>
-<ul>
-<li class="">las nubes, sombras, nieve y geometría de observación pueden retrasar o degradar una señal;</li>
-<li class="">los productos tienen resoluciones, coberturas y frecuencias diferentes;</li>
-<li class="">una perturbación puede deberse a tala, incendio, tormenta, deslizamiento, cosecha o cambio estacional;</li>
-<li class="">la fecha mostrada describe el comportamiento del producto, no necesariamente el instante exacto de una acción humana;</li>
-<li class="">una confianza alta indica mejor respaldo entre observaciones o sistemas, no una conclusión legal.</li>
-</ul>
-<p>La documentación del <a href="https://data-api.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="">API de datos de GFW</a> expone metadatos como procedencia, licencia, cobertura y versión. Conviene conservarlos porque una capa puede actualizarse y producir resultados distintos al repetir la consulta meses después.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-una-alerta-junto-a-la-reserva-sierra-clara">Caso ficticio: una alerta junto a la reserva Sierra Clara<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#caso-ficticio-una-alerta-junto-a-la-reserva-sierra-clara" class="hash-link" aria-label="Enlace directo al Caso ficticio: una alerta junto a la reserva Sierra Clara" title="Enlace directo al Caso ficticio: una alerta junto a la reserva Sierra Clara" translate="no">​</a></h2>
-<p>Imaginemos una investigación sobre <code>Maderas Horizonte</code>, concesionaria ficticia próxima a la reserva <code>Sierra Clara</code>. Una asociación local comparte una captura de GFW y afirma que se ha abierto una pista dentro del área protegida durante junio.</p>
-<p>Una revisión prudente separaría tres hipótesis:</p>
-<ol>
-<li class="">existe una perturbación reciente de vegetación;</li>
-<li class="">la perturbación cruza realmente el límite legal vigente;</li>
-<li class="">la actividad es atribuible a la concesionaria y contraviene una autorización concreta.</li>
-</ol>
-<p>GFW puede aportar indicios sólidos sobre la primera y ayudar a explorar la segunda. La tercera requiere fuentes adicionales: cartografía oficial, permisos, catastro de concesiones, imágenes fechadas, inspecciones y una respuesta de las partes afectadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-la-señal-al-expediente-verificable">Flujo recomendado: de la señal al expediente verificable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#flujo-recomendado-de-la-se%C3%B1al-al-expediente-verificable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de la señal al expediente verificable" title="Enlace directo al Flujo recomendado: de la señal al expediente verificable" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-formula-una-pregunta-falsable">1. Formula una pregunta falsable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#1-formula-una-pregunta-falsable" class="hash-link" aria-label="Enlace directo al 1. Formula una pregunta falsable" title="Enlace directo al 1. Formula una pregunta falsable" translate="no">​</a></h3>
-<p>Evita empezar con «demostrar que hubo tala ilegal». Una pregunta mejor sería: «¿qué cambios de vegetación detectan las fuentes disponibles entre el 1 y el 30 de junio dentro del polígono oficial de Sierra Clara?».</p>
-<p>Anota antes de buscar:</p>
-<ul>
-<li class="">área y periodo;</li>
-<li class="">evento que esperas observar;</li>
-<li class="">explicaciones alternativas;</li>
-<li class="">evidencia mínima para aceptar o descartar cada hipótesis.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-obtén-el-límite-desde-una-fuente-competente">2. Obtén el límite desde una fuente competente<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#2-obt%C3%A9n-el-l%C3%ADmite-desde-una-fuente-competente" class="hash-link" aria-label="Enlace directo al 2. Obtén el límite desde una fuente competente" title="Enlace directo al 2. Obtén el límite desde una fuente competente" translate="no">​</a></h3>
-<p>No redibujes una reserva a ojo desde una captura. Descarga el polígono del organismo responsable y registra fecha, sistema de coordenadas y versión. Si GFW ofrece una capa equivalente, compara ambas geometrías: diferencias de pocos metros importan cuando una alerta cae junto al borde.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-de-cada-capa">3. Lee la ficha de cada capa<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#3-lee-la-ficha-de-cada-capa" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha de cada capa" title="Enlace directo al 3. Lee la ficha de cada capa" translate="no">​</a></h3>
-<p>Antes de contar píxeles, abre la información de la capa y registra:</p>
-<ul>
-<li class="">productor y método;</li>
-<li class="">resolución espacial;</li>
-<li class="">cobertura geográfica y temporal;</li>
-<li class="">frecuencia de actualización;</li>
-<li class="">definición de alerta y confianza;</li>
-<li class="">licencia y limitaciones conocidas.</li>
-</ul>
-<p>No mezcles en una misma serie cifras anuales de pérdida con alertas casi en tiempo real sin explicar qué mide cada producto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-empieza-por-el-patrón-no-por-el-culpable">4. Empieza por el patrón, no por el culpable<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#4-empieza-por-el-patr%C3%B3n-no-por-el-culpable" class="hash-link" aria-label="Enlace directo al 4. Empieza por el patrón, no por el culpable" title="Enlace directo al 4. Empieza por el patrón, no por el culpable" translate="no">​</a></h3>
-<p>Traza un área de interés ajustada y compara:</p>
-<ul>
-<li class="">distribución y concentración de alertas;</li>
-<li class="">fecha inicial y persistencia;</li>
-<li class="">forma del cambio: lineal, rectangular, dispersa o asociada a un incendio;</li>
-<li class="">continuidad fuera del límite;</li>
-<li class="">carreteras, ríos, relieve y usos previos del suelo.</li>
-</ul>
-<p>Una línea estrecha puede ser una pista, un cortafuegos o un artefacto. Un bloque regular puede encajar con una parcela productiva, pero la geometría no atribuye autoría.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-contrasta-con-imágenes-y-sistemas-independientes">5. Contrasta con imágenes y sistemas independientes<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#5-contrasta-con-im%C3%A1genes-y-sistemas-independientes" class="hash-link" aria-label="Enlace directo al 5. Contrasta con imágenes y sistemas independientes" title="Enlace directo al 5. Contrasta con imágenes y sistemas independientes" translate="no">​</a></h3>
-<p>Busca escenas anteriores y posteriores con fecha conocida. Una imagen óptica clara permite interpretar mejor color, suelo expuesto y forma; el radar puede aportar observaciones cuando las nubes impiden ver el terreno. Si varios productos detectan cambio, aumenta la confianza en que ocurrió una perturbación, no necesariamente en su causa.</p>
-<p>La guía oficial sobre <a href="https://www.globalforestwatch.org/blog/data-and-tools/glad-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">alertas GLAD</a> recuerda que también pueden aparecer plantaciones, fuegos, tormentas, deslizamientos y otras alteraciones del dosel. Mantén esas alternativas vivas hasta contrastarlas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-comprueba-causa-autorización-y-cronología">6. Comprueba causa, autorización y cronología<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#6-comprueba-causa-autorizaci%C3%B3n-y-cronolog%C3%ADa" class="hash-link" aria-label="Enlace directo al 6. Comprueba causa, autorización y cronología" title="Enlace directo al 6. Comprueba causa, autorización y cronología" translate="no">​</a></h3>
-<p>Consulta la fuente primaria adecuada para cada afirmación:</p>
-<ul>
-<li class="">organismo forestal o ambiental para permisos y sanciones;</li>
-<li class="">registro de áreas protegidas para límites y categorías;</li>
-<li class="">autoridad de emergencias para incendios o tormentas;</li>
-<li class="">concesiones y evaluaciones ambientales para actividad autorizada;</li>
-<li class="">comunicados locales y trabajo de campo para contexto.</li>
-</ul>
-<p>Si utilizas la capa experimental de conductores de pérdida, trata la clasificación automatizada como una pista. La explicación oficial de <a href="https://www.globalforestwatch.org/blog/data-and-tools/drivers-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">conductores de alertas</a> advierte que la cobertura, el periodo y la confianza del modelo son específicos y que algunas etiquetas pueden actualizarse al llegar más observaciones.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-conserva-un-paquete-reproducible">7. Conserva un paquete reproducible<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#7-conserva-un-paquete-reproducible" class="hash-link" aria-label="Enlace directo al 7. Conserva un paquete reproducible" title="Enlace directo al 7. Conserva un paquete reproducible" translate="no">​</a></h3>
-<p>Guarda un registro como este:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">caso: sierra-clara-2026-06</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">area: poligono_oficial_reserva_2026-05.geojson</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">periodo: 2026-06-01/2026-06-30</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">capas: nombre exacto, productor y version consultada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta: 2026-07-28T10:15:00+02:00</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">hallazgo: concentracion de alertas junto al limite norte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">alternativas: fuego, corta autorizada, error geometrico</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">pendiente: permiso forestal e imagen sin nubes</span><br></span></code></pre></div></div>
-<p>Exporta los datos permitidos, captura la leyenda y conserva los enlaces. Un pantallazo sin escala, fecha, capa ni procedencia es difícil de auditar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pérdida-de-cobertura-no-equivale-siempre-a-deforestación">Pérdida de cobertura no equivale siempre a deforestación<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#p%C3%A9rdida-de-cobertura-no-equivale-siempre-a-deforestaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Pérdida de cobertura no equivale siempre a deforestación" title="Enlace directo al Pérdida de cobertura no equivale siempre a deforestación" translate="no">​</a></h3>
-<p>La cobertura arbórea puede desaparecer temporalmente por explotación planificada, incendio o fenómeno meteorológico y recuperarse después. La deforestación implica una conversión de uso más duradera. Si el dato mide pérdida de dosel, escribe «pérdida de cobertura» o «perturbación» hasta disponer de evidencia de conversión.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-alerta-no-determina-legalidad">Una alerta no determina legalidad<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#una-alerta-no-determina-legalidad" class="hash-link" aria-label="Enlace directo al Una alerta no determina legalidad" title="Enlace directo al Una alerta no determina legalidad" translate="no">​</a></h3>
-<p>El satélite no conoce permisos, deslindes en disputa ni excepciones normativas. Incluso un cambio inequívoco dentro de un polígono exige comprobar jurisdicción, fecha de vigencia y autorización.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-bordes-engañan">Los bordes engañan<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#los-bordes-enga%C3%B1an" class="hash-link" aria-label="Enlace directo al Los bordes engañan" title="Enlace directo al Los bordes engañan" translate="no">​</a></h3>
-<p>Resolución del píxel, reproyección y calidad del límite pueden colocar una señal aparentemente dentro o fuera. Cuando el caso depende de unos metros, informa de la incertidumbre y solicita datos de mayor precisión.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-de-alertas-no-demuestra-ausencia-de-cambio">Ausencia de alertas no demuestra ausencia de cambio<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#ausencia-de-alertas-no-demuestra-ausencia-de-cambio" class="hash-link" aria-label="Enlace directo al Ausencia de alertas no demuestra ausencia de cambio" title="Enlace directo al Ausencia de alertas no demuestra ausencia de cambio" translate="no">​</a></h3>
-<p>Nubes persistentes, nieve, baja intensidad, cobertura del producto o retrasos de observación pueden ocultar eventos. Formula la conclusión como «no se detectaron alertas con estas capas, área y fechas», no como «no ocurrió nada».</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-automatización-clasifica-no-sentencia">La automatización clasifica, no sentencia<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#la-automatizaci%C3%B3n-clasifica-no-sentencia" class="hash-link" aria-label="Enlace directo al La automatización clasifica, no sentencia" title="Enlace directo al La automatización clasifica, no sentencia" translate="no">​</a></h3>
-<p>Los modelos de conductores ayudan a priorizar revisiones. Sus etiquetas dependen de muestras, regiones y señales visibles. No conviertas una clase probable en una acusación contra una empresa o comunidad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Investiga actividades y afirmaciones de interés público, no rutinas de personas.</li>
-<li class="">No publiques coordenadas de comunidades aisladas, especies amenazadas o patrullas si eso aumenta el riesgo.</li>
-<li class="">Usa cuentas y dispositivos de trabajo cuando una investigación pueda generar exposición.</li>
-<li class="">Minimiza los datos personales en notas, capturas y archivos compartidos.</li>
-<li class="">Separa observación, inferencia y conclusión con etiquetas explícitas.</li>
-<li class="">Ofrece derecho de respuesta antes de atribuir una actividad perjudicial.</li>
-<li class="">Consulta a especialistas locales: un patrón satelital sin conocimiento del territorio puede inducir a errores graves.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>GFW funciona mejor como centro de descubrimiento y contraste, no como única fuente. Según la pregunta, puedes combinarlo con:</p>
-<ul>
-<li class=""><code>Copernicus Browser</code> o visores Landsat/Sentinel para inspeccionar escenas concretas;</li>
-<li class=""><code>NASA FIRMS</code> para comprobar anomalías térmicas e incendios;</li>
-<li class="">geoportales nacionales para límites, permisos y concesiones;</li>
-<li class=""><code>QGIS</code> para medir, reproyectar y documentar geometrías;</li>
-<li class="">observación de campo responsable o socios locales para validar causas.</li>
-</ul>
-<p>El siguiente paso práctico es sencillo: elige un área que conozcas, define un periodo de treinta días y crea una ficha con <strong>una alerta, dos explicaciones alternativas y dos fuentes independientes para comprobarla</strong>. La calidad del análisis no se mide por cuántos píxeles coloreados encuentras, sino por lo bien que explicas qué significan y qué todavía no puedes afirmar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/global-forest-watch-osint-alertas-verificacion#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.globalforestwatch.org/about/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: acerca del proyecto</a></li>
-<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/integrated-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: alertas integradas de perturbación</a></li>
-<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/glad-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: guía de alertas GLAD</a></li>
-<li class=""><a href="https://www.globalforestwatch.org/blog/data-and-tools/drivers-deforestation-alerts/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch: conductores de alertas y limitaciones</a></li>
-<li class=""><a href="https://data-api.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="">Global Forest Watch Data API</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="GEOINT" term="GEOINT"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Metodologia" term="Metodologia"/>
     </entry>
 </feed>
