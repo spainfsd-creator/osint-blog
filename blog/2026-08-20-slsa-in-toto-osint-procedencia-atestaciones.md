@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT siguiendo un artefacto desde su digest hasta el repositorio, el sistema de compilación, las dependencias y la política de verificación](/img/blog/2026-08-20-slsa-in-toto-osint-procedencia-atestaciones.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/slsa-in-toto-osint-procedencia-atestaciones.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un proveedor entrega un binario firmado y una atestación que apunta al repositorio correcto. El digest coincide, el flujo de integración continua parece oficial y el documento enumera materiales, parámetros y un constructor conocido. Es información valiosa, pero todavía no responde a la pregunta decisiva: **¿la atestación está autenticada, describe este artefacto exacto y satisface una política que fijamos antes de mirar el resultado?** SLSA e in-toto permiten formular y comprobar esas preguntas; no convierten automáticamente una compilación trazable en software seguro, código lícito o cumplimiento contractual.
