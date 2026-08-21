@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT examinando las capas root, targets, snapshot y timestamp de un repositorio de actualizaciones](/img/blog/2026-08-21-tuf-osint-metadatos-actualizacion.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/tuf-osint-metadatos-actualizacion.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un proveedor publica una actualización correctamente firmada y asegura que procede de su canal oficial. Horas después aparece una segunda copia, también firmada, con otro tamaño y una cronología distinta. Mirar solo el certificado o el hash de uno de los archivos no resuelve el dilema: **hay que reconstruir qué claves estaban autorizadas, qué versión del repositorio vio el cliente y si los metadatos seguían vigentes**. The Update Framework (TUF) ofrece esas piezas; el trabajo OSINT consiste en conservarlas, relacionarlas y no atribuirles más certeza de la que contienen.
