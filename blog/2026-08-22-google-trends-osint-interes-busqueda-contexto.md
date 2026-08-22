@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando curvas normalizadas de interés de búsqueda, regiones, calendarios y notas sobre señal y ruido](/img/blog/2026-08-22-google-trends-osint-interes-busqueda-contexto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-trends-osint-interes-busqueda-contexto.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una organización observa un pico de búsquedas sobre un vertido ficticio horas antes de que la noticia llegue a portada. El gráfico parece sugerir conocimiento previo en una provincia concreta. Es una historia tentadora y, precisamente por eso, peligrosa: **Google Trends mide interés relativo en una muestra agregada de búsquedas; no identifica personas, no explica sus motivos y no demuestra que un hecho ocurriera**. Bien usado, ayuda a ordenar una cronología y a formular preguntas. Mal usado, convierte una curva de 0 a 100 en una acusación.
