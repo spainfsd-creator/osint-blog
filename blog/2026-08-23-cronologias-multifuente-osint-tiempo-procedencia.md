@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT alineando archivos web, documentos públicos, metadatos y relojes con distintas zonas horarias](/img/blog/2026-08-23-cronologias-multifuente-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/cronologias-multifuente-osint-tiempo-procedencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un aviso municipal, una noticia y una fotografía parecen contar la misma historia. Sus horas también parecen encajar: `09:18`, `09:30` y `09:36`. El problema es que una marca procede de EXIF sin zona horaria, otra anuncia cuándo debía empezar un cierre y la tercera indica cuándo un medio publicó su página. **Ordenar esos tres números como si midieran el mismo acontecimiento puede fabricar una causalidad que ninguna fuente demuestra.** Una cronología OSINT útil no es una lista de horas: es un modelo de qué reloj observamos, quién lo proporcionó y cuánta incertidumbre conserva.
