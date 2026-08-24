@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando versiones fechadas de una página pública, sus cabeceras HTTP, hashes y relaciones de procedencia](/img/blog/2026-08-24-versionado-fuentes-vivas-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/versionado-fuentes-vivas-osint-cambios-correcciones.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un organismo publica una nota a las 10:00, corrige una cifra a las 11:20 y añade una explicación por la tarde sin cambiar la URL. Dos analistas consultan la misma dirección y guardan contenidos distintos. Si el informe cita solo «la página», ambos parecen contradecirse; si conserva versiones, cabeceras y tiempos de observación, la discrepancia se convierte en un dato investigable. **Una fuente viva no es una pieza fija de evidencia: es una sucesión de representaciones que debemos capturar sin fingir que observamos todos sus estados.**
