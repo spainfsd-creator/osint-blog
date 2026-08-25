@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando recortes, coincidencias visuales, cronologías y relaciones de procedencia con controles de privacidad](/img/blog/2026-08-25-google-lens-osint-busqueda-visual.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/google-lens-osint-busqueda-visual-contexto.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una fotografía de un acantilado aparece en una campaña benéfica ficticia con el pie «daños de esta semana». Google Lens devuelve el mismo perfil rocoso en una guía turística, una miniatura recortada en un foro y varias imágenes de paisajes parecidos. La tentación es elegir el resultado más antiguo y declarar resuelto el caso. **Pero una coincidencia visual no demuestra que sea el mismo archivo, que esa página fuera la primera publicación ni que el texto que la acompaña sea verdadero.** La búsqueda visual sirve para abrir rutas de verificación; la prueba empieza después.
