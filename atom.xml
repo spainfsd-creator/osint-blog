@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-25T00:00:00.000Z</updated>
+    <updated>2026-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[robots.txt y sitemap.xml en OSINT: mapear una web sin confundir indicios con acceso]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico"/>
+        <updated>2026-08-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de un analista OSINT comparando robots.txt, un sitemap XML y la estructura pública de una web]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista OSINT comparando robots.txt, un sitemap XML y la estructura pública de una web" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-26-robots-sitemap-osint-e5caa375cc12dd2b8488fa15ae18ecc1.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una empresa ficticia anuncia que ha retirado una línea de producto, pero su buscador interno sigue devolviendo fichas antiguas y el menú público ya no enlaza algunas páginas. El impulso fácil es lanzar un rastreador sobre todo el dominio. El método prudente empieza de forma más pequeña: consultar los mapas que el propio sitio publica para los robots, registrar qué declaran y comprobar cada URL relevante con peticiones normales. <strong><code>robots.txt</code> y <code>sitemap.xml</code> pueden revelar cómo quiere presentarse una web a los rastreadores; no demuestran que una ruta sea privada, importante, vigente ni siquiera accesible.</strong></p>
+<p>Este artículo propone un flujo reproducible y de bajo impacto para analizar esos dos artefactos en investigaciones legítimas de <em>due diligence</em>, verificación web o inventario autorizado. Las fuentes técnicas se consultaron el <strong>26 de agosto de 2026</strong>. El dominio, la organización, las rutas, los productos y las fechas del caso son ficticios. No se prueban credenciales, no se eluden controles ni se fuerzan rutas que el servidor no publique.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-y-para-qué-sirven-en-osint">Qué son y para qué sirven en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#qu%C3%A9-son-y-para-qu%C3%A9-sirven-en-osint" class="hash-link" aria-label="Enlace directo al Qué son y para qué sirven en OSINT" title="Enlace directo al Qué son y para qué sirven en OSINT" translate="no">​</a></h2>
+<p>El archivo <code>robots.txt</code> implementa el <strong>Robots Exclusion Protocol</strong> (REP). El <a href="https://www.rfc-editor.org/rfc/rfc9309.html" target="_blank" rel="noopener noreferrer" class="">RFC 9309</a> lo estandariza como un mecanismo mediante el cual un servicio indica a clientes automáticos —los <em>crawlers</em>— qué rutas pueden solicitar. Se publica en la raíz del servicio, por ejemplo <code>https://www.ejemplo.test/robots.txt</code>, y organiza reglas alrededor de agentes de usuario, permisos y prohibiciones.</p>
+<p>Un sitemap cumple otra función: enumera URLs que el editor desea facilitar a los buscadores. El <a href="https://www.sitemaps.org/protocol.html" target="_blank" rel="noopener noreferrer" class="">protocolo Sitemaps</a> define el formato XML básico y sus campos; también admite índices que enlazan varios sitemaps. La <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=es" target="_blank" rel="noopener noreferrer" class="">documentación de Google</a> insiste en una distinción esencial: un sitemap ayuda a descubrir contenido, pero no garantiza que una URL sea rastreada ni indexada.</p>
+<p>Para un analista, ambos son <strong>declaraciones públicas de operación</strong>, no inventarios autoritativos:</p>
+<table><thead><tr><th>Artefacto</th><th>Qué puede aportar</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td><code>robots.txt</code></td><td>Patrones de rutas, grupos por <em>user-agent</em> y ubicaciones de sitemaps</td><td>Confidencialidad, existencia de todas las rutas o obediencia de todos los robots</td></tr><tr><td>Sitemap</td><td>URLs preferidas, agrupación editorial y, a veces, <code>lastmod</code></td><td>Publicación original, disponibilidad actual, indexación o fecha probada del contenido</td></tr><tr><td>Respuesta HTTP de una URL</td><td>Estado observado, redirecciones, cabeceras y cuerpo en ese momento</td><td>Qué vio otro usuario, qué existía antes o cuál era la intención del editor</td></tr><tr><td>Archivo web o captura propia</td><td>Una representación conservada con fecha de observación</td><td>Que nunca hubiera otras versiones ni que el contenido fuera verdadero</td></tr></tbody></table>
+<p>El valor OSINT aparece al <strong>comparar capas</strong>. Una URL presente en el sitemap pero ausente del menú puede ser contenido legítimo poco enlazado. Una ruta desautorizada puede ser un patrón genérico de un CMS. Una fecha <code>lastmod</code> puede reflejar una regeneración técnica. Cada señal abre una pregunta; ninguna cierra el caso por sí sola.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-auditar-un-catálogo-público">Caso de uso legítimo: auditar un catálogo público<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#caso-de-uso-leg%C3%ADtimo-auditar-un-cat%C3%A1logo-p%C3%BAblico" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: auditar un catálogo público" title="Enlace directo al Caso de uso legítimo: auditar un catálogo público" translate="no">​</a></h2>
+<p>Supongamos que <code>https://catalogo-ejemplo.test/</code> pertenece a una cooperativa ficticia que comunica el fin de la familia de productos «Lumen». Una revisión autorizada quiere responder solo a tres preguntas:</p>
+<ol>
+<li class="">¿Qué URLs sobre «Lumen» declara actualmente el sitio?</li>
+<li class="">¿Cuáles responden mediante navegación HTTP normal?</li>
+<li class="">¿Qué cambios pueden documentarse sin atribuir intención?</li>
+</ol>
+<p>El alcance escrito incluye el host público y excluye áreas autenticadas, formularios, endpoints de administración y cualquier carga intensiva. Antes de consultar, se crea una nota con hora UTC, finalidad, agente de usuario identificable y límites de peticiones. Después se recuperan únicamente los puntos de entrada previsibles:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -fsS --max-time 15 \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -A 'AuditoriaPublicaOSINT/1.0 contacto@example.test' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://catalogo-ejemplo.test/robots.txt'</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -fsS --max-time 15 \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -A 'AuditoriaPublicaOSINT/1.0 contacto@example.test' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://catalogo-ejemplo.test/sitemap.xml'</span><br></span></code></pre></div></div>
+<p>El ejemplo usa un dominio reservado y datos ficticios: no debe copiarse contra un objetivo real sin base legítima, alcance y una frecuencia proporcionada. Si <code>robots.txt</code> declara otro sitemap mediante una línea <code>Sitemap:</code>, se registra esa URL exacta. No se adivinan decenas de nombres ni se convierten los errores <code>404</code> en una enumeración agresiva.</p>
+<p>Imaginemos que el sitemap enlaza <code>/productos/lumen-azul</code>, mientras <code>robots.txt</code> contiene <code>Disallow: /busqueda-interna/</code>. La conclusión correcta no es «hemos encontrado una zona secreta». La nota sería mucho más estrecha:</p>
+<blockquote>
+<p>A las 08:40 UTC, el sitemap publicado declaró una ficha Lumen. El REP desaconsejó a ciertos rastreadores solicitar rutas bajo <code>/busqueda-interna/</code>. No se accedió a esa zona ni se infirió su contenido.</p>
+</blockquote>
+<p>Después se solicita solo la ficha declarada, se conserva el estado HTTP, la cadena de redirecciones y una copia permitida. Si devuelve <code>301</code> hacia una categoría histórica, eso prueba una redirección observada, no cuándo se retiró el producto. Para una cronología hará falta contrastar notas oficiales, capturas archivadas y observaciones anteriores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-pregunta-autoridad-y-presupuesto-de-acceso">1. Define pregunta, autoridad y presupuesto de acceso<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#1-define-pregunta-autoridad-y-presupuesto-de-acceso" class="hash-link" aria-label="Enlace directo al 1. Define pregunta, autoridad y presupuesto de acceso" title="Enlace directo al 1. Define pregunta, autoridad y presupuesto de acceso" translate="no">​</a></h3>
+<p>Escribe qué necesitas demostrar y qué dominios están incluidos. Fija un máximo de solicitudes, una pausa razonable y criterios de parada. Para una comprobación manual suelen bastar <code>robots.txt</code>, los sitemaps declarados y unas pocas URLs relevantes; no hace falta rastrear todo lo encontrado.</p>
+<p>Separa también los roles:</p>
+<ul>
+<li class=""><strong>propietario del sitio</strong>: publica los artefactos y controla el servidor;</li>
+<li class=""><strong>rastreador</strong>: decide si interpreta y respeta las reglas aplicables;</li>
+<li class=""><strong>buscador</strong>: rastrea, procesa e indexa según sus propios sistemas;</li>
+<li class=""><strong>analista</strong>: observa respuestas públicas dentro de un propósito y alcance legítimos.</li>
+</ul>
+<p>Confundir esos roles lleva a afirmar, por ejemplo, que una prohibición equivale a un control de acceso. No es así.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-captura-la-respuesta-completa-no-solo-el-texto">2. Captura la respuesta completa, no solo el texto<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#2-captura-la-respuesta-completa-no-solo-el-texto" class="hash-link" aria-label="Enlace directo al 2. Captura la respuesta completa, no solo el texto" title="Enlace directo al 2. Captura la respuesta completa, no solo el texto" translate="no">​</a></h3>
+<p>Registra la URL solicitada, fecha UTC, código HTTP, tipo de contenido, redirecciones y hash del cuerpo. Conserva por separado lo recibido y tu interpretación. Un esquema mínimo puede ser:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">observed_at: 2026-08-26T08:40:00Z</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">requested_url: https://catalogo-ejemplo.test/robots.txt</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">final_url: https://catalogo-ejemplo.test/robots.txt</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">status: 200</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">content_type: text/plain</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">sha256: &lt;hash-ficticio&gt;</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">method: GET manual, una solicitud</span><br></span></code></pre></div></div>
+<p>El RFC 9309 describe el tratamiento de redirecciones, errores y caché para clientes automáticos. El analista no debe rellenar los huecos: si recibe un error, documenta el error observado; si una redirección sale del alcance, se detiene.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-analiza-robotstxt-como-reglas-dirigidas">3. Analiza <code>robots.txt</code> como reglas dirigidas<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#3-analiza-robotstxt-como-reglas-dirigidas" class="hash-link" aria-label="Enlace directo al 3-analiza-robotstxt-como-reglas-dirigidas" title="Enlace directo al 3-analiza-robotstxt-como-reglas-dirigidas" translate="no">​</a></h3>
+<p>No leas cada <code>Disallow</code> aislado. Identifica primero el grupo de <code>User-agent</code> al que pertenece y conserva el orden y la codificación originales. Comprueba:</p>
+<ul>
+<li class="">si existe un grupo global <code>*</code> y otros específicos;</li>
+<li class="">qué patrones se declaran y para qué agente;</li>
+<li class="">si hay reglas <code>Allow</code> que matizan una prohibición más amplia;</li>
+<li class="">si aparecen una o varias líneas <code>Sitemap:</code>;</li>
+<li class="">si el contenido parece generado por una plataforma común;</li>
+<li class="">si la respuesta cambia entre HTTP/HTTPS, host principal y subdominios incluidos en alcance.</li>
+</ul>
+<p>La <a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=es" target="_blank" rel="noopener noreferrer" class="">guía de Google sobre <code>robots.txt</code></a> advierte que las reglas no son un mecanismo para mantener una página fuera de Google ni para proteger información: otros robots pueden interpretarlas de manera distinta, y una URL desautorizada puede llegar a conocerse mediante enlaces externos. En OSINT responsable, esa limitación se traduce en una regla sencilla: <strong>no trates una ruta declarada como invitación a visitarla</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-resuelve-sitemaps-e-índices-sin-perder-procedencia">4. Resuelve sitemaps e índices sin perder procedencia<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#4-resuelve-sitemaps-e-%C3%ADndices-sin-perder-procedencia" class="hash-link" aria-label="Enlace directo al 4. Resuelve sitemaps e índices sin perder procedencia" title="Enlace directo al 4. Resuelve sitemaps e índices sin perder procedencia" translate="no">​</a></h3>
+<p>Un sitemap puede ser XML, texto o un feed compatible. En XML, <code>urlset</code> contiene entradas <code>url</code>; cada una requiere <code>loc</code>, mientras que <code>lastmod</code>, <code>changefreq</code> y <code>priority</code> son opcionales. Un <code>sitemapindex</code> enlaza otros sitemaps.</p>
+<p>Para cada nivel conserva la relación:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">robots.txt</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└── Sitemap: /sitemap-index.xml</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    ├── /sitemaps/productos.xml</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    └── /sitemaps/noticias.xml</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        └── https://catalogo-ejemplo.test/noticias/retirada-lumen</span><br></span></code></pre></div></div>
+<p>No mezcles URLs de distintos ficheros sin registrar su origen. La ubicación del sitemap condiciona qué rutas puede representar según el protocolo, y un índice grande puede cambiar mientras lo recorres. Anota el hash y la hora de cada fichero para que otra persona sepa qué versión analizaste.</p>
+<p>La especificación permite hasta <strong>50.000 URLs o 50 MB sin comprimir por sitemap</strong>. Ese límite técnico no es un objetivo de descarga. En una investigación concreta, filtra localmente por la pregunta y evita solicitar masivamente todas las páginas listadas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-interpreta-lastmod-como-una-afirmación-no-como-un-reloj-forense">5. Interpreta <code>lastmod</code> como una afirmación, no como un reloj forense<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#5-interpreta-lastmod-como-una-afirmaci%C3%B3n-no-como-un-reloj-forense" class="hash-link" aria-label="Enlace directo al 5-interpreta-lastmod-como-una-afirmación-no-como-un-reloj-forense" title="Enlace directo al 5-interpreta-lastmod-como-una-afirmación-no-como-un-reloj-forense" translate="no">​</a></h3>
+<p>El protocolo indica que <code>lastmod</code> debe expresar la última modificación de la página, no la hora de generación del sitemap. Sin embargo, el valor lo publica el propio sistema y su calidad depende de la implementación. Puede referirse a una actualización de plantilla, a un cambio del contenido o a un proceso automático.</p>
+<p>Por tanto, etiqueta tres tiempos distintos:</p>
+<ul>
+<li class=""><strong>fecha declarada</strong> en <code>lastmod</code>;</li>
+<li class=""><strong>fecha de observación</strong> de tu descarga;</li>
+<li class=""><strong>fecha corroborada</strong> por otra fuente o versión conservada.</li>
+</ul>
+<p>Si no coinciden, no elijas la que mejor encaje con la hipótesis. Describe la discrepancia y busca evidencia independiente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-verifica-una-muestra-relevante-y-guarda-negativos">6. Verifica una muestra relevante y guarda negativos<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#6-verifica-una-muestra-relevante-y-guarda-negativos" class="hash-link" aria-label="Enlace directo al 6. Verifica una muestra relevante y guarda negativos" title="Enlace directo al 6. Verifica una muestra relevante y guarda negativos" translate="no">​</a></h3>
+<p>Para cada URL seleccionada registra <code>200</code>, redirección, <code>404</code>, <code>410</code>, bloqueo o error transitorio. Una respuesta negativa también tiene procedencia y caducidad: «devolvió <code>404</code> a tal hora» no significa «nunca existió».</p>
+<p>Compara, cuando sea proporcional:</p>
+<ul>
+<li class="">presencia en sitemap frente a navegación pública;</li>
+<li class="">URL declarada frente a canonical de la página;</li>
+<li class=""><code>lastmod</code> frente a cabeceras HTTP y contenido visible;</li>
+<li class="">estado actual frente a una captura web legítima;</li>
+<li class="">afirmación comercial frente a documentación oficial.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-redacta-hallazgos-con-niveles-de-confianza">7. Redacta hallazgos con niveles de confianza<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#7-redacta-hallazgos-con-niveles-de-confianza" class="hash-link" aria-label="Enlace directo al 7. Redacta hallazgos con niveles de confianza" title="Enlace directo al 7. Redacta hallazgos con niveles de confianza" translate="no">​</a></h3>
+<p>Una tabla evita convertir pistas en hechos:</p>
+<table><thead><tr><th>Hallazgo</th><th>Lectura prudente</th><th>Confianza</th></tr></thead><tbody><tr><td>URL en sitemap de productos</td><td>El editor la declaró al rastreador en la versión observada</td><td>Alta para la declaración; baja para vigencia comercial</td></tr><tr><td>Patrón en <code>Disallow</code></td><td>Ese grupo REP pidió no rastrear rutas coincidentes</td><td>Alta para el texto; nula para confidencialidad o contenido</td></tr><tr><td><code>lastmod</code> anterior al anuncio</td><td>El sistema publicó esa fecha</td><td>Media para la afirmación; baja para el cambio real sin corroboración</td></tr><tr><td>Redirección actual a archivo</td><td>El servidor redirigió la solicitud observada</td><td>Alta para ese momento; baja para el inicio de la redirección</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="robotstxt-no-es-una-lista-de-secretos"><code>robots.txt</code> no es una lista de secretos<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#robotstxt-no-es-una-lista-de-secretos" class="hash-link" aria-label="Enlace directo al robotstxt-no-es-una-lista-de-secretos" title="Enlace directo al robotstxt-no-es-una-lista-de-secretos" translate="no">​</a></h3>
+<p>Muchos CMS publican patrones genéricos aunque no exista contenido sensible detrás. Otros conservan reglas antiguas después de una migración. Una ruta también puede coincidir con recursos públicos que simplemente generan mucho ruido para un buscador.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-sitemap-no-contiene-necesariamente-toda-la-web">El sitemap no contiene necesariamente toda la web<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#el-sitemap-no-contiene-necesariamente-toda-la-web" class="hash-link" aria-label="Enlace directo al El sitemap no contiene necesariamente toda la web" title="Enlace directo al El sitemap no contiene necesariamente toda la web" translate="no">​</a></h3>
+<p>Puede excluir páginas válidas, incluir URLs obsoletas o dividirse por tipo, idioma, fecha o tecnología. Google recalca que una web bien enlazada puede descubrirse sin sitemap y que enviarlo es una pista, no una garantía. La ausencia en el fichero no prueba ocultación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-reglas-no-equivalen-entre-agentes">Las reglas no equivalen entre agentes<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#las-reglas-no-equivalen-entre-agentes" class="hash-link" aria-label="Enlace directo al Las reglas no equivalen entre agentes" title="Enlace directo al Las reglas no equivalen entre agentes" translate="no">​</a></h3>
+<p>El REP dirige grupos a tokens de agente de usuario. Extensiones históricas o comportamientos de proveedores pueden variar. Si tu conclusión depende de cómo actúa un crawler concreto, cita la documentación de ese crawler y la fecha de consulta; no generalices desde Googlebot a todos los robots.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-publicación-no-demuestra-autoría-ni-intención">La publicación no demuestra autoría ni intención<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#la-publicaci%C3%B3n-no-demuestra-autor%C3%ADa-ni-intenci%C3%B3n" class="hash-link" aria-label="Enlace directo al La publicación no demuestra autoría ni intención" title="Enlace directo al La publicación no demuestra autoría ni intención" translate="no">​</a></h3>
+<p>Un fichero puede proceder de un plugin, una plantilla o una infraestructura compartida. Que una URL aparezca en un sitemap no identifica quién la creó. Que desaparezca tampoco demuestra encubrimiento: puede deberse a despliegues, errores, cambios editoriales o caducidad normal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="javascript-idiomas-y-hosts-fragmentan-la-imagen">JavaScript, idiomas y hosts fragmentan la imagen<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#javascript-idiomas-y-hosts-fragmentan-la-imagen" class="hash-link" aria-label="Enlace directo al JavaScript, idiomas y hosts fragmentan la imagen" title="Enlace directo al JavaScript, idiomas y hosts fragmentan la imagen" translate="no">​</a></h3>
+<p>La navegación renderizada puede descubrir rutas que el HTML inicial o el sitemap no muestran. Los subdominios tienen ámbitos separados, y una versión localizada puede declarar otros recursos. Amplía el alcance solo si la pregunta y la autorización lo justifican.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Usa una identidad de agente honesta cuando proceda y un canal de contacto operativo.</li>
+<li class="">Respeta las reglas aplicables, los términos del servicio, la legislación y el alcance acordado.</li>
+<li class="">Limita velocidad, volumen y profundidad; detente ante errores repetidos o degradación del servicio.</li>
+<li class="">No visites rutas de administración, copias, exportaciones o datos personales solo porque aparezcan declaradas.</li>
+<li class="">No intentes eludir autenticación, restricciones geográficas, CAPTCHA ni controles técnicos.</li>
+<li class="">Minimiza datos personales en notas, capturas y ejemplos; redacta identificadores que no sean necesarios.</li>
+<li class="">Conserva hashes, horas UTC y respuestas originales, pero protege el archivo de trabajo y define retención.</li>
+<li class="">Separa observación, inferencia e hipótesis en el informe.</li>
+<li class="">Si detectas exposición accidental, no la amplifiques: pausa, preserva lo mínimo y usa un canal responsable.</li>
+</ul>
+<p>El RFC 9309 es especialmente claro en sus consideraciones de seguridad: publicar reglas puede revelar rutas y <strong>no sustituye a medidas de seguridad válidas</strong>. Esta advertencia sirve tanto al propietario como al investigador. El primero debe proteger con autorización real lo que no deba ser público; el segundo no debe interpretar una mala configuración como permiso.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Pregunta de investigación y alcance escritos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Host, esquema y subdominios autorizados identificados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Presupuesto de solicitudes y criterio de parada definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <code>robots.txt</code> capturado con estado, hora, cabeceras y hash.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Sitemaps declarados resueltos conservando su árbol de procedencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Grupos <code>User-agent</code>, <code>Allow</code> y <code>Disallow</code> interpretados en contexto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <code>lastmod</code> etiquetado como dato declarado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Solo se verificó una muestra pertinente de URLs públicas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Redirecciones fuera de alcance no se siguieron.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hallazgos corroborados con otra clase de fuente cuando fue posible.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Informe separa hechos observados, inferencias y ausencias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Datos y capturas tienen protección y retención proporcionadas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p><code>robots.txt</code> y los sitemaps funcionan bien como punto de partida ligero. Para completar el mapa sin convertirlo en una campaña de enumeración puedes usar:</p>
+<ul>
+<li class="">navegación y enlaces internos, que muestran la arquitectura presentada a personas;</li>
+<li class="">feeds RSS o Atom, útiles para cambios recientes pero normalmente incompletos;</li>
+<li class="">cabeceras <code>Link</code> y etiquetas canonical, que expresan relaciones entre representaciones;</li>
+<li class="">archivos web, para comparar versiones observadas en el tiempo;</li>
+<li class="">Search Console, únicamente cuando eres propietario o tienes autorización sobre el sitio;</li>
+<li class="">un inventario del CMS o del servidor, si trabajas desde el lado defensivo con permiso.</li>
+</ul>
+<p>El takeaway accionable es este: <strong>captura primero la declaración, verifica después una muestra y concluye solo lo que ambas capas sostienen</strong>. <code>robots.txt</code> expresa preferencias de rastreo; un sitemap expresa URLs que el editor quiere facilitar; la respuesta HTTP expresa lo que el servidor entregó en un instante. Mantener esas frases separadas produce informes más útiles y evita presentar un mapa parcial como una puerta abierta.</p>
+<p>El siguiente tema natural será estudiar <code>canonical</code>, <code>hreflang</code> y redirecciones como grafo de identidad de páginas, sin asumir que dos URLs representan siempre el mismo contenido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/robots-sitemap-osint-mapa-web-publico#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9309.html" target="_blank" rel="noopener noreferrer" class="">RFC 9309: Robots Exclusion Protocol</a></li>
+<li class=""><a href="https://www.sitemaps.org/protocol.html" target="_blank" rel="noopener noreferrer" class="">Sitemaps.org: protocolo XML de Sitemaps</a></li>
+<li class=""><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro?hl=es" target="_blank" rel="noopener noreferrer" class="">Google Search Central: introducción a robots.txt</a></li>
+<li class=""><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=es" target="_blank" rel="noopener noreferrer" class="">Google Search Central: qué es un sitemap</a></li>
+<li class=""><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?hl=es" target="_blank" rel="noopener noreferrer" class="">Google Search Central: crear y enviar un sitemap</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Web" term="Web"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Lens en OSINT: buscar por imagen sin confundir parecido con prueba]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/google-lens-osint-busqueda-visual-contexto</id>
@@ -2897,162 +3052,6 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Herramientas" term="Herramientas"/>
         <category label="Datos" term="Datos"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ROR en OSINT: identificar organizaciones de investigación sin confundir afiliación con vínculo actual]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad"/>
-        <updated>2026-08-05T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT conectando identificadores persistentes, organizaciones de investigación, publicaciones y metadatos de financiación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-05-ror-osint-organizaciones-investigacion-3df9f3638ef2695c67fdfee36b1cb506.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad-960db8dc7f8822e00795297becf7e1e8.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p>Una memoria de proyecto menciona a la «Universidad Central», un artículo firma como «UC Research Centre» y una ficha de financiación usa el nombre anterior de la institución. El grafo parece mostrar tres organizaciones; quizá solo haya una, o quizá estemos a punto de fusionar entidades distintas. <code>ROR</code>, el <strong>Research Organization Registry</strong>, ayuda a ordenar ese problema con identificadores persistentes y metadatos abiertos. Lo que no hace —y conviene decirlo desde el principio— es demostrar que una persona trabaja hoy en una institución, que dos entidades comparten control o que una publicación es fiable.</p>
-<p>Este artículo propone un flujo responsable para debida diligencia académica, verificación de expertos, análisis de financiación y trazabilidad de producción científica. El caso es ficticio y los ejemplos de API se limitan a datos institucionales públicos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-ror-y-para-qué-sirve-en-osint">Qué es ROR y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#qu%C3%A9-es-ror-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es ROR y para qué sirve en OSINT" title="Enlace directo al Qué es ROR y para qué sirve en OSINT" translate="no">​</a></h2>
-<p><a href="https://ror.org/about/" target="_blank" rel="noopener noreferrer" class="">ROR</a> es un registro global, comunitario y abierto de identificadores persistentes para organizaciones vinculadas con la investigación. Un identificador se expresa como una URL resoluble —por ejemplo, <code>https://ror.org/05r78ng12</code>— y apunta a un registro con nombres, acrónimos, localización, dominios, estado, tipos, relaciones y cruces con otros sistemas cuando están disponibles.</p>
-<p>Su ámbito importa tanto como sus campos. La <a href="https://ror.org/registry/" target="_blank" rel="noopener noreferrer" class="">política del registro</a> incluye organizaciones que producen, financian, facilitan, gestionan o publican investigación. No pretende inventariar todas las empresas ni representar cada departamento universitario. Una entidad puede estar en ROR sin ser una persona jurídica independiente; una facultad puede quedar fuera aunque exista administrativamente.</p>
-<p>Para una investigación legítima, ROR resulta útil para:</p>
-<ul>
-<li class="">distinguir instituciones con nombres o siglas parecidos;</li>
-<li class="">conservar una clave estable cuando una organización cambia de nombre;</li>
-<li class="">normalizar afiliaciones escritas como texto libre;</li>
-<li class="">recorrer relaciones institucionales como pistas que después deben comprobarse;</li>
-<li class="">enlazar metadatos de publicaciones, datasets, autores y financiadores;</li>
-<li class="">cruzar, cuando constan, identificadores como <code>Wikidata</code>, <code>ISNI</code> o el antiguo <code>GRID</code>;</li>
-<li class="">documentar qué versión del registro se consultó y por qué se eligió un candidato.</li>
-</ul>
-<p>Los datos de ROR se publican bajo <code>CC0</code> y pueden consultarse mediante buscador web, API REST o volcados en <code>JSON</code> y <code>CSV</code>. El registro se actualiza de forma continua y publica nuevas versiones aproximadamente cada mes. Esa apertura facilita la reproducibilidad, pero también obliga a fechar la consulta: un registro actual no describe necesariamente cómo figuraba una institución años atrás.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-verificar-una-red-de-colaboración">Caso de uso legítimo: verificar una red de colaboración<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#caso-de-uso-leg%C3%ADtimo-verificar-una-red-de-colaboraci%C3%B3n" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: verificar una red de colaboración" title="Enlace directo al Caso de uso legítimo: verificar una red de colaboración" translate="no">​</a></h2>
-<p>Imaginemos que la fundación ficticia <code>Horizonte Abierto</code> evalúa una propuesta sobre reutilización de agua. El dossier enumera cuatro afiliaciones con grafías inconsistentes y cita artículos, datasets y una convocatoria pública. El objetivo no es investigar la vida de las personas firmantes, sino responder tres preguntas proporcionadas:</p>
-<ol>
-<li class="">¿Qué organizaciones de investigación aparecen realmente?</li>
-<li class="">¿Qué identificador persistente corresponde a cada una?</li>
-<li class="">¿Qué fuentes primarias sostienen la colaboración y en qué fechas?</li>
-</ol>
-<p>La mesa de trabajo podría empezar así:</p>
-<table><thead><tr><th>Evidencia</th><th>Texto observado</th><th>Hipótesis</th><th>Estado</th></tr></thead><tbody><tr><td><code>D-01</code></td><td>Afiliación libre en un artículo</td><td>Universidad matriz</td><td>Pendiente de normalizar</td></tr><tr><td><code>D-02</code></td><td>Acrónimo en un dataset</td><td>Instituto o unidad interna</td><td>Ambiguo</td></tr><tr><td><code>D-03</code></td><td>Identificador ROR en un DOI</td><td>Organización concreta</td><td>Verificar en ROR y editor</td></tr><tr><td><code>D-04</code></td><td>Logo en la memoria del proyecto</td><td>Colaborador aparente</td><td>No prueba relación jurídica</td></tr></tbody></table>
-<p>El identificador permite unir referencias compatibles; no autoriza a completar los huecos por intuición. La colaboración debe volver a la convocatoria, el repositorio del proyecto, los metadatos del DOI y, si procede, la web institucional archivada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-conserva-el-texto-original">1. Define la afirmación y conserva el texto original<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#1-define-la-afirmaci%C3%B3n-y-conserva-el-texto-original" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y conserva el texto original" title="Enlace directo al 1. Define la afirmación y conserva el texto original" translate="no">​</a></h3>
-<p>Antes de buscar, escribe qué quieres verificar: «la organización X participó en el proyecto Y entre 2024 y 2025» es mejor que «averigua todo sobre X». Guarda cada afiliación exactamente como aparece, junto con:</p>
-<ul>
-<li class="">URL o referencia documental;</li>
-<li class="">fecha de publicación y fecha de acceso;</li>
-<li class="">autor o sistema que suministra el dato;</li>
-<li class="">contexto —artículo, dataset, subvención, página institucional—;</li>
-<li class="">transformación aplicada en cualquier columna derivada.</li>
-</ul>
-<p>No reemplaces <code>Dept.</code>, nombres traducidos, tildes o acrónimos por una forma normalizada sin conservar el original. Esos detalles pueden separar organizaciones distintas o explicar por qué un algoritmo eligió mal.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-manualmente-antes-de-automatizar">2. Busca manualmente antes de automatizar<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#2-busca-manualmente-antes-de-automatizar" class="hash-link" aria-label="Enlace directo al 2. Busca manualmente antes de automatizar" title="Enlace directo al 2. Busca manualmente antes de automatizar" translate="no">​</a></h3>
-<p>El buscador de ROR es adecuado cuando una persona revisa los resultados. Prueba el nombre completo, una variante lingüística y la localización conocida. En la ficha candidata comprueba:</p>
-<ul>
-<li class="">nombres etiquetados, alias y acrónimos;</li>
-<li class="">país y ciudad, sin asumir que la sede cubre todas las instalaciones;</li>
-<li class="">dominios institucionales;</li>
-<li class=""><code>status</code> del registro;</li>
-<li class="">año de establecimiento, si consta;</li>
-<li class="">tipos y relaciones;</li>
-<li class="">identificadores externos.</li>
-</ul>
-<p>Un dominio compatible es una señal útil, no una prueba suficiente: las instituciones pueden compartir infraestructura, migrar de dominio o mantener direcciones antiguas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-el-parámetro-affiliation-para-texto-desordenado">3. Usa el parámetro <code>affiliation</code> para texto desordenado<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#3-usa-el-par%C3%A1metro-affiliation-para-texto-desordenado" class="hash-link" aria-label="Enlace directo al 3-usa-el-parámetro-affiliation-para-texto-desordenado" title="Enlace directo al 3-usa-el-parámetro-affiliation-para-texto-desordenado" translate="no">​</a></h3>
-<p>La <a href="https://ror.readme.io/docs/api-affiliation" target="_blank" rel="noopener noreferrer" class="">API de afiliaciones de ROR</a> está diseñada para cadenas con nombre institucional, departamento, dirección y puntuación irregular. A fecha de este artículo, el formato documentado es:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl 'https://api.ror.org/v2/organizations?affiliation=&lt;TEXTO_CODIFICADO&gt;'</span><br></span></code></pre></div></div>
-<p>Un ejemplo público de la propia documentación puede comprobarse así:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl 'https://api.ror.org/v2/organizations?affiliation=Instituto%20de%20Investigaci%C3%B3n%20en%20Inform%C3%A1tica%20de%20Albacete%20%28I3A%29%2C%20Universidad%20de%20Castilla-La%20Mancha%2C%20Albacete%2C%20Spain'</span><br></span></code></pre></div></div>
-<p>Consultado el 5 de agosto de 2026, el resultado marca <code>chosen: true</code> para <code>https://ror.org/05r78ng12</code>, el registro de la Universidad de Castilla-La Mancha. También devuelve alternativas. Conviene guardar la cadena enviada, la fecha, la respuesta completa y la versión de la lógica utilizada.</p>
-<p>Desde el <a href="https://ror.readme.io/changelog/2026-05-26-default-affiliation-matching-strategy-is-now-single-search" target="_blank" rel="noopener noreferrer" class="">26 de mayo de 2026</a>, <code>affiliation</code> usa por defecto la estrategia <code>single search</code>. La estrategia anterior puede solicitarse con <code>&amp;multisearch</code>. No mezcles resultados obtenidos con estrategias diferentes sin anotarlo: el cambio afecta a la reproducibilidad de un lote histórico.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-respeta-chosen-true-y-revisa-la-evidencia">4. Respeta <code>chosen: true</code> y revisa la evidencia<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#4-respeta-chosen-true-y-revisa-la-evidencia" class="hash-link" aria-label="Enlace directo al 4-respeta-chosen-true-y-revisa-la-evidencia" title="Enlace directo al 4-respeta-chosen-true-y-revisa-la-evidencia" translate="no">​</a></h3>
-<p>La documentación hace una advertencia poco habitual y muy valiosa: si ningún candidato tiene <code>chosen: true</code>, no hay que seleccionar automáticamente el primero ni fijar un umbral arbitrario sobre <code>score</code>. Puede faltar contexto, existir varias instituciones plausibles o no estar la organización en ROR.</p>
-<p>Incluso con <code>chosen: true</code>, revisa manualmente los casos que puedan causar una decisión adversa. Una coincidencia automática propone un identificador; la fuente original y el contexto temporal sostienen la afirmación.</p>
-<p>Una tabla de decisión sencilla ayuda:</p>
-<table><thead><tr><th>Señal</th><th>Qué apoya</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>Nombre o alias</td><td>Compatibilidad nominal</td><td>Identidad por sí solo</td></tr><tr><td>Dominio</td><td>Vínculo técnico declarado</td><td>Propiedad o vigencia histórica</td></tr><tr><td>Localización</td><td>Contexto geográfico</td><td>Que la actividad ocurrió allí</td></tr><tr><td>Relación ROR</td><td>Pista estructurada entre registros</td><td>Control societario o contractual</td></tr><tr><td>ID en metadatos DOI</td><td>Afiliación depositada con identificador</td><td>Empleo actual ni calidad científica</td></tr><tr><td><code>status: active</code></td><td>Estado del registro ROR</td><td>Actividad legal o económica en tiempo real</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-pivota-hacia-las-fuentes-que-contienen-la-afirmación">5. Pivota hacia las fuentes que contienen la afirmación<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#5-pivota-hacia-las-fuentes-que-contienen-la-afirmaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 5. Pivota hacia las fuentes que contienen la afirmación" title="Enlace directo al 5. Pivota hacia las fuentes que contienen la afirmación" translate="no">​</a></h3>
-<p>ROR identifica organizaciones; otros sistemas describen objetos distintos. <a href="https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/" target="_blank" rel="noopener noreferrer" class="">Crossref recomienda ROR</a> para hacer las afiliaciones de publicaciones más descubribles y desambiguables. <a href="https://info.orcid.org/documentation/integration-guide/working-with-organization-identifiers/" target="_blank" rel="noopener noreferrer" class="">ORCID también admite y recomienda ROR</a> en afiliaciones, pero una entrada de ORCID puede haber sido aportada por la persona o por una organización y debe leerse con su procedencia.</p>
-<p>Trabaja por capas:</p>
-<ol>
-<li class="">ROR para identificar la organización candidata.</li>
-<li class="">Crossref o DataCite para inspeccionar el objeto y sus metadatos depositados.</li>
-<li class="">ORCID para revisar afiliaciones declaradas y su fuente, sin confundir perfil con certificación universal.</li>
-<li class="">Repositorio, convocatoria, resolución o web institucional para confirmar la relación concreta.</li>
-<li class="">Archivo web o copia fechada para afirmaciones históricas.</li>
-</ol>
-<p>El cruce más fuerte no es el que acumula más enlaces, sino el que conecta identificadores compatibles con documentos primarios y fechas coherentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-congela-un-resultado-reproducible">6. Congela un resultado reproducible<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#6-congela-un-resultado-reproducible" class="hash-link" aria-label="Enlace directo al 6. Congela un resultado reproducible" title="Enlace directo al 6. Congela un resultado reproducible" translate="no">​</a></h3>
-<p>Para unos pocos registros basta exportar la respuesta y calcular su hash. Para lotes grandes, el <a href="https://ror.readme.io/docs/data-dump" target="_blank" rel="noopener noreferrer" class="">volcado oficial de ROR</a> evita depender de consultas repetidas y permite fijar una versión. Registra al menos:</p>
-<ul>
-<li class="">versión o fecha del dump;</li>
-<li class="">licencia y URL de descarga;</li>
-<li class="">hash del fichero original;</li>
-<li class="">script y reglas de normalización;</li>
-<li class="">candidatos aceptados, rechazados y no resueltos;</li>
-<li class="">revisión humana y motivo de la decisión.</li>
-</ul>
-<p>No sobrescribas una clasificación antigua cuando cambie ROR. Añade una nueva observación y conserva el estado que sustentó el informe original.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ror-no-es-un-registro-mercantil">ROR no es un registro mercantil<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#ror-no-es-un-registro-mercantil" class="hash-link" aria-label="Enlace directo al ROR no es un registro mercantil" title="Enlace directo al ROR no es un registro mercantil" translate="no">​</a></h3>
-<p>Una organización puede estar incluida por su papel en la investigación sin coincidir con una entidad jurídica. Para propiedad, administradores, disolución o domicilio legal hay que acudir al registro competente. Tampoco conviertas una relación <code>parent</code>, <code>child</code>, <code>related</code>, <code>predecessor</code> o <code>successor</code> en prueba automática de control societario.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-granularidad-institucional-no-siempre-coincide-con-el-documento">La granularidad institucional no siempre coincide con el documento<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#la-granularidad-institucional-no-siempre-coincide-con-el-documento" class="hash-link" aria-label="Enlace directo al La granularidad institucional no siempre coincide con el documento" title="Enlace directo al La granularidad institucional no siempre coincide con el documento" translate="no">​</a></h3>
-<p>Departamentos y facultades suelen quedar fuera del alcance de ROR. Una afiliación muy específica puede resolverse a la universidad matriz, mientras que el texto original sigue siendo necesario para entender la unidad real. El identificador no debe borrar esa granularidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-metadatos-pueden-estar-incompletos-o-desactualizados">Los metadatos pueden estar incompletos o desactualizados<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#los-metadatos-pueden-estar-incompletos-o-desactualizados" class="hash-link" aria-label="Enlace directo al Los metadatos pueden estar incompletos o desactualizados" title="Enlace directo al Los metadatos pueden estar incompletos o desactualizados" translate="no">​</a></h3>
-<p>Nombres, relaciones, dominios y localizaciones cambian. ROR mantiene sus registros mediante curación comunitaria, no mediante sincronización instantánea con todas las jurisdicciones. La ausencia de una organización no prueba que no exista ni que no investigue.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-grafo-multiplica-errores-con-facilidad">Un grafo multiplica errores con facilidad<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#un-grafo-multiplica-errores-con-facilidad" class="hash-link" aria-label="Enlace directo al Un grafo multiplica errores con facilidad" title="Enlace directo al Un grafo multiplica errores con facilidad" translate="no">​</a></h3>
-<p>Si asignas un ROR incorrecto a cien publicaciones, el error aparentará estar corroborado cien veces. Es repetición de un mismo emparejamiento, no cien fuentes independientes. Mide la calidad sobre una muestra revisada y conserva una categoría <code>sin resolver</code>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Investiga organizaciones y relaciones relevantes para una finalidad legítima; no uses afiliaciones para perfilar la vida privada de investigadores.</li>
-<li class="">Minimiza nombres personales en exports, capturas y prompts enviados a servicios externos.</li>
-<li class="">No contactes a empleados para «validar» una hipótesis que puede resolverse con fuentes institucionales.</li>
-<li class="">Separa hechos, metadatos depositados e inferencias analíticas en el informe.</li>
-<li class="">Conserva contradicciones y periodos de validez; una afiliación histórica no es necesariamente falsa.</li>
-<li class="">Respeta límites de API, términos de los sistemas enlazados y licencias de cada dataset.</li>
-<li class="">Exige revisión humana cuando una coincidencia afecte a financiación, reputación, contratación o cumplimiento.</li>
-<li class="">Publica solo lo necesario y ofrece una vía de corrección si el análisis identifica mal una organización.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>ROR encaja especialmente bien en el ecosistema académico. Para otros tipos de entidad, combina o sustituye según la pregunta:</p>
-<ul>
-<li class=""><code>LEI/GLEIF</code> para identidad jurídica y relaciones declaradas de determinadas entidades financieras y corporativas;</li>
-<li class="">registros mercantiles para existencia legal, administradores y filings;</li>
-<li class=""><code>Wikidata</code> para conocimiento enlazado más amplio, siempre revisando referencias y cambios;</li>
-<li class=""><code>OpenAlex</code> para explorar redes de obras, autores e instituciones antes de volver a fuentes primarias;</li>
-<li class=""><code>Crossref</code> y <code>DataCite</code> para metadatos de publicaciones y datasets;</li>
-<li class=""><code>OpenRefine</code> con reconciliación ROR para limpiar lotes con revisión visual.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-aceptar-un-ror">Checklist antes de aceptar un ROR<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#checklist-antes-de-aceptar-un-ror" class="hash-link" aria-label="Enlace directo al Checklist antes de aceptar un ROR" title="Enlace directo al Checklist antes de aceptar un ROR" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta y el periodo temporal están definidos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conserva la afiliación original y su procedencia.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se revisaron nombres, localización, dominio, estado y tipo.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La granularidad del registro coincide con la afirmación.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La estrategia de matching y la fecha quedaron anotadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Si falta <code>chosen: true</code>, el caso sigue sin resolver o fue revisado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Relaciones y crosswalks se trataron como pistas, no como prueba final.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una fuente primaria confirma la colaboración o afiliación relevante.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El resultado puede reproducirse, corregirse y deshacerse.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No se recopilaron datos personales innecesarios.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/ror-osint-organizaciones-investigacion-afiliaciones-trazabilidad#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://ror.org/about/" target="_blank" rel="noopener noreferrer" class="">ROR: qué es el registro</a></li>
-<li class=""><a href="https://ror.org/registry/" target="_blank" rel="noopener noreferrer" class="">ROR: alcance, curación, licencia y acceso a los datos</a></li>
-<li class=""><a href="https://ror.readme.io/docs/api-affiliation" target="_blank" rel="noopener noreferrer" class="">ROR API: parámetro de afiliación y cautelas de matching</a></li>
-<li class=""><a href="https://ror.readme.io/changelog/2026-05-26-default-affiliation-matching-strategy-is-now-single-search" target="_blank" rel="noopener noreferrer" class="">ROR: cambio de <code>affiliation</code> a <code>single search</code> por defecto</a></li>
-<li class=""><a href="https://ror.readme.io/docs/data-dump" target="_blank" rel="noopener noreferrer" class="">ROR: volcado de datos</a></li>
-<li class=""><a href="https://www.crossref.org/documentation/schema-library/markup-guide-metadata-segments/affiliations/" target="_blank" rel="noopener noreferrer" class="">Crossref: afiliaciones e identificadores ROR</a></li>
-<li class=""><a href="https://info.orcid.org/documentation/integration-guide/working-with-organization-identifiers/" target="_blank" rel="noopener noreferrer" class="">ORCID: identificadores de organizaciones y afiliaciones</a></li>
-</ul>
-<p>La takeaway accionable es sencilla: <strong>usa ROR para convertir nombres institucionales ambiguos en candidatos trazables, pero vuelve siempre al documento que afirma la relación y conserva una salida honesta: “sin resolver”</strong>. Como siguiente práctica, toma veinte afiliaciones públicas, registra el texto original y compara la búsqueda manual con <code>affiliation</code>; mide los errores antes de automatizar un corpus entero.</p>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Research" term="Research"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metadatos" term="Metadatos"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
