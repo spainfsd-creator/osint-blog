@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista OSINT comparando robots.txt, un sitemap XML y la estructura pública de una web](/img/blog/2026-08-26-robots-sitemap-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/robots-sitemap-osint-mapa-web-publico.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una empresa ficticia anuncia que ha retirado una línea de producto, pero su buscador interno sigue devolviendo fichas antiguas y el menú público ya no enlaza algunas páginas. El impulso fácil es lanzar un rastreador sobre todo el dominio. El método prudente empieza de forma más pequeña: consultar los mapas que el propio sitio publica para los robots, registrar qué declaran y comprobar cada URL relevante con peticiones normales. **`robots.txt` y `sitemap.xml` pueden revelar cómo quiere presentarse una web a los rastreadores; no demuestran que una ruta sea privada, importante, vigente ni siquiera accesible.**
