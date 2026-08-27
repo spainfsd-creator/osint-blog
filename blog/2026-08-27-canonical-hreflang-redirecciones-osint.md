@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT revisando redirecciones, URL canónicas y variantes lingüísticas en un grafo web](/img/blog/2026-08-27-canonical-hreflang-redirecciones-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/canonical-hreflang-redirecciones-osint-identidad-web.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una nota pública sobre una retirada de producto aparece bajo cuatro URL: la antigua redirige, la española declara otra dirección como canónica y la versión inglesa enlaza una traducción que devuelve un error. Si guardamos solo la página final, el recorrido desaparece; si creemos cada etiqueta sin contrastarla, fabricamos una equivalencia que el propio sitio no sostiene. **`canonical`, `hreflang` y las redirecciones describen relaciones distintas: juntas permiten reconstruir la identidad declarada de una página, pero ninguna demuestra por sí sola que dos contenidos sean iguales, verdaderos o contemporáneos.**
