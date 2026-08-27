@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkosint_blog=globalThis.webpackChunkosint_blog||[]).push([[75369],{12043(o){o.exports=JSON.parse('{"metadata":{"permalink":"/osint-blog/page/12","page":12,"postsPerPage":10,"totalPages":19,"totalCount":186,"previousPage":"/osint-blog/page/11","nextPage":"/osint-blog/page/13","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
