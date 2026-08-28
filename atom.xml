@@ -2,11 +2,135 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-08-27T00:00:00.000Z</updated>
+    <updated>2026-08-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[RSS y Atom en OSINT: seguir cambios sin confundir un feed con el archivo completo]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios"/>
+        <updated>2026-08-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de documentos públicos que atraviesan una cronología y pasan por controles de verificación]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de documentos públicos que atraviesan una cronología y pasan por controles de verificación" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-28-rss-atom-osint-cronologia-cambios-0631752fd80ef159a55a787b04e73741.png" width="1408" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una organización publica una nota, corrige el titular unas horas después y termina retirándola de su portada. Quien solo visita la web al final del día puede concluir que nunca existió; quien conserva un feed puede detectar que hubo una entrada y que cambió. Pero hay una trampa: <strong>RSS y Atom describen lo que el editor decidió sindicar, no todo lo que ocurrió ni necesariamente cuándo ocurrió en el mundo real</strong>.</p>
+<p>En una investigación legítima —seguimiento regulatorio, verificación periodística, <em>due diligence</em> o vigilancia de avisos de seguridad— los feeds son sensores de bajo impacto. Permiten observar novedades sin rastrear una web entera. Su valor aparece cuando conservamos cada adquisición, distinguimos publicación de actualización y corroboramos el contenido en su página de origen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-rss-y-atom-y-para-qué-sirven-en-osint">Qué son RSS y Atom, y para qué sirven en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#qu%C3%A9-son-rss-y-atom-y-para-qu%C3%A9-sirven-en-osint" class="hash-link" aria-label="Enlace directo al Qué son RSS y Atom, y para qué sirven en OSINT" title="Enlace directo al Qué son RSS y Atom, y para qué sirven en OSINT" translate="no">​</a></h2>
+<p>RSS y Atom son formatos de sindicación: documentos que agrupan entradas y metadatos para que un lector pueda descubrir contenido nuevo o modificado. Ambos suelen exponer título, enlace, fecha y resumen, pero sus modelos no son idénticos.</p>
+<p>La especificación <a href="https://www.rssboard.org/rss-specification" target="_blank" rel="noopener noreferrer" class="">RSS 2.0</a> organiza el documento como un <code>channel</code> que contiene elementos <code>item</code>. En cada elemento, <code>pubDate</code> es opcional; <code>guid</code> también lo es y puede ser un identificador que no sea una URL. Por tanto, ni la fecha ni el enlace deben tratarse como una clave universal.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc4287.html" target="_blank" rel="noopener noreferrer" class="">Atom, definido en RFC 4287</a>, formaliza cada <code>entry</code> con un <code>id</code> y un <code>updated</code> obligatorios; <code>published</code> es opcional. Esa separación resulta especialmente útil:</p>
+<ul>
+<li class=""><code>published</code> expresa la publicación inicial declarada por el editor;</li>
+<li class=""><code>updated</code> expresa una modificación significativa declarada;</li>
+<li class=""><code>id</code> debería permanecer estable aunque cambien otros campos;</li>
+<li class="">un enlace <code>alternate</code> suele llevar a la representación web de la entrada.</li>
+</ul>
+<p>Son <strong>afirmaciones del publicador</strong>, no sellos temporales independientes. Un CMS puede migrar entradas, regenerar fechas, reutilizar identificadores o producir XML inválido. El feed abre una pista y facilita una cronología; no certifica por sí solo autoría, integridad o momento exacto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-seguir-avisos-públicos-de-un-proveedor-ficticio">Caso de uso legítimo: seguir avisos públicos de un proveedor ficticio<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#caso-de-uso-leg%C3%ADtimo-seguir-avisos-p%C3%BAblicos-de-un-proveedor-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: seguir avisos públicos de un proveedor ficticio" title="Enlace directo al Caso de uso legítimo: seguir avisos públicos de un proveedor ficticio" translate="no">​</a></h2>
+<p>Imaginemos que el equipo de compras de <code>ejemplo.test</code> evalúa a un proveedor ficticio, <code>Norte Claro</code>, y necesita documentar cambios en sus avisos públicos de disponibilidad. El objetivo no es buscar información personal ni forzar rutas ocultas. Solo se pretende saber:</p>
+<ol>
+<li class="">cuándo aparece un aviso en el canal público;</li>
+<li class="">si su título, resumen, enlace o estado cambian;</li>
+<li class="">qué página respalda cada versión observada;</li>
+<li class="">qué incertidumbres impiden afirmar más.</li>
+</ol>
+<p>La ficha mínima por observación puede ser esta:</p>
+<table><thead><tr><th>Campo</th><th>Ejemplo ficticio</th><th>Por qué importa</th></tr></thead><tbody><tr><td><code>feed_url</code></td><td><code>https://estado.ejemplo.test/atom.xml</code></td><td>identifica el sensor consultado</td></tr><tr><td><code>retrieved_at</code></td><td>hora UTC de adquisición</td><td>separa observación de fecha declarada</td></tr><tr><td><code>entry_id</code> o <code>guid</code></td><td><code>urn:uuid:...</code></td><td>ayuda a reconocer la misma entrada</td></tr><tr><td><code>published</code> / <code>pubDate</code></td><td>valor literal del feed</td><td>recoge la publicación declarada</td></tr><tr><td><code>updated</code></td><td>valor literal de Atom</td><td>señala una revisión declarada</td></tr><tr><td><code>alternate_url</code></td><td>página pública del aviso</td><td>permite corroborar el contenido</td></tr><tr><td><code>feed_sha256</code></td><td>hash del XML adquirido</td><td>detecta cambios en la copia conservada</td></tr></tbody></table>
+<p>El dominio y los valores son deliberadamente ficticios. No deben sustituirse por objetivos reales sin autorización, finalidad legítima y una política de adquisición proporcionada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-descubre-el-feed-sin-adivinar-rutas">1. Descubre el feed sin adivinar rutas<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#1-descubre-el-feed-sin-adivinar-rutas" class="hash-link" aria-label="Enlace directo al 1. Descubre el feed sin adivinar rutas" title="Enlace directo al 1. Descubre el feed sin adivinar rutas" translate="no">​</a></h3>
+<p>Busca en el HTML público un enlace explícito como:</p>
+<div class="language-html codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-html codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&lt;</span><span class="token tag" style="color:rgb(255, 121, 198)">link</span><span class="token tag" style="color:rgb(255, 121, 198)"> </span><span class="token tag attr-name" style="color:rgb(241, 250, 140)">rel</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(248, 248, 242)">=</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag attr-value" style="color:rgb(255, 121, 198)">alternate</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag" style="color:rgb(255, 121, 198)"> </span><span class="token tag attr-name" style="color:rgb(241, 250, 140)">type</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(248, 248, 242)">=</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag attr-value" style="color:rgb(255, 121, 198)">application/atom+xml</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag" style="color:rgb(255, 121, 198)"> </span><span class="token tag attr-name" style="color:rgb(241, 250, 140)">href</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(248, 248, 242)">=</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag attr-value" style="color:rgb(255, 121, 198)">/atom.xml</span><span class="token tag attr-value punctuation" style="color:rgb(248, 248, 242)">"</span><span class="token tag punctuation" style="color:rgb(248, 248, 242)">&gt;</span><br></span></code></pre></div></div>
+<p>También puede aparecer <code>application/rss+xml</code>. El pie de página, la documentación del sitio o un icono de suscripción pueden ofrecer el mismo dato. Registra dónde descubriste la URL y resuelve las rutas relativas contra la página que hizo la declaración.</p>
+<p>No conviertas nombres habituales como <code>/feed</code> o <code>/rss.xml</code> en una lista para sondear indiscriminadamente. Si el editor no anuncia un feed, un sitemap, alertas por correo o una consulta manual pueden ser opciones más respetuosas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-haz-una-adquisición-inicial-reproducible">2. Haz una adquisición inicial reproducible<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#2-haz-una-adquisici%C3%B3n-inicial-reproducible" class="hash-link" aria-label="Enlace directo al 2. Haz una adquisición inicial reproducible" title="Enlace directo al 2. Haz una adquisición inicial reproducible" translate="no">​</a></h3>
+<p>Guarda el documento original antes de normalizarlo. En un entorno propio o autorizado, una consulta sencilla puede bastar:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --header 'Accept: application/atom+xml, application/rss+xml, application/xml;q=0.9' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --dump-header cabeceras.txt \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --output feed.xml \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://estado.ejemplo.test/atom.xml'</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">sha256sum feed.xml &gt; feed.xml.sha256</span><br></span></code></pre></div></div>
+<p>Anota además la hora UTC, la URL efectiva y la versión de tu herramienta. El hash demuestra que dos copias son iguales o distintas a nivel de bytes; no demuestra que el contenido sea verdadero.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-normaliza-sin-destruir-el-original">3. Normaliza sin destruir el original<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#3-normaliza-sin-destruir-el-original" class="hash-link" aria-label="Enlace directo al 3. Normaliza sin destruir el original" title="Enlace directo al 3. Normaliza sin destruir el original" translate="no">​</a></h3>
+<p>Extrae una tabla derivada, pero conserva el XML en solo lectura. Para cada entrada prioriza:</p>
+<ul>
+<li class="">identificador (<code>atom:id</code> o <code>guid</code>);</li>
+<li class="">enlaces y su relación;</li>
+<li class="">título y resumen tal como fueron recibidos;</li>
+<li class="">fechas declaradas y zona horaria;</li>
+<li class="">categorías, autoría declarada y adjuntos;</li>
+<li class="">hash de los campos relevantes y referencia a la adquisición original.</li>
+</ul>
+<p>No uses el título como identificador: puede corregirse. Tampoco asumas que <code>guid</code> es siempre una URL; RSS permite identificadores opacos y el atributo <code>isPermaLink</code> modifica su interpretación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-estados-no-solo-listas">4. Compara estados, no solo listas<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#4-compara-estados-no-solo-listas" class="hash-link" aria-label="Enlace directo al 4. Compara estados, no solo listas" title="Enlace directo al 4. Compara estados, no solo listas" translate="no">​</a></h3>
+<p>Una tabla de diferencias debería separar cuatro eventos observables:</p>
+<ul>
+<li class=""><strong>alta</strong>: aparece un identificador no visto;</li>
+<li class=""><strong>cambio</strong>: el mismo identificador presenta campos diferentes;</li>
+<li class=""><strong>desaparición de la ventana</strong>: ya no aparece en el documento actual;</li>
+<li class=""><strong>reaparición o cambio de identidad</strong>: vuelve con otro identificador o enlace.</li>
+</ul>
+<p>La tercera categoría es crucial. La <a href="https://www.rfc-editor.org/rfc/rfc5005.html" target="_blank" rel="noopener noreferrer" class="">RFC 5005</a> distingue feeds completos, paginados y archivados, pero muchos publicadores solo ofrecen una ventana móvil con las entradas recientes. Que un elemento desaparezca puede significar que salió de esa ventana, no que el editor lo borró ni que el hecho se retractó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corrobora-cada-cambio-importante">5. Corrobora cada cambio importante<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#5-corrobora-cada-cambio-importante" class="hash-link" aria-label="Enlace directo al 5. Corrobora cada cambio importante" title="Enlace directo al 5. Corrobora cada cambio importante" translate="no">​</a></h3>
+<p>Abre la URL pública vinculada y compara afirmaciones, no solo metadatos. Para una corrección relevante, conserva:</p>
+<ul>
+<li class="">versión del feed antes y después;</li>
+<li class="">página enlazada y hora de consulta;</li>
+<li class="">comunicado, registro o documento primario relacionado;</li>
+<li class="">explicación editorial, si existe;</li>
+<li class="">diferencias literales y tu interpretación en campos separados.</li>
+</ul>
+<p>Un cambio de <code>updated</code> sin una diferencia visible puede deberse a una reconstrucción del CMS. Una diferencia visible sin cambio de <code>updated</code> puede reflejar un productor defectuoso. Ninguno de los dos casos justifica acusar de manipulación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-reduce-peticiones-y-registra-fallos">6. Reduce peticiones y registra fallos<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#6-reduce-peticiones-y-registra-fallos" class="hash-link" aria-label="Enlace directo al 6. Reduce peticiones y registra fallos" title="Enlace directo al 6. Reduce peticiones y registra fallos" translate="no">​</a></h3>
+<p>Respeta <code>ETag</code> y <code>Last-Modified</code> cuando el servidor los ofrezca, usando peticiones condicionales conforme a la <a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener noreferrer" class="">semántica HTTP</a>. Establece un intervalo acorde a la frecuencia real del canal; un feed diario no necesita consultas cada minuto.</p>
+<p>Registra por separado errores de red, respuestas <code>304 Not Modified</code>, redirecciones, XML mal formado y cambios de tipo MIME. Un fallo de adquisición es un hueco en la cobertura, no evidencia de que el publicador estuviera inactivo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-valora-websub-solo-cuando-aporte-algo">7. Valora WebSub solo cuando aporte algo<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#7-valora-websub-solo-cuando-aporte-algo" class="hash-link" aria-label="Enlace directo al 7. Valora WebSub solo cuando aporte algo" title="Enlace directo al 7. Valora WebSub solo cuando aporte algo" translate="no">​</a></h3>
+<p><a href="https://www.w3.org/TR/websub/" target="_blank" rel="noopener noreferrer" class="">WebSub</a> permite que un publicador anuncie un <code>hub</code> y un <code>self</code>; el suscriptor solicita recibir actualizaciones en una URL de <em>callback</em>. Puede reducir el sondeo, pero introduce infraestructura expuesta, renovaciones y validación de entregas.</p>
+<p>Si operas un suscriptor autorizado, usa HTTPS, una URL de callback difícil de adivinar, valida la confirmación y verifica la firma cuando la suscripción utilice secreto. Una notificación indica que el <em>hub</em> entregó un contenido; sigue sin certificar la veracidad del publicador ni sustituir tu copia fechada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-feed-no-es-necesariamente-un-archivo">Un feed no es necesariamente un archivo<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#un-feed-no-es-necesariamente-un-archivo" class="hash-link" aria-label="Enlace directo al Un feed no es necesariamente un archivo" title="Enlace directo al Un feed no es necesariamente un archivo" translate="no">​</a></h3>
+<p>Puede contener diez entradas recientes aunque el sitio tenga miles. Sin enlaces de paginación o archivo explícitos, no reconstruyas el pasado a partir del estado actual. La ausencia solo significa «no estaba en esta adquisición».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="las-fechas-tienen-semánticas-distintas">Las fechas tienen semánticas distintas<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#las-fechas-tienen-sem%C3%A1nticas-distintas" class="hash-link" aria-label="Enlace directo al Las fechas tienen semánticas distintas" title="Enlace directo al Las fechas tienen semánticas distintas" translate="no">​</a></h3>
+<p><code>published</code>, <code>updated</code>, <code>pubDate</code>, la fecha visible en HTML, la cabecera HTTP y tu <code>retrieved_at</code> responden a preguntas diferentes. Convierte formatos para comparar, pero conserva siempre el literal y su zona horaria. No inventes precisión cuando falte.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-identificadores-también-fallan">Los identificadores también fallan<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#los-identificadores-tambi%C3%A9n-fallan" class="hash-link" aria-label="Enlace directo al Los identificadores también fallan" title="Enlace directo al Los identificadores también fallan" translate="no">​</a></h3>
+<p>Dos entradas pueden compartir un <code>guid</code> por un error del generador; una migración puede cambiar todos los <code>id</code>; varios feeds pueden redistribuir la misma pieza con identificadores propios. Usa identificador, enlace, contenido y procedencia como conjunto de señales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-resumen-puede-transformar-el-contenido">El resumen puede transformar el contenido<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#el-resumen-puede-transformar-el-contenido" class="hash-link" aria-label="Enlace directo al El resumen puede transformar el contenido" title="Enlace directo al El resumen puede transformar el contenido" translate="no">​</a></h3>
+<p>HTML escapado, truncado, sanitización, imágenes, adjuntos y codificaciones producen diferencias que no representan un cambio editorial. Compara primero el árbol semántico o el texto normalizado y vuelve después al original para decidir qué cambió realmente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-sindicación-puede-llegar-tarde">La sindicación puede llegar tarde<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#la-sindicaci%C3%B3n-puede-llegar-tarde" class="hash-link" aria-label="Enlace directo al La sindicación puede llegar tarde" title="Enlace directo al La sindicación puede llegar tarde" translate="no">​</a></h3>
+<p>El feed puede actualizarse después de la página o por lotes. WebSub también depende de publicador, <em>hub</em> y entrega. Tu primera observación fija un límite: el contenido existía <strong>como muy tarde</strong> al adquirirlo, pero el feed por sí solo raramente fija cuándo empezó a existir.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">monitoriza solo fuentes públicas pertinentes y con una finalidad documentada;</li>
+<li class="">evita feeds personalizados que incorporen tokens, sesiones o datos privados;</li>
+<li class="">no publiques URL de suscripción secretas ni cabeceras de autenticación;</li>
+<li class="">aplica límites de frecuencia, retroceso ante errores y un <code>User-Agent</code> identificable cuando proceda;</li>
+<li class="">no descargues automáticamente adjuntos desconocidos; registra su URL y analízalos en un entorno controlado si es necesario;</li>
+<li class="">minimiza datos personales en tablas, capturas, alertas y retención;</li>
+<li class="">separa contenido recibido, transformación técnica, inferencia analítica y decisión;</li>
+<li class="">exige corroboración y revisión humana antes de acciones de alto impacto.</li>
+</ul>
+<p>Un feed de empleados, comentarios o actividad individual no legitima el seguimiento invasivo de personas. La automatización debe reducir carga y ruido, no ampliar el alcance de una investigación más allá de su base legal y ética.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Para pocos sitios, un lector RSS con exportación y notas puede ser suficiente. Las alertas oficiales por correo sirven cuando el editor no publica feed. Los sitemaps ofrecen URL declaradas y, a veces, <code>lastmod</code>; un monitor visual detecta cambios en páginas concretas; un archivo web aporta copias históricas con cobertura imperfecta. Ninguna fuente sustituye por sí sola a las demás.</p>
+<p>El takeaway accionable es este: <strong>trata cada feed como una secuencia de declaraciones adquiridas, no como la historia completa</strong>. Conserva el XML original, registra tu hora de observación, compara por identificadores estables, distingue publicación de actualización y corrobora cualquier cambio relevante en una fuente primaria independiente.</p>
+<p>El siguiente paso natural es diseñar alertas con niveles de confianza: una para entradas nuevas, otra para correcciones materiales y una tercera para fallos de cobertura, evitando que cada diferencia técnica se convierta en un incidente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/rss-atom-osint-cronologia-cambios#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc4287.html" target="_blank" rel="noopener noreferrer" class="">RFC 4287: The Atom Syndication Format</a></li>
+<li class=""><a href="https://www.rssboard.org/rss-specification" target="_blank" rel="noopener noreferrer" class="">RSS Advisory Board: RSS 2.0 Specification</a></li>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc5005.html" target="_blank" rel="noopener noreferrer" class="">RFC 5005: Feed Paging and Archiving</a></li>
+<li class=""><a href="https://www.w3.org/TR/websub/" target="_blank" rel="noopener noreferrer" class="">W3C: WebSub</a></li>
+<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener noreferrer" class="">RFC 9110: HTTP Semantics</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Web" term="Web"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[canonical, hreflang y redirecciones en OSINT: reconstruir la identidad de una página sin forzar equivalencias]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/canonical-hreflang-redirecciones-osint-identidad-web</id>
@@ -2870,160 +2994,6 @@
         <category label="GEOINT" term="GEOINT"/>
         <category label="Investigacion" term="Investigacion"/>
         <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Open Supply Hub en OSINT: verificar instalaciones y cadenas de suministro sin convertir un mapa en prueba]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro"/>
-        <updated>2026-08-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT contrastando instalaciones productivas, listas públicas, procedencia y señales contradictorias]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando instalaciones productivas, listas públicas, procedencia y señales contradictorias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-07-open-supply-hub-osint-d3a592a921ba3ffe85678cc26c2e0971.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/open-supply-hub-osint-instalaciones-cadena-suministro-b64eec6f303f5759ebd8bfbb19e58433.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una marca publica dos listas de proveedores con seis meses de diferencia. Una fábrica cambia ligeramente de nombre, otra aparece desplazada varios kilómetros y una tercera figura también en la lista de un certificador. El mapa parece resolver el caso de un vistazo. En realidad, solo abre preguntas: <strong>¿es la misma instalación?, ¿quién aportó cada dato?, ¿qué fecha describe y qué significa exactamente que dos organizaciones aparezcan conectadas?</strong></p>
-<p><a href="https://info.opensupplyhub.org/technology" target="_blank" rel="noopener noreferrer" class="">Open Supply Hub</a> puede ordenar esa primera capa de una investigación legítima sobre transparencia, compras responsables, debida diligencia o impacto ambiental. Reúne ubicaciones productivas aportadas por distintos actores, intenta deduplicarlas y asigna un identificador común, el <code>OS ID</code>. Su gran valor OSINT no es prometer una cadena de suministro completa, sino permitir que el analista compare nombres, direcciones, coordenadas, contribuyentes y procedencia sin perder de vista quién dijo qué.</p>
-<p>Todos los nombres, direcciones, identificadores y documentos del caso práctico son ficticios.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-open-supply-hub-y-para-qué-sirve">Qué es Open Supply Hub y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#qu%C3%A9-es-open-supply-hub-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es Open Supply Hub y para qué sirve" title="Enlace directo al Qué es Open Supply Hub y para qué sirve" translate="no">​</a></h2>
-<p>Open Supply Hub —<code>OS Hub</code>— es una plataforma abierta dedicada a datos sobre instalaciones o ubicaciones productivas. La búsqueda pública permite localizar perfiles por nombre u <code>OS ID</code>, explorar organizaciones que han contribuido datos y combinar filtros geográficos y sectoriales. Su <a href="https://info.opensupplyhub.org/resources/how-to-search" target="_blank" rel="noopener noreferrer" class="">guía oficial de búsqueda</a> incluye filtros como país, contribuyente, empresa matriz, sector, tipo de instalación, proceso, producto o número de trabajadores, en función de los datos disponibles.</p>
-<p>La plataforma limpia y compara las aportaciones para detectar posibles duplicados. Cuando varias listas se refieren a una misma ubicación, el <code>OS ID</code> actúa como clave común. Esto resulta útil para:</p>
-<ul>
-<li class="">normalizar instalaciones escritas con variantes de nombre o dirección;</li>
-<li class="">localizar la fuente concreta de una relación declarada;</li>
-<li class="">comparar listas de proveedores publicadas en momentos distintos;</li>
-<li class="">detectar instalaciones compartidas por varios contribuyentes;</li>
-<li class="">preparar una revisión de registros mercantiles, licencias o documentos de contratación;</li>
-<li class="">documentar correcciones, fusiones y dudas sin depender de una hoja de cálculo opaca.</li>
-</ul>
-<p>No sirve, por sí solo, para demostrar propiedad, actividad actual, cumplimiento normativo, certificación vigente ni una relación comercial en la fecha de consulta. Tampoco la presencia de dos marcas en el perfil de una instalación prueba que compartan proveedor al mismo tiempo: las aportaciones pueden proceder de listas distintas, con alcances y fechas diferentes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lee-la-procedencia-antes-que-el-punto-del-mapa">Lee la procedencia antes que el punto del mapa<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#lee-la-procedencia-antes-que-el-punto-del-mapa" class="hash-link" aria-label="Enlace directo al Lee la procedencia antes que el punto del mapa" title="Enlace directo al Lee la procedencia antes que el punto del mapa" translate="no">​</a></h2>
-<p>El <a href="https://info.opensupplyhub.org/resources/an-open-data-model" target="_blank" rel="noopener noreferrer" class="">modelo de datos abierto de OS Hub</a> distingue tres grandes procedencias:</p>
-<ol>
-<li class=""><strong>Datos aportados por la comunidad</strong>: pueden proceder de marcas, organizaciones civiles, iniciativas sectoriales, proveedores de servicios, fábricas o grupos industriales. El equipo de investigación de OS Hub también incorpora conjuntos públicos.</li>
-<li class=""><strong>Datos reclamados</strong>: una persona autorizada de la instalación o de su empresa matriz puede reclamar el perfil y añadir información operativa.</li>
-<li class=""><strong>Datos Spotlight</strong>: terceros especializados aportan información social o ambiental en un bloque separado.</li>
-</ol>
-<p>La etiqueta <code>[Public List]</code> merece especial atención. Según la guía de búsqueda, indica que el equipo de OS Hub cargó una lista disponible públicamente en nombre de otra organización; <strong>no significa que esa organización realizara directamente la carga</strong>. En una ficha de trabajo conviene conservar la etiqueta, el nombre de la lista, su fecha y el enlace al documento original si sigue disponible.</p>
-<p>Un perfil <code>Claimed</code> tampoco convierte todo su contenido en hecho verificado. La <a href="https://info.opensupplyhub.org/resources/claim-a-facility" target="_blank" rel="noopener noreferrer" class="">documentación del proceso de reclamación</a> explica que el equipo comprueba la conexión y autoridad de quien reclama, además del nombre y la dirección de la empresa. La misma página advierte que no verifica individualmente todos los datos que esa persona añade después, como capacidades productivas, certificaciones o pedidos mínimos.</p>
-<p>La regla práctica es sencilla:</p>
-<blockquote>
-<p>Una insignia describe un proceso de procedencia o reclamación; no sustituye la corroboración del dato concreto que vas a utilizar.</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-revisar-una-lista-de-proveedores">Caso de uso legítimo: revisar una lista de proveedores<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#caso-de-uso-leg%C3%ADtimo-revisar-una-lista-de-proveedores" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: revisar una lista de proveedores" title="Enlace directo al Caso de uso legítimo: revisar una lista de proveedores" translate="no">​</a></h2>
-<p>La cooperativa ficticia <code>Luz del Tajo</code> va a renovar un contrato de uniformes. Un proveedor candidato declara que la confección se realiza en <code>Textiles Sierra Clara</code>, en la ciudad ficticia de <code>Puerto Niebla</code>. El equipo de compras quiere comprobar la coherencia documental, no investigar a trabajadores ni publicar datos personales.</p>
-<p>La búsqueda devuelve dos candidatos:</p>
-<table><thead><tr><th>Registro</th><th>Nombre observado</th><th>Dirección</th><th>Procedencia</th><th>Lectura inicial</th></tr></thead><tbody><tr><td><code>OS-000001-AZ</code></td><td>Textiles Sierra Clara Ltd.</td><td>Zona Norte, nave 18</td><td>Lista pública de una marca</td><td>Candidato plausible</td></tr><tr><td><code>OS-000917-QM</code></td><td>Sierra Clara Textil</td><td>Zona Norte, nave 81</td><td>Aportación de una ONG</td><td>Nombre parecido; dirección contradictoria</td></tr></tbody></table>
-<p>El primer registro coincide en calle y actividad, pero la lista tiene dieciocho meses. El segundo comparte palabras y ciudad, aunque cambia el número de nave. Fusionarlos mentalmente sería cómodo y metodológicamente pobre.</p>
-<p>La pregunta correcta no es «¿cuál parece la fábrica?», sino:</p>
-<blockquote>
-<p>¿Qué identificador, documento primario, fecha y coordenada permiten confirmar o descartar cada hipótesis sin ocultar contradicciones?</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-que-necesitas-comprobar">1. Define la afirmación que necesitas comprobar<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#1-define-la-afirmaci%C3%B3n-que-necesitas-comprobar" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación que necesitas comprobar" title="Enlace directo al 1. Define la afirmación que necesitas comprobar" translate="no">​</a></h3>
-<p>Escribe una frase limitada y fechada: «La empresa candidata declaró en su oferta de agosto de 2026 que <code>Textiles Sierra Clara</code> confeccionaría estas prendas». No la conviertas en «esta fábrica pertenece al proveedor» ni «lleva años trabajando para él» si la fuente no lo dice.</p>
-<p>Registra también el coste del error. Una confusión puede perjudicar una licitación o atribuir problemas de otra instalación. Cuanto mayor sea el impacto, más fuerte debe ser la evidencia y más necesaria la revisión humana.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-el-dato-original-antes-de-normalizar">2. Conserva el dato original antes de normalizar<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#2-conserva-el-dato-original-antes-de-normalizar" class="hash-link" aria-label="Enlace directo al 2. Conserva el dato original antes de normalizar" title="Enlace directo al 2. Conserva el dato original antes de normalizar" translate="no">​</a></h3>
-<p>Anota literalmente nombre, dirección, país y cualquier identificador tal como aparecen en la oferta. Después crea campos normalizados para comparar mayúsculas, abreviaturas, transliteraciones y formatos postales. Nunca sobrescribas el original.</p>
-<p>Una tabla mínima puede contener:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">evidencia | valor_original | valor_normalizado | fuente | fecha_fuente | fecha_consulta</span><br></span></code></pre></div></div>
-<p>La normalización ayuda a buscar; no demuestra identidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-busca-de-amplio-a-preciso">3. Busca de amplio a preciso<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#3-busca-de-amplio-a-preciso" class="hash-link" aria-label="Enlace directo al 3. Busca de amplio a preciso" title="Enlace directo al 3. Busca de amplio a preciso" translate="no">​</a></h3>
-<p>Empieza por nombre y país. Repite con fragmentos significativos de la dirección y, si dispones de él, busca el <code>OS ID</code>. Amplía el radio del mapa solo para descubrir candidatos, no para declarar coincidencias.</p>
-<p>Después abre cada perfil y registra:</p>
-<ul>
-<li class=""><code>OS ID</code> y URL estable;</li>
-<li class="">nombres y direcciones aportados;</li>
-<li class="">coordenadas y precisión aparente;</li>
-<li class="">contribuyentes, nombres de listas y fechas disponibles;</li>
-<li class="">estado reclamado o no reclamado;</li>
-<li class="">empresa matriz, sector y procesos, indicando quién aportó cada campo;</li>
-<li class="">contradicciones, ausencias y posibles duplicados.</li>
-</ul>
-<p>La plataforma permite combinar contribuyentes y mostrar ubicaciones compartidas, pero ese resultado debe leerse como intersección de <strong>aportaciones</strong>, no como prueba automática de contratos simultáneos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-identidad-relación-y-vigencia">4. Separa identidad, relación y vigencia<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#4-separa-identidad-relaci%C3%B3n-y-vigencia" class="hash-link" aria-label="Enlace directo al 4. Separa identidad, relación y vigencia" title="Enlace directo al 4. Separa identidad, relación y vigencia" translate="no">​</a></h3>
-<p>Trabaja con tres hipótesis independientes:</p>
-<table><thead><tr><th>Capa</th><th>Pregunta</th><th>Evidencia útil</th></tr></thead><tbody><tr><td>Identidad</td><td>¿Es la misma instalación física?</td><td>Dirección completa, coordenadas, identificador oficial, imágenes y documentos</td></tr><tr><td>Relación</td><td>¿Qué une a la instalación con la organización?</td><td>Lista original, contrato público, declaración del proveedor o fuente institucional</td></tr><tr><td>Vigencia</td><td>¿En qué periodo existió esa relación?</td><td>Fecha de publicación, periodo cubierto, versiones archivadas y actualización</td></tr></tbody></table>
-<p>Confirmar una capa no confirma las otras. Un <code>OS ID</code> puede resolver la identidad sin acreditar que una relación comercial siga activa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-vuelve-a-la-fuente-primaria">5. Vuelve a la fuente primaria<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#5-vuelve-a-la-fuente-primaria" class="hash-link" aria-label="Enlace directo al 5. Vuelve a la fuente primaria" title="Enlace directo al 5. Vuelve a la fuente primaria" translate="no">​</a></h3>
-<p>Abre la lista o documento que originó la contribución. Comprueba título, editor, fecha, alcance y notas metodológicas. Si es una lista histórica, consérvala como evidencia histórica. Si el enlace ha desaparecido, busca una copia archivada y describe esa limitación.</p>
-<p>Contrasta, cuando sea proporcionado, con registros oficiales de sociedades, licencias ambientales, portales de contratación, documentos corporativos o la web de la instalación. No uses una coincidencia cartográfica para rellenar campos que ninguna fuente sostiene.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-clasifica-el-resultado-no-fuerces-un-veredicto">6. Clasifica el resultado, no fuerces un veredicto<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#6-clasifica-el-resultado-no-fuerces-un-veredicto" class="hash-link" aria-label="Enlace directo al 6. Clasifica el resultado, no fuerces un veredicto" title="Enlace directo al 6. Clasifica el resultado, no fuerces un veredicto" translate="no">​</a></h3>
-<p>Usa estados comprensibles:</p>
-<ul>
-<li class=""><strong>confirmado</strong>: identificadores o documentos primarios compatibles y fechados;</li>
-<li class=""><strong>probable</strong>: varias señales independientes encajan, pero falta una pieza decisiva;</li>
-<li class=""><strong>posible</strong>: nombre o ubicación aproximada sin suficiente corroboración;</li>
-<li class=""><strong>contradictorio</strong>: hay incompatibilidades materiales;</li>
-<li class=""><strong>no determinado</strong>: la evidencia disponible no permite decidir.</li>
-</ul>
-<p>Anota qué observación haría cambiar de categoría. Esa regla evita que «posible» se transforme en «confirmado» al pasar del cuaderno al informe.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-automatiza-solo-después-de-validar-a-mano">7. Automatiza solo después de validar a mano<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#7-automatiza-solo-despu%C3%A9s-de-validar-a-mano" class="hash-link" aria-label="Enlace directo al 7. Automatiza solo después de validar a mano" title="Enlace directo al 7. Automatiza solo después de validar a mano" translate="no">​</a></h3>
-<p>Para volúmenes altos, la <a href="https://info.opensupplyhub.org/resources/api-documentation" target="_blank" rel="noopener noreferrer" class="">documentación oficial de la API</a> describe búsquedas por instalaciones y otros catálogos, además de eventos de fusión. El acceso a la API requiere token y depende de un paquete o prueba; no debe presentarse como una interfaz anónima e ilimitada.</p>
-<p>Antes de escalar:</p>
-<ol>
-<li class="">valida una muestra manual;</li>
-<li class="">guarda parámetros y fecha de ejecución;</li>
-<li class="">conserva los identificadores originales y los <code>OS ID</code> devueltos;</li>
-<li class="">registra qué versión de tu regla produjo cada coincidencia;</li>
-<li class="">envía los casos ambiguos a revisión, en lugar de escoger el primero.</li>
-</ol>
-<p>La <a href="https://info.opensupplyhub.org/resources/uploading-to-open-supply-hub" target="_blank" rel="noopener noreferrer" class="">guía de carga</a> señala que las listas pasan una revisión inicial de calidad y formato y que cada instalación se procesa mediante un modelo estadístico. Eso mejora la consistencia, pero no elimina falsos positivos, duplicados residuales ni errores de origen.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
-<p>La ausencia de una instalación puede significar que nadie la ha aportado, que figura con otra grafía, que la lista está en proceso o que existe un problema de calidad. <strong>Ausencia no equivale a inexistencia</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="coordenadas-que-parecen-más-precisas-de-lo-que-son">Coordenadas que parecen más precisas de lo que son<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#coordenadas-que-parecen-m%C3%A1s-precisas-de-lo-que-son" class="hash-link" aria-label="Enlace directo al Coordenadas que parecen más precisas de lo que son" title="Enlace directo al Coordenadas que parecen más precisas de lo que son" translate="no">​</a></h3>
-<p>Un punto puede proceder de geocodificar una dirección incompleta y caer en el centro de una calle, código postal o municipio. Contrasta parcela, rótulos, ortofotos y fuentes oficiales antes de interpretar distancias pequeñas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homónimos-y-complejos-industriales">Homónimos y complejos industriales<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#hom%C3%B3nimos-y-complejos-industriales" class="hash-link" aria-label="Enlace directo al Homónimos y complejos industriales" title="Enlace directo al Homónimos y complejos industriales" translate="no">​</a></h3>
-<p>Dos instalaciones pueden compartir un nombre genérico. A la inversa, varias unidades dentro del mismo recinto pueden tener razones sociales distintas. Nombre parecido y proximidad no bastan para fusionar perfiles.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="relaciones-aportadas-no-necesariamente-confirmadas">Relaciones aportadas, no necesariamente confirmadas<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#relaciones-aportadas-no-necesariamente-confirmadas" class="hash-link" aria-label="Enlace directo al Relaciones aportadas, no necesariamente confirmadas" title="Enlace directo al Relaciones aportadas, no necesariamente confirmadas" translate="no">​</a></h3>
-<p>Que una organización aparezca como contribuyente significa que aportó o está asociada a una lista que incluye la ubicación. La etiqueta de procedencia y la fuente original determinan qué puede afirmarse. Evita verbos fuertes como «posee», «controla» o «opera» si el documento solo dice «proveedor».</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="datos-actuales-que-no-reconstruyen-el-pasado">Datos actuales que no reconstruyen el pasado<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#datos-actuales-que-no-reconstruyen-el-pasado" class="hash-link" aria-label="Enlace directo al Datos actuales que no reconstruyen el pasado" title="Enlace directo al Datos actuales que no reconstruyen el pasado" translate="no">​</a></h3>
-<p>Una ficha viva puede mezclar aportaciones de distintos momentos. Para una cronología, conserva capturas o exportes fechados y recupera versiones de las listas originales. La consulta de hoy no demuestra el estado de 2022.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Limita el objetivo a organizaciones, instalaciones y relaciones relevantes para una finalidad legítima.</li>
-<li class="">No recopiles identidades, teléfonos ni rutinas de trabajadores cuando no sean necesarios.</li>
-<li class="">No publiques coordenadas sensibles de forma más precisa que las propias fuentes si eso aumenta un riesgo real.</li>
-<li class="">Diferencia siempre dato aportado, dato reclamado, corroboración externa e inferencia analítica.</li>
-<li class="">Conserva URL, fecha, contribuyente y documento original junto a cada afirmación.</li>
-<li class="">Ofrece un canal de corrección y corrige de forma visible cuando cambie la evidencia.</li>
-<li class="">No contactes de forma engañosa a empleados ni proveedores para obtener información.</li>
-<li class="">Revisa las condiciones de uso, licencias y obligaciones legales antes de descargar o redistribuir datos a escala.</li>
-</ul>
-<p>La moderación también forma parte del oficio. Si detectas un posible duplicado o una coordenada incorrecta, documenta la evidencia y utiliza los mecanismos de corrección de la plataforma; no conviertas una anomalía en una acusación pública.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Open Supply Hub ocupa una capa concreta: instalaciones productivas, aportaciones y una clave común para reconciliar registros. Complétala según la pregunta:</p>
-<ul>
-<li class=""><strong>OpenCorporates y registros mercantiles oficiales</strong> para razón social, cargos y situación jurídica;</li>
-<li class=""><strong>GLEIF</strong> para identidades corporativas con <code>LEI</code>, cuando exista;</li>
-<li class=""><strong>OpenStreetMap y cartografía oficial</strong> para contexto espacial, accesos y geometrías;</li>
-<li class=""><strong>portales de contratación y transparencia</strong> para relaciones contractuales documentadas;</li>
-<li class=""><strong>Wayback Machine o Archive.today</strong> para reconstruir versiones anteriores de listas y páginas;</li>
-<li class=""><strong>OpenRefine</strong> para normalización reproducible antes de comparar grandes tablas.</li>
-</ul>
-<p>No intentes que una sola plataforma responda identidad, propiedad, actividad, relación y vigencia. Diseña una matriz de evidencias donde cada fuente ocupe el lugar que realmente puede sostener.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-cierre">Checklist de cierre<a href="https://spainfsd-creator.github.io/osint-blog/open-supply-hub-osint-instalaciones-cadena-suministro#checklist-de-cierre" class="hash-link" aria-label="Enlace directo al Checklist de cierre" title="Enlace directo al Checklist de cierre" translate="no">​</a></h2>
-<p>Antes de publicar o elevar una conclusión, comprueba:</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He conservado el nombre y la dirección originales.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He anotado el <code>OS ID</code>, la URL y la fecha de consulta.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Sé quién aportó cada dato y si procede de una <code>[Public List]</code>.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado identidad de instalación, relación declarada y vigencia.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado el documento primario que originó la conexión.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He conservado contradicciones y candidatos descartados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He evitado datos personales y coordenadas innecesarias.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Mi conclusión expresa incertidumbre y admite corrección.</li>
-</ul>
-<p>El takeaway es accionable: <strong>trata Open Supply Hub como un índice con procedencia y un sistema de reconciliación, no como un veredicto sobre una cadena de suministro</strong>. En la próxima investigación podemos dar el siguiente paso: reconstruir versiones históricas de una lista de proveedores y comparar altas, bajas y cambios de identidad sin confundir una modificación editorial con un cambio real de fábrica.</p>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Due Diligence" term="Due Diligence"/>
         <category label="Datos" term="Datos"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
