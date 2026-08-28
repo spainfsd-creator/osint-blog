@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de documentos públicos que atraviesan una cronología y pasan por controles de verificación](/img/blog/2026-08-28-rss-atom-osint-cronologia-cambios.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/rss-atom-osint-cronologia-cambios.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una organización publica una nota, corrige el titular unas horas después y termina retirándola de su portada. Quien solo visita la web al final del día puede concluir que nunca existió; quien conserva un feed puede detectar que hubo una entrada y que cambió. Pero hay una trampa: **RSS y Atom describen lo que el editor decidió sindicar, no todo lo que ocurrió ni necesariamente cuándo ocurrió en el mundo real**.
