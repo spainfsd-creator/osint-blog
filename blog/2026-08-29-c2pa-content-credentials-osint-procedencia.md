@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT separando la cadena de procedencia criptográfica de la evaluación factual de una imagen](/img/blog/2026-08-29-c2pa-content-credentials-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/c2pa-content-credentials-osint-procedencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una fotografía de una protesta llega a una redacción con una insignia de **Content Credentials**. El panel indica que la credencial es válida, que el archivo está ligado criptográficamente a un manifiesto y que una aplicación conocida lo firmó. Parece el final de la verificación. En realidad, apenas hemos contestado una pregunta: **qué declaraciones de procedencia acompañan a ese archivo y si siguen íntegras**.
