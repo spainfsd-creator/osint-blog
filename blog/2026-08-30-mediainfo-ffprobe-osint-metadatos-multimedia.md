@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando contenedores, flujos, marcas de tiempo y un informe JSON de un archivo multimedia](/img/blog/2026-08-30-mediainfo-ffprobe-osint-metadatos-multimedia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/mediainfo-ffprobe-osint-metadatos-multimedia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un vídeo de una avería industrial llega a un equipo de verificación con un nombre convincente: `incidente_1432_original.mp4`. Una herramienta muestra «fecha de creación 14:32», otra identifica un codificador y las redes sociales aseguran que el archivo salió directamente de una cámara. Parece una cronología cerrada. No lo es: **un contenedor puede conservar datos técnicos, etiquetas declaradas y rastros de procesado, pero no certifica por sí solo cuándo, dónde ni por quién se grabó una escena**.
