@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista comparando dos copias multimedia por capas visuales, acústicas y técnicas](/img/blog/2026-08-31-comparacion-copias-multimedia-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/comparacion-copias-multimedia-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Dos vídeos muestran aparentemente la misma escena, pero sus hashes no coinciden. Uno dura 40 milisegundos más, pesa la mitad y declara otra fecha. La conclusión tentadora es que alguien lo manipuló. La conclusión profesional es más modesta: **todavía no sabemos qué capa cambió, por qué cambió ni si la diferencia afecta al contenido que importa**.
