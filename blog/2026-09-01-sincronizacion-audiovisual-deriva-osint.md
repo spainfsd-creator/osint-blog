@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT comparando una línea de vídeo y una forma de onda cuyos marcadores se separan con el tiempo](/img/blog/2026-09-01-sincronizacion-audiovisual-deriva-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sincronizacion-audiovisual-deriva-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una portavoz golpea la mesa y el sonido llega 180 milisegundos después. Diez minutos más tarde, el retraso parece acercarse al medio segundo. Es tentador concluir que alguien movió el audio para ocultar un corte. Pero dos observaciones visuales todavía no distinguen entre **un desfase fijo, una deriva acumulada, una transcodificación defectuosa, latencia de reproducción o una edición real**.
