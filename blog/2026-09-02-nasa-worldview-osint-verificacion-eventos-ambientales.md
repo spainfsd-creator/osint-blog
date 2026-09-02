@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista comparando capas y fechas de observación de la Tierra con un cuaderno de procedencia](/img/blog/2026-09-02-nasa-worldview-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/nasa-worldview-osint-verificacion-eventos-ambientales.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una fotografía viral asegura que un polígono industrial quedó inundado «esta mañana». El cielo de la imagen está gris, la ubicación parece plausible y varias cuentas repiten la misma explicación. Abrir un visor satelital y encontrar una mancha oscura puede parecer la confirmación definitiva. No lo es: **una visualización puede mostrar agua, nube, sombra, humo o un producto derivado; ninguna capa explica por sí sola qué ocurrió, a qué hora exacta ni quién fue responsable**.
