@@ -4,10 +4,142 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 02 Sep 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[NASA Worldview en OSINT: verificar eventos ambientales sin confundir una capa con la realidad]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales</guid>
+            <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de un analista comparando capas y fechas de observación de la Tierra con un cuaderno de procedencia]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando capas y fechas de observación de la Tierra con un cuaderno de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-02-nasa-worldview-osint-f2247b96eafa94cf80f291f2bea8f953.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una fotografía viral asegura que un polígono industrial quedó inundado «esta mañana». El cielo de la imagen está gris, la ubicación parece plausible y varias cuentas repiten la misma explicación. Abrir un visor satelital y encontrar una mancha oscura puede parecer la confirmación definitiva. No lo es: <strong>una visualización puede mostrar agua, nube, sombra, humo o un producto derivado; ninguna capa explica por sí sola qué ocurrió, a qué hora exacta ni quién fue responsable</strong>.</p>
+<p><a href="https://worldview.earthdata.nasa.gov/" target="_blank" rel="noopener noreferrer" class="">NASA Worldview</a> es especialmente útil cuando se trata como mesa de exploración y no como máquina de veredictos. Permite comparar fechas, sensores y productos, conservar un enlace al estado de la investigación y localizar los datos subyacentes. El trabajo OSINT comienza después: leer metadatos, medir la incertidumbre y corroborar con fuentes independientes.</p>
+<p>Este artículo propone un flujo responsable para eventos ambientales y comunicaciones públicas. Las fuentes oficiales se consultaron el <strong>2 de septiembre de 2026</strong>. El municipio, la cooperativa, las coordenadas, los avisos y todos los resultados del ejemplo son ficticios. No se pretende identificar a personas ni vigilar propiedades privadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-nasa-worldview-y-para-qué-sirve-en-osint">Qué es NASA Worldview y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#qu%C3%A9-es-nasa-worldview-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es NASA Worldview y para qué sirve en OSINT" title="Enlace directo al Qué es NASA Worldview y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Worldview es una aplicación de NASA Earthdata para explorar visualmente capas de observación de la Tierra y acceder a sus datos. Su propia pantalla de información explica que funciona sobre <a href="https://www.earthdata.nasa.gov/data/tools/global-imagery-browse-services" target="_blank" rel="noopener noreferrer" class="">Global Imagery Browse Services (GIBS)</a>, el servicio que entrega rápidamente las visualizaciones. La interfaz reúne capas con distinta misión, instrumento, producto, resolución espacial, resolución temporal y latencia.</p>
+<p>La herramienta oficial ofrece comparación por deslizamiento, opacidad o lupa; navegación temporal; animaciones; enlaces compartibles y descarga de datos subyacentes. La ficha pública de Worldview indicaba, al consultarla, más de mil capas y señalaba que muchas se actualizan diariamente y pueden estar disponibles pocas horas después de la observación. Eso permite una primera evaluación rápida de incendios, inundaciones, polvo, humo, hielo o cambios de vegetación, pero <strong>«casi en tiempo real» no significa «ahora»</strong>.</p>
+<p>Conviene separar cinco objetos que suelen mezclarse:</p>
+<table><thead><tr><th>Objeto</th><th>Pregunta correcta</th><th>Lo que no demuestra</th></tr></thead><tbody><tr><td>capa de visualización</td><td>¿Qué variable representa y cómo se colorea?</td><td>que cada píxel sea una observación directa</td></tr><tr><td>producto</td><td>¿Qué algoritmo, colección y versión lo generan?</td><td>que sea idóneo para nuestra hipótesis</td></tr><tr><td>sensor y plataforma</td><td>¿Cuándo y con qué geometría observó la zona?</td><td>que viera el suelo sin nubes ni obstáculos</td></tr><tr><td>tesela o captura</td><td>¿Qué mostraba la interfaz con estos ajustes?</td><td>que sea el dato científico original</td></tr><tr><td>granulo o fichero fuente</td><td>¿Qué datos y metadatos pueden descargarse?</td><td>causalidad, intención o atribución</td></tr></tbody></table>
+<p>NASA mantiene un <a href="https://gibs.earthdata.nasa.gov/layer-metadata/v1.0/" target="_blank" rel="noopener noreferrer" class="">catálogo de metadatos de capas GIBS</a> que ayuda a comprobar identificadores, descripciones y referencias. En OSINT, ese paso evita comparar dos colores que parecen iguales pero representan productos distintos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-hubo-una-inundación-visible">Caso de uso legítimo: ¿hubo una inundación visible?<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#caso-de-uso-leg%C3%ADtimo-hubo-una-inundaci%C3%B3n-visible" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: ¿hubo una inundación visible?" title="Enlace directo al Caso de uso legítimo: ¿hubo una inundación visible?" translate="no">​</a></h2>
+<p>La cooperativa ficticia <strong>Ribera Clara</strong> comunica que una crecida interrumpió el acceso a su almacén municipal. Un vídeo público, fechado a las 08:10, muestra agua junto a una carretera; una publicación posterior afirma que todo el polígono quedó anegado antes del amanecer.</p>
+<p>El encargo del analista es limitado:</p>
+<blockquote>
+<p>Determinar si productos públicos de observación de la Tierra muestran una extensión de agua compatible con una inundación en el área declarada y dentro de una ventana de 48 horas.</p>
+</blockquote>
+<p>No se intenta identificar vehículos, trabajadores o domicilios. Tampoco se pretende calcular daños ni atribuir la causa. El expediente comienza con cuatro datos: área de interés aproximada, ventana temporal en UTC, afirmación exacta y umbral de resolución útil. Si la carretera ocupa menos que un píxel del producto seleccionado, Worldview no puede responder por arte de magia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado, paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado, paso a paso" title="Enlace directo al Flujo recomendado, paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-la-hipótesis-antes-de-añadir-capas">1. Escribe la hipótesis antes de añadir capas<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#1-escribe-la-hip%C3%B3tesis-antes-de-a%C3%B1adir-capas" class="hash-link" aria-label="Enlace directo al 1. Escribe la hipótesis antes de añadir capas" title="Enlace directo al 1. Escribe la hipótesis antes de añadir capas" translate="no">​</a></h3>
+<p>Formula una pregunta que admita un resultado negativo o inconcluso. En este caso: «¿Aparece agua superficial donde una fecha anterior comparable mostraba terreno no cubierto?». Evita preguntas como «¿demuestra el satélite que la empresa mintió?», porque mezclan observación, intención y responsabilidad.</p>
+<p>Registra también qué hallazgo refutaría tu hipótesis: ausencia de cobertura, nubosidad persistente, producto demasiado grueso, cambio estacional normal o discrepancia entre sensores.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-fija-área-tiempo-y-reloj">2. Fija área, tiempo y reloj<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#2-fija-%C3%A1rea-tiempo-y-reloj" class="hash-link" aria-label="Enlace directo al 2. Fija área, tiempo y reloj" title="Enlace directo al 2. Fija área, tiempo y reloj" translate="no">​</a></h3>
+<p>Delimita solo la superficie necesaria y anota las coordenadas con una precisión proporcional. Trabaja en UTC dentro del visor y conserva por separado la hora local de los avisos. Una capa diaria no implica que el satélite observase la zona a medianoche ni que toda la composición corresponda a un único instante.</p>
+<p>Añade, cuando esté disponible, la capa de órbita y hora de paso correspondiente. La guía oficial de Worldview recomienda estas capas para aproximar el momento de adquisición. Es más prudente escribir «observación aproximada alrededor de…» que asignar al píxel la hora del tuit o la etiqueta general del día.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-ficha-antes-de-interpretar-el-color">3. Lee la ficha antes de interpretar el color<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#3-lee-la-ficha-antes-de-interpretar-el-color" class="hash-link" aria-label="Enlace directo al 3. Lee la ficha antes de interpretar el color" title="Enlace directo al 3. Lee la ficha antes de interpretar el color" translate="no">​</a></h3>
+<p>Abre el icono de información de cada capa y registra:</p>
+<ul>
+<li class="">nombre completo e identificador;</li>
+<li class="">misión, plataforma e instrumento;</li>
+<li class="">versión o colección visible;</li>
+<li class="">resolución espacial y temporal;</li>
+<li class="">unidades, paleta y rango;</li>
+<li class="">condición de producto estándar o cercano al tiempo real;</li>
+<li class="">enlace al centro de datos o documentación del producto.</li>
+</ul>
+<p>Una capa de reflectancia en color verdadero se parece a una fotografía, pero sigue siendo una composición procesada. Una capa de falso color puede separar mejor agua y terreno, aunque sus tonos no son colores «vistos» por una persona. Una detección de anomalía térmica marca una señal compatible con calor bajo las reglas del producto; no dibuja necesariamente el perímetro de un incendio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-busca-una-referencia-comparable">4. Busca una referencia comparable<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#4-busca-una-referencia-comparable" class="hash-link" aria-label="Enlace directo al 4. Busca una referencia comparable" title="Enlace directo al 4. Busca una referencia comparable" translate="no">​</a></h3>
+<p>Selecciona al menos una fecha anterior con el mismo sensor, producto, proyección, escala y estación aproximada. Después usa el modo de comparación de Worldview. Mantener los ajustes reduce diferencias causadas por el instrumento o el procesado.</p>
+<p>Para Ribera Clara, el analista compara:</p>
+<ol>
+<li class="">una escena anterior sin aviso de crecida;</li>
+<li class="">la primera observación útil dentro de la ventana;</li>
+<li class="">una observación posterior para comprobar persistencia;</li>
+<li class="">un segundo sensor o producto, si su resolución y geometría permiten una comparación razonable.</li>
+</ol>
+<p>No se elige la imagen más dramática. Se conserva también la fecha que contradice la narración inicial.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-trata-nubes-sombras-y-huecos-como-datos">5. Trata nubes, sombras y huecos como datos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#5-trata-nubes-sombras-y-huecos-como-datos" class="hash-link" aria-label="Enlace directo al 5. Trata nubes, sombras y huecos como datos" title="Enlace directo al 5. Trata nubes, sombras y huecos como datos" translate="no">​</a></h3>
+<p>Las guías de NASA advierten de cobertura nubosa, falta de luz en regiones polares y huecos entre franjas en determinados productos diarios. La <a href="https://www.earthdata.nasa.gov/s3fs-public/2025-03/worldview-booklet.pdf" target="_blank" rel="noopener noreferrer" class="">guía práctica de Worldview de 2025</a> recomienda combinar una capa base con la superposición del sensor correspondiente; así puede verse, por ejemplo, si una nube oculta una detección.</p>
+<p>Marca cada intervalo como <strong>observable</strong>, <strong>parcialmente observable</strong> o <strong>no observable</strong>. «No se ve agua» no equivale a «no hubo agua» si el terreno está cubierto por nubes, si el paso ocurrió antes del evento o si el píxel mezcla carretera, vegetación y cauce.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-conserva-una-ruta-reproducible">6. Conserva una ruta reproducible<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#6-conserva-una-ruta-reproducible" class="hash-link" aria-label="Enlace directo al 6. Conserva una ruta reproducible" title="Enlace directo al 6. Conserva una ruta reproducible" translate="no">​</a></h3>
+<p>Guarda el enlace largo de Worldview, porque codifica vista, fecha y capas. Añade una captura para explicar el hallazgo, pero conserva también:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">consulta_id: RC-2026-09-02-01</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">pregunta: extensión de agua compatible con inundación</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">ventana_utc: 2026-08-31T00:00Z / 2026-09-02T00:00Z</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">area: polígono generalizado, acceso restringido al expediente</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">capas: identificador + versión + estado NRT/STD</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">vista: URL permanente de Worldview</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">descarga: granulo/fichero y checksum, si procede</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">observacion: visible / parcial / no visible</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">corroboracion: aviso hidrológico + estación pública + imágenes autorizadas</span><br></span></code></pre></div></div>
+<p>La NASA fomenta la publicación de imágenes de Worldview con atribución y recomienda incluir un enlace que permita explorar el estado mostrado, según sus <a href="https://forum.earthdata.nasa.gov/viewtopic.php?t=5068" target="_blank" rel="noopener noreferrer" class="">directrices de uso</a>. Cita además el producto y su centro de datos cuando el análisis dependa de los datos descargados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-baja-al-dato-cuando-la-conclusión-lo-exija">7. Baja al dato cuando la conclusión lo exija<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#7-baja-al-dato-cuando-la-conclusi%C3%B3n-lo-exija" class="hash-link" aria-label="Enlace directo al 7. Baja al dato cuando la conclusión lo exija" title="Enlace directo al 7. Baja al dato cuando la conclusión lo exija" translate="no">​</a></h3>
+<p>Una captura sirve para orientar y comunicar. Si vas a medir superficie, comparar valores o sostener una afirmación técnica, descarga el dato subyacente y sus metadatos. Registra fichero, tamaño, checksum, fecha de adquisición, fecha de descarga, versión y transformación aplicada.</p>
+<p><a href="https://wvs.earthdata.nasa.gov/" target="_blank" rel="noopener noreferrer" class="">Worldview Snapshots</a> ofrece un flujo más ligero para crear imágenes con fecha, extensión, resolución y formato controlados. La documentación de Earthdata indica que puede combinar imágenes MODIS o VIIRS con ciertas superposiciones y que los productos cercanos al tiempo real de LANCE pueden llegar aproximadamente tres horas después de la observación. Esa cifra es orientativa, no una garantía para cada capa o región.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-fuera-del-satélite">8. Corrobora fuera del satélite<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#8-corrobora-fuera-del-sat%C3%A9lite" class="hash-link" aria-label="Enlace directo al 8. Corrobora fuera del satélite" title="Enlace directo al 8. Corrobora fuera del satélite" translate="no">​</a></h3>
+<p>En el caso ficticio, la conclusión solo se fortalece al combinar:</p>
+<ul>
+<li class="">un aviso hidrológico oficial con hora y estación;</li>
+<li class="">niveles o caudales publicados por el organismo competente;</li>
+<li class="">imágenes del ayuntamiento obtenidas de forma legítima;</li>
+<li class="">dos observaciones satelitales compatibles;</li>
+<li class="">cartografía del cauce y de la llanura de inundación.</li>
+</ul>
+<p>El resultado prudente podría ser: «La primera observación sin nubes posterior al aviso muestra una extensión de agua mayor que la referencia seleccionada; el patrón es compatible con inundación en parte del área. La resolución y el momento de paso no permiten confirmar el estado de cada acceso a las 08:10».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-visualización-no-es-una-fotografía-forense">Una visualización no es una fotografía forense<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#una-visualizaci%C3%B3n-no-es-una-fotograf%C3%ADa-forense" class="hash-link" aria-label="Enlace directo al Una visualización no es una fotografía forense" title="Enlace directo al Una visualización no es una fotografía forense" translate="no">​</a></h3>
+<p>Las capas pueden aplicar correcciones atmosféricas, composiciones de bandas, agregaciones, paletas o algoritmos. Incluso el «color verdadero» es un producto procesado. Describe el tratamiento antes de llamar fotografía al resultado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-resolución-impone-el-tamaño-de-la-pregunta">La resolución impone el tamaño de la pregunta<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#la-resoluci%C3%B3n-impone-el-tama%C3%B1o-de-la-pregunta" class="hash-link" aria-label="Enlace directo al La resolución impone el tamaño de la pregunta" title="Enlace directo al La resolución impone el tamaño de la pregunta" translate="no">​</a></h3>
+<p>Un píxel puede mezclar agua, suelo, vegetación y edificios. El remuestreo de la pantalla no crea detalle nuevo. Si el objeto investigado es menor que la unidad resoluble, reduce la ambición de la conclusión o busca otra fuente legítima.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-fecha-visible-no-siempre-es-la-hora-del-fenómeno">La fecha visible no siempre es la hora del fenómeno<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#la-fecha-visible-no-siempre-es-la-hora-del-fen%C3%B3meno" class="hash-link" aria-label="Enlace directo al La fecha visible no siempre es la hora del fenómeno" title="Enlace directo al La fecha visible no siempre es la hora del fenómeno" translate="no">​</a></h3>
+<p>Hay hora de observación, periodo del producto, actualización del servicio y descarga del analista. Son relojes distintos. Un producto diario o compuesto puede resumir más de un instante.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nrt-y-estándar-no-son-intercambiables">NRT y estándar no son intercambiables<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#nrt-y-est%C3%A1ndar-no-son-intercambiables" class="hash-link" aria-label="Enlace directo al NRT y estándar no son intercambiables" title="Enlace directo al NRT y estándar no son intercambiables" translate="no">​</a></h3>
+<p>Los productos cercanos al tiempo real priorizan rapidez y pueden diferir de versiones estándar reprocesadas. Conserva la etiqueta y revisa posteriormente si la conclusión es sensible a esa diferencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-color-seduce">El color seduce<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#el-color-seduce" class="hash-link" aria-label="Enlace directo al El color seduce" title="Enlace directo al El color seduce" translate="no">​</a></h3>
+<p>Agua turbia, sombra, humo, nube y suelo oscuro pueden parecerse en una sola composición. Las anomalías térmicas pueden tener falsos positivos o faltar por nube, geometría, intensidad o momento de paso. Repite la observación con capas pertinentes y fuentes externas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Limita el área y la precisión compartida a lo necesario para verificar la afirmación.</li>
+<li class="">No conviertas coordenadas de viviendas, refugios, personal de emergencias o infraestructura sensible en un tutorial de localización.</li>
+<li class="">Trabaja con fenómenos y activos públicos o con autorización; evita seguir rutinas de personas.</li>
+<li class="">Separa el cuaderno de análisis de la publicación: el primero puede contener datos que no deben difundirse.</li>
+<li class="">No atribuyas intención, negligencia o responsabilidad a partir de una capa ambiental.</li>
+<li class="">Conserva resultados negativos e incertidumbre; son parte de la evidencia.</li>
+<li class="">Revisa términos de uso, atribución y restricciones del producto concreto, no solo de la interfaz.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-publicar-un-hallazgo">Checklist antes de publicar un hallazgo<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#checklist-antes-de-publicar-un-hallazgo" class="hash-link" aria-label="Enlace directo al Checklist antes de publicar un hallazgo" title="Enlace directo al Checklist antes de publicar un hallazgo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La afirmación investigada está escrita de forma literal.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Área, ventana temporal y zona horaria están fijadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada capa tiene sensor, producto, versión y resolución registrados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La referencia usa ajustes comparables.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Nubosidad, huecos y hora de paso están evaluados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La captura conserva un enlace reproducible.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las mediciones proceden del dato y no de una imagen reescalada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay al menos una corroboración independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La conclusión distingue observación, inferencia y cuestión abierta.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La publicación protege privacidad e infraestructura sensible.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Copernicus Browser</strong>: útil para explorar productos del ecosistema Copernicus y descargar datos con metadatos de misión.</li>
+<li class=""><strong>Sentinel Hub EO Browser</strong>: práctico para comparativas temporales y visualizaciones personalizadas, documentando siempre el script y el producto.</li>
+<li class=""><strong>NASA FIRMS</strong>: orientado a incendios y anomalías térmicas; una detección debe leerse con sus atributos y limitaciones.</li>
+<li class=""><strong>QGIS</strong>: apropiado para conservar capas, proyecciones, estilos y operaciones en un proyecto reproducible.</li>
+<li class=""><strong>Servicios meteorológicos e hidrológicos oficiales</strong>: imprescindibles para contrastar lluvia, caudal, viento y avisos.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/nasa-worldview-osint-verificacion-eventos-ambientales#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://worldview.earthdata.nasa.gov/?abt=on" target="_blank" rel="noopener noreferrer" class="">NASA Worldview: aplicación, información y directrices de uso</a></li>
+<li class=""><a href="https://www.earthdata.nasa.gov/data/tools/global-imagery-browse-services" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: Global Imagery Browse Services (GIBS)</a></li>
+<li class=""><a href="https://gibs.earthdata.nasa.gov/layer-metadata/v1.0/" target="_blank" rel="noopener noreferrer" class="">NASA GIBS: catálogo de metadatos de capas</a></li>
+<li class=""><a href="https://www.earthdata.nasa.gov/s3fs-public/2025-03/worldview-booklet.pdf" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata: guía práctica de Worldview (2025)</a></li>
+<li class=""><a href="https://forum.earthdata.nasa.gov/viewtopic.php?t=5080" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata Forum: qué es Worldview Snapshots</a></li>
+<li class=""><a href="https://forum.earthdata.nasa.gov/viewtopic.php?t=5068" target="_blank" rel="noopener noreferrer" class="">NASA Earthdata Forum: uso y atribución de imágenes de Worldview</a></li>
+</ul>
+<p>El takeaway es sencillo: <strong>usa Worldview para formular y someter a prueba hipótesis ambientales, no para decorar una conclusión ya tomada</strong>. Empieza por una pregunta medible, registra sensor, producto, tiempo y cobertura, y baja al dato antes de cuantificar. El siguiente paso natural será aprender a construir una matriz de observabilidad multifuente que haga explícito qué podía ver cada sensor y cuándo.</p>]]></content:encoded>
+            <category>OSINT</category>
+            <category>GEOINT</category>
+            <category>Investigacion</category>
+            <category>Verificacion</category>
+            <category>Metodologia</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Sincronización audiovisual en OSINT: medir desfase y deriva temporal sin inventar una manipulación]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/sincronizacion-audiovisual-deriva-osint</link>
@@ -2693,166 +2825,6 @@
             <category>Verificacion</category>
             <category>Investigacion</category>
             <category>Tooling</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[OpenCorporates en OSINT: identificar sociedades sin confundir coincidencias con vínculos]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios</guid>
-            <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista OSINT contrastando registros societarios, identificadores, fechas y documentos oficiales]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT contrastando registros societarios, identificadores, fechas y documentos oficiales" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-13-opencorporates-osint-registros-societarios-f5ba3ce21ad6c051357c40ab7b976dab.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/opencorporates-osint-registros-societarios-ca826cc6c0148401c364899929ffe342.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una factura llega firmada por «Atlántica Circular», la web habla de una filial europea y el contrato menciona una sociedad con nombre casi idéntico en otro país. El error peligroso sería elegir el primer resultado del buscador y construir sobre él una historia convincente. En investigación societaria, <strong>un nombre orienta; la pareja jurisdicción–número registral identifica</strong>.</p>
-<p><a href="https://opencorporates.com/" target="_blank" rel="noopener noreferrer" class="">OpenCorporates</a> permite buscar información societaria de muchas jurisdicciones con un esquema común y conservar el camino hacia la fuente pública de origen. Es una capa de descubrimiento especialmente útil cuando todavía no sabemos qué registro consultar o cuando un conjunto de datos mezcla denominaciones, idiomas y formatos. No sustituye al registro mercantil, no certifica la situación actual de una empresa y no convierte una coincidencia de nombre, dirección o cargo en prueba de control.</p>
-<p>Todos los nombres, dominios, números y relaciones del caso práctico son ficticios. El método está pensado para verificaciones legítimas de proveedores, periodismo de datos, investigación académica y análisis de riesgo proporcionado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-opencorporates-y-para-qué-sirve">Qué es OpenCorporates y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#qu%C3%A9-es-opencorporates-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es OpenCorporates y para qué sirve" title="Enlace directo al Qué es OpenCorporates y para qué sirve" translate="no">​</a></h2>
-<p>OpenCorporates agrega datos procedentes de fuentes públicas oficiales y los normaliza para que sociedades de distintas jurisdicciones puedan localizarse con una interfaz y un modelo comunes. Su <a href="https://opencorporates.com/registers" target="_blank" rel="noopener noreferrer" class="">directorio de registros</a> muestra para cada jurisdicción el organismo de origen y métricas sobre su cobertura. Esa transparencia permite decidir si una ausencia significa algo o si, sencillamente, la fuente no ofrece el campo esperado.</p>
-<p>En un flujo OSINT responsable ayuda a:</p>
-<ul>
-<li class="">descubrir en qué jurisdicción está inscrita una entidad con un nombre determinado;</li>
-<li class="">obtener el número registral que permite saltar al registro oficial correcto;</li>
-<li class="">comparar nombres actuales y anteriores, estado declarado, fechas y domicilio registral cuando estén disponibles;</li>
-<li class="">localizar cargos o <em>filings</em> publicados por la fuente de origen;</li>
-<li class="">normalizar una hoja de cálculo antes de cruzarla con contratación pública, subvenciones, patentes o sanciones;</li>
-<li class="">documentar la procedencia y la fecha de recuperación de cada pista.</li>
-</ul>
-<p>La <a href="https://api.opencorporates.com/documentation/API-Reference" target="_blank" rel="noopener noreferrer" class="">referencia de la API</a> documenta respuestas estructuradas en <code>JSON</code>, búsquedas de sociedades y cargos, paginación, filtros y objetos de procedencia. En el momento de redactar esta entrada, la documentación indica que se necesita una clave para usar la API y que los límites dependen de la cuenta o plan. Por tanto, no diseñes una automatización dando por supuesto acceso ilimitado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-unidad-mínima-jurisdicción-y-número-registral">La unidad mínima: jurisdicción y número registral<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#la-unidad-m%C3%ADnima-jurisdicci%C3%B3n-y-n%C3%BAmero-registral" class="hash-link" aria-label="Enlace directo al La unidad mínima: jurisdicción y número registral" title="Enlace directo al La unidad mínima: jurisdicción y número registral" translate="no">​</a></h2>
-<p>Una denominación social no es un identificador global. Puede haber sociedades homónimas en países distintos, variantes con y sin forma jurídica, antiguas razones sociales y sucursales que se parecen a la matriz. OpenCorporates modela una sociedad mediante, entre otros campos, <code>jurisdiction_code</code> y <code>company_number</code>.</p>
-<p>La combinación es mucho más robusta que el nombre:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Nombre observado: Atlántica Circular Europe</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Jurisdicción candidata: gb</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Número registral ficticio: 09999999</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Identificador de trabajo: gb/09999999</span><br></span></code></pre></div></div>
-<p>El ejemplo no corresponde a una empresa real. En un caso auténtico, conserva exactamente el número y la jurisdicción mostrados por el registro; no elimines ceros iniciales ni traduzcas formas jurídicas. Si el registro oficial ofrece una URL persistente o un documento, guárdalo también.</p>
-<p>La documentación de OpenCorporates advierte además de un matiz importante: que <code>inactive</code> no sea verdadero <strong>no permite inferir siempre que la sociedad esté activa</strong>, porque no todos los registros publican estados completos. La ausencia de un dato tampoco demuestra su contrario.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-verificar-a-un-proveedor-sin-acusar-a-nadie">Caso ficticio: verificar a un proveedor sin acusar a nadie<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#caso-ficticio-verificar-a-un-proveedor-sin-acusar-a-nadie" class="hash-link" aria-label="Enlace directo al Caso ficticio: verificar a un proveedor sin acusar a nadie" title="Enlace directo al Caso ficticio: verificar a un proveedor sin acusar a nadie" translate="no">​</a></h2>
-<p>Una cooperativa cultural recibe una propuesta de <code>Atlántica Circular Europe</code>, que dice pertenecer a <code>Grupo Atlántica Circular</code>. Antes de firmar, quiere confirmar la entidad legal, su antigüedad y si la persona firmante aparece vinculada públicamente a ella. No existe una denuncia ni una sospecha penal: es una comprobación ordinaria de contraparte.</p>
-<p>La pregunta investigable debe escribirse así:</p>
-<blockquote>
-<p>¿Qué entidad legal concreta figura en la propuesta, qué datos publica su registro competente y qué afirmaciones siguen sin verificar?</p>
-</blockquote>
-<p>No preguntes todavía «¿es una empresa pantalla?» o «¿quién se esconde detrás?». Esas formulaciones empujan a seleccionar solo señales que confirman una historia previa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-extrae-los-datos-del-documento-recibido">1. Extrae los datos del documento recibido<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#1-extrae-los-datos-del-documento-recibido" class="hash-link" aria-label="Enlace directo al 1. Extrae los datos del documento recibido" title="Enlace directo al 1. Extrae los datos del documento recibido" translate="no">​</a></h3>
-<p>Crea una tabla de observaciones, sin completar huecos de memoria:</p>
-<table><thead><tr><th>Campo</th><th>Valor ficticio observado</th><th>Procedencia</th></tr></thead><tbody><tr><td>Denominación</td><td>Atlántica Circular Europe Ltd</td><td>Contrato, página 1</td></tr><tr><td>Número registral</td><td>09999999</td><td>Pie del contrato</td></tr><tr><td>País declarado</td><td>Reino Unido</td><td>Condiciones</td></tr><tr><td>Domicilio</td><td>14 Example Wharf, London</td><td>Factura</td></tr><tr><td>Firmante</td><td>Nombre ficticio omitido</td><td>Firma electrónica</td></tr><tr><td>Dominio</td><td><code>atlanticacircular.example</code></td><td>Correo recibido</td></tr></tbody></table>
-<p>Separa lo <strong>declarado por la contraparte</strong> de lo <strong>publicado por el registro</strong>. Una factura es evidencia de lo que alguien afirmó, no de que el dato sea correcto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-busca-por-nombre-pero-resuelve-por-identificador">2. Busca por nombre, pero resuelve por identificador<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#2-busca-por-nombre-pero-resuelve-por-identificador" class="hash-link" aria-label="Enlace directo al 2. Busca por nombre, pero resuelve por identificador" title="Enlace directo al 2. Busca por nombre, pero resuelve por identificador" translate="no">​</a></h3>
-<p>Empieza por una búsqueda amplia del nombre y anota candidatos. La búsqueda de sociedades de OpenCorporates es deliberadamente flexible: ignora mayúsculas, normaliza algunos tipos societarios y puede devolver nombres anteriores. Esa tolerancia ayuda a descubrir variantes, pero también aumenta los falsos positivos.</p>
-<p>Reduce candidatos con esta prioridad:</p>
-<ol>
-<li class="">coincidencia exacta de número registral y jurisdicción;</li>
-<li class="">nombre legal y forma societaria;</li>
-<li class="">estado y fechas, interpretados según el registro;</li>
-<li class="">domicilio registral;</li>
-<li class="">cargos y documentos con sus intervalos temporales.</li>
-</ol>
-<p>Una dirección compartida tiene poco valor por sí sola: puede ser un despacho profesional, una oficina virtual o un agente registral. Del mismo modo, una persona con el mismo nombre no queda identificada sin atributos independientes y legítimamente tratables.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-procedencia-antes-que-el-grafo">3. Lee la procedencia antes que el grafo<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#3-lee-la-procedencia-antes-que-el-grafo" class="hash-link" aria-label="Enlace directo al 3. Lee la procedencia antes que el grafo" title="Enlace directo al 3. Lee la procedencia antes que el grafo" translate="no">​</a></h3>
-<p>La API distingue objetos de <code>source</code> y <code>provenance</code>. Entre los campos documentados están la URL de origen, el editor, el tipo de fuente y la fecha de recuperación. OpenCorporates también explica que una procedencia puede ser <code>external</code>, <code>internal</code> o <code>induction</code>; esta última puede reflejar una reconciliación realizada dentro del sistema, no una afirmación literal de un registro.</p>
-<p>Para cada dato relevante, registra:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">campo | valor | fuente original | recuperado por OpenCorporates | consultado por analista | observaciones</span><br></span></code></pre></div></div>
-<p>No cites «OpenCorporates» como si toda la ficha fuese una sola afirmación atemporal. Un domicilio puede haberse recuperado en una fecha, un cargo en otra y una relación inferida tener una procedencia distinta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-vuelve-al-registro-primario">4. Vuelve al registro primario<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#4-vuelve-al-registro-primario" class="hash-link" aria-label="Enlace directo al 4. Vuelve al registro primario" title="Enlace directo al 4. Vuelve al registro primario" translate="no">​</a></h3>
-<p>Abre el enlace al registro oficial o busca directamente la pareja jurisdicción–número. Descarga el documento vigente cuando la ley y las condiciones lo permitan. En el ejemplo, habría que comprobar como mínimo:</p>
-<ul>
-<li class="">denominación y número;</li>
-<li class="">estado exacto y fecha de consulta;</li>
-<li class="">fecha de constitución;</li>
-<li class="">domicilio registral;</li>
-<li class="">cargos y fechas de alta o cese;</li>
-<li class="">últimos documentos depositados pertinentes;</li>
-<li class="">correspondencia entre la persona firmante y su capacidad actual.</li>
-</ul>
-<p>Si OpenCorporates y el registro discrepan, no elijas el dato que más convenga a la hipótesis. Conserva ambos, anota las fechas de recuperación y trata el registro competente como referencia primaria para la afirmación registral.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-separa-entidad-marca-dominio-y-grupo">5. Separa entidad, marca, dominio y grupo<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#5-separa-entidad-marca-dominio-y-grupo" class="hash-link" aria-label="Enlace directo al 5. Separa entidad, marca, dominio y grupo" title="Enlace directo al 5. Separa entidad, marca, dominio y grupo" translate="no">​</a></h3>
-<p>Cuatro objetos distintos pueden compartir nombre sin ser equivalentes:</p>
-<ul>
-<li class="">la <strong>sociedad</strong> inscrita;</li>
-<li class="">la <strong>marca</strong> comercial;</li>
-<li class="">el <strong>dominio</strong> y su operador técnico;</li>
-<li class="">el <strong>grupo</strong> o relación corporativa declarada.</li>
-</ul>
-<p>Para unirlos necesitas evidencias específicas: un aviso legal que vincule dominio y número registral, un documento societario, una cuenta auditada, una marca registrada o una declaración oficial. Un logotipo común, el mismo proveedor web o una dirección compartida solo generan hipótesis.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-redacta-una-conclusión-acotada">6. Redacta una conclusión acotada<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#6-redacta-una-conclusi%C3%B3n-acotada" class="hash-link" aria-label="Enlace directo al 6. Redacta una conclusión acotada" title="Enlace directo al 6. Redacta una conclusión acotada" translate="no">​</a></h3>
-<p>Una salida prudente para el caso ficticio sería:</p>
-<blockquote>
-<p>El número indicado en el contrato coincide con una sociedad de la jurisdicción declarada y con la denominación observada en el registro consultado el 13 de agosto de 2026. El domicilio también coincide. Queda pendiente confirmar que la persona firmante conserva facultades suficientes y que la relación con el grupo comercial descrito en la web está respaldada por documentación societaria.</p>
-</blockquote>
-<p>La conclusión dice qué coincide, dónde y cuándo. No transforma un hallazgo administrativo en una valoración moral.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-para-una-investigación-societaria">Flujo recomendado para una investigación societaria<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#flujo-recomendado-para-una-investigaci%C3%B3n-societaria" class="hash-link" aria-label="Enlace directo al Flujo recomendado para una investigación societaria" title="Enlace directo al Flujo recomendado para una investigación societaria" translate="no">​</a></h2>
-<ol>
-<li class="">Define la decisión que debe apoyar la investigación y su base legítima.</li>
-<li class="">Extrae literalmente nombres, números, jurisdicciones, fechas y fuentes.</li>
-<li class="">Busca candidatos por nombre sin decidir todavía cuál es la entidad.</li>
-<li class="">Resuelve por jurisdicción y número registral.</li>
-<li class="">Revisa la cobertura y frescura de la jurisdicción en OpenCorporates.</li>
-<li class="">Inspecciona la procedencia de cada campo o relación importante.</li>
-<li class="">Abre el registro oficial y conserva los documentos pertinentes.</li>
-<li class="">Construye una cronología: constitución, cambios de nombre, cargos, domicilios, documentos y disolución.</li>
-<li class="">Corrobora marca, web, contratación, subvenciones o sanciones en fuentes independientes.</li>
-<li class="">Escribe coincidencias, contradicciones, ausencias y preguntas abiertas por separado.</li>
-</ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-proporcionada-y-reproducible">Automatización proporcionada y reproducible<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#automatizaci%C3%B3n-proporcionada-y-reproducible" class="hash-link" aria-label="Enlace directo al Automatización proporcionada y reproducible" title="Enlace directo al Automatización proporcionada y reproducible" translate="no">​</a></h2>
-<p>Para volúmenes pequeños, la revisión manual suele ser suficiente. Para una lista de proveedores, la API o el servicio de reconciliación para <a href="https://api.opencorporates.com/documentation/Open-Refine-Reconciliation-API" target="_blank" rel="noopener noreferrer" class="">OpenRefine</a> pueden ayudar a proponer entidades legales. Reconciliar significa <strong>generar candidatos y puntuaciones</strong>, no aprobar automáticamente una coincidencia.</p>
-<p>Conserva siempre:</p>
-<ul>
-<li class="">fichero de entrada original y su hash;</li>
-<li class="">versión de la API indicada en la petición;</li>
-<li class="">parámetros, filtros y fecha de consulta;</li>
-<li class="">respuesta original antes de transformar;</li>
-<li class="">reglas de normalización y umbral;</li>
-<li class="">candidatos descartados y motivo;</li>
-<li class="">revisión humana de casos ambiguos.</li>
-</ul>
-<p>La API recomienda fijar explícitamente la versión, usar <code>HTTPS</code> y vigilar la cuota. Las respuestas paginadas devuelven treinta objetos por defecto y permiten aumentar el tamaño hasta cien; una primera página no equivale al universo completo. Respeta además la licencia aplicable, la atribución y las condiciones del plan.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
-<p>Cada jurisdicción publica campos, historiales y documentos distintos. Algunas ofrecen datos estructurados y actualizados; otras solo una fracción. Compara la ficha del registro y no conviertas una base internacional en una promesa de uniformidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="datos-desfasados">Datos desfasados<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#datos-desfasados" class="hash-link" aria-label="Enlace directo al Datos desfasados" title="Enlace directo al Datos desfasados" translate="no">​</a></h3>
-<p><code>retrieved_at</code> informa de cuándo se recuperó un dato, no necesariamente de cuándo ocurrió el hecho ni de si sigue vigente hoy. Para decisiones sensibles, vuelve a consultar el registro oficial.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homónimos-y-transliteraciones">Homónimos y transliteraciones<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#hom%C3%B3nimos-y-transliteraciones" class="hash-link" aria-label="Enlace directo al Homónimos y transliteraciones" title="Enlace directo al Homónimos y transliteraciones" translate="no">​</a></h3>
-<p>Nombres comunes, sufijos societarios omitidos y alfabetos distintos generan candidatos parecidos. Un nombre no basta para vincular entidades, cargos o propietarios.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sucursales-matrices-y-registros-alternativos">Sucursales, matrices y registros alternativos<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#sucursales-matrices-y-registros-alternativos" class="hash-link" aria-label="Enlace directo al Sucursales, matrices y registros alternativos" title="Enlace directo al Sucursales, matrices y registros alternativos" translate="no">​</a></h3>
-<p>Una sociedad puede aparecer en más de una jurisdicción o mediante sucursales. La documentación contempla registros alternativos, anteriores y posteriores, pero cada vínculo debe leerse con su procedencia. «Aparece cerca en el grafo» no significa «controla».</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cargos-no-equivalen-a-control-actual">Cargos no equivalen a control actual<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#cargos-no-equivalen-a-control-actual" class="hash-link" aria-label="Enlace directo al Cargos no equivalen a control actual" title="Enlace directo al Cargos no equivalen a control actual" translate="no">​</a></h3>
-<p>Un administrador histórico, secretario, agente o firmante autorizado cumple funciones diferentes. Revisa posición, fechas y documento. No publiques domicilios particulares ni perfiles personales si no son necesarios para la finalidad legítima.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="estados-no-comparables">Estados no comparables<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#estados-no-comparables" class="hash-link" aria-label="Enlace directo al Estados no comparables" title="Enlace directo al Estados no comparables" translate="no">​</a></h3>
-<p><code>Active</code>, <code>good standing</code>, <code>dissolved</code> o equivalentes dependen de cada sistema. No normalices esos términos hasta borrar sus matices legales, y no trates la actividad registral como prueba de actividad comercial real.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opsec-ética-y-privacidad">OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al OPSEC, ética y privacidad" title="Enlace directo al OPSEC, ética y privacidad" translate="no">​</a></h2>
-<p>La información societaria abierta puede incluir nombres y, según la jurisdicción, direcciones o fechas relacionadas con personas. Que un dato sea accesible no elimina los principios de finalidad, minimización y proporcionalidad.</p>
-<ul>
-<li class="">Investiga entidades por una necesidad legítima, no para acosar a cargos o familiares.</li>
-<li class="">No completes datos ocultos mediante engaño, acceso indebido o bases filtradas.</li>
-<li class="">Reduce los datos personales en notas compartidas y publicaciones.</li>
-<li class="">Evita consultas masivas que incumplan límites, licencias o condiciones.</li>
-<li class="">Trata listas de sanciones, PEP y noticias adversas como fuentes que requieren resolución de identidad y revisión contextual.</li>
-<li class="">Establece plazos de conservación y acceso para expedientes de proveedores.</li>
-<li class="">Si la decisión tiene consecuencias legales, laborales o financieras relevantes, solicita revisión profesional y derecho de respuesta.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Registro mercantil oficial de la jurisdicción</strong>, para verificar el dato primario y obtener documentos.</li>
-<li class=""><strong>GLEIF</strong>, cuando exista un <code>LEI</code> y se necesite enlazar una entidad financiera o corporativa con identificadores persistentes.</li>
-<li class=""><strong>SEC EDGAR</strong>, para <em>filings</em> de emisores y otras entidades cubiertas en Estados Unidos.</li>
-<li class=""><strong>Companies House</strong>, para sociedades británicas y sus documentos registrales.</li>
-<li class=""><strong>ICIJ Offshore Leaks</strong>, como índice de filtraciones concretas, nunca como registro universal ni prueba de irregularidad.</li>
-<li class=""><strong>OpenSanctions</strong>, para controles legítimos de listas y resolución de entidades, volviendo siempre a la fuente normativa original.</li>
-<li class=""><strong>OpenOwnership</strong>, cuando la jurisdicción publique datos de titularidad real y la investigación tenga una base adecuada.</li>
-</ul>
-<p>La idea accionable es simple: <strong>usa OpenCorporates para encontrar la puerta correcta, no para saltarte el registro que hay detrás</strong>. Identifica por jurisdicción y número, conserva la procedencia, fecha cada dato y deja por escrito qué relación todavía es solo una hipótesis. El siguiente paso natural sería construir una plantilla reproducible para comparar cambios societarios entre dos fechas sin mezclar tiempo registral y tiempo de recuperación.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes">Fuentes<a href="https://spainfsd-creator.github.io/osint-blog/opencorporates-osint-registros-societarios#fuentes" class="hash-link" aria-label="Enlace directo al Fuentes" title="Enlace directo al Fuentes" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://opencorporates.com/registers" target="_blank" rel="noopener noreferrer" class="">OpenCorporates: directorio y cobertura de registros</a></li>
-<li class=""><a href="https://api.opencorporates.com/documentation/API-Reference" target="_blank" rel="noopener noreferrer" class="">OpenCorporates API: referencia oficial</a></li>
-<li class=""><a href="https://api.opencorporates.com/documentation/Open-Refine-Reconciliation-API" target="_blank" rel="noopener noreferrer" class="">OpenCorporates API: reconciliación con OpenRefine</a></li>
-<li class=""><a href="https://blog.opencorporates.com/2025/11/18/data-provenance-explained/" target="_blank" rel="noopener noreferrer" class="">OpenCorporates: explicación de la procedencia de datos</a></li>
-<li class=""><a href="https://blog.opencorporates.com/2025/06/17/entity-resolution-for-data-aggregators/" target="_blank" rel="noopener noreferrer" class="">OpenCorporates: resolución de entidades y datos societarios</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Datos</category>
-            <category>Investigacion</category>
-            <category>Verificacion</category>
-            <category>Due Diligence</category>
             <category>Privacidad</category>
         </item>
     </channel>
