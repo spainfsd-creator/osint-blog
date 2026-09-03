@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando un documento escaneado intacto con su capa de texto OCR y un cuaderno de procedencia](/img/blog/2026-09-03-ocr-reproducible-documentos-publicos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/tesseract-ocrmypdf-osint-documentos-publicos.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un contrato público escaneado contiene justo la cifra que resolvería una discrepancia, pero el buscador del repositorio no la encuentra. Tras aplicar OCR aparece «18.000 euros»; al ampliar la página, el papel dice «13.000». El programa no ha descubierto un dato oculto: **ha formulado una conjetura sobre píxeles**. Si esa conjetura entra en una hoja de cálculo sin conservar página, recorte y original, el error adquiere apariencia de hecho.
