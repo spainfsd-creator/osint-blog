@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista contrastando una tabla PDF con su extracción estructurada y un cuaderno de procedencia](/img/blog/2026-09-04-tabula-camelot-tablas-pdf-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/tabula-camelot-osint-extraer-tablas-pdf.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un informe público reparte el presupuesto de cuatro ejercicios en una tabla de 40 páginas. La extracción automática entrega un CSV impecable, pero una celda combinada ha desplazado todos los importes una columna a la derecha. La suma cuadra; la historia que cuenta, no. **Convertir un PDF en filas y columnas no es copiar datos: es proponer una estructura que debe demostrarse contra la página original**.
