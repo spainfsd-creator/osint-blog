@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando el antes y el después de un mapa público con una cronología de cambios](/img/blog/2026-09-05-osmcha-historial-cambios-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/osmcha-historial-cambios-openstreetmap-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un mapa colaborativo muestra de pronto un camino de acceso donde ayer solo aparecía un descampado. La modificación coincide con una obra pública discutida en el municipio ficticio de **Puerto Claro**, y sería tentador presentar la captura como prueba de que la carretera ya existe. Pero el mapa no es el terreno y una edición no es un acta notarial: **lo observable es que alguien cambió determinados objetos, en un momento concreto y con unos metadatos concretos**. La realidad física todavía necesita corroboración.
