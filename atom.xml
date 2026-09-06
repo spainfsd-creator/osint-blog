@@ -2,11 +2,128 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-09-05T00:00:00.000Z</updated>
+    <updated>2026-09-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Gephi en OSINT: explorar grafos sin convertir proximidad visual en evidencia]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint"/>
+        <updated>2026-09-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista examinando un grafo de entidades, contratos y documentos públicos con marcas de procedencia e incertidumbre]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista examinando un grafo de entidades, contratos y documentos públicos con marcas de procedencia e incertidumbre" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-06-gephi-grafos-osint-93d16e27f9e603e9a4644b1b66cda0c8.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Tres sociedades concurren a varias licitaciones públicas. Comparten apoderados, direcciones antiguas y proveedores, pero esos datos proceden de años distintos y no todos significan lo mismo. Al dibujarlos, el grafo produce un centro brillante y aparentemente sospechoso. El peligro está servido: <strong>una visualización puede hacer que una coincidencia parezca una trama antes de que hayamos demostrado siquiera que las entidades son las mismas</strong>.</p>
+<p><a href="https://gephi.org/desktop/" target="_blank" rel="noopener noreferrer" class="">Gephi</a> es una aplicación abierta para explorar y visualizar redes. En OSINT ayuda a revisar conjuntos de relaciones que ya hemos obtenido de fuentes legítimas: sociedades y contratos, organizaciones y documentos, dominios y certificados o publicaciones y referencias. No descubre por arte de magia quién controla qué. Su verdadero valor consiste en hacer visibles preguntas, errores de modelado y zonas que requieren corroboración.</p>
+<p>Este artículo propone un flujo responsable y reproducible. Las fuentes oficiales se consultaron el <strong>6 de septiembre de 2026</strong>. Todas las entidades, expedientes, identificadores y relaciones del ejemplo son ficticios. El objetivo es analizar datos públicos con una finalidad legítima, no perfilar personas ni ampliar información sensible.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-gephi-y-qué-representa-un-grafo">Qué es Gephi y qué representa un grafo<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#qu%C3%A9-es-gephi-y-qu%C3%A9-representa-un-grafo" class="hash-link" aria-label="Enlace directo al Qué es Gephi y qué representa un grafo" title="Enlace directo al Qué es Gephi y qué representa un grafo" translate="no">​</a></h2>
+<p>Un grafo contiene <strong>nodos</strong> y <strong>aristas</strong>. Los nodos representan entidades definidas por el investigador —por ejemplo, una organización, un contrato o un documento— y las aristas expresan una relación concreta entre dos nodos. Tanto unos como otras pueden llevar atributos: tipo, fecha, jurisdicción, fuente, confianza o estado de verificación.</p>
+<p>La <a href="https://gephi.org/quickstart/" target="_blank" rel="noopener noreferrer" class="">guía rápida oficial</a> muestra que una tabla con columnas <code>Source</code> y <code>Target</code> basta para importar relaciones. La <a href="https://docs.gephi.org/desktop/User_Manual/Import/CSV_Format/" target="_blank" rel="noopener noreferrer" class="">documentación del importador CSV</a> añade matices importantes: ambas columnas son obligatorias para aristas, se puede decidir el tipo de cada campo y un valor que no encaje puede terminar como nulo. Importar no equivale, por tanto, a validar.</p>
+<p>Conviene separar estas capas:</p>
+<table><thead><tr><th>Capa</th><th>Pregunta</th><th>Lo que no demuestra</th></tr></thead><tbody><tr><td>fuente</td><td>¿Qué documento o registro contiene el dato?</td><td>que el dato siga vigente o sea correcto</td></tr><tr><td>entidad</td><td>¿Qué objeto estable hemos definido?</td><td>que dos nombres parecidos sean la misma entidad</td></tr><tr><td>relación</td><td>¿Qué vínculo exacto declara la fuente?</td><td>control, intención o causalidad</td></tr><tr><td>grafo</td><td>¿Cómo conectan las relaciones modeladas?</td><td>que lo no incluido no exista</td></tr><tr><td>visualización</td><td>¿Cómo coloca y estiliza el algoritmo los elementos?</td><td>distancia real, culpabilidad o importancia factual</td></tr></tbody></table>
+<p>Gephi ofrece laboratorio de datos, filtros, algoritmos de disposición, métricas y exportación. Es una mesa de exploración visual. La evidencia continúa en las fuentes y en las decisiones documentadas que transformaron esas fuentes en nodos y aristas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-las-compras-de-puerto-niebla">Caso de uso legítimo: las compras de Puerto Niebla<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#caso-de-uso-leg%C3%ADtimo-las-compras-de-puerto-niebla" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: las compras de Puerto Niebla" title="Enlace directo al Caso de uso legítimo: las compras de Puerto Niebla" translate="no">​</a></h2>
+<p>El municipio ficticio de <strong>Puerto Niebla</strong> publica contratos, adjudicatarios y resoluciones en su portal de transparencia. Una asociación quiere comprobar si varios proveedores aparecen repetidamente en expedientes relacionados y preparar preguntas para el ayuntamiento. No busca atribuir delitos ni investigar la vida privada de administradores.</p>
+<p>La pregunta se formula así:</p>
+<blockquote>
+<p>¿Qué relaciones declaradas existen entre expedientes, organizaciones y documentos públicos durante 2024-2026, de qué fuente procede cada una y qué patrones merecen una comprobación independiente?</p>
+</blockquote>
+<p>El equipo adopta tres tipos de nodo:</p>
+<ul>
+<li class=""><code>organizacion</code>, identificada por jurisdicción y número registral;</li>
+<li class=""><code>contrato</code>, identificado por el código oficial del expediente;</li>
+<li class=""><code>documento</code>, identificado por URL canónica y huella del fichero adquirido.</li>
+</ul>
+<p>Y limita las aristas a verbos observables: <code>ADJUDICADO_A</code>, <code>MENCIONA_A</code>, <code>SUSTITUYE_A</code> y <code>PUBLICADO_EN</code>. No usa una arista genérica llamada <code>RELACIONADO_CON</code>, porque borraría la diferencia entre adjudicar, mencionar y reemplazar.</p>
+<p>El resultado esperado no es «encontrar el nodo culpable», sino un inventario auditable de vínculos, una lista de ambigüedades y varias hipótesis verificables en fuentes primarias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-unidad-de-análisis-antes-de-recolectar">1. Define la unidad de análisis antes de recolectar<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#1-define-la-unidad-de-an%C3%A1lisis-antes-de-recolectar" class="hash-link" aria-label="Enlace directo al 1. Define la unidad de análisis antes de recolectar" title="Enlace directo al 1. Define la unidad de análisis antes de recolectar" translate="no">​</a></h3>
+<p>Escribe qué representa cada nodo, qué significa cada arista y qué periodo cubre el trabajo. Decide si la red es dirigida: <code>contrato ADJUDICADO_A organizacion</code> tiene sentido y dirección; «dos documentos comparten categoría» quizá sea simétrica.</p>
+<p>Aclara también si permites varias aristas entre el mismo par. Dos contratos diferentes no deberían colapsarse en una sola relación solo porque conectan las mismas entidades. Una decisión estructural cambia las métricas posteriores.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-una-tabla-de-entidades-separada">2. Conserva una tabla de entidades separada<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#2-conserva-una-tabla-de-entidades-separada" class="hash-link" aria-label="Enlace directo al 2. Conserva una tabla de entidades separada" title="Enlace directo al 2. Conserva una tabla de entidades separada" translate="no">​</a></h3>
+<p>Asigna identificadores estables y evita usar el nombre visible como clave. Una tabla mínima de nodos podría contener:</p>
+<div class="language-csv codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csv codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Id,Label,Type,Jurisdiction,SourceUrl,ObservedAt,Verification</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">org_es_b12345678,Brisa Norte SL,organizacion,ES-FICTICIA,https://datos.example/org/17,2026-09-01,corroborado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">exp_2025_0042,EXP-2025-0042,contrato,Puerto Niebla,https://datos.example/exp/42,2026-09-01,corroborado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">doc_sha256_ab12,Resolucion 42,documento,Puerto Niebla,https://datos.example/doc/42,2026-09-01,adquirido</span><br></span></code></pre></div></div>
+<p>Los dominios y valores son ficticios. En un caso real, conserva además la fecha de consulta, el hash del documento cuando proceda y una nota sobre las reglas de normalización. Si dos registros pueden referirse a la misma sociedad pero falta un identificador común, mantenlos separados y registra la posible equivalencia como hipótesis, no como fusión silenciosa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-aristas-que-puedan-citarse">3. Construye aristas que puedan citarse<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#3-construye-aristas-que-puedan-citarse" class="hash-link" aria-label="Enlace directo al 3. Construye aristas que puedan citarse" title="Enlace directo al 3. Construye aristas que puedan citarse" translate="no">​</a></h3>
+<p>Cada fila debe responder «quién afirma esta relación, cuándo y con qué alcance». Por ejemplo:</p>
+<div class="language-csv codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csv codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Source,Target,Type,ValidFrom,ValidTo,EvidenceUrl,EvidencePage,Confidence</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">exp_2025_0042,org_es_b12345678,ADJUDICADO_A,2025-06-14,,https://datos.example/doc/42,7,alta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">doc_sha256_ab12,org_es_b12345678,MENCIONA_A,2025-06-14,,https://datos.example/doc/42,7,alta</span><br></span></code></pre></div></div>
+<p>No uses <code>Weight</code> como cajón de sastre. Puede representar número de contratos, importe agregado, frecuencia de coaparición o una puntuación propia; cada interpretación produce una lectura distinta. Si necesitas varias magnitudes, guárdalas en columnas separadas con unidad y método.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-valida-el-csv-antes-de-abrir-gephi">4. Valida el CSV antes de abrir Gephi<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#4-valida-el-csv-antes-de-abrir-gephi" class="hash-link" aria-label="Enlace directo al 4. Valida el CSV antes de abrir Gephi" title="Enlace directo al 4. Valida el CSV antes de abrir Gephi" translate="no">​</a></h3>
+<p>Comprueba identificadores duplicados, aristas sin extremos, fechas imposibles, campos nulos y tipos inconsistentes. La documentación del importador advierte de que Gephi puede asignar identificadores automáticamente cuando faltan y convertir en nulo lo que no puede interpretar. Eso ayuda a cargar datos, pero puede ocultar un fallo de preparación.</p>
+<p>Guarda el CSV original, el CSV normalizado y un registro de transformaciones. Calcula hashes y no sobrescribas el material adquirido. El proyecto <code>.gephi</code> es un artefacto de análisis; no reemplaza las tablas ni las fuentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-importa-y-revisa-el-informe-no-solo-el-dibujo">5. Importa y revisa el informe, no solo el dibujo<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#5-importa-y-revisa-el-informe-no-solo-el-dibujo" class="hash-link" aria-label="Enlace directo al 5. Importa y revisa el informe, no solo el dibujo" title="Enlace directo al 5. Importa y revisa el informe, no solo el dibujo" translate="no">​</a></h3>
+<p>Importa primero los nodos y después las aristas. Confirma delimitador, codificación, columnas, tipos y carácter dirigido o no dirigido. Revisa cuántos registros entraron, cuántos quedaron fuera y qué valores pasaron a nulo. Luego abre el laboratorio de datos y contrasta una muestra con los CSV.</p>
+<p>Para una primera prueba, trabaja sobre una copia pequeña y conocida. Si esperabas 18 organizaciones, 30 expedientes y 30 adjudicaciones, el lienzo no es suficiente: verifica los recuentos por tipo y relación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-usa-la-disposición-como-interfaz-no-como-medición">6. Usa la disposición como interfaz, no como medición<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#6-usa-la-disposici%C3%B3n-como-interfaz-no-como-medici%C3%B3n" class="hash-link" aria-label="Enlace directo al 6. Usa la disposición como interfaz, no como medición" title="Enlace directo al 6. Usa la disposición como interfaz, no como medición" translate="no">​</a></h3>
+<p>Los algoritmos de <em>layout</em> asignan coordenadas para hacer el grafo legible. Cambiar parámetros, semilla o algoritmo puede acercar o separar nodos sin que cambie una sola arista. Color, tamaño y posición deben tener una leyenda explícita.</p>
+<p>Una regla útil es ejecutar más de una disposición y comprobar si la pregunta sobrevive. Si una conclusión depende de que dos círculos «parezcan cerca», no es una conclusión sobre los datos. Inspecciona la arista y vuelve a su fuente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-calcula-métricas-con-una-hipótesis-concreta">7. Calcula métricas con una hipótesis concreta<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#7-calcula-m%C3%A9tricas-con-una-hip%C3%B3tesis-concreta" class="hash-link" aria-label="Enlace directo al 7. Calcula métricas con una hipótesis concreta" title="Enlace directo al 7. Calcula métricas con una hipótesis concreta" translate="no">​</a></h3>
+<p>El grado cuenta conexiones según la definición del grafo. La intermediación estima cuántos caminos mínimos atraviesan un nodo. La modularidad propone grupos según una función y unos parámetros. Ninguna de ellas mide automáticamente influencia, propiedad o conducta indebida.</p>
+<p>Antes de ejecutar una métrica, registra:</p>
+<ul>
+<li class="">grafo completo o subconjunto filtrado;</li>
+<li class="">dirigido o no dirigido;</li>
+<li class="">tratamiento de pesos y aristas múltiples;</li>
+<li class="">intervalo temporal;</li>
+<li class="">parámetros utilizados;</li>
+<li class="">pregunta que la métrica pretende explorar.</li>
+</ul>
+<p>Un portal de contratación puede convertirse en el nodo con mayor grado porque todos los expedientes enlazan a él. Eso describe el modelo, no una posición de poder. Un documento puente puede tener intermediación alta por cómo descompusimos la información, no por su importancia real.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-filtra-sin-borrar-el-universo-de-referencia">8. Filtra sin borrar el universo de referencia<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#8-filtra-sin-borrar-el-universo-de-referencia" class="hash-link" aria-label="Enlace directo al 8. Filtra sin borrar el universo de referencia" title="Enlace directo al 8. Filtra sin borrar el universo de referencia" translate="no">​</a></h3>
+<p>Los filtros facilitan examinar un periodo, un tipo de entidad o un umbral. La <a href="https://docs.gephi.org/desktop/Plugins/Filter/" target="_blank" rel="noopener noreferrer" class="">documentación de filtros</a> explica que operan sobre vistas del grafo y que pueden encadenarse. Conserva la consulta exacta y el recuento antes y después.</p>
+<p>Publicar solo el subgrafo atractivo puede ocultar cientos de nodos aislados o relaciones que contradicen la narrativa. Exporta una tabla de exclusiones y explica por qué se aplicó el filtro. Ausencia en una vista filtrada no significa ausencia en los datos originales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-trata-el-tiempo-como-parte-del-vínculo">9. Trata el tiempo como parte del vínculo<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#9-trata-el-tiempo-como-parte-del-v%C3%ADnculo" class="hash-link" aria-label="Enlace directo al 9. Trata el tiempo como parte del vínculo" title="Enlace directo al 9. Trata el tiempo como parte del vínculo" translate="no">​</a></h3>
+<p>Una dirección compartida en 2019 y un contrato de 2026 no son simultáneos por aparecer en el mismo lienzo. Gephi admite redes dinámicas con marcas o intervalos; su <a href="https://docs.gephi.org/desktop/User_Manual/Import_Dynamic_Data/" target="_blank" rel="noopener noreferrer" class="">documentación sobre datos temporales</a> señala que ambos modelos no deben mezclarse dentro del mismo grafo.</p>
+<p>Separa al menos <code>observed_at</code>, fecha del documento y periodo de vigencia declarado. Usa un valor abierto cuando se desconozca el final, sin inventarlo. Repite el análisis por cortes temporales para distinguir continuidad, sucesión y simple solapamiento visual.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-verifica-fuera-del-grafo-y-documenta-la-salida">10. Verifica fuera del grafo y documenta la salida<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#10-verifica-fuera-del-grafo-y-documenta-la-salida" class="hash-link" aria-label="Enlace directo al 10. Verifica fuera del grafo y documenta la salida" title="Enlace directo al 10. Verifica fuera del grafo y documenta la salida" translate="no">​</a></h3>
+<p>Selecciona los patrones candidatos y vuelve a los registros oficiales, documentos completos y contexto temporal. Busca explicaciones ordinarias: homónimos, proveedores comunes, cambios de razón social, lotes de una misma licitación o relaciones exigidas por el procedimiento.</p>
+<p>El informe final debe incluir el diccionario del grafo, fuentes, fecha de adquisición, reglas de resolución de entidades, filtros, parámetros y limitaciones. Exporta una tabla de aristas que permita revisar cada afirmación. La imagen es un índice navegable, no la prueba principal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>El sesgo más grande suele entrar antes de Gephi. Un registro incompleto produce una red incompleta; una API con paginación mal resuelta borra relaciones; una fuente que solo conserva cargos actuales destruye la cronología. Los nodos sin aristas pueden desaparecer del análisis aunque su ausencia sea relevante.</p>
+<p>La resolución de entidades añade errores de fusión y división. Dos «Servicios del Norte» pueden ser organizaciones distintas; una entidad puede cambiar de denominación sin dejar de ser la misma. Dominios, direcciones y teléfonos también se reutilizan. Necesitas identificadores fuertes, jurisdicción, fechas y corroboración.</p>
+<p>Las métricas dependen del muestreo. Un nodo central en un conjunto pequeño puede volverse periférico al añadir otra fuente. Los algoritmos de comunidades siempre pueden ofrecer una partición visualmente persuasiva, pero el grupo resultante no equivale a una organización coordinada.</p>
+<p>Por último, el gráfico comunica con enorme eficacia. Una etiqueta grande, un color rojo o una línea gruesa pueden insinuar peligro sin base metodológica. Diseña estilos descriptivos, publica leyendas y distingue observado, inferido y no verificado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opsec-ética-y-privacidad">OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al OPSEC, ética y privacidad" title="Enlace directo al OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>Un grafo puede amplificar daño porque reúne datos dispersos y facilita inferencias nuevas. Aplica minimización desde el esquema:</p>
+<ol>
+<li class="">Incluye solo entidades necesarias para una pregunta legítima.</li>
+<li class="">Prefiere identificadores organizativos y expedientes frente a datos personales.</li>
+<li class="">Seudonimiza los nodos de trabajo cuando el nombre no aporta valor analítico.</li>
+<li class="">No publiques domicilios, teléfonos, rutinas ni relaciones familiares innecesarias.</li>
+<li class="">Protege tablas, proyectos, exportaciones y copias de seguridad según su sensibilidad.</li>
+<li class="">Revisa complementos antes de instalarlos y evita servicios de publicación para redes confidenciales.</li>
+<li class="">Introduce un paso de réplica y derecho de respuesta antes de formular acusaciones.</li>
+</ol>
+<p>La página oficial de un complemento para publicar grafos en la web <a href="https://gephi.org/desktop/plugins/web-publish-plugin/" target="_blank" rel="noopener noreferrer" class="">advierte expresamente</a> que no se deben publicar redes con información confidencial. Incluso si cada dato era público por separado, la agregación puede elevar el riesgo. Accesible no significa inocuo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-control-antes-de-publicar">Checklist de control antes de publicar<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#checklist-de-control-antes-de-publicar" class="hash-link" aria-label="Enlace directo al Checklist de control antes de publicar" title="Enlace directo al Checklist de control antes de publicar" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta y el periodo están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada tipo de nodo y arista tiene una semántica inequívoca.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las entidades se resuelven con identificadores y fechas, no solo por nombre.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada arista conserva fuente y referencia verificable.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se documentan nulos, exclusiones, filtros y transformaciones.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El carácter dirigido, los pesos y las métricas tienen justificación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La conclusión no depende de la posición visual de los nodos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los patrones importantes se corroboraron fuera del grafo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La publicación minimiza datos personales y explica incertidumbres.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/gephi-grafos-relaciones-procedencia-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Gephi destaca en exploración visual interactiva y preparación de gráficos. Si necesitas un flujo programable y repetible, <a href="https://networkx.org/documentation/stable/reference/introduction.html" target="_blank" rel="noopener noreferrer" class="">NetworkX</a> ofrece estructuras, algoritmos y lectura/escritura de grafos en Python; su propia documentación recomienda herramientas especializadas como Gephi para visualización avanzada. <a href="https://manual.cytoscape.org/en/latest/Node_and_Edge_Column_Data.html" target="_blank" rel="noopener noreferrer" class="">Cytoscape</a> es otra opción para redes con atributos y tablas asociadas. Una base SQL también puede ser suficiente cuando la pregunta se responde mejor con uniones auditables que con centralidades.</p>
+<p>Elige por necesidad: hoja de cálculo para inspección pequeña, SQL para transformaciones trazables, NetworkX para automatización y pruebas, y Gephi para exploración visual. Puedes combinarlos si conservas formatos intermedios y controles de recuento.</p>
+<p>El takeaway accionable es este: <strong>antes de interpretar un grafo, audita el diccionario que convirtió documentos en nodos y relaciones</strong>. Después prueba filtros y métricas; al final, regresa a las fuentes. El siguiente tema natural será estudiar cómo validar resolución de entidades con reglas, muestras y estados de incertidumbre sin fusionar homónimos por comodidad.</p>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Analisis de enlaces" term="Analisis de enlaces"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OSMCha en OSINT: auditar cambios de OpenStreetMap sin confundir una edición con un hecho]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/osmcha-historial-cambios-openstreetmap-osint</id>
@@ -2590,191 +2707,5 @@
         <category label="Verificacion" term="Verificacion"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DataCite en OSINT: seguir DOI, versiones y relaciones sin confundir metadatos con pruebas]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones"/>
-        <updated>2026-08-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT siguiendo DOI, versiones, datasets, software y relaciones de procedencia]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT siguiendo DOI, versiones, datasets, software y relaciones de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-17-datacite-osint-doi-versiones-relaciones-23916689d643bc5db45e125654813788.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/datacite-osint-doi-versiones-relaciones-cd4d128d2f0be34c70bfbba3bb11df35.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una empresa asegura que su producto procede de «años de investigación abierta» y enlaza un dataset con DOI. La ficha parece impecable: autores, institución, licencia y trabajos relacionados. Sin embargo, el fichero descargable no coincide con la versión citada y la relación con el software fue declarada por el repositorio, no demostrada por una auditoría independiente. <strong>Un DOI hace un objeto citable y localizable; no certifica por sí solo su contenido, calidad, autoría material ni las conclusiones que alguien extrae de él.</strong></p>
-<p>Consultada el <strong>17 de agosto de 2026</strong>, la documentación oficial presenta <a href="https://support.datacite.org/docs/datacite-commons" target="_blank" rel="noopener noreferrer" class="">DataCite Commons</a> como una herramienta para descubrir obras con DOI, personas con ORCID, organizaciones con ROR y repositorios mediante las conexiones depositadas en los metadatos. Para OSINT responsable, su valor está en ordenar identificadores, versiones y relaciones antes de volver al archivo, al repositorio y a las fuentes primarias.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-datacite-y-para-qué-sirve">Qué es DataCite y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#qu%C3%A9-es-datacite-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es DataCite y para qué sirve" title="Enlace directo al Qué es DataCite y para qué sirve" translate="no">​</a></h2>
-<p>DataCite es una infraestructura de identificadores persistentes y metadatos, muy utilizada para conjuntos de datos, software, informes, imágenes, colecciones y otros resultados de investigación. Su buscador público, <a href="https://commons.datacite.org/" target="_blank" rel="noopener noreferrer" class="">DataCite Commons</a>, permite explorar ese catálogo; la <a href="https://support.datacite.org/reference/introduction" target="_blank" rel="noopener noreferrer" class="">REST API</a> devuelve metadatos en JSON siguiendo la especificación JSON<!-- -->:API<!-- -->.</p>
-<p>En una investigación legítima puede ayudar a:</p>
-<ul>
-<li class="">localizar un objeto aunque cambie la URL de su repositorio;</li>
-<li class="">distinguir una versión concreta de un DOI que agrupa varias versiones;</li>
-<li class="">identificar relaciones declaradas entre dataset, software, artículo, informe o colección;</li>
-<li class="">recuperar autores, colaboradores, ORCID, afiliaciones y financiadores consignados;</li>
-<li class="">revisar licencia, fechas, tipo de recurso y repositorio responsable;</li>
-<li class="">documentar cuándo cambió el <strong>registro de metadatos</strong>;</li>
-<li class="">preparar consultas repetibles sin depender solo de capturas de pantalla.</li>
-</ul>
-<p>Conviene fijar desde el principio tres capas que no son equivalentes:</p>
-<table><thead><tr><th>Capa</th><th>Qué observamos</th><th>Qué no demuestra por sí sola</th></tr></thead><tbody><tr><td>DOI</td><td>identificador que resuelve a una página</td><td>que el archivo siga accesible o sea correcto</td></tr><tr><td>metadatos</td><td>descripción depositada por una cuenta responsable</td><td>que cada afirmación haya sido verificada externamente</td></tr><tr><td>contenido</td><td>ficheros y documentación del repositorio</td><td>que las conclusiones del productor sean ciertas</td></tr></tbody></table>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-la-genealogía-de-un-dataset">Caso de uso legítimo: comprobar la genealogía de un dataset<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#caso-de-uso-leg%C3%ADtimo-comprobar-la-genealog%C3%ADa-de-un-dataset" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar la genealogía de un dataset" title="Enlace directo al Caso de uso legítimo: comprobar la genealogía de un dataset" translate="no">​</a></h2>
-<p>Imaginemos una <em>startup</em> ficticia, <strong>Nimbo Delta Labs</strong>, que atribuye su modelo de previsión agrícola a un proyecto universitario. Publica tres referencias:</p>
-<ol>
-<li class="">un DOI «general» para el dataset;</li>
-<li class="">un DOI para la versión 2.0 empleada en una demostración;</li>
-<li class="">un DOI para el software que, según la empresa, produjo los resultados.</li>
-</ol>
-<p>La pregunta OSINT no es «¿cómo desenmascaramos a la empresa?», sino una mucho más comprobable:</p>
-<blockquote>
-<p>¿Qué objetos públicos existen, cómo están relacionados, qué versión estaba disponible en la fecha relevante y qué parte de la historia requiere corroboración independiente?</p>
-</blockquote>
-<p>Antes de buscar, crea una tabla de hipótesis:</p>
-<table><thead><tr><th>Afirmación</th><th>Evidencia esperada</th><th>Fuente primaria</th></tr></thead><tbody><tr><td>existía una versión 2.0</td><td>DOI específico, campo <code>version</code>, fecha y archivos</td><td>registro DataCite y repositorio</td></tr><tr><td>el software generó el dataset</td><td>relación con semántica adecuada y documentación técnica</td><td>metadatos de ambos objetos y README</td></tr><tr><td>hubo financiación pública</td><td>identificador de ayuda y resolución</td><td>organismo financiador</td></tr><tr><td>la universidad participó</td><td>afiliación con fecha o documento del proyecto</td><td>universidad y memoria del proyecto</td></tr><tr><td>los resultados son reproducibles</td><td>datos, código, entorno y método suficientes</td><td>archivos de la versión citada</td></tr></tbody></table>
-<p>Esta tabla impide que un grafo atractivo sustituya la verificación.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-parte-del-doi-exacto-y-conserva-la-resolución">1. Parte del DOI exacto y conserva la resolución<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#1-parte-del-doi-exacto-y-conserva-la-resoluci%C3%B3n" class="hash-link" aria-label="Enlace directo al 1. Parte del DOI exacto y conserva la resolución" title="Enlace directo al 1. Parte del DOI exacto y conserva la resolución" translate="no">​</a></h3>
-<p>Normaliza el identificador como <code>https://doi.org/&lt;doi&gt;</code> y registra:</p>
-<ul>
-<li class="">DOI literal, sin corregirlo silenciosamente;</li>
-<li class="">URL de destino y cadena de redirecciones;</li>
-<li class="">fecha y hora UTC de consulta;</li>
-<li class="">título, creador, editor o repositorio;</li>
-<li class="">versión y tipo de recurso declarados;</li>
-<li class="">licencia y disponibilidad real de los archivos.</li>
-</ul>
-<p>El DOI suele llevar a una página de aterrizaje, no directamente al fichero. Guarda ambas URL. Si la página no carga, no concluyas que el objeto nunca existió: documenta el error y busca el registro por DOI en Commons o por API.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-explora-el-registro-en-datacite-commons">2. Explora el registro en DataCite Commons<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#2-explora-el-registro-en-datacite-commons" class="hash-link" aria-label="Enlace directo al 2. Explora el registro en DataCite Commons" title="Enlace directo al 2. Explora el registro en DataCite Commons" translate="no">​</a></h3>
-<p>La guía oficial de <a href="https://support.datacite.org/docs/works-in-datacite-commons" target="_blank" rel="noopener noreferrer" class="">obras en Commons</a> explica que la búsqueda general consulta campos como DOI, título, creador, editor, descripción, materia e identificadores relacionados. Después permite filtrar por año, tipo de obra, licencia, repositorio y otros campos.</p>
-<p>En la ficha anota, por separado:</p>
-<ul>
-<li class=""><strong>identidad:</strong> título, creadores, ORCID y afiliaciones;</li>
-<li class=""><strong>objeto:</strong> <code>resourceTypeGeneral</code>, versión, formatos y tamaños;</li>
-<li class=""><strong>custodia:</strong> editor, repositorio y URL;</li>
-<li class=""><strong>derechos:</strong> licencia y URI de derechos;</li>
-<li class=""><strong>contexto:</strong> descripciones, materias y financiación;</li>
-<li class=""><strong>relaciones:</strong> cada identificador relacionado y su <code>relationType</code>.</li>
-</ul>
-<p>Commons puede mostrar un grafo de conexiones. Ese grafo se construye con relaciones de los metadatos del DOI principal y de los objetos enlazados; <strong>una arista representa una declaración estructurada, no una conclusión probatoria</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-dirección-y-el-significado-de-cada-relación">3. Lee la dirección y el significado de cada relación<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#3-lee-la-direcci%C3%B3n-y-el-significado-de-cada-relaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Lee la dirección y el significado de cada relación" title="Enlace directo al 3. Lee la dirección y el significado de cada relación" translate="no">​</a></h3>
-<p>No reduzcas <code>relatedIdentifiers</code> a una lista de enlaces. La dirección cambia el sentido:</p>
-<table><thead><tr><th>Relación observada en A</th><th>Lectura prudente</th></tr></thead><tbody><tr><td><code>IsVersionOf B</code></td><td>A se declara versión de B</td></tr><tr><td><code>HasVersion B</code></td><td>A se declara recurso que agrupa o tiene la versión B</td></tr><tr><td><code>IsNewVersionOf B</code></td><td>A se declara edición nueva de B</td></tr><tr><td><code>IsPreviousVersionOf B</code></td><td>A se declara edición anterior a B</td></tr><tr><td><code>IsSupplementTo B</code></td><td>A se declara suplemento de B</td></tr><tr><td><code>IsDerivedFrom B</code></td><td>A declara derivación desde B; falta valorar método y alcance</td></tr><tr><td><code>IsSourceOf B</code></td><td>A se declara fuente de B</td></tr><tr><td><code>References B</code></td><td>A referencia B; no implica uso material ni validación</td></tr><tr><td><code>IsDocumentedBy B</code></td><td>B se declara documentación de A</td></tr></tbody></table>
-<p>Comprueba la relación desde los dos extremos. Puede existir solo en uno, estar mal orientada o utilizar una categoría demasiado genérica. Después abre la documentación del repositorio: el README, el historial de versiones, el artículo metodológico o el fichero de citas puede precisar lo que el metadato resume.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-doi-canónico-versión-y-secuencia">4. Separa DOI canónico, versión y secuencia<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#4-separa-doi-can%C3%B3nico-versi%C3%B3n-y-secuencia" class="hash-link" aria-label="Enlace directo al 4. Separa DOI canónico, versión y secuencia" title="Enlace directo al 4. Separa DOI canónico, versión y secuencia" translate="no">​</a></h3>
-<p>La guía oficial de <a href="https://support.datacite.org/docs/versioning" target="_blank" rel="noopener noreferrer" class="">versionado</a> recomienda que los cambios menores puedan reflejarse actualizando metadatos y el campo de versión, mientras que para cambios mayores se registre un DOI nuevo y se conecte con identificadores relacionados. La decisión de qué es «mayor» o «menor» corresponde a quien custodia el recurso.</p>
-<p>En la práctica, pregunta:</p>
-<ol>
-<li class="">¿El DOI representa una versión concreta o todas las versiones?</li>
-<li class="">¿Existe un DOI canónico con relaciones <code>HasVersion</code>?</li>
-<li class="">¿Las versiones específicas apuntan al canónico con <code>IsVersionOf</code>?</li>
-<li class="">¿La secuencia enlaza edición anterior y nueva?</li>
-<li class="">¿La página ofrece exactamente los ficheros de la versión citada?</li>
-<li class="">¿Cambió el contenido bajo el mismo DOI o solo su descripción?</li>
-</ol>
-<p>No ordenes versiones únicamente por <code>publicationYear</code>. Usa el campo de versión, las relaciones, las fechas relevantes y el historial del repositorio. Un año igual puede contener varias entregas; una fecha posterior puede corresponder solo a la corrección de metadatos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-consulta-la-api-para-dejar-una-pista-reproducible">5. Consulta la API para dejar una pista reproducible<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#5-consulta-la-api-para-dejar-una-pista-reproducible" class="hash-link" aria-label="Enlace directo al 5. Consulta la API para dejar una pista reproducible" title="Enlace directo al 5. Consulta la API para dejar una pista reproducible" translate="no">​</a></h3>
-<p>La <a href="https://support.datacite.org/docs/queries" target="_blank" rel="noopener noreferrer" class="">sintaxis de búsqueda oficial</a> usa consultas de OpenSearch tanto en Commons como en el parámetro <code>query</code> de la API. Por ejemplo, para buscar objetos de software cuyo título contenga dos términos ficticios:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://api.datacite.org/dois' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'query=titles.title:("Nimbo" AND "Delta") AND types.resourceTypeGeneral:Software' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'page[size]=10'</span><br></span></code></pre></div></div>
-<p>Para recuperar un DOI que ya conoces, codifica correctamente la barra en la URL o pásalo a una herramienta que lo haga. Del JSON conserva solo lo necesario para el caso:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">doi</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">titles[].title</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">creators[]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">publisher</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">publicationYear</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">types.resourceTypeGeneral</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">version</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">relatedIdentifiers[]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">rightsList[]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">dates[]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">fundingReferences[]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">url</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">updated</span><br></span></code></pre></div></div>
-<p>Registra también la consulta exacta, la hora, el número de resultados y cualquier paginación. Si repites el trabajo más tarde, compara los registros por DOI; no confíes en la posición del resultado.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-recupera-metadatos-sin-raspar-la-página">6. Recupera metadatos sin raspar la página<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#6-recupera-metadatos-sin-raspar-la-p%C3%A1gina" class="hash-link" aria-label="Enlace directo al 6. Recupera metadatos sin raspar la página" title="Enlace directo al 6. Recupera metadatos sin raspar la página" translate="no">​</a></h3>
-<p>La <a href="https://support.datacite.org/docs/datacite-content-resolver" target="_blank" rel="noopener noreferrer" class="">negociación de contenido de DataCite</a> permite pedir representaciones de metadatos mediante la cabecera HTTP <code>Accept</code>. Para una ficha individual:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl -L -H 'Accept: application/vnd.datacite.datacite+json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://doi.org/DOI-DE-EJEMPLO'</span><br></span></code></pre></div></div>
-<p><code>DOI-DE-EJEMPLO</code> es deliberadamente ficticio: sustitúyelo solo por un DOI público pertinente para tu investigación. Según la documentación, una petición HTML normalmente resuelve a la página del recurso; otros tipos admitidos pueden devolver DataCite JSON, XML, JSON-LD, BibTeX, RIS o una cita formateada.</p>
-<p>Esto mejora la reproducibilidad, pero sigue recuperando <strong>metadatos</strong>. Para verificar el contenido debes descargar el fichero legítimamente accesible, anotar su versión y calcular una huella local si la finalidad y las condiciones lo permiten.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-revisa-la-procedencia-de-los-cambios">7. Revisa la procedencia de los cambios<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#7-revisa-la-procedencia-de-los-cambios" class="hash-link" aria-label="Enlace directo al 7. Revisa la procedencia de los cambios" title="Enlace directo al 7. Revisa la procedencia de los cambios" translate="no">​</a></h3>
-<p>DataCite documenta un endpoint de <a href="https://support.datacite.org/docs/tracking-provenance" target="_blank" rel="noopener noreferrer" class="">procedencia de metadatos</a>:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">https://api.datacite.org/dois/&lt;doi&gt;/activities</span><br></span></code></pre></div></div>
-<p>Para registros desde el 10 de marzo de 2019 puede mostrar actividades de creación, actualización o eliminación, marcas temporales, cuenta de repositorio o miembro atribuida y campos cambiados. Es útil para responder «¿cuándo cambió este metadato?».</p>
-<p>No responde automáticamente «¿cuándo cambió el fichero?», «¿quién hizo personalmente el cambio?» ni «¿por qué se corrigió?». La cuenta atribuida puede ser institucional y el contenido vivir en otro sistema con su propio historial.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-fuera-de-datacite-y-redacta-por-niveles">8. Corrobora fuera de DataCite y redacta por niveles<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#8-corrobora-fuera-de-datacite-y-redacta-por-niveles" class="hash-link" aria-label="Enlace directo al 8. Corrobora fuera de DataCite y redacta por niveles" title="Enlace directo al 8. Corrobora fuera de DataCite y redacta por niveles" translate="no">​</a></h3>
-<p>Vuelve a las fuentes primarias:</p>
-<ul>
-<li class="">repositorio y archivos de la versión concreta;</li>
-<li class="">control de versiones o registro de <em>releases</em> del software;</li>
-<li class="">documentación metodológica y ficheros de entorno;</li>
-<li class="">resolución del financiador y número de ayuda;</li>
-<li class="">perfiles ORCID con su procedencia, no como certificación universal;</li>
-<li class="">registro ROR y web institucional para identidad organizativa;</li>
-<li class="">artículo, preprint o informe que explique la relación con los datos.</li>
-</ul>
-<p>Redacta cada resultado como uno de estos estados:</p>
-<ul>
-<li class=""><strong>observado:</strong> el registro declara una relación o versión;</li>
-<li class=""><strong>corroborado:</strong> otra fuente primaria independiente coincide;</li>
-<li class=""><strong>contradicho:</strong> las fuentes discrepan de forma documentada;</li>
-<li class=""><strong>no verificable:</strong> faltan archivos, fechas o contexto;</li>
-<li class=""><strong>inferido:</strong> conclusión analítica explícitamente separada de los hechos.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-validación">Checklist de validación<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#checklist-de-validaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de validación" title="Enlace directo al Checklist de validación" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado el DOI exacto, la URL resuelta y la hora UTC.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Sé si cito un DOI canónico o una versión específica.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He leído la dirección de cada <code>relationType</code>.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado ambos extremos de las relaciones importantes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He separado fecha de publicación, actualización del registro y versión.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He abierto los archivos y la documentación, no solo el metadato.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He registrado consulta, filtros, paginación y campos exportados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He corroborado autoría, afiliación y financiación en fuentes primarias.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He distinguido ausencia de datos de evidencia negativa.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He minimizado datos personales y documentado incertidumbre.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Metadatos depositados:</strong> la calidad depende de quien registra y mantiene el DOI.</li>
-<li class=""><strong>Cobertura parcial:</strong> Commons incluye los DOI de DataCite en estado <em>Findable</em>; otros DOI pueden aparecer solo bajo determinadas conexiones o importaciones.</li>
-<li class=""><strong>Relaciones incompletas:</strong> un enlace puede faltar en uno de los extremos o tardar en indexarse.</li>
-<li class=""><strong>Semántica desigual:</strong> dos repositorios pueden describir una relación similar con tipos distintos.</li>
-<li class=""><strong>Versionado local:</strong> cada custodio decide qué cambio merece DOI nuevo.</li>
-<li class=""><strong>DOI canónico ambiguo:</strong> citar el agregador cuando necesitabas una versión puede impedir reproducir el análisis.</li>
-<li class=""><strong>Afiliación no temporal:</strong> una institución declarada no demuestra empleo actual ni participación durante todo el proyecto.</li>
-<li class=""><strong>Licencia descriptiva:</strong> un valor en metadatos no sustituye leer la licencia del archivo y sus restricciones.</li>
-<li class=""><strong>Métricas aportadas:</strong> vistas y descargas dependen de informes enviados por repositorios; no equivalen a impacto o calidad.</li>
-<li class=""><strong>Actualización de metadatos:</strong> un cambio registrado en <code>/activities</code> no acredita modificación del contenido.</li>
-<li class=""><strong>Ausencia:</strong> no encontrar un DOI o una relación no prueba que el objeto o vínculo no existan.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Define una finalidad legítima y proporcional antes de recopilar datos.</li>
-<li class="">Trabaja con objetos públicos necesarios para la pregunta; evita perfilar personas por curiosidad.</li>
-<li class="">No automatices decisiones adversas a partir de afiliaciones o grafos.</li>
-<li class="">Respeta condiciones de uso, límites técnicos y licencias de cada repositorio.</li>
-<li class="">Conserva originales y deriva copias de trabajo; no sobrescribas evidencia.</li>
-<li class="">Separa identificadores de notas sensibles y protege el expediente.</li>
-<li class="">No publiques correos, nombres u otros datos personales que no aporten valor probatorio.</li>
-<li class="">Describe errores de metadatos como errores, no como engaño, salvo evidencia adicional.</li>
-<li class="">Solicita segunda revisión para afirmaciones sensibles y ofrece vía de corrección.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>DataCite funciona mejor como una pieza de un flujo más amplio:</p>
-<ul>
-<li class=""><strong>Crossref</strong> para DOI y metadatos centrados especialmente en literatura académica;</li>
-<li class=""><strong>OpenAIRE</strong> para explorar proyectos, productos, repositorios y procedencia agregada;</li>
-<li class=""><strong>OpenAlex</strong> para redes bibliográficas de obras, autores e instituciones;</li>
-<li class=""><strong>ORCID y ROR</strong> para identificadores de personas y organizaciones, atendiendo a quién aportó cada dato;</li>
-<li class=""><strong>Zenodo u otros repositorios</strong> para archivos, comunidades, versiones y documentación;</li>
-<li class=""><strong>Software Heritage</strong> y el repositorio de origen para preservar y revisar código público;</li>
-<li class=""><strong>portales del financiador</strong> para resoluciones, importes y estado oficial.</li>
-</ul>
-<p>El takeaway accionable es sencillo: toma un DOI público de un dataset, decide si identifica una versión o una familia, exporta sus <code>relatedIdentifiers</code> y añade cuatro columnas: <strong>dirección, significado, procedencia y corroboración</strong>. Si no puedes completar las cuatro, la arista sigue siendo una pista.</p>
-<p>Como siguiente tema, sería útil estudiar <strong>Software Heritage</strong> para distinguir repositorio, <em>release</em>, artefacto y captura preservada cuando una investigación necesita citar código que cambia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/datacite-osint-doi-versiones-relaciones#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://support.datacite.org/docs/datacite-commons" target="_blank" rel="noopener noreferrer" class="">DataCite Commons: introducción</a></li>
-<li class=""><a href="https://support.datacite.org/docs/works-in-datacite-commons" target="_blank" rel="noopener noreferrer" class="">Obras y conexiones en DataCite Commons</a></li>
-<li class=""><a href="https://support.datacite.org/docs/queries" target="_blank" rel="noopener noreferrer" class="">Consultas sobre metadatos DOI</a></li>
-<li class=""><a href="https://support.datacite.org/reference/introduction" target="_blank" rel="noopener noreferrer" class="">DataCite REST API</a></li>
-<li class=""><a href="https://support.datacite.org/docs/versioning" target="_blank" rel="noopener noreferrer" class="">Versionado y relaciones entre versiones</a></li>
-<li class=""><a href="https://support.datacite.org/docs/tracking-provenance" target="_blank" rel="noopener noreferrer" class="">Procedencia de los cambios de metadatos</a></li>
-<li class=""><a href="https://support.datacite.org/docs/datacite-content-resolver" target="_blank" rel="noopener noreferrer" class="">Negociación de contenido para DOI</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Research" term="Research"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Verificacion" term="Verificacion"/>
     </entry>
 </feed>
