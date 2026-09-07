@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista explorando tablas públicas, frecuencias y uniones con etiquetas de procedencia](/img/blog/2026-09-07-visidata-osint-datos-tabulares.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/visidata-osint-explorar-datos-tabulares.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un portal de contratación publica tres ficheros: adjudicaciones en CSV, proveedores en JSON y centros de gasto en SQLite. Antes de abrir un cuaderno de Python, ya necesitamos saber si faltan años, si un importe está guardado como texto o si una unión multiplicará filas. **El primer riesgo no es técnico: es empezar a cruzar datos sin entender su forma ni conservar de dónde salió cada registro**.
