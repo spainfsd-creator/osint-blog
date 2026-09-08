@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando datos públicos mediante controles de esquema, rangos, unicidad y procedencia](/img/blog/2026-09-08-great-expectations-osint-calidad-datos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/great-expectations-osint-calidad-datos.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un portal público sustituye su CSV mensual sin avisar. La columna `importe` pasa de número a texto, desaparecen varios identificadores y una fecha adopta otro formato. El fichero sigue abriendo y nuestro análisis sigue ejecutándose, pero sus resultados ya no significan lo mismo. **En OSINT, una canalización que no falla puede ser precisamente la que más debería preocuparnos**.
