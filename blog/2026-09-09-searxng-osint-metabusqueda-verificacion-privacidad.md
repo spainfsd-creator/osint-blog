@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista OSINT reuniendo resultados de varios buscadores en un espacio de investigación con etiquetas de fuente y procedencia](/img/blog/2026-09-09-searxng-osint-metabusqueda-verificacion-privacidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/searxng-osint-metabusqueda-verificacion-privacidad.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Buscas el nombre de una empresa ficticia vinculada a una licitación y el primer buscador devuelve diez páginas casi idénticas. Cambias de motor: aparecen un registro sectorial, una copia archivada y una noticia local que antes no existían. El hallazgo importante no estaba necesariamente oculto; estaba **fuera del ranking que habías tomado por el mapa completo**.
