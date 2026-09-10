@@ -2,11 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-09-09T00:00:00.000Z</updated>
+    <updated>2026-09-10T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[changedetection.io en OSINT: vigilar cambios web sin confundir una alerta con una prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web"/>
+        <updated>2026-09-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de un analista comparando dos versiones fechadas de una página pública, con diferencias, alertas y procedencia]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando dos versiones fechadas de una página pública, con diferencias, alertas y procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-10-changedetection-io-osint-cambios-web-2d78224d43f4c2e7dbebf08fd31bae1f.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una administración publica las condiciones de una ayuda y, tres días después, modifica silenciosamente un requisito. Si solo conservamos la página actual, sabremos qué dice ahora, pero no <strong>qué cambió, cuándo lo observamos ni si el cambio afecta realmente a nuestra investigación</strong>. Visitar la web cada mañana tampoco resuelve el problema: la memoria humana es un comparador pésimo.</p>
+<p><a href="https://github.com/dgtlmoon/changedetection.io" target="_blank" rel="noopener noreferrer" class="">changedetection.io</a> automatiza esa vigilancia: consulta páginas, conserva estados, muestra diferencias y puede avisar cuando detecta cambios. En OSINT es útil para seguir fuentes públicas con un propósito legítimo, siempre que filtremos el ruido, preservemos el material original y tratemos cada alerta como una pista que exige verificación.</p>
+<blockquote>
+<p><strong>Transparencia editorial:</strong> esta entrada ha sido generada mediante inteligencia artificial y se publica sin revisión humana ni <em>fact-checking</em> humano. Las fuentes técnicas se consultaron el 10 de septiembre de 2026.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-changedetectionio-y-para-qué-sirve">Qué es changedetection.io y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#qu%C3%A9-es-changedetectionio-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es changedetection.io y para qué sirve" title="Enlace directo al Qué es changedetection.io y para qué sirve" translate="no">​</a></h2>
+<p>changedetection.io es una aplicación de código abierto para detectar modificaciones en páginas web y enviar notificaciones. Puede ejecutarse como servicio alojado o en infraestructura propia. Su <a href="https://github.com/dgtlmoon/changedetection.io" target="_blank" rel="noopener noreferrer" class="">repositorio oficial</a> documenta dos formas de obtener contenido: una petición HTTP sencilla para páginas estáticas y un navegador basado en Chrome para sitios que necesitan JavaScript.</p>
+<p>El proyecto incorpora filtros CSS, XPath, JSONPath y <code>jq</code>; historial de cambios; selector visual; pasos de navegador; monitorización de respuestas JSON y notificaciones mediante múltiples canales. La <a href="https://changedetection.io/docs/api_v1/" target="_blank" rel="noopener noreferrer" class="">API oficial</a> permite administrar vigilancias, etiquetas y notificaciones de forma programática.</p>
+<p>Nada de eso demuestra por sí solo por qué cambió una página o quién ordenó el cambio. Conviene separar funciones:</p>
+<table><thead><tr><th>Capa</th><th>Pregunta que responde</th><th>Lo que no demuestra</th></tr></thead><tbody><tr><td>captura periódica</td><td>«¿qué devolvió esta URL en cada consulta?»</td><td>que el servidor mostrase lo mismo a todo el mundo</td></tr><tr><td>filtro</td><td>«¿qué parte queremos comparar?»</td><td>que el resto de la página sea irrelevante</td></tr><tr><td>diff</td><td>«¿qué texto observado difiere?»</td><td>intención, autoría o importancia</td></tr><tr><td>alerta</td><td>«¿cuándo detectó el sistema una diferencia?»</td><td>momento exacto de publicación</td></tr><tr><td>preservación externa</td><td>«¿qué material podemos revisar después?»</td><td>autenticidad completa sin más corroboración</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-seguir-un-pliego-público-ficticio">Caso de uso legítimo: seguir un pliego público ficticio<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#caso-de-uso-leg%C3%ADtimo-seguir-un-pliego-p%C3%BAblico-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: seguir un pliego público ficticio" title="Enlace directo al Caso de uso legítimo: seguir un pliego público ficticio" translate="no">​</a></h2>
+<p>Imaginemos que el Ayuntamiento de <strong>Bahía Clara</strong>, entidad ficticia, publica una convocatoria de subvenciones. Nuestro encargo es documentar cambios en requisitos, fechas y anexos durante el periodo de alegaciones. No buscamos información personal ni intentamos acceder a zonas restringidas.</p>
+<p>Definimos antes de configurar nada:</p>
+<ul>
+<li class="">URL oficial de la convocatoria y de sus anexos;</li>
+<li class="">campos relevantes: plazo, cuantía, criterios y versión de los documentos;</li>
+<li class="">frecuencia proporcionada, por ejemplo una comprobación diaria;</li>
+<li class="">zona horaria y reloj de referencia;</li>
+<li class="">canal de alerta sin datos sensibles;</li>
+<li class="">procedimiento de preservación y verificación.</li>
+</ul>
+<p>La hipótesis operativa no es «la administración oculta algo», sino una afirmación comprobable: «queremos saber si el contenido público que sostiene una decisión cambia durante el periodo observado».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-registra-el-estado-inicial-y-el-alcance">1. Registra el estado inicial y el alcance<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#1-registra-el-estado-inicial-y-el-alcance" class="hash-link" aria-label="Enlace directo al 1. Registra el estado inicial y el alcance" title="Enlace directo al 1. Registra el estado inicial y el alcance" translate="no">​</a></h3>
+<p>Antes de activar el monitor, guarda la URL canónica, la fecha y hora UTC, el título visible, el código HTTP y, cuando sea lícito y proporcionado, una copia del documento original con su hash. Anota también desde qué red y con qué idioma o cabeceras se hizo la consulta: una web puede variar por sesión, ubicación o dispositivo.</p>
+<p>Limita el alcance a fuentes públicas necesarias para la investigación. No añadas perfiles personales, páginas de familiares o paneles autenticados por mera curiosidad. Que una herramienta pueda ejecutar pasos de navegador no convierte en legítimo el acceso ni elimina las condiciones de uso del sitio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-elige-el-método-de-captura-más-sencillo">2. Elige el método de captura más sencillo<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#2-elige-el-m%C3%A9todo-de-captura-m%C3%A1s-sencillo" class="hash-link" aria-label="Enlace directo al 2. Elige el método de captura más sencillo" title="Enlace directo al 2. Elige el método de captura más sencillo" translate="no">​</a></h3>
+<p>Empieza con el recuperador HTTP para contenido estático. Reduce complejidad, consumo y variaciones causadas por JavaScript. Usa el navegador solo si la información relevante se genera en cliente o requiere una interacción permitida. El <a href="https://github.com/dgtlmoon/changedetection.io#readme" target="_blank" rel="noopener noreferrer" class="">README oficial</a> indica que los <em>Browser Steps</em> y el selector visual dependen del soporte de navegador.</p>
+<p>Documenta el método porque dos capturadores pueden observar representaciones distintas. Si una página devuelve un reto anti-bot, un error o contenido incompleto, no lo interpretes como una eliminación editorial.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-filtra-la-zona-relevante-sin-borrar-contexto">3. Filtra la zona relevante sin borrar contexto<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#3-filtra-la-zona-relevante-sin-borrar-contexto" class="hash-link" aria-label="Enlace directo al 3. Filtra la zona relevante sin borrar contexto" title="Enlace directo al 3. Filtra la zona relevante sin borrar contexto" translate="no">​</a></h3>
+<p>Cabeceras rotatorias, contadores, banners de cookies y sellos de tiempo producen alertas inútiles. Usa el selector visual o un filtro CSS/XPath para aislar, por ejemplo, el bloque principal de requisitos. Para una API JSON pública, JSONPath o <code>jq</code> permiten comparar solo campos definidos.</p>
+<p>Un ejemplo ficticio y deliberadamente inocuo sería:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">CSS: main article .requisitos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">XPath: //main//section[@id='requisitos']</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">jq: {plazo: .convocatoria.plazo, cuantia: .convocatoria.cuantia}</span><br></span></code></pre></div></div>
+<p>Conserva tanto la regla como una muestra del contenido excluido. Un filtro demasiado ancho genera ruido; uno demasiado estrecho puede silenciar el cambio importante. La propia documentación del proyecto enumera <a href="https://github.com/dgtlmoon/changedetection.io#filters" target="_blank" rel="noopener noreferrer" class="">CSS, XPath, JSONPath y <code>jq</code></a> como mecanismos disponibles, pero la calidad del resultado depende de cómo los configuremos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ajusta-frecuencia-calendario-y-condiciones">4. Ajusta frecuencia, calendario y condiciones<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#4-ajusta-frecuencia-calendario-y-condiciones" class="hash-link" aria-label="Enlace directo al 4. Ajusta frecuencia, calendario y condiciones" title="Enlace directo al 4. Ajusta frecuencia, calendario y condiciones" translate="no">​</a></h3>
+<p>La frecuencia debe corresponder al riesgo y a la cadencia real de publicación. Consultar cada pocos segundos una convocatoria mensual no mejora la evidencia y puede sobrecargar el servidor. Anota periodos sin comprobación y fallos de red: la ausencia de una alerta durante un hueco no demuestra estabilidad.</p>
+<p>Si solo importan adiciones, el tutorial oficial explica el filtro de <a href="https://changedetection.io/tutorial/how-monitor-website-new-content" target="_blank" rel="noopener noreferrer" class="">texto añadido o eliminado</a>. Aun así, revisa el diff completo antes de concluir: una frase añadida puede corregir otra eliminada o mover contenido sin alterar su significado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-diseña-alertas-como-triage-no-como-veredictos">5. Diseña alertas como triage, no como veredictos<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#5-dise%C3%B1a-alertas-como-triage-no-como-veredictos" class="hash-link" aria-label="Enlace directo al 5. Diseña alertas como triage, no como veredictos" title="Enlace directo al 5. Diseña alertas como triage, no como veredictos" translate="no">​</a></h3>
+<p>Configura un mensaje que incluya como mínimo:</p>
+<ul>
+<li class="">identificador de la vigilancia;</li>
+<li class="">URL y etiqueta de la fuente;</li>
+<li class="">instante de detección con zona horaria;</li>
+<li class="">enlace al historial o diff;</li>
+<li class="">estado de la consulta;</li>
+<li class="">instrucción de verificación.</li>
+</ul>
+<p>changedetection.io integra notificaciones a través de <a href="https://github.com/caronc/apprise" target="_blank" rel="noopener noreferrer" class="">Apprise</a>, según su documentación. Guarda secretos fuera de capturas, repositorios y cuerpos de alerta. Comprueba además los límites del canal: las <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Notification-configuration-notes" target="_blank" rel="noopener noreferrer" class="">notas oficiales sobre notificaciones</a> advierten de que mensajes extensos pueden fallar según el destino.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-verifica-el-cambio-en-la-fuente-y-en-otra-evidencia">6. Verifica el cambio en la fuente y en otra evidencia<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#6-verifica-el-cambio-en-la-fuente-y-en-otra-evidencia" class="hash-link" aria-label="Enlace directo al 6. Verifica el cambio en la fuente y en otra evidencia" title="Enlace directo al 6. Verifica el cambio en la fuente y en otra evidencia" translate="no">​</a></h3>
+<p>Cuando llegue una alerta:</p>
+<ol>
+<li class="">abre la URL oficial en una sesión limpia;</li>
+<li class="">comprueba estado HTTP, fecha declarada y documento enlazado;</li>
+<li class="">compara la captura anterior y la nueva;</li>
+<li class="">busca una nota de cambios, resolución, RSS o repositorio oficial;</li>
+<li class="">preserva el original relevante con fecha, URL y hash;</li>
+<li class="">clasifica el resultado como hecho observado, inferencia o incógnita.</li>
+</ol>
+<p>El instante de detección acota una ventana: el cambio ocurrió después de la última captura válida y antes de la nueva. No lo conviertas en una hora de publicación exacta salvo que otra fuente fiable la aporte.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-automatiza-con-la-api-sin-automatizar-conclusiones">7. Automatiza con la API sin automatizar conclusiones<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#7-automatiza-con-la-api-sin-automatizar-conclusiones" class="hash-link" aria-label="Enlace directo al 7. Automatiza con la API sin automatizar conclusiones" title="Enlace directo al 7. Automatiza con la API sin automatizar conclusiones" translate="no">​</a></h3>
+<p>La <a href="https://changedetection.io/docs/api_v1/" target="_blank" rel="noopener noreferrer" class="">API de changedetection.io</a> expone <code>/api/v1/</code> y permite crear una vigilancia a partir de una URL, configurar el intervalo, el recuperador, filtros y notificaciones, entre otros campos. En un equipo puede servir para aplicar una plantilla común y auditar la configuración.</p>
+<p>Un inventario mínimo por vigilancia debería conservar:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">watch_id</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> convocatoria</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">bahia</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">clara</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">purpose</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> verificar cambios en requisitos públicos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">source_url</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> https</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain">//publico.ejemplo/convocatoria</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">scope</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> sección de requisitos y anexos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">check_interval</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 24h</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">owner</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> equipo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">verificacion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">retention</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 90d</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">review_required</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token boolean important">true</span><br></span></code></pre></div></div>
+<p>No incluyas tokens, cookies ni credenciales en ese fichero. Y no programes respuestas públicas automáticas basadas en un diff: la automatización debe abrir una tarea de revisión, no acusar a nadie.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>La detección de cambios hereda la inestabilidad de la web:</p>
+<ul>
+<li class=""><strong>contenido dinámico:</strong> anuncios, recomendaciones, contadores o identificadores de sesión varían sin cambio editorial;</li>
+<li class=""><strong>personalización:</strong> idioma, ubicación, cookies, autenticación o pruebas A/B pueden ofrecer versiones distintas;</li>
+<li class=""><strong>renderizado incompleto:</strong> un fallo de JavaScript puede parecer una retirada masiva;</li>
+<li class=""><strong>bloqueos y CAPTCHA:</strong> la herramienta puede recibir una página de error en lugar del contenido esperado;</li>
+<li class=""><strong>estructura cambiante:</strong> un nuevo selector o plantilla puede romper el filtro aunque la información siga presente;</li>
+<li class=""><strong>documentos enlazados:</strong> que cambie el enlace no garantiza que haya cambiado el PDF, y al revés;</li>
+<li class=""><strong>ventana temporal:</strong> solo conocemos el intervalo entre dos capturas correctas;</li>
+<li class=""><strong>silencio ambiguo:</strong> no detectar diferencias puede significar estabilidad, filtro incorrecto o fallo de consulta.</li>
+</ul>
+<p>Introduce controles de salud separados de las alertas de contenido: código HTTP esperado, tamaño mínimo, presencia de una frase estable y aviso cuando el filtro deja de devolver datos. Así evitamos que una vigilancia rota parezca una fuente inmóvil.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Monitoriza únicamente fuentes y campos necesarios para una finalidad legítima y documentada.</li>
+<li class="">Respeta condiciones de uso, <code>robots.txt</code> cuando proceda, límites y capacidad del sitio; una página pública no autoriza una carga desproporcionada.</li>
+<li class="">Prefiere una instancia propia protegida para investigaciones sensibles y restringe el panel a la red o proxy autorizado.</li>
+<li class="">Cifra copias de seguridad, limita retención y separa secretos de los datos de investigación.</li>
+<li class="">No introduzcas cookies personales en vigilancias compartidas ni captures contenido privado sin base legal.</li>
+<li class="">Evita enviar el diff completo a servicios externos si contiene datos personales o información confidencial.</li>
+<li class="">Registra quién creó y modificó filtros, intervalos y notificaciones.</li>
+<li class="">Distingue siempre «cambio observado» de «intención atribuida».</li>
+</ul>
+<p>El propio proyecto recuerda en su documentación que quien opera la herramienta debe cumplir las condiciones del sitio y la normativa de protección de datos. La responsabilidad no se delega en el software.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="instalación-y-operación-a-alto-nivel">Instalación y operación a alto nivel<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#instalaci%C3%B3n-y-operaci%C3%B3n-a-alto-nivel" class="hash-link" aria-label="Enlace directo al Instalación y operación a alto nivel" title="Enlace directo al Instalación y operación a alto nivel" translate="no">​</a></h2>
+<p>Para una prueba local, el repositorio ofrece Docker, Docker Compose y una instalación mediante <code>pip</code>. En producción, usa la configuración oficial vigente, fija una versión revisada, conserva el volumen de datos y no expongas directamente el puerto de administración a internet. El ejemplo de Docker del proyecto enlaza por defecto el servicio a <code>127.0.0.1</code>, una pista razonable para empezar con acceso local.</p>
+<p>Antes de incorporar una instancia al trabajo real, valida:</p>
+<ul>
+<li class="">autenticación, TLS y proxy inverso;</li>
+<li class="">actualizaciones y copia recuperable del almacén;</li>
+<li class="">reloj y zona horaria;</li>
+<li class="">límites de frecuencia y concurrencia;</li>
+<li class="">recuperador HTTP frente a navegador;</li>
+<li class="">canales de aviso y protección de credenciales;</li>
+<li class="">retención, acceso y borrado de capturas;</li>
+<li class="">exportación del historial necesario para auditoría.</li>
+</ul>
+<p>No copies comandos de una entrada de blog como receta permanente: revisa el <a href="https://github.com/dgtlmoon/changedetection.io/blob/master/docker-compose.yml" target="_blank" rel="noopener noreferrer" class=""><code>docker-compose.yml</code> oficial</a> y la documentación actual antes de desplegar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>RSS/Atom</strong> es preferible cuando la fuente ofrece un feed fiable: expresa publicaciones sin raspar la presentación.</li>
+<li class=""><strong>Git y APIs oficiales</strong> aportan historial estructurado cuando el publicador los mantiene.</li>
+<li class=""><strong>Wayback Machine o Archive.today</strong> ayudan a buscar y preservar versiones externas, aunque su cobertura y tiempos no son completos.</li>
+<li class=""><strong>Hunchly o un archivo WARC</strong> son más apropiados para documentar la navegación y conservar evidencia con contexto.</li>
+<li class=""><strong>Distill.io, Visualping o Wachete</strong> ofrecen otros modelos de monitorización; revisa privacidad, exportación y condiciones antes de usarlos.</li>
+<li class=""><strong>Un script pequeño con <code>curl</code>, hashes y un planificador</strong> puede bastar para una fuente estable, si registra errores y no confunde un hash con significado.</li>
+</ul>
+<p>El siguiente paso natural es crear un <strong>registro de cambios verificable</strong>: por cada alerta, enlazar captura anterior, captura nueva, hash, fuente primaria corroborante y decisión del analista. Esa tabla convierte el ruido operativo en una cronología revisable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
+<p>El takeaway accionable es concreto: <strong>elige una página pública de bajo riesgo, define una sola sección, comprueba una vez al día y ensaya el protocolo con un cambio conocido</strong>. Verifica que el filtro detecta lo relevante, que un fallo genera una alerta de salud y que el equipo puede reconstruir qué observó.</p>
+<p>changedetection.io no sustituye al analista ni certifica la intención detrás de una edición. Su valor está en reducir el trabajo repetitivo y abrir una ventana temporal documentada. Cuando cada diff conserva procedencia, contexto y una revisión independiente, la vigilancia deja de ser una colección de campanas y se convierte en método.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/changedetection-io-osint-monitorizar-cambios-web#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://github.com/dgtlmoon/changedetection.io" target="_blank" rel="noopener noreferrer" class="">Repositorio y documentación principal de changedetection.io</a></li>
+<li class=""><a href="https://changedetection.io/docs/api_v1/" target="_blank" rel="noopener noreferrer" class="">Especificación de la API de changedetection.io</a></li>
+<li class=""><a href="https://changedetection.io/tutorial/how-monitor-website-new-content" target="_blank" rel="noopener noreferrer" class="">Tutorial oficial para detectar contenido nuevo</a></li>
+<li class=""><a href="https://changedetection.io/tutorial/email-notification-when-web-page-changes-how" target="_blank" rel="noopener noreferrer" class="">Tutorial oficial sobre notificaciones por correo y selector visual</a></li>
+<li class=""><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Notification-configuration-notes" target="_blank" rel="noopener noreferrer" class="">Notas oficiales de configuración de notificaciones</a></li>
+<li class=""><a href="https://github.com/dgtlmoon/changedetection.io/blob/master/docker-compose.yml" target="_blank" rel="noopener noreferrer" class="">Configuración oficial de Docker Compose</a></li>
+<li class=""><a href="https://github.com/caronc/apprise" target="_blank" rel="noopener noreferrer" class="">Apprise: motor de notificaciones utilizado por el proyecto</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Automatizacion" term="Automatizacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SearXNG en OSINT: ampliar la búsqueda sin confundir diversidad con verificación]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/searxng-osint-metabusqueda-verificacion-privacidad</id>
@@ -2522,180 +2667,5 @@
         <category label="Datos" term="Datos"/>
         <category label="Metodologia" term="Metodologia"/>
         <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[TUF en OSINT: auditar metadatos de actualización sin confundir firma con seguridad]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion"/>
-        <updated>2026-08-21T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista OSINT examinando las capas root, targets, snapshot y timestamp de un repositorio de actualizaciones]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT examinando las capas root, targets, snapshot y timestamp de un repositorio de actualizaciones" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-21-tuf-osint-metadatos-actualizacion-810993fe0e4fd1f5ee2305cc7f6d1563.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/tuf-osint-metadatos-actualizacion-2a6b130f4d93692a296fbd8204235fd1.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Un proveedor publica una actualización correctamente firmada y asegura que procede de su canal oficial. Horas después aparece una segunda copia, también firmada, con otro tamaño y una cronología distinta. Mirar solo el certificado o el hash de uno de los archivos no resuelve el dilema: <strong>hay que reconstruir qué claves estaban autorizadas, qué versión del repositorio vio el cliente y si los metadatos seguían vigentes</strong>. The Update Framework (TUF) ofrece esas piezas; el trabajo OSINT consiste en conservarlas, relacionarlas y no atribuirles más certeza de la que contienen.</p>
-<p>Consultada el <strong>21 de agosto de 2026</strong>, la <a href="https://theupdateframework.github.io/specification/latest/" target="_blank" rel="noopener noreferrer" class="">especificación TUF publicada</a> identifica la versión 1.0.35. TUF es un marco para proteger la entrega de contenidos y actualizaciones mediante metadatos firmados, separación de responsabilidades, umbrales, versiones y caducidades. Es un proyecto graduado de la <a href="https://www.cncf.io/projects/the-update-framework-tuf/" target="_blank" rel="noopener noreferrer" class="">Cloud Native Computing Foundation</a> y dispone de implementaciones de referencia, entre ellas <a href="https://github.com/theupdateframework/python-tuf" target="_blank" rel="noopener noreferrer" class="">python-tuf</a>.</p>
-<p>Este artículo no enseña a comprometer repositorios ni a eludir controles. Propone un método pasivo para auditar declaraciones públicas, paquetes descargables y metadatos accesibles legítimamente. Todos los dominios, organizaciones, nombres de fichero, claves y digests del caso práctico son ficticios.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-tuf-y-para-qué-sirve-en-osint">Qué es TUF y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#qu%C3%A9-es-tuf-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es TUF y para qué sirve en OSINT" title="Enlace directo al Qué es TUF y para qué sirve en OSINT" translate="no">​</a></h2>
-<p>Una firma responde a una pregunta estrecha: una clave produjo una firma válida sobre determinados bytes. Un sistema de actualización necesita responder además a otras:</p>
-<ul>
-<li class="">¿quién estaba autorizado a firmar cada clase de metadatos?</li>
-<li class="">¿cuántas claves debían coincidir?</li>
-<li class="">¿el cliente está viendo una versión anterior?</li>
-<li class="">¿se han mezclado estados del repositorio que nunca coexistieron?</li>
-<li class="">¿los metadatos han caducado?</li>
-<li class="">¿el archivo recibido es exactamente el objetivo esperado?</li>
-</ul>
-<p>TUF distribuye esas decisiones entre cuatro roles superiores obligatorios. La <a href="https://theupdateframework.io/docs/metadata/" target="_blank" rel="noopener noreferrer" class="">documentación oficial de roles y metadatos</a> los resume así:</p>
-<table><thead><tr><th>Rol</th><th>Qué declara</th><th>Pregunta OSINT útil</th><th>Lo que no demuestra por sí solo</th></tr></thead><tbody><tr><td><code>root</code></td><td>claves, umbrales y autorización de los roles superiores</td><td>¿qué raíz de confianza y política aceptaba el cliente?</td><td>que una clave privada nunca fuera comprometida</td></tr><tr><td><code>targets</code></td><td>rutas, tamaños y hashes de los archivos objetivo; también delegaciones</td><td>¿qué bytes estaban autorizados bajo qué ruta?</td><td>que el software sea seguro, legal o adecuado</td></tr><tr><td><code>snapshot</code></td><td>versiones y, cuando proceda, hashes de los metadatos de objetivos</td><td>¿forman los metadatos una vista coherente del repositorio?</td><td>que esa vista sea la más reciente disponible en todo Internet</td></tr><tr><td><code>timestamp</code></td><td>versión, tamaño y hashes de <code>snapshot</code>; suele renovarse con frecuencia</td><td>¿hay señales de actualización o de posible congelación?</td><td>disponibilidad continua ni una hora de publicación absoluta</td></tr></tbody></table>
-<p>Los roles delegados de <code>targets</code> permiten limitar una clave a determinadas rutas. Esta separación reduce el alcance de ciertos compromisos, pero no crea una garantía universal. La confianza inicial sigue necesitando una copia fiable de <code>root</code>, distribuida por un canal que el consumidor considere auténtico.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-ataques-intenta-detectar">Qué ataques intenta detectar<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#qu%C3%A9-ataques-intenta-detectar" class="hash-link" aria-label="Enlace directo al Qué ataques intenta detectar" title="Enlace directo al Qué ataques intenta detectar" translate="no">​</a></h3>
-<p>La <a href="https://theupdateframework.io/docs/security/" target="_blank" rel="noopener noreferrer" class="">documentación de seguridad de TUF</a> enumera, entre otros, ataques de <em>rollback</em>, congelación, <em>mix-and-match</em>, instalación del software equivocado y flujos de datos sin fin. Las defensas se apoyan en varios controles que un análisis puede observar:</p>
-<ul>
-<li class=""><strong>versiones persistidas:</strong> el cliente compara el estado nuevo con metadatos ya confiados y no debe aceptar retrocesos;</li>
-<li class=""><strong>caducidades:</strong> permiten detectar que un intermediario sigue sirviendo metadatos antiguos, aunque no garantizan por sí solas que exista conectividad con una copia más nueva;</li>
-<li class=""><strong>hashes y tamaños:</strong> vinculan metadatos y objetivos concretos y acotan la descarga esperada;</li>
-<li class=""><strong>umbrales:</strong> un rol puede requerir varias firmas autorizadas;</li>
-<li class=""><strong>snapshot coherente:</strong> evita combinar versiones de metadatos de objetivos que no pertenecen al mismo estado;</li>
-<li class=""><strong>delegaciones:</strong> distribuyen autoridad por rutas y reducen el poder de una sola clave de objetivos.</li>
-</ul>
-<p>En OSINT, «TUF detectaría este ataque en un cliente conforme y con estado previo» es una conclusión defendible si se documentan las condiciones. «TUF impide cualquier ataque a la cadena de suministro» no lo es.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-dos-actualizaciones-para-el-mismo-expediente">Caso de uso legítimo: dos actualizaciones para el mismo expediente<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#caso-de-uso-leg%C3%ADtimo-dos-actualizaciones-para-el-mismo-expediente" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: dos actualizaciones para el mismo expediente" title="Enlace directo al Caso de uso legítimo: dos actualizaciones para el mismo expediente" translate="no">​</a></h2>
-<p>La cooperativa ficticia <strong>Observatorio Marisma</strong> evalúa el producto público <code>brujula-3.8.1.tar.zst</code> del proveedor imaginario <strong>Nadir Sistemas</strong>. Una nota de soporte enlaza al repositorio oficial; una copia en un espejo comunitario tiene el mismo nombre, pero otro digest.</p>
-<p>El analista no ejecuta ninguno de los dos archivos. Conserva únicamente lo necesario y formula cuatro hipótesis separadas:</p>
-<ol>
-<li class="">el objetivo anunciado por el repositorio oficial tenía una ruta, tamaño y hash determinados;</li>
-<li class="">los metadatos que lo autorizaban formaban un estado coherente y no caducado en el momento de consulta;</li>
-<li class="">las firmas satisfacían los umbrales de la raíz de confianza seleccionada;</li>
-<li class="">la copia discrepante era distinta, sin atribuir todavía intención, autoría ni causa.</li>
-</ol>
-<p>La hoja de trabajo podría empezar así:</p>
-<table><thead><tr><th>Campo</th><th>Repositorio oficial ficticio</th><th>Espejo comunitario ficticio</th><th>Estado</th></tr></thead><tbody><tr><td>ruta objetivo</td><td><code>releases/brujula-3.8.1.tar.zst</code></td><td>igual</td><td>coincide</td></tr><tr><td>tamaño declarado</td><td><code>18422016</code></td><td><code>18439102</code></td><td>contradicción</td></tr><tr><td>SHA-256</td><td><code>7c04…9a31</code></td><td><code>2fe8…771b</code></td><td>contradicción</td></tr><tr><td><code>targets</code></td><td>versión 42, vigente</td><td>no conservado</td><td>abierto</td></tr><tr><td><code>snapshot</code></td><td>versión 87, vigente</td><td>no conservado</td><td>abierto</td></tr><tr><td><code>timestamp</code></td><td>versión 514, vigente</td><td>no conservado</td><td>abierto</td></tr><tr><td>conclusión mínima</td><td>objetivo autorizado por el estado observado</td><td>copia distinta sin procedencia demostrada</td><td>no atribuir</td></tr></tbody></table>
-<p>La discrepancia permite afirmar que los bytes no son iguales. No permite afirmar que el espejo fue comprometido: podría albergar una reconstrucción, una subida incompleta, otro formato interno o una copia antigua. Esas alternativas se investigan con registros del operador, anuncios firmados, historial del repositorio y contacto responsable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-investigación">Flujo recomendado de investigación<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#flujo-recomendado-de-investigaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Flujo recomendado de investigación" title="Enlace directo al Flujo recomendado de investigación" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fijar-alcance-reloj-y-raíz-de-confianza">1. Fijar alcance, reloj y raíz de confianza<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#1-fijar-alcance-reloj-y-ra%C3%ADz-de-confianza" class="hash-link" aria-label="Enlace directo al 1. Fijar alcance, reloj y raíz de confianza" title="Enlace directo al 1. Fijar alcance, reloj y raíz de confianza" translate="no">​</a></h3>
-<p>Antes de descargar nada, registra:</p>
-<ul>
-<li class="">pregunta concreta y autoridad para investigar;</li>
-<li class="">URL exacta y momento de inicio en UTC;</li>
-<li class="">versión de <code>root</code> que se tomará como confiable y cómo se obtuvo;</li>
-<li class="">política esperada: roles, identificadores de clave y umbrales;</li>
-<li class="">límites: análisis pasivo, sin instalación ni interacción con sistemas ajenos.</li>
-</ul>
-<p>La hora importa porque todos los metadatos firmados incluyen caducidad. Un documento válido al empezar la consulta puede expirar durante una revisión larga. La especificación fija el tiempo al inicio del ciclo de actualización para que la validación sea coherente; un informe OSINT debe conservar también su referencia temporal.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-preservar-metadatos-antes-que-capturas-de-pantalla">2. Preservar metadatos antes que capturas de pantalla<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#2-preservar-metadatos-antes-que-capturas-de-pantalla" class="hash-link" aria-label="Enlace directo al 2. Preservar metadatos antes que capturas de pantalla" title="Enlace directo al 2. Preservar metadatos antes que capturas de pantalla" translate="no">​</a></h3>
-<p>Una captura ayuda a narrar, pero no permite recalcular una firma. Conserva los bytes de:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">root.json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">timestamp.json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">snapshot.json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">targets.json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">&lt;roles-delegados&gt;.json</span><br></span></code></pre></div></div>
-<p>Para cada objeto, anota URL, hora, código HTTP, tipo de contenido, tamaño y SHA-256 local. Guarda cabeceras relevantes por separado. No normalices ni vuelvas a serializar el JSON usado como evidencia: una presentación más bonita puede cambiar los bytes y romper la trazabilidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-leer-primero-la-política-no-el-resultado-deseado">3. Leer primero la política, no el resultado deseado<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#3-leer-primero-la-pol%C3%ADtica-no-el-resultado-deseado" class="hash-link" aria-label="Enlace directo al 3. Leer primero la política, no el resultado deseado" title="Enlace directo al 3. Leer primero la política, no el resultado deseado" translate="no">​</a></h3>
-<p>En <code>root</code>, identifica para cada rol:</p>
-<ul>
-<li class="">claves autorizadas;</li>
-<li class="">algoritmo y material público descrito;</li>
-<li class="">umbral mínimo de firmas;</li>
-<li class="">versión y caducidad;</li>
-<li class="">estado previo disponible, si existe.</li>
-</ul>
-<p>Una firma criptográficamente correcta no cuenta si pertenece a una clave que ese rol no autorizaba. Del mismo modo, una firma válida puede ser insuficiente cuando el umbral exige dos o más.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-reconstruir-la-cadena-de-versiones">4. Reconstruir la cadena de versiones<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#4-reconstruir-la-cadena-de-versiones" class="hash-link" aria-label="Enlace directo al 4. Reconstruir la cadena de versiones" title="Enlace directo al 4. Reconstruir la cadena de versiones" translate="no">​</a></h3>
-<p>El orden del cliente es parte de la seguridad, no una preferencia estética. A nivel conceptual:</p>
-<ol>
-<li class="">actualiza de forma secuencial la raíz confiada cuando existan nuevas versiones válidas;</li>
-<li class="">obtiene y valida <code>timestamp</code>;</li>
-<li class="">contrasta <code>snapshot</code> con la versión, tamaño y hashes anunciados;</li>
-<li class="">contrasta <code>targets</code> y sus delegaciones con <code>snapshot</code>;</li>
-<li class="">localiza el objetivo autorizado y verifica su tamaño y hashes.</li>
-</ol>
-<p>La <a href="https://theupdateframework.github.io/specification/latest/#detailed-client-workflow" target="_blank" rel="noopener noreferrer" class="">especificación detallada</a> contiene los requisitos exactos. Para una comprobación técnica real conviene usar una implementación mantenida, no improvisar un verificador criptográfico con expresiones regulares. Python-tuf ofrece <code>tuf.ngclient</code> para el flujo de cliente y una API de metadatos de nivel más bajo; su repositorio advierte de que la biblioteca de repositorio no forma parte actualmente de la API estable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-separar-observación-inferencia-y-ausencia">5. Separar observación, inferencia y ausencia<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#5-separar-observaci%C3%B3n-inferencia-y-ausencia" class="hash-link" aria-label="Enlace directo al 5. Separar observación, inferencia y ausencia" title="Enlace directo al 5. Separar observación, inferencia y ausencia" translate="no">​</a></h3>
-<p>Redacta cada hallazgo con una de estas etiquetas:</p>
-<ul>
-<li class=""><strong>observado:</strong> «<code>targets</code> v42 declara este tamaño y este SHA-256»;</li>
-<li class=""><strong>verificado:</strong> «las firmas satisfacen el umbral definido por la raíz confiada»;</li>
-<li class=""><strong>inferido:</strong> «la discrepancia es compatible con una copia desactualizada»;</li>
-<li class=""><strong>no demostrado:</strong> «no consta quién produjo la copia ni cuándo llegó al espejo».</li>
-</ul>
-<p>Esta disciplina evita convertir una anomalía técnica en una acusación. También hace que otra persona pueda repetir la comprobación sin adoptar tus conclusiones narrativas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corroborar-fuera-de-tuf">6. Corroborar fuera de TUF<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#6-corroborar-fuera-de-tuf" class="hash-link" aria-label="Enlace directo al 6. Corroborar fuera de TUF" title="Enlace directo al 6. Corroborar fuera de TUF" translate="no">​</a></h3>
-<p>TUF protege decisiones del sistema de actualización; no sustituye:</p>
-<ul>
-<li class="">revisión del código y del binario;</li>
-<li class="">análisis de vulnerabilidades;</li>
-<li class="">procedencia de compilación y atestaciones;</li>
-<li class="">SBOM y licencias;</li>
-<li class="">registro de lanzamientos del fabricante;</li>
-<li class="">transparencia organizativa y control contractual;</li>
-<li class="">evidencia del despliegue real.</li>
-</ul>
-<p>Si la pregunta es «¿qué código produjo estos bytes?», una atestación de procedencia puede ser más directa. Si es «¿qué versión autorizó el repositorio para esta ruta?», los metadatos TUF son centrales. Si es «¿el programa es seguro?», ninguna de las dos capas basta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-confianza-inicial-no-aparece-por-arte-de-magia">La confianza inicial no aparece por arte de magia<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#la-confianza-inicial-no-aparece-por-arte-de-magia" class="hash-link" aria-label="Enlace directo al La confianza inicial no aparece por arte de magia" title="Enlace directo al La confianza inicial no aparece por arte de magia" translate="no">​</a></h3>
-<p>Un atacante que entregue a una persona una raíz falsa como primer y único punto de confianza puede construir un repositorio internamente coherente. El informe debe explicar de dónde salió la raíz inicial: paquete instalado por un canal conocido, documentación autenticada, distribución corporativa o intercambio fuera de banda.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="caducado-no-significa-malicioso">Caducado no significa malicioso<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#caducado-no-significa-malicioso" class="hash-link" aria-label="Enlace directo al Caducado no significa malicioso" title="Enlace directo al Caducado no significa malicioso" translate="no">​</a></h3>
-<p>Los metadatos pueden caducar por una interrupción operativa, un reloj incorrecto, una publicación fallida o abandono del proyecto. La caducidad permite detectar un problema de frescura; no identifica automáticamente al responsable ni la causa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="clave-autorizada-no-equivale-a-persona-inocente">Clave autorizada no equivale a persona inocente<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#clave-autorizada-no-equivale-a-persona-inocente" class="hash-link" aria-label="Enlace directo al Clave autorizada no equivale a persona inocente" title="Enlace directo al Clave autorizada no equivale a persona inocente" translate="no">​</a></h3>
-<p>La validación confirma control criptográfico conforme a una política. No demuestra intención, custodia perfecta ni ausencia de compromiso. Las rotaciones, revocaciones, incidentes comunicados y controles de claves deben analizarse aparte.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-estado-local-cambia-la-respuesta">El estado local cambia la respuesta<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#el-estado-local-cambia-la-respuesta" class="hash-link" aria-label="Enlace directo al El estado local cambia la respuesta" title="Enlace directo al El estado local cambia la respuesta" translate="no">​</a></h3>
-<p>La protección frente a <em>rollback</em> depende de comparar con versiones ya vistas y persistidas. Dos clientes con historiales distintos pueden rechazar o aceptar conjuntos diferentes sin que la captura aislada explique por qué. Conserva el estado previo relevante o declara que no estaba disponible.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-implementación-puede-apartarse-de-la-especificación">Una implementación puede apartarse de la especificación<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#una-implementaci%C3%B3n-puede-apartarse-de-la-especificaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Una implementación puede apartarse de la especificación" title="Enlace directo al Una implementación puede apartarse de la especificación" translate="no">​</a></h3>
-<p>El diseño no elimina errores de integración, red, almacenamiento o criptografía. La página oficial de <a href="https://theupdateframework.github.io/tuf-conformance/" target="_blank" rel="noopener noreferrer" class="">resultados de conformidad de clientes</a> ofrece una señal útil y fechada, no un certificado universal de seguridad para cada despliegue.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Trabaja con repositorios públicos o con autorización expresa; no fuerces directorios ni controles de acceso.</li>
-<li class="">Descarga el mínimo necesario y evita ejecutar objetivos desconocidos en el equipo de investigación.</li>
-<li class="">Usa un entorno aislado si el expediente exige inspección de archivos potencialmente hostiles.</li>
-<li class="">No publiques URL privadas, tokens, cabeceras de autenticación, claves privadas ni identificadores internos.</li>
-<li class="">Conserva originales de solo lectura y realiza el análisis sobre copias.</li>
-<li class="">Calcula hashes localmente y registra herramienta, versión, zona horaria y reloj.</li>
-<li class="">Contacta de forma responsable al operador ante una discrepancia; ofrece datos reproducibles y un plazo razonable.</li>
-<li class="">Distingue fallo de disponibilidad, error de publicación, compromiso de clave y manipulación del espejo.</li>
-<li class="">Requiere revisión humana antes de bloquear una entrega, atribuir un incidente o tomar una decisión adversa.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-campo">Checklist de campo<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#checklist-de-campo" class="hash-link" aria-label="Enlace directo al Checklist de campo" title="Enlace directo al Checklist de campo" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta, el alcance y el canal autorizado están documentados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La raíz de confianza inicial tiene procedencia verificable.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los bytes originales y sus cabeceras se preservaron con fecha y hash.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Versiones y caducidades se evaluaron contra un reloj registrado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Firmas y umbrales se comprobaron para el rol correcto.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <code>timestamp</code>, <code>snapshot</code>, <code>targets</code> y delegaciones forman una vista coherente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Ruta, tamaño y hashes del objetivo coinciden exactamente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El estado previo del cliente se conservó o su ausencia quedó declarada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada conclusión separa observación, verificación, inferencia y desconocido.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Seguridad del contenido, procedencia de compilación y despliegue se corroboraron aparte.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>TUF encaja en una arquitectura de evidencia más amplia:</p>
-<ul>
-<li class=""><strong>Uptane</strong> adapta ideas de TUF a actualizaciones de vehículos;</li>
-<li class=""><strong>Notary Project</strong> proporciona componentes para confianza y distribución de contenido;</li>
-<li class=""><strong>Sigstore</strong> ayuda a verificar firmas e identidades en determinados ecosistemas;</li>
-<li class=""><strong>SLSA e in-toto</strong> permiten evaluar procedencia y otras atestaciones;</li>
-<li class=""><strong>SPDX y CycloneDX</strong> estructuran inventarios SBOM, con sus propios límites de cobertura;</li>
-<li class=""><strong>compilaciones reproducibles</strong> comparan resultados obtenidos de manera independiente;</li>
-<li class=""><strong>registros de transparencia</strong> ayudan a detectar estados observables, sin garantizar por sí solos la calidad del contenido.</li>
-</ul>
-<p>La página oficial de <a href="https://theupdateframework.io/docs/getting-started/" target="_blank" rel="noopener noreferrer" class="">primeros pasos de TUF</a> enumera implementaciones y sistemas disponibles. Para aprender sin tocar producción, crea un repositorio de laboratorio con archivos ficticios y documenta qué debería ocurrir al caducar <code>timestamp</code>, retroceder una versión o cambiar el hash de un objetivo. El objetivo no es «romper TUF», sino entender qué evidencia conserva un cliente conforme y qué depende de la integración.</p>
-<p>El takeaway accionable es sencillo: ante una actualización dudosa, no empieces por ejecutar el paquete. Preserva <strong>raíz, reloj, versiones, caducidades, umbrales, rutas, tamaños y hashes</strong>. Si una conclusión no puede vincularse a una de esas piezas o a una fuente externa conservada, déjala como hipótesis.</p>
-<p>Como siguiente tema, sería útil estudiar <strong>SPDX y CycloneDX</strong> para comprobar qué puede afirmar realmente un SBOM y cómo detectar diferencias de alcance sin confundir inventario con seguridad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/tuf-osint-metadatos-actualizacion#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://theupdateframework.github.io/specification/latest/" target="_blank" rel="noopener noreferrer" class="">The Update Framework Specification, versión publicada</a></li>
-<li class=""><a href="https://theupdateframework.io/docs/metadata/" target="_blank" rel="noopener noreferrer" class="">TUF: roles y metadatos</a></li>
-<li class=""><a href="https://theupdateframework.io/docs/security/" target="_blank" rel="noopener noreferrer" class="">TUF: propiedades de seguridad y amenazas</a></li>
-<li class=""><a href="https://theupdateframework.io/docs/getting-started/" target="_blank" rel="noopener noreferrer" class="">TUF: primeros pasos e implementaciones</a></li>
-<li class=""><a href="https://github.com/theupdateframework/python-tuf" target="_blank" rel="noopener noreferrer" class="">python-tuf: implementación de referencia en Python</a></li>
-<li class=""><a href="https://www.cncf.io/projects/the-update-framework-tuf/" target="_blank" rel="noopener noreferrer" class="">CNCF: The Update Framework</a></li>
-<li class=""><a href="https://theupdateframework.github.io/tuf-conformance/" target="_blank" rel="noopener noreferrer" class="">TUF Client Conformance Results</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Investigacion" term="Investigacion"/>
-        <category label="Tooling" term="Tooling"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Automatizacion" term="Automatizacion"/>
-        <category label="Metodologia" term="Metodologia"/>
     </entry>
 </feed>
