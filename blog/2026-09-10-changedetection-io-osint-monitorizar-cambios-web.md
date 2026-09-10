@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista comparando dos versiones fechadas de una página pública, con diferencias, alertas y procedencia](/img/blog/2026-09-10-changedetection-io-osint-cambios-web.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/changedetection-io-osint-monitorizar-cambios-web.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una administración publica las condiciones de una ayuda y, tres días después, modifica silenciosamente un requisito. Si solo conservamos la página actual, sabremos qué dice ahora, pero no **qué cambió, cuándo lo observamos ni si el cambio afecta realmente a nuestra investigación**. Visitar la web cada mañana tampoco resuelve el problema: la memoria humana es un comparador pésimo.
