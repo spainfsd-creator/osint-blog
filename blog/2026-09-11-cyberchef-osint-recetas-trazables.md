@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista que conserva un original y transforma una copia mediante una receta documentada](/img/blog/2026-09-11-cyberchef-osint-recetas-trazables.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/cyberchef-osint-recetas-trazables.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un portal público entrega un campo que parece una sopa de letras. Al pasarlo por Base64 aparece un JSON; dentro hay una fecha, una URL y otro bloque comprimido. La tentación es copiar el resultado legible al informe y seguir adelante. El problema es que, sin anotar cada transformación, acabamos con una conclusión que nadie puede reproducir y un original que quizá ya no sabemos distinguir del derivado.
