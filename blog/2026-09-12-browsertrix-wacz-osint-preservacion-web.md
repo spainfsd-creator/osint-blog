@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista comparando una web pública en directo con su reproducción archivada y controles de integridad](/img/blog/2026-09-12-browsertrix-wacz-osint-preservacion-web.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/browsertrix-wacz-osint-preservacion-web.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una web pública anuncia una adjudicación y, horas después, cambia un anexo cargado mediante JavaScript. Guardar una captura de pantalla conserva el aspecto; descargar el HTML puede conservar un esqueleto vacío; anotar la URL solo promete que quizá mañana siga allí. Para que otra persona pueda revisar qué observamos necesitamos **captura, alcance, contexto, reproducción y control de calidad**, no una fotografía huérfana.
