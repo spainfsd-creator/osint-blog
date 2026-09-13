@@ -4,10 +4,147 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sat, 12 Sep 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 13 Sep 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Historial de MediaWiki en OSINT: reconstruir cambios sin convertir editores en sospechosos]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint</guid>
+            <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de una analista comparando revisiones fechadas de una página wiki y documentando su procedencia]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista comparando revisiones fechadas de una página wiki y documentando su procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-13-mediawiki-historial-revisiones-osint-405fb8bf84da66f2771add7d8cf7246d.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Una ficha pública cambia una fecha, pierde un párrafo y gana una referencia nueva. La versión actual parece coherente, pero no responde a las preguntas importantes: <strong>qué cambió exactamente, en qué revisión apareció y qué podía ver el público en ese momento</strong>. Una captura aislada tampoco basta si no podemos conectarla con una versión identificable.</p>
+<p>Las instalaciones de <a href="https://www.mediawiki.org/wiki/MediaWiki" target="_blank" rel="noopener noreferrer" class="">MediaWiki</a>, incluida Wikipedia, conservan un historial de revisiones que permite comparar versiones y enlazar una revisión concreta. Para OSINT, ese historial puede convertir un «antes y después» impreciso en una cronología auditable. Pero también invita a un error peligroso: confundir el nombre de una cuenta, una dirección IP histórica o un resumen de edición con la identidad y la intención de una persona.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-el-historial-de-mediawiki-y-para-qué-sirve">Qué es el historial de MediaWiki y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#qu%C3%A9-es-el-historial-de-mediawiki-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es el historial de MediaWiki y para qué sirve" title="Enlace directo al Qué es el historial de MediaWiki y para qué sirve" translate="no">​</a></h2>
+<p>Cada edición de una página genera una revisión con un identificador, una marca temporal y metadatos asociados. La vista <strong>Ver historial</strong> permite seleccionar dos revisiones y comparar sus diferencias. La <a href="https://www.mediawiki.org/wiki/API:Revisions" target="_blank" rel="noopener noreferrer" class="">Action API de MediaWiki</a> ofrece esa información de forma estructurada mediante <code>prop=revisions</code>; el módulo <a href="https://www.mediawiki.org/wiki/API:Compare" target="_blank" rel="noopener noreferrer" class=""><code>action=compare</code></a> devuelve la diferencia entre dos revisiones, páginas o textos.</p>
+<p>En una investigación legítima, esto resulta útil para:</p>
+<ul>
+<li class="">fijar cuándo se añadió, corrigió o retiró una afirmación de una página pública;</li>
+<li class="">distinguir un cambio sustantivo de una corrección tipográfica;</li>
+<li class="">conservar identificadores estables y enlaces a versiones concretas;</li>
+<li class="">revisar resúmenes, etiquetas y tamaños como señales de clasificación, nunca como prueba autosuficiente;</li>
+<li class="">detectar huecos, reversiones y desacuerdos que merecen buscar fuentes primarias.</li>
+</ul>
+<p>Una revisión no es una «fotografía completa de internet». Es un estado guardado del contenido de esa wiki. Además, una página renderizada puede incluir plantillas, imágenes o datos transcluidos cuya versión actual no coincida con la que existía cuando se guardó el texto principal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-fecha-que-cambia">Caso de uso legítimo: una fecha que cambia<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#caso-de-uso-leg%C3%ADtimo-una-fecha-que-cambia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una fecha que cambia" title="Enlace directo al Caso de uso legítimo: una fecha que cambia" translate="no">​</a></h2>
+<p>Imaginemos la página ficticia <code>Proyecto Faro</code>, mantenida por una wiki pública sobre patrimonio. El 4 de septiembre indica que la apertura será el día 18; el 7 de septiembre muestra el día 25; el 8 incorpora como referencia una resolución oficial fechada el día 6.</p>
+<p>La pregunta prudente no es «¿quién intentó ocultar la fecha?», sino:</p>
+<ol>
+<li class="">¿Qué revisiones contienen cada fecha?</li>
+<li class="">¿Qué diferencia exacta existe entre ellas?</li>
+<li class="">¿Cuándo se guardó cada revisión en UTC?</li>
+<li class="">¿Qué fuente primaria respaldaba cada versión?</li>
+<li class="">¿Hubo una corrección, una reversión o cambios intermedios?</li>
+</ol>
+<p>La secuencia puede demostrar que la página cambió. No demuestra por sí sola por qué cambió, quién estaba detrás de una cuenta ni cuál de las fechas era correcta. Para esto último hay que acudir a la resolución, el boletín, la web institucional u otra fuente primaria pertinente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-el-intervalo">1. Define la afirmación y el intervalo<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#1-define-la-afirmaci%C3%B3n-y-el-intervalo" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y el intervalo" title="Enlace directo al 1. Define la afirmación y el intervalo" translate="no">​</a></h3>
+<p>Escribe una hipótesis verificable: «Determinar cuándo la página pública sustituyó el día 18 por el 25 entre el 1 y el 10 de septiembre». Registra la URL, el nombre de la wiki, la zona horaria mostrada por la interfaz y el instante de consulta.</p>
+<p>No empieces rastreando cuentas. Empieza por el contenido y su procedencia. Así reduces la recogida innecesaria de datos personales y evitas adaptar la pregunta a un editor concreto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-revisa-el-historial-en-la-interfaz">2. Revisa el historial en la interfaz<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#2-revisa-el-historial-en-la-interfaz" class="hash-link" aria-label="Enlace directo al 2. Revisa el historial en la interfaz" title="Enlace directo al 2. Revisa el historial en la interfaz" translate="no">​</a></h3>
+<p>Abre <strong>Ver historial</strong>, identifica las revisiones que acotan el cambio y compara las dos seleccionadas. Conserva, como mínimo:</p>
+<ul>
+<li class="">identificadores de revisión anterior y posterior;</li>
+<li class="">marcas temporales normalizadas a UTC;</li>
+<li class="">título y URL de la página;</li>
+<li class="">enlace al <code>diff</code>;</li>
+<li class="">resumen de edición literal, si existe;</li>
+<li class="">fecha y método de adquisición;</li>
+<li class="">una nota sobre elementos transcluidos o dependencias externas.</li>
+</ul>
+<p>El enlace <a href="https://www.mediawiki.org/wiki/Help:PermanentLink" target="_blank" rel="noopener noreferrer" class=""><code>Special:PermanentLink/&lt;revision_id&gt;</code></a> apunta a una revisión específica. Es mejor referencia que la URL ordinaria de la página, que seguirá mostrando el contenido más reciente.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-extrae-metadatos-con-la-api">3. Extrae metadatos con la API<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#3-extrae-metadatos-con-la-api" class="hash-link" aria-label="Enlace directo al 3. Extrae metadatos con la API" title="Enlace directo al 3. Extrae metadatos con la API" translate="no">​</a></h3>
+<p>Para un análisis repetible, puedes consultar el endpoint <code>api.php</code> de la wiki. Este ejemplo usa un título ficticio y solicita metadatos, no el contenido completo:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://es.wikipedia.org/w/api.php' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'action=query' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'prop=revisions' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'titles=Proyecto Faro' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvprop=ids|timestamp|user|comment|size|sha1|tags' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvdir=newer' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvlimit=50' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'format=json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'formatversion=2'</span><br></span></code></pre></div></div>
+<p>El resultado puede incluir <code>revid</code>, <code>parentid</code>, <code>timestamp</code>, <code>user</code>, <code>comment</code>, <code>size</code>, <code>sha1</code> y etiquetas, según los permisos y la visibilidad de cada campo. Si aparece un objeto <code>continue</code>, la respuesta está paginada: conserva sus valores y envíalos en la petición siguiente. No concluyas que has recuperado todo el historial solo porque recibiste una respuesta válida.</p>
+<p>El SHA-1 informado corresponde al contenido de la revisión dentro de MediaWiki. Es útil para detectar igualdad o cambios en ese contexto, pero no sustituye el hash de tus propios artefactos descargados ni autentica la veracidad del texto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-revisiones-explícitas">4. Compara revisiones explícitas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#4-compara-revisiones-expl%C3%ADcitas" class="hash-link" aria-label="Enlace directo al 4. Compara revisiones explícitas" title="Enlace directo al 4. Compara revisiones explícitas" translate="no">​</a></h3>
+<p>Cuando ya tengas dos identificadores, usa la interfaz o <code>action=compare</code> con <code>fromrev</code> y <code>torev</code>. Guarda los IDs junto al resultado. Pedir simplemente «la versión anterior» o «la siguiente» es más frágil: la propia documentación advierte de comportamientos límite en la primera y última revisión.</p>
+<p>Un <code>diff</code> es una representación del cambio entre dos estados. Comprueba también las revisiones intermedias: comparar un punto lejano con el actual puede ocultar que una frase se añadió, se retiró y volvió a añadirse con otra referencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-preserva-en-tres-capas">5. Preserva en tres capas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#5-preserva-en-tres-capas" class="hash-link" aria-label="Enlace directo al 5. Preserva en tres capas" title="Enlace directo al 5. Preserva en tres capas" translate="no">​</a></h3>
+<p>Mantén separados:</p>
+<ol>
+<li class=""><strong>respuesta original</strong> de la API o HTML adquirido;</li>
+<li class=""><strong>derivado de análisis</strong>, como una tabla normalizada o un <code>diff</code> convertido;</li>
+<li class=""><strong>nota interpretativa</strong>, donde expliques qué significa y qué no significa el cambio.</li>
+</ol>
+<p>Calcula hashes locales de los archivos que conserves, anota las consultas completas y usa nombres con fecha UTC e identificadores de revisión. Si el caso lo justifica, archiva también las fuentes primarias citadas conforme a sus condiciones de uso y a la ley aplicable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-fuera-de-la-wiki">6. Corrobora fuera de la wiki<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#6-corrobora-fuera-de-la-wiki" class="hash-link" aria-label="Enlace directo al 6. Corrobora fuera de la wiki" title="Enlace directo al 6. Corrobora fuera de la wiki" translate="no">​</a></h3>
+<p>Busca el documento citado, una versión institucional, un registro oficial o una comunicación fechada. Una wiki es una excelente pista y su historial es valioso para estudiar cómo evolucionó una afirmación, pero la corrección factual debe contrastarse con evidencias independientes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cómo-leer-un-diff-sin-sobreactuar">Cómo leer un <code>diff</code> sin sobreactuar<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#c%C3%B3mo-leer-un-diff-sin-sobreactuar" class="hash-link" aria-label="Enlace directo al cómo-leer-un-diff-sin-sobreactuar" title="Enlace directo al cómo-leer-un-diff-sin-sobreactuar" translate="no">​</a></h2>
+<p>Una línea verde significa contenido añadido y una roja, contenido retirado respecto a la otra revisión. No significa «verdadero» y «falso». Tampoco todos los cambios visibles proceden del texto principal:</p>
+<ul>
+<li class="">una plantilla puede haber cambiado después;</li>
+<li class="">una imagen puede tener su propio historial de versiones;</li>
+<li class="">una página puede transcluir secciones mantenidas en otro título;</li>
+<li class="">una edición grande puede ser una reorganización sin cambio semántico;</li>
+<li class="">una reversión puede restaurar contenido sin resolver la disputa subyacente.</li>
+</ul>
+<p>Clasifica primero el tipo de cambio: factual, referencial, estructural, estilístico, técnico o de moderación. Después valora su relevancia para la hipótesis. Esta disciplina evita convertir cualquier edición llamativa en una narrativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="historial-visible-no-equivale-a-historial-íntegro">Historial visible no equivale a historial íntegro<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#historial-visible-no-equivale-a-historial-%C3%ADntegro" class="hash-link" aria-label="Enlace directo al Historial visible no equivale a historial íntegro" title="Enlace directo al Historial visible no equivale a historial íntegro" translate="no">​</a></h3>
+<p>MediaWiki permite ocultar el texto, el resumen o el autor de determinadas revisiones. La API puede devolver indicadores como <code>texthidden</code>, <code>commenthidden</code> o <code>userhidden</code>. Una página eliminada o tareas de mantenimiento de una instalación también pueden afectar a la disponibilidad del historial. Documenta el hueco; no intentes inferir el contenido oculto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-marca-temporal-no-explica-la-causa">La marca temporal no explica la causa<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#la-marca-temporal-no-explica-la-causa" class="hash-link" aria-label="Enlace directo al La marca temporal no explica la causa" title="Enlace directo al La marca temporal no explica la causa" translate="no">​</a></h3>
+<p>El <code>timestamp</code> registra cuándo se guardó la revisión. No prueba cuándo ocurrió el hecho descrito ni cuándo el editor lo conoció. Dos ediciones cercanas tampoco demuestran coordinación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-cuenta-no-es-una-identidad-verificada">Una cuenta no es una identidad verificada<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#una-cuenta-no-es-una-identidad-verificada" class="hash-link" aria-label="Enlace directo al Una cuenta no es una identidad verificada" title="Enlace directo al Una cuenta no es una identidad verificada" translate="no">​</a></h3>
+<p>Un nombre de usuario puede ser pseudónimo, compartido en un proceso institucional o simplemente no verificable. Las ediciones históricas asociadas a una IP tampoco identifican de forma fiable a una persona: redes corporativas, conexiones móviles, VPN, NAT y direcciones dinámicas rompen esa equivalencia.</p>
+<p>En proyectos Wikimedia con cuentas temporales, las ediciones sin sesión iniciada se atribuyen públicamente a un identificador temporal y el acceso a las IP subyacentes está restringido. Esa protección no es un obstáculo que haya que sortear, sino un límite de privacidad que debe respetarse.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-renderizado-histórico-puede-mezclar-tiempos">El renderizado histórico puede mezclar tiempos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#el-renderizado-hist%C3%B3rico-puede-mezclar-tiempos" class="hash-link" aria-label="Enlace directo al El renderizado histórico puede mezclar tiempos" title="Enlace directo al El renderizado histórico puede mezclar tiempos" translate="no">​</a></h3>
+<p>La <a href="https://www.mediawiki.org/wiki/Help:History" target="_blank" rel="noopener noreferrer" class="">documentación del historial de MediaWiki</a> señala que el historial del wikitext no siempre coincide con el historial de la página renderizada: plantillas, imágenes, variables temporales o datos enlazados pueden mostrar estados posteriores. Si importa el aspecto exacto, conserva una captura web fechada además del wikitext y describe sus dependencias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Limita la recogida al contenido necesario para una finalidad legítima y documentada.</li>
+<li class="">No cruces cuentas, IP históricas, horarios y otros rastros para desanonimizar a editores.</li>
+<li class="">No contactes ni señales públicamente a una persona basándote solo en metadatos de edición.</li>
+<li class="">Usa un agente de usuario identificable, respeta límites de petición y maneja <code>maxlag</code> si automatizas consultas a gran escala.</li>
+<li class="">Conserva resúmenes de edición solo cuando sean relevantes; pueden contener acusaciones o datos personales.</li>
+<li class="">Separa hechos observados, inferencias y preguntas pendientes en tus notas.</li>
+<li class="">Si encuentras información sensible expuesta por error, no la amplifiques: sigue los canales de supervisión o retirada del proyecto.</li>
+</ul>
+<p>La buena OPSEC aquí no consiste en ocultarse para recolectar más. Consiste en reducir exposición, evitar interacciones innecesarias y mantener una trazabilidad que otra persona pueda auditar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-validación">Checklist de validación<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#checklist-de-validaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de validación" title="Enlace directo al Checklist de validación" translate="no">​</a></h2>
+<p>Antes de citar un cambio, verifica:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He identificado la wiki, el título y los dos IDs de revisión.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He normalizado las marcas temporales y anotado la zona horaria.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado las versiones intermedias y la continuación de la API.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado el <code>diff</code>, las consultas y los artefactos originales con hashes locales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado si hay plantillas, imágenes o datos transcluidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He tratado usuario, resumen y etiquetas como metadatos, no como identidad o intención probadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He corroborado la afirmación sustantiva con una fuente primaria independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He minimizado datos personales y documentado las limitaciones.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Interfaz de historial y enlaces permanentes:</strong> suficiente para una revisión puntual y fácil de auditar.</li>
+<li class=""><strong>MediaWiki Action API:</strong> adecuada para extraer revisiones y comparar IDs de forma estructurada.</li>
+<li class=""><strong>MediaWiki REST API:</strong> ofrece endpoints más acotados y una estructura uniforme para contenido e historial.</li>
+<li class=""><strong>Wikimedia XML dumps:</strong> útiles para investigación reproducible a gran escala, con más coste de almacenamiento y procesamiento.</li>
+<li class=""><strong>Browsertrix/WACZ o archivo web:</strong> complementan el historial cuando necesitas preservar la representación renderizada y sus recursos.</li>
+<li class=""><strong>Wikimedia Commons <code>imageinfo</code>:</strong> permite estudiar el historial específico de un archivo multimedia.</li>
+</ul>
+<p>El takeaway accionable es sencillo: la próxima vez que cites que «una wiki cambió», guarda <strong>los dos IDs de revisión, el <code>diff</code>, la hora UTC, la consulta y la fuente primaria que confirma el hecho</strong>. El historial demuestra evolución editorial; la corroboración demuestra por qué esa evolución importa.</p>
+<p>Como siguiente tema, sería útil aplicar el mismo rigor a los volcados XML de Wikimedia: cómo seleccionar un intervalo, preservar procedencia y analizar cambios a escala sin convertir volumen en certeza.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://www.mediawiki.org/wiki/API:Revisions" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Revisions</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/API:Compare" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Compare</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/API:Continue" target="_blank" rel="noopener noreferrer" class="">MediaWiki: continuación de consultas</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/Help:History" target="_blank" rel="noopener noreferrer" class="">MediaWiki: historial de páginas</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/Help:PermanentLink" target="_blank" rel="noopener noreferrer" class="">MediaWiki: enlaces permanentes a revisiones</a></li>
+<li class=""><a href="https://www.mediawiki.org/wiki/Manual:RevisionDelete" target="_blank" rel="noopener noreferrer" class="">MediaWiki: RevisionDelete</a></li>
+<li class=""><a href="https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Access_to_Temporary_Account_IP_Addresses_Policy/es" target="_blank" rel="noopener noreferrer" class="">Wikimedia Foundation: política de acceso a IP de cuentas temporales</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Verificacion</category>
+            <category>Metodologia</category>
+            <category>Tooling</category>
+            <category>Investigacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Browsertrix y WACZ en OSINT: preservar webs dinámicas sin confundir una captura con la verdad]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web</link>
@@ -2466,117 +2603,6 @@
             <category>Investigacion</category>
             <category>Verificacion</category>
             <category>GEOINT</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Versionado de fuentes vivas en OSINT: registrar cambios y correcciones sin reescribir el pasado]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones</guid>
-            <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista OSINT comparando versiones fechadas de una página pública, sus cabeceras HTTP, hashes y relaciones de procedencia]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista OSINT comparando versiones fechadas de una página pública, sus cabeceras HTTP, hashes y relaciones de procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-08-24-versionado-fuentes-vivas-osint-005d2ca115649f1a0e193ea22af08e95.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/versionado-fuentes-vivas-osint-cambios-correcciones-0cdae63155f5885b52e1c1ed639871ac.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Un organismo publica una nota a las 10:00, corrige una cifra a las 11:20 y añade una explicación por la tarde sin cambiar la URL. Dos analistas consultan la misma dirección y guardan contenidos distintos. Si el informe cita solo «la página», ambos parecen contradecirse; si conserva versiones, cabeceras y tiempos de observación, la discrepancia se convierte en un dato investigable. <strong>Una fuente viva no es una pieza fija de evidencia: es una sucesión de representaciones que debemos capturar sin fingir que observamos todos sus estados.</strong></p>
-<p>Este artículo presenta un flujo responsable para registrar cambios y correcciones en páginas públicas. Las fuentes técnicas se consultaron el <strong>24 de agosto de 2026</strong>. Todos los dominios, entidades, cifras, horas y hashes del caso práctico son ficticios. La metodología no atribuye intención a quien edita ni intenta recuperar información privada o retirada por motivos legítimos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-una-fuente-viva-y-para-qué-sirve-versionarla">Qué es una fuente viva y para qué sirve versionarla<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#qu%C3%A9-es-una-fuente-viva-y-para-qu%C3%A9-sirve-versionarla" class="hash-link" aria-label="Enlace directo al Qué es una fuente viva y para qué sirve versionarla" title="Enlace directo al Qué es una fuente viva y para qué sirve versionarla" translate="no">​</a></h2>
-<p>Una fuente viva es un recurso cuyo contenido puede cambiar bajo el mismo identificador: una nota institucional, una ficha de producto, un conjunto de datos, una página de resultados o una noticia actualizada. Versionarla significa conservar cada representación observada con suficiente contexto para responder:</p>
-<ul>
-<li class="">qué bytes obtuvo el analista;</li>
-<li class="">desde qué URL y mediante qué solicitud;</li>
-<li class="">cuándo se hizo la observación;</li>
-<li class="">qué metadatos devolvió el servidor;</li>
-<li class="">qué diferencias existen respecto de otra copia;</li>
-<li class="">qué parte es observación y qué parte es interpretación.</li>
-</ul>
-<p>La distinción entre <strong>recurso</strong> y <strong>representación</strong> es esencial. Una URL puede seleccionar HTML distinto según el momento, idioma, codificación, dispositivo, cookies o cabeceras de negociación. Dos hashes diferentes no demuestran automáticamente que el editor corrigiera la página: quizá se compararon idiomas, contenido comprimido, anuncios dinámicos o respuestas personalizadas.</p>
-<p>El <a href="https://www.rfc-editor.org/rfc/rfc9110.html#section-8.8" target="_blank" rel="noopener noreferrer" class="">RFC 9110 sobre semántica HTTP</a> define <code>ETag</code> y <code>Last-Modified</code> como validadores de la representación seleccionada. <code>ETag</code> es opaco: no debe interpretarse como hash, número de revisión ni prueba de autoría salvo que el servicio documente esa semántica. <code>Last-Modified</code> expresa cuándo el servidor cree que se modificó la representación; puede tener resolución insuficiente y no equivale a la hora en que el analista la vio.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-cifra-que-cambia-durante-una-alerta">Caso de uso legítimo: una cifra que cambia durante una alerta<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#caso-de-uso-leg%C3%ADtimo-una-cifra-que-cambia-durante-una-alerta" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una cifra que cambia durante una alerta" title="Enlace directo al Caso de uso legítimo: una cifra que cambia durante una alerta" translate="no">​</a></h2>
-<p>La agencia ficticia <strong>Aguas de Sierra Clara</strong> publica un parte sobre reservas hídricas. A las <code>10:04 +02:00</code>, un analista guarda una página que indica <code>42 hm³</code>. A las <code>11:27 +02:00</code>, otro obtiene <code>24 hm³</code>. A las <code>15:10 +02:00</code>, la página añade «cifra corregida por error de transcripción» y mantiene <code>24 hm³</code>.</p>
-<p>La pregunta legítima no es «¿quién manipuló los datos?», sino: <strong>¿qué estados fueron observables, cuándo y con qué explicación pública?</strong> La hoja de control inicial podría ser:</p>
-<table><thead><tr><th>ID</th><th>Observado a</th><th>Estado visible</th><th><code>ETag</code></th><th>SHA-256 local</th><th>Lectura prudente</th></tr></thead><tbody><tr><td><code>V01</code></td><td><code>08:04Z</code></td><td><code>42 hm³</code>, sin nota</td><td><code>"a91"</code></td><td><code>71bc…e204</code></td><td>esta representación fue obtenida a esa hora</td></tr><tr><td><code>V02</code></td><td><code>09:27Z</code></td><td><code>24 hm³</code>, sin nota</td><td><code>"b07"</code></td><td><code>895d…9a11</code></td><td>existe una diferencia; su causa aún está abierta</td></tr><tr><td><code>V03</code></td><td><code>13:10Z</code></td><td><code>24 hm³</code>, con corrección</td><td><code>"b32"</code></td><td><code>0f46…cc80</code></td><td>la página declara una corrección en este estado</td></tr></tbody></table>
-<p>Esto permite afirmar que se observaron tres representaciones y describir sus diferencias. No permite asegurar que <code>V01</code> fuera la primera publicación, que <code>V02</code> apareciera exactamente a las <code>09:27Z</code> ni que no existieran estados intermedios.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-capturar-comparar-y-explicar">Flujo recomendado: capturar, comparar y explicar<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#flujo-recomendado-capturar-comparar-y-explicar" class="hash-link" aria-label="Enlace directo al Flujo recomendado: capturar, comparar y explicar" title="Enlace directo al Flujo recomendado: capturar, comparar y explicar" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-objeto-y-la-ventana-de-observación">1. Define el objeto y la ventana de observación<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#1-define-el-objeto-y-la-ventana-de-observaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 1. Define el objeto y la ventana de observación" title="Enlace directo al 1. Define el objeto y la ventana de observación" translate="no">​</a></h3>
-<p>Anota URL canónica, pregunta, periodo, frecuencia y criterio de cierre. Decide de antemano si necesitas HTML, un PDF enlazado, un JSON público o los tres. Limita la captura a lo necesario: una investigación sobre cifras agregadas no justifica conservar identificadores personales, cookies ni parámetros de sesión.</p>
-<p>Registra también el entorno que puede alterar la respuesta: método HTTP, idioma solicitado, zona horaria del analista, autenticación —siempre legítima— y si la página ejecuta JavaScript. No uses una sesión personal si una consulta pública y limpia responde a la pregunta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-respuesta-cabeceras-y-contexto-por-separado">2. Conserva respuesta, cabeceras y contexto por separado<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#2-conserva-respuesta-cabeceras-y-contexto-por-separado" class="hash-link" aria-label="Enlace directo al 2. Conserva respuesta, cabeceras y contexto por separado" title="Enlace directo al 2. Conserva respuesta, cabeceras y contexto por separado" translate="no">​</a></h3>
-<p>Guarda los bytes originales sin editarlos, las cabeceras relevantes y una ficha de adquisición. Un ejemplo de bajo impacto sobre un dominio ficticio sería:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --fail --silent --show-error \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --dump-header parte-20260824T080400Z.headers \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --output parte-20260824T080400Z.html \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  'https://datos.example/partes/reservas'</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">sha256sum parte-20260824T080400Z.html \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  &gt; parte-20260824T080400Z.sha256</span><br></span></code></pre></div></div>
-<p>Evita sondeos agresivos. Respeta condiciones de uso, límites de frecuencia y restricciones legales. Para contenido dinámico, una captura visual ayuda a explicar lo visto, pero no sustituye al HTML o JSON ni conserva necesariamente todos los recursos cargados.</p>
-<p>En la ficha anota al menos:</p>
-<table><thead><tr><th>Campo</th><th>Por qué importa</th></tr></thead><tbody><tr><td>URL solicitada y URL final</td><td>revela redirecciones sin tratarlas como equivalentes silenciosos</td></tr><tr><td>instante de inicio y fin en UTC</td><td>acota cuándo se realizó la observación</td></tr><tr><td>código de estado</td><td>distingue contenido servido, redirección y error</td></tr><tr><td><code>Date</code>, <code>ETag</code>, <code>Last-Modified</code>, <code>Vary</code></td><td>contextualiza validación y negociación</td></tr><tr><td><code>Content-Type</code>, <code>Content-Language</code>, <code>Content-Encoding</code></td><td>evita comparar representaciones incompatibles</td></tr><tr><td>herramienta y configuración</td><td>permite reproducir la adquisición</td></tr><tr><td>SHA-256 calculado localmente</td><td>identifica los bytes conservados</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-usa-validadores-para-detectar-no-para-interpretar">3. Usa validadores para detectar, no para interpretar<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#3-usa-validadores-para-detectar-no-para-interpretar" class="hash-link" aria-label="Enlace directo al 3. Usa validadores para detectar, no para interpretar" title="Enlace directo al 3. Usa validadores para detectar, no para interpretar" translate="no">​</a></h3>
-<p>En consultas posteriores, una petición condicional con <code>If-None-Match</code> puede reducir transferencias. Un <code>304 Not Modified</code> indica que el servidor considera aplicable el validador a esa selección; no demuestra que la página nunca cambiara entre dos consultas. Si no hay <code>ETag</code>, <code>If-Modified-Since</code> puede ayudar, pero <code>Last-Modified</code> se considera débil en varios escenarios descritos por HTTP.</p>
-<p>Conserva los valores literales. No conviertas <code>W/"42"</code> en «versión 42»: el prefijo <code>W/</code> indica un validador débil y la cadena sigue siendo opaca. Tampoco confundas un cambio de <code>ETag</code> con un cambio semántico relevante: plantillas, anuncios o tokens pueden modificar bytes sin alterar la afirmación investigada.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-normaliza-copias-de-trabajo-sin-tocar-el-original">4. Normaliza copias de trabajo sin tocar el original<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#4-normaliza-copias-de-trabajo-sin-tocar-el-original" class="hash-link" aria-label="Enlace directo al 4. Normaliza copias de trabajo sin tocar el original" title="Enlace directo al 4. Normaliza copias de trabajo sin tocar el original" translate="no">​</a></h3>
-<p>Haz las comparaciones sobre derivados. Para texto, separa navegación, contenido principal, tablas y notas de actualización. Registra cada transformación y su versión: extracción de texto, normalización Unicode, eliminación de espacios o conversión de PDF.</p>
-<p>Produce al menos dos diferencias:</p>
-<ol>
-<li class=""><strong>diferencia de bytes</strong>, útil para integridad y reproducibilidad;</li>
-<li class=""><strong>diferencia semántica</strong>, revisada sobre el contenido relevante.</li>
-</ol>
-<p>Un hash igual permite decir que los bytes comparados son iguales con el algoritmo y procedimiento indicados. Un hash distinto solo dice que difieren. El <a href="https://www.rfc-editor.org/rfc/rfc9530.html" target="_blank" rel="noopener noreferrer" class="">RFC 9530</a> distingue digest del contenido y digest de la representación, y advierte de que esos campos no protegen por sí solos contra manipulación maliciosa: pueden necesitar TLS o firmas para un modelo adversarial. Un SHA-256 local demuestra continuidad de nuestra copia, no quién creó el original ni cuándo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-busca-historial-nativo-y-archivos-independientes">5. Busca historial nativo y archivos independientes<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#5-busca-historial-nativo-y-archivos-independientes" class="hash-link" aria-label="Enlace directo al 5. Busca historial nativo y archivos independientes" title="Enlace directo al 5. Busca historial nativo y archivos independientes" translate="no">​</a></h3>
-<p>Antes de inferir, revisa si el editor publica un registro de cambios, revisiones identificables o una nota de corrección. Después consulta archivos web legítimos para buscar estados adicionales. El <a href="https://www.rfc-editor.org/rfc/rfc7089.html" target="_blank" rel="noopener noreferrer" class="">RFC 7089, Memento</a>, relaciona un recurso original con <code>memento</code>, <code>timegate</code> y <code>timemap</code>, y permite solicitar un estado próximo a una fecha mediante negociación temporal.</p>
-<p>La proximidad es una limitación importante: la captura devuelta puede ser anterior o posterior a la hora pedida. Un archivo prueba que obtuvo y conserva cierta representación en su fecha de captura; no fija necesariamente la publicación original ni garantiza una cobertura completa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-modela-cada-versión-como-entidad-no-como-sustitución">6. Modela cada versión como entidad, no como sustitución<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#6-modela-cada-versi%C3%B3n-como-entidad-no-como-sustituci%C3%B3n" class="hash-link" aria-label="Enlace directo al 6. Modela cada versión como entidad, no como sustitución" title="Enlace directo al 6. Modela cada versión como entidad, no como sustitución" translate="no">​</a></h3>
-<p>Asigna un identificador estable a cada copia: <code>V01</code>, <code>V02</code>, <code>V03</code>. Relaciona versiones sin borrar las anteriores. <a href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener noreferrer" class="">PROV-O de W3C</a> ofrece relaciones como <code>prov:wasRevisionOf</code> y propiedades para generación e invalidación. En una hoja sencilla puedes aplicar la misma idea:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">V02 wasRevisionOf V01</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">observación O02 obtuvo V02 a 2026-08-24T09:27:14Z</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">V03 wasRevisionOf V02</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">nota N03 declara "corrección por transcripción"</span><br></span></code></pre></div></div>
-<p>No uses <code>invalidada</code> como sinónimo automático de «falsa». Una versión puede dejar de estar vigente porque cambió el mundo, porque se corrigió o porque se actualizó una presentación. Conserva por separado vigencia, disponibilidad, exactitud declarada y valoración analítica.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-redacta-conclusiones-con-tres-tiempos">7. Redacta conclusiones con tres tiempos<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#7-redacta-conclusiones-con-tres-tiempos" class="hash-link" aria-label="Enlace directo al 7. Redacta conclusiones con tres tiempos" title="Enlace directo al 7. Redacta conclusiones con tres tiempos" translate="no">​</a></h3>
-<p>Para cada afirmación importante, distingue:</p>
-<ul>
-<li class=""><strong>tiempo declarado:</strong> cuándo la fuente dice que publicó o corrigió;</li>
-<li class=""><strong>tiempo observado:</strong> cuándo tú o un archivo obtuvisteis el estado;</li>
-<li class=""><strong>tiempo inferido:</strong> intervalo en el que probablemente ocurrió el cambio.</li>
-</ul>
-<p>Si <code>V01</code> se observó a las <code>08:04Z</code> y <code>V02</code> a las <code>09:27Z</code>, el cambio queda acotado entre ambas observaciones, no fijado a la segunda. Si aparece una nota a las <code>13:10Z</code>, di que fue observada entonces; no retrotraigas su existencia sin otra evidencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Incluso un sistema cuidadoso puede producir diferencias engañosas:</p>
-<ul>
-<li class="">contenido personalizado por idioma, región, cookies o prueba A/B;</li>
-<li class="">marcas de tiempo, contadores, anuncios o tokens que cambian en cada carga;</li>
-<li class="">HTML distinto que renderiza el mismo texto;</li>
-<li class="">respuestas de caché y réplicas desincronizadas;</li>
-<li class="">redirecciones, canonicalización o migraciones de CMS;</li>
-<li class="">PDFs reemplazados bajo la misma URL;</li>
-<li class="">OCR imperfecto que inventa diferencias en documentos escaneados;</li>
-<li class="">capturas de archivo incompletas o recursos secundarios ausentes;</li>
-<li class=""><code>ETag</code> débil compartido por representaciones que el servidor considera equivalentes;</li>
-<li class="">correcciones realizadas y revertidas entre dos observaciones.</li>
-</ul>
-<p>La ausencia de una versión en un archivo no demuestra que nunca existiera. La primera captura conocida ofrece un límite de observabilidad, no una fecha de nacimiento. Y una corrección silenciosa no demuestra engaño: puede responder a mantenimiento rutinario, accesibilidad, seguridad o protección de datos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">captura solo fuentes públicas o accesibles con autorización;</li>
-<li class="">no eludas controles, bloqueos ni autenticación;</li>
-<li class="">usa frecuencias proporcionadas y peticiones condicionales para reducir carga;</li>
-<li class="">excluye cabeceras de autorización, cookies y tokens de cualquier expediente compartido;</li>
-<li class="">minimiza datos personales y respeta retiradas justificadas;</li>
-<li class="">separa originales, derivados y material publicable;</li>
-<li class="">cifra el almacén de evidencias y limita accesos;</li>
-<li class="">evita publicar contenido retirado si aumenta el daño y no es necesario para el interés público;</li>
-<li class="">somete acusaciones o decisiones de alto impacto a revisión humana y asesoramiento adecuado.</li>
-</ul>
-<p>Versionar sirve para hacer más auditable una investigación, no para perpetuar información sensible. El principio de minimización sigue vigente aunque una copia sea técnicamente recuperable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Para pocas páginas bastan carpetas de solo lectura, una hoja de control y <code>diff</code>. Un repositorio Git privado puede registrar derivados textuales, siempre que no se introduzcan datos sensibles ni ficheros grandes sin una política adecuada. WARC resulta más apropiado cuando hay que preservar intercambios web completos; Memento y archivos públicos ayudan a descubrir estados históricos; un grafo de procedencia aporta valor cuando muchas fuentes se corrigen o derivan unas de otras.</p>
-<p>El takeaway accionable es sencillo: <strong>nunca sobrescribas una fuente viva con su versión más reciente</strong>. Conserva cada observación, su representación, cabeceras, hash, procedimiento y relación con las demás. Después describe cambios como intervalos y declaraciones, no como intenciones.</p>
-<p>Como siguiente tema, merece la pena estudiar cómo construir un registro de decisiones analíticas: qué hipótesis se abrieron, qué evidencia las debilitó y por qué una conclusión cambió sin borrar el razonamiento anterior.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/versionado-fuentes-vivas-osint-cambios-correcciones#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener noreferrer" class="">RFC 9110: HTTP Semantics</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc7089.html" target="_blank" rel="noopener noreferrer" class="">RFC 7089: HTTP Framework for Time-Based Access to Resource States — Memento</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9530.html" target="_blank" rel="noopener noreferrer" class="">RFC 9530: Digest Fields</a></li>
-<li class=""><a href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener noreferrer" class="">W3C PROV-O: The PROV Ontology</a></li>
-<li class=""><a href="https://www.w3.org/TR/prov-overview/" target="_blank" rel="noopener noreferrer" class="">W3C PROV Overview</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Investigacion</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
-            <category>Web</category>
             <category>Privacidad</category>
         </item>
     </channel>
