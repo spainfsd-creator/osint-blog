@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando revisiones fechadas de una página wiki y documentando su procedencia](/img/blog/2026-09-13-mediawiki-historial-revisiones-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/mediawiki-historial-revisiones-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una ficha pública cambia una fecha, pierde un párrafo y gana una referencia nueva. La versión actual parece coherente, pero no responde a las preguntas importantes: **qué cambió exactamente, en qué revisión apareció y qué podía ver el público en ese momento**. Una captura aislada tampoco basta si no podemos conectarla con una versión identificable.
