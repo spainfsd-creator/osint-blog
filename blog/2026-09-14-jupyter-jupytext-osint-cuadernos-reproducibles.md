@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista documentando fuentes, transformaciones y controles de un cuaderno reproducible](/img/blog/2026-09-14-jupyter-jupytext-osint-cuadernos-reproducibles.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/jupyter-jupytext-osint-cuadernos-reproducibles.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Tres hojas de cálculo públicas parecen demostrar que una empresa ganó contratos por 8,4 millones de euros. El total encaja, el gráfico impresiona y la conclusión cabe en un titular. Dos semanas después, otra persona intenta repetir el cálculo y obtiene 6,1 millones: una tabla se había actualizado, dos identificadores se trataron como empresas distintas y una celda del análisis se ejecutó fuera de orden. El problema no era la falta de datos; era la falta de **procedencia, estado y pasos repetibles**.
