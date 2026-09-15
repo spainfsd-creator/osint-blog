@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando versiones fechadas de datos públicos y sus transformaciones reproducibles](/img/blog/2026-09-15-dvc-versionado-datos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/dvc-versionado-datos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El lunes descargas 40.000 filas de un portal público; el jueves son 39.742 y una conclusión importante desaparece. Tu script sigue en Git, pero el CSV original se llamaba `datos_finales_2.csv`, alguien lo sustituyó y nadie sabe qué versión alimentó la tabla publicada. El problema no es calcular otra vez: es demostrar **qué datos entraron, qué transformación se ejecutó y qué artefacto salió**.
