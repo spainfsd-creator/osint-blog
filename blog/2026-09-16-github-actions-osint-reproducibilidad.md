@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando una canalización automatizada con datos sintéticos, procedencia y permisos mínimos](/img/blog/2026-09-16-github-actions-osint-reproducibilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/github-actions-osint-reproducibilidad.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un análisis sobre contratación pública funciona en el portátil de su autor y produce 317 adjudicaciones. Al ejecutarlo otra persona aparecen 314. Nadie ha falsificado nada: una dependencia cambió, tres fechas se interpretaron con otra configuración regional y un fichero auxiliar nunca entró en el repositorio. **La conclusión puede ser razonable y, aun así, el proceso que la sostiene no ser reproducible.**
