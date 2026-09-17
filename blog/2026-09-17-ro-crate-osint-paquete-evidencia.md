@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista organizando documentos públicos, metadatos, procedencia y un compartimento privado separado](/img/blog/2026-09-17-ro-crate-osint-paquete-evidencia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ro-crate-osint-paquete-evidencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Has terminado una investigación sobre contratación pública. Conservas doce descargas, tres consultas, un cuaderno, dos tablas finales y una carpeta llamada `definitivo-ahora-si`. Seis meses después, otra persona intenta revisar una cifra y descubre que puede abrir los ficheros, pero no sabe cuál es original, cuál es derivado, qué licencia permite redistribuir cada fuente ni qué elementos quedaron fuera por privacidad. **Tener los archivos no equivale a entregar una investigación revisable.**
