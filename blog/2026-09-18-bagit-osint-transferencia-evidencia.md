@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista verificando manifiestos y recibiendo un paquete digital de evidencia](/img/blog/2026-09-18-bagit-osint-transferencia-evidencia.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/bagit-osint-transferencia-evidencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una redacción entrega a su equipo jurídico 48 GB de documentos públicos, capturas web y tablas derivadas. La copia termina sin avisos, pero dos ficheros llegan truncados, un nombre cambia al descomprimir y nadie puede distinguir un original de una exportación posterior. El hallazgo quizá siga siendo correcto; **la transferencia que debía sostenerlo ya no es verificable**.
