@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando versiones, inventarios y sumas de comprobación en un repositorio OCFL](/img/blog/2026-09-19-ocfl-osint-preservacion-versionada.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/ocfl-osint-preservacion-versionada.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una investigación sobre contratación pública lleva tres años acumulando capturas web, CSV, notas y correcciones. El informe final sigue disponible, pero nadie sabe qué ficheros pertenecían a la primera entrega, cuándo se sustituyó una tabla ni si la copia conservada mantiene los mismos bytes. **Guardar mucho no equivale a preservar bien; conservar la historia exige una estructura verificable.**
