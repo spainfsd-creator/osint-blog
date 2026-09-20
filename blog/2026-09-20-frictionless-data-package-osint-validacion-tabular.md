@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una persona analista revisando tablas, esquemas y controles de validación](/img/blog/2026-09-20-frictionless-data-package-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/frictionless-data-package-osint-validacion-tabular.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un portal de contratación publica doce CSV. Un mes después cambia dos cabeceras, sustituye las comas decimales por puntos y deja una fecha imposible entre miles de filas correctas. La descarga sigue abriendo en una hoja de cálculo y el análisis produce cifras con aspecto convincente. **El peligro no es que el fichero esté roto, sino que falle de forma silenciosa.**
