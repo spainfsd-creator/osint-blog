@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista conectando contratos de datos, controles de frescura y notas de investigación mediante un puente](/img/blog/2026-09-21-soda-core-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/soda-core-osint-contratos-datos-deriva-esquema.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El portal de contratación de un ayuntamiento publica cada madrugada una tabla de adjudicaciones. Un lunes, `importe` pasa de número a texto; el miércoles desaparecen dos días enteros; el viernes aparece una columna nueva que no afecta al análisis. Los tres sucesos son cambios, pero **solo una metodología que separe estructura, frescura, cobertura y significado evitará tratarlos como si fueran la misma alarma**.
