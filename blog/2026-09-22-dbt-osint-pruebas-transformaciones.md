@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando fuentes públicas, transformaciones SQL y controles antes de obtener una tabla de evidencia](/img/blog/2026-09-22-dbt-osint-pruebas-transformaciones.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/dbt-osint-pruebas-transformaciones.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una investigación sobre contratación pública reúne adjudicaciones de tres portales. La consulta termina sin errores y el panel muestra una cifra redonda: un proveedor habría multiplicado por cuatro sus contratos. Sin embargo, una transformación interpretó los abonos como nuevas adjudicaciones y un `join` duplicó los expedientes con varios lotes. **La canalización funcionó exactamente como estaba escrita; el problema es que estaba escrita de forma equivocada.**
