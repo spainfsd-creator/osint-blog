@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando dos transformaciones relacionadas de un conjunto de datos público](/img/blog/2026-09-23-pruebas-metamorficas-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/pruebas-metamorficas-osint-invariantes.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una canalización suma contratos públicos por proveedor y devuelve 12,4 millones de euros. No disponemos de una segunda contabilidad perfecta con la que comparar cada fila, pero sí sabemos algo más modesto: **ordenar el fichero de otra manera no debería cambiar el total, y dividir cada importe en dos fracciones equivalentes tampoco**. Si alguna de esas transformaciones altera el resultado, hemos encontrado un error útil sin necesitar conocer de antemano la cifra correcta.
