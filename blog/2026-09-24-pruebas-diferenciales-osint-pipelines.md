@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando dos pipelines independientes sobre fuentes públicas](/img/blog/2026-09-24-pruebas-diferenciales-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/pruebas-diferenciales-osint-pipelines.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Dos scripts procesan el mismo lote de contratos públicos. Uno calcula 1.248 expedientes y el otro, 1.251. La diferencia parece pequeña, pero tres filas pueden cambiar una serie temporal, una alerta o una conclusión. ¿Cuál está bien? La respuesta responsable no es elegir el resultado que más nos gusta: es convertir la discrepancia en una pista reproducible y volver a la fuente.
