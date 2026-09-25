@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista examinando mutaciones controladas en un pipeline de datos públicos](/img/blog/2026-09-25-mutation-testing-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/mutation-testing-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un pipeline de contratación pública supera 186 pruebas y produce el informe esperado. Después alguien cambia por accidente `importe > 10000` por `importe >= 10000`: las pruebas siguen verdes, pero ahora la tabla incluye expedientes que antes quedaban fuera. **Tener pruebas no significa que esas pruebas sean capaces de detectar los fallos que más importan.**
