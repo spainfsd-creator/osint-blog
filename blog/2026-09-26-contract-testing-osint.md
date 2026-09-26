@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comprobando el contrato entre la adquisición de datos públicos y un pipeline OSINT](/img/blog/2026-09-26-contract-testing-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/contract-testing-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El informe mensual sigue saliendo, el gráfico conserva su aspecto impecable y ninguna tarea termina con error. Hay un problema: el portal público cambió `importe_adjudicado` por `importe`, empezó a entregar algunas cifras como texto y añadió paginación. El pipeline aceptó la respuesta, rellenó ausencias con cero y publicó una caída que nunca ocurrió. **El fallo más peligroso no siempre rompe el proceso; a veces lo deja producir una respuesta perfectamente creíble.**
