@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista reduciendo un contraejemplo dentro de un pipeline OSINT](/img/blog/2026-09-28-property-based-testing-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/property-based-testing-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una prueba con tres expedientes ficticios pasa. Otra con diez también. En producción aparece una combinación que nadie escribió a mano: dos lotes comparten identificador, uno lleva importe nulo y la misma fecha llega con dos zonas horarias. El pipeline no se rompe; **duplica una cantidad y entrega una tabla perfectamente presentable**.
