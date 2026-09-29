@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista aislando un fallo hallado mediante fuzzing en un pipeline OSINT](/img/blog/2026-09-29-fuzzing-guiado-cobertura-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/fuzzing-guiado-cobertura-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El CSV parecía rutinario: cabecera, fechas, importes y una fila por expediente. Bastó una comilla sin cerrar junto a un salto de línea para que el parser mezclara dos registros y asignara una cantidad al identificador equivocado. El proceso no se detuvo; produjo una tabla limpia, un gráfico convincente y una conclusión falsa. **En un pipeline OSINT, el fallo más caro puede ser el que no parece un fallo.**
