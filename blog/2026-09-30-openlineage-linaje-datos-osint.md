@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un analista siguiendo el linaje de documentos y transformaciones en un pipeline OSINT](/img/blog/2026-09-30-openlineage-linaje-datos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openlineage-linaje-datos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El informe dice que hay 418 contratos, pero nadie puede responder una pregunta sencilla: **¿qué descarga, qué versión del parser y qué filtros produjeron exactamente esa cifra?** El CSV original sigue en una carpeta, el cuaderno conserva otra copia y la tabla publicada no incluye ninguna pista sobre el camino intermedio. El resultado podría ser correcto; el equipo, sin embargo, ya no puede reconstruirlo ni medir el alcance de un error.
