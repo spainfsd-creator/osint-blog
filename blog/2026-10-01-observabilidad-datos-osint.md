@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un equipo OSINT observando la salud de un pipeline de datos públicos](/img/blog/2026-10-01-observabilidad-datos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/observabilidad-datos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El cuadro de mando sigue en verde, la actualización nocturna terminó sin errores y el informe muestra 312 contratos nuevos. Hay un problema: la fuente publicaba normalmente entre 900 y 1.200 registros cada lunes. **El pipeline funcionó; la adquisición llegó incompleta y nadie estaba mirando el silencio.**
