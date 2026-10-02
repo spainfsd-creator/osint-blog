@@ -2,11 +2,155 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-10-01T00:00:00.000Z</updated>
+    <updated>2026-10-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Presupuestos de error en OSINT: decidir cuándo un pipeline deja de ser publicable]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint"/>
+        <updated>2026-10-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ilustración editorial de una analista evaluando el margen de error de un pipeline OSINT]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista evaluando el margen de error de un pipeline OSINT" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-02-presupuestos-error-pipelines-osint-333cfa56af65db1b695e11ec2e49fcda.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>El boletín municipal se actualiza cada madrugada. Durante tres semanas, nuestro pipeline lo descargó, normalizó y publicó a tiempo. El lunes apareció una tabla impecable con 47 contratos; el portal, sin embargo, había servido solo la primera de cuatro páginas. <strong>La ejecución fue puntual y técnicamente correcta, pero el resultado no era publicable.</strong> Sin una regla acordada de antemano, el equipo solo tenía dos opciones malas: ignorar el hueco o discutir bajo presión cuánto fallo estaba dispuesto a aceptar.</p>
+<p>Un presupuesto de error convierte esa discusión en una decisión operativa previa. Define qué significa que una adquisición sea suficientemente fiable, cuánto incumplimiento toleramos durante una ventana y qué haremos cuando el margen se consuma. No mide la verdad de la fuente ni concede permiso para publicar datos dudosos. En OSINT sirve para algo más modesto y útil: <strong>saber cuándo el comportamiento de nuestro propio proceso obliga a frenar, degradar o revisar una publicación</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-presupuesto-de-error-y-para-qué-sirve">Qué es un presupuesto de error (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#qu%C3%A9-es-un-presupuesto-de-error-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un presupuesto de error (y para qué sirve)" title="Enlace directo al Qué es un presupuesto de error (y para qué sirve)" translate="no">​</a></h2>
+<p>En ingeniería de fiabilidad, un indicador de nivel de servicio o <strong>SLI</strong> mide un comportamiento; un objetivo o <strong>SLO</strong> fija el nivel aceptable durante una ventana; y el presupuesto de error es la parte que queda fuera del objetivo. Si el SLO es del 98 %, el margen teórico es del 2 %. Google SRE presenta esta relación como <code>presupuesto = 1 − SLO</code> y recomienda acompañarla de una política escrita que determine qué ocurre cuando se agota.</p>
+<p>La traducción a OSINT necesita cautela. Nuestro «servicio» no es una API comercial estable: puede depender de portales públicos, calendarios administrativos, documentos irregulares y decisiones editoriales. Por eso conviene medir <strong>resultados observables del pipeline</strong>, no promesas imposibles sobre el universo real.</p>
+<p>Un SLI defendible podría responder a una de estas preguntas:</p>
+<ul>
+<li class="">¿La adquisición terminó antes de la hora límite?</li>
+<li class="">¿Se recorrieron todas las páginas que la propia fuente declaró?</li>
+<li class="">¿Cada objeto descargado conserva URL, hora, respuesta y hash?</li>
+<li class="">¿El parser rechazó explícitamente lo que no entendía, en vez de inventar valores?</li>
+<li class="">¿El artefacto publicado puede reconstruirse desde la captura fijada?</li>
+</ul>
+<p>«Hemos encontrado todos los contratos existentes» no es un buen SLI: normalmente no conocemos ese denominador. «Hemos recorrido 4 de las 4 páginas anunciadas por el portal y preservado las respuestas» sí es medible, aunque tampoco demuestre que el portal sea completo.</p>
+<p>El presupuesto ayuda a resolver tres tensiones prácticas:</p>
+<ol>
+<li class="">Evita tratar cada incidencia menor como una emergencia.</li>
+<li class="">Impide normalizar una degradación acumulada solo porque ninguna ejecución aislada parece catastrófica.</li>
+<li class="">Da al equipo autorización explícita para detener cambios o publicaciones cuando la fiabilidad observada ya no sostiene el análisis.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-un-observatorio-ficticio-de-contratación">Caso de uso legítimo: un observatorio ficticio de contratación<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#caso-de-uso-leg%C3%ADtimo-un-observatorio-ficticio-de-contrataci%C3%B3n" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: un observatorio ficticio de contratación" title="Enlace directo al Caso de uso legítimo: un observatorio ficticio de contratación" translate="no">​</a></h2>
+<p>Imaginemos <strong>Observatorio Río Claro</strong>, un proyecto ficticio que resume cada semana contratos publicados por veinte ayuntamientos. El equipo no perfila personas ni intenta acceder a sistemas: consulta portales abiertos, conserva las páginas públicas y enlaza los documentos originales.</p>
+<p>Para el portal de Villa Serena define una unidad de medida sencilla: una <strong>ejecución programada</strong>. Una ejecución es buena solo si cumple a la vez estas condiciones:</p>
+<ul>
+<li class="">finaliza antes de las 08:00 UTC;</li>
+<li class="">recorre todas las páginas declaradas por la navegación del portal;</li>
+<li class="">conserva cada respuesta original y su hash;</li>
+<li class="">no tiene rechazos de esquema sin revisar;</li>
+<li class="">produce un manifiesto que enlaza entradas y salidas.</li>
+</ul>
+<p>El equipo comienza con un SLO experimental: <strong>el 98 % de las ejecuciones será bueno en una ventana móvil de 50 ejecuciones</strong>. Eso permite una ejecución mala. La cifra no viene de una norma universal: es una hipótesis operativa que el equipo debe justificar con el ritmo de publicación, el impacto de un retraso y la capacidad real de revisión.</p>
+<p>Supongamos esta secuencia:</p>
+<table><thead><tr><th>Día</th><th>Resultado</th><th style="text-align:right">Consumo del presupuesto</th></tr></thead><tbody><tr><td>Lunes</td><td>4/4 páginas, a tiempo</td><td style="text-align:right">0 %</td></tr><tr><td>Martes</td><td>4/4 páginas, 40 minutos tarde</td><td style="text-align:right">0 % si sigue antes del límite</td></tr><tr><td>Miércoles</td><td>1/4 páginas; respuesta truncada</td><td style="text-align:right">100 %</td></tr><tr><td>Jueves</td><td>4/4 páginas, pero parser nuevo omite importes</td><td style="text-align:right">presupuesto agotado; publicación detenida</td></tr></tbody></table>
+<p>El miércoles consume la única ejecución mala disponible. El jueves no debe convertirse en «otro aviso amarillo»: la política ya acordada obliga a frenar la salida derivada, restaurar o corregir el parser y delimitar qué informes están afectados. El original se conserva; lo que se bloquea es la transformación o publicación no fiable.</p>
+<p>Este ejemplo también muestra un límite estadístico. Con poco volumen, un solo evento mueve mucho el porcentaje. La documentación de Google SRE advierte que las alertas basadas en tasa pueden comportarse mal en servicios de tráfico bajo. En un pipeline diario o semanal, es más sensato combinar conteos explícitos, ventanas de calendario y revisión humana que copiar umbrales pensados para millones de peticiones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-del-riesgo-a-una-política-que-se-pueda-ejecutar">Flujo recomendado: del riesgo a una política que se pueda ejecutar<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#flujo-recomendado-del-riesgo-a-una-pol%C3%ADtica-que-se-pueda-ejecutar" class="hash-link" aria-label="Enlace directo al Flujo recomendado: del riesgo a una política que se pueda ejecutar" title="Enlace directo al Flujo recomendado: del riesgo a una política que se pueda ejecutar" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-decisión-antes-que-la-métrica">1. Define la decisión antes que la métrica<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#1-define-la-decisi%C3%B3n-antes-que-la-m%C3%A9trica" class="hash-link" aria-label="Enlace directo al 1. Define la decisión antes que la métrica" title="Enlace directo al 1. Define la decisión antes que la métrica" translate="no">​</a></h3>
+<p>Empieza por una pregunta operativa: «¿Qué fallo haría que detuviéramos la publicación?». Después elige el indicador mínimo que permita tomar esa decisión. Medir por medir crea paneles; no crea control.</p>
+<p>Para una adquisición recurrente, las decisiones habituales son:</p>
+<ul>
+<li class="">publicar con normalidad;</li>
+<li class="">publicar con advertencia y alcance reducido;</li>
+<li class="">retener el derivado hasta revisar;</li>
+<li class="">volver temporalmente a una versión conocida del pipeline;</li>
+<li class="">preservar la captura y abrir un incidente sin reintentar de forma destructiva.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-especifica-eventos-buenos-y-malos-sin-ambigüedad">2. Especifica eventos buenos y malos sin ambigüedad<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#2-especifica-eventos-buenos-y-malos-sin-ambig%C3%BCedad" class="hash-link" aria-label="Enlace directo al 2. Especifica eventos buenos y malos sin ambigüedad" title="Enlace directo al 2. Especifica eventos buenos y malos sin ambigüedad" translate="no">​</a></h3>
+<p>Escribe una condición reproducible. Por ejemplo:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">unidad: ejecución programada del portal Villa Serena</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">buena: antes de 08:00 UTC AND paginas_visitadas == paginas_declaradas</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">       AND rechazos_no_revisados == 0 AND manifiesto_presente == true</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">ventana: últimas 50 ejecuciones</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">objetivo inicial: 98 % buenas</span><br></span></code></pre></div></div>
+<p>No mezcles en el mismo indicador dimensiones que requieren respuestas diferentes. Un retraso de treinta minutos, una página ausente y un hash que no coincide pueden ser «malos», pero no se diagnostican igual. Conserva las señales componentes aunque exista una regla editorial conjunta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-calcula-el-presupuesto-y-muestra-el-denominador">3. Calcula el presupuesto y muestra el denominador<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#3-calcula-el-presupuesto-y-muestra-el-denominador" class="hash-link" aria-label="Enlace directo al 3. Calcula el presupuesto y muestra el denominador" title="Enlace directo al 3. Calcula el presupuesto y muestra el denominador" translate="no">​</a></h3>
+<p>Con 50 ejecuciones y un SLO del 98 %, el presupuesto es una ejecución mala:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">presupuesto = total × (1 − SLO)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">presupuesto = 50 × (1 − 0,98) = 1 ejecución</span><br></span></code></pre></div></div>
+<p>Publica siempre el denominador, la ventana y la regla de redondeo. Decir «queda el 50 % del presupuesto» sin esos datos oculta si hablamos de miles de eventos o de dos ejecuciones. En ventanas pequeñas, muestra también el conteo bruto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-distingue-consumo-lento-de-incendio">4. Distingue consumo lento de incendio<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#4-distingue-consumo-lento-de-incendio" class="hash-link" aria-label="Enlace directo al 4. Distingue consumo lento de incendio" title="Enlace directo al 4. Distingue consumo lento de incendio" translate="no">​</a></h3>
+<p>La <strong>tasa de consumo</strong> o <em>burn rate</em> compara la velocidad real de gasto con la velocidad que agotaría el presupuesto exactamente al final de la ventana. Una tasa de 1 consume el margen al ritmo previsto; una tasa muy superior anuncia que se agotará antes.</p>
+<p>La técnica de múltiples ventanas descrita por Google SRE combina una señal rápida para fallos intensos con otra más lenta para degradaciones persistentes. En OSINT puede adaptarse sin copiar sus números:</p>
+<ul>
+<li class="">respuesta inmediata si una ejecución pierde páginas o rompe la trazabilidad;</li>
+<li class="">ticket de revisión si tres ejecuciones llegan progresivamente más tarde;</li>
+<li class="">revisión editorial si una fuente cambia su calendario y vuelve obsoleto el SLO.</li>
+</ul>
+<p>Las alertas deben conducir a una acción concreta. Si nadie sabe qué hacer al recibirla, el umbral aún no está bien diseñado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-escribe-la-política-de-agotamiento">5. Escribe la política de agotamiento<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#5-escribe-la-pol%C3%ADtica-de-agotamiento" class="hash-link" aria-label="Enlace directo al 5. Escribe la política de agotamiento" title="Enlace directo al 5. Escribe la política de agotamiento" translate="no">​</a></h3>
+<p>Una política mínima para el caso ficticio podría decir:</p>
+<blockquote>
+<p>Si el presupuesto se agota, se detienen los cambios de parser y la publicación de nuevos derivados de esa fuente. Se permiten correcciones de seguridad, preservación de originales y trabajos destinados a restaurar la fiabilidad. La publicación se reanuda cuando una captura controlada supera las pruebas y el responsable editorial documenta el alcance del incidente.</p>
+</blockquote>
+<p>La política no es un castigo al desarrollador ni una excusa para ocultar datos. Es un acuerdo para cambiar prioridades cuando la evidencia operativa indica que continuar añade riesgo. Debe nombrar responsables, excepciones, criterio de reapertura y fecha de revisión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-ensaya-con-fallos-sintéticos">6. Ensaya con fallos sintéticos<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#6-ensaya-con-fallos-sint%C3%A9ticos" class="hash-link" aria-label="Enlace directo al 6. Ensaya con fallos sintéticos" title="Enlace directo al 6. Ensaya con fallos sintéticos" translate="no">​</a></h3>
+<p>Antes de confiar en el control, prueba tres escenarios sin tocar datos reales:</p>
+<ol>
+<li class="">una paginación ficticia anuncia cuatro páginas y solo entrega una;</li>
+<li class="">un documento llega después de la hora límite;</li>
+<li class="">el parser encuentra una columna nueva y pone el registro en cuarentena.</li>
+</ol>
+<p>Comprueba que el evento se clasifica, el presupuesto cambia una sola vez, la alerta llega al canal correcto y la publicación se bloquea cuando corresponde. Guarda los fixtures y las decisiones esperadas como pruebas de regresión.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-un-presupuesto-de-error-no-puede-demostrar">Lo que un presupuesto de error no puede demostrar<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#lo-que-un-presupuesto-de-error-no-puede-demostrar" class="hash-link" aria-label="Enlace directo al Lo que un presupuesto de error no puede demostrar" title="Enlace directo al Lo que un presupuesto de error no puede demostrar" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-mide-la-completitud-del-mundo">No mide la completitud del mundo<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#no-mide-la-completitud-del-mundo" class="hash-link" aria-label="Enlace directo al No mide la completitud del mundo" title="Enlace directo al No mide la completitud del mundo" translate="no">​</a></h3>
+<p>Recorrer todas las páginas declaradas solo prueba cobertura respecto a la interfaz observada. La fuente puede ocultar registros, cambiar filtros o publicar tarde. Contrasta totales con boletines, APIs oficiales u otras vistas cuando existan, y documenta el alcance real.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-convierte-un-dato-falso-en-aceptable">No convierte un dato falso en aceptable<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#no-convierte-un-dato-falso-en-aceptable" class="hash-link" aria-label="Enlace directo al No convierte un dato falso en aceptable" title="Enlace directo al No convierte un dato falso en aceptable" translate="no">​</a></h3>
+<p>Un pipeline puede cumplir el 100 % del SLO y transportar una afirmación falsa. Veracidad, autenticidad, representatividad e interpretación requieren corroboración separada. La fiabilidad técnica es necesaria; no es suficiencia probatoria.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-arregla-un-indicador-mal-elegido">No arregla un indicador mal elegido<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#no-arregla-un-indicador-mal-elegido" class="hash-link" aria-label="Enlace directo al No arregla un indicador mal elegido" title="Enlace directo al No arregla un indicador mal elegido" translate="no">​</a></h3>
+<p>Si solo medimos que el proceso terminó con código cero, optimizaremos para ejecuciones verdes aunque falten páginas. El indicador debe acercarse a la experiencia investigadora: obtener a tiempo un artefacto trazable y con la cobertura observable esperada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-justifica-perseguir-cinco-nueves">No justifica perseguir «cinco nueves»<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#no-justifica-perseguir-cinco-nueves" class="hash-link" aria-label="Enlace directo al No justifica perseguir «cinco nueves»" title="Enlace directo al No justifica perseguir «cinco nueves»" translate="no">​</a></h3>
+<p>Un objetivo demasiado estricto puede crear falsas urgencias, trabajo manual y excepciones silenciosas. Uno demasiado laxo permite publicar degradaciones. Empieza con datos históricos, declara que el objetivo es provisional y revisa tanto los falsos avisos como los fallos que no detectó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-debe-borrar-incidentes-del-historial">No debe borrar incidentes del historial<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#no-debe-borrar-incidentes-del-historial" class="hash-link" aria-label="Enlace directo al No debe borrar incidentes del historial" title="Enlace directo al No debe borrar incidentes del historial" translate="no">​</a></h3>
+<p>Festivos, mantenimientos anunciados o caídas de terceros pueden explicarse, pero excluirlos retroactivamente para embellecer el porcentaje destruye la utilidad del sistema. Define antes qué queda fuera de alcance y conserva dos vistas: la métrica según política y el registro íntegro de lo ocurrido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Mide el proceso, no la vida de las personas que aparecen en las fuentes.</li>
+<li class="">Usa identificadores de ejecución y hashes; evita copiar nombres, correos o documentos sensibles a paneles y alertas.</li>
+<li class="">Aplica mínimos privilegios al almacenamiento de capturas y métricas.</li>
+<li class="">Separa originales, derivados, telemetría y decisiones editoriales.</li>
+<li class="">No hagas reintentos agresivos: respeta límites, términos de uso y capacidad del servicio público.</li>
+<li class="">Documenta cambios de alcance y evita que una métrica técnica se use para puntuar a individuos.</li>
+<li class="">Conserva UTC, zona horaria de la fuente y calendario previsto; un «retraso» sin contexto puede ser un festivo o un cambio legítimo.</li>
+<li class="">Incluye una vía humana para pausar el sistema cuando el daño potencial no cabe en el indicador.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-implantación">Checklist de implantación<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#checklist-de-implantaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de implantación" title="Enlace directo al Checklist de implantación" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La unidad de medida es observable y tiene denominador.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->«Bueno» y «malo» se pueden reproducir con fixtures.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La ventana corresponde al ritmo real de publicación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El objetivo se justifica con impacto y datos históricos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El presupuesto muestra porcentaje y conteo bruto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada alerta tiene responsable y acción inmediata.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La política define parada, excepciones y reapertura.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se preservan originales aunque se bloquee el derivado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los paneles no contienen datos personales innecesarios.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cumplir el SLO nunca se presenta como prueba de verdad.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si todavía no sabes qué cambió en la fuente o en el proceso, empieza por <a class="" href="https://spainfsd-creator.github.io/osint-blog/observabilidad-datos-osint">observabilidad de datos</a>. Si necesitas localizar qué salidas dependen de una ejecución, usa <a class="" href="https://spainfsd-creator.github.io/osint-blog/openlineage-linaje-datos-osint">OpenLineage</a>. Para expresar controles de esquema y calidad, <a class="" href="https://spainfsd-creator.github.io/osint-blog/soda-core-osint-contratos-datos-deriva-esquema">Soda Core</a> o <a class="" href="https://spainfsd-creator.github.io/osint-blog/great-expectations-osint-calidad-datos">Great Expectations</a> pueden aportar señales. OpenSLO ofrece una especificación abierta para representar SLI, objetivo, ventana y método de presupuesto, aunque adoptar su formato no sustituye el acuerdo editorial.</p>
+<p>El takeaway accionable es concreto: elige una adquisición recurrente, escribe en una página qué cuenta como ejecución buena y simula una paginación incompleta. Si el equipo no sabe si debe publicar, advertir o detenerse, no ajustes el porcentaje todavía: termina primero la política.</p>
+<p>Como próximo tema, merece la pena estudiar <strong>postmortems sin culpa para incidentes OSINT</strong>: cómo reconstruir una publicación degradada, delimitar el impacto y convertir las correcciones en pruebas sin exponer fuentes ni buscar culpables.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Implementing SLOs</a></li>
+<li class=""><a href="https://sre.google/workbook/error-budget-policy/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Example Error Budget Policy</a></li>
+<li class=""><a href="https://sre.google/workbook/alerting-on-slos/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Alerting on SLOs</a></li>
+<li class=""><a href="https://sre.google/workbook/data-processing/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Data Processing Pipelines</a></li>
+<li class=""><a href="https://sre.google/sre-book/embracing-risk/" target="_blank" rel="noopener noreferrer" class="">Google SRE Book: Embracing Risk</a></li>
+<li class=""><a href="https://openslo.com/specification/" target="_blank" rel="noopener noreferrer" class="">OpenSLO: especificación</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Automatizacion" term="Automatizacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Observabilidad de datos en OSINT: detectar silencios sin confundir un panel verde con la verdad]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/observabilidad-datos-osint</id>
@@ -2773,123 +2917,6 @@
         <category label="Metodologia" term="Metodologia"/>
         <category label="Tooling" term="Tooling"/>
         <category label="Investigacion" term="Investigacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Browsertrix y WACZ en OSINT: preservar webs dinámicas sin confundir una captura con la verdad]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web"/>
-        <updated>2026-09-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de un analista comparando una web pública en directo con su reproducción archivada y controles de integridad]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un analista comparando una web pública en directo con su reproducción archivada y controles de integridad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-12-browsertrix-wacz-osint-preservacion-web-b88786f457047b4beab8a30eab3ee395.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/browsertrix-wacz-osint-preservacion-web-4901962a0906d822a4774dd6b091a523.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una web pública anuncia una adjudicación y, horas después, cambia un anexo cargado mediante JavaScript. Guardar una captura de pantalla conserva el aspecto; descargar el HTML puede conservar un esqueleto vacío; anotar la URL solo promete que quizá mañana siga allí. Para que otra persona pueda revisar qué observamos necesitamos <strong>captura, alcance, contexto, reproducción y control de calidad</strong>, no una fotografía huérfana.</p>
-<p><a href="https://docs.browsertrix.com/user-guide/crawl-workflows/" target="_blank" rel="noopener noreferrer" class="">Browsertrix</a> automatiza capturas con un navegador y permite empaquetarlas como archivos web reproducibles. El formato <a href="https://specs.webrecorder.net/wacz/latest/" target="_blank" rel="noopener noreferrer" class="">WACZ</a> reúne datos WARC, índices, páginas y metadatos en un paquete transportable que herramientas como <a href="https://replayweb.page/" target="_blank" rel="noopener noreferrer" class="">ReplayWeb.page</a> pueden abrir en el navegador. Juntos ofrecen una base sólida para preservar fuentes web dinámicas, pero no certifican por sí solos que lo publicado fuese verdadero ni que la captura sea completa.</p>
-<blockquote>
-<p><strong>Transparencia editorial:</strong> esta entrada ha sido generada mediante inteligencia artificial y se publica sin revisión humana ni <em>fact-checking</em> humano. Las fuentes técnicas se consultaron el 12 de septiembre de 2026.</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-browsertrix-y-wacz-y-para-qué-sirven">Qué son Browsertrix y WACZ, y para qué sirven<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#qu%C3%A9-son-browsertrix-y-wacz-y-para-qu%C3%A9-sirven" class="hash-link" aria-label="Enlace directo al Qué son Browsertrix y WACZ, y para qué sirven" title="Enlace directo al Qué son Browsertrix y WACZ, y para qué sirven" translate="no">​</a></h2>
-<p>Browsertrix es un sistema de archivo web basado en navegador. Un flujo de captura define las URL iniciales, el alcance, los límites y el comportamiento que se aplicará al recorrer un sitio. Al terminar produce un elemento archivado que puede descargarse, revisarse y agruparse en colecciones.</p>
-<p>WACZ —<em>Web Archive Collection Zipped</em>— no sustituye a WARC. La <a href="https://specs.webrecorder.net/wacz/1.2.0/" target="_blank" rel="noopener noreferrer" class="">especificación oficial</a> lo plantea como una convención para empaquetar el contenido archivado y los datos necesarios para localizarlo y reproducirlo con eficiencia. El paquete puede incluir:</p>
-<ul>
-<li class="">registros WARC con las respuestas capturadas;</li>
-<li class="">índices para buscar URL y posiciones dentro del archivo;</li>
-<li class=""><code>pages.jsonl</code> con puntos de entrada navegables;</li>
-<li class=""><code>datapackage.json</code> con metadatos técnicos y descriptivos;</li>
-<li class="">datos de integridad definidos por el formato.</li>
-</ul>
-<p>ReplayWeb.page abre estos archivos directamente en el navegador y solicita solo las partes necesarias cuando el servidor admite peticiones por rangos. Esa portabilidad resulta valiosa en OSINT: el material, su índice y su contexto básico viajan juntos.</p>
-<table><thead><tr><th>Pieza</th><th>Pregunta que ayuda a responder</th><th>Lo que no demuestra</th></tr></thead><tbody><tr><td>configuración del rastreo</td><td>«¿qué intentamos capturar?»</td><td>que todo lo previsto se guardase</td></tr><tr><td>WARC dentro del WACZ</td><td>«¿qué respuestas recibió el navegador?»</td><td>que el servidor mostrase lo mismo a todos</td></tr><tr><td>índice y lista de páginas</td><td>«¿qué podemos localizar y reproducir?»</td><td>exhaustividad del sitio</td></tr><tr><td>metadatos y hashes</td><td>«¿ha cambiado el paquete comprobado?»</td><td>autoría o veracidad del contenido</td></tr><tr><td>reproducción</td><td>«¿cómo se comporta la copia archivada?»</td><td>equivalencia perfecta con la web viva</td></tr></tbody></table>
-<p>La distinción decisiva es esta: <strong>capturar conserva una observación; autenticar una afirmación exige corroboración externa</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-documentar-una-convocatoria-pública-ficticia">Caso de uso legítimo: documentar una convocatoria pública ficticia<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#caso-de-uso-leg%C3%ADtimo-documentar-una-convocatoria-p%C3%BAblica-ficticia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: documentar una convocatoria pública ficticia" title="Enlace directo al Caso de uso legítimo: documentar una convocatoria pública ficticia" translate="no">​</a></h2>
-<p>Imaginemos que la Agencia Regional de Innovación de <strong>Puerto Claro</strong>, entidad ficticia, publica una convocatoria con una página principal, un calendario interactivo y varios anexos PDF. Nuestro encargo legítimo es documentar sus cambios durante el plazo de alegaciones.</p>
-<p>La pregunta no es «¿podemos copiar toda la sede?», sino «¿qué conjunto mínimo permite verificar requisitos, plazos y anexos sin recoger datos personales innecesarios?». Definimos como semillas la página de la convocatoria y el índice público de anexos. Excluimos buscadores internos, áreas de identificación, formularios, calendarios infinitos y rutas ajenas al expediente. Fijamos límites de páginas, tiempo y tamaño.</p>
-<p>Tras cada captura conservamos:</p>
-<ol>
-<li class="">el WACZ original sin editar;</li>
-<li class="">la configuración exacta del flujo;</li>
-<li class="">hora de inicio y fin, zona horaria y operador;</li>
-<li class="">informe de errores y URL fallidas;</li>
-<li class="">notas de revisión de las páginas relevantes;</li>
-<li class="">hash del paquete en un registro separado;</li>
-<li class="">referencias a la publicación oficial y al boletín que corroboran el contenido.</li>
-</ol>
-<p>Si el anexo cambia, dos capturas fechadas permiten comparar observaciones. No permiten afirmar, sin más, la hora exacta de modificación ni quién la ordenó: el intervalo solo queda acotado entre la última captura anterior y la primera posterior.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-la-pregunta-a-un-archivo-revisable">Flujo recomendado: de la pregunta a un archivo revisable<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#flujo-recomendado-de-la-pregunta-a-un-archivo-revisable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de la pregunta a un archivo revisable" title="Enlace directo al Flujo recomendado: de la pregunta a un archivo revisable" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-propósito-autoridad-y-alcance">1. Define propósito, autoridad y alcance<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#1-define-prop%C3%B3sito-autoridad-y-alcance" class="hash-link" aria-label="Enlace directo al 1. Define propósito, autoridad y alcance" title="Enlace directo al 1. Define propósito, autoridad y alcance" translate="no">​</a></h3>
-<p>Escribe una frase que pueda auditarse: «preservar las páginas y anexos públicos de la convocatoria X entre el 12 y el 30 de septiembre». Enumera semillas, dominios permitidos, exclusiones, profundidad y límites. La <a href="https://crawler.docs.browsertrix.com/user-guide/crawl-scope/" target="_blank" rel="noopener noreferrer" class="">documentación de alcance</a> distingue capturas de una página, prefijo, host, dominio o reglas personalizadas; ampliar de <code>page</code> a <code>domain</code> puede multiplicar el volumen y el riesgo de recolectar datos irrelevantes.</p>
-<p>Respeta <code>robots.txt</code>, condiciones de uso, límites de tasa y normativa aplicable cuando correspondan. La accesibilidad técnica no elimina las obligaciones legales ni éticas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-haz-una-captura-piloto-pequeña">2. Haz una captura piloto pequeña<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#2-haz-una-captura-piloto-peque%C3%B1a" class="hash-link" aria-label="Enlace directo al 2. Haz una captura piloto pequeña" title="Enlace directo al 2. Haz una captura piloto pequeña" translate="no">​</a></h3>
-<p>Empieza por las URL esenciales y un límite bajo. Observa redirecciones, bucles de calendario, parámetros de sesión, contenido cargado al desplazarse y recursos de terceros. Ajusta las exclusiones antes de escalar.</p>
-<p>Los comportamientos de navegador pueden hacer <em>scroll</em>, reproducir elementos o activar contenido dinámico. Son útiles, pero también alteran lo que el sitio carga y pueden disparar solicitudes no deseadas. Documenta qué comportamiento empleaste y evita acciones que envíen formularios, publiquen contenido o accedan a zonas no autorizadas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-captura-con-una-identidad-operativa-mínima">3. Captura con una identidad operativa mínima<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#3-captura-con-una-identidad-operativa-m%C3%ADnima" class="hash-link" aria-label="Enlace directo al 3. Captura con una identidad operativa mínima" title="Enlace directo al 3. Captura con una identidad operativa mínima" translate="no">​</a></h3>
-<p>Para páginas realmente públicas, evita sesiones autenticadas. Si una fuente legítima exige cuenta, usa un perfil dedicado y autorización expresa. La <a href="https://docs.browsertrix.com/user-guide/browser-profiles/browser-profiles-overview/" target="_blank" rel="noopener noreferrer" class="">guía oficial de perfiles</a> advierte de que cookies, preferencias, información personalizada y tokens pueden terminar en el archivo. Un WACZ con sesión no debe tratarse como un adjunto inocuo.</p>
-<p>Registra también versión del flujo, idioma, zona, agente de usuario, proxy si existe y hora del sistema. Esos factores pueden cambiar el contenido devuelto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-conserva-original-y-registro-de-adquisición">4. Conserva original y registro de adquisición<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#4-conserva-original-y-registro-de-adquisici%C3%B3n" class="hash-link" aria-label="Enlace directo al 4. Conserva original y registro de adquisición" title="Enlace directo al 4. Conserva original y registro de adquisición" translate="no">​</a></h3>
-<p>Al finalizar, mueve el WACZ a almacenamiento controlado, calcula un hash y registra quién lo adquirió, desde dónde y con qué configuración. No «limpies» el original. Si necesitas retirar material sensible para compartir, crea un derivado identificado y conserva por separado la relación con el original bajo controles adecuados.</p>
-<p>Un hash detecta cambios en los bytes comparados; no prueba que la captura sea verdadera, completa ni anterior a una fecha. Incluso la firma de un paquete necesita una cadena de confianza externa para vincular una clave con una identidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-reproduce-y-revisa-lo-importante">5. Reproduce y revisa lo importante<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#5-reproduce-y-revisa-lo-importante" class="hash-link" aria-label="Enlace directo al 5. Reproduce y revisa lo importante" title="Enlace directo al 5. Reproduce y revisa lo importante" translate="no">​</a></h3>
-<p>Abre el archivo en ReplayWeb.page desde un entorno de confianza. Comprueba cada página crítica, sus anexos, navegación, imágenes y texto. La <a href="https://docs.browsertrix.com/user-guide/qa-review/" target="_blank" rel="noopener noreferrer" class="">función de análisis de calidad</a> compara lo observado durante la captura con su reproducción mediante capturas visuales, texto extraído y recursos. Esa comparación evalúa la fidelidad de reproducción, no la verdad de la página viva.</p>
-<p>Mantén una tabla de control:</p>
-<table><thead><tr><th>URL esperada</th><th>Capturada</th><th>Reproduce</th><th>Recurso crítico</th><th>Acción</th></tr></thead><tbody><tr><td>página principal</td><td>sí</td><td>sí</td><td>texto y fecha</td><td>aceptar</td></tr><tr><td>calendario</td><td>sí</td><td>parcial</td><td>eventos dinámicos</td><td>captura manual complementaria</td></tr><tr><td>anexo PDF</td><td>sí</td><td>sí</td><td>bytes y firma oficial</td><td>verificar en boletín</td></tr><tr><td>formulario</td><td>excluido</td><td>no aplica</td><td>fuera de propósito</td><td>documentar exclusión</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-y-publica-con-contexto">6. Corrobora y publica con contexto<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#6-corrobora-y-publica-con-contexto" class="hash-link" aria-label="Enlace directo al 6. Corrobora y publica con contexto" title="Enlace directo al 6. Corrobora y publica con contexto" translate="no">​</a></h3>
-<p>Compara fechas, anexos y referencias con fuentes primarias independientes: boletines oficiales, registros administrativos o documentos firmados. Al compartir el WACZ incluye alcance, limitaciones, hash, instrucciones de reproducción y una lista de elementos revisados. Si se aloja en web, la <a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer" class="">guía de ReplayWeb.page</a> explica los requisitos de alojamiento y reproducción, pero la exposición pública debe decidirse según sensibilidad y derechos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Contenido no capturado:</strong> vídeos segmentados, peticiones tardías, marcos, recursos protegidos y rutas descubiertas solo tras interacción pueden faltar.</li>
-<li class=""><strong>Sesiones y personalización:</strong> región, idioma, cookies, autenticación, pruebas A/B y consentimiento pueden producir una versión distinta.</li>
-<li class=""><strong>Normalización de URL:</strong> dos variantes pueden tratarse como equivalentes para el rastreo aunque tengan significado operativo diferente.</li>
-<li class=""><strong>Redirecciones:</strong> una semilla puede terminar fuera del alcance previsto; registra destino, cadena y regla aplicada.</li>
-<li class=""><strong>Reproducción imperfecta:</strong> que una página «se vea bien» no garantiza que estén todos los recursos; que se vea mal tampoco implica que los datos centrales falten.</li>
-<li class=""><strong>Tiempos de observación:</strong> el reloj de la captura no equivale necesariamente a la fecha de publicación del contenido.</li>
-<li class=""><strong>Integridad mal interpretada:</strong> un hash consistente protege contra alteraciones posteriores del paquete comprobado, no contra una adquisición defectuosa.</li>
-<li class=""><strong>Falsa exhaustividad:</strong> un rastreo terminado no significa «sitio completo». Solo significa que terminó según unas semillas, reglas y límites concretos.</li>
-</ul>
-<p>Una ausencia dentro del archivo debe formularse con precisión: «la URL o el recurso no aparece en esta captura bajo esta configuración», no «nunca existió».</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Crea una identidad operativa separada solo cuando sea necesaria y esté autorizada; nunca reutilices una cuenta personal.</li>
-<li class="">No incluyas contraseñas, tokens, bandejas privadas, borradores ni datos de terceros en perfiles de captura.</li>
-<li class="">Mantén el alcance mínimo y excluye formularios, paneles, búsquedas con datos personales y rutas infinitas.</li>
-<li class="">Aplica límites de tasa razonables: archivar no justifica degradar el servicio ajeno.</li>
-<li class="">Cifra archivos sensibles en reposo y restringe su acceso; un WACZ puede contener más que lo visible en la reproducción.</li>
-<li class="">Analiza capturas potencialmente hostiles en un entorno aislado y actualizado.</li>
-<li class="">Separa adquisición, revisión, redacción y publicación; registra transformaciones y redacciones.</li>
-<li class="">No publiques archivos con datos personales solo porque la fuente estuvo abierta. Evalúa necesidad, proporcionalidad y daño.</li>
-<li class="">Distingue hechos observados, inferencias y huecos. La prudencia forma parte del dato.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>ArchiveWeb.page</strong> sirve para capturas guiadas e interactivas desde el navegador cuando el analista necesita recorrer manualmente un conjunto pequeño.</li>
-<li class=""><strong>Browsertrix Crawler</strong> ofrece flujos automatizables y configurables para capturas repetibles.</li>
-<li class=""><strong>ReplayWeb.page</strong> reproduce WARC y WACZ sin exigir una infraestructura de servidor compleja.</li>
-<li class=""><strong>Wayback Machine</strong> aporta una copia mantenida por un tercero y puede corroborar una cronología, aunque no sustituye una adquisición propia documentada.</li>
-<li class=""><strong>Hunchly</strong> se orienta a registrar sesiones de investigación; <strong>Auto Archiver</strong> coordina capturas con distintos servicios. Elige según la pregunta y el modelo de evidencia, no por acumulación de herramientas.</li>
-</ul>
-<p>El siguiente paso natural es diseñar una <strong>prueba de completitud limitada</strong>: lista de URL críticas, recursos esperados, resultado de reproducción y explicación de cada ausencia. Es más honesta y útil que prometer una copia perfecta de una web dinámica.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusión">Conclusión<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#conclusi%C3%B3n" class="hash-link" aria-label="Enlace directo al Conclusión" title="Enlace directo al Conclusión" translate="no">​</a></h2>
-<p>El takeaway accionable es concreto: <strong>antes de lanzar un rastreo, escribe semillas, exclusiones, límites y cinco páginas críticas; después no cierres la captura hasta reproducir y revisar esas cinco páginas</strong>.</p>
-<p>Browsertrix y WACZ convierten una observación web efímera en un paquete transportable y revisable. El rigor aparece cuando conservamos además la pregunta, la configuración, los fallos y la corroboración. Un archivo no es la verdad congelada: es una observación técnica cuya fuerza depende de que podamos explicar exactamente cómo nació y qué dejó fuera.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/browsertrix-wacz-osint-preservacion-web#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://docs.browsertrix.com/user-guide/crawl-workflows/" target="_blank" rel="noopener noreferrer" class="">Browsertrix: introducción a los flujos de captura</a></li>
-<li class=""><a href="https://crawler.docs.browsertrix.com/user-guide/crawl-scope/" target="_blank" rel="noopener noreferrer" class="">Browsertrix Crawler: alcance del rastreo</a></li>
-<li class=""><a href="https://docs.browsertrix.com/user-guide/qa-review/" target="_blank" rel="noopener noreferrer" class="">Browsertrix: revisión y control de calidad</a></li>
-<li class=""><a href="https://docs.browsertrix.com/user-guide/browser-profiles/browser-profiles-overview/" target="_blank" rel="noopener noreferrer" class="">Browsertrix: perfiles de navegador y riesgos de privacidad</a></li>
-<li class=""><a href="https://specs.webrecorder.net/wacz/1.2.0/" target="_blank" rel="noopener noreferrer" class="">Especificación WACZ</a></li>
-<li class=""><a href="https://github.com/webrecorder/replayweb.page" target="_blank" rel="noopener noreferrer" class="">ReplayWeb.page: repositorio y arquitectura</a></li>
-<li class=""><a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer" class="">ReplayWeb.page: guía de integración</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="archiving" term="archiving"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Tooling" term="Tooling"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
