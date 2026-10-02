@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista evaluando el margen de error de un pipeline OSINT](/img/blog/2026-10-02-presupuestos-error-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/presupuestos-error-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El boletín municipal se actualiza cada madrugada. Durante tres semanas, nuestro pipeline lo descargó, normalizó y publicó a tiempo. El lunes apareció una tabla impecable con 47 contratos; el portal, sin embargo, había servido solo la primera de cuatro páginas. **La ejecución fue puntual y técnicamente correcta, pero el resultado no era publicable.** Sin una regla acordada de antemano, el equipo solo tenía dos opciones malas: ignorar el hueco o discutir bajo presión cuánto fallo estaba dispuesto a aceptar.
