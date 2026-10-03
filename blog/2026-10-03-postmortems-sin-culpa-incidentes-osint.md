@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de un equipo OSINT revisando la cronología y las acciones de un incidente](/img/blog/2026-10-03-postmortems-sin-culpa-incidentes-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/postmortems-sin-culpa-incidentes-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El informe llevaba seis horas publicado cuando alguien abrió el PDF original y descubrió que la tabla tenía una segunda página. El pipeline había respondido «éxito», la gráfica parecía plausible y ninguna alerta se activó. Retirar el resultado era urgente; encontrar a quien había tocado el parser no lo era. **La pregunta útil no era «¿quién se equivocó?», sino «¿qué condiciones hicieron razonable publicar y qué barreras faltaban para detenernos?»**
