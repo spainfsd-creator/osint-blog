@@ -4,10 +4,174 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Postmortems sin culpa en OSINT: aprender de un incidente sin reescribir la historia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint</guid>
+            <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ilustración editorial de un equipo OSINT revisando la cronología y las acciones de un incidente]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un equipo OSINT revisando la cronología y las acciones de un incidente" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-03-postmortems-sin-culpa-incidentes-osint-d8b647e12aed961e7185eca18757a967.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>El informe llevaba seis horas publicado cuando alguien abrió el PDF original y descubrió que la tabla tenía una segunda página. El pipeline había respondido «éxito», la gráfica parecía plausible y ninguna alerta se activó. Retirar el resultado era urgente; encontrar a quien había tocado el parser no lo era. <strong>La pregunta útil no era «¿quién se equivocó?», sino «¿qué condiciones hicieron razonable publicar y qué barreras faltaban para detenernos?»</strong></p>
+<p>Un postmortem sin culpa reconstruye un incidente con hechos, contexto y decisiones para reducir su repetición o su impacto. En OSINT puede convertir una publicación incompleta, una atribución prematura o una transformación defectuosa en controles verificables. No borra responsabilidades ni certifica la verdad de una fuente: separa la rendición de cuentas del castigo y obliga a mejorar el sistema que permitió el fallo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-postmortem-sin-culpa-y-para-qué-sirve">Qué es un postmortem sin culpa (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#qu%C3%A9-es-un-postmortem-sin-culpa-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un postmortem sin culpa (y para qué sirve)" title="Enlace directo al Qué es un postmortem sin culpa (y para qué sirve)" translate="no">​</a></h2>
+<p>Un postmortem es un registro escrito de lo ocurrido, su impacto, la respuesta, los factores contribuyentes y las acciones posteriores. La <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer" class="">guía de cultura de postmortems de Google SRE</a> insiste en dos ideas especialmente valiosas: definir de antemano qué incidentes merecen revisión y partir de que las personas actuaron de buena fe con la información disponible.</p>
+<p>«Sin culpa» no significa «sin rigor» ni «todo da igual». Significa describir conductas y condiciones observables sin convertir a una persona en causa raíz. Comparemos:</p>
+<ul>
+<li class=""><strong>Culpabilizador:</strong> «La analista publicó sin comprobar la tabla».</li>
+<li class=""><strong>Útil:</strong> «La interfaz mostraba una vista previa completa en apariencia; el procedimiento no exigía contrastar el número de páginas y la revisión solo comparaba totales agregados».</li>
+</ul>
+<p>La segunda frase permite diseñar barreras. La primera solo invita a ocultar el siguiente error.</p>
+<p>En un equipo OSINT, un postmortem puede servir para:</p>
+<ol>
+<li class="">fijar una cronología común antes de que la memoria la deforme;</li>
+<li class="">delimitar fuentes, derivados, informes y decisiones afectados;</li>
+<li class="">explicar por qué las señales parecían suficientes en aquel momento;</li>
+<li class="">distinguir el desencadenante de los factores que amplificaron el daño;</li>
+<li class="">asignar correcciones comprobables, con responsable y fecha;</li>
+<li class="">comunicar una rectificación sin exponer personas, fuentes sensibles o detalles innecesarios.</li>
+</ol>
+<p>La práctica se parece a una revisión de incidentes técnicos, pero el objeto OSINT es más amplio. Puede fallar la adquisición, el parser, la preservación, la interpretación, la corroboración, el lenguaje editorial o la protección de datos. Un job verde no descarta ninguno de esos problemas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-el-boletín-incompleto-de-villa-serena">Caso de uso legítimo: el boletín incompleto de Villa Serena<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#caso-de-uso-leg%C3%ADtimo-el-bolet%C3%ADn-incompleto-de-villa-serena" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: el boletín incompleto de Villa Serena" title="Enlace directo al Caso de uso legítimo: el boletín incompleto de Villa Serena" translate="no">​</a></h2>
+<p>Imaginemos <strong>Observatorio Río Claro</strong>, un proyecto ficticio que resume contratos publicados por administraciones locales. Solo trabaja con portales abiertos y publica agregados; no perfila a particulares.</p>
+<p>El 1 de octubre, el portal ficticio de Villa Serena cambia su paginación. La primera respuesta declara 47 filas y contiene un enlace discreto a una segunda página con 31. El descargador conserva únicamente la primera, pero termina con código <code>0</code>. El control de esquema pasa, porque todas las columnas esperadas siguen presentes. A las 09:00 se publica un gráfico que afirma que la contratación semanal ha caído un 38 %.</p>
+<p>A las 15:10, una lectora pregunta por dos expedientes ausentes. El equipo detiene la distribución, añade una advertencia, preserva los artefactos existentes y reconstruye la adquisición. A las 17:20 publica la corrección.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="declaración-de-impacto">Declaración de impacto<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#declaraci%C3%B3n-de-impacto" class="hash-link" aria-label="Enlace directo al Declaración de impacto" title="Enlace directo al Declaración de impacto" translate="no">​</a></h3>
+<p>Antes de buscar causas, el equipo escribe qué sabe y qué no:</p>
+<table><thead><tr><th>Dimensión</th><th>Alcance confirmado</th></tr></thead><tbody><tr><td>Ventana</td><td>adquisición de las 02:00 y derivados publicados entre 09:00 y 15:25</td></tr><tr><td>Fuente</td><td>portal público de Villa Serena</td></tr><tr><td>Omisión</td><td>31 de 78 registros declarados por la navegación del portal</td></tr><tr><td>Derivados</td><td>un CSV, una gráfica y un párrafo del boletín</td></tr><tr><td>Distribución</td><td>web y 86 suscripciones ficticias</td></tr><tr><td>Datos personales</td><td>no se añadieron datos nuevos; la copia interna conserva campos públicos bajo acceso restringido</td></tr><tr><td>Atribución</td><td>ninguna persona o entidad fue acusada; sí se publicó una tendencia incorrecta</td></tr><tr><td>Incertidumbre</td><td>aún no se sabe cuándo cambió la paginación ni si afectó a ejecuciones anteriores</td></tr></tbody></table>
+<p>Esta tabla evita dos errores opuestos: minimizar el incidente como «solo faltaban filas» y exagerarlo como «todo el histórico está mal». El alcance debe ampliarse cuando aparezcan pruebas, no por intuición.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cronología-factual">Cronología factual<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#cronolog%C3%ADa-factual" class="hash-link" aria-label="Enlace directo al Cronología factual" title="Enlace directo al Cronología factual" translate="no">​</a></h3>
+<p>Una cronología útil mezcla eventos automáticos y decisiones humanas, siempre con su fuente:</p>
+<table><thead><tr><th>Hora (UTC)</th><th>Hecho</th><th>Evidencia</th></tr></thead><tbody><tr><td>02:00</td><td>comienza la adquisición programada</td><td>registro de ejecución <code>run-1042</code></td></tr><tr><td>02:03</td><td>el proceso guarda una respuesta y termina correctamente</td><td>log y hash del original</td></tr><tr><td>08:35</td><td>la revisión compara columnas y total con el lote anterior</td><td>checklist firmado</td></tr><tr><td>09:00</td><td>se publica el boletín</td><td>revisión del repositorio y URL archivada</td></tr><tr><td>15:10</td><td>llega una consulta sobre dos expedientes</td><td>mensaje conservado con datos minimizados</td></tr><tr><td>15:25</td><td>se añade advertencia y se detiene la distribución</td><td>historial de publicación</td></tr><tr><td>16:05</td><td>se confirma la segunda página</td><td>captura, URL y nueva adquisición</td></tr><tr><td>17:20</td><td>se publica la rectificación</td><td>revisión corregida y nota de cambios</td></tr></tbody></table>
+<p>No rellenamos huecos con «seguramente». Si la hora exacta no existe, se indica el intervalo. Si una afirmación procede de una entrevista, se etiqueta como recuerdo, no como telemetría.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-contén-y-preserva-antes-de-analizar">1. Contén y preserva antes de analizar<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#1-cont%C3%A9n-y-preserva-antes-de-analizar" class="hash-link" aria-label="Enlace directo al 1. Contén y preserva antes de analizar" title="Enlace directo al 1. Contén y preserva antes de analizar" translate="no">​</a></h3>
+<p>Detén el derivado defectuoso, pero no destruyas los artefactos que explican cómo se produjo. Conserva, con acceso proporcionado:</p>
+<ul>
+<li class="">respuesta original, URL, hora y cabeceras relevantes;</li>
+<li class="">hash y tamaño del fichero;</li>
+<li class="">versión del código y configuración;</li>
+<li class="">identificador de ejecución y logs sanitizados;</li>
+<li class="">revisión exacta del informe publicado;</li>
+<li class="">decisiones de retirada, advertencia y corrección.</li>
+</ul>
+<p>La procedencia ayuda a relacionar entidades, actividades y agentes, como formaliza la familia <a href="https://www.w3.org/TR/prov-overview/" target="_blank" rel="noopener noreferrer" class="">W3C PROV</a>. No convierte un registro en verdadero: permite reconstruir qué influyó en qué.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-decide-si-hace-falta-postmortem-con-criterios-previos">2. Decide si hace falta postmortem con criterios previos<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#2-decide-si-hace-falta-postmortem-con-criterios-previos" class="hash-link" aria-label="Enlace directo al 2. Decide si hace falta postmortem con criterios previos" title="Enlace directo al 2. Decide si hace falta postmortem con criterios previos" translate="no">​</a></h3>
+<p>No todas las erratas requieren el mismo ritual. Define disparadores antes del incidente. Por ejemplo:</p>
+<ul>
+<li class="">retirada o corrección pública de una conclusión;</li>
+<li class="">pérdida, exposición o tratamiento indebido de datos;</li>
+<li class="">omisión material de cobertura;</li>
+<li class="">atribución que tuvo que rebajarse o revertirse;</li>
+<li class="">intervención manual para detener una publicación automática;</li>
+<li class="">detección por una persona externa cuando los controles internos no avisaron;</li>
+<li class="">repetición de un patrón ya documentado.</li>
+</ul>
+<p>Los umbrales reducen la tentación de revisar solo los casos vergonzosos o visibles. Una persona interesada debe poder solicitar la revisión aunque el umbral cuantitativo no se cumpla.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-nombra-roles-y-separa-respuesta-de-revisión">3. Nombra roles y separa respuesta de revisión<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#3-nombra-roles-y-separa-respuesta-de-revisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Nombra roles y separa respuesta de revisión" title="Enlace directo al 3. Nombra roles y separa respuesta de revisión" translate="no">​</a></h3>
+<p>Asigna una persona facilitadora, alguien que custodie la cronología y responsables para las acciones. Quien participó en el incidente aporta contexto imprescindible, pero no debería tener que defenderse ante un interrogatorio. El borrador se revisa con las áreas afectadas y se corrigen hechos con evidencia, no por jerarquía.</p>
+<p>Cuando el caso incluya posibles infracciones, acoso, mala fe deliberada o obligaciones legales, el proceso sin culpa no sustituye los canales formales. La revisión del sistema y una investigación de cumplimiento pueden coexistir con alcance y confidencialidad distintos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-reconstruye-lo-que-se-sabía-en-cada-momento">4. Reconstruye lo que se sabía en cada momento<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#4-reconstruye-lo-que-se-sab%C3%ADa-en-cada-momento" class="hash-link" aria-label="Enlace directo al 4. Reconstruye lo que se sabía en cada momento" title="Enlace directo al 4. Reconstruye lo que se sabía en cada momento" translate="no">​</a></h3>
+<p>El sesgo retrospectivo hace parecer obvia una señal después del fallo. Para combatirlo, pregunta:</p>
+<ul>
+<li class="">¿qué veía la persona que tomó la decisión?</li>
+<li class="">¿qué información faltaba, estaba retrasada o era ambigua?</li>
+<li class="">¿qué comportamiento anterior hacía plausible la interpretación?</li>
+<li class="">¿qué presión de tiempo o carga de trabajo existía?</li>
+<li class="">¿qué controles pasaron y por qué?</li>
+<li class="">¿qué señal detectó finalmente el problema?</li>
+</ul>
+<p>En Villa Serena, «comprobar la segunda página» parece evidente después. Antes del cambio, el portal había servido una sola página durante meses; el parser terminaba bien y el volumen seguía dentro de un rango histórico amplio. Esos factores no excusan el error: explican por qué una advertencia de paginación, una aserción de cobertura y un fixture de dos páginas son mejores correcciones que «tener más cuidado».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-analiza-factores-contribuyentes-no-una-raíz-mágica">5. Analiza factores contribuyentes, no una raíz mágica<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#5-analiza-factores-contribuyentes-no-una-ra%C3%ADz-m%C3%A1gica" class="hash-link" aria-label="Enlace directo al 5. Analiza factores contribuyentes, no una raíz mágica" title="Enlace directo al 5. Analiza factores contribuyentes, no una raíz mágica" translate="no">​</a></h3>
+<p>Los incidentes complejos rara vez tienen una única causa. Agrupa condiciones:</p>
+<ul>
+<li class=""><strong>fuente:</strong> navegación modificada sin contrato estable;</li>
+<li class=""><strong>adquisición:</strong> el descargador no recorría enlaces de continuación;</li>
+<li class=""><strong>detección:</strong> se vigilaba el volumen, pero no páginas declaradas frente a visitadas;</li>
+<li class=""><strong>pruebas:</strong> no había fixture multipágina;</li>
+<li class=""><strong>revisión:</strong> el checklist miraba esquema y variación, no cobertura;</li>
+<li class=""><strong>publicación:</strong> una caída llamativa podía publicarse sin corroboración documental;</li>
+<li class=""><strong>respuesta:</strong> no existía una plantilla rápida de rectificación.</li>
+</ul>
+<p>Preguntar «¿por qué?» puede ayudar, pero no fuerces una cadena lineal que termine en «error humano». Una explicación buena debe mostrar interacciones y sostenerse con evidencias.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-convierte-el-aprendizaje-en-acciones-verificables">6. Convierte el aprendizaje en acciones verificables<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#6-convierte-el-aprendizaje-en-acciones-verificables" class="hash-link" aria-label="Enlace directo al 6. Convierte el aprendizaje en acciones verificables" title="Enlace directo al 6. Convierte el aprendizaje en acciones verificables" translate="no">​</a></h3>
+<p>La <a href="https://sre.google/workbook/postmortem-culture/" target="_blank" rel="noopener noreferrer" class="">plantilla práctica de Google SRE</a> destaca que las acciones necesitan responsable, prioridad y seguimiento. «Mejorar las pruebas» no está terminado nunca. Una tabla accionable sería:</p>
+<table><thead><tr><th>Acción</th><th>Tipo</th><th>Responsable</th><th>Fecha</th><th>Criterio de cierre</th></tr></thead><tbody><tr><td>añadir fixture de dos páginas</td><td>prevención</td><td>mantenimiento del parser</td><td>7 días</td><td>la versión antigua falla y la corregida pasa</td></tr><tr><td>comparar páginas declaradas y visitadas</td><td>detección</td><td>datos</td><td>10 días</td><td>el lote entra en cuarentena si difieren</td></tr><tr><td>revisar 30 días de ejecuciones</td><td>reparación</td><td>investigación</td><td>5 días</td><td>alcance documentado y derivados corregidos</td></tr><tr><td>crear plantilla de rectificación</td><td>mitigación</td><td>edición</td><td>14 días</td><td>simulacro publica aviso trazable en menos de 30 minutos</td></tr></tbody></table>
+<p>Prioriza pocas acciones de alto valor. Asignar veinte tareas vagas dispersa la responsabilidad. El postmortem no se cierra al aprobar el documento, sino cuando se aceptan explícitamente los riesgos pendientes y se siguen las medidas comprometidas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-comunica-con-dos-capas">7. Comunica con dos capas<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#7-comunica-con-dos-capas" class="hash-link" aria-label="Enlace directo al 7. Comunica con dos capas" title="Enlace directo al 7. Comunica con dos capas" translate="no">​</a></h3>
+<p>El documento interno puede contener rutas, identificadores y detalles técnicos. La nota pública debe explicar con claridad:</p>
+<ul>
+<li class="">qué afirmación cambió;</li>
+<li class="">durante qué intervalo estuvo visible;</li>
+<li class="">qué parte permanece válida;</li>
+<li class="">qué corrección se aplicó;</li>
+<li class="">cómo acceder a la versión actual y al historial pertinente.</li>
+</ul>
+<p>No publiques tokens, rutas internas, datos personales, nombres de quien cometió una acción ni detalles que aumenten el riesgo para una fuente. El principio de minimización del <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener noreferrer" class="">artículo 5 del RGPD</a> exige limitar los datos personales a lo necesario para la finalidad; un postmortem no es una excepción.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-postmortem-no-demuestra-la-verdad-factual">Un postmortem no demuestra la verdad factual<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#un-postmortem-no-demuestra-la-verdad-factual" class="hash-link" aria-label="Enlace directo al Un postmortem no demuestra la verdad factual" title="Enlace directo al Un postmortem no demuestra la verdad factual" translate="no">​</a></h3>
+<p>Una cronología impecable puede reconstruir cómo llegamos a una conclusión falsa. También puede documentar una conclusión correcta basada en un proceso frágil. La verificación del hecho y la revisión del proceso se informan mutuamente, pero no son equivalentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sin-culpa-no-debe-ocultar-poder-o-negligencia">«Sin culpa» no debe ocultar poder o negligencia<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#sin-culpa-no-debe-ocultar-poder-o-negligencia" class="hash-link" aria-label="Enlace directo al «Sin culpa» no debe ocultar poder o negligencia" title="Enlace directo al «Sin culpa» no debe ocultar poder o negligencia" translate="no">​</a></h3>
+<p>Evitar nombres en la narración causal no significa borrar quién puede aprobar recursos, aceptar riesgos o cerrar acciones. La rendición de cuentas exige propietarios y decisiones visibles. Si hubo conducta deliberada o una obligación de notificación, hay que activar el procedimiento correspondiente, no diluirlo en lenguaje sistémico.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-causa-raíz-puede-ser-una-simplificación-peligrosa">La causa raíz puede ser una simplificación peligrosa<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#la-causa-ra%C3%ADz-puede-ser-una-simplificaci%C3%B3n-peligrosa" class="hash-link" aria-label="Enlace directo al La causa raíz puede ser una simplificación peligrosa" title="Enlace directo al La causa raíz puede ser una simplificación peligrosa" translate="no">​</a></h3>
+<p>Detenerse en el último cambio de código ignora por qué llegó a producción, por qué los controles no lo detectaron y por qué el impacto se extendió. Prefiere «factores contribuyentes» y señala el grado de evidencia de cada uno.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-anomalía-no-siempre-es-un-incidente">Una anomalía no siempre es un incidente<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#una-anomal%C3%ADa-no-siempre-es-un-incidente" class="hash-link" aria-label="Enlace directo al Una anomalía no siempre es un incidente" title="Enlace directo al Una anomalía no siempre es un incidente" translate="no">​</a></h3>
+<p>Una caída de volumen puede reflejar un festivo o un cambio real de actividad. Una fuente corregida retroactivamente no implica que el pipeline fallara. Contén con proporcionalidad, conserva el original y confirma impacto antes de anunciar conclusiones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-documentación-también-puede-causar-daño">La documentación también puede causar daño<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#la-documentaci%C3%B3n-tambi%C3%A9n-puede-causar-da%C3%B1o" class="hash-link" aria-label="Enlace directo al La documentación también puede causar daño" title="Enlace directo al La documentación también puede causar daño" translate="no">​</a></h3>
+<p>Un informe demasiado detallado puede revelar líneas de investigación, identidades, credenciales, vulnerabilidades o decisiones protegidas. Comparte cada versión con la audiencia que necesita actuar y redacta o agrega lo demás.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Usa UTC en la cronología y conserva también la zona horaria original de la fuente.</li>
+<li class="">Sustituye nombres personales por roles cuando la identidad no sea necesaria.</li>
+<li class="">Separa evidencias, recuerdos e hipótesis con etiquetas explícitas.</li>
+<li class="">Preserva originales de forma inmutable y trabaja sobre copias.</li>
+<li class="">Incluye hashes y revisiones de código, pero nunca secretos o cookies.</li>
+<li class="">Restringe el documento interno y publica una versión sanitizada cuando aporte valor.</li>
+<li class="">No contactes repetidamente a una fuente ni aumentes la carga del portal para reconstruir un fallo.</li>
+<li class="">Corrige de forma visible; no sustituyas silenciosamente el artefacto si alguien pudo haberlo usado.</li>
+<li class="">No uses métricas de postmortems para clasificar o castigar a personas.</li>
+<li class="">Revisa si las acciones reducen riesgo o solo desplazan trabajo hacia otra persona.</li>
+<li class="">Define retención para logs, mensajes y copias que contengan datos personales.</li>
+<li class="">Exige corroboración adicional antes de restaurar una atribución o una afirmación sensible.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plantilla-mínima-reutilizable">Plantilla mínima reutilizable<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#plantilla-m%C3%ADnima-reutilizable" class="hash-link" aria-label="Enlace directo al Plantilla mínima reutilizable" title="Enlace directo al Plantilla mínima reutilizable" translate="no">​</a></h2>
+<p>Un documento breve puede ser suficiente si responde, con enlaces a evidencia, a estas preguntas:</p>
+<ol>
+<li class=""><strong>Resumen:</strong> ¿qué ocurrió y cuál es el estado actual?</li>
+<li class=""><strong>Impacto:</strong> ¿qué fuentes, artefactos, audiencias y decisiones quedaron afectados?</li>
+<li class=""><strong>Detección:</strong> ¿quién o qué avisó y qué controles no lo hicieron?</li>
+<li class=""><strong>Cronología:</strong> ¿qué hechos y decisiones ocurrieron, con qué evidencia?</li>
+<li class=""><strong>Respuesta:</strong> ¿qué contuvimos, preservamos, corregimos y comunicamos?</li>
+<li class=""><strong>Factores contribuyentes:</strong> ¿qué condiciones técnicas, editoriales y organizativas interactuaron?</li>
+<li class=""><strong>Qué funcionó:</strong> ¿qué limitó el impacto?</li>
+<li class=""><strong>Qué falló:</strong> ¿qué barreras faltaron o engañaron?</li>
+<li class=""><strong>Acciones:</strong> ¿quién hará qué, cuándo y cómo sabremos que está terminado?</li>
+<li class=""><strong>Riesgo residual:</strong> ¿qué no corregimos todavía y quién lo acepta?</li>
+</ol>
+<p>La revisión de incidentes debe formar parte de una capacidad continua. La publicación final de <a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-61 Rev. 3</a>, de abril de 2025, integra la respuesta a incidentes en la gestión del riesgo para mejorar preparación, detección, respuesta y recuperación. Aunque su foco es la ciberseguridad organizativa, esa lógica evita tratar el aprendizaje como una reunión aislada después del desastre.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si todavía no detectas cuándo un pipeline se degrada, empieza por <a class="" href="https://spainfsd-creator.github.io/osint-blog/observabilidad-datos-osint">observabilidad de datos</a>. Si necesitas definir cuándo detener la publicación, usa <a class="" href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint">presupuestos de error</a>. Para recorrer dependencias entre entradas y salidas, <a class="" href="https://spainfsd-creator.github.io/osint-blog/openlineage-linaje-datos-osint">OpenLineage</a> aporta un vocabulario técnico; para preservar originales y metadatos, revisa <a class="" href="https://spainfsd-creator.github.io/osint-blog/ro-crate-osint-paquete-evidencia">RO-Crate</a> y <a class="" href="https://spainfsd-creator.github.io/osint-blog/bagit-osint-transferencia-evidencia">BagIt</a>.</p>
+<p>El takeaway accionable es concreto: elige una corrección reciente, reconstruye diez hitos con evidencia y redacta tres acciones que incluyan responsable, fecha y prueba de cierre. Si el documento termina en «estar más atentos», todavía no has convertido el incidente en aprendizaje.</p>
+<p>Como próximo tema, merece la pena estudiar <strong>simulacros de incidentes para equipos OSINT</strong>: cómo ensayar retirada, preservación, rectificación y comunicación con datos ficticios antes de que una publicación real obligue a improvisar.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener noreferrer" class="">Google SRE Book: Postmortem Culture — Learning from Failure</a></li>
+<li class=""><a href="https://sre.google/workbook/postmortem-culture/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Postmortem Culture — Learning from Failure</a></li>
+<li class=""><a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management</a></li>
+<li class=""><a href="https://www.w3.org/TR/prov-overview/" target="_blank" rel="noopener noreferrer" class="">W3C: PROV Overview</a></li>
+<li class=""><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener noreferrer" class="">Reglamento (UE) 2016/679, artículo 5</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Metodologia</category>
+            <category>incident-response</category>
+            <category>Verificacion</category>
+            <category>Automatizacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Presupuestos de error en OSINT: decidir cuándo un pipeline deja de ser publicable]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint</link>
@@ -2701,144 +2865,6 @@
             <category>Datos</category>
             <category>Verificacion</category>
             <category>Tooling</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Historial de MediaWiki en OSINT: reconstruir cambios sin convertir editores en sospechosos]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint</guid>
-            <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista comparando revisiones fechadas de una página wiki y documentando su procedencia]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista comparando revisiones fechadas de una página wiki y documentando su procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-13-mediawiki-historial-revisiones-osint-405fb8bf84da66f2771add7d8cf7246d.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/mediawiki-historial-revisiones-osint-c46e8d90bf85cb7f45e730de0d5021b9.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una ficha pública cambia una fecha, pierde un párrafo y gana una referencia nueva. La versión actual parece coherente, pero no responde a las preguntas importantes: <strong>qué cambió exactamente, en qué revisión apareció y qué podía ver el público en ese momento</strong>. Una captura aislada tampoco basta si no podemos conectarla con una versión identificable.</p>
-<p>Las instalaciones de <a href="https://www.mediawiki.org/wiki/MediaWiki" target="_blank" rel="noopener noreferrer" class="">MediaWiki</a>, incluida Wikipedia, conservan un historial de revisiones que permite comparar versiones y enlazar una revisión concreta. Para OSINT, ese historial puede convertir un «antes y después» impreciso en una cronología auditable. Pero también invita a un error peligroso: confundir el nombre de una cuenta, una dirección IP histórica o un resumen de edición con la identidad y la intención de una persona.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-el-historial-de-mediawiki-y-para-qué-sirve">Qué es el historial de MediaWiki y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#qu%C3%A9-es-el-historial-de-mediawiki-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es el historial de MediaWiki y para qué sirve" title="Enlace directo al Qué es el historial de MediaWiki y para qué sirve" translate="no">​</a></h2>
-<p>Cada edición de una página genera una revisión con un identificador, una marca temporal y metadatos asociados. La vista <strong>Ver historial</strong> permite seleccionar dos revisiones y comparar sus diferencias. La <a href="https://www.mediawiki.org/wiki/API:Revisions" target="_blank" rel="noopener noreferrer" class="">Action API de MediaWiki</a> ofrece esa información de forma estructurada mediante <code>prop=revisions</code>; el módulo <a href="https://www.mediawiki.org/wiki/API:Compare" target="_blank" rel="noopener noreferrer" class=""><code>action=compare</code></a> devuelve la diferencia entre dos revisiones, páginas o textos.</p>
-<p>En una investigación legítima, esto resulta útil para:</p>
-<ul>
-<li class="">fijar cuándo se añadió, corrigió o retiró una afirmación de una página pública;</li>
-<li class="">distinguir un cambio sustantivo de una corrección tipográfica;</li>
-<li class="">conservar identificadores estables y enlaces a versiones concretas;</li>
-<li class="">revisar resúmenes, etiquetas y tamaños como señales de clasificación, nunca como prueba autosuficiente;</li>
-<li class="">detectar huecos, reversiones y desacuerdos que merecen buscar fuentes primarias.</li>
-</ul>
-<p>Una revisión no es una «fotografía completa de internet». Es un estado guardado del contenido de esa wiki. Además, una página renderizada puede incluir plantillas, imágenes o datos transcluidos cuya versión actual no coincida con la que existía cuando se guardó el texto principal.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-fecha-que-cambia">Caso de uso legítimo: una fecha que cambia<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#caso-de-uso-leg%C3%ADtimo-una-fecha-que-cambia" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una fecha que cambia" title="Enlace directo al Caso de uso legítimo: una fecha que cambia" translate="no">​</a></h2>
-<p>Imaginemos la página ficticia <code>Proyecto Faro</code>, mantenida por una wiki pública sobre patrimonio. El 4 de septiembre indica que la apertura será el día 18; el 7 de septiembre muestra el día 25; el 8 incorpora como referencia una resolución oficial fechada el día 6.</p>
-<p>La pregunta prudente no es «¿quién intentó ocultar la fecha?», sino:</p>
-<ol>
-<li class="">¿Qué revisiones contienen cada fecha?</li>
-<li class="">¿Qué diferencia exacta existe entre ellas?</li>
-<li class="">¿Cuándo se guardó cada revisión en UTC?</li>
-<li class="">¿Qué fuente primaria respaldaba cada versión?</li>
-<li class="">¿Hubo una corrección, una reversión o cambios intermedios?</li>
-</ol>
-<p>La secuencia puede demostrar que la página cambió. No demuestra por sí sola por qué cambió, quién estaba detrás de una cuenta ni cuál de las fechas era correcta. Para esto último hay que acudir a la resolución, el boletín, la web institucional u otra fuente primaria pertinente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-y-el-intervalo">1. Define la afirmación y el intervalo<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#1-define-la-afirmaci%C3%B3n-y-el-intervalo" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación y el intervalo" title="Enlace directo al 1. Define la afirmación y el intervalo" translate="no">​</a></h3>
-<p>Escribe una hipótesis verificable: «Determinar cuándo la página pública sustituyó el día 18 por el 25 entre el 1 y el 10 de septiembre». Registra la URL, el nombre de la wiki, la zona horaria mostrada por la interfaz y el instante de consulta.</p>
-<p>No empieces rastreando cuentas. Empieza por el contenido y su procedencia. Así reduces la recogida innecesaria de datos personales y evitas adaptar la pregunta a un editor concreto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-revisa-el-historial-en-la-interfaz">2. Revisa el historial en la interfaz<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#2-revisa-el-historial-en-la-interfaz" class="hash-link" aria-label="Enlace directo al 2. Revisa el historial en la interfaz" title="Enlace directo al 2. Revisa el historial en la interfaz" translate="no">​</a></h3>
-<p>Abre <strong>Ver historial</strong>, identifica las revisiones que acotan el cambio y compara las dos seleccionadas. Conserva, como mínimo:</p>
-<ul>
-<li class="">identificadores de revisión anterior y posterior;</li>
-<li class="">marcas temporales normalizadas a UTC;</li>
-<li class="">título y URL de la página;</li>
-<li class="">enlace al <code>diff</code>;</li>
-<li class="">resumen de edición literal, si existe;</li>
-<li class="">fecha y método de adquisición;</li>
-<li class="">una nota sobre elementos transcluidos o dependencias externas.</li>
-</ul>
-<p>El enlace <a href="https://www.mediawiki.org/wiki/Help:PermanentLink" target="_blank" rel="noopener noreferrer" class=""><code>Special:PermanentLink/&lt;revision_id&gt;</code></a> apunta a una revisión específica. Es mejor referencia que la URL ordinaria de la página, que seguirá mostrando el contenido más reciente.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-extrae-metadatos-con-la-api">3. Extrae metadatos con la API<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#3-extrae-metadatos-con-la-api" class="hash-link" aria-label="Enlace directo al 3. Extrae metadatos con la API" title="Enlace directo al 3. Extrae metadatos con la API" translate="no">​</a></h3>
-<p>Para un análisis repetible, puedes consultar el endpoint <code>api.php</code> de la wiki. Este ejemplo usa un título ficticio y solicita metadatos, no el contenido completo:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">curl --get 'https://es.wikipedia.org/w/api.php' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'action=query' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'prop=revisions' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'titles=Proyecto Faro' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvprop=ids|timestamp|user|comment|size|sha1|tags' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvdir=newer' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'rvlimit=50' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'format=json' \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  --data-urlencode 'formatversion=2'</span><br></span></code></pre></div></div>
-<p>El resultado puede incluir <code>revid</code>, <code>parentid</code>, <code>timestamp</code>, <code>user</code>, <code>comment</code>, <code>size</code>, <code>sha1</code> y etiquetas, según los permisos y la visibilidad de cada campo. Si aparece un objeto <code>continue</code>, la respuesta está paginada: conserva sus valores y envíalos en la petición siguiente. No concluyas que has recuperado todo el historial solo porque recibiste una respuesta válida.</p>
-<p>El SHA-1 informado corresponde al contenido de la revisión dentro de MediaWiki. Es útil para detectar igualdad o cambios en ese contexto, pero no sustituye el hash de tus propios artefactos descargados ni autentica la veracidad del texto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-revisiones-explícitas">4. Compara revisiones explícitas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#4-compara-revisiones-expl%C3%ADcitas" class="hash-link" aria-label="Enlace directo al 4. Compara revisiones explícitas" title="Enlace directo al 4. Compara revisiones explícitas" translate="no">​</a></h3>
-<p>Cuando ya tengas dos identificadores, usa la interfaz o <code>action=compare</code> con <code>fromrev</code> y <code>torev</code>. Guarda los IDs junto al resultado. Pedir simplemente «la versión anterior» o «la siguiente» es más frágil: la propia documentación advierte de comportamientos límite en la primera y última revisión.</p>
-<p>Un <code>diff</code> es una representación del cambio entre dos estados. Comprueba también las revisiones intermedias: comparar un punto lejano con el actual puede ocultar que una frase se añadió, se retiró y volvió a añadirse con otra referencia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-preserva-en-tres-capas">5. Preserva en tres capas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#5-preserva-en-tres-capas" class="hash-link" aria-label="Enlace directo al 5. Preserva en tres capas" title="Enlace directo al 5. Preserva en tres capas" translate="no">​</a></h3>
-<p>Mantén separados:</p>
-<ol>
-<li class=""><strong>respuesta original</strong> de la API o HTML adquirido;</li>
-<li class=""><strong>derivado de análisis</strong>, como una tabla normalizada o un <code>diff</code> convertido;</li>
-<li class=""><strong>nota interpretativa</strong>, donde expliques qué significa y qué no significa el cambio.</li>
-</ol>
-<p>Calcula hashes locales de los archivos que conserves, anota las consultas completas y usa nombres con fecha UTC e identificadores de revisión. Si el caso lo justifica, archiva también las fuentes primarias citadas conforme a sus condiciones de uso y a la ley aplicable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-fuera-de-la-wiki">6. Corrobora fuera de la wiki<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#6-corrobora-fuera-de-la-wiki" class="hash-link" aria-label="Enlace directo al 6. Corrobora fuera de la wiki" title="Enlace directo al 6. Corrobora fuera de la wiki" translate="no">​</a></h3>
-<p>Busca el documento citado, una versión institucional, un registro oficial o una comunicación fechada. Una wiki es una excelente pista y su historial es valioso para estudiar cómo evolucionó una afirmación, pero la corrección factual debe contrastarse con evidencias independientes.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cómo-leer-un-diff-sin-sobreactuar">Cómo leer un <code>diff</code> sin sobreactuar<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#c%C3%B3mo-leer-un-diff-sin-sobreactuar" class="hash-link" aria-label="Enlace directo al cómo-leer-un-diff-sin-sobreactuar" title="Enlace directo al cómo-leer-un-diff-sin-sobreactuar" translate="no">​</a></h2>
-<p>Una línea verde significa contenido añadido y una roja, contenido retirado respecto a la otra revisión. No significa «verdadero» y «falso». Tampoco todos los cambios visibles proceden del texto principal:</p>
-<ul>
-<li class="">una plantilla puede haber cambiado después;</li>
-<li class="">una imagen puede tener su propio historial de versiones;</li>
-<li class="">una página puede transcluir secciones mantenidas en otro título;</li>
-<li class="">una edición grande puede ser una reorganización sin cambio semántico;</li>
-<li class="">una reversión puede restaurar contenido sin resolver la disputa subyacente.</li>
-</ul>
-<p>Clasifica primero el tipo de cambio: factual, referencial, estructural, estilístico, técnico o de moderación. Después valora su relevancia para la hipótesis. Esta disciplina evita convertir cualquier edición llamativa en una narrativa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="historial-visible-no-equivale-a-historial-íntegro">Historial visible no equivale a historial íntegro<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#historial-visible-no-equivale-a-historial-%C3%ADntegro" class="hash-link" aria-label="Enlace directo al Historial visible no equivale a historial íntegro" title="Enlace directo al Historial visible no equivale a historial íntegro" translate="no">​</a></h3>
-<p>MediaWiki permite ocultar el texto, el resumen o el autor de determinadas revisiones. La API puede devolver indicadores como <code>texthidden</code>, <code>commenthidden</code> o <code>userhidden</code>. Una página eliminada o tareas de mantenimiento de una instalación también pueden afectar a la disponibilidad del historial. Documenta el hueco; no intentes inferir el contenido oculto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-marca-temporal-no-explica-la-causa">La marca temporal no explica la causa<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#la-marca-temporal-no-explica-la-causa" class="hash-link" aria-label="Enlace directo al La marca temporal no explica la causa" title="Enlace directo al La marca temporal no explica la causa" translate="no">​</a></h3>
-<p>El <code>timestamp</code> registra cuándo se guardó la revisión. No prueba cuándo ocurrió el hecho descrito ni cuándo el editor lo conoció. Dos ediciones cercanas tampoco demuestran coordinación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-cuenta-no-es-una-identidad-verificada">Una cuenta no es una identidad verificada<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#una-cuenta-no-es-una-identidad-verificada" class="hash-link" aria-label="Enlace directo al Una cuenta no es una identidad verificada" title="Enlace directo al Una cuenta no es una identidad verificada" translate="no">​</a></h3>
-<p>Un nombre de usuario puede ser pseudónimo, compartido en un proceso institucional o simplemente no verificable. Las ediciones históricas asociadas a una IP tampoco identifican de forma fiable a una persona: redes corporativas, conexiones móviles, VPN, NAT y direcciones dinámicas rompen esa equivalencia.</p>
-<p>En proyectos Wikimedia con cuentas temporales, las ediciones sin sesión iniciada se atribuyen públicamente a un identificador temporal y el acceso a las IP subyacentes está restringido. Esa protección no es un obstáculo que haya que sortear, sino un límite de privacidad que debe respetarse.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-renderizado-histórico-puede-mezclar-tiempos">El renderizado histórico puede mezclar tiempos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#el-renderizado-hist%C3%B3rico-puede-mezclar-tiempos" class="hash-link" aria-label="Enlace directo al El renderizado histórico puede mezclar tiempos" title="Enlace directo al El renderizado histórico puede mezclar tiempos" translate="no">​</a></h3>
-<p>La <a href="https://www.mediawiki.org/wiki/Help:History" target="_blank" rel="noopener noreferrer" class="">documentación del historial de MediaWiki</a> señala que el historial del wikitext no siempre coincide con el historial de la página renderizada: plantillas, imágenes, variables temporales o datos enlazados pueden mostrar estados posteriores. Si importa el aspecto exacto, conserva una captura web fechada además del wikitext y describe sus dependencias.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Limita la recogida al contenido necesario para una finalidad legítima y documentada.</li>
-<li class="">No cruces cuentas, IP históricas, horarios y otros rastros para desanonimizar a editores.</li>
-<li class="">No contactes ni señales públicamente a una persona basándote solo en metadatos de edición.</li>
-<li class="">Usa un agente de usuario identificable, respeta límites de petición y maneja <code>maxlag</code> si automatizas consultas a gran escala.</li>
-<li class="">Conserva resúmenes de edición solo cuando sean relevantes; pueden contener acusaciones o datos personales.</li>
-<li class="">Separa hechos observados, inferencias y preguntas pendientes en tus notas.</li>
-<li class="">Si encuentras información sensible expuesta por error, no la amplifiques: sigue los canales de supervisión o retirada del proyecto.</li>
-</ul>
-<p>La buena OPSEC aquí no consiste en ocultarse para recolectar más. Consiste en reducir exposición, evitar interacciones innecesarias y mantener una trazabilidad que otra persona pueda auditar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-validación">Checklist de validación<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#checklist-de-validaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de validación" title="Enlace directo al Checklist de validación" translate="no">​</a></h2>
-<p>Antes de citar un cambio, verifica:</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He identificado la wiki, el título y los dos IDs de revisión.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He normalizado las marcas temporales y anotado la zona horaria.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He revisado las versiones intermedias y la continuación de la API.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He guardado el <code>diff</code>, las consultas y los artefactos originales con hashes locales.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He comprobado si hay plantillas, imágenes o datos transcluidos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He tratado usuario, resumen y etiquetas como metadatos, no como identidad o intención probadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He corroborado la afirmación sustantiva con una fuente primaria independiente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->He minimizado datos personales y documentado las limitaciones.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Interfaz de historial y enlaces permanentes:</strong> suficiente para una revisión puntual y fácil de auditar.</li>
-<li class=""><strong>MediaWiki Action API:</strong> adecuada para extraer revisiones y comparar IDs de forma estructurada.</li>
-<li class=""><strong>MediaWiki REST API:</strong> ofrece endpoints más acotados y una estructura uniforme para contenido e historial.</li>
-<li class=""><strong>Wikimedia XML dumps:</strong> útiles para investigación reproducible a gran escala, con más coste de almacenamiento y procesamiento.</li>
-<li class=""><strong>Browsertrix/WACZ o archivo web:</strong> complementan el historial cuando necesitas preservar la representación renderizada y sus recursos.</li>
-<li class=""><strong>Wikimedia Commons <code>imageinfo</code>:</strong> permite estudiar el historial específico de un archivo multimedia.</li>
-</ul>
-<p>El takeaway accionable es sencillo: la próxima vez que cites que «una wiki cambió», guarda <strong>los dos IDs de revisión, el <code>diff</code>, la hora UTC, la consulta y la fuente primaria que confirma el hecho</strong>. El historial demuestra evolución editorial; la corroboración demuestra por qué esa evolución importa.</p>
-<p>Como siguiente tema, sería útil aplicar el mismo rigor a los volcados XML de Wikimedia: cómo seleccionar un intervalo, preservar procedencia y analizar cambios a escala sin convertir volumen en certeza.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/mediawiki-historial-revisiones-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.mediawiki.org/wiki/API:Revisions" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Revisions</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/API:Compare" target="_blank" rel="noopener noreferrer" class="">MediaWiki Action API: Compare</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/API:Continue" target="_blank" rel="noopener noreferrer" class="">MediaWiki: continuación de consultas</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/Help:History" target="_blank" rel="noopener noreferrer" class="">MediaWiki: historial de páginas</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/Help:PermanentLink" target="_blank" rel="noopener noreferrer" class="">MediaWiki: enlaces permanentes a revisiones</a></li>
-<li class=""><a href="https://www.mediawiki.org/wiki/Manual:RevisionDelete" target="_blank" rel="noopener noreferrer" class="">MediaWiki: RevisionDelete</a></li>
-<li class=""><a href="https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Access_to_Temporary_Account_IP_Addresses_Policy/es" target="_blank" rel="noopener noreferrer" class="">Wikimedia Foundation: política de acceso a IP de cuentas temporales</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Verificacion</category>
-            <category>Metodologia</category>
-            <category>Tooling</category>
-            <category>Investigacion</category>
             <category>Privacidad</category>
         </item>
     </channel>
