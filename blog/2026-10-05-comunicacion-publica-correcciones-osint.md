@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista comparando versiones y preparando una corrección pública trazable](/img/blog/2026-10-05-comunicacion-correcciones-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/comunicacion-publica-correcciones-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El mapa llevaba nueve horas publicado cuando una lectora señaló que dos puntos pertenecían a sedes con nombres parecidos, pero no a la misma organización. El equipo corrigió el CSV y volvió a generar la imagen. A primera vista, problema resuelto. Sin embargo, la captura equivocada seguía circulando, el texto no decía qué había cambiado y quienes descargaron el fichero original no tenían forma de saber que ya no era válido. **Cambiar el dato fue la mitad técnica de la rectificación; comunicarla era la mitad que protegía a la audiencia.**
