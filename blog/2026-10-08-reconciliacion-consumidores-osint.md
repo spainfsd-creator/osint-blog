@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista reconciliando una cronología OSINT incompleta mediante cursores y snapshots](/img/blog/2026-10-08-reconciliacion-consumidores-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/reconciliacion-consumidores-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El panel decía que todo estaba al día. Sin embargo, el archivo local saltaba del evento 184 al 187: faltaban una corrección y una retirada. El webhook había respondido `200`, el cursor ya apuntaba al final y repetir la descarga solo devolvía las novedades. **Un consumidor OSINT puede funcionar sin errores y conservar, aun así, una versión del mundo que la fuente ya ha desmentido.**
