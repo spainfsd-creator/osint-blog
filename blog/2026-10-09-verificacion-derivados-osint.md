@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando el grafo de impacto de una corrección OSINT](/img/blog/2026-10-09-verificacion-derivados-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/verificacion-derivados-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un equipo corrige una fila de su dataset maestro y vuelve a publicar el CSV. La tabla ya contiene el valor bueno, pero la portada conserva el gráfico anterior, el informe mensual repite la cifra equivocada y una alerta programada sigue citando el resultado antiguo. **Corregir la fuente no corrige automáticamente todo lo que aprendió, calculó o publicó a partir de ella.**
