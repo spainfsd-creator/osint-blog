@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista que comprueba que un error corregido no vuelve a un pipeline OSINT](/img/blog/2026-10-10-pruebas-no-regresion-correcciones-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/pruebas-no-regresion-correcciones-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un equipo corrige una cifra, regenera el informe y da el incidente por cerrado. Tres semanas después, una refactorización reactiva la misma ruta defectuosa y el dato vuelve a aparecer. **La segunda publicación ya no es solo el mismo error: es la prueba de que la primera corrección no dejó una defensa ejecutable.**
