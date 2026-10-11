@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial del ciclo de vida de fixtures sintéticos en un pipeline OSINT](/img/blog/2026-10-11-caducidad-fixtures-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/caducidad-fixtures-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Una prueba creada después de un incidente lleva cuatro años en verde. Nadie recuerda qué defecto protege, el formato de entrada ya cambió y el fichero conserva nombres que pertenecían a un caso real. Borrarla a ciegas puede reabrir el fallo; mantenerla «por si acaso» prolonga un riesgo que el equipo dejó de evaluar. **Un fixture útil no es un fósil: necesita propósito, propietario y una fecha de revisión.**
