@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista revisando un generador determinista de datos sintéticos para un pipeline OSINT](/img/blog/2026-10-12-generadores-deterministas-datos-sinteticos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/generadores-deterministas-datos-sinteticos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un parser falla solo cuando recibe dos eventos con la misma hora, un dominio vacío y una IP repetida. El equipo necesita conservar ese borde para que la corrección no regrese, pero el incidente original contiene nombres, infraestructura activa y una cronología reconocible. **Copiar el expediente a `fixtures/` preservaría el fallo a costa de preservar también el riesgo.**
