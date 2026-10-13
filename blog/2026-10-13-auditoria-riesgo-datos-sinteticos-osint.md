@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista que compara datos reales y sintéticos tras una barrera de privacidad](/img/blog/2026-10-13-auditoria-riesgo-datos-sinteticos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/auditoria-riesgo-datos-sinteticos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un equipo sustituye un expediente sensible por mil filas «sintéticas», abre el repositorio y respira tranquilo. Horas después descubre que siete filas reproducen registros de entrenamiento y que una combinación rara de localidad, fecha y categoría señala a la misma persona aunque su nombre haya desaparecido. **Inventar filas no basta: antes de publicar hay que intentar demostrar que el conjunto no recuerda demasiado bien a su origen.**
