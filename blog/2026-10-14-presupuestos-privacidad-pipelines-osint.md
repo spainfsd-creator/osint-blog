@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista gestionando un presupuesto de privacidad a través de un pipeline de consultas OSINT](/img/blog/2026-10-14-presupuestos-privacidad-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/presupuestos-privacidad-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 Un observatorio publica cada lunes el mismo recuento agregado con «un poco de ruido». Cada entrega parece prudente por separado; al cabo de un trimestre, nadie sabe cuántas veces se consultó el conjunto, qué resultados llegaron a terceros ni qué garantía queda. **La privacidad diferencial no se administra echando ruido al final: se administra como un recurso finito, con alcance, contabilidad y una regla real de parada.**
