@@ -11,6 +11,9 @@ humanReviewed: false
 
 ![Ilustración editorial de una analista ante un contador y un filtro de privacidad en un pipeline OSINT](/img/blog/2026-10-15-contadores-filtros-privacidad-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/contadores-filtros-privacidad-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 El informe trimestral está listo cuando dos trabajadores lanzan a la vez la última consulta. Ambos leen «queda presupuesto», ambos ejecutan y ambos publican. El libro mayor registra una sola operación. **El mecanismo estadístico podía ser correcto y, aun así, el sistema que lo rodeaba ha gastado dos veces la misma autorización.**
