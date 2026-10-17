@@ -2,11 +2,171 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-10-16T00:00:00.000Z</updated>
+    <updated>2026-10-17T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Simulacros de recuperación ante liberaciones huérfanas en OSINT: ensayar antes del incidente real]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint"/>
+        <updated>2026-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Un informe retirado sigue apareciendo en una caché pública. El ledger dice que la publicación terminó bien, pero el objeto visible tiene otro digest. Mientras operaciones busca el botón correcto, comunicación prepara un mensaje que nadie ha aprobado y el equipo investigador teme destruir la evidencia al limpiar demasiado deprisa. El peor momento para descubrir que el plan era ambiguo es cuando los datos ya están fuera.]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Un informe retirado sigue apareciendo en una caché pública. El ledger dice que la publicación terminó bien, pero el objeto visible tiene otro digest. Mientras operaciones busca el botón correcto, comunicación prepara un mensaje que nadie ha aprobado y el equipo investigador teme destruir la evidencia al limpiar demasiado deprisa. <strong>El peor momento para descubrir que el plan era ambiguo es cuando los datos ya están fuera.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Equipo OSINT ensayando la recuperación de una liberación huérfana" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-17-simulacros-recuperacion-liberaciones-huerfanas-osint-b54a1492109aa259c1f573d630af25c9.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Un simulacro convierte ese caos en una práctica controlada. No pretende demostrar que el equipo nunca fallará, sino observar si personas, procedimientos y herramientas pueden detectar una liberación incoherente, contenerla sin borrar rastros, explicar lo ocurrido y devolver el pipeline a un estado verificable. En OSINT importa especialmente porque una retirada técnica no recupera las copias ya descargadas ni corrige por sí sola las conclusiones derivadas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-simulacro-de-recuperación-y-para-qué-sirve">Qué es un simulacro de recuperación y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#qu%C3%A9-es-un-simulacro-de-recuperaci%C3%B3n-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un simulacro de recuperación y para qué sirve" title="Enlace directo al Qué es un simulacro de recuperación y para qué sirve" translate="no">​</a></h2>
+<p>Una <strong>prueba</strong> comprueba un componente mediante resultados medibles; un <strong>ejercicio</strong> simula una emergencia para validar un plan y las decisiones de quienes lo ejecutan. La distinción procede de <a href="https://doi.org/10.6028/NIST.SP.800-84" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-84</a>, que propone combinar pruebas, formación y ejercicios para mantener capacidades de contingencia y respuesta.</p>
+<p>Aquí llamaremos simulacro a una sesión acotada que introduce una liberación ficticia o aislada y exige recorrer el ciclo completo:</p>
+<ol>
+<li class="">detectar la discrepancia entre lo esperado y lo observable;</li>
+<li class="">declarar y clasificar el incidente;</li>
+<li class="">frenar nuevas publicaciones dentro del alcance afectado;</li>
+<li class="">preservar artefactos, logs y decisiones;</li>
+<li class="">retirar o poner en cuarentena las copias de prueba;</li>
+<li class="">verificar el destino desde la perspectiva de un destinatario;</li>
+<li class="">restaurar el flujo con controles reforzados;</li>
+<li class="">comunicar hechos, incertidumbres y correcciones;</li>
+<li class="">convertir los hallazgos en tareas con responsable y fecha.</li>
+</ol>
+<p>No es un pentest ni una excusa para soltar datos reales. Tampoco es una representación teatral en la que todo el mundo conoce el guion. Su valor está en comprobar supuestos: permisos que caducaron, inventarios que omiten una réplica, una caché que conserva contenido o una guardia que no sabe quién puede autorizar la retirada.</p>
+<p>NIST <a href="https://doi.org/10.6028/NIST.SP.800-61r3" target="_blank" rel="noopener noreferrer" class="">SP 800-61 Rev. 3</a>, publicada en abril de 2025, integra la respuesta a incidentes en la gestión del riesgo y da peso a preparación, detección, respuesta, recuperación y mejora. A su vez, el control CP-4 de <a href="https://doi.org/10.6028/NIST.SP.800-53r5" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-53 Rev. 5</a> pide probar los planes de contingencia, revisar los resultados e iniciar acciones correctivas. La meta no es obtener una medalla verde: es descubrir una debilidad de forma segura y cerrarla.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-informe-que-vuelve-después-de-retirarlo">Caso legítimo: el informe que vuelve después de retirarlo<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#caso-leg%C3%ADtimo-el-informe-que-vuelve-despu%C3%A9s-de-retirarlo" class="hash-link" aria-label="Enlace directo al Caso legítimo: el informe que vuelve después de retirarlo" title="Enlace directo al Caso legítimo: el informe que vuelve después de retirarlo" translate="no">​</a></h2>
+<p>El observatorio ficticio <strong>Faro Cívico</strong> publica agregados mensuales sobre contratación pública. Para el ejercicio crea un PDF sintético, sin nombres ni expedientes reales, con el identificador <code>sim-2026-10-r1</code>. Un controlador lo coloca en un bucket de ensayo que reproduce las políticas de producción. El ledger registra el digest A, pero el equipo de facilitación sustituye el objeto por una variante con digest B y deja una copia accesible a través de una caché de prueba.</p>
+<p>A las 10:00, el monitor avisa de una diferencia. El equipo no sabe de antemano si se trata de una sustitución, una réplica legítima o un fallo del reconciliador. Debe responder usando las herramientas habituales, pero bajo reglas de seguridad explícitas:</p>
+<ul>
+<li class="">ningún artefacto contiene datos reales;</li>
+<li class="">el dominio y el almacenamiento están reservados para ejercicios;</li>
+<li class="">existe una persona con autoridad para detener la prueba;</li>
+<li class="">la acción de retirada tiene reversión conocida;</li>
+<li class="">el facilitador conserva una copia sellada de los artefactos iniciales;</li>
+<li class="">cualquier mensaje externo se dirige a un canal de ensayo.</li>
+</ul>
+<p>El escenario termina cuando el equipo demuestra, con observaciones independientes, que la copia inesperada ya no es accesible, que la evidencia necesaria sigue íntegra y que una nueva liberación autorizada atraviesa el pipeline sin reutilizar el identificador comprometido. «Hemos borrado el fichero» no es un criterio de éxito suficiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-una-ficha-antes-de-tocar-nada">1. Escribe una ficha antes de tocar nada<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#1-escribe-una-ficha-antes-de-tocar-nada" class="hash-link" aria-label="Enlace directo al 1. Escribe una ficha antes de tocar nada" title="Enlace directo al 1. Escribe una ficha antes de tocar nada" translate="no">​</a></h3>
+<p>Define objetivo, alcance, riesgos, participantes, duración y condiciones de aborto. La ficha debe indicar qué sistemas pueden modificarse y cuáles son solo de observación. Incluye un contacto de emergencia y una palabra inequívoca para detener el ejercicio.</p>
+<p>Formula una hipótesis falsable. Por ejemplo: «el equipo detectará en menos de quince minutos un objeto cuyo digest no coincide con el ledger, detendrá nuevas liberaciones del mismo producto y conservará una cadena de evidencias reproducible». El umbral es una decisión interna, no una cifra universal.</p>
+<p>Separa tres tiempos:</p>
+<ul>
+<li class=""><strong>tiempo de detección:</strong> desde la inyección hasta la primera alerta válida;</li>
+<li class=""><strong>tiempo de contención:</strong> hasta impedir nuevas exposiciones dentro del alcance;</li>
+<li class=""><strong>tiempo de recuperación verificada:</strong> hasta restaurar el servicio y confirmar el destino.</li>
+</ul>
+<p>Evita diseñar la prueba para que «pase». NIST SP 800-84 recomienda objetivos y métricas definidos antes del evento, además de un equipo que planifique, ejecute, evalúe y haga seguimiento.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-un-gemelo-mínimo-y-seguro">2. Construye un gemelo mínimo y seguro<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#2-construye-un-gemelo-m%C3%ADnimo-y-seguro" class="hash-link" aria-label="Enlace directo al 2. Construye un gemelo mínimo y seguro" title="Enlace directo al 2. Construye un gemelo mínimo y seguro" translate="no">​</a></h3>
+<p>Imita solo lo necesario: generador, ledger, destino, caché y monitor. Usa documentos sintéticos claramente marcados mediante identificadores internos, pero no dependas de una marca visible para evitar su publicación accidental. Aplica los mismos controles de acceso, cifrado, auditoría y retención que exigirías a datos recuperados.</p>
+<p>La <a href="https://cloud.google.com/architecture/dr-scenarios-planning-guide" target="_blank" rel="noopener noreferrer" class="">guía de planificación de recuperación de Google Cloud</a> insiste en probar el proceso de extremo a extremo, convertir las tareas en acciones concretas y tratar los datos recuperados con los controles de producción. Esa idea es independiente del proveedor: una copia de ensayo mal protegida también puede convertirse en un incidente real.</p>
+<p>No clones secretos de producción ni bases completas «por realismo». Sustituye credenciales, destinatarios, URLs y selectores personales. Si el escenario necesita una forma concreta, genera valores ficticios que mantengan el esquema, no el contenido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-prepara-inyecciones-no-respuestas">3. Prepara inyecciones, no respuestas<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#3-prepara-inyecciones-no-respuestas" class="hash-link" aria-label="Enlace directo al 3. Prepara inyecciones, no respuestas" title="Enlace directo al 3. Prepara inyecciones, no respuestas" translate="no">​</a></h3>
+<p>Una <strong>inyección</strong> es un hecho que el facilitador revela cuando corresponde: «el inventario devuelve dos objetos», «la caché sigue respondiendo», «el digest observado difiere» o «la persona que suele aprobar no está disponible». No debe decir al equipo qué hacer.</p>
+<p>Combina un fallo técnico y uno organizativo. Si todo se resuelve ejecutando un script conocido, solo has probado el script. Ejemplos seguros:</p>
+<ul>
+<li class="">un ledger en estado <code>released</code> y un destino sin objeto;</li>
+<li class="">un objeto público ausente del ledger;</li>
+<li class="">dos copias con el mismo <code>release_id</code> y bytes diferentes;</li>
+<li class="">retirada correcta en origen pero persistencia en una caché de prueba;</li>
+<li class="">una aprobación verbal sin registro verificable;</li>
+<li class="">un runbook que nombra un rol inexistente después de una reorganización.</li>
+</ul>
+<p>No introduzcas sorpresas que puedan cruzar al entorno real. Si se prueba en producción, la exigencia de guardas, monitorización y rollback debe ser mucho mayor. <a href="https://cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures" target="_blank" rel="noopener noreferrer" class="">Google Cloud recomienda</a> definir objetivos y alcance, preparar reversión manual y automatizada y ejecutar pruebas periódicas; para un primer ejercicio, un entorno aislado suele ofrecer una relación riesgo/aprendizaje mejor.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-observa-decisiones-y-evidencia">4. Observa decisiones y evidencia<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#4-observa-decisiones-y-evidencia" class="hash-link" aria-label="Enlace directo al 4. Observa decisiones y evidencia" title="Enlace directo al 4. Observa decisiones y evidencia" translate="no">​</a></h3>
+<p>El evaluador no debe limitarse a mirar pantallas. Registra una cronología con horas, rol, acción, motivo y evidencia asociada. Captura, como mínimo:</p>
+<table><thead><tr><th>Momento</th><th>Evidencia esperada</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td>Detección</td><td>Alerta, consulta e inventario</td><td>¿Qué discrepancia se observó y con qué cobertura?</td></tr><tr><td>Declaración</td><td>Identificador, severidad y alcance</td><td>¿Quién asumió coordinación y qué quedó afectado?</td></tr><tr><td>Contención</td><td>Cambio autorizado y confirmación</td><td>¿Se frenaron nuevas liberaciones sin destruir pruebas?</td></tr><tr><td>Retirada</td><td>Respuestas desde origen y caché</td><td>¿Qué dejó de ser accesible y desde dónde se comprobó?</td></tr><tr><td>Recuperación</td><td>Digests, pruebas y nueva observación</td><td>¿Los bytes restaurados son los autorizados?</td></tr><tr><td>Comunicación</td><td>Mensaje aprobado y destinatarios</td><td>¿Se separaron hechos, inferencias e incertidumbres?</td></tr></tbody></table>
+<p>Conserva los artefactos de ensayo, hashes, logs y decisiones durante la ventana definida. Una captura de pantalla puede aportar contexto, pero no sustituye el contenido original, sus metadatos ni una consulta repetible. Tampoco confundas ausencia en una ruta con retirada global: comprueba origen, índices, réplicas y cachés que formen parte del alcance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-ensaya-la-comunicación-como-una-operación-técnica">5. Ensaya la comunicación como una operación técnica<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#5-ensaya-la-comunicaci%C3%B3n-como-una-operaci%C3%B3n-t%C3%A9cnica" class="hash-link" aria-label="Enlace directo al 5. Ensaya la comunicación como una operación técnica" title="Enlace directo al 5. Ensaya la comunicación como una operación técnica" translate="no">​</a></h3>
+<p>Una liberación huérfana puede obligar a avisar a investigación, operaciones, privacidad, asesoría jurídica, responsables del producto y destinatarios. El simulacro debe comprobar la ruta de aprobación y la capacidad de redactar sin exagerar.</p>
+<p>Un buen parte provisional indica:</p>
+<ul>
+<li class="">qué se observó y a qué hora;</li>
+<li class="">qué contenido ficticio o categoría estaría afectada;</li>
+<li class="">qué se ha contenido y qué sigue sin confirmar;</li>
+<li class="">qué evidencias se preservaron;</li>
+<li class="">cuándo llegará la siguiente actualización;</li>
+<li class="">qué acción, si alguna, se pide al destinatario.</li>
+</ul>
+<p>No afirmes «nadie descargó el fichero» si solo careces de telemetría. No conviertas un digest distinto en prueba de intrusión sin corroboración. Y no republicites en el aviso los datos que intentas retirar.</p>
+<p>El playbook federal de <a href="https://www.cisa.gov/news-events/news/2021/11/16/cisa-releases-cybersecurity-incident-and-vulnerability-response-playbooks" target="_blank" rel="noopener noreferrer" class="">CISA para respuesta a incidentes</a> estructura la respuesta mediante preparación, detección y análisis, contención, erradicación, recuperación y actividad posterior. Aunque su audiencia principal sea federal estadounidense, el valor transferible es la coordinación explícita y el uso de listas para no perder acciones durante una situación cambiante.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-recupera-y-verifica-desde-fuera">6. Recupera y verifica desde fuera<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#6-recupera-y-verifica-desde-fuera" class="hash-link" aria-label="Enlace directo al 6. Recupera y verifica desde fuera" title="Enlace directo al 6. Recupera y verifica desde fuera" translate="no">​</a></h3>
+<p>Restaurar significa más que volver a activar el job. Usa una identidad de solo lectura diferente de la que publica y compara:</p>
+<ul>
+<li class=""><code>release_id</code> esperado y observado;</li>
+<li class="">tamaño y digest de los bytes finales;</li>
+<li class="">estado del ledger y del destino;</li>
+<li class="">evidencias de autorización y procedencia;</li>
+<li class="">respuesta del origen, caché e índice;</li>
+<li class="">capacidad de repetir la misma observación.</li>
+</ul>
+<p>Ejecuta después una liberación de prueba nueva. No reutilices silenciosamente la clave del objeto que produjo la discrepancia: eso puede esconder cachés antiguas y hacer imposible distinguir versiones. El cierre debe exigir que monitores, alertas y controles de idempotencia vuelvan a estar activos.</p>
+<p>Google SRE describe sus ejercicios controlados de recuperación y recomienda usar herramientas reales, practicar periódicamente y producir un informe posterior con lo que funcionó, lo que falló y cómo mejorarlo. Su <a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">capítulo sobre respuesta a incidentes</a> recuerda algo incómodo pero útil: el resultado más valioso de un simulacro es encontrar huecos antes de una emergencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-cierra-el-bucle-con-acciones-verificables">7. Cierra el bucle con acciones verificables<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#7-cierra-el-bucle-con-acciones-verificables" class="hash-link" aria-label="Enlace directo al 7. Cierra el bucle con acciones verificables" title="Enlace directo al 7. Cierra el bucle con acciones verificables" translate="no">​</a></h3>
+<p>Celebra una revisión breve después del ejercicio, separada de la puntuación individual. Reconstruye la cronología y pregunta qué señales faltaron, qué permisos sobraron, qué decisión no tenía dueño y qué paso dependía de memoria tribal.</p>
+<p>Cada hallazgo necesita:</p>
+<ul>
+<li class="">una descripción observable;</li>
+<li class="">impacto potencial;</li>
+<li class="">corrección propuesta;</li>
+<li class="">responsable;</li>
+<li class="">fecha objetivo;</li>
+<li class="">evidencia que demostrará el cierre;</li>
+<li class="">prueba de regresión o siguiente simulacro.</li>
+</ul>
+<p>«Actualizar el runbook» no basta. Una acción cerrable sería: «añadir antes del 31 de octubre una consulta de caché externa al paso de retirada y adjuntar una ejecución exitosa con el digest esperado». Repite el escenario cuando cambien almacenamiento, CDN, equipo, política de publicación o mecanismos de firma.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Un ejercicio no demuestra que todos los incidentes futuros vayan a resolverse. El equipo conoce que está siendo observado, los datos son sintéticos y el entorno suele ser más pequeño. Además, una prueba demasiado frecuente y predecible puede medir memoria del guion en vez de capacidad de adaptación.</p>
+<p>Vigila estos errores:</p>
+<ul>
+<li class="">declarar éxito porque el origen devuelve <code>404</code> sin consultar cachés o réplicas;</li>
+<li class="">medir velocidad y premiar la destrucción de evidencia;</li>
+<li class="">introducir un fallo imposible que no enseña nada sobre el sistema real;</li>
+<li class="">usar permisos de administrador que la guardia normal no posee;</li>
+<li class="">ocultar al evaluador cambios paralelos que alteran la cronología;</li>
+<li class="">confundir un retraso de consistencia eventual con una copia huérfana permanente;</li>
+<li class="">evaluar a personas sin revisar ambigüedades del diseño y del procedimiento;</li>
+<li class="">cerrar hallazgos por acuerdo verbal, sin prueba de regresión;</li>
+<li class="">usar datos reales y convertir el simulacro en una exposición.</li>
+</ul>
+<p>La consistencia eventual merece una ventana de gracia documentada, no infinita. Si el sistema tarda habitualmente dos minutos en propagar una retirada, una observación durante ese intervalo puede ser esperable; a los treinta minutos exige explicación. Mide primero el comportamiento normal para que la alarma tenga contexto.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Usa contenido sintético y dominios, buckets, listas y canales reservados para pruebas.</li>
+<li class="">Prohíbe copiar credenciales, tokens, URLs firmadas o selectores personales de producción.</li>
+<li class="">Designa una autoridad de parada y criterios de aborto antes de empezar.</li>
+<li class="">Aplica mínimo privilegio y separa publicación, aprobación, observación y evaluación.</li>
+<li class="">Registra acciones sin volcar secretos ni el contenido que debería permanecer limitado.</li>
+<li class="">Conserva evidencia durante un plazo definido y elimina después las copias auxiliares.</li>
+<li class="">Avisa previamente a quienes puedan confundir el tráfico de ensayo con actividad hostil.</li>
+<li class="">Coordina cualquier prueba sobre servicios de terceros con sus términos y permisos.</li>
+<li class="">No uses el ejercicio para vigilar el rendimiento individual o buscar culpables.</li>
+<li class="">Declara qué partes del recorrido no se probaron y qué incertidumbre permanece.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Un <strong>tabletop</strong> permite recorrer decisiones sin tocar sistemas y es apropiado cuando el runbook todavía está verde. Una prueba técnica valida un componente concreto, como purga de caché o restauración del ledger. Un simulacro funcional combina roles y herramientas en un entorno aislado. El ejercicio completo, cercano a producción, ofrece más realismo pero también más riesgo. NIST SP 800-84 propone aumentar gradualmente la complejidad: no empieces por el escenario más invasivo.</p>
+<p>El takeaway accionable es sencillo: elige una publicación ficticia, escribe hoy una ficha de una página y ensaya tres hechos —digest distinto, copia fuera del ledger y caché persistente— con una condición de parada. Mide detección, contención y recuperación verificada. Si el equipo no puede demostrar qué bytes estuvieron visibles, quién autorizó cada acción y cómo sabe que la retirada terminó, el simulacro ya ha encontrado trabajo útil.</p>
+<p>Como siguiente tema convendría estudiar los <strong>runbooks ejecutables y sus pruebas de regresión</strong>: cómo convertir instrucciones críticas en controles comprobables sin automatizar decisiones que requieren juicio humano.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-84" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-84: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities</a></li>
+<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-61r3" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management</a></li>
+<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-53r5" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-53 Rev. 5: Security and Privacy Controls for Information Systems and Organizations</a></li>
+<li class=""><a href="https://www.cisa.gov/news-events/news/2021/11/16/cisa-releases-cybersecurity-incident-and-vulnerability-response-playbooks" target="_blank" rel="noopener noreferrer" class="">CISA: Federal Government Cybersecurity Incident and Vulnerability Response Playbooks</a></li>
+<li class=""><a href="https://cloud.google.com/architecture/dr-scenarios-planning-guide" target="_blank" rel="noopener noreferrer" class="">Google Cloud: Disaster recovery planning guide</a></li>
+<li class=""><a href="https://cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures" target="_blank" rel="noopener noreferrer" class="">Google Cloud: Perform testing for recovery from failures</a></li>
+<li class=""><a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Incident Response</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="incident-response" term="incident-response"/>
+        <category label="resilience" term="resilience"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Reconciliar ledger y artefactos públicos en OSINT: detectar liberaciones huérfanas]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/reconciliacion-ledger-artefactos-publicos-osint</id>
@@ -2938,155 +3098,6 @@
 <li class=""><a href="https://doi.org/10.1145/1988042.1988046" target="_blank" rel="noopener noreferrer" class="">Claessen y Hughes: <em>QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs</em></a></li>
 <li class=""><a href="https://fast-check.dev/docs/introduction/why-property-based/" target="_blank" rel="noopener noreferrer" class="">fast-check: por qué usar property-based testing</a></li>
 <li class=""><a href="https://jqwik.net/docs/current/user-guide.html" target="_blank" rel="noopener noreferrer" class="">jqwik: guía oficial</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Automatizacion" term="Automatizacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Pruebas de caos en pipelines OSINT: ensayar fallos sin poner en riesgo la evidencia]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint"/>
-        <updated>2026-09-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Ilustración editorial de una analista ensayando fallos controlados dentro de un pipeline OSINT aislado]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista ensayando fallos controlados dentro de un pipeline OSINT aislado" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-09-27-pruebas-caos-pipelines-osint-d6aaeb885e98cf55944b8d5033a01d85.png" width="1376" height="768" class="img_ev3q"></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>La descarga de un portal público se interrumpe en el 83 %, pero el proceso conserva el fichero parcial con el nombre definitivo. La siguiente tarea lo interpreta como una adquisición completa, genera una tabla y deja el informe listo para publicar. No hubo una intrusión ni un algoritmo sofisticado: <strong>solo un fallo ordinario que el pipeline convirtió silenciosamente en evidencia aparente</strong>.</p>
-<p>Las pruebas de caos controladas introducen condiciones adversas —latencia, cortes, respuestas truncadas, disco lleno o servicios temporalmente indisponibles— para comprobar cómo se comporta un sistema. En OSINT sirven para evaluar la resiliencia de nuestra propia infraestructura, nunca para perturbar una fuente ajena. Tampoco demuestran que los datos sean verdaderos: comprueban si el flujo falla de forma visible, conserva la procedencia y evita publicar resultados incompletos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-y-para-qué-sirven">Qué son y para qué sirven<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#qu%C3%A9-son-y-para-qu%C3%A9-sirven" class="hash-link" aria-label="Enlace directo al Qué son y para qué sirven" title="Enlace directo al Qué son y para qué sirven" translate="no">​</a></h2>
-<p>La ingeniería del caos no consiste en romper cosas al azar. Los <a href="https://principlesofchaos.org/" target="_blank" rel="noopener noreferrer" class="">Principios de Chaos Engineering</a> proponen partir de un estado estable medible, formular una hipótesis, introducir una variable parecida a un fallo real y comparar el comportamiento del grupo de control con el experimental. También recomiendan reducir el radio de impacto.</p>
-<p>Traducido a un pipeline OSINT, el estado estable no debería ser solo «el proceso termina con código cero». Puede incluir:</p>
-<ul>
-<li class="">cada adquisición terminada tiene tamaño, hash, hora UTC y URL registrados;</li>
-<li class="">ningún fichero parcial entra en transformación;</li>
-<li class="">un reintento no duplica registros ni sobrescribe un original válido;</li>
-<li class="">una caída del almacenamiento detiene la publicación;</li>
-<li class="">las alertas distinguen fuente inaccesible, dato inválido y error interno;</li>
-<li class="">el último dataset válido permanece identificable, pero no se presenta como actual.</li>
-</ul>
-<p>El experimento intenta refutar una hipótesis concreta: «si la respuesta queda truncada, el adaptador la pone en cuarentena y ninguna tabla derivada se publica». Si el sistema genera igualmente una salida, hemos encontrado una debilidad reproducible. Si se detiene de forma segura, solo hemos ganado confianza en esa condición ensayada; no en todas las averías posibles.</p>
-<p>Esta técnica complementa el <a class="" href="https://spainfsd-creator.github.io/osint-blog/contract-testing-osint">contract testing</a>, que pregunta si una entrada cumple la interfaz esperada. El caos pregunta qué ocurre cuando una dependencia tarda, desaparece o entrega solo una parte. Ninguna de las dos valida por sí sola el contenido factual de la fuente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-observatorio-ficticio-de-villa-serena">Caso legítimo: el observatorio ficticio de Villa Serena<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#caso-leg%C3%ADtimo-el-observatorio-ficticio-de-villa-serena" class="hash-link" aria-label="Enlace directo al Caso legítimo: el observatorio ficticio de Villa Serena" title="Enlace directo al Caso legítimo: el observatorio ficticio de Villa Serena" translate="no">​</a></h2>
-<p>Imaginemos un equipo que elabora una serie mensual agregada sobre contratación pública del ayuntamiento ficticio de <strong>Villa Serena</strong>. El flujo consulta una API institucional respetando sus condiciones, guarda cada respuesta cruda, valida el esquema, normaliza importes y publica únicamente totales agregados. No perfila personas ni prueba nada contra el portal real.</p>
-<p>El equipo prepara un entorno aislado con fixtures sintéticos y un servidor local que imita las respuestas necesarias. Define esta hipótesis:</p>
-<blockquote>
-<p>Si una página JSON llega cortada, el adaptador no la renombra como completa, no avanza el cursor y no reemplaza el último snapshot válido.</p>
-</blockquote>
-<p>El control procesa tres páginas ficticias completas. El experimento devuelve los mismos bytes en las dos primeras y corta la tercera a mitad de un objeto. Las observaciones esperadas son precisas:</p>
-<table><thead><tr><th>Señal</th><th>Resultado esperado</th></tr></thead><tbody><tr><td>Estado de la ejecución</td><td>fallo explícito de adquisición</td></tr><tr><td>Fichero parcial</td><td>sufijo temporal y cuarentena</td></tr><tr><td>Snapshot anterior</td><td>intacto y con su hash original</td></tr><tr><td>Cursor de paginación</td><td>no avanza</td></tr><tr><td>Transformación</td><td>no se inicia</td></tr><tr><td>Publicación</td><td>bloqueada</td></tr><tr><td>Alerta</td><td>identifica truncado, intento y fixture</td></tr></tbody></table>
-<p>No basta con comprobar que aparece una excepción. Hay que observar los efectos laterales: archivos, checkpoints, colas, métricas, logs y artefactos publicables. Un error bien registrado puede convivir con una tabla incorrecta si la frontera de publicación no está protegida.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-elige-una-propiedad-que-deba-sobrevivir">1. Elige una propiedad que deba sobrevivir<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#1-elige-una-propiedad-que-deba-sobrevivir" class="hash-link" aria-label="Enlace directo al 1. Elige una propiedad que deba sobrevivir" title="Enlace directo al 1. Elige una propiedad que deba sobrevivir" translate="no">​</a></h3>
-<p>Empieza por una sola afirmación observable. «El pipeline es resiliente» no se puede probar; «un timeout no deja un artefacto con nombre definitivo» sí. Relaciona la propiedad con un riesgo editorial o probatorio: incompletitud invisible, pérdida de originales, duplicación, mezcla de ejecuciones o publicación obsoleta.</p>
-<p>Describe primero la línea base con un fixture pequeño y determinista. Debe producir siempre los mismos archivos, hashes, recuentos y códigos de salida. Conserva la salida del control para compararla con el experimento.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-dibuja-el-radio-de-impacto">2. Dibuja el radio de impacto<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#2-dibuja-el-radio-de-impacto" class="hash-link" aria-label="Enlace directo al 2. Dibuja el radio de impacto" title="Enlace directo al 2. Dibuja el radio de impacto" translate="no">​</a></h3>
-<p>El blanco es <strong>tu copia de pruebas</strong>, no el portal público. Separa credenciales, buckets, bases de datos, colas y dominios de producción. Usa identificadores ficticios y un directorio temporal desechable. Bloquea el tráfico saliente salvo hacia servicios locales explícitos.</p>
-<p>Fija además condiciones de parada. La documentación de <a href="https://docs.aws.amazon.com/fis/latest/userguide/stop-conditions.html" target="_blank" rel="noopener noreferrer" class="">AWS Fault Injection Service</a> describe las <em>stop conditions</em> como alarmas que detienen un experimento al alcanzar un umbral. Aunque no uses AWS, el patrón es útil: duración máxima, consumo máximo, número máximo de reintentos y un interruptor manual verificable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-construye-una-matriz-pequeña-de-fallos">3. Construye una matriz pequeña de fallos<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#3-construye-una-matriz-peque%C3%B1a-de-fallos" class="hash-link" aria-label="Enlace directo al 3. Construye una matriz pequeña de fallos" title="Enlace directo al 3. Construye una matriz pequeña de fallos" translate="no">​</a></h3>
-<p>No combines diez averías en la primera ejecución. Aísla una variable cada vez:</p>
-<table><thead><tr><th>Frontera</th><th>Fallo simulado</th><th>Propiedad a comprobar</th></tr></thead><tbody><tr><td>HTTP</td><td>timeout antes de cabeceras</td><td>backoff acotado y error visible</td></tr><tr><td>Descarga</td><td>cuerpo truncado</td><td>no promover el temporal a definitivo</td></tr><tr><td>API</td><td><code>429</code> o <code>503</code> sintético</td><td>respetar espera y limitar reintentos</td></tr><tr><td>Paginación</td><td>cursor repetido</td><td>detectar bucle y no duplicar</td></tr><tr><td>Disco</td><td>escritura incompleta</td><td>no registrar un hash de éxito</td></tr><tr><td>Almacén</td><td>indisponibilidad</td><td>bloquear derivados y publicación</td></tr><tr><td>Cola</td><td>entrega repetida</td><td>operación idempotente</td></tr><tr><td>Reloj</td><td>marca temporal inesperada</td><td>conservar UTC y señalizar anomalía</td></tr></tbody></table>
-<p>Una matriz útil incluye precondición, inyección, oráculo, límite temporal, limpieza y evidencia del resultado. «Parece que aguantó» no es un criterio de aceptación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-inyecta-cerca-de-la-frontera-que-controlas">4. Inyecta cerca de la frontera que controlas<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#4-inyecta-cerca-de-la-frontera-que-controlas" class="hash-link" aria-label="Enlace directo al 4. Inyecta cerca de la frontera que controlas" title="Enlace directo al 4. Inyecta cerca de la frontera que controlas" translate="no">​</a></h3>
-<p>Para pruebas unitarias, sustituye el cliente HTTP, el reloj o la función de escritura. La fixture <a href="https://docs.pytest.org/en/stable/how-to/monkeypatch.html" target="_blank" rel="noopener noreferrer" class=""><code>monkeypatch</code> de pytest</a> permite cambiar atributos, diccionarios y variables de entorno durante un test y deshacer los cambios al terminar. <code>tmp_path</code> ofrece un directorio temporal único para cada prueba.</p>
-<p>Un ejemplo conceptual, con datos inventados, sería:</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">def</span><span class="token plain"> </span><span class="token function" style="color:rgb(80, 250, 123)">test_un_truncado_no_se_publica</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">tmp_path</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> monkeypatch</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    destino </span><span class="token operator">=</span><span class="token plain"> tmp_path </span><span class="token operator">/</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"adjudicaciones.json"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    monkeypatch</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token builtin" style="color:rgb(189, 147, 249)">setattr</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        cliente</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token string" style="color:rgb(255, 121, 198)">"descargar"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">lambda</span><span class="token plain"> _url</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">b'{"results":[{"id":"VS-001"}'</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    resultado </span><span class="token operator">=</span><span class="token plain"> adquirir</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token string" style="color:rgb(255, 121, 198)">"https://example.test/api"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> destino</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">assert</span><span class="token plain"> resultado</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">ok </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">is</span><span class="token plain"> </span><span class="token boolean">False</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">assert</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">not</span><span class="token plain"> destino</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">exists</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">assert</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">tmp_path </span><span class="token operator">/</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"adjudicaciones.json.part"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">exists</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">assert</span><span class="token plain"> publicar_fue_invocado</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">is</span><span class="token plain"> </span><span class="token boolean">False</span><br></span></code></pre></div></div>
-<p>El código real necesitará un oráculo más sólido que «el JSON no parsea»: longitud declarada, checksum cuando exista, contrato estructural, conteo de páginas y reglas de completitud. El objetivo del ejemplo es que el fallo no atraviese la frontera de publicación.</p>
-<p>Para una integración local que dependa de TCP, <a href="https://github.com/Shopify/toxiproxy" target="_blank" rel="noopener noreferrer" class="">Toxiproxy</a> permite introducir latencia, limitar ancho de banda, cortar datos o deshabilitar un proxy. Está diseñado para entornos de desarrollo, pruebas y CI. Colócalo entre el cliente de pruebas y un servicio simulado; no delante de infraestructura de terceros.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-observa-estado-no-solo-excepciones">5. Observa estado, no solo excepciones<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#5-observa-estado-no-solo-excepciones" class="hash-link" aria-label="Enlace directo al 5. Observa estado, no solo excepciones" title="Enlace directo al 5. Observa estado, no solo excepciones" translate="no">​</a></h3>
-<p>Registra un identificador de ejecución y de experimento, fallo inyectado, instante de inicio y fin, fixture, versión del código y condición de parada. Compara:</p>
-<ul>
-<li class="">códigos de salida y excepciones tipadas;</li>
-<li class="">temporales, definitivos y hashes;</li>
-<li class="">checkpoints y cursores;</li>
-<li class="">número y calendario de reintentos;</li>
-<li class="">filas antes y después de deduplicar;</li>
-<li class="">tareas en cola;</li>
-<li class="">artefactos que llegan a publicación;</li>
-<li class="">mensaje que recibiría la persona analista.</li>
-</ul>
-<p>Los logs no deben copiar tokens, cabeceras de autenticación ni cuerpos sensibles. Un experimento de resiliencia no justifica ampliar la recogida de datos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-limpia-y-convierte-el-hallazgo-en-regresión">6. Limpia y convierte el hallazgo en regresión<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#6-limpia-y-convierte-el-hallazgo-en-regresi%C3%B3n" class="hash-link" aria-label="Enlace directo al 6. Limpia y convierte el hallazgo en regresión" title="Enlace directo al 6. Limpia y convierte el hallazgo en regresión" translate="no">​</a></h3>
-<p>Retira la inyección aunque falle una aserción, destruye el entorno efímero y confirma que no quedan proxies, reglas o temporales activos. Después reduce el fallo a un caso determinista. La prueba de caos descubre una condición; una prueba automatizada más pequeña evita que reaparezca en cada cambio.</p>
-<p>Documenta tres resultados por separado:</p>
-<ol>
-<li class=""><strong>Fallo introducido:</strong> por ejemplo, corte tras 2 KiB.</li>
-<li class=""><strong>Comportamiento observado:</strong> el temporal recibió nombre definitivo.</li>
-<li class=""><strong>Riesgo para el análisis:</strong> una adquisición incompleta podía llegar a transformación.</li>
-</ol>
-<p>No escribas «la fuente manipuló la descarga». El experimento solo habla de cómo reacciona nuestro sistema a una condición fabricada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-conviene-ensayar-primero">Qué conviene ensayar primero<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#qu%C3%A9-conviene-ensayar-primero" class="hash-link" aria-label="Enlace directo al Qué conviene ensayar primero" title="Enlace directo al Qué conviene ensayar primero" translate="no">​</a></h2>
-<p>Prioriza fallos frecuentes y de alto impacto, no escenarios espectaculares:</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="timeout-y-reintentos">Timeout y reintentos<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#timeout-y-reintentos" class="hash-link" aria-label="Enlace directo al Timeout y reintentos" title="Enlace directo al Timeout y reintentos" translate="no">​</a></h3>
-<p>Comprueba que existe un timeout finito por operación, que el número de intentos está limitado y que la espera no sincroniza cientos de tareas. Una ejecución agotada debe terminar en estado inequívoco. Nunca conviertas «no se pudo consultar» en cero resultados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="respuesta-truncada-o-mal-codificada">Respuesta truncada o mal codificada<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#respuesta-truncada-o-mal-codificada" class="hash-link" aria-label="Enlace directo al Respuesta truncada o mal codificada" title="Enlace directo al Respuesta truncada o mal codificada" translate="no">​</a></h3>
-<p>Escribe primero en un fichero temporal dentro del mismo sistema de archivos, valida y solo entonces promueve el artefacto. Conserva la respuesta problemática en cuarentena cuando sea legal y necesario, con retención limitada y sin mezclarla con originales válidos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="almacenamiento-indisponible">Almacenamiento indisponible<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#almacenamiento-indisponible" class="hash-link" aria-label="Enlace directo al Almacenamiento indisponible" title="Enlace directo al Almacenamiento indisponible" translate="no">​</a></h3>
-<p>Si no se puede preservar la adquisición, el pipeline no debería continuar como si existiera una cadena de procedencia. Ensaya también el caso en que los bytes se guardan pero falla el registro de metadatos: datos sin contexto no equivalen a evidencia lista para analizar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="duplicación-y-reordenación">Duplicación y reordenación<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#duplicaci%C3%B3n-y-reordenaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Duplicación y reordenación" title="Enlace directo al Duplicación y reordenación" translate="no">​</a></h3>
-<p>Las colas pueden volver a entregar una tarea y las páginas pueden aparecer en distinto orden. Usa claves estables, operaciones idempotentes y deduplicación explícita. Comprueba que repetir una ejecución no duplica el total y que dos respuestas distintas nunca comparten por accidente el mismo identificador de adquisición.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recuperación-tras-interrupción">Recuperación tras interrupción<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#recuperaci%C3%B3n-tras-interrupci%C3%B3n" class="hash-link" aria-label="Enlace directo al Recuperación tras interrupción" title="Enlace directo al Recuperación tras interrupción" translate="no">​</a></h3>
-<p>Mata una tarea entre escritura y commit en el entorno de pruebas. Al reiniciar, el sistema debe distinguir lo completo, lo parcial y lo desconocido. La recuperación correcta quizá descarte trabajo; es preferible a reutilizar un fragmento como si estuviera validado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Una prueba puede fallar porque el inyector está mal configurado, no porque el pipeline sea débil. Verifica primero que el fallo ocurrió donde esperabas. También puede pasar en local y fallar en producción por diferencias de permisos, latencia, límites o topología.</p>
-<p>Otros límites importantes:</p>
-<ul>
-<li class="">una lista de fallos nunca es exhaustiva;</li>
-<li class="">el estado estable elegido puede ignorar una degradación relevante;</li>
-<li class="">mocks demasiado simples no reproducen streaming, cachés o cierres de conexión;</li>
-<li class="">dos fallos simultáneos pueden interactuar de forma distinta a dos ensayos aislados;</li>
-<li class="">una recuperación técnica correcta puede reutilizar datos antiguos sin avisarlo;</li>
-<li class="">una ejecución verde no valida cobertura, actualidad ni veracidad de la fuente;</li>
-<li class="">inyectar fallos en producción requiere autoridad, observabilidad y salvaguardas que este flujo deliberadamente no presupone.</li>
-</ul>
-<p>Evita medir el éxito solo por disponibilidad. En OSINT, «seguir publicando» puede ser peor que detenerse si se ha perdido integridad, completitud o procedencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Limita los experimentos a sistemas propios o expresamente autorizados.</li>
-<li class="">Usa fixtures sintéticos; no copies expedientes personales a herramientas externas.</li>
-<li class="">Deniega por defecto el tráfico hacia internet desde el entorno de pruebas.</li>
-<li class="">Retira credenciales reales y aplica permisos mínimos.</li>
-<li class="">Define duración, radio de impacto, condición de parada y responsable antes de ejecutar.</li>
-<li class="">Preserva originales válidos como solo lectura y trabaja sobre copias.</li>
-<li class="">Separa el almacén de cuarentena del publicable.</li>
-<li class="">No registres cuerpos completos cuando basten tamaño, hash y tipo de error.</li>
-<li class="">Trata la indisponibilidad de una fuente como limitación, no como sospecha.</li>
-<li class="">Exige revisión humana antes de difundir conclusiones sensibles.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lista-de-control">Lista de control<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#lista-de-control" class="hash-link" aria-label="Enlace directo al Lista de control" title="Enlace directo al Lista de control" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La hipótesis describe una propiedad observable.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La línea base es determinista y está guardada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El experimento usa datos ficticios y servicios propios.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Producción y fuentes públicas quedan fuera del radio de impacto.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay timeout, límite de reintentos y condición de parada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Solo se introduce una variable nueva por primera ejecución.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se observan archivos, estado, cursores, colas y publicación.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Temporales y definitivos no pueden confundirse.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Un snapshot anterior nunca se presenta como actual sin aviso.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los logs están minimizados y no contienen secretos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La limpieza se ejecuta también cuando falla el test.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada debilidad termina en una regresión reproducible.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Un resultado verde se presenta como resiliencia acotada, no como verdad.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>El <a class="" href="https://spainfsd-creator.github.io/osint-blog/contract-testing-osint">contract testing</a> protege la interfaz entre adquisición y transformación; el <a class="" href="https://spainfsd-creator.github.io/osint-blog/mutation-testing-pipelines-osint">mutation testing</a> evalúa si los tests detectan cambios peligrosos; y las <a class="" href="https://spainfsd-creator.github.io/osint-blog/pruebas-metamorficas-osint-invariantes">pruebas metamórficas</a> comprueban propiedades entre ejecuciones relacionadas. Las pruebas de caos ocupan otra capa: fuerzan condiciones operativas adversas y observan si el sistema conserva sus garantías.</p>
-<p>El takeaway accionable es modesto: toma hoy un fixture sintético, haz que tu cliente local devuelva la mitad del cuerpo y comprueba que no aparece ningún fichero definitivo ni artefacto publicable. Añade después una aserción sobre el snapshot anterior y otra sobre el mensaje de alerta. Si el proceso termina «bien», has encontrado un fallo de seguridad editorial antes de que lo encuentre una caída real.</p>
-<p>Como próximo tema, merece la pena estudiar <strong>property-based testing en pipelines OSINT</strong>: generar muchas entradas sintéticas sujetas a restricciones para descubrir combinaciones que nuestros ejemplos manuales no contemplaron, sin confundir invariantes del software con verdad factual.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/pruebas-caos-pipelines-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://principlesofchaos.org/" target="_blank" rel="noopener noreferrer" class="">Principles of Chaos Engineering</a></li>
-<li class=""><a href="https://docs.aws.amazon.com/fis/latest/userguide/stop-conditions.html" target="_blank" rel="noopener noreferrer" class="">AWS Fault Injection Service: stop conditions</a></li>
-<li class=""><a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html" target="_blank" rel="noopener noreferrer" class="">AWS Fault Injection Service: componentes de una plantilla de experimento</a></li>
-<li class=""><a href="https://github.com/Shopify/toxiproxy" target="_blank" rel="noopener noreferrer" class="">Toxiproxy: repositorio y documentación oficial</a></li>
-<li class=""><a href="https://docs.pytest.org/en/stable/how-to/monkeypatch.html" target="_blank" rel="noopener noreferrer" class="">pytest: uso seguro de monkeypatch</a></li>
-<li class=""><a href="https://docs.pytest.org/en/stable/how-to/tmp_path.html" target="_blank" rel="noopener noreferrer" class="">pytest: directorios temporales con tmp_path</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter AI</name>
