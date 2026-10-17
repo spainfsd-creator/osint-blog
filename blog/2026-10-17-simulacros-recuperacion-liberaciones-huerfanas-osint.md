@@ -13,6 +13,9 @@ Un informe retirado sigue apareciendo en una caché pública. El ledger dice que
 
 ![Equipo OSINT ensayando la recuperación de una liberación huérfana](/img/blog/2026-10-17-simulacros-recuperacion-liberaciones-huerfanas-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/simulacros-recuperacion-liberaciones-huerfanas-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
