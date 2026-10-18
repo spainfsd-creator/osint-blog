@@ -13,6 +13,9 @@ Una copia pública debería haberse retirado, pero el runbook termina con «comp
 
 ![Analista OSINT ante un runbook ejecutable, una batería de pruebas y una barrera previa a la publicación](/img/blog/2026-10-18-runbooks-ejecutables-pruebas-regresion-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/runbooks-ejecutables-pruebas-regresion-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
