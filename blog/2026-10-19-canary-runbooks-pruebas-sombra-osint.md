@@ -13,6 +13,9 @@ Una nueva versión del pipeline clasifica cien documentos públicos sin errores 
 
 ![Analista OSINT comparando un flujo estable con un canary en sombra y una puerta de parada](/img/blog/2026-10-19-canary-runbooks-pruebas-sombra-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/canary-runbooks-pruebas-sombra-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
