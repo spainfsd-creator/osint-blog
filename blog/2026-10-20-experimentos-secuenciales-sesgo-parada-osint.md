@@ -13,6 +13,9 @@ El canary lleva veinte minutos y su tasa de errores parece mejor que la del fluj
 
 ![Analista OSINT comparando una métrica ruidosa con un flujo de decisión secuencial](/img/blog/2026-10-20-experimentos-secuenciales-sesgo-parada-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/experimentos-secuenciales-sesgo-parada-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
