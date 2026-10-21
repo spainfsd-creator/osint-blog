@@ -13,6 +13,9 @@ Tres extractores compiten sobre el mismo lote de documentos públicos. El equipo
 
 ![Analista OSINT comparando varios candidatos y métricas antes de una puerta de decisión humana](/img/blog/2026-10-21-guardas-multiples-metricas-candidatos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/guardas-multiples-metricas-candidatos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
