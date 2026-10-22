@@ -13,6 +13,9 @@ Tres pipelines procesan el mismo lote de documentos públicos. El primero aciert
 
 ![Analista comparando varios flujos antes de una validación independiente y una revisión humana](/img/blog/2026-10-22-seleccion-ganador-estimacion-postseleccion-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/seleccion-ganador-estimacion-postseleccion-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
