@@ -13,6 +13,9 @@ El extractor alcanza un 94 % sobre el benchmark de siempre. Un mes después lleg
 
 ![Analista comparando un archivo versionado con una ventana futura de documentos públicos](/img/blog/2026-10-24-renovacion-prospectiva-benchmarks-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/renovacion-prospectiva-benchmarks-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
