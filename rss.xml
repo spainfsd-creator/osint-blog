@@ -4,10 +4,165 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Fri, 23 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 24 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Renovación prospectiva de benchmarks OSINT: medir el futuro sin reescribir el pasado]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint</guid>
+            <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[El extractor alcanza un 94 % sobre el benchmark de siempre. Un mes después llegan nuevos boletines: otra plantilla, anexos escaneados y fechas expresadas de forma distinta. El resultado cae al 78 %. El equipo puede culpar al extractor, culpar a las fuentes o añadir los documentos difíciles al conjunto y recalcular hasta recuperar una cifra cómoda. Solo una de esas opciones permite aprender sin reescribir el examen.]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>El extractor alcanza un 94 % sobre el benchmark de siempre. Un mes después llegan nuevos boletines: otra plantilla, anexos escaneados y fechas expresadas de forma distinta. El resultado cae al 78 %. El equipo puede culpar al extractor, culpar a las fuentes o añadir los documentos difíciles al conjunto y recalcular hasta recuperar una cifra cómoda. <strong>Solo una de esas opciones permite aprender sin reescribir el examen.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Analista comparando un archivo versionado con una ventana futura de documentos públicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-24-renovacion-prospectiva-benchmarks-osint-bc1c6e039a42713d23c21e8cac29b74f.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Renovar un benchmark de forma prospectiva consiste en definir hoy cómo se incorporarán datos que todavía no existen, congelar el sistema antes de verlos y evaluar después bajo reglas de procedencia, inclusión y etiquetado ya acordadas. La ventana futura no es una bolsa de ejemplos convenientes: es una observación del entorno tal como llega.</p>
+<p>En OSINT, donde las páginas cambian, los registros corrigen campos y los formatos administrativos evolucionan, este diseño ayuda a separar tres historias: el pipeline ha empeorado, la fuente ha cambiado o la muestra antigua nunca representó bien el trabajo real. Ninguna puntuación resuelve por sí sola cuál es cierta.</p>
+<p>Todos los nombres, documentos, dominios, cifras y resultados del caso son ficticios. El método se limita a datos sintéticos, fuentes públicas o sistemas propios y autorizados. Evaluar un pipeline no convierte sus inferencias en hechos ni autoriza vigilancia, atribuciones sobre personas o decisiones perjudiciales.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-una-renovación-prospectiva-y-para-qué-sirve">Qué es una renovación prospectiva (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#qu%C3%A9-es-una-renovaci%C3%B3n-prospectiva-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es una renovación prospectiva (y para qué sirve)" title="Enlace directo al Qué es una renovación prospectiva (y para qué sirve)" translate="no">​</a></h2>
+<p>Un benchmark estático responde bien a una pregunta estrecha: «¿cómo se comporta esta versión del sistema sobre estos casos y estas etiquetas?». Empieza a fallar cuando usamos su resultado como promesa sobre documentos futuros, otras fuentes o una población distinta.</p>
+<p>NIST distingue entre el rendimiento condicionado a un benchmark fijo y el rendimiento generalizado sobre posibles elementos similares. Su informe estadístico de 2026 subraya que pasar de uno a otro exige supuestos explícitos y una estimación de incertidumbre; no basta con promediar aciertos. Por su parte, las reglas prácticas de Google recomiendan probar con datos posteriores a los usados para desarrollar el sistema y medir la diferencia entre el conjunto reservado, los datos del día siguiente y el entorno real.</p>
+<p>Una renovación prospectiva sirve para:</p>
+<ul>
+<li class="">medir comportamiento sobre una ventana que no pudo influir en el desarrollo;</li>
+<li class="">detectar cambios de formato, cobertura o dificultad;</li>
+<li class="">conservar comparabilidad con el benchmark anterior sin ocultar su edad;</li>
+<li class="">decidir si ampliar, refrescar o retirar una evaluación;</li>
+<li class="">documentar qué parte de una variación procede del sistema y cuál de los datos;</li>
+<li class="">obtener casos nuevos sin seleccionarlos por el resultado que producen.</li>
+</ul>
+<p>No significa actualizar continuamente un fichero y seguir llamándolo igual. Cada edición debe ser una versión identificable, con manifiesto, periodo, reglas y relación explícita con las anteriores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-boletines-que-llegan-después-de-congelar-el-extractor">Caso legítimo: boletines que llegan después de congelar el extractor<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#caso-leg%C3%ADtimo-boletines-que-llegan-despu%C3%A9s-de-congelar-el-extractor" class="hash-link" aria-label="Enlace directo al Caso legítimo: boletines que llegan después de congelar el extractor" title="Enlace directo al Caso legítimo: boletines que llegan después de congelar el extractor" translate="no">​</a></h2>
+<p>Imaginemos una organización ficticia, <strong>Archivo Abierto</strong>, que extrae fecha, organismo y referencia de resoluciones públicas. Dispone de un benchmark histórico de 1.000 documentos y quiere decidir si promueve un extractor nuevo.</p>
+<p>Antes de comenzar el trimestre, el equipo publica un protocolo interno:</p>
+<ol>
+<li class="">congelará código, dependencias, prompt, esquema y umbrales el 31 de octubre;</li>
+<li class="">recogerá todas las resoluciones elegibles publicadas entre el 1 y el 30 de noviembre;</li>
+<li class="">excluirá únicamente duplicados exactos, ficheros corruptos irrecuperables y documentos fuera de la definición de tarea;</li>
+<li class="">registrará cada exclusión antes de conocer el resultado del extractor;</li>
+<li class="">hará doble etiquetado ciego de una muestra y resolverá desacuerdos con una guía versionada;</li>
+<li class="">publicará por separado el rendimiento histórico, el prospectivo y las diferencias por formato;</li>
+<li class="">mantendrá revisión humana antes de usar cualquier salida fuera de la evaluación.</li>
+</ol>
+<p>Al cerrar noviembre, el sistema baja seis puntos. Los PDF nacidos digitalmente se mantienen estables, mientras los escaneados de una fuente concreta concentran los fallos. Eso no demuestra todavía que la fuente «sea peor» ni que el extractor se haya degradado. Sí aporta una hipótesis comprobable: cambió la mezcla de formatos y el OCR no generaliza igual.</p>
+<p>El equipo conserva esa ventana como versión <code>2026-11</code>, documenta la diferencia y corrige el pipeline usando una copia de desarrollo. La siguiente confirmación tendrá que realizarse sobre otra ventana futura. Añadir noviembre al entrenamiento y volver a presentarlo como prueba independiente borraría justamente la evidencia que se quería obtener.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-primero-el-contrato-de-la-tarea">1. Escribe primero el contrato de la tarea<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#1-escribe-primero-el-contrato-de-la-tarea" class="hash-link" aria-label="Enlace directo al 1. Escribe primero el contrato de la tarea" title="Enlace directo al 1. Escribe primero el contrato de la tarea" translate="no">​</a></h3>
+<p>Define la unidad evaluada —documento, página, entidad o evento—, la población a la que quieres generalizar y la decisión que informará el resultado. Especifica qué significa acertar, qué errores son críticos y qué salida queda fuera de alcance.</p>
+<p>Separa al menos cuatro capas:</p>
+<ul>
+<li class=""><strong>fuente:</strong> dónde y cuándo apareció el documento;</li>
+<li class=""><strong>artefacto:</strong> bytes capturados, formato, hash y momento de adquisición;</li>
+<li class=""><strong>etiqueta:</strong> quién la produjo, con qué guía y qué desacuerdos hubo;</li>
+<li class=""><strong>ejecución:</strong> versión del sistema, configuración, dependencias y resultado.</li>
+</ul>
+<p>Sin esa separación, un cambio de contenido puede confundirse con un cambio de descarga, etiquetado o código.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prerregistra-la-ventana-y-las-reglas-de-entrada">2. Prerregistra la ventana y las reglas de entrada<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#2-prerregistra-la-ventana-y-las-reglas-de-entrada" class="hash-link" aria-label="Enlace directo al 2. Prerregistra la ventana y las reglas de entrada" title="Enlace directo al 2. Prerregistra la ventana y las reglas de entrada" translate="no">​</a></h3>
+<p>Fija las fechas de inicio y cierre antes de recoger resultados. Decide qué fuentes, idiomas, tipos documentales y estados de disponibilidad son elegibles. Define cómo tratarás correcciones, republicaciones, anexos, duplicados y URLs que desaparecen.</p>
+<p>La regla debe poder aplicarse sin mirar si el sistema acierta. «Excluir documentos atípicos» invita a eliminar fallos incómodos. «Excluir archivos que no pueden abrir dos lectores independientes y conservar su hash en el ledger» es auditable.</p>
+<p>Si el volumen es demasiado grande, define un muestreo reproducible antes de observar salidas: por ejemplo, un hash estable sobre un identificador público. Conserva también el denominador completo para saber qué quedó fuera.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-congela-el-candidato-y-captura-su-identidad">3. Congela el candidato y captura su identidad<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#3-congela-el-candidato-y-captura-su-identidad" class="hash-link" aria-label="Enlace directo al 3. Congela el candidato y captura su identidad" title="Enlace directo al 3. Congela el candidato y captura su identidad" translate="no">​</a></h3>
+<p>Guarda commit, imagen de contenedor o lockfile, configuración, prompts, modelos auxiliares, umbrales y esquema de salida. Calcula hashes de los artefactos relevantes y registra quién autorizó la congelación.</p>
+<p>No cambies una expresión regular a mitad de la ventana y mezcles ambas ejecuciones. Si aparece un defecto operativo grave, detén la evaluación, abre una nueva versión del candidato y declara la primera ronda inconclusa. La transparencia cuesta menos que una comparación imposible de reconstruir.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-captura-procedencia-sin-acumular-datos-innecesarios">4. Captura procedencia sin acumular datos innecesarios<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#4-captura-procedencia-sin-acumular-datos-innecesarios" class="hash-link" aria-label="Enlace directo al 4. Captura procedencia sin acumular datos innecesarios" title="Enlace directo al 4. Captura procedencia sin acumular datos innecesarios" translate="no">​</a></h3>
+<p>Para cada elemento conserva, cuando sea legítimo:</p>
+<ul>
+<li class="">identificador interno no sensible;</li>
+<li class="">URL pública y sello temporal de adquisición;</li>
+<li class="">hash del artefacto y tipo MIME observado;</li>
+<li class="">licencia, condiciones o base de uso aplicable;</li>
+<li class="">versión de la regla que lo incluyó;</li>
+<li class="">relación con versiones corregidas o retiradas;</li>
+<li class="">mínima información necesaria para explicar estratos y errores.</li>
+</ul>
+<p>No recopiles perfiles personales ni campos ajenos a la tarea «por si acaso». Si una fuente corrige o retira contenido, registra el evento y aplica la política prevista; una copia de evaluación no debe convertirse en archivo clandestino de datos que ya no procede conservar.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-etiqueta-sin-enseñar-la-salida-del-candidato">5. Etiqueta sin enseñar la salida del candidato<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#5-etiqueta-sin-ense%C3%B1ar-la-salida-del-candidato" class="hash-link" aria-label="Enlace directo al 5. Etiqueta sin enseñar la salida del candidato" title="Enlace directo al 5. Etiqueta sin enseñar la salida del candidato" translate="no">​</a></h3>
+<p>Siempre que sea viable, quienes crean la referencia no deberían ver la predicción que evaluarán. Usa una guía con ejemplos límite, estados como <code>no determinable</code> y un proceso de adjudicación. Mide desacuerdo: puede revelar una tarea ambigua, no incompetencia del sistema.</p>
+<p>NIST AITE utiliza datos ciegos y un entorno separado para reducir la contaminación entre desarrollo y prueba. Un equipo pequeño puede aproximar esa independencia separando permisos, automatizando la ejecución y entregando a desarrollo solo los resultados previstos en el protocolo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-compara-cohortes-no-solo-promedios">6. Compara cohortes, no solo promedios<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#6-compara-cohortes-no-solo-promedios" class="hash-link" aria-label="Enlace directo al 6. Compara cohortes, no solo promedios" title="Enlace directo al 6. Compara cohortes, no solo promedios" translate="no">​</a></h3>
+<p>Presenta el benchmark estable y la ventana futura por separado. Añade intervalos de incertidumbre y cortes definidos de antemano: fuente, formato, idioma, periodo o nivel de calidad documental. Informa numeradores y denominadores.</p>
+<p>Una diferencia temporal puede reflejar:</p>
+<ul>
+<li class=""><strong>deriva de población:</strong> llegan otros tipos de documentos;</li>
+<li class=""><strong>deriva de concepto:</strong> cambia la relación entre el contenido y la etiqueta;</li>
+<li class=""><strong>cambio de medición:</strong> la descarga, el OCR o el etiquetado funcionan de otra manera;</li>
+<li class=""><strong>regresión del sistema:</strong> la nueva versión rinde peor sobre casos comparables;</li>
+<li class=""><strong>ruido muestral:</strong> la ventana es pequeña y la diferencia es incierta.</li>
+</ul>
+<p>No elijas la explicación por intuición. Formula diagnósticos que puedan contrastarse con artefactos, versiones y análisis estratificados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-versiona-sin-mover-la-portería">7. Versiona sin mover la portería<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#7-versiona-sin-mover-la-porter%C3%ADa" class="hash-link" aria-label="Enlace directo al 7. Versiona sin mover la portería" title="Enlace directo al 7. Versiona sin mover la portería" translate="no">​</a></h3>
+<p>Publica un manifiesto por edición con:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">benchmark</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> archivo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">abierto</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">version</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">11</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">collection_window</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">11</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">01/2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">11</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">30</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">task_contract</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">inclusion_rules</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">label_guide</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> v3</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">candidate_commit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 4f2c</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">parent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">10</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">status</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> confirmatory</span><br></span></code></pre></div></div>
+<p>El ejemplo es ficticio y deliberadamente incompleto, pero muestra la idea: una puntuación debe viajar con la identidad de los datos, del contrato y del candidato. MLCommons sitúa la reproducibilidad entre los objetivos centrales de un benchmark; aquí implica poder reconstruir no solo el cálculo, sino también qué se consideró comparable.</p>
+<p>Mantén un núcleo estable solo si sigue siendo legítimo y representativo. Reporta dos series: continuidad sobre el núcleo y actualidad sobre la ventana nueva. Nunca sustituyas silenciosamente casos difíciles ni recalcules toda la historia con reglas recientes sin marcar una serie distinta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-cierra-con-una-decisión-que-admita-incertidumbre">8. Cierra con una decisión que admita incertidumbre<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#8-cierra-con-una-decisi%C3%B3n-que-admita-incertidumbre" class="hash-link" aria-label="Enlace directo al 8. Cierra con una decisión que admita incertidumbre" title="Enlace directo al 8. Cierra con una decisión que admita incertidumbre" translate="no">​</a></h3>
+<p>La revisión debe poder concluir: promover, no promover, detener por una barrera, investigar una deriva o declarar evidencia insuficiente. Define antes qué diferencias importan en la práctica y qué fallos impiden el despliegue aunque el promedio suba.</p>
+<p>Si los resultados motivan cambios, la ventana deja de ser confirmatoria para esa nueva versión. Continúa siendo valiosa como diagnóstico y como registro histórico, pero la siguiente afirmación necesita otra evidencia independiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La población objetivo y la unidad de evaluación están escritas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La ventana futura y sus reglas se fijaron antes de ver resultados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El candidato, sus dependencias y su configuración están congelados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Inclusiones y exclusiones no dependen del acierto del sistema.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada artefacto conserva procedencia, versión y hash cuando procede.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El etiquetado admite ambigüedad y no muestra la predicción.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Histórico y ventana futura se reportan por separado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los cortes analíticos se definieron antes o se marcan como exploratorios.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La incertidumbre acompaña a numeradores y denominadores.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay política de corrección, retirada, retención y acceso.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una persona revisa divergencias críticas antes de decidir.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La nueva versión no reutiliza su propia ventana confirmatoria como examen.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Una ventana futura tampoco es mágicamente representativa. Puede coincidir con una campaña extraordinaria, una caída de un portal o un cambio estacional. Varias ventanas y un muestreo bien descrito aportan más contexto que una fecha elegida por comodidad.</p>
+<p>Evita estos atajos:</p>
+<ul>
+<li class="">atribuir toda caída a deriva sin ejecutar el sistema anterior sobre la misma ventana;</li>
+<li class="">llamar «regresión» a una diferencia con intervalos muy amplios;</li>
+<li class="">conservar solo URLs accesibles al cierre y perder las retiradas ocurridas durante la recogida;</li>
+<li class="">cambiar la guía de etiquetado sin volver a medir una muestra puente;</li>
+<li class="">mezclar datos retrospectivos seleccionados a mano con la cohorte prospectiva;</li>
+<li class="">rellenar estratos escasos después de ver dónde falla el candidato;</li>
+<li class="">informar solo del agregado y ocultar que una fuente domina el resultado;</li>
+<li class="">usar datos públicos como sinónimo de datos irrestrictos o inocuos;</li>
+<li class="">convertir un benchmark técnico en una afirmación sobre una persona;</li>
+<li class="">promocionar automáticamente porque una métrica supera un umbral.</li>
+</ul>
+<p>Tampoco todas las tareas necesitan un calendario mensual. En fuentes de baja frecuencia puede ser mejor cerrar por número de eventos, manteniendo un límite temporal máximo. En incidentes raros, un estudio de casos con protocolo y revisión ciega puede ser más honesto que un porcentaje inestable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Minimiza campos, permisos, copias y tiempo de retención.</li>
+<li class="">Usa datos sintéticos para desarrollar y depurar siempre que sea posible.</li>
+<li class="">Separa credenciales y almacenamiento de desarrollo y evaluación.</li>
+<li class="">No pongas URLs sensibles ni datos personales en logs o paneles compartidos.</li>
+<li class="">Respeta retiradas, correcciones, licencias y términos de las fuentes.</li>
+<li class="">Documenta quién accede a casos individuales y con qué finalidad.</li>
+<li class="">Protege las etiquetas: también pueden revelar información delicada.</li>
+<li class="">Evita que la publicación de ejemplos facilite acoso, doxxing o evasión de controles.</li>
+<li class="">Conserva evidencia suficiente para auditar sin duplicar contenido innecesario.</li>
+<li class="">Mantén revisión humana para atribución, publicación y efectos externos.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si no puedes reservar una ventana futura, utiliza validación temporal retrospectiva: desarrolla con documentos anteriores a una fecha y evalúa con los posteriores, explicando que ambos periodos ya eran observables. Si el benchmark está muy expuesto, una evaluación ciega bajo custodia independiente puede proteger mejor la separación. Para monitorización continua, usa señales de esquema y distribución como alertas, no como sustituto automático de calidad etiquetada.</p>
+<p>El takeaway accionable es concreto: redacta hoy una página llamada <code>proxima-edicion.md</code> con la población, ventana, reglas de inclusión, política de correcciones, versión que vas a congelar y cuatro decisiones posibles. <strong>Si alguna regla solo puede escribirse después de ver qué casos bajan la puntuación, no es una regla de evaluación: es una negociación con el resultado.</strong></p>
+<p>Como siguiente tema convendría estudiar los <strong>paneles de deriva para fuentes OSINT</strong>: qué señales permiten distinguir cambios de esquema, mezcla y calidad sin convertir una alerta estadística en una conclusión automática.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://doi.org/10.6028/NIST.AI.800-3" target="_blank" rel="noopener noreferrer" class="">NIST AI 800-3: Expanding the AI Evaluation Toolbox with Statistical Models</a></li>
+<li class=""><a href="https://pages.nist.gov/ai-technology-evaluation/" target="_blank" rel="noopener noreferrer" class="">NIST: Artificial Intelligence Technology Evaluation (AITE)</a></li>
+<li class=""><a href="https://doi.org/10.6028/NIST.AI.800-2.ipd" target="_blank" rel="noopener noreferrer" class="">NIST: Practices for Automated Benchmark Evaluations of Language Models (borrador público inicial)</a></li>
+<li class=""><a href="https://developers.google.com/machine-learning/guides/rules-of-ml" target="_blank" rel="noopener noreferrer" class="">Google for Developers: Rules of Machine Learning</a></li>
+<li class=""><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring" target="_blank" rel="noopener noreferrer" class="">Google for Developers: Production ML systems — Monitoring pipelines</a></li>
+<li class=""><a href="https://mlcommons.org/benchmarks/" target="_blank" rel="noopener noreferrer" class="">MLCommons: Benchmarks</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Metodologia</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Automatizacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Desgaste del conjunto de evaluación en OSINT: límites de consulta sin enseñar el examen]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/desgaste-conjunto-evaluacion-limites-consulta-osint</link>
@@ -2762,168 +2917,6 @@
             <category>Verificacion</category>
             <category>Tradecraft</category>
             <category>Investigacion</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Simulacros de incidentes en OSINT: ensayar la rectificación antes de improvisarla]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint</guid>
-            <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de un equipo OSINT realizando un simulacro seguro de respuesta a incidentes]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de un equipo OSINT realizando un simulacro seguro de respuesta a incidentes" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-04-simulacros-incidentes-equipos-osint-66463c3f1212efc4071af28f9a3c1400.png" width="1376" height="768" class="img_ev3q"></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>A las 10:07, una analista recibe un aviso: el informe publicado esa mañana podría haberse construido con una descarga incompleta. A las 10:09, alguien pregunta si debe retirar la página; otra persona quiere corregir la gráfica; nadie sabe quién conserva el original ni quién avisará a la audiencia. Esta vez no hay víctimas ni datos reales. <strong>El reloj, el informe y el error forman parte de un simulacro diseñado para descubrir esas dudas antes de que importen.</strong></p>
-<p>Un simulacro de incidentes permite ensayar cómo detectar, contener, preservar, rectificar y comunicar un fallo OSINT en un entorno seguro. No busca sorprender ni puntuar a individuos. Busca comprobar si el equipo puede convertir una señal ambigua en decisiones trazables, sin destruir evidencia, amplificar una acusación o exponer datos personales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-simulacro-y-para-qué-sirve">Qué es un simulacro y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#qu%C3%A9-es-un-simulacro-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un simulacro y para qué sirve" title="Enlace directo al Qué es un simulacro y para qué sirve" translate="no">​</a></h2>
-<p>Un ejercicio de mesa o <em>tabletop</em> es una conversación guiada alrededor de un escenario. Las personas explican qué harían, con qué información, bajo qué autoridad y usando qué procedimiento. La <a href="https://csrc.nist.gov/glossary/term/tabletop_exercise" target="_blank" rel="noopener noreferrer" class="">definición de NIST</a> destaca precisamente su carácter basado en discusión: un facilitador presenta una situación y formula preguntas para validar un plan y las responsabilidades descritas en él.</p>
-<p>No es lo mismo que una prueba funcional. En esta última, el equipo ejecuta tareas en un entorno simulado: abre un ticket de ensayo, preserva un fixture, genera una página no pública o redacta una rectificación marcada como ficticia. La <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-84.pdf" target="_blank" rel="noopener noreferrer" class="">guía NIST SP 800-84</a> distingue ejercicios de mesa, ejercicios funcionales y pruebas, y propone diseñarlos a partir de objetivos, alcance, participantes y criterios de evaluación.</p>
-<p>En un equipo OSINT, un simulacro puede revelar preguntas que el documento de respuesta daba por resueltas:</p>
-<ul>
-<li class="">¿quién puede declarar un incidente y detener una publicación programada?;</li>
-<li class="">¿cómo retiramos un derivado sin borrar el original adquirido ni su registro de procedencia?;</li>
-<li class="">¿qué afirmaciones, gráficos y entregables dependen del lote sospechoso?;</li>
-<li class="">¿quién redacta una advertencia provisional y quién aprueba la rectificación?;</li>
-<li class="">¿cómo se registran decisiones, hipótesis descartadas y horas en una cronología común?;</li>
-<li class="">¿qué hacemos si el supuesto fallo resulta ser un cambio legítimo de la fuente?</li>
-</ul>
-<p>El ejercicio no verifica que una fuente sea verdadera ni garantiza que el equipo reaccionará igual bajo presión real. Sí permite observar si el plan es comprensible, si sus dependencias existen y si una decisión crítica tiene propietario.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-segunda-página-que-nadie-vio">Caso de uso legítimo: una segunda página que nadie vio<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#caso-de-uso-leg%C3%ADtimo-una-segunda-p%C3%A1gina-que-nadie-vio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una segunda página que nadie vio" title="Enlace directo al Caso de uso legítimo: una segunda página que nadie vio" translate="no">​</a></h2>
-<p>Imaginemos <strong>Observatorio Río Claro</strong>, un proyecto ficticio que publica agregados semanales de contratos administrativos. El equipo trabaja con documentos públicos y minimiza los campos personales. Para el ejercicio, todo se recrea con dominios <code>.example</code>, nombres inventados, importes sintéticos y copias aisladas de producción.</p>
-<p>El objetivo no es «resolver el incidente». Es más preciso:</p>
-<blockquote>
-<p>Comprobar si el equipo puede decidir en quince minutos qué salida debe detener, preservar el original y los derivados afectados, y publicar una advertencia interna trazable sin usar producción.</p>
-</blockquote>
-<p>El facilitador prepara un lote ficticio de 47 registros, una segunda página con otros 31 y una gráfica que anuncia una caída del 38 %. También prepara cinco <em>injects</em>: fragmentos de información que entregará a horas concretas o cuando el grupo tome una decisión.</p>
-<ol>
-<li class=""><strong>10:07 — aviso inicial:</strong> una lectora ficticia señala dos expedientes ausentes.</li>
-<li class=""><strong>10:10 — señal técnica:</strong> el job terminó con código <code>0</code>, pero el HTML contiene un enlace <code>next</code> no recorrido.</li>
-<li class=""><strong>10:15 — presión editorial:</strong> un mensaje simulado pregunta si puede enviarse el boletín en cinco minutos.</li>
-<li class=""><strong>10:20 — alcance:</strong> otros tres gráficos consumieron el mismo lote normalizado.</li>
-<li class=""><strong>10:25 — giro:</strong> la segunda página incluye un registro duplicado y una corrección retrospectiva.</li>
-</ol>
-<p>El último giro es importante: evita que el ejercicio premie una respuesta automática. Descargar más filas no convierte el resultado en verdad. El equipo todavía debe deduplicar, interpretar la corrección, documentar cobertura y comprobar qué afirmaciones siguen siendo defendibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="diseñar-el-ejercicio-sin-convertirlo-en-una-trampa">Diseñar el ejercicio sin convertirlo en una trampa<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#dise%C3%B1ar-el-ejercicio-sin-convertirlo-en-una-trampa" class="hash-link" aria-label="Enlace directo al Diseñar el ejercicio sin convertirlo en una trampa" title="Enlace directo al Diseñar el ejercicio sin convertirlo en una trampa" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-un-objetivo-observable">1. Escribe un objetivo observable<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#1-escribe-un-objetivo-observable" class="hash-link" aria-label="Enlace directo al 1. Escribe un objetivo observable" title="Enlace directo al 1. Escribe un objetivo observable" translate="no">​</a></h3>
-<p>«Mejorar la preparación» no se puede evaluar. Formula una capacidad, una condición y un criterio:</p>
-<ul>
-<li class="">localizar todos los derivados del lote antes de quince minutos;</li>
-<li class="">asignar coordinación, operaciones, documentación y comunicación sin dejar funciones implícitas;</li>
-<li class="">conservar original, hash, hora de adquisición y versión del parser antes de transformar nada;</li>
-<li class="">decidir entre mantener, etiquetar, retirar o corregir aplicando la política vigente;</li>
-<li class="">producir una acción de mejora con responsable, fecha y prueba de cierre.</li>
-</ul>
-<p>Un ejercicio corto con un objetivo suele enseñar más que una catástrofe barroca con diez fallos simultáneos. NIST advierte que los escenarios excesivamente detallados pueden desviar la conversación desde los objetivos hacia la discusión del relato.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-separa-diseño-facilitación-juego-y-observación">2. Separa diseño, facilitación, juego y observación<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#2-separa-dise%C3%B1o-facilitaci%C3%B3n-juego-y-observaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 2. Separa diseño, facilitación, juego y observación" title="Enlace directo al 2. Separa diseño, facilitación, juego y observación" translate="no">​</a></h3>
-<p>Una persona puede cubrir varias funciones en un equipo pequeño, pero conviene nombrarlas:</p>
-<ul>
-<li class=""><strong>dirección del ejercicio:</strong> define alcance, permisos y condiciones de parada;</li>
-<li class=""><strong>facilitación:</strong> presenta el escenario, entrega <em>injects</em> y devuelve la discusión al objetivo;</li>
-<li class=""><strong>participantes:</strong> responden con los procedimientos y herramientas que usarían;</li>
-<li class=""><strong>observación:</strong> registra hechos y tiempos contra criterios acordados, sin interpretar intenciones;</li>
-<li class=""><strong>control de seguridad:</strong> puede pausar el ejercicio si una acción amenaza producción, privacidad o bienestar.</li>
-</ul>
-<p>Los <a href="https://www.cisa.gov/resources-tools/resources/ctep-package-documents" target="_blank" rel="noopener noreferrer" class="">paquetes CTEP de CISA</a> separan materiales para planificación, facilitación, participantes, comentarios e informe posterior. No hace falta copiar su escala, pero sí su idea central: quien evalúa debe saber antes qué evidencia observará.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-define-límites-antes-del-primer-minuto">3. Define límites antes del primer minuto<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#3-define-l%C3%ADmites-antes-del-primer-minuto" class="hash-link" aria-label="Enlace directo al 3. Define límites antes del primer minuto" title="Enlace directo al 3. Define límites antes del primer minuto" translate="no">​</a></h3>
-<p>Un simulacro responsable no autoriza acciones que serían inadecuadas fuera de él. Deja por escrito:</p>
-<ul>
-<li class="">ningún mensaje sale a audiencias reales;</li>
-<li class="">no se modifican el sitio público, el repositorio de producción ni las alertas operativas;</li>
-<li class="">no se consultan personas, cuentas, teléfonos o correos reales;</li>
-<li class="">los documentos sintéticos llevan una marca inequívoca de ejercicio;</li>
-<li class="">no se simulan acusaciones contra personas u organizaciones identificables;</li>
-<li class="">las credenciales, canales y destinatarios de prueba están aislados;</li>
-<li class="">cualquier participante puede pedir una pausa sin penalización;</li>
-<li class="">una palabra de seguridad detiene inmediatamente la ejecución funcional.</li>
-</ul>
-<p>El <a href="https://www.ncsc.gov.uk/section/advice-guidance/all-topics/exercising" target="_blank" rel="noopener noreferrer" class="">NCSC británico</a> resume el valor de estos ejercicios como práctica de la respuesta en un entorno seguro. Para OSINT, «seguro» incluye seguridad técnica, protección de datos y prevención del daño reputacional.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-la-preparación-al-cierre">Flujo recomendado: de la preparación al cierre<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#flujo-recomendado-de-la-preparaci%C3%B3n-al-cierre" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de la preparación al cierre" title="Enlace directo al Flujo recomendado: de la preparación al cierre" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="antes-alcance-fixtures-y-línea-de-base">Antes: alcance, fixtures y línea de base<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#antes-alcance-fixtures-y-l%C3%ADnea-de-base" class="hash-link" aria-label="Enlace directo al Antes: alcance, fixtures y línea de base" title="Enlace directo al Antes: alcance, fixtures y línea de base" translate="no">​</a></h3>
-<ol>
-<li class="">Elige una sola capacidad surgida de un riesgo o postmortem reciente.</li>
-<li class="">Decide si será conversación de mesa o ejecución funcional aislada.</li>
-<li class="">Crea originales, derivados, capturas y mensajes completamente ficticios.</li>
-<li class="">Anota la respuesta esperada del sistema, no una única secuencia «correcta» de decisiones.</li>
-<li class="">Define criterios observables y recoge la versión vigente del procedimiento.</li>
-<li class="">Confirma participantes, canales de prueba, duración y criterios de parada.</li>
-<li class="">Comprueba que todos distinguen <code>EJERCICIO</code> de <code>INCIDENTE REAL</code>.</li>
-</ol>
-<p>Haz una prueba en seco de los <em>injects</em>. Un PDF deliberadamente paginado debe abrirse; una URL <code>.example</code> no debe activar un recolector real; una captura no puede contener datos arrastrados de otro caso. Si la ficción técnica no es coherente, terminarás evaluando la capacidad de adivinar qué quiso decir el facilitador.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="durante-declarar-contener-preservar-y-comunicar">Durante: declarar, contener, preservar y comunicar<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#durante-declarar-contener-preservar-y-comunicar" class="hash-link" aria-label="Enlace directo al Durante: declarar, contener, preservar y comunicar" title="Enlace directo al Durante: declarar, contener, preservar y comunicar" translate="no">​</a></h3>
-<p>El facilitador presenta solo la información disponible en ese momento. Los participantes pueden pedir comprobaciones y reciben la respuesta preparada. El observador registra:</p>
-<table><thead><tr><th>Momento</th><th>Evidencia observable</th><th>Pregunta de control</th></tr></thead><tbody><tr><td>Declaración</td><td>responsable, alcance inicial y canal</td><td>¿Todos saben que es un ejercicio?</td></tr><tr><td>Contención</td><td>publicación o cola ficticia identificada</td><td>¿Se evitó alterar originales?</td></tr><tr><td>Preservación</td><td>URL, UTC, hash, fichero y versión</td><td>¿Puede reconstruirse el estado?</td></tr><tr><td>Análisis</td><td>hipótesis y hechos separados</td><td>¿Se documentó qué falta por saber?</td></tr><tr><td>Decisión</td><td>opción, autoridad y justificación</td><td>¿La política sostiene la medida?</td></tr><tr><td>Comunicación</td><td>borrador, audiencia y próxima actualización</td><td>¿Describe incertidumbre sin acusar?</td></tr></tbody></table>
-<p>No conviertas la facilitación en un concurso de secretos. Si el equipo se bloquea por una ambigüedad artificial, aporta contexto. Si resuelve el caso antes de tiempo, introduce una dependencia afectada o una información contradictoria que esté dentro del objetivo, no una sorpresa imposible.</p>
-<p>Google SRE recomienda practicar la respuesta periódicamente, usar escenarios inventados o derivados de postmortems y revisar después qué funcionó y qué debe cambiar. Su <a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">capítulo sobre respuesta a incidentes</a> también subraya que la práctica desarrolla coordinación y comunicación; no basta con memorizar una lista.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="después-hotwash-informe-y-mejora-verificable">Después: <em>hotwash</em>, informe y mejora verificable<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#despu%C3%A9s-hotwash-informe-y-mejora-verificable" class="hash-link" aria-label="Enlace directo al después-hotwash-informe-y-mejora-verificable" title="Enlace directo al después-hotwash-informe-y-mejora-verificable" translate="no">​</a></h3>
-<p>Reserva los últimos quince minutos para una revisión inmediata o <em>hotwash</em>. Pregunta:</p>
-<ol>
-<li class="">¿Qué información permitió avanzar?</li>
-<li class="">¿Dónde dudamos sobre autoridad, canal o procedimiento?</li>
-<li class="">¿Qué barrera limitó el impacto simulado?</li>
-<li class="">¿Qué observó el evaluador que el grupo no vio?</li>
-<li class="">¿Qué debe cambiar antes del siguiente ejercicio?</li>
-</ol>
-<p>El informe posterior debe separar observación de recomendación. «La advertencia se redactó a los 19 minutos; el objetivo era 15» es una observación. «Añadir una plantilla enlazada desde el runbook» es una recomendación. La acción útil añade propietario, fecha y comprobación: «ejecutar un ensayo con la plantilla y demostrar que contiene alcance, incertidumbre y hora de próxima actualización».</p>
-<p>No cierres el ejercicio al enviar el acta. Ciérralo cuando se hayan verificado las acciones o se haya aceptado explícitamente el riesgo residual.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos-del-propio-ejercicio">Limitaciones y falsos positivos del propio ejercicio<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#limitaciones-y-falsos-positivos-del-propio-ejercicio" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos del propio ejercicio" title="Enlace directo al Limitaciones y falsos positivos del propio ejercicio" translate="no">​</a></h2>
-<p>Un simulacro produce señales, no una certificación. Sus límites más habituales son:</p>
-<ul>
-<li class=""><strong>efecto guion:</strong> quien conoce el escenario puede conducir al equipo hacia la respuesta prevista;</li>
-<li class=""><strong>presión irreal:</strong> una sala tranquila no reproduce cansancio, exposición pública ni información fragmentaria;</li>
-<li class=""><strong>éxito teatral:</strong> completar el ejercicio puede ocultar que los accesos o dependencias reales no funcionarían;</li>
-<li class=""><strong>medición pobre:</strong> un tiempo rápido no compensa haber destruido procedencia o comunicado una certeza falsa;</li>
-<li class=""><strong>sobreajuste:</strong> repetir siempre la misma paginación entrena el libreto, no la capacidad de razonar;</li>
-<li class=""><strong>daño accidental:</strong> un mensaje ficticio mal etiquetado puede llegar a una persona real;</li>
-<li class=""><strong>silencio confundido con acuerdo:</strong> participantes con menor rango pueden detectar un riesgo y no expresarlo.</li>
-</ul>
-<p>Alterna ejercicios de mesa con pruebas funcionales en entornos aislados. Cambia una variable cada vez y conserva una línea de base. Si un control no puede probarse sin tocar producción, registra esa limitación en lugar de fingir que quedó validado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa entidades, dominios, cuentas, hashes e importes sintéticos.</li>
-<li class="">Elimina capturas reales de los fixtures, incluidos nombres, avatares y metadatos invisibles.</li>
-<li class="">No uses el ejercicio para evaluar públicamente a una persona ni para justificar vigilancia laboral.</li>
-<li class="">Evalúa funciones y barreras: «faltó autoridad documentada», no «alguien fue lento».</li>
-<li class="">Mantén la lista de <em>injects</em> separada de los materiales de participantes.</li>
-<li class="">Protege las notas: pueden describir debilidades internas, contactos y procedimientos de emergencia.</li>
-<li class="">Fija retención y acceso para grabaciones, chats y documentos colaborativos.</li>
-<li class="">Incluye una vía para declarar un incidente real si aparece durante el ejercicio.</li>
-<li class="">Marca todos los artefactos con <code>EJERCICIO — NO PUBLICAR</code> y retíralos de canales de prueba al cerrar.</li>
-<li class="">Si el escenario incluye contenido sensible, avisa de su naturaleza y ofrece alternativas de participación.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plantilla-mínima-reutilizable">Plantilla mínima reutilizable<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#plantilla-m%C3%ADnima-reutilizable" class="hash-link" aria-label="Enlace directo al Plantilla mínima reutilizable" title="Enlace directo al Plantilla mínima reutilizable" translate="no">​</a></h2>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Nombre: SIM-OSINT-01 — publicación incompleta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Tipo: ejercicio de mesa / funcional aislado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Objetivo observable:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuera de alcance:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Responsable de seguridad y palabra de parada:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Participantes y funciones:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fixture sintético:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Duración:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Injects y condiciones de entrega:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Criterios de evaluación:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Canales y destinatarios de prueba:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Evidencias que conservará el observador:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Hotwash:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Acciones, responsables, fechas y prueba de cierre:</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist">Checklist<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#checklist" class="hash-link" aria-label="Enlace directo al Checklist" title="Enlace directo al Checklist" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El objetivo mide una capacidad, no la obediencia al guion.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los materiales son sintéticos y están marcados como ejercicio.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Producción, cuentas reales y audiencias públicas quedan fuera.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Existe una persona con autoridad para detener la prueba.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los roles de facilitación, participación y observación están claros.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada <em>inject</em> sirve al objetivo y tiene una respuesta preparada.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los criterios se definieron antes de empezar.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se observan procedencia, privacidad y calidad de decisión, no solo velocidad.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El cierre incluye <em>hotwash</em> e informe posterior.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada mejora tiene responsable, fecha y comprobación.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se distingue una limitación del ejercicio de un control validado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Nadie presenta el resultado como garantía de verdad factual.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si primero necesitas reconstruir un fallo real, empieza por <a class="" href="https://spainfsd-creator.github.io/osint-blog/postmortems-sin-culpa-incidentes-osint">postmortems sin culpa</a>. Para decidir cuándo detener una salida, revisa <a class="" href="https://spainfsd-creator.github.io/osint-blog/presupuestos-error-pipelines-osint">presupuestos de error</a>; para detectar degradaciones, <a class="" href="https://spainfsd-creator.github.io/osint-blog/observabilidad-datos-osint">observabilidad de datos</a>; y para recorrer los derivados afectados, <a class="" href="https://spainfsd-creator.github.io/osint-blog/openlineage-linaje-datos-osint">OpenLineage</a>.</p>
-<p>El takeaway accionable es sencillo: toma una rectificación reciente, sustituye todos sus datos por fixtures sintéticos y organiza un ejercicio de mesa de 45 minutos con un solo objetivo. Mide cuándo se declara, qué se preserva y quién decide. Si la mejora final dice «comunicar mejor», todavía no está cerrada: conviértela en una acción observable.</p>
-<p>Como próximo tema, merece la pena estudiar <strong>la comunicación pública de correcciones OSINT</strong>: cómo mantener una nota visible, enlazar versiones y explicar el cambio sin borrar el historial ni amplificar el dato equivocado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-incidentes-equipos-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-84.pdf" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-84: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities</a></li>
-<li class=""><a href="https://csrc.nist.gov/glossary/term/tabletop_exercise" target="_blank" rel="noopener noreferrer" class="">NIST CSRC: definición de Tabletop Exercise</a></li>
-<li class=""><a href="https://www.cisa.gov/resources-tools/resources/ctep-package-documents" target="_blank" rel="noopener noreferrer" class="">CISA: Cybersecurity Tabletop Exercise Package Documents</a></li>
-<li class=""><a href="https://www.ncsc.gov.uk/section/advice-guidance/all-topics/exercising" target="_blank" rel="noopener noreferrer" class="">NCSC: Exercising</a></li>
-<li class=""><a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Incident Response</a></li>
-<li class=""><a href="https://sre.google/resources/practices-and-processes/anatomy-of-an-incident/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Anatomy of an Incident</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>incident-response</category>
-            <category>Verificacion</category>
-            <category>Automatizacion</category>
             <category>Privacidad</category>
         </item>
     </channel>
