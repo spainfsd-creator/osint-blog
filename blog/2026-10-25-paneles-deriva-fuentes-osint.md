@@ -13,6 +13,9 @@ El panel se vuelve rojo a las 06:10. Han desaparecido dos categorías, la median
 
 ![Analista ante un panel que separa cambios de esquema, mezcla de fuentes y calidad](/img/blog/2026-10-25-paneles-deriva-fuentes-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/paneles-deriva-fuentes-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
