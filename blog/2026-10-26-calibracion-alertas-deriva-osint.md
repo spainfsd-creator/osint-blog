@@ -13,6 +13,9 @@ Una alerta salta porque el porcentaje de documentos sin fecha pasa del 4 % al 7 
 
 ![Analista calibrando umbrales y ventanas de alertas de deriva frente a un registro de resultados](/img/blog/2026-10-26-calibracion-alertas-deriva-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/calibracion-alertas-deriva-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
