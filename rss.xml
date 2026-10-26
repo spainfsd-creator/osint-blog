@@ -4,10 +4,194 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sun, 25 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Calibración de alertas de deriva en OSINT: detectar cambios sin entrenar al ruido]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint</guid>
+            <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Una alerta salta porque el porcentaje de documentos sin fecha pasa del 4 % al 7 %. El equipo interrumpe su trabajo, abre veinte ejemplos y descubre un boletín extraordinario perfectamente válido. Baja el umbral. A la semana siguiente ocurre algo parecido y vuelve a bajarlo. Tres meses después, el panel está en silencio incluso cuando el extractor pierde una fuente completa. No se ha calibrado la alerta: se la ha entrenado para olvidar cada susto.]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una alerta salta porque el porcentaje de documentos sin fecha pasa del 4 % al 7 %. El equipo interrumpe su trabajo, abre veinte ejemplos y descubre un boletín extraordinario perfectamente válido. Baja el umbral. A la semana siguiente ocurre algo parecido y vuelve a bajarlo. Tres meses después, el panel está en silencio incluso cuando el extractor pierde una fuente completa. <strong>No se ha calibrado la alerta: se la ha entrenado para olvidar cada susto.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Analista calibrando umbrales y ventanas de alertas de deriva frente a un registro de resultados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-26-calibracion-alertas-deriva-osint-48e1a17e1c8d9c7e3f90d678a2af139f.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Calibrar una alerta de deriva consiste en elegir, probar y gobernar una regla que transforme una señal de cambio en una acción proporcionada. La regla incluye más que un número: define la población observada, la referencia, la ventana, el tamaño mínimo de muestra, la persistencia, la severidad, el responsable y qué evidencia permite cerrar el aviso.</p>
+<p>Todos los nombres, fuentes, documentos y resultados del caso de este artículo son ficticios. El método se limita a datos sintéticos, fuentes públicas o sistemas propios y autorizados. Una alerta identifica una diferencia que merece revisión; no demuestra manipulación, engaño, culpabilidad ni intención.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-calibrar-una-alerta-y-para-qué-sirve">Qué es calibrar una alerta (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#qu%C3%A9-es-calibrar-una-alerta-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es calibrar una alerta (y para qué sirve)" title="Enlace directo al Qué es calibrar una alerta (y para qué sirve)" translate="no">​</a></h2>
+<p>Un detector produce una medida: proporción de nulos, distancia entre distribuciones, caída de volumen, cambio de esquema o discrepancia en una muestra etiquetada. Una política de alerta decide qué hacer con esa medida.</p>
+<p>Esa distinción evita dos atajos frecuentes:</p>
+<ul>
+<li class="">un valor estadísticamente significativo no es automáticamente importante;</li>
+<li class="">un umbral que funcionó sobre incidentes pasados no garantiza que generalice.</li>
+</ul>
+<p>NIST recomienda monitorizar las diferencias entre producción y pruebas, combinar pruebas de hipótesis con conocimiento del dominio, considerar la propagación de errores y asignar responsabilidades claras a la supervisión humana. Su informe sobre monitorización desplegada de 2026 añade una cautela útil: las prácticas validadas siguen dispersas y la cadencia correcta depende del contexto. Por tanto, no existe un umbral universal de deriva que podamos copiar sin justificarlo.</p>
+<p>La calibración sirve para responder preguntas operativas:</p>
+<ul>
+<li class="">¿qué cambio exige una revisión inmediata y cuál puede esperar?</li>
+<li class="">¿cuánto cuesta investigar una falsa alarma?</li>
+<li class="">¿qué daño puede causar no detectar un cambio real?</li>
+<li class="">¿qué volumen hace estable la señal?</li>
+<li class="">¿quién puede confirmar el incidente y con qué evidencia?</li>
+<li class="">¿cuándo debe retirarse o recalibrarse la regla?</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-un-umbral-que-parecía-prudente">Caso legítimo: un umbral que parecía prudente<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#caso-leg%C3%ADtimo-un-umbral-que-parec%C3%ADa-prudente" class="hash-link" aria-label="Enlace directo al Caso legítimo: un umbral que parecía prudente" title="Enlace directo al Caso legítimo: un umbral que parecía prudente" translate="no">​</a></h2>
+<p>El observatorio ficticio <strong>Archivo Faro</strong> recopila resoluciones públicas de ocho organismos. Su pipeline extrae fecha, órgano, referencia y tipo documental. El equipo quiere detectar pronto una degradación del campo <code>fecha_resolucion</code>.</p>
+<p>Durante doce semanas retrospectivas construye una tabla semanal:</p>
+<table><thead><tr><th>Semana</th><th style="text-align:right">Documentos</th><th style="text-align:right">Fechas vacías</th><th>Causa revisada</th><th>Resultado</th></tr></thead><tbody><tr><td>S-12</td><td style="text-align:right">840</td><td style="text-align:right">3,8 %</td><td>mezcla habitual</td><td>normal</td></tr><tr><td>S-9</td><td style="text-align:right">190</td><td style="text-align:right">8,4 %</td><td>festivo y lote pequeño</td><td>cambio legítimo</td></tr><tr><td>S-6</td><td style="text-align:right">910</td><td style="text-align:right">12,1 %</td><td>nueva plantilla no soportada</td><td>incidente real</td></tr><tr><td>S-3</td><td style="text-align:right">1.480</td><td style="text-align:right">6,9 %</td><td>archivo histórico escaneado</td><td>cambio legítimo</td></tr><tr><td>S-1</td><td style="text-align:right">875</td><td style="text-align:right">10,7 %</td><td>fallo de OCR tras despliegue</td><td>incidente real</td></tr></tbody></table>
+<p>Una regla simple de «alertar por encima del 6 %» detectaría los dos incidentes, pero también dos cambios legítimos. Elevarla al 10 % reduciría ruido, aunque el aviso llegaría tarde si el fallo afecta inicialmente a un solo organismo.</p>
+<p>El equipo deja de buscar el porcentaje mágico y define costes explícitos:</p>
+<ul>
+<li class="">una falsa alarma consume unos 35 minutos de revisión;</li>
+<li class="">omitir una fuente completa invalida informes derivados y exige rectificación;</li>
+<li class="">un cambio pequeño y sostenido puede ser más relevante que un pico aislado;</li>
+<li class="">con menos de 250 documentos, el porcentaje semanal es demasiado inestable para paginar a nadie;</li>
+<li class="">una ruptura de esquema tiene mayor urgencia que una variación moderada de distribución.</li>
+</ul>
+<p>La política resultante usa dos niveles:</p>
+<ol>
+<li class=""><strong>revisión:</strong> más del 6 % durante dos ventanas comparables o una diferencia localizada en un segmento crítico;</li>
+<li class=""><strong>incidente:</strong> más del 10 % con al menos 250 documentos, o cualquier ausencia completa de una fuente prevista.</li>
+</ol>
+<p>El ejemplo no pretende exportar esos números. Su valor está en hacer visibles el coste, la población mínima, la persistencia, las excepciones y la acción asociada.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-objeto-y-la-decisión-antes-de-mirar-el-umbral">1. Define el objeto y la decisión antes de mirar el umbral<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#1-define-el-objeto-y-la-decisi%C3%B3n-antes-de-mirar-el-umbral" class="hash-link" aria-label="Enlace directo al 1. Define el objeto y la decisión antes de mirar el umbral" title="Enlace directo al 1. Define el objeto y la decisión antes de mirar el umbral" translate="no">​</a></h3>
+<p>Escribe una ficha por alerta:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">alerta</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> fechas_vacias</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">unidad</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> documento_publicado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">poblacion</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> resoluciones_elegibles</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">referencia</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> ocho_semanas_comparables</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">ventana_actual</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> una_semana</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">segmentos</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain">organismo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> formato</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">accion_revision</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> abrir_muestra_y_comprobar_adquisicion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">accion_incidente</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> detener_derivados_afectados</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">propietario</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> guardia_datos</span><br></span></code></pre></div></div>
+<p>La ficha impide comparar poblaciones distintas bajo el mismo nombre. Si un portal añade un archivo histórico, ese lote puede necesitar una cohorte separada; si se mezcla con publicaciones corrientes, la alerta medirá composición antes que calidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-un-historial-con-resultados-adjudicados">2. Construye un historial con resultados adjudicados<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#2-construye-un-historial-con-resultados-adjudicados" class="hash-link" aria-label="Enlace directo al 2. Construye un historial con resultados adjudicados" title="Enlace directo al 2. Construye un historial con resultados adjudicados" translate="no">​</a></h3>
+<p>Una alerta solo puede evaluarse si sabemos qué ocurrió después. Conserva, como mínimo:</p>
+<ul>
+<li class="">identificador y versión de la regla;</li>
+<li class="">referencia, ventana, segmentos y tamaños de muestra;</li>
+<li class="">valor observado y severidad emitida;</li>
+<li class="">evidencia revisada;</li>
+<li class="">clasificación: incidente real, cambio legítimo, dato insuficiente o causa no determinada;</li>
+<li class="">acción, responsable y tiempo hasta resolución;</li>
+<li class="">impacto en productos derivados;</li>
+<li class="">fecha y motivo de cualquier cambio de umbral.</li>
+</ul>
+<p>No fuerces cada caso a «verdadero» o «falso». <code>Causa no determinada</code> es una salida honesta cuando faltan originales, etiquetas o contexto. Convertir la incertidumbre en falso positivo para mejorar una métrica solo maquilla el sistema.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-el-coste-de-las-dos-clases-de-error">3. Separa el coste de las dos clases de error<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#3-separa-el-coste-de-las-dos-clases-de-error" class="hash-link" aria-label="Enlace directo al 3. Separa el coste de las dos clases de error" title="Enlace directo al 3. Separa el coste de las dos clases de error" translate="no">​</a></h3>
+<p>Podemos tratar cada aviso como una decisión binaria provisional:</p>
+<table><thead><tr><th>Resultado</th><th>Había cambio material</th><th>No había cambio material</th></tr></thead><tbody><tr><td>alerta</td><td>verdadero positivo</td><td>falso positivo</td></tr><tr><td>no alerta</td><td>falso negativo</td><td>verdadero negativo</td></tr></tbody></table>
+<p>Google explica que subir un umbral suele reducir falsos positivos y aumentar falsos negativos; bajarlo suele hacer lo contrario. La elección depende del coste, beneficio y riesgo del caso. En OSINT, esos costes rara vez son simétricos.</p>
+<p>Una formulación sencilla para comparar políticas es:</p>
+<p><code>coste = FP × coste_revision + FN × coste_omision + demoras × coste_retraso</code></p>
+<p>No hace falta fingir una precisión económica inexistente. Puedes usar categorías —bajo, medio, alto— y documentar quién las aprobó. Lo importante es no optimizar únicamente la cantidad de alertas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-reproduce-las-reglas-sobre-ventanas-retrospectivas">4. Reproduce las reglas sobre ventanas retrospectivas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#4-reproduce-las-reglas-sobre-ventanas-retrospectivas" class="hash-link" aria-label="Enlace directo al 4. Reproduce las reglas sobre ventanas retrospectivas" title="Enlace directo al 4. Reproduce las reglas sobre ventanas retrospectivas" translate="no">​</a></h3>
+<p>Ejecuta cada política candidata sobre un periodo histórico que incluya:</p>
+<ul>
+<li class="">días y semanas normales;</li>
+<li class="">festivos y cierres de calendario;</li>
+<li class="">lotes pequeños y publicaciones masivas;</li>
+<li class="">cambios conocidos de plantilla o fuente;</li>
+<li class="">fallos reales del colector o extractor;</li>
+<li class="">segmentos con distinta frecuencia y formato.</li>
+</ul>
+<p>Para cada regla calcula recuentos, no solo porcentajes: verdaderos positivos, falsos positivos, falsos negativos, tiempo de detección y carga de revisión. Informa además el volumen y la cobertura de casos adjudicados. Una precisión del 90 % basada en diez alertas no significa lo mismo que la misma cifra sobre quinientas.</p>
+<p>Evita elegir y evaluar el umbral sobre exactamente los mismos incidentes. Reserva un tramo temporal posterior o varias ventanas prospectivas para confirmar que la regla no se limita a reconocer los episodios que inspiraron su diseño.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-combina-ventanas-rápidas-y-lentas">5. Combina ventanas rápidas y lentas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#5-combina-ventanas-r%C3%A1pidas-y-lentas" class="hash-link" aria-label="Enlace directo al 5. Combina ventanas rápidas y lentas" title="Enlace directo al 5. Combina ventanas rápidas y lentas" translate="no">​</a></h3>
+<p>Un pico grande necesita detección temprana; un deterioro pequeño pero persistente necesita memoria. Google SRE propone combinar ventanas cortas y largas en sus alertas basadas en consumo de presupuesto: la ventana larga aporta contexto y la corta permite que el aviso se resuelva con más rapidez. No debemos trasladar sus cifras de servicios web directamente a un pipeline OSINT, pero sí la idea.</p>
+<p>Una política prudente puede separar:</p>
+<ul>
+<li class=""><strong>rápida:</strong> ruptura de esquema, fuente ausente o salto extremo con muestra suficiente;</li>
+<li class=""><strong>sostenida:</strong> desviación moderada repetida en varias ventanas comparables;</li>
+<li class=""><strong>informativa:</strong> señal débil que se registra para revisión periódica sin interrumpir al equipo.</li>
+</ul>
+<p>En fuentes de bajo volumen, exigir dos ventanas puede retrasar demasiado. Allí conviene usar conteos absolutos, calendario esperado, inspección por evento y revisión humana en lugar de una tasa inestable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-define-severidad-por-acción-no-por-color">6. Define severidad por acción, no por color<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#6-define-severidad-por-acci%C3%B3n-no-por-color" class="hash-link" aria-label="Enlace directo al 6. Define severidad por acción, no por color" title="Enlace directo al 6. Define severidad por acción, no por color" translate="no">​</a></h3>
+<p>Una alerta urgente debe tener una acción inmediata que una persona pueda ejecutar. Google SRE advierte que avisos no accionables y con mala relación señal/ruido provocan fatiga. Para un flujo OSINT, una escala útil sería:</p>
+<table><thead><tr><th>Nivel</th><th>Acción permitida</th><th>Ejemplo</th></tr></thead><tbody><tr><td>registrar</td><td>guardar señal para revisión agrupada</td><td>distribución distinta sin impacto confirmado</td></tr><tr><td>revisar</td><td>asignar ticket y muestrear originales</td><td>aumento sostenido de nulos</td></tr><tr><td>contener</td><td>pausar solo derivados afectados</td><td>fuente prevista ausente</td></tr><tr><td>escalar</td><td>activar respuesta y rectificación</td><td>error confirmado ya publicado</td></tr></tbody></table>
+<p>La alerta nunca debería atribuir intención, señalar a una persona ni publicar una conclusión por sí sola.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-cambia-reglas-mediante-versiones-y-revisión">7. Cambia reglas mediante versiones y revisión<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#7-cambia-reglas-mediante-versiones-y-revisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 7. Cambia reglas mediante versiones y revisión" title="Enlace directo al 7. Cambia reglas mediante versiones y revisión" translate="no">​</a></h3>
+<p>Cada ajuste debe conservar:</p>
+<ul>
+<li class="">versión anterior y nueva;</li>
+<li class="">evidencia que motivó el cambio;</li>
+<li class="">comparación retrospectiva de ambas;</li>
+<li class="">efecto esperado en carga y omisiones;</li>
+<li class="">fecha de entrada en vigor;</li>
+<li class="">responsable y fecha de revisión;</li>
+<li class="">criterio para revertir.</li>
+</ul>
+<p>No recalcules el historial como si la regla nueva hubiera existido siempre. Mantén dos vistas: qué habría ocurrido con la regla candidata y qué ocurrió realmente con la vigente. Esa diferencia forma parte de la evidencia operativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cómo-evitar-ajustar-el-sistema-al-último-incidente">Cómo evitar ajustar el sistema al último incidente<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#c%C3%B3mo-evitar-ajustar-el-sistema-al-%C3%BAltimo-incidente" class="hash-link" aria-label="Enlace directo al Cómo evitar ajustar el sistema al último incidente" title="Enlace directo al Cómo evitar ajustar el sistema al último incidente" translate="no">​</a></h2>
+<p>Después de una falsa alarma resulta tentador añadir una excepción exacta: «ignorar el organismo O-04 los lunes». Después de una omisión, la tentación contraria es bajar el umbral hasta capturar ese caso. Ambas decisiones pueden ser razonables, pero necesitan una hipótesis más general.</p>
+<p>Antes de cambiar una regla, pregunta:</p>
+<ol>
+<li class="">¿el caso revela una categoría repetible o solo una anécdota?</li>
+<li class="">¿la excepción se deriva de un calendario o contrato documentado?</li>
+<li class="">¿qué incidentes anteriores dejaría de detectar?</li>
+<li class="">¿funciona en un periodo que no usamos para diseñarla?</li>
+<li class="">¿podemos resolver la causa en adquisición o extracción en vez de silenciar el síntoma?</li>
+<li class="">¿ha cambiado el coste operativo o solo queremos que el panel vuelva a verde?</li>
+</ol>
+<p>Limita también la frecuencia de recalibración. Un cambio urgente puede aplicarse durante un incidente, pero debe quedar como excepción temporal con caducidad y revisión posterior.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<p>Una calibración retrospectiva depende de la calidad del registro. Si solo documentamos las alertas emitidas, no veremos falsos negativos: necesitamos auditorías por muestreo, controles independientes o incidentes descubiertos por otras vías.</p>
+<p>Otros límites importantes son:</p>
+<ul>
+<li class=""><strong>deriva de prevalencia:</strong> cambia la frecuencia de incidentes y con ella la precisión de la alerta;</li>
+<li class=""><strong>retardo de etiquetas:</strong> la verdad operativa puede conocerse días después;</li>
+<li class=""><strong>dependencia temporal:</strong> ventanas solapadas no son observaciones independientes;</li>
+<li class=""><strong>múltiples señales:</strong> probar decenas de métricas aumenta avisos casuales;</li>
+<li class=""><strong>segmentos pequeños:</strong> un porcentaje extremo puede representar dos documentos;</li>
+<li class=""><strong>cambios semánticos:</strong> el mismo nombre de campo puede adquirir otro significado sin romper el esquema;</li>
+<li class=""><strong>silencios desconocidos:</strong> no recibir datos puede parecer estabilidad si no se monitoriza cobertura;</li>
+<li class=""><strong>automatización circular:</strong> las acciones provocadas por una alerta pueden alterar la señal siguiente;</li>
+<li class=""><strong>desgaste del historial:</strong> ajustar repetidamente sobre los mismos incidentes sobreestima el rendimiento.</li>
+</ul>
+<p>NIST subraya que la monitorización desplegada debe combinar señales técnicas, contexto humano, documentación de errores e impactos y mecanismos de respuesta. Un detector de deriva no sustituye la validación de calidad ni la revisión del mundo al que supuestamente representa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Conserva agregados y referencias mínimas; no copies documentos personales al sistema de alertas.</li>
+<li class="">Protege consultas, URLs sensibles, cookies, tokens y rutas internas en logs y capturas.</li>
+<li class="">Separa el registro operativo de los materiales restringidos de una investigación.</li>
+<li class="">Limita el acceso a ejemplos individuales y registra quién los abre.</li>
+<li class="">Fija retención para muestras, adjudicaciones e incidentes.</li>
+<li class="">Respeta términos, límites, licencias, correcciones y retiradas de las fuentes.</li>
+<li class="">No uses segmentos que revelen atributos personales innecesarios.</li>
+<li class="">Permite clasificar una alerta como indeterminada sin forzar una acusación.</li>
+<li class="">Exige corroboración antes de convertir una anomalía en afirmación pública.</li>
+<li class="">Mantén una puerta humana para contener, rectificar o publicar.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La unidad, población, referencia y ventana están definidas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada regla tiene versión, propietario y fecha de revisión.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los costes de falso positivo, falso negativo y demora son explícitos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El historial incluye casos normales, incidentes y cambios legítimos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Existen conteos y tamaños de muestra, no solo porcentajes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una ventana independiente confirma la política elegida.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los avisos rápidos y sostenidos tienen acciones distintas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las fuentes de bajo volumen reciben un tratamiento específico.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los falsos negativos se buscan mediante controles independientes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las excepciones temporales caducan y dejan rastro.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Ninguna alerta atribuye intención ni publica automáticamente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La revisión minimiza exposición de datos personales.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Si apenas hay volumen, una lista versionada de eventos esperados y una revisión semanal puede superar a cualquier detector estadístico. Si la señal es contractual —una columna desaparece o una fuente no llega— usa primero reglas deterministas. Si existen etiquetas fiables, compara políticas mediante precisión, cobertura, tasa de falsas alarmas y demora, siempre desagregadas por fuente relevante.</p>
+<p>Para equipos pequeños, basta una tabla de adjudicación y un script reproducible que ensaye varios umbrales sobre ventanas históricas. Herramientas de monitorización pueden calcular distancias y pintar paneles, pero la política de acción, la evidencia de cierre y la responsabilidad siguen perteneciendo al equipo.</p>
+<p>El takeaway accionable es este: selecciona una alerta existente y reconstruye sus últimas veinte activaciones. Anota resultado, coste de revisión, demora, volumen y cambio de regla. <strong>Si no puedes explicar qué acción distinta habría provocado otro umbral, todavía no estás calibrando: solo estás moviendo una línea.</strong></p>
+<p>Como siguiente tema sería útil estudiar la <strong>auditoría por muestreo de silencios</strong>: cómo buscar falsos negativos cuando el sistema no genera ningún aviso, sin revisar todo el universo ni convertir ausencia de evidencia en evidencia de ausencia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://airc.nist.gov/airmf-resources/playbook/measure/" target="_blank" rel="noopener noreferrer" class="">NIST AI RMF Playbook — Measure</a></li>
+<li class=""><a href="https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation" target="_blank" rel="noopener noreferrer" class="">NIST AI 800-4 — Challenges to the Monitoring of Deployed AI Systems</a></li>
+<li class=""><a href="https://sre.google/workbook/alerting-on-slos/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook — Alerting on SLOs</a></li>
+<li class=""><a href="https://sre.google/workbook/on-call/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook — On-call</a></li>
+<li class=""><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall" target="_blank" rel="noopener noreferrer" class="">Google for Developers — Accuracy, recall, precision and related metrics</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Metodologia</category>
+            <category>monitoring</category>
+            <category>Datos</category>
+            <category>Verificacion</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Paneles de deriva para fuentes OSINT: alertar sin confundir cambio con error]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/paneles-deriva-fuentes-osint</link>
@@ -2740,182 +2924,6 @@
             <category>Automatizacion</category>
             <category>Verificacion</category>
             <category>Web</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Registros públicos de cambios en OSINT: versiones, avisos y trazabilidad sin exponer de más]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint</guid>
-            <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ilustración editorial de una analista revisando un registro cronológico de versiones y correcciones OSINT]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p><img decoding="async" loading="lazy" alt="Ilustración editorial de una analista revisando un registro cronológico de versiones y correcciones OSINT" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-06-registros-publicos-cambios-osint-fb3a93112b50660188265087425b5fb0.png" width="1376" height="768" class="img_ev3q"></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una organización corrige un informe, sustituye el CSV y regenera dos gráficos. La página ya muestra la versión buena, pero una periodista conserva el fichero anterior, un socio recibió el PDF por correo y el buscador aún enseña una descripción desactualizada. El equipo sabe qué cambió porque puede leer Git; la audiencia, no. <strong>Sin un registro público de cambios, la versión vigente existe, pero descubrirla depende de llegar por el camino correcto.</strong></p>
-<p>Un registro de cambios para OSINT conecta cada modificación relevante con el artefacto afectado, su alcance y la acción que debe tomar quien lo reutilizó. No necesita revelar el dato equivocado ni publicar deliberaciones internas. Necesita ofrecer una señal estable, proporcionada y verificable que también pueda consumir una máquina.</p>
-<p>Este artículo propone un formato mínimo y un flujo responsable. Todas las entidades, URLs, fechas operativas, identificadores y hashes del caso práctico son ficticios. Un hash permite comprobar bytes; un historial permite reconstruir cambios; <strong>ninguno demuestra que una conclusión sea verdadera</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-registro-público-de-cambios">Qué es un registro público de cambios<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#qu%C3%A9-es-un-registro-p%C3%BAblico-de-cambios" class="hash-link" aria-label="Enlace directo al Qué es un registro público de cambios" title="Enlace directo al Qué es un registro público de cambios" translate="no">​</a></h2>
-<p>Es una secuencia ordenada de eventos que describe cambios con impacto externo sobre una investigación o sus derivados. Puede publicarse como HTML para personas y como JSON o feed para automatización. Su unidad no es el <code>commit</code>, sino un <strong>evento editorial comprensible</strong>.</p>
-<p>Conviene separar tres capas:</p>
-<ol>
-<li class=""><strong>La obra estable:</strong> la investigación, identificada por una URL o ID que no cambia.</li>
-<li class=""><strong>Las versiones:</strong> estados concretos del informe, dataset, gráfico o anexo.</li>
-<li class=""><strong>Los eventos:</strong> publicación, corrección, sustitución, retirada o restauración que relacionan esos estados.</li>
-</ol>
-<p><a href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener noreferrer" class="">PROV-O</a> permite expresar que una entidad fue derivada de otra o es su revisión. <a href="https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/" target="_blank" rel="noopener noreferrer" class="">DataCite</a> define relaciones como <code>IsNewVersionOf</code> y <code>IsPreviousVersionOf</code>. No hace falta implantar ambos estándares para empezar, pero sus conceptos evitan confundir identidad, versión y procedencia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-no-es">Lo que no es<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#lo-que-no-es" class="hash-link" aria-label="Enlace directo al Lo que no es" title="Enlace directo al Lo que no es" translate="no">​</a></h3>
-<ul>
-<li class="">No es el historial de Git expuesto sin contexto.</li>
-<li class="">No es una lista de fechas de modificación sin explicación.</li>
-<li class="">No es una copia pública del ticket interno.</li>
-<li class="">No es una garantía criptográfica de veracidad.</li>
-<li class="">No es una excusa para conservar datos personales que ya deben retirarse.</li>
-<li class="">No sustituye una <a class="" href="https://spainfsd-creator.github.io/osint-blog/comunicacion-publica-correcciones-osint">nota de corrección visible</a> cuando el error afecta a la audiencia.</li>
-</ul>
-<p>El registro funciona como índice. La nota explica una rectificación importante; el evento permite encontrarla, relacionarla con versiones y automatizar avisos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-ficticio-el-informe-de-puerto-claro">Caso ficticio: el informe de Puerto Claro<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#caso-ficticio-el-informe-de-puerto-claro" class="hash-link" aria-label="Enlace directo al Caso ficticio: el informe de Puerto Claro" title="Enlace directo al Caso ficticio: el informe de Puerto Claro" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Puerto Claro</strong> publica un informe sobre ayudas municipales con tres salidas:</p>
-<ul>
-<li class="">una página HTML;</li>
-<li class="">un CSV descargable;</li>
-<li class="">un gráfico PNG incluido en un boletín.</li>
-</ul>
-<p>El 6 de octubre detecta que una fila corresponde al ejercicio anterior. La cifra agregada cambia un 1,8 %, pero la conclusión principal se mantiene. El equipo genera la versión <code>2026.10.06-2</code> y necesita que una persona que solo conserve el CSV antiguo pueda saber:</p>
-<ul>
-<li class="">que existe una revisión;</li>
-<li class="">qué artefactos quedaron sustituidos;</li>
-<li class="">si las conclusiones cambiaron;</li>
-<li class="">dónde obtener la versión vigente;</li>
-<li class="">y cómo verificar que descargó el fichero previsto.</li>
-</ul>
-<p>No necesita publicar el nombre contenido en la fila, el mensaje de quien avisó ni un <code>diff</code> que vuelva a exponer información inexacta.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-esquema-mínimo">El esquema mínimo<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#el-esquema-m%C3%ADnimo" class="hash-link" aria-label="Enlace directo al El esquema mínimo" title="Enlace directo al El esquema mínimo" translate="no">​</a></h2>
-<p>Un evento útil puede caber en pocos campos, siempre que sus significados estén documentados.</p>
-<table><thead><tr><th>Campo</th><th>Pregunta que responde</th><th>Regla práctica</th></tr></thead><tbody><tr><td><code>event_id</code></td><td>¿Qué evento es?</td><td>ID estable y único; no reutilizarlo</td></tr><tr><td><code>published_at</code></td><td>¿Cuándo se anunció?</td><td>Fecha y hora con zona; preferiblemente UTC</td></tr><tr><td><code>type</code></td><td>¿Qué ocurrió?</td><td>Vocabulario corto y documentado</td></tr><tr><td><code>work_id</code></td><td>¿Qué investigación identifica?</td><td>URL o ID canónico estable</td></tr><tr><td><code>from_version</code> / <code>to_version</code></td><td>¿Qué estados conecta?</td><td>No sobrescribir una versión ya publicada</td></tr><tr><td><code>summary</code></td><td>¿Qué cambió?</td><td>Lenguaje claro, sin reproducir daño</td></tr><tr><td><code>impact</code></td><td>¿Qué conclusiones afecta?</td><td>Distinguir datos, visuales y conclusiones</td></tr><tr><td><code>artifacts</code></td><td>¿Qué salidas cambian?</td><td>Enlaces, estado y tipo de cada artefacto</td></tr><tr><td><code>supersedes</code></td><td>¿Qué deja de ser vigente?</td><td>Referencia explícita a la versión anterior</td></tr><tr><td><code>action</code></td><td>¿Qué debe hacer quien la usó?</td><td>Descargar, volver a calcular, dejar de citar, etc.</td></tr><tr><td><code>notice_url</code></td><td>¿Dónde está la explicación humana?</td><td>Obligatoria para cambios materiales</td></tr><tr><td><code>integrity</code></td><td>¿Cómo compruebo los bytes?</td><td>Algoritmo, digest y artefacto exacto</td></tr></tbody></table>
-<p>La <a href="https://www.rfc-editor.org/rfc/rfc3339" target="_blank" rel="noopener noreferrer" class="">RFC 3339</a> ofrece un formato interoperable para fechas y horas de Internet. Un valor como <code>2026-10-06T10:42:00Z</code> evita que «10:42» dependa de una zona implícita. La hora de publicación del aviso no debe reemplazar la hora de adquisición de la fuente ni la de generación del artefacto: son hechos diferentes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tipos-de-evento">Tipos de evento<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#tipos-de-evento" class="hash-link" aria-label="Enlace directo al Tipos de evento" title="Enlace directo al Tipos de evento" translate="no">​</a></h3>
-<p>Empieza con un vocabulario pequeño:</p>
-<ul>
-<li class=""><code>published</code>: primera publicación pública;</li>
-<li class=""><code>corrected</code>: se corrige un error factual o de transformación;</li>
-<li class=""><code>updated</code>: se añade o refresca contenido sin corregir un error;</li>
-<li class=""><code>superseded</code>: otra versión pasa a ser la vigente;</li>
-<li class=""><code>withdrawn</code>: el artefacto deja de recomendarse o de estar disponible;</li>
-<li class=""><code>restored</code>: vuelve a estar disponible tras una revisión.</li>
-</ul>
-<p>Evita nombres ambiguos como <code>changed</code>. <a href="https://www.w3.org/TR/activitystreams-vocabulary/" target="_blank" rel="noopener noreferrer" class="">ActivityStreams 2.0</a> distingue actividades como <code>Create</code>, <code>Update</code> y <code>Delete</code>, pero advierte de que <code>Update</code> no describe por sí solo el conjunto real de modificaciones. La lección práctica es clara: un tipo normalizado ayuda a filtrar; el resumen y el impacto siguen siendo imprescindibles.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ejemplo-legible-por-máquinas">Ejemplo legible por máquinas<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#ejemplo-legible-por-m%C3%A1quinas" class="hash-link" aria-label="Enlace directo al Ejemplo legible por máquinas" title="Enlace directo al Ejemplo legible por máquinas" translate="no">​</a></h2>
-<p>El caso ficticio podría publicar un evento como este:</p>
-<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"schema_version"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"1.0"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"event_id"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"chg_01J9B7M4Y8P2"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"published_at"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"2026-10-06T10:42:00Z"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"type"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"corrected"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"work_id"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"https://ejemplo.invalid/informes/ayudas-puerto-claro"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"from_version"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"2026.10.06-1"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"to_version"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"2026.10.06-2"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"summary"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"Se excluyó una fila fuera del periodo declarado y se regeneraron los agregados."</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"impact"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">"data"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"La suma publicada disminuye un 1,8 %."</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">"conclusions"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"La conclusión principal no cambia."</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"artifacts"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"url"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"https://ejemplo.invalid/descargas/ayudas-2026.10.06-2.csv"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"media_type"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"text/csv"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"status"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"current"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"integrity"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token property">"algorithm"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"sha-256"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token property">"value"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"DIGEST_FICTICIO_NO_UTILIZABLE"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"supersedes"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"https://ejemplo.invalid/versiones/2026.10.06-1"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"action"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"Sustituir el CSV anterior y recalcular cualquier cifra derivada."</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"notice_url"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"https://ejemplo.invalid/correcciones/2026-10-06"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><br></span></code></pre></div></div>
-<p>El digest está marcado como ficticio para impedir que parezca una comprobación real. Si sirves artefactos por HTTP, la <a href="https://www.rfc-editor.org/rfc/rfc9530.html" target="_blank" rel="noopener noreferrer" class="">RFC 9530</a> define <code>Content-Digest</code> para comunicar resúmenes calculados sobre el contenido del mensaje. También puedes publicar un manifiesto separado. En ambos casos registra el algoritmo y el objeto exacto: el mismo CSV comprimido y sin comprimir produce bytes distintos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-inventariar-las-salidas-antes-de-corregir">1. Inventariar las salidas antes de corregir<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#1-inventariar-las-salidas-antes-de-corregir" class="hash-link" aria-label="Enlace directo al 1. Inventariar las salidas antes de corregir" title="Enlace directo al 1. Inventariar las salidas antes de corregir" translate="no">​</a></h3>
-<p>Enumera HTML, CSV, JSON, PDF, imágenes, API, boletines, repositorios y copias entregadas. Dibuja sus dependencias. Si no sabes qué se generó a partir del dato, consulta el linaje antes de declarar cerrado el cambio.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-clasificar-significado-e-impacto">2. Clasificar significado e impacto<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#2-clasificar-significado-e-impacto" class="hash-link" aria-label="Enlace directo al 2. Clasificar significado e impacto" title="Enlace directo al 2. Clasificar significado e impacto" translate="no">​</a></h3>
-<p>Decide si es mantenimiento, actualización, corrección o retirada. Registra por separado:</p>
-<ul>
-<li class="">qué artefacto cambió;</li>
-<li class="">qué dato o proceso motivó el cambio;</li>
-<li class="">qué conclusiones cambian;</li>
-<li class="">qué conclusiones permanecen;</li>
-<li class="">y qué debe hacer quien reutilizó la versión anterior.</li>
-</ul>
-<p>No conviertas «el número cambió poco» en «el impacto es bajo». Una variación mínima puede alterar una identidad, una ubicación o una atribución sensible.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-crear-una-versión-nueva-e-inmutable">3. Crear una versión nueva e inmutable<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#3-crear-una-versi%C3%B3n-nueva-e-inmutable" class="hash-link" aria-label="Enlace directo al 3. Crear una versión nueva e inmutable" title="Enlace directo al 3. Crear una versión nueva e inmutable" translate="no">​</a></h3>
-<p>Conserva un ID estable para la investigación y otro para cada estado. La nueva versión debe apuntar a la anterior; la anterior debe indicar que fue sustituida cuando sea seguro mantenerla accesible. La propiedad <code>wasRevisionOf</code> de PROV-O y las relaciones de versión de DataCite ofrecen modelos reutilizables.</p>
-<p>Si la versión antigua contiene datos que no deben seguir públicos, publícala como <strong>metadato de estado</strong>, no como contenido recuperable: ID, fecha, motivo general de retirada y enlace a la versión vigente pueden bastar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-escribir-primero-para-personas">4. Escribir primero para personas<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#4-escribir-primero-para-personas" class="hash-link" aria-label="Enlace directo al 4. Escribir primero para personas" title="Enlace directo al 4. Escribir primero para personas" translate="no">​</a></h3>
-<p>Redacta una frase que alguien pueda entender sin abrir el repositorio. Incluye alcance y acción. Después serializa esos mismos conceptos en JSON. Si el texto y los campos estructurados cuentan historias distintas, detén la publicación.</p>
-<p><a href="https://schema.org/correction" target="_blank" rel="noopener noreferrer" class="">Schema.org</a> permite asociar una corrección a una <code>CreativeWork</code>, mientras que las directrices de <a href="https://www.iptc.org/std/guidelines/trust-and-credibility/" target="_blank" rel="noopener noreferrer" class="">IPTC sobre confianza y credibilidad</a> contemplan enlaces entre la obra incorrecta y la que la corrige. Añadir metadatos semánticos puede facilitar el descubrimiento, pero no sustituye la nota visible en la página.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-fijar-tiempo-e-integridad">5. Fijar tiempo e integridad<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#5-fijar-tiempo-e-integridad" class="hash-link" aria-label="Enlace directo al 5. Fijar tiempo e integridad" title="Enlace directo al 5. Fijar tiempo e integridad" translate="no">​</a></h3>
-<p>Genera hashes después de producir los artefactos finales, no antes de comprimirlos o trasladarlos. Guarda la hora de generación y la de publicación como campos distintos. Verifica el fichero desde la URL pública y en una sesión limpia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-publicar-el-evento-de-forma-atómica">6. Publicar el evento de forma atómica<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#6-publicar-el-evento-de-forma-at%C3%B3mica" class="hash-link" aria-label="Enlace directo al 6. Publicar el evento de forma atómica" title="Enlace directo al 6. Publicar el evento de forma atómica" translate="no">​</a></h3>
-<p>La secuencia ideal es:</p>
-<ol>
-<li class="">subir la versión nueva;</li>
-<li class="">comprobar enlaces, tamaño, formato y digest;</li>
-<li class="">marcar la anterior como sustituida o retirada;</li>
-<li class="">publicar la nota y el evento;</li>
-<li class="">actualizar el índice o feed;</li>
-<li class="">emitir avisos a suscriptores y destinatarios conocidos.</li>
-</ol>
-<p>Si no puedes hacer el cambio de forma atómica, publica primero una advertencia temporal. Una ventana en la que el registro anuncia una versión que devuelve <code>404</code> también es un fallo observable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-probar-desde-el-punto-de-vista-de-quien-reutiliza">7. Probar desde el punto de vista de quien reutiliza<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#7-probar-desde-el-punto-de-vista-de-quien-reutiliza" class="hash-link" aria-label="Enlace directo al 7. Probar desde el punto de vista de quien reutiliza" title="Enlace directo al 7. Probar desde el punto de vista de quien reutiliza" translate="no">​</a></h3>
-<p>Empieza con una copia de la versión anterior y solo el registro público. Comprueba si puedes localizar la vigente, saber qué reemplazar y entender si tu análisis queda afectado. Esta prueba detecta enlaces que funcionan para el equipo pero no para la audiencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-responsable">Automatización responsable<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#automatizaci%C3%B3n-responsable" class="hash-link" aria-label="Enlace directo al Automatización responsable" title="Enlace directo al Automatización responsable" translate="no">​</a></h2>
-<p>La automatización debe comprobar coherencia, no decidir la verdad. Un pipeline puede validar que:</p>
-<ul>
-<li class=""><code>event_id</code> no está repetido;</li>
-<li class=""><code>published_at</code> incluye zona horaria;</li>
-<li class=""><code>to_version</code> existe y es distinta de <code>from_version</code>;</li>
-<li class="">cada URL vigente responde y entrega el tipo esperado;</li>
-<li class="">cada digest coincide con el artefacto descargado;</li>
-<li class="">el evento enlaza una nota cuando el impacto es material;</li>
-<li class="">no hay dos versiones marcadas simultáneamente como vigentes;</li>
-<li class="">y el feed mantiene un orden determinista.</li>
-</ul>
-<p>También puede generar Atom, RSS o notificaciones desde la fuente canónica. No debería redactar automáticamente el impacto, decidir que una atribución sigue siendo válida ni publicar un <code>diff</code> sin revisar su sensibilidad.</p>
-<p>Usa fixtures sintéticos en las pruebas. Copiar una dirección, un correo o una acusación real a los logs de CI multiplica el problema que pretendías corregir.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-cambio-técnico-no-siempre-es-editorial">Un cambio técnico no siempre es editorial<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#un-cambio-t%C3%A9cnico-no-siempre-es-editorial" class="hash-link" aria-label="Enlace directo al Un cambio técnico no siempre es editorial" title="Enlace directo al Un cambio técnico no siempre es editorial" translate="no">​</a></h3>
-<p>Una regeneración puede alterar orden de claves, compresión, miniaturas o metadatos sin cambiar el significado. No emitas una corrección factual por cada diferencia binaria. Define qué cambios son materiales y conserva el detalle técnico internamente.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-digest-diferente-no-explica-la-diferencia">Un digest diferente no explica la diferencia<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#un-digest-diferente-no-explica-la-diferencia" class="hash-link" aria-label="Enlace directo al Un digest diferente no explica la diferencia" title="Enlace directo al Un digest diferente no explica la diferencia" translate="no">​</a></h3>
-<p>Solo demuestra que los bytes no coinciden. Puede deberse a una corrección, a una marca temporal incrustada o a otra codificación. Necesitas versión, resumen e impacto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-digest-coincidente-no-valida-la-fuente">Un digest coincidente no valida la fuente<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#un-digest-coincidente-no-valida-la-fuente" class="hash-link" aria-label="Enlace directo al Un digest coincidente no valida la fuente" title="Enlace directo al Un digest coincidente no valida la fuente" translate="no">​</a></h3>
-<p>Confirma que dos partes comparan el mismo objeto bajo el mismo algoritmo. No prueba que la adquisición fuera completa, que la entidad estuviera bien resuelta ni que la interpretación sea correcta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-ausencia-de-evento-no-prueba-ausencia-de-cambio">La ausencia de evento no prueba ausencia de cambio<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#la-ausencia-de-evento-no-prueba-ausencia-de-cambio" class="hash-link" aria-label="Enlace directo al La ausencia de evento no prueba ausencia de cambio" title="Enlace directo al La ausencia de evento no prueba ausencia de cambio" translate="no">​</a></h3>
-<p>El publicador puede tener cobertura incompleta, un fallo de despliegue o una política distinta. Monitoriza también la página y los artefactos, pero trata cualquier discrepancia como señal para revisar, no como prueba de ocultación.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-cronología-pública-puede-ser-incompleta-por-diseño">La cronología pública puede ser incompleta por diseño<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#la-cronolog%C3%ADa-p%C3%BAblica-puede-ser-incompleta-por-dise%C3%B1o" class="hash-link" aria-label="Enlace directo al La cronología pública puede ser incompleta por diseño" title="Enlace directo al La cronología pública puede ser incompleta por diseño" translate="no">​</a></h3>
-<p>Privacidad, seguridad o una orden legítima pueden impedir conservar una versión. La transparencia responsable permite explicar la retirada sin mantener disponible el contenido dañino.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Publica el efecto del cambio; no reproduzcas el dato sensible equivocado.</li>
-<li class="">Usa roles o equipos en vez de nombres personales cuando la autoría individual no sea necesaria.</li>
-<li class="">Separa el registro público del ticket, el canal de chat y la evidencia restringida.</li>
-<li class="">No expongas rutas internas, tokens, consultas privadas ni identificadores de víctimas.</li>
-<li class="">Mantén IDs opacos; no codifiques correos, alias o acusaciones en ellos.</li>
-<li class="">Conserva versiones retiradas solo con base, acceso y plazo definidos.</li>
-<li class="">Evita <code>diffs</code> públicos cuando puedan reidentificar a una persona.</li>
-<li class="">Firma o sella el registro solo si puedes operar y custodiar las claves correctamente.</li>
-<li class="">Documenta la cobertura: qué tipos de cambio aparecen y desde qué fecha.</li>
-<li class="">Ofrece un canal seguro para comunicar otra inexactitud.</li>
-<li class="">No atribuyas intención a partir de una edición, una retirada o un silencio.</li>
-<li class="">Revisa cachés, feeds y derivados para no seguir distribuyendo el artefacto sustituido.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si necesitas preservar estados completos con inventarios, estudia <a class="" href="https://spainfsd-creator.github.io/osint-blog/ocfl-osint-preservacion-versionada">OCFL</a>. Para empaquetar un conjunto con contexto semántico, revisa <a class="" href="https://spainfsd-creator.github.io/osint-blog/ro-crate-osint-paquete-evidencia">RO-Crate</a>; para transferirlo y validar que llegó íntegro, <a class="" href="https://spainfsd-creator.github.io/osint-blog/bagit-osint-transferencia-evidencia">BagIt</a>. Si el problema es descubrir qué salidas dependen de un dato, empieza por <a class="" href="https://spainfsd-creator.github.io/osint-blog/openlineage-linaje-datos-osint">OpenLineage</a>.</p>
-<p>Una tabla Markdown puede bastar para un proyecto pequeño. JSON Lines resulta práctico para eventos anexables; JSON-LD facilita reutilizar vocabularios de procedencia; ActivityStreams puede encajar si ya distribuyes actividades. Elige el formato que tu audiencia pueda consultar y exportar. La sofisticación que nadie encuentra es peor que una página estable y clara.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-de-publicación">Checklist de publicación<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#checklist-de-publicaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Checklist de publicación" title="Enlace directo al Checklist de publicación" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La investigación tiene un ID canónico y cada versión, uno distinto.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El evento explica tipo, fecha, alcance, impacto y acción.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La versión nueva enlaza la anterior y viceversa cuando procede.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La nota humana y el registro estructurado son coherentes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Todos los artefactos derivados están inventariados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los hashes se calcularon sobre los ficheros finales y se verificaron de nuevo.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La versión vigente puede descargarse sin sesión.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La versión sustituida está marcada o retirada según el riesgo.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El evento no filtra datos personales ni deliberaciones internas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una prueba desde la versión antigua conduce a la vigente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Suscriptores y destinatarios conocidos reciben un aviso proporcional.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El registro declara su cobertura y sus limitaciones.</li>
-</ul>
-<p>El takeaway accionable es sencillo: elige el último informe que modificaste y trata de responder, desde fuera del equipo, <strong>qué cambió, qué versión está vigente, qué derivados quedaron afectados y qué debe hacer quien conserva una copia anterior</strong>. Si una de esas respuestas depende de leer Git o preguntar por privado, todavía no tienes un registro público de cambios.</p>
-<p>Como próximo tema, merece la pena estudiar <strong>feeds de correcciones y retiradas en OSINT</strong>: cómo distribuir eventos con Atom o ActivityStreams, controlar reintentos y evitar que una notificación duplicada parezca una nueva corrección.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/registros-publicos-cambios-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener noreferrer" class="">W3C: PROV-O, The PROV Ontology</a></li>
-<li class=""><a href="https://www.w3.org/TR/activitystreams-vocabulary/" target="_blank" rel="noopener noreferrer" class="">W3C: Activity Vocabulary</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc3339" target="_blank" rel="noopener noreferrer" class="">RFC 3339: Date and Time on the Internet</a></li>
-<li class=""><a href="https://www.rfc-editor.org/rfc/rfc9530.html" target="_blank" rel="noopener noreferrer" class="">RFC 9530: Digest Fields</a></li>
-<li class=""><a href="https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/" target="_blank" rel="noopener noreferrer" class="">DataCite Metadata Schema: relationType</a></li>
-<li class=""><a href="https://schema.org/correction" target="_blank" rel="noopener noreferrer" class="">Schema.org: correction</a></li>
-<li class=""><a href="https://www.iptc.org/std/guidelines/trust-and-credibility/" target="_blank" rel="noopener noreferrer" class="">IPTC: Expressing Trust and Credibility Information</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>Verificacion</category>
-            <category>Tradecraft</category>
-            <category>Automatizacion</category>
             <category>Privacidad</category>
         </item>
     </channel>
