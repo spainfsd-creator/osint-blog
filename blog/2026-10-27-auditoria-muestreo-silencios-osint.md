@@ -13,6 +13,9 @@ El panel lleva una semana en verde. No hay errores, no hay avisos y nadie ha abi
 
 ![Analista comparando un universo de registros con una muestra independiente para localizar omisiones](/img/blog/2026-10-27-auditoria-muestreo-silencios-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/auditoria-muestreo-silencios-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
