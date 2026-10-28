@@ -13,6 +13,9 @@ El pipeline lleva doce horas sin errores. Cada descarga termina, cada parser dev
 
 ![Analista observando un control positivo y otro negativo atravesar las puertas de un pipeline OSINT](/img/blog/2026-10-28-controles-positivos-negativos-pipelines-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/controles-positivos-negativos-pipelines-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
