@@ -13,6 +13,9 @@ Tres verificadores confirman que el informe se publicó correctamente. El primer
 
 ![Analista comparando rutas de verificación realmente distintas para un pipeline OSINT](/img/blog/2026-10-31-diversidad-rotacion-oraculos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/diversidad-rotacion-oraculos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
