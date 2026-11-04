@@ -13,6 +13,9 @@ Una fuente provisional permitió entregar un informe a tiempo. Días después, l
 
 ![Analista siguiendo las dependencias entre evidencias, informes y decisiones para retirar una excepción vencida](/img/blog/2026-11-04-registros-dependencia-decisiones-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/registros-dependencia-decisiones-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
