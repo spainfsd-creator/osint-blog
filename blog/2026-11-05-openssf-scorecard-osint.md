@@ -13,6 +13,9 @@ Una organización quiere incorporar una biblioteca abierta a un servicio sensibl
 
 ![Analista examinando señales públicas de seguridad y mantenimiento en un repositorio de código abierto](/img/blog/2026-11-05-openssf-scorecard-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/openssf-scorecard-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
