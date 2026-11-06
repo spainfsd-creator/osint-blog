@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-11-05T00:00:00.000Z</updated>
+    <updated>2026-11-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[SBOM contra artefacto real en OSINT: comprobar componentes sin dar por bueno el inventario]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint"/>
+        <updated>2026-11-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Un proveedor entrega una aplicación, un SBOM impecable y una declaración tranquilizadora: «todos los componentes están inventariados». El documento tiene nombres, versiones, licencias y relaciones; incluso pasa la validación de esquema. Pero un inventario bien formado no demuestra por sí solo que describa el fichero recibido, que esté completo ni que sus componentes estén realmente presentes. Para una investigación OSINT responsable, la pregunta útil no es si existe un SBOM, sino qué vínculo verificable mantiene con el artefacto exacto que vamos a evaluar.]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Un proveedor entrega una aplicación, un SBOM impecable y una declaración tranquilizadora: «todos los componentes están inventariados». El documento tiene nombres, versiones, licencias y relaciones; incluso pasa la validación de esquema. <strong>Pero un inventario bien formado no demuestra por sí solo que describa el fichero recibido, que esté completo ni que sus componentes estén realmente presentes.</strong> Para una investigación OSINT responsable, la pregunta útil no es si existe un SBOM, sino qué vínculo verificable mantiene con el artefacto exacto que vamos a evaluar.</p>
+<p><img decoding="async" loading="lazy" alt="Ilustración editorial de tres capas de investigación: artefacto fijado, inventario declarado y componentes observados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-06-sbom-artefacto-real-osint-80234122bc23751ec01a11837c28d02f.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un flujo defensivo para contrastar un <strong>Software Bill of Materials</strong> con software público, propio o recibido dentro de una revisión autorizada. El ejemplo es ficticio y no requiere explotar servicios, ejecutar código desconocido ni investigar a personas. Su objetivo es convertir un documento de transparencia en evidencia trazable, conservando también los huecos y desacuerdos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-sbom-y-para-qué-sirve">Qué es un SBOM y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#qu%C3%A9-es-un-sbom-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un SBOM y para qué sirve" title="Enlace directo al Qué es un SBOM y para qué sirve" translate="no">​</a></h2>
+<p>Un SBOM es un inventario estructurado de componentes de software y de datos asociados a ellos. Puede incluir nombres, versiones, proveedores, identificadores persistentes, hashes, licencias y relaciones de dependencia. Formatos como <a href="https://spdx.dev/use/specifications/" target="_blank" rel="noopener noreferrer" class="">SPDX</a> y <a href="https://cyclonedx.org/capabilities/sbom/" target="_blank" rel="noopener noreferrer" class="">CycloneDX</a> permiten intercambiar esa información entre productores, clientes y herramientas.</p>
+<p>En OSINT y debida diligencia técnica, un SBOM ayuda a:</p>
+<ul>
+<li class="">localizar qué componente merece una comprobación adicional;</li>
+<li class="">relacionar un aviso público con una versión declarada;</li>
+<li class="">comparar entregas y observar altas, bajas o cambios inesperados;</li>
+<li class="">revisar licencias y procedencia sin empezar desde una lista en blanco;</li>
+<li class="">documentar qué sabía el proveedor y qué observó el analista en una fecha concreta.</li>
+</ul>
+<p>No es una certificación de seguridad, una prueba de ausencia de vulnerabilidades ni una garantía de integridad. Tampoco todos los SBOM describen el mismo objeto: uno puede representar el código fuente, otro el entorno de construcción y otro la imagen o el paquete distribuido. Antes de comparar hay que identificar <strong>sujeto, momento y método de generación</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cuatro-afirmaciones-que-conviene-mantener-separadas">Cuatro afirmaciones que conviene mantener separadas<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#cuatro-afirmaciones-que-conviene-mantener-separadas" class="hash-link" aria-label="Enlace directo al Cuatro afirmaciones que conviene mantener separadas" title="Enlace directo al Cuatro afirmaciones que conviene mantener separadas" translate="no">​</a></h3>
+<table><thead><tr><th>Afirmación</th><th>Evidencia mínima útil</th><th>Lo que todavía no demuestra</th></tr></thead><tbody><tr><td>El documento es válido</td><td>validación contra el esquema declarado</td><td>que el contenido sea exacto</td></tr><tr><td>El SBOM corresponde a la entrega</td><td>digest o referencia inequívoca del artefacto</td><td>que enumere todo su contenido</td></tr><tr><td>Un componente fue observado</td><td>fichero, metadato o señal reproducible dentro del artefacto</td><td>que se cargue o ejecute</td></tr><tr><td>El proveedor declaró un componente</td><td>entrada y relación dentro del SBOM entregado</td><td>que el componente esté presente</td></tr></tbody></table>
+<p>Esta separación evita el error más frecuente: convertir «el JSON se puede leer» en «el inventario está verificado».</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-una-entrega-con-dos-inventarios">Caso de uso legítimo: una entrega con dos inventarios<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#caso-de-uso-leg%C3%ADtimo-una-entrega-con-dos-inventarios" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: una entrega con dos inventarios" title="Enlace directo al Caso de uso legítimo: una entrega con dos inventarios" translate="no">​</a></h2>
+<p>La cooperativa ficticia <strong>Archivo Norte</strong> evalúa, con autorización, una utilidad de escritorio llamada <code>faro-documental-4.2.0.zip</code>. El proveedor entrega además <code>faro-documental.cdx.json</code>. La finalidad no es buscar fallos explotables, sino responder a tres preguntas antes de incorporar el programa:</p>
+<ol>
+<li class="">¿El SBOM identifica el mismo artefacto que recibió el equipo?</li>
+<li class="">¿Qué componentes aparecen tanto en el inventario declarado como en una observación independiente?</li>
+<li class="">¿Qué discrepancias necesitan explicación o una nueva evidencia?</li>
+</ol>
+<p>El equipo trabaja sobre una copia aislada y no ejecuta el binario. Genera un segundo inventario con una herramienta capaz de inspeccionar archivos locales. Los nombres del ejemplo, hashes y resultados son ficticios.</p>
+<p>El SBOM del proveedor declara 143 componentes. La observación independiente encuentra 139. Tras normalizar identificadores, 134 coinciden, nueve solo aparecen en el documento declarado y cinco solo en el observado. <strong>Eso no permite afirmar que falten nueve ni que sobren cinco.</strong> Abre una cola de revisión: puede haber dependencias de compilación, paquetes incorporados estáticamente, archivos minimizados, alias, versiones inferidas o límites distintos entre herramientas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-fija-el-objeto-antes-de-abrir-el-inventario">1. Fija el objeto antes de abrir el inventario<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#1-fija-el-objeto-antes-de-abrir-el-inventario" class="hash-link" aria-label="Enlace directo al 1. Fija el objeto antes de abrir el inventario" title="Enlace directo al 1. Fija el objeto antes de abrir el inventario" translate="no">​</a></h3>
+<p>Conserva el fichero original en almacenamiento de solo lectura o en una ubicación controlada. Registra origen, fecha, tamaño y un digest criptográfico:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">sha256sum faro-documental-4.2.0.zip</span><br></span></code></pre></div></div>
+<p>No renombres entregas distintas como si fueran la misma versión. Si el proveedor publica un hash, registra de dónde procede y compáralo, pero no lo conviertas automáticamente en una fuente independiente: fichero y hash pueden venir del mismo canal comprometido.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-identifica-el-sujeto-del-sbom-declarado">2. Identifica el sujeto del SBOM declarado<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#2-identifica-el-sujeto-del-sbom-declarado" class="hash-link" aria-label="Enlace directo al 2. Identifica el sujeto del SBOM declarado" title="Enlace directo al 2. Identifica el sujeto del SBOM declarado" translate="no">​</a></h3>
+<p>Revisa el formato, la herramienta creadora, la fecha y el componente raíz. Busca un hash, nombre de fichero, URI o identificador que permita vincular el documento con la entrega. Si solo dice «versión 4.2.0», la correspondencia sigue siendo una hipótesis: pueden existir recompilaciones distintas bajo la misma etiqueta.</p>
+<p>Formula el resultado con estados explícitos:</p>
+<ul>
+<li class=""><strong>vinculado</strong>, cuando el SBOM identifica de forma verificable el artefacto fijado;</li>
+<li class=""><strong>compatible</strong>, cuando nombre y versión encajan pero falta un vínculo fuerte;</li>
+<li class=""><strong>contradictorio</strong>, cuando el documento apunta a otro objeto;</li>
+<li class=""><strong>inconcluso</strong>, cuando los datos no bastan.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-valida-estructura-sin-confundirla-con-contenido">3. Valida estructura sin confundirla con contenido<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#3-valida-estructura-sin-confundirla-con-contenido" class="hash-link" aria-label="Enlace directo al 3. Valida estructura sin confundirla con contenido" title="Enlace directo al 3. Valida estructura sin confundirla con contenido" translate="no">​</a></h3>
+<p>Usa el validador oficial o una implementación mantenida para el formato declarado. <a href="https://github.com/CycloneDX/cyclonedx-cli" target="_blank" rel="noopener noreferrer" class="">CycloneDX CLI</a> permite validar documentos CycloneDX, mientras que SPDX publica sus especificaciones y modelos oficiales. Guarda la salida, la herramienta y su versión.</p>
+<p>Una validación correcta prueba que el documento satisface determinadas reglas sintácticas y semánticas del formato. No prueba que un nombre, una versión o una relación describan la realidad. Un SBOM puede ser perfectamente válido y pertenecer a otra compilación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-genera-una-observación-independiente-y-reproducible">4. Genera una observación independiente y reproducible<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#4-genera-una-observaci%C3%B3n-independiente-y-reproducible" class="hash-link" aria-label="Enlace directo al 4. Genera una observación independiente y reproducible" title="Enlace directo al 4. Genera una observación independiente y reproducible" translate="no">​</a></h3>
+<p>Inspecciona el artefacto sin ejecutarlo. <a href="https://github.com/anchore/syft" target="_blank" rel="noopener noreferrer" class="">Syft</a> documenta la generación de SBOM en CycloneDX y SPDX y permite escribir ambos formatos en una misma ejecución. La forma general es:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">unzip -q faro-documental-4.2.0.zip -d ./faro-documental-extraido</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">syft ./faro-documental-extraido \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -o spdx-json=./observado.spdx.json \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -o cyclonedx-json=./observado.cdx.json</span><br></span></code></pre></div></div>
+<p>La extracción y el directorio deben permanecer vinculados al digest del ZIP original dentro del registro del caso. Comprueba la documentación de la herramienta instalada antes de automatizar el comando. Ejecuta el análisis en un entorno aislado, sin credenciales y sin red si el caso lo permite. Conserva configuración, catálogo de analizadores y advertencias: cambiar esos parámetros puede cambiar la cobertura.</p>
+<p>El inventario observado tampoco es la verdad completa. Los gestores de paquetes dejan metadatos distintos, algunos binarios eliminan símbolos, el enlazado estático oculta fronteras y los paquetes anidados pueden no detectarse. Por eso se trata como <strong>otra observación con límites</strong>, no como oráculo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-normaliza-antes-de-comparar">5. Normaliza antes de comparar<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#5-normaliza-antes-de-comparar" class="hash-link" aria-label="Enlace directo al 5. Normaliza antes de comparar" title="Enlace directo al 5. Normaliza antes de comparar" translate="no">​</a></h3>
+<p>No unas componentes solo por cadenas parecidas. Mantén los valores originales y crea una vista de comparación con, por ejemplo:</p>
+<ul>
+<li class=""><code>purl</code> completo cuando exista;</li>
+<li class="">ecosistema, nombre y versión normalizados;</li>
+<li class="">hash del fichero o componente, si ambos lados lo proporcionan;</li>
+<li class="">identificador SPDX, CPE u otro identificador con su tipo explícito;</li>
+<li class="">relación con el componente raíz;</li>
+<li class="">alcance: ejecución, desarrollo, compilación, opcional o desconocido.</li>
+</ul>
+<p>Trata un alias como una regla versionada y revisable, no como una sustitución silenciosa. <code>lib-ejemplo</code>, <code>lib_ejemplo</code> y <code>@archivo/lib-ejemplo</code> podrían ser el mismo proyecto, tres paquetes distintos o una bifurcación. La similitud léxica no resuelve identidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-reconcila-por-clases-no-con-una-cifra-única">6. Reconcila por clases, no con una cifra única<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#6-reconcila-por-clases-no-con-una-cifra-%C3%BAnica" class="hash-link" aria-label="Enlace directo al 6. Reconcila por clases, no con una cifra única" title="Enlace directo al 6. Reconcila por clases, no con una cifra única" translate="no">​</a></h3>
+<p>Construye al menos cuatro conjuntos:</p>
+<ol>
+<li class=""><strong>coincidencias fuertes:</strong> mismo identificador y versión, idealmente con hash compatible;</li>
+<li class=""><strong>coincidencias probables:</strong> equivalencia razonable que aún necesita corroboración;</li>
+<li class=""><strong>solo declarado:</strong> posibles dependencias de construcción, opcionales o ausentes;</li>
+<li class=""><strong>solo observado:</strong> posibles omisiones, componentes empaquetados o falsos positivos.</li>
+</ol>
+<p>Añade una quinta clase para conflictos: mismo identificador con versiones o hashes incompatibles. No ocultes estos casos dentro de un porcentaje de cobertura. Una coincidencia del 97 % puede esconder precisamente el componente que determina la decisión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-revisa-discrepancias-con-evidencia-mínima">7. Revisa discrepancias con evidencia mínima<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#7-revisa-discrepancias-con-evidencia-m%C3%ADnima" class="hash-link" aria-label="Enlace directo al 7. Revisa discrepancias con evidencia mínima" title="Enlace directo al 7. Revisa discrepancias con evidencia mínima" translate="no">​</a></h3>
+<p>Para cada diferencia prioritaria, conserva:</p>
+<ul>
+<li class="">entrada original de ambos SBOM;</li>
+<li class="">ruta o señal que motivó la detección;</li>
+<li class="">digest del artefacto analizado;</li>
+<li class="">regla de normalización aplicada;</li>
+<li class="">hipótesis alternativas;</li>
+<li class="">prueba siguiente y responsable;</li>
+<li class="">estado final: confirmado, descartado o inconcluso.</li>
+</ul>
+<p>Antes de concluir una omisión, consulta manifiestos del paquete, ficheros de licencia, metadatos del gestor y documentación pública del proyecto. Si la consecuencia es relevante, pide al proveedor el SBOM generado en la fase de entrega o una atestación que vincule inventario y artefacto. Una explicación es una nueva fuente que también debe evaluarse.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-informa-con-alcance-y-caducidad">8. Informa con alcance y caducidad<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#8-informa-con-alcance-y-caducidad" class="hash-link" aria-label="Enlace directo al 8. Informa con alcance y caducidad" title="Enlace directo al 8. Informa con alcance y caducidad" translate="no">​</a></h3>
+<p>El informe debe decir qué artefacto se examinó, qué no se ejecutó, qué herramientas se usaron y qué clases de componentes pueden quedar fuera. Distingue observaciones de inferencias:</p>
+<blockquote>
+<p>«La herramienta X detectó metadatos compatibles con el paquete Y»</p>
+</blockquote>
+<p>es más preciso que:</p>
+<blockquote>
+<p>«La aplicación usa Y».</p>
+</blockquote>
+<p>Fija una condición de reevaluación: nuevo digest, reconstrucción, cambio del SBOM, actualización del analizador o aparición de evidencia primaria.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="diferencias-de-alcance">Diferencias de alcance<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#diferencias-de-alcance" class="hash-link" aria-label="Enlace directo al Diferencias de alcance" title="Enlace directo al Diferencias de alcance" translate="no">​</a></h3>
+<p>Un SBOM creado desde el repositorio puede incluir dependencias de pruebas y excluir archivos generados. Uno creado desde una imagen puede observar bibliotecas del sistema que el proyecto no controla directamente. Compararlos sin modelar el alcance produce discrepancias artificiales.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependencias-estáticas-y-código-vendorizado">Dependencias estáticas y código vendorizado<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#dependencias-est%C3%A1ticas-y-c%C3%B3digo-vendorizado" class="hash-link" aria-label="Enlace directo al Dependencias estáticas y código vendorizado" title="Enlace directo al Dependencias estáticas y código vendorizado" translate="no">​</a></h3>
+<p>Una biblioteca integrada dentro de un binario puede perder metadatos reconocibles. El código copiado en el repositorio puede aparecer como archivos, no como paquete. La ausencia de detección no demuestra ausencia material.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="versiones-inferidas">Versiones inferidas<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#versiones-inferidas" class="hash-link" aria-label="Enlace directo al Versiones inferidas" title="Enlace directo al Versiones inferidas" translate="no">​</a></h3>
+<p>Algunas herramientas deducen versiones desde nombres, manifiestos o patrones. Un fichero residual puede señalar una versión que no se usa. Registra la técnica de identificación y rebaja la confianza cuando no exista hash o metadato inequívoco.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="relaciones-incompletas">Relaciones incompletas<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#relaciones-incompletas" class="hash-link" aria-label="Enlace directo al Relaciones incompletas" title="Enlace directo al Relaciones incompletas" translate="no">​</a></h3>
+<p>Que dos componentes estén listados no significa que la relación entre ellos sea correcta. Un inventario plano sirve para búsqueda, pero no necesariamente para reconstruir qué componente depende de cuál ni qué parte llega al producto final.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mutabilidad-de-fuentes-externas">Mutabilidad de fuentes externas<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#mutabilidad-de-fuentes-externas" class="hash-link" aria-label="Enlace directo al Mutabilidad de fuentes externas" title="Enlace directo al Mutabilidad de fuentes externas" translate="no">​</a></h3>
+<p>Avisos, registros de paquetes y repositorios cambian. Conserva URL, fecha y copia permitida de la evidencia decisiva. No uses una búsqueda actual para atribuir retrospectivamente una propiedad sin comprobar la cronología.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Analiza únicamente software público, propio o autorizado; no uses este flujo para acceder a sistemas ajenos.</li>
+<li class="">No ejecutes un artefacto desconocido para «ver qué carga» salvo en un laboratorio autorizado y diseñado para ello.</li>
+<li class="">Separa el entorno de análisis de credenciales, tokens, llaves y datos reales.</li>
+<li class="">Desactiva telemetría y red cuando sea compatible con la herramienta y documenta las excepciones.</li>
+<li class="">Minimiza nombres, correos y rutas personales que puedan aparecer en metadatos de compilación.</li>
+<li class="">No publiques rutas internas, secretos o detalles de una exposición sin coordinar una divulgación responsable.</li>
+<li class="">Evita atribuir intención a partir de una omisión: un SBOM incompleto puede deberse a alcance, herramienta o proceso, no a engaño.</li>
+<li class="">Respeta licencias y condiciones de redistribución del artefacto y de sus metadatos.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El artefacto está fijado por digest, origen y fecha.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El sujeto y el alcance del SBOM declarado están identificados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La validación de formato se registra por separado de la exactitud.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La observación independiente no ejecuta código innecesariamente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Herramienta, versión, configuración y advertencias quedan conservadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La normalización mantiene los valores originales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Coincidencias, conflictos y ausencias se presentan como clases distintas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada discrepancia relevante conserva evidencia y explicación alternativa.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las conclusiones distinguen presencia, uso y carga en ejecución.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe incluye límites, privacidad y condición de reevaluación.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Un segundo generador de SBOM puede revelar puntos ciegos, pero dos herramientas que comparten analizadores o metadatos no son independientes por definición. Para entregas críticas, combina inventario con firmas, procedencia de compilación, manifiestos del ecosistema, revisión de archivos y evidencia del proceso de publicación.</p>
+<p>SPDX y CycloneDX no son «ganador y perdedor»: ambos pueden transportar inventarios útiles y cada ecosistema añade capacidades y perfiles diferentes. Elige el formato por interoperabilidad, información necesaria y herramientas disponibles, y conserva la semántica al convertir entre ellos. Una conversión válida puede perder campos que el destino no expresa del mismo modo.</p>
+<p>El takeaway práctico es este: <strong>un SBOM merece confianza proporcional al vínculo con su artefacto, la transparencia de su generación y la corroboración de sus componentes, no a lo ordenado que parezca el JSON</strong>. Como siguiente tema, sería útil estudiar VEX para entender cuándo una vulnerabilidad conocida afecta realmente a un producto sin convertir una declaración del proveedor en veredicto automático.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-consultadas">Fuentes oficiales consultadas<a href="https://spainfsd-creator.github.io/osint-blog/sbom-artefacto-real-osint#fuentes-oficiales-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales consultadas" title="Enlace directo al Fuentes oficiales consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://spdx.dev/use/specifications/" target="_blank" rel="noopener noreferrer" class="">SPDX: especificaciones oficiales</a></li>
+<li class=""><a href="https://cyclonedx.org/capabilities/sbom/" target="_blank" rel="noopener noreferrer" class="">CycloneDX: capacidad SBOM</a></li>
+<li class=""><a href="https://cyclonedx.org/specification/overview/" target="_blank" rel="noopener noreferrer" class="">CycloneDX: visión general de la especificación</a></li>
+<li class=""><a href="https://github.com/anchore/syft" target="_blank" rel="noopener noreferrer" class="">Syft: repositorio y uso oficial</a></li>
+<li class=""><a href="https://github.com/CycloneDX/cyclonedx-cli" target="_blank" rel="noopener noreferrer" class="">CycloneDX CLI: validación y operaciones con BOM</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenSSF Scorecard en OSINT: evaluar repositorios sin confundir una nota con seguridad]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/openssf-scorecard-osint</id>
@@ -15,6 +170,7 @@
         <summary type="html"><![CDATA[Una organización quiere incorporar una biblioteca abierta a un servicio sensible. El repositorio está activo, tiene miles de estrellas y muestra una insignia de seguridad convincente. La tentación es convertir esa cifra en un atajo: puntuación alta, dependencia aprobada. Pero una nota agregada no demuestra que el código sea seguro, que el paquete descargado proceda de ese código ni que el proyecto vaya a responder mañana a una vulnerabilidad. Lo útil para una investigación OSINT empieza al abrir la cifra y preguntar qué observó realmente cada comprobación.]]></summary>
         <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una organización quiere incorporar una biblioteca abierta a un servicio sensible. El repositorio está activo, tiene miles de estrellas y muestra una insignia de seguridad convincente. La tentación es convertir esa cifra en un atajo: puntuación alta, dependencia aprobada. <strong>Pero una nota agregada no demuestra que el código sea seguro, que el paquete descargado proceda de ese código ni que el proyecto vaya a responder mañana a una vulnerabilidad.</strong> Lo útil para una investigación OSINT empieza al abrir la cifra y preguntar qué observó realmente cada comprobación.</p>
 <p><img decoding="async" loading="lazy" alt="Analista examinando señales públicas de seguridad y mantenimiento en un repositorio de código abierto" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-05-openssf-scorecard-osint-e47f030082cde2f14aefa6e3e2763eb5.png" width="1376" height="768" class="img_ev3q"></p>
+<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/openssf-scorecard-osint-ef5d31c1aa68981146308ddbfbed6f73.m4a" target="_blank" class="">Descargar el podcast</a></p>
 <p><em>Imagen generada mediante inteligencia artificial.</em></p>
 <p><strong>OpenSSF Scorecard</strong> automatiza comprobaciones sobre prácticas de seguridad observables en proyectos de software abierto. En OSINT puede servir como instrumento de <em>triage</em> para una debida diligencia técnica: señala dónde buscar evidencia sobre revisión de código, protección de ramas, permisos de automatizaciones, mantenimiento, análisis estático o publicación de artefactos. No sustituye una auditoría, no certifica ausencia de vulnerabilidades y no autoriza a escanear infraestructura ajena.</p>
 <p>Todos los nombres, decisiones y resultados del ejemplo son ficticios. El flujo se limita a repositorios públicos o a proyectos propios para los que exista autorización.</p>
@@ -2697,167 +2853,6 @@
         <category label="incident-response" term="incident-response"/>
         <category label="testing" term="testing"/>
         <category label="Automatizacion" term="Automatizacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Simulacros de recuperación ante liberaciones huérfanas en OSINT: ensayar antes del incidente real]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint"/>
-        <updated>2026-10-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Un informe retirado sigue apareciendo en una caché pública. El ledger dice que la publicación terminó bien, pero el objeto visible tiene otro digest. Mientras operaciones busca el botón correcto, comunicación prepara un mensaje que nadie ha aprobado y el equipo investigador teme destruir la evidencia al limpiar demasiado deprisa. El peor momento para descubrir que el plan era ambiguo es cuando los datos ya están fuera.]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Un informe retirado sigue apareciendo en una caché pública. El ledger dice que la publicación terminó bien, pero el objeto visible tiene otro digest. Mientras operaciones busca el botón correcto, comunicación prepara un mensaje que nadie ha aprobado y el equipo investigador teme destruir la evidencia al limpiar demasiado deprisa. <strong>El peor momento para descubrir que el plan era ambiguo es cuando los datos ya están fuera.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Equipo OSINT ensayando la recuperación de una liberación huérfana" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-17-simulacros-recuperacion-liberaciones-huerfanas-osint-b54a1492109aa259c1f573d630af25c9.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/assets/files/simulacros-recuperacion-liberaciones-huerfanas-osint-1fab2095beadfff8791acb28c8164955.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Un simulacro convierte ese caos en una práctica controlada. No pretende demostrar que el equipo nunca fallará, sino observar si personas, procedimientos y herramientas pueden detectar una liberación incoherente, contenerla sin borrar rastros, explicar lo ocurrido y devolver el pipeline a un estado verificable. En OSINT importa especialmente porque una retirada técnica no recupera las copias ya descargadas ni corrige por sí sola las conclusiones derivadas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-un-simulacro-de-recuperación-y-para-qué-sirve">Qué es un simulacro de recuperación y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#qu%C3%A9-es-un-simulacro-de-recuperaci%C3%B3n-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es un simulacro de recuperación y para qué sirve" title="Enlace directo al Qué es un simulacro de recuperación y para qué sirve" translate="no">​</a></h2>
-<p>Una <strong>prueba</strong> comprueba un componente mediante resultados medibles; un <strong>ejercicio</strong> simula una emergencia para validar un plan y las decisiones de quienes lo ejecutan. La distinción procede de <a href="https://doi.org/10.6028/NIST.SP.800-84" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-84</a>, que propone combinar pruebas, formación y ejercicios para mantener capacidades de contingencia y respuesta.</p>
-<p>Aquí llamaremos simulacro a una sesión acotada que introduce una liberación ficticia o aislada y exige recorrer el ciclo completo:</p>
-<ol>
-<li class="">detectar la discrepancia entre lo esperado y lo observable;</li>
-<li class="">declarar y clasificar el incidente;</li>
-<li class="">frenar nuevas publicaciones dentro del alcance afectado;</li>
-<li class="">preservar artefactos, logs y decisiones;</li>
-<li class="">retirar o poner en cuarentena las copias de prueba;</li>
-<li class="">verificar el destino desde la perspectiva de un destinatario;</li>
-<li class="">restaurar el flujo con controles reforzados;</li>
-<li class="">comunicar hechos, incertidumbres y correcciones;</li>
-<li class="">convertir los hallazgos en tareas con responsable y fecha.</li>
-</ol>
-<p>No es un pentest ni una excusa para soltar datos reales. Tampoco es una representación teatral en la que todo el mundo conoce el guion. Su valor está en comprobar supuestos: permisos que caducaron, inventarios que omiten una réplica, una caché que conserva contenido o una guardia que no sabe quién puede autorizar la retirada.</p>
-<p>NIST <a href="https://doi.org/10.6028/NIST.SP.800-61r3" target="_blank" rel="noopener noreferrer" class="">SP 800-61 Rev. 3</a>, publicada en abril de 2025, integra la respuesta a incidentes en la gestión del riesgo y da peso a preparación, detección, respuesta, recuperación y mejora. A su vez, el control CP-4 de <a href="https://doi.org/10.6028/NIST.SP.800-53r5" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-53 Rev. 5</a> pide probar los planes de contingencia, revisar los resultados e iniciar acciones correctivas. La meta no es obtener una medalla verde: es descubrir una debilidad de forma segura y cerrarla.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-informe-que-vuelve-después-de-retirarlo">Caso legítimo: el informe que vuelve después de retirarlo<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#caso-leg%C3%ADtimo-el-informe-que-vuelve-despu%C3%A9s-de-retirarlo" class="hash-link" aria-label="Enlace directo al Caso legítimo: el informe que vuelve después de retirarlo" title="Enlace directo al Caso legítimo: el informe que vuelve después de retirarlo" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Faro Cívico</strong> publica agregados mensuales sobre contratación pública. Para el ejercicio crea un PDF sintético, sin nombres ni expedientes reales, con el identificador <code>sim-2026-10-r1</code>. Un controlador lo coloca en un bucket de ensayo que reproduce las políticas de producción. El ledger registra el digest A, pero el equipo de facilitación sustituye el objeto por una variante con digest B y deja una copia accesible a través de una caché de prueba.</p>
-<p>A las 10:00, el monitor avisa de una diferencia. El equipo no sabe de antemano si se trata de una sustitución, una réplica legítima o un fallo del reconciliador. Debe responder usando las herramientas habituales, pero bajo reglas de seguridad explícitas:</p>
-<ul>
-<li class="">ningún artefacto contiene datos reales;</li>
-<li class="">el dominio y el almacenamiento están reservados para ejercicios;</li>
-<li class="">existe una persona con autoridad para detener la prueba;</li>
-<li class="">la acción de retirada tiene reversión conocida;</li>
-<li class="">el facilitador conserva una copia sellada de los artefactos iniciales;</li>
-<li class="">cualquier mensaje externo se dirige a un canal de ensayo.</li>
-</ul>
-<p>El escenario termina cuando el equipo demuestra, con observaciones independientes, que la copia inesperada ya no es accesible, que la evidencia necesaria sigue íntegra y que una nueva liberación autorizada atraviesa el pipeline sin reutilizar el identificador comprometido. «Hemos borrado el fichero» no es un criterio de éxito suficiente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-una-ficha-antes-de-tocar-nada">1. Escribe una ficha antes de tocar nada<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#1-escribe-una-ficha-antes-de-tocar-nada" class="hash-link" aria-label="Enlace directo al 1. Escribe una ficha antes de tocar nada" title="Enlace directo al 1. Escribe una ficha antes de tocar nada" translate="no">​</a></h3>
-<p>Define objetivo, alcance, riesgos, participantes, duración y condiciones de aborto. La ficha debe indicar qué sistemas pueden modificarse y cuáles son solo de observación. Incluye un contacto de emergencia y una palabra inequívoca para detener el ejercicio.</p>
-<p>Formula una hipótesis falsable. Por ejemplo: «el equipo detectará en menos de quince minutos un objeto cuyo digest no coincide con el ledger, detendrá nuevas liberaciones del mismo producto y conservará una cadena de evidencias reproducible». El umbral es una decisión interna, no una cifra universal.</p>
-<p>Separa tres tiempos:</p>
-<ul>
-<li class=""><strong>tiempo de detección:</strong> desde la inyección hasta la primera alerta válida;</li>
-<li class=""><strong>tiempo de contención:</strong> hasta impedir nuevas exposiciones dentro del alcance;</li>
-<li class=""><strong>tiempo de recuperación verificada:</strong> hasta restaurar el servicio y confirmar el destino.</li>
-</ul>
-<p>Evita diseñar la prueba para que «pase». NIST SP 800-84 recomienda objetivos y métricas definidos antes del evento, además de un equipo que planifique, ejecute, evalúe y haga seguimiento.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-un-gemelo-mínimo-y-seguro">2. Construye un gemelo mínimo y seguro<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#2-construye-un-gemelo-m%C3%ADnimo-y-seguro" class="hash-link" aria-label="Enlace directo al 2. Construye un gemelo mínimo y seguro" title="Enlace directo al 2. Construye un gemelo mínimo y seguro" translate="no">​</a></h3>
-<p>Imita solo lo necesario: generador, ledger, destino, caché y monitor. Usa documentos sintéticos claramente marcados mediante identificadores internos, pero no dependas de una marca visible para evitar su publicación accidental. Aplica los mismos controles de acceso, cifrado, auditoría y retención que exigirías a datos recuperados.</p>
-<p>La <a href="https://cloud.google.com/architecture/dr-scenarios-planning-guide" target="_blank" rel="noopener noreferrer" class="">guía de planificación de recuperación de Google Cloud</a> insiste en probar el proceso de extremo a extremo, convertir las tareas en acciones concretas y tratar los datos recuperados con los controles de producción. Esa idea es independiente del proveedor: una copia de ensayo mal protegida también puede convertirse en un incidente real.</p>
-<p>No clones secretos de producción ni bases completas «por realismo». Sustituye credenciales, destinatarios, URLs y selectores personales. Si el escenario necesita una forma concreta, genera valores ficticios que mantengan el esquema, no el contenido.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-prepara-inyecciones-no-respuestas">3. Prepara inyecciones, no respuestas<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#3-prepara-inyecciones-no-respuestas" class="hash-link" aria-label="Enlace directo al 3. Prepara inyecciones, no respuestas" title="Enlace directo al 3. Prepara inyecciones, no respuestas" translate="no">​</a></h3>
-<p>Una <strong>inyección</strong> es un hecho que el facilitador revela cuando corresponde: «el inventario devuelve dos objetos», «la caché sigue respondiendo», «el digest observado difiere» o «la persona que suele aprobar no está disponible». No debe decir al equipo qué hacer.</p>
-<p>Combina un fallo técnico y uno organizativo. Si todo se resuelve ejecutando un script conocido, solo has probado el script. Ejemplos seguros:</p>
-<ul>
-<li class="">un ledger en estado <code>released</code> y un destino sin objeto;</li>
-<li class="">un objeto público ausente del ledger;</li>
-<li class="">dos copias con el mismo <code>release_id</code> y bytes diferentes;</li>
-<li class="">retirada correcta en origen pero persistencia en una caché de prueba;</li>
-<li class="">una aprobación verbal sin registro verificable;</li>
-<li class="">un runbook que nombra un rol inexistente después de una reorganización.</li>
-</ul>
-<p>No introduzcas sorpresas que puedan cruzar al entorno real. Si se prueba en producción, la exigencia de guardas, monitorización y rollback debe ser mucho mayor. <a href="https://cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures" target="_blank" rel="noopener noreferrer" class="">Google Cloud recomienda</a> definir objetivos y alcance, preparar reversión manual y automatizada y ejecutar pruebas periódicas; para un primer ejercicio, un entorno aislado suele ofrecer una relación riesgo/aprendizaje mejor.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-observa-decisiones-y-evidencia">4. Observa decisiones y evidencia<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#4-observa-decisiones-y-evidencia" class="hash-link" aria-label="Enlace directo al 4. Observa decisiones y evidencia" title="Enlace directo al 4. Observa decisiones y evidencia" translate="no">​</a></h3>
-<p>El evaluador no debe limitarse a mirar pantallas. Registra una cronología con horas, rol, acción, motivo y evidencia asociada. Captura, como mínimo:</p>
-<table><thead><tr><th>Momento</th><th>Evidencia esperada</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td>Detección</td><td>Alerta, consulta e inventario</td><td>¿Qué discrepancia se observó y con qué cobertura?</td></tr><tr><td>Declaración</td><td>Identificador, severidad y alcance</td><td>¿Quién asumió coordinación y qué quedó afectado?</td></tr><tr><td>Contención</td><td>Cambio autorizado y confirmación</td><td>¿Se frenaron nuevas liberaciones sin destruir pruebas?</td></tr><tr><td>Retirada</td><td>Respuestas desde origen y caché</td><td>¿Qué dejó de ser accesible y desde dónde se comprobó?</td></tr><tr><td>Recuperación</td><td>Digests, pruebas y nueva observación</td><td>¿Los bytes restaurados son los autorizados?</td></tr><tr><td>Comunicación</td><td>Mensaje aprobado y destinatarios</td><td>¿Se separaron hechos, inferencias e incertidumbres?</td></tr></tbody></table>
-<p>Conserva los artefactos de ensayo, hashes, logs y decisiones durante la ventana definida. Una captura de pantalla puede aportar contexto, pero no sustituye el contenido original, sus metadatos ni una consulta repetible. Tampoco confundas ausencia en una ruta con retirada global: comprueba origen, índices, réplicas y cachés que formen parte del alcance.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-ensaya-la-comunicación-como-una-operación-técnica">5. Ensaya la comunicación como una operación técnica<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#5-ensaya-la-comunicaci%C3%B3n-como-una-operaci%C3%B3n-t%C3%A9cnica" class="hash-link" aria-label="Enlace directo al 5. Ensaya la comunicación como una operación técnica" title="Enlace directo al 5. Ensaya la comunicación como una operación técnica" translate="no">​</a></h3>
-<p>Una liberación huérfana puede obligar a avisar a investigación, operaciones, privacidad, asesoría jurídica, responsables del producto y destinatarios. El simulacro debe comprobar la ruta de aprobación y la capacidad de redactar sin exagerar.</p>
-<p>Un buen parte provisional indica:</p>
-<ul>
-<li class="">qué se observó y a qué hora;</li>
-<li class="">qué contenido ficticio o categoría estaría afectada;</li>
-<li class="">qué se ha contenido y qué sigue sin confirmar;</li>
-<li class="">qué evidencias se preservaron;</li>
-<li class="">cuándo llegará la siguiente actualización;</li>
-<li class="">qué acción, si alguna, se pide al destinatario.</li>
-</ul>
-<p>No afirmes «nadie descargó el fichero» si solo careces de telemetría. No conviertas un digest distinto en prueba de intrusión sin corroboración. Y no republicites en el aviso los datos que intentas retirar.</p>
-<p>El playbook federal de <a href="https://www.cisa.gov/news-events/news/2021/11/16/cisa-releases-cybersecurity-incident-and-vulnerability-response-playbooks" target="_blank" rel="noopener noreferrer" class="">CISA para respuesta a incidentes</a> estructura la respuesta mediante preparación, detección y análisis, contención, erradicación, recuperación y actividad posterior. Aunque su audiencia principal sea federal estadounidense, el valor transferible es la coordinación explícita y el uso de listas para no perder acciones durante una situación cambiante.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-recupera-y-verifica-desde-fuera">6. Recupera y verifica desde fuera<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#6-recupera-y-verifica-desde-fuera" class="hash-link" aria-label="Enlace directo al 6. Recupera y verifica desde fuera" title="Enlace directo al 6. Recupera y verifica desde fuera" translate="no">​</a></h3>
-<p>Restaurar significa más que volver a activar el job. Usa una identidad de solo lectura diferente de la que publica y compara:</p>
-<ul>
-<li class=""><code>release_id</code> esperado y observado;</li>
-<li class="">tamaño y digest de los bytes finales;</li>
-<li class="">estado del ledger y del destino;</li>
-<li class="">evidencias de autorización y procedencia;</li>
-<li class="">respuesta del origen, caché e índice;</li>
-<li class="">capacidad de repetir la misma observación.</li>
-</ul>
-<p>Ejecuta después una liberación de prueba nueva. No reutilices silenciosamente la clave del objeto que produjo la discrepancia: eso puede esconder cachés antiguas y hacer imposible distinguir versiones. El cierre debe exigir que monitores, alertas y controles de idempotencia vuelvan a estar activos.</p>
-<p>Google SRE describe sus ejercicios controlados de recuperación y recomienda usar herramientas reales, practicar periódicamente y producir un informe posterior con lo que funcionó, lo que falló y cómo mejorarlo. Su <a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">capítulo sobre respuesta a incidentes</a> recuerda algo incómodo pero útil: el resultado más valioso de un simulacro es encontrar huecos antes de una emergencia.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-cierra-el-bucle-con-acciones-verificables">7. Cierra el bucle con acciones verificables<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#7-cierra-el-bucle-con-acciones-verificables" class="hash-link" aria-label="Enlace directo al 7. Cierra el bucle con acciones verificables" title="Enlace directo al 7. Cierra el bucle con acciones verificables" translate="no">​</a></h3>
-<p>Celebra una revisión breve después del ejercicio, separada de la puntuación individual. Reconstruye la cronología y pregunta qué señales faltaron, qué permisos sobraron, qué decisión no tenía dueño y qué paso dependía de memoria tribal.</p>
-<p>Cada hallazgo necesita:</p>
-<ul>
-<li class="">una descripción observable;</li>
-<li class="">impacto potencial;</li>
-<li class="">corrección propuesta;</li>
-<li class="">responsable;</li>
-<li class="">fecha objetivo;</li>
-<li class="">evidencia que demostrará el cierre;</li>
-<li class="">prueba de regresión o siguiente simulacro.</li>
-</ul>
-<p>«Actualizar el runbook» no basta. Una acción cerrable sería: «añadir antes del 31 de octubre una consulta de caché externa al paso de retirada y adjuntar una ejecución exitosa con el digest esperado». Repite el escenario cuando cambien almacenamiento, CDN, equipo, política de publicación o mecanismos de firma.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Un ejercicio no demuestra que todos los incidentes futuros vayan a resolverse. El equipo conoce que está siendo observado, los datos son sintéticos y el entorno suele ser más pequeño. Además, una prueba demasiado frecuente y predecible puede medir memoria del guion en vez de capacidad de adaptación.</p>
-<p>Vigila estos errores:</p>
-<ul>
-<li class="">declarar éxito porque el origen devuelve <code>404</code> sin consultar cachés o réplicas;</li>
-<li class="">medir velocidad y premiar la destrucción de evidencia;</li>
-<li class="">introducir un fallo imposible que no enseña nada sobre el sistema real;</li>
-<li class="">usar permisos de administrador que la guardia normal no posee;</li>
-<li class="">ocultar al evaluador cambios paralelos que alteran la cronología;</li>
-<li class="">confundir un retraso de consistencia eventual con una copia huérfana permanente;</li>
-<li class="">evaluar a personas sin revisar ambigüedades del diseño y del procedimiento;</li>
-<li class="">cerrar hallazgos por acuerdo verbal, sin prueba de regresión;</li>
-<li class="">usar datos reales y convertir el simulacro en una exposición.</li>
-</ul>
-<p>La consistencia eventual merece una ventana de gracia documentada, no infinita. Si el sistema tarda habitualmente dos minutos en propagar una retirada, una observación durante ese intervalo puede ser esperable; a los treinta minutos exige explicación. Mide primero el comportamiento normal para que la alarma tenga contexto.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa contenido sintético y dominios, buckets, listas y canales reservados para pruebas.</li>
-<li class="">Prohíbe copiar credenciales, tokens, URLs firmadas o selectores personales de producción.</li>
-<li class="">Designa una autoridad de parada y criterios de aborto antes de empezar.</li>
-<li class="">Aplica mínimo privilegio y separa publicación, aprobación, observación y evaluación.</li>
-<li class="">Registra acciones sin volcar secretos ni el contenido que debería permanecer limitado.</li>
-<li class="">Conserva evidencia durante un plazo definido y elimina después las copias auxiliares.</li>
-<li class="">Avisa previamente a quienes puedan confundir el tráfico de ensayo con actividad hostil.</li>
-<li class="">Coordina cualquier prueba sobre servicios de terceros con sus términos y permisos.</li>
-<li class="">No uses el ejercicio para vigilar el rendimiento individual o buscar culpables.</li>
-<li class="">Declara qué partes del recorrido no se probaron y qué incertidumbre permanece.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Un <strong>tabletop</strong> permite recorrer decisiones sin tocar sistemas y es apropiado cuando el runbook todavía está verde. Una prueba técnica valida un componente concreto, como purga de caché o restauración del ledger. Un simulacro funcional combina roles y herramientas en un entorno aislado. El ejercicio completo, cercano a producción, ofrece más realismo pero también más riesgo. NIST SP 800-84 propone aumentar gradualmente la complejidad: no empieces por el escenario más invasivo.</p>
-<p>El takeaway accionable es sencillo: elige una publicación ficticia, escribe hoy una ficha de una página y ensaya tres hechos —digest distinto, copia fuera del ledger y caché persistente— con una condición de parada. Mide detección, contención y recuperación verificada. Si el equipo no puede demostrar qué bytes estuvieron visibles, quién autorizó cada acción y cómo sabe que la retirada terminó, el simulacro ya ha encontrado trabajo útil.</p>
-<p>Como siguiente tema convendría estudiar los <strong>runbooks ejecutables y sus pruebas de regresión</strong>: cómo convertir instrucciones críticas en controles comprobables sin automatizar decisiones que requieren juicio humano.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/simulacros-recuperacion-liberaciones-huerfanas-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-84" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-84: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities</a></li>
-<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-61r3" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management</a></li>
-<li class=""><a href="https://doi.org/10.6028/NIST.SP.800-53r5" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-53 Rev. 5: Security and Privacy Controls for Information Systems and Organizations</a></li>
-<li class=""><a href="https://www.cisa.gov/news-events/news/2021/11/16/cisa-releases-cybersecurity-incident-and-vulnerability-response-playbooks" target="_blank" rel="noopener noreferrer" class="">CISA: Federal Government Cybersecurity Incident and Vulnerability Response Playbooks</a></li>
-<li class=""><a href="https://cloud.google.com/architecture/dr-scenarios-planning-guide" target="_blank" rel="noopener noreferrer" class="">Google Cloud: Disaster recovery planning guide</a></li>
-<li class=""><a href="https://cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures" target="_blank" rel="noopener noreferrer" class="">Google Cloud: Perform testing for recovery from failures</a></li>
-<li class=""><a href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Incident Response</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="incident-response" term="incident-response"/>
-        <category label="resilience" term="resilience"/>
-        <category label="Verificacion" term="Verificacion"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
