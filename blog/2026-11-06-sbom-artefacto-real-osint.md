@@ -13,6 +13,9 @@ Un proveedor entrega una aplicación, un SBOM impecable y una declaración tranq
 
 ![Ilustración editorial de tres capas de investigación: artefacto fijado, inventario declarado y componentes observados](/img/blog/2026-11-06-sbom-artefacto-real-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/sbom-artefacto-real-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
