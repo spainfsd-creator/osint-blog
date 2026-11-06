@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "docusaurus build && python3 scripts/dedupe_podcast_build_assets.py --repo .",
     "check:post": "python3 scripts/preflight_post_assets.py --repo .",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
