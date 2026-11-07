@@ -13,6 +13,9 @@ Un escáner encuentra una biblioteca asociada a una vulnerabilidad crítica dent
 
 ![Analista comparando un inventario de software, un aviso de vulnerabilidad y la evidencia específica del producto](/img/blog/2026-11-07-vex-osint-explotabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/vex-osint-explotabilidad-contexto.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
