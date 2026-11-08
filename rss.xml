@@ -4,10 +4,199 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[GUAC en OSINT: conectar metadatos de la cadena de suministro sin confundir el grafo con la verdad]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint</guid>
+            <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Un aviso atribuye una vulnerabilidad a una dependencia transitiva. El SBOM dice que el paquete existe, una atestación enlaza un binario con una compilación y una ficha VEX declara que el producto no está afectado. Cada documento parece razonable por separado, pero la decisión depende de cómo se relacionan ese artefacto, esa versión, esa ruta de dependencia y esa afirmación. Copiar datos entre hojas de cálculo puede ocultar justo el salto que hay que verificar. Un grafo ayuda a encontrarlo; no convierte el salto en un hecho.]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Un aviso atribuye una vulnerabilidad a una dependencia transitiva. El SBOM dice que el paquete existe, una atestación enlaza un binario con una compilación y una ficha VEX declara que el producto no está afectado. Cada documento parece razonable por separado, pero la decisión depende de cómo se relacionan <strong>ese artefacto, esa versión, esa ruta de dependencia y esa afirmación</strong>. Copiar datos entre hojas de cálculo puede ocultar justo el salto que hay que verificar. Un grafo ayuda a encontrarlo; no convierte el salto en un hecho.</p>
+<p><img decoding="async" loading="lazy" alt="Analista examinando documentos de cadena de suministro conectados en un grafo de evidencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-08-guac-grafo-cadena-suministro-cebbc96d54b7356344715c9cf1188a49.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo presenta un uso responsable de <strong>GUAC (Graph for Understanding Artifact Composition)</strong> como apoyo a investigaciones OSINT y de debida diligencia sobre software público, propio o analizado con autorización. El ejemplo es ficticio. No requiere explotar vulnerabilidades, sondear sistemas ajenos ni recopilar datos personales de mantenedores.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-guac-y-para-qué-sirve">Qué es GUAC y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#qu%C3%A9-es-guac-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es GUAC y para qué sirve" title="Enlace directo al Qué es GUAC y para qué sirve" translate="no">​</a></h2>
+<p><a href="https://docs.guac.sh/guac/" target="_blank" rel="noopener noreferrer" class="">GUAC</a> agrega metadatos de seguridad de la cadena de suministro, normaliza entidades y representa relaciones entre paquetes, artefactos, repositorios, dependencias, vulnerabilidades, SBOM y procedencia. Su lugar no es el de otro escáner, sino el de una capa de <strong>agregación y síntesis</strong> sobre documentos y servicios que ya producen afirmaciones.</p>
+<p>La documentación oficial enumera, entre otras, entradas en CycloneDX, SPDX, OSV, OpenSSF Scorecard, SLSA, in-toto, CSAF/VEX y OpenVEX. GUAC puede enriquecer el grafo mediante integraciones como <code>deps.dev</code> y exponerlo para consultas y visualización. Eso permite formular preguntas que cruzan varios documentos:</p>
+<ul>
+<li class="">¿qué camino conecta un paquete usado por el producto con una vulnerabilidad conocida?;</li>
+<li class="">¿qué artefacto procede de qué fuente o proceso de construcción?;</li>
+<li class="">¿qué SBOM describe al sujeto consultado y cuándo se generó?;</li>
+<li class="">¿qué afirmación VEX afecta a ese paquete o artefacto concreto?;</li>
+<li class="">¿qué sabemos y qué sigue ausente sobre una versión determinada?</li>
+</ul>
+<p>La <a href="https://docs.guac.sh/guac/guac-ontology/" target="_blank" rel="noopener noreferrer" class="">ontología de GUAC</a> separa objetos —paquetes, fuentes, artefactos, constructores o vulnerabilidades— de evidencias que los relacionan. Esta distinción es útil para investigar: una arista no debería leerse como una verdad desnuda, sino como una afirmación con origen, recolector, justificación y momento.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lo-que-un-grafo-no-demuestra">Lo que un grafo no demuestra<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#lo-que-un-grafo-no-demuestra" class="hash-link" aria-label="Enlace directo al Lo que un grafo no demuestra" title="Enlace directo al Lo que un grafo no demuestra" translate="no">​</a></h3>
+<p>Que dos nodos estén conectados no prueba automáticamente que:</p>
+<ul>
+<li class="">el SBOM corresponda al binario recibido;</li>
+<li class="">dos nombres parecidos designen el mismo paquete;</li>
+<li class="">una dependencia declarada esté presente o se cargue en ejecución;</li>
+<li class="">una vulnerabilidad sea explotable en la configuración analizada;</li>
+<li class="">una atestación sea auténtica, confiable o suficiente;</li>
+<li class="">una ausencia en el grafo equivalga a una ausencia en el producto.</li>
+</ul>
+<p>El propio proyecto advierte que los identificadores no siempre están disponibles y que algunas vinculaciones requieren heurísticas, con posibles casos límite y errores de ingestión. Por eso, en OSINT, GUAC funciona mejor como <strong>mapa interrogable de afirmaciones y procedencia</strong> que como motor de veredictos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-reconstruir-una-ruta-de-riesgo">Caso de uso legítimo: reconstruir una ruta de riesgo<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#caso-de-uso-leg%C3%ADtimo-reconstruir-una-ruta-de-riesgo" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: reconstruir una ruta de riesgo" title="Enlace directo al Caso de uso legítimo: reconstruir una ruta de riesgo" translate="no">​</a></h2>
+<p>La entidad ficticia <strong>Biblioteca del Estuario</strong> evalúa una aplicación documental antes de desplegarla. Ha recibido, dentro de un proceso autorizado:</p>
+<ol>
+<li class="">una imagen de contenedor fijada por digest;</li>
+<li class="">un SBOM CycloneDX del proveedor;</li>
+<li class="">una atestación de procedencia de compilación;</li>
+<li class="">avisos públicos de vulnerabilidades;</li>
+<li class="">una declaración VEX para una de ellas.</li>
+</ol>
+<p>Un escáner señala que <code>visor-ejemplo@3.4.1</code> depende transitivamente de <code>parser-demo@1.8.0</code>, asociado a <code>CVE-20XX-12345</code>. Los nombres y el identificador son ficticios. La pregunta no es «¿hay una vulnerabilidad en el grafo?», sino:</p>
+<blockquote>
+<p>¿Qué cadena de evidencias enlaza el artefacto recibido con la versión afectada, qué parte procede de cada fuente y qué incertidumbre impide todavía decidir?</p>
+</blockquote>
+<p>Tras ingerir copias controladas de los documentos, el equipo obtiene una ruta candidata:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">artefacto por digest</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -&gt; descrito por SBOM A</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -&gt; contiene paquete visor-ejemplo@3.4.1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -&gt; depende de parser-demo@1.8.0</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -&gt; asociado a CVE-20XX-12345</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  -&gt; sujeto de una declaración VEX "not_affected"</span><br></span></code></pre></div></div>
+<p>La ruta reduce el espacio de búsqueda, pero cada flecha necesita una lectura propia:</p>
+<table><thead><tr><th>Relación</th><th>Fuente</th><th>Pregunta de validación</th></tr></thead><tbody><tr><td>artefacto → SBOM</td><td>documento del proveedor</td><td>¿el SBOM identifica este digest o una entrega distinta?</td></tr><tr><td>SBOM → paquete</td><td>inventario declarado</td><td>¿el componente está realmente presente y cómo se identificó?</td></tr><tr><td>paquete → dependencia</td><td>SBOM o enriquecimiento externo</td><td>¿la relación corresponde a esta versión, ecosistema y resolución?</td></tr><tr><td>paquete → vulnerabilidad</td><td>base de avisos</td><td>¿el rango afectado y los alias coinciden sin ambigüedad?</td></tr><tr><td>sujeto → VEX</td><td>declaración del emisor</td><td>¿el sujeto es el mismo artefacto y la justificación sigue vigente?</td></tr></tbody></table>
+<p>El resultado puede ser una conclusión provisional: la ruta de dependencia está declarada y el aviso incluye esa versión, pero el VEX usa un identificador de producto que no enlaza inequívocamente con el digest recibido. El siguiente trabajo no es «buscar más nodos», sino pedir o producir evidencia que resuelva ese enlace.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-la-decisión-y-fija-el-sujeto">1. Escribe la decisión y fija el sujeto<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#1-escribe-la-decisi%C3%B3n-y-fija-el-sujeto" class="hash-link" aria-label="Enlace directo al 1. Escribe la decisión y fija el sujeto" title="Enlace directo al 1. Escribe la decisión y fija el sujeto" translate="no">​</a></h3>
+<p>Antes de desplegar una plataforma, define qué decisión debe apoyar. «Explorar la cadena de suministro» es demasiado amplio. Una pregunta mejor sería: «determinar si el artefacto con este digest requiere mitigación por estas vulnerabilidades antes de su aceptación».</p>
+<p>Registra el sujeto con el identificador más estable disponible: digest del artefacto, PURL completo con versión, referencia de imagen o commit. Conserva también nombre original, origen, fecha y alcance. Un grafo rico construido sobre un sujeto ambiguo solo hace más convincente la ambigüedad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-conserva-los-originales-antes-de-ingerirlos">2. Conserva los originales antes de ingerirlos<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#2-conserva-los-originales-antes-de-ingerirlos" class="hash-link" aria-label="Enlace directo al 2. Conserva los originales antes de ingerirlos" title="Enlace directo al 2. Conserva los originales antes de ingerirlos" translate="no">​</a></h3>
+<p>Guarda cada SBOM, aviso o atestación tal como se recibió y calcula su hash. Registra:</p>
+<ul>
+<li class="">URL o canal de origen;</li>
+<li class="">fecha de obtención y, si existe, fecha de emisión;</li>
+<li class="">tipo y versión del formato;</li>
+<li class="">identidad declarada del emisor;</li>
+<li class="">firma y resultado de verificación, si procede;</li>
+<li class="">condiciones de acceso y redistribución.</li>
+</ul>
+<p>La ingestión normaliza información. Para poder auditar una arista, debes conservar el documento previo a esa transformación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-empieza-con-un-corpus-pequeño-y-conocido">3. Empieza con un corpus pequeño y conocido<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#3-empieza-con-un-corpus-peque%C3%B1o-y-conocido" class="hash-link" aria-label="Enlace directo al 3. Empieza con un corpus pequeño y conocido" title="Enlace directo al 3. Empieza con un corpus pequeño y conocido" translate="no">​</a></h3>
+<p>La documentación ofrece un arranque local y componentes para recoger, ingerir, consultar y visualizar datos. Para una primera evaluación, evita activar todos los enriquecimientos a la vez. Carga uno o dos artefactos y documentos cuyo contenido puedas revisar manualmente.</p>
+<p>Comprueba entonces que:</p>
+<ul>
+<li class="">el número y tipo de sujetos son plausibles;</li>
+<li class="">las versiones no se han perdido durante la normalización;</li>
+<li class="">los identificadores pertenecen al ecosistema correcto;</li>
+<li class="">las relaciones decisivas conservan origen y justificación;</li>
+<li class="">una nueva ingestión no crea duplicados inesperados.</li>
+</ul>
+<p>Solo después amplía el corpus. Esto permite distinguir un problema del documento, del recolector, de la normalización o de la consulta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-separa-evidencia-aportada-de-enriquecimiento">4. Separa evidencia aportada de enriquecimiento<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#4-separa-evidencia-aportada-de-enriquecimiento" class="hash-link" aria-label="Enlace directo al 4. Separa evidencia aportada de enriquecimiento" title="Enlace directo al 4. Separa evidencia aportada de enriquecimiento" translate="no">​</a></h3>
+<p>Una relación extraída del SBOM del proveedor y otra recuperada de un servicio público pueden coincidir, pero no tienen la misma procedencia. Etiqueta al menos:</p>
+<table><thead><tr><th>Clase</th><th>Ejemplo</th><th>Lectura prudente</th></tr></thead><tbody><tr><td>evidencia primaria del caso</td><td>SBOM entregado con el artefacto</td><td>declaración del productor sobre su producto</td></tr><tr><td>observación independiente</td><td>SBOM generado sobre una copia autorizada</td><td>resultado de una herramienta y configuración concretas</td></tr><tr><td>enriquecimiento público</td><td>dependencias de <code>deps.dev</code> u OSV</td><td>contexto externo sujeto a cobertura y frescura</td></tr><tr><td>inferencia local</td><td>igualdad entre dos identificadores</td><td>hipótesis que exige justificación y revisión</td></tr></tbody></table>
+<p>La integración oficial con <a href="https://docs.guac.sh/guac/certifier-deps-dev/" target="_blank" rel="noopener noreferrer" class=""><code>deps.dev</code></a> puede mapear repositorios, resultados de Scorecard y árboles de dependencias de ecosistemas públicos. Sus límites también están documentados: necesita versiones explícitas en los PURL, depende de la cobertura del servicio y no resuelve paquetes privados o ecosistemas no indexados.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-consulta-caminos-no-solo-coincidencias">5. Consulta caminos, no solo coincidencias<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#5-consulta-caminos-no-solo-coincidencias" class="hash-link" aria-label="Enlace directo al 5. Consulta caminos, no solo coincidencias" title="Enlace directo al 5. Consulta caminos, no solo coincidencias" translate="no">​</a></h3>
+<p>La interfaz y las herramientas de GUAC permiten buscar vulnerabilidades a través de dependencias transitivas. Una coincidencia final es útil para priorizar, pero la investigación debe conservar el camino completo:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">sujeto inicial → relación 1 → nodo intermedio → relación 2 → hallazgo</span><br></span></code></pre></div></div>
+<p>Para cada tramo, exporta o registra:</p>
+<ul>
+<li class="">identificadores completos y versiones;</li>
+<li class="">tipo de relación;</li>
+<li class="">documento o servicio de origen;</li>
+<li class="">recolector y fecha;</li>
+<li class="">justificación disponible;</li>
+<li class="">estado de validación: confirmado, contradicho, inconcluso o caducado.</li>
+</ul>
+<p>Evita construir automatizaciones duraderas sobre identificadores internos de nodo. La documentación de GraphQL indica que son opacos y específicos de cada instancia. Las consultas topológicas y algunas directivas también están marcadas como experimentales; revisa el esquema efectivo de tu despliegue antes de asumir estabilidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-valida-la-identidad-en-los-pivotes-decisivos">6. Valida la identidad en los pivotes decisivos<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#6-valida-la-identidad-en-los-pivotes-decisivos" class="hash-link" aria-label="Enlace directo al 6. Valida la identidad en los pivotes decisivos" title="Enlace directo al 6. Valida la identidad en los pivotes decisivos" translate="no">​</a></h3>
+<p>Los falsos positivos más costosos suelen nacer de unir entidades que solo parecen iguales. Antes de aceptar una ruta:</p>
+<ol>
+<li class="">compara ecosistema, namespace, nombre, versión y calificadores del PURL;</li>
+<li class="">contrasta digests cuando existan;</li>
+<li class="">revisa alias de vulnerabilidad en fuentes primarias;</li>
+<li class="">distingue paquete, artefacto, repositorio y producto comercial;</li>
+<li class="">documenta cualquier equivalencia añadida manualmente;</li>
+<li class="">busca evidencia que pueda refutar la unión, no solo confirmarla.</li>
+</ol>
+<p>Una relación de igualdad puede ser evidencia en el grafo, pero debe seguir teniendo procedencia y justificación. «El nombre coincide» rara vez basta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-corrobora-fuera-del-grafo">7. Corrobora fuera del grafo<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#7-corrobora-fuera-del-grafo" class="hash-link" aria-label="Enlace directo al 7. Corrobora fuera del grafo" title="Enlace directo al 7. Corrobora fuera del grafo" translate="no">​</a></h3>
+<p>GUAC organiza el trabajo; la conclusión sigue dependiendo de las fuentes. Para una ruta prioritaria:</p>
+<ul>
+<li class="">abre el aviso original y verifica rangos y fechas;</li>
+<li class="">comprueba el sujeto del SBOM y su vínculo con el artefacto;</li>
+<li class="">valida firmas o atestaciones con la política aplicable;</li>
+<li class="">compara la dependencia declarada con una observación autorizada;</li>
+<li class="">evalúa el VEX en contexto, incluida su justificación y caducidad;</li>
+<li class="">conserva discrepancias sin resolverlas por mayoría de fuentes.</li>
+</ul>
+<p>Si el grafo dice que no existe un camino, formula la conclusión como «no se encontró con las fuentes, configuración y fecha indicadas». No como «el camino no existe».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-convierte-la-consulta-en-un-producto-reproducible">8. Convierte la consulta en un producto reproducible<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#8-convierte-la-consulta-en-un-producto-reproducible" class="hash-link" aria-label="Enlace directo al 8. Convierte la consulta en un producto reproducible" title="Enlace directo al 8. Convierte la consulta en un producto reproducible" translate="no">​</a></h3>
+<p>Entrega algo más útil que una captura del visualizador. El registro mínimo debería incluir:</p>
+<ul>
+<li class="">pregunta y alcance;</li>
+<li class="">sujeto inicial fijado por identificador;</li>
+<li class="">fuentes y hashes ingeridos;</li>
+<li class="">versión o referencia del despliegue y configuración relevante;</li>
+<li class="">consulta ejecutada;</li>
+<li class="">camino resultante con procedencia por arista;</li>
+<li class="">comprobaciones externas;</li>
+<li class="">incertidumbres, contradicciones y cobertura ausente;</li>
+<li class="">decisión, responsable y condición de reapertura.</li>
+</ul>
+<p>Así, una actualización del SBOM o de una base de vulnerabilidades puede compararse con un estado anterior sin reescribir la historia.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="normalización-equivocada">Normalización equivocada<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#normalizaci%C3%B3n-equivocada" class="hash-link" aria-label="Enlace directo al Normalización equivocada" title="Enlace directo al Normalización equivocada" translate="no">​</a></h3>
+<p>Mayúsculas, namespaces, calificadores, forks o convenciones de versión pueden separar entidades idénticas o unir entidades diferentes. Revisa manualmente los enlaces que cambian una decisión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-desigual">Cobertura desigual<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#cobertura-desigual" class="hash-link" aria-label="Enlace directo al Cobertura desigual" title="Enlace directo al Cobertura desigual" translate="no">​</a></h3>
+<p>Un enriquecedor puede cubrir npm y PyPI con detalle y no conocer un ecosistema interno. La falta de aristas refleja la cobertura de las fuentes y del despliegue, no necesariamente la composición real.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="frescura-no-uniforme">Frescura no uniforme<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#frescura-no-uniforme" class="hash-link" aria-label="Enlace directo al Frescura no uniforme" title="Enlace directo al Frescura no uniforme" translate="no">​</a></h3>
+<p>El SBOM, el aviso, Scorecard, la atestación y el VEX pueden representar momentos distintos. Una ruta correcta ayer puede quedar obsoleta tras una nueva compilación o un aviso revisado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependencia-no-equivale-a-ejecución">Dependencia no equivale a ejecución<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#dependencia-no-equivale-a-ejecuci%C3%B3n" class="hash-link" aria-label="Enlace directo al Dependencia no equivale a ejecución" title="Enlace directo al Dependencia no equivale a ejecución" translate="no">​</a></h3>
+<p>Una dependencia transitiva puede no empaquetarse, cargarse o alcanzar la ruta vulnerable. GUAC ayuda a localizar la relación declarada; demostrar presencia o explotabilidad exige evidencia adicional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="procedencia-no-equivale-a-confianza">Procedencia no equivale a confianza<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#procedencia-no-equivale-a-confianza" class="hash-link" aria-label="Enlace directo al Procedencia no equivale a confianza" title="Enlace directo al Procedencia no equivale a confianza" translate="no">​</a></h3>
+<p>Saber de dónde viene una afirmación permite evaluarla, pero no obliga a creerla. Dos aristas con el mismo origen tampoco son dos corroboraciones independientes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-visualización-seduce">La visualización seduce<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#la-visualizaci%C3%B3n-seduce" class="hash-link" aria-label="Enlace directo al La visualización seduce" title="Enlace directo al La visualización seduce" translate="no">​</a></h3>
+<p>Los grafos densos parecen exhaustivos. Una ruta coloreada puede ocultar una equivalencia heurística, y un área vacía puede ser solo una fuente no configurada. Prioriza tablas de procedencia y estados de evidencia sobre la estética del diagrama.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Trabaja con metadatos públicos, productos propios o material para el que exista autorización expresa.</li>
+<li class="">No conviertas la investigación de dependencias en escaneo activo de infraestructura de terceros.</li>
+<li class="">Despliega localmente cuando los SBOM, nombres de paquetes o repositorios internos sean sensibles.</li>
+<li class="">No envíes documentos privados a enriquecedores externos sin revisar autorización, retención y exposición de metadatos.</li>
+<li class="">Usa cuentas y credenciales de solo lectura; separa la plataforma de investigación de entornos de producción.</li>
+<li class="">Minimiza nombres, correos y otras identidades personales que no sean necesarias para evaluar el software.</li>
+<li class="">Protege GraphQL, REST, visualizadores y bases persistentes: el grafo puede revelar una cartografía valiosa de dependencias y debilidades.</li>
+<li class="">Registra qué conectores realizan llamadas salientes y aplica límites, caché y revisión de términos de uso.</li>
+<li class="">No atribuyas intención maliciosa a partir de una inconsistencia entre documentos.</li>
+<li class="">Coordina una divulgación responsable si el análisis descubre un riesgo no público que afecte a terceros.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta de decisión y el sujeto están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El artefacto está fijado por digest, origen y fecha.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los documentos originales y sus hashes se conservan fuera del grafo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada fuente y enriquecedor tiene cobertura y límites documentados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las versiones e identidades decisivas se han validado manualmente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada arista crítica conserva origen, recolector y justificación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El camino completo acompaña al hallazgo final.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las relaciones heurísticas están separadas de las confirmadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las ausencias se expresan como límites de observación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las conclusiones se corroboran en fuentes primarias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe incluye incertidumbre, caducidad y eventos de reapertura.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El despliegue protege metadatos internos, APIs y credenciales.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>GUAC resulta útil cuando varias clases de metadatos deben cruzarse de forma repetible. Para un caso pequeño, una tabla con identificadores, procedencia y relaciones puede ser más fácil de revisar. Para explorar solo dependencias públicas, <code>deps.dev</code> ofrece contexto directo; para vulnerabilidades de paquetes, OSV y sus herramientas pueden bastar; para inventariar un único artefacto, un generador de SBOM y una revisión manual reducen complejidad.</p>
+<p>Ninguna alternativa elimina la pregunta central: <strong>¿qué fuente sostiene cada enlace y qué observación podría refutarlo?</strong> El valor de GUAC aparece cuando esa disciplina se conserva a escala.</p>
+<p>El takeaway práctico es este: <strong>usa el grafo para descubrir y explicar rutas de evidencia, no para fabricar certeza por conectividad</strong>. Empieza con un artefacto conocido, ingiere pocas fuentes, audita cada unión decisiva y automatiza solo después de entender los errores posibles. Como siguiente tema, convendría estudiar pruebas de contrato para conectores de metadatos: cómo detectar que una fuente cambió de esquema o semántica antes de que el grafo produzca silencios convincentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-oficiales-consultadas">Fuentes oficiales consultadas<a href="https://spainfsd-creator.github.io/osint-blog/guac-grafo-cadena-suministro-osint#fuentes-oficiales-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes oficiales consultadas" title="Enlace directo al Fuentes oficiales consultadas" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.guac.sh/guac/" target="_blank" rel="noopener noreferrer" class="">GUAC: documentación y casos de uso</a></li>
+<li class=""><a href="https://github.com/guacsec/guac" target="_blank" rel="noopener noreferrer" class="">GUAC: repositorio oficial, formatos soportados y límites de vinculación</a></li>
+<li class=""><a href="https://docs.guac.sh/guac/guac-ontology/" target="_blank" rel="noopener noreferrer" class="">GUAC: ontología del grafo</a></li>
+<li class=""><a href="https://docs.guac.sh/guac/graphql/" target="_blank" rel="noopener noreferrer" class="">GUAC: definiciones GraphQL y estado experimental de consultas topológicas</a></li>
+<li class=""><a href="https://docs.guac.sh/guac/certifier-deps-dev/" target="_blank" rel="noopener noreferrer" class="">GUAC: integración oficial con deps.dev</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Tooling</category>
+            <category>Analisis de enlaces</category>
+            <category>Verificacion</category>
+            <category>Datos</category>
+            <category>Investigacion</category>
+        </item>
         <item>
             <title><![CDATA[VEX en OSINT: decidir si una vulnerabilidad afecta sin aceptar un veredicto a ciegas]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/vex-osint-explotabilidad-contexto</link>
@@ -2646,150 +2835,6 @@
             <category>experimentation</category>
             <category>Verificacion</category>
             <category>Automatizacion</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Canary runbooks y pruebas en sombra en OSINT: validar cambios sin convertir el ensayo en un incidente]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint</guid>
-            <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Una nueva versión del pipeline clasifica cien documentos públicos sin errores técnicos y termina más deprisa que la anterior. El equipo está a punto de activarla para todo el archivo cuando una comparación revela el problema: el sistema nuevo descarta como duplicadas varias correcciones legítimas. El proceso funciona; la decisión que produce, no. Publicarlo de golpe habría convertido una mejora rutinaria en una pérdida silenciosa de evidencia.]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una nueva versión del pipeline clasifica cien documentos públicos sin errores técnicos y termina más deprisa que la anterior. El equipo está a punto de activarla para todo el archivo cuando una comparación revela el problema: el sistema nuevo descarta como duplicadas varias correcciones legítimas. <strong>El proceso funciona; la decisión que produce, no.</strong> Publicarlo de golpe habría convertido una mejora rutinaria en una pérdida silenciosa de evidencia.</p>
-<p><img decoding="async" loading="lazy" alt="Analista OSINT comparando un flujo estable con un canary en sombra y una puerta de parada" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-19-canary-runbooks-pruebas-sombra-osint-1ade3a2ec73f7ed219d030426652b1a8.png" width="1672" height="941" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/canary-runbooks-pruebas-sombra-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Los <em>canary runbooks</em> y las pruebas en sombra permiten observar una automatización nueva con alcance mínimo antes de confiarle efectos reales. No sustituyen la revisión humana ni demuestran que una conclusión sea verdadera. Sirven para formular una pregunta más modesta y útil: <strong>¿se comporta el cambio como esperábamos, sobre una muestra representativa, sin ampliar la recogida ni afectar a las personas investigadas?</strong></p>
-<p>Todos los nombres, dominios, documentos e identificadores del ejemplo son ficticios. Este artículo se refiere a fuentes públicas, datos sintéticos o sistemas propios y autorizados. No propone duplicar tráfico sensible hacia servicios de terceros ni automatizar atribuciones sobre personas.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-un-canary-runbook-y-una-prueba-en-sombra">Qué son un canary runbook y una prueba en sombra<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#qu%C3%A9-son-un-canary-runbook-y-una-prueba-en-sombra" class="hash-link" aria-label="Enlace directo al Qué son un canary runbook y una prueba en sombra" title="Enlace directo al Qué son un canary runbook y una prueba en sombra" translate="no">​</a></h2>
-<p>Un <strong>canary</strong> es una ejecución parcial y limitada en el tiempo de un cambio. Convive con una versión estable —el control— y se evalúa antes de ampliar su alcance. El <a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer" class="">SRE Workbook de Google</a> insiste en tres capacidades: aislar una parte de la población, evaluar si el candidato es bueno o malo e integrar esa evaluación en la decisión de continuar.</p>
-<p>Una <strong>prueba en sombra</strong> ejecuta el candidato con una copia de la entrada, pero no deja que su salida controle el resultado real. En infraestructura web también se llama <em>traffic mirroring</em>: la <a href="https://istio.io/latest/docs/tasks/traffic-management/mirroring/" target="_blank" rel="noopener noreferrer" class="">documentación de Istio</a> describe el envío fuera del camino crítico y el descarte de la respuesta de la copia. Trasladado a OSINT, el flujo estable sigue publicando, etiquetando o avisando; el flujo sombra solo produce observaciones comparables en un destino aislado.</p>
-<p>El <strong>runbook</strong> expresa el contrato del ensayo: alcance, datos permitidos, versión estable y candidata, métricas, duración, responsables, criterios de parada y procedimiento de reversión. Su parte ejecutable puede recoger resultados y aplicar límites, pero no debe decidir por sí sola una atribución, una acusación o una acción que afecte a una persona.</p>
-<p>Las dos técnicas responden a riesgos distintos:</p>
-<ul>
-<li class="">la sombra descubre divergencias sin dar autoridad a la versión nueva;</li>
-<li class="">el canary comprueba una fracción pequeña con efectos cuidadosamente acotados;</li>
-<li class="">la promoción gradual amplía el alcance solo cuando la evidencia satisface condiciones escritas de antemano.</li>
-</ul>
-<p>No todos los flujos necesitan las tres fases. Si una herramienta solo transforma una copia local, la sombra puede ser suficiente. Si envía alertas o publica artefactos, conviene mantener una puerta humana antes del primer efecto real.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-clasificador-que-confundía-correcciones-con-duplicados">Caso legítimo: el clasificador que confundía correcciones con duplicados<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#caso-leg%C3%ADtimo-el-clasificador-que-confund%C3%ADa-correcciones-con-duplicados" class="hash-link" aria-label="Enlace directo al Caso legítimo: el clasificador que confundía correcciones con duplicados" title="Enlace directo al Caso legítimo: el clasificador que confundía correcciones con duplicados" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Lupa Cívica</strong> mantiene un archivo de resoluciones públicas. Su pipeline estable descarga documentos desde una lista autorizada, conserva la URL y el momento de observación, calcula una huella, extrae texto y agrupa versiones. El equipo prepara un extractor nuevo que promete tratar mejor los PDF escaneados.</p>
-<p>Antes de sustituir el flujo estable, construye un corpus sintético y una muestra autorizada de documentos ya públicos. Incluye pares deliberadamente difíciles:</p>
-<ul>
-<li class="">dos ficheros idénticos servidos desde URLs diferentes;</li>
-<li class="">una resolución y su corrección posterior;</li>
-<li class="">un PDF reescaneado cuyo texto es equivalente, pero cuyos bytes cambian;</li>
-<li class="">una página de error guardada por accidente con extensión <code>.pdf</code>;</li>
-<li class="">un documento sin fecha legible;</li>
-<li class="">una copia truncada.</li>
-</ul>
-<p>Durante la prueba en sombra, ambos pipelines reciben el mismo manifiesto de entrada. El estable mantiene sus efectos habituales en un entorno de ensayo; el candidato escribe en otro almacén sin enviar avisos ni modificar el índice público. Cada salida conserva <code>input_id</code>, versión del código, regla aplicada, digest y razón de la decisión.</p>
-<p>El candidato reduce los fallos de OCR, pero agrupa una corrección con el documento inicial porque normaliza en exceso la portada. La tasa global de éxito parece mejor y el tiempo medio baja. Solo una métrica semántica —«correcciones conservadas como versiones diferenciadas»— detecta la regresión.</p>
-<p>Lupa Cívica no promociona. Etiqueta el resultado como <strong>inconcluso</strong>, conserva los artefactos mínimos del ensayo, añade ese par al conjunto de regresión y modifica la regla. La parada no demuestra que el extractor sea malo; demuestra que aún no existe evidencia suficiente para darle autoridad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-un-contrato-de-comparación">1. Escribe un contrato de comparación<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#1-escribe-un-contrato-de-comparaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 1. Escribe un contrato de comparación" title="Enlace directo al 1. Escribe un contrato de comparación" translate="no">​</a></h3>
-<p>Empieza por una hipótesis falsable, no por un porcentaje atractivo. Por ejemplo: «el candidato conservará todas las correcciones conocidas, no aumentará las asociaciones erróneas y reducirá los fallos de extracción sobre el corpus acordado».</p>
-<p>Un manifiesto conceptual puede ser así:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">experiment_id</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> extractor</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">pdf</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">c7</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">baseline</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> extractor</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">estable</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">candidate</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> extractor</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">candidato</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">mode</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> shadow</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">read</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">only</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">population</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> corpus</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">sintetico</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">v3</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">effects_allowed</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> none</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">stop_if</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain"> correction_lost </span><span class="token punctuation" style="color:rgb(248, 248, 242)">&gt;</span><span class="token plain"> 0</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain"> unexpected_external_request </span><span class="token punctuation" style="color:rgb(248, 248, 242)">&gt;</span><span class="token plain"> 0</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain"> provenance_missing </span><span class="token punctuation" style="color:rgb(248, 248, 242)">&gt;</span><span class="token plain"> 0</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">decision_states</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain">promote</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> stop</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> inconclusive</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><br></span></code></pre></div></div>
-<p>La configuración no necesita contener consultas, nombres reales ni tokens. Debe enlazar a versiones inmutables de código, reglas y corpus, además de indicar quién puede detener y quién puede promocionar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-primero-una-población-segura">2. Construye primero una población segura<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#2-construye-primero-una-poblaci%C3%B3n-segura" class="hash-link" aria-label="Enlace directo al 2. Construye primero una población segura" title="Enlace directo al 2. Construye primero una población segura" translate="no">​</a></h3>
-<p>La muestra debe cubrir la diversidad relevante sin copiar un caso sensible entero. Empieza con datos sintéticos y artefactos públicos controlados. Añade casos límite procedentes de errores pasados, pero minimizados y desidentificados cuando sea necesario.</p>
-<p>Una muestra aleatoria puede ocultar clases raras. Combina:</p>
-<ol>
-<li class="">ejemplos normales para medir el comportamiento cotidiano;</li>
-<li class="">estratos difíciles —idiomas, formatos, ausencia de campos—;</li>
-<li class="">regresiones conocidas;</li>
-<li class="">entradas adversas seguras, como archivos truncados o esquemas inesperados;</li>
-<li class="">controles negativos que el pipeline debe rechazar.</li>
-</ol>
-<p>En procesos por lotes, la unidad del canary no tiene por qué ser tráfico. Puede ser una partición temporal, una fuente autorizada, un tipo documental o un conjunto de identificadores sintéticos. La guía de Google sobre <a href="https://sre.google/workbook/data-processing/" target="_blank" rel="noopener noreferrer" class="">procesamiento fiable de datos</a> recomienda segmentar la población y detectar pronto los fallos para limitar el impacto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-aísla-efectos-secretos-y-destinos">3. Aísla efectos, secretos y destinos<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#3-a%C3%ADsla-efectos-secretos-y-destinos" class="hash-link" aria-label="Enlace directo al 3. Aísla efectos, secretos y destinos" title="Enlace directo al 3. Aísla efectos, secretos y destinos" translate="no">​</a></h3>
-<p>El candidato debe ejecutarse con credenciales de solo lectura siempre que sea posible. Bloquea correo, webhooks, publicación, escritura en el índice estable y cualquier acción sobre terceros. Si necesita escribir resultados, usa un destino efímero con retención definida.</p>
-<p>Copiar entradas reales hacia un servicio diferente puede crear una nueva cesión de datos, romper términos de uso o ampliar innecesariamente la exposición. «Solo es una sombra» no elimina esas obligaciones. Prefiere reproducir manifiestos y artefactos mínimos dentro del mismo perímetro autorizado; sustituye selectores personales por fixtures sintéticos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-compara-significado-no-solo-disponibilidad">4. Compara significado, no solo disponibilidad<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#4-compara-significado-no-solo-disponibilidad" class="hash-link" aria-label="Enlace directo al 4. Compara significado, no solo disponibilidad" title="Enlace directo al 4. Compara significado, no solo disponibilidad" translate="no">​</a></h3>
-<p>Errores, latencia y consumo son útiles, pero un pipeline OSINT puede responder <code>200</code> y producir una conclusión peor. Separa métricas por versión y registra denominadores. Compara al menos:</p>
-<ul>
-<li class="">cobertura: entradas procesadas, omitidas y no observables;</li>
-<li class="">procedencia: salidas que conservan fuente, tiempo, versión y transformación;</li>
-<li class="">divergencia: decisiones distintas entre control y candidato;</li>
-<li class="">falsos positivos y falsos negativos sobre casos etiquetados;</li>
-<li class="">estabilidad: misma entrada y configuración, misma salida esperada;</li>
-<li class="">privacidad: campos retenidos, volcados a logs o enviados fuera del perímetro;</li>
-<li class="">efectos: intentos de escritura, aviso o publicación, aunque hayan sido bloqueados.</li>
-</ul>
-<p>Una tasa agregada puede esconder una clase pequeña y crítica. Publica siempre recuentos junto a porcentajes y desglosa los estratos definidos en el contrato. Google advierte además que una métrica debe ser representativa y atribuible al cambio; comparar «antes» y «después» sin un control simultáneo mezcla la variación temporal con el efecto del candidato.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-define-parada-incertidumbre-y-promoción">5. Define parada, incertidumbre y promoción<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#5-define-parada-incertidumbre-y-promoci%C3%B3n" class="hash-link" aria-label="Enlace directo al 5. Define parada, incertidumbre y promoción" title="Enlace directo al 5. Define parada, incertidumbre y promoción" translate="no">​</a></h3>
-<p>No reduzcas la decisión a verde o rojo. Usa tres estados:</p>
-<ul>
-<li class=""><strong>promover:</strong> se alcanza el tamaño mínimo de muestra y se cumplen todos los umbrales;</li>
-<li class=""><strong>detener:</strong> se cruza un límite de seguridad o una regresión crítica;</li>
-<li class=""><strong>inconcluso:</strong> faltan datos, una métrica no está disponible o la divergencia no puede explicarse.</li>
-</ul>
-<p>Las plataformas de entrega progresiva materializan esta idea. <a href="https://argo-rollouts.readthedocs.io/en/stable/features/analysis/" target="_blank" rel="noopener noreferrer" class="">Argo Rollouts</a> distingue análisis correctos, fallidos e inconclusos; estos últimos pausan en vez de fingir una decisión. Su documentación de <a href="https://argo-rollouts.readthedocs.io/en/stable/features/canary/" target="_blank" rel="noopener noreferrer" class="">estrategia canary</a> permite combinar pesos, pausas y abortos. No es necesario usar Kubernetes para adoptar el patrón: el valor está en expresar el estado y su consecuencia de forma inequívoca.</p>
-<p>Promociona por etapas pequeñas. Primero habilita una fuente o lote de bajo riesgo; después amplía solo si siguen presentes el control, la observación independiente y la reversión. No ejecutes varios experimentos solapados sobre la misma población: contaminan la atribución de las divergencias.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-conserva-una-comparación-reproducible">6. Conserva una comparación reproducible<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#6-conserva-una-comparaci%C3%B3n-reproducible" class="hash-link" aria-label="Enlace directo al 6. Conserva una comparación reproducible" title="Enlace directo al 6. Conserva una comparación reproducible" translate="no">​</a></h3>
-<p>Guarda el manifiesto, las versiones, los identificadores de entrada, las métricas crudas necesarias y la decisión. No hace falta retener todo el contenido. Un resumen por estrato y una muestra mínima de divergencias pueden bastar si cada resultado remite al artefacto autorizado durante su plazo de conservación.</p>
-<p>La promoción debe quedar separada de quien preparó el candidato cuando el impacto sea relevante. Los <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments" target="_blank" rel="noopener noreferrer" class="">entornos de despliegue de GitHub</a> ilustran controles como revisores requeridos, prevención de autoaprobación y reglas de protección. Son mecanismos de software, no garantías editoriales, pero ayudan a impedir que el mismo actor proponga, evalúe y publique sin fricción.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-antes-de-promover">Checklist antes de promover<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#checklist-antes-de-promover" class="hash-link" aria-label="Enlace directo al Checklist antes de promover" title="Enlace directo al Checklist antes de promover" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El objetivo y la hipótesis están escritos antes de observar resultados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Control y candidato reciben entradas equivalentes e identificables.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La muestra incluye casos normales, raros, negativos y regresiones conocidas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El candidato no puede publicar, avisar ni modificar el índice estable durante la sombra.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las llamadas externas están bloqueadas o expresamente autorizadas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las métricas separan versiones, estratos, recuentos y porcentajes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay umbrales absolutos para procedencia, privacidad y efectos inesperados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->«Sin datos» produce un estado inconcluso, nunca una aprobación implícita.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Existe una persona con autoridad de parada y otra puerta para la promoción.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La reversión se ha ensayado con fixtures sintéticos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El registro del experimento evita contenido personal y secretos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se ha definido cuándo borrar salidas y copias auxiliares.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Un canary pequeño puede no contener el formato que romperá mañana. Una sombra puede cambiar el rendimiento del sistema por duplicar trabajo. Un control antiguo puede estar equivocado: coincidir con él no convierte al candidato en correcto. Y dos pipelines pueden compartir la misma dependencia defectuosa, produciendo un acuerdo engañoso.</p>
-<p>También hay divergencias legítimas. Un extractor nuevo puede representar mejor una fecha ambigua o separar correctamente dos entidades antes fusionadas. Clasifica las diferencias por causa y revisa una muestra; no maximices el acuerdo como si fuera la verdad.</p>
-<p>Evita estos atajos:</p>
-<ul>
-<li class="">usar datos reales sensibles porque «producción es la única muestra representativa»;</li>
-<li class="">enviar copias a un proveedor nuevo sin revisar finalidad, contrato y retención;</li>
-<li class="">medir solo velocidad, coste o ausencia de excepciones;</li>
-<li class="">promocionar con una muestra diminuta o elegida después de ver el resultado;</li>
-<li class="">ocultar fallos bajo un promedio global;</li>
-<li class="">permitir que la versión sombra emita notificaciones reales;</li>
-<li class="">tratar una pausa por falta de métricas como éxito;</li>
-<li class="">conservar indefinidamente entradas y salidas del ensayo;</li>
-<li class="">automatizar acusaciones, atribuciones o decisiones sobre personas.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa fixtures sintéticos por defecto y minimiza cualquier muestra real autorizada.</li>
-<li class="">Separa credenciales, redes, destinos y logs del control y del candidato.</li>
-<li class="">Aplica solo lectura y denegación de salida salvo excepciones explícitas.</li>
-<li class="">Redacta tokens, consultas sensibles, URLs firmadas e identificadores personales.</li>
-<li class="">Versiona reglas y corpus para explicar por qué dos ejecuciones difieren.</li>
-<li class="">Revisa términos de servicio, licencias y límites antes de replicar consultas.</li>
-<li class="">No aumentes la frecuencia de acceso a una fuente por duplicar el pipeline.</li>
-<li class="">Establece límites de tiempo, volumen, coste y almacenamiento.</li>
-<li class="">Haz que el estado desconocido detenga la promoción.</li>
-<li class="">Mantén el juicio humano en atribución, impacto y publicación.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si el pipeline todavía no es reproducible, empieza con <strong>replay offline</strong> sobre fixtures versionados. Si solo cambia una regla, una prueba diferencial puede comparar salidas sin desplegar otro servicio. Para operaciones de alto impacto, un entorno azul/verde mantiene dos versiones aisladas y permite una conmutación controlada. Cuando el riesgo sea principalmente editorial, una doble revisión ciega de una muestra puede revelar más que otra capa de automatización.</p>
-<p>El takeaway accionable es concreto: toma una automatización OSINT que quieras cambiar y escribe hoy cinco líneas —población, efecto prohibido, métrica semántica, criterio de parada y estado inconcluso—. Ejecútala después sobre diez fixtures sintéticos en modo solo lectura y compara cada divergencia con el control. Si no puedes explicar qué dato autoriza la promoción, la respuesta correcta todavía es parar.</p>
-<p>Como siguiente tema convendría estudiar los <strong>experimentos secuenciales y el sesgo de parada</strong>: cómo evitar que mirar continuamente una métrica nos haga promocionar por una fluctuación afortunada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/canary-runbooks-pruebas-sombra-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Canarying Releases</a></li>
-<li class=""><a href="https://sre.google/workbook/data-processing/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: Data Processing Pipelines</a></li>
-<li class=""><a href="https://istio.io/latest/docs/tasks/traffic-management/mirroring/" target="_blank" rel="noopener noreferrer" class="">Istio: Traffic Mirroring</a></li>
-<li class=""><a href="https://argo-rollouts.readthedocs.io/en/stable/features/analysis/" target="_blank" rel="noopener noreferrer" class="">Argo Rollouts: Analysis and Progressive Delivery</a></li>
-<li class=""><a href="https://argo-rollouts.readthedocs.io/en/stable/features/canary/" target="_blank" rel="noopener noreferrer" class="">Argo Rollouts: Canary Deployment Strategy</a></li>
-<li class=""><a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments" target="_blank" rel="noopener noreferrer" class="">GitHub Docs: Deployments and environments</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>Tradecraft</category>
-            <category>Automatizacion</category>
-            <category>Verificacion</category>
             <category>Privacidad</category>
         </item>
     </channel>
