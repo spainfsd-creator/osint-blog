@@ -13,6 +13,9 @@ Un aviso atribuye una vulnerabilidad a una dependencia transitiva. El SBOM dice 
 
 ![Analista examinando documentos de cadena de suministro conectados en un grafo de evidencia](/img/blog/2026-11-08-guac-grafo-cadena-suministro.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/guac-grafo-cadena-suministro-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
