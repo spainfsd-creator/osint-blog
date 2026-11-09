@@ -13,6 +13,9 @@ Un portal publica varios años de contratos en CSV, otro ofrece el catálogo de 
 
 ![Analista consultando datasets públicos en local mediante un flujo visual de procedencia y validación](/img/blog/2026-11-09-duckdb-osint-datasets-publicos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/duckdb-osint-datasets-publicos-local.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
