@@ -13,6 +13,9 @@ Una investigación encuentra doce contratos que merecen una segunda revisión de
 
 ![Analista transformando un gran corpus público en un extracto minimizado con esquema y trazabilidad](/img/blog/2026-11-10-extractos-minimizados-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/extractos-minimizados-osint-procedencia.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
