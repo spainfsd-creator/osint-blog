@@ -13,6 +13,9 @@ Una investigación empieza con tres enlaces y termina con ciento cincuenta pesta
 
 ![Analista organizando fuentes públicas, capturas, metadatos y notas en una biblioteca de investigación](/img/blog/2026-11-17-zotero-osint-fuentes-trazabilidad.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/zotero-osint-fuentes-trazabilidad.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
