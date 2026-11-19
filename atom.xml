@@ -2,11 +2,166 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-11-18T00:00:00.000Z</updated>
+    <updated>2026-11-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Codificación manual en OSINT: comparar marcos narrativos sin convertir interpretación en etiqueta]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint"/>
+        <updated>2026-11-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Dos medios describen la misma protesta. Uno abre con los cortes de tráfico; el otro, con las reivindicaciones. Contar palabras permite ver diferencias de vocabulario, pero no demuestra por sí solo que exista un encuadre estable. Para comparar marcos narrativos hay que convertir una interpretación discutible en decisiones observables, repetibles y abiertas al desacuerdo.]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Dos medios describen la misma protesta. Uno abre con los cortes de tráfico; el otro, con las reivindicaciones. Contar palabras permite ver diferencias de vocabulario, pero no demuestra por sí solo que exista un encuadre estable. <strong>Para comparar marcos narrativos hay que convertir una interpretación discutible en decisiones observables, repetibles y abiertas al desacuerdo.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Dos analistas codifican por separado noticias públicas y comparan su acuerdo mediante un libro de códigos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-19-codificacion-manual-marcos-narrativos-osint-01f62911c7e4b499dc3ad0411a3a55c4.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un protocolo de codificación manual para analizar noticias públicas en una investigación OSINT legítima. El caso es ficticio; no pretende clasificar la ideología de periodistas ni inferir intenciones personales. La meta es más modesta y comprobable: describir qué aspectos aparecen, con qué evidencia textual y con qué grado de acuerdo entre analistas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-codificar-un-marco-narrativo-y-para-qué-sirve">Qué es codificar un marco narrativo y para qué sirve<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#qu%C3%A9-es-codificar-un-marco-narrativo-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es codificar un marco narrativo y para qué sirve" title="Enlace directo al Qué es codificar un marco narrativo y para qué sirve" translate="no">​</a></h2>
+<p>Codificar consiste en aplicar reglas explícitas a unidades previamente definidas —una pieza completa, un titular, un párrafo o una intervención— y registrar categorías de forma estructurada. El resultado no es «la verdad» sobre el texto, sino un conjunto de observaciones creado mediante un protocolo que otras personas pueden inspeccionar.</p>
+<p>Un <strong>marco narrativo</strong> tampoco es una palabra llamativa ni un sinónimo de tono. El trabajo clásico de <a href="https://doi.org/10.1111/j.1460-2466.1993.tb01304.x" target="_blank" rel="noopener noreferrer" class="">Robert Entman sobre framing</a> propone observar qué aspectos se seleccionan y resaltan para definir un problema, atribuir causas, evaluar y sugerir respuestas. Esa idea ofrece dimensiones útiles, pero no convierte automáticamente cada artículo en una de cuatro casillas. El libro de códigos debe traducir la pregunta concreta a señales visibles.</p>
+<p>En OSINT, este método puede servir para:</p>
+<ul>
+<li class="">comparar cómo distintas colecciones cubren un mismo acontecimiento;</li>
+<li class="">comprobar si una impresión obtenida al leer unos pocos titulares se sostiene en una muestra;</li>
+<li class="">localizar piezas representativas y casos que contradicen la hipótesis;</li>
+<li class="">distinguir presencia de un elemento, prominencia y valoración;</li>
+<li class="">documentar incertidumbre antes de publicar una conclusión sobre cobertura.</li>
+</ul>
+<p>No sirve para leer la mente del autor, demostrar coordinación editorial ni decidir si una afirmación es verdadera. Para eso hacen falta otras evidencias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>El observatorio ficticio <strong>Río Abierto</strong> quiere comparar la cobertura de una consulta municipal sobre movilidad. Ha reunido 240 piezas publicadas durante cuatro semanas por ocho medios locales. Su pregunta no es «¿qué medio está a favor?», demasiado amplia y cargada, sino esta:</p>
+<blockquote>
+<p>¿Con qué frecuencia y prominencia aparecen consecuencias sobre tráfico, comercio, salud y participación vecinal en las piezas informativas de la muestra?</p>
+</blockquote>
+<p>La unidad principal será la <strong>pieza</strong>, pero cada decisión llevará un fragmento justificativo. Se excluirán editoriales, duplicados de agencia, galerías sin texto y contenidos fuera del periodo. La comparación se hará con proporciones dentro de cada medio y semana, no con recuentos brutos que premien a quien publica más.</p>
+<p>Antes de ver resultados agregados, el equipo registra una hipótesis, el criterio de inclusión y un plan de análisis. Así evita cambiar categorías después de descubrir qué clasificación produce el gráfico más atractivo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-congela-la-pregunta-el-corpus-y-la-unidad">1. Congela la pregunta, el corpus y la unidad<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#1-congela-la-pregunta-el-corpus-y-la-unidad" class="hash-link" aria-label="Enlace directo al 1. Congela la pregunta, el corpus y la unidad" title="Enlace directo al 1. Congela la pregunta, el corpus y la unidad" translate="no">​</a></h3>
+<p>Guarda para cada pieza un identificador, URL, medio, fecha publicada, fecha de captura y estado de acceso. Conserva también una copia permitida o un hash cuando proceda. Separa tres decisiones que suelen mezclarse:</p>
+<ol>
+<li class=""><strong>Universo:</strong> qué población de contenidos pretende describir el estudio.</li>
+<li class=""><strong>Muestra:</strong> qué piezas del universo entran realmente y cómo se eligieron.</li>
+<li class=""><strong>Unidad:</strong> qué objeto recibe cada código.</li>
+</ol>
+<p>Si el corpus viene de un buscador o archivo, documenta sus lagunas. La entrada anterior sobre <a class="" href="https://spainfsd-creator.github.io/osint-blog/media-cloud-osint-cobertura-mediatica">Media Cloud</a> explica por qué el índice observado no equivale a toda la prensa. Una codificación impecable no corrige una muestra sesgada o incompleta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-diseña-un-libro-de-códigos-ejecutable">2. Diseña un libro de códigos ejecutable<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#2-dise%C3%B1a-un-libro-de-c%C3%B3digos-ejecutable" class="hash-link" aria-label="Enlace directo al 2. Diseña un libro de códigos ejecutable" title="Enlace directo al 2. Diseña un libro de códigos ejecutable" translate="no">​</a></h3>
+<p>Cada variable necesita algo más que un nombre. Una ficha mínima debería contener:</p>
+<table><thead><tr><th>Campo</th><th>Ejemplo operativo</th></tr></thead><tbody><tr><td>variable</td><td><code>consecuencia_trafico</code></td></tr><tr><td>valores</td><td>presente / ausente / no se puede determinar</td></tr><tr><td>unidad</td><td>pieza completa, incluido titular y entradilla</td></tr><tr><td>inclusión</td><td>atasco, desvío, tiempo de viaje o acceso de vehículos</td></tr><tr><td>exclusión</td><td>uso metafórico de «tráfico» o mención en un enlace relacionado</td></tr><tr><td>prioridad</td><td>codificar presente aunque la fuente rechace esa consecuencia</td></tr><tr><td>evidencia</td><td>fragmento breve y ubicación dentro de la pieza</td></tr><tr><td>ejemplo positivo</td><td>«el desvío añade diez minutos al recorrido»</td></tr><tr><td>contraejemplo</td><td>«la propuesta ha generado mucho tráfico en redes»</td></tr><tr><td>caso límite</td><td>foto con vehículos sin referencia textual: indeterminado</td></tr></tbody></table>
+<p>Incluye un valor para la incertidumbre. Obligar a elegir «sí» o «no» cuando falta texto, hay un paywall o la pieza es ambigua oculta problemas del material bajo una precisión ficticia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-presencia-prominencia-y-valoración">3. Separa presencia, prominencia y valoración<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#3-separa-presencia-prominencia-y-valoraci%C3%B3n" class="hash-link" aria-label="Enlace directo al 3. Separa presencia, prominencia y valoración" title="Enlace directo al 3. Separa presencia, prominencia y valoración" translate="no">​</a></h3>
+<p>Que una pieza mencione el comercio no significa que lo presente como perjudicado. Para evitar esa inferencia, registra variables distintas:</p>
+<ul>
+<li class=""><strong>presencia:</strong> aparece o no un elemento definido;</li>
+<li class=""><strong>prominencia:</strong> titular, entradilla, cuerpo o mención incidental;</li>
+<li class=""><strong>actor que lo expresa:</strong> periodista, fuente oficial, asociación, ciudadano u otro;</li>
+<li class=""><strong>valoración explícita:</strong> favorable, desfavorable, mixta o indeterminada, solo si la regla identifica evidencia;</li>
+<li class=""><strong>fragmento justificativo:</strong> texto exacto o referencia temporal si es audio o vídeo.</li>
+</ul>
+<p>Esta separación permite volver a la fuente cuando una cifra sorprende. También evita atribuir al medio una frase citada para cuestionarla.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-construye-un-conjunto-piloto-difícil">4. Construye un conjunto piloto difícil<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#4-construye-un-conjunto-piloto-dif%C3%ADcil" class="hash-link" aria-label="Enlace directo al 4. Construye un conjunto piloto difícil" title="Enlace directo al 4. Construye un conjunto piloto difícil" translate="no">​</a></h3>
+<p>Elige una muestra piloto que contenga formatos, medios y fechas distintos, incluidos casos limítrofes. No uses solo piezas fáciles. Dos analistas deben codificarla <strong>de forma independiente</strong>, sin comentar sus decisiones mientras trabajan.</p>
+<p>Después comparan resultados variable por variable. Cada desacuerdo debe producir una de estas salidas:</p>
+<ul>
+<li class="">aclarar una definición;</li>
+<li class="">añadir un ejemplo o contraejemplo;</li>
+<li class="">dividir una variable que mezclaba dos conceptos;</li>
+<li class="">retirar una categoría que no puede observarse con fiabilidad;</li>
+<li class="">mantener el desacuerdo como dato si ambas lecturas son defendibles.</li>
+</ul>
+<p>Las metodologías publicadas por <a href="https://www.pewresearch.org/journalism/2020/09/28/youtube-news-methodology/" target="_blank" rel="noopener noreferrer" class="">Pew Research Center</a> muestran este patrón de entrenamiento, pruebas de acuerdo y control durante la codificación. No existe, sin embargo, un número universal de rondas o piezas que vuelva válido cualquier proyecto: debe justificarse según la complejidad, prevalencia de categorías, número de codificadores y uso previsto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-mide-acuerdo-antes-de-adjudicar">5. Mide acuerdo antes de adjudicar<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#5-mide-acuerdo-antes-de-adjudicar" class="hash-link" aria-label="Enlace directo al 5. Mide acuerdo antes de adjudicar" title="Enlace directo al 5. Mide acuerdo antes de adjudicar" translate="no">​</a></h3>
+<p>Calcula la fiabilidad con las decisiones independientes, <strong>antes</strong> de que el equipo se reúna para resolver diferencias. El porcentaje de acuerdo es intuitivo, pero puede parecer alto cuando una categoría es muy rara. El artículo de <a href="https://doi.org/10.1111/j.1468-2958.2002.tb00826.x" target="_blank" rel="noopener noreferrer" class="">Lombard, Snyder-Duch y Bracken</a> advierte de los problemas de depender únicamente de ese porcentaje.</p>
+<p>Según el diseño pueden utilizarse Cohen kappa, Fleiss kappa o alfa de Krippendorff. Este último admite distintos números de codificadores, datos ausentes y niveles de medida; la <a href="https://www.asc.upenn.edu/krippendorffs-alpha-reliability" target="_blank" rel="noopener noreferrer" class="">Universidad de Pensilvania mantiene recursos del propio Krippendorff</a> para entender y calcular la familia de coeficientes.</p>
+<p>No conviertas un umbral memorizado en certificado automático. Publica, al menos:</p>
+<ul>
+<li class="">métrica y versión o implementación utilizada;</li>
+<li class="">variable evaluada y nivel de medida;</li>
+<li class="">número de unidades y codificadores;</li>
+<li class="">distribución de categorías y datos ausentes;</li>
+<li class="">resultado antes de adjudicar;</li>
+<li class="">cambios hechos al libro de códigos tras el piloto.</li>
+</ul>
+<p>Un coeficiente bajo puede revelar una definición confusa; uno alto no demuestra que la categoría mida el concepto correcto. <strong>Fiabilidad y validez son preguntas diferentes.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-adjudica-sin-borrar-el-desacuerdo">6. Adjudica sin borrar el desacuerdo<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#6-adjudica-sin-borrar-el-desacuerdo" class="hash-link" aria-label="Enlace directo al 6. Adjudica sin borrar el desacuerdo" title="Enlace directo al 6. Adjudica sin borrar el desacuerdo" translate="no">​</a></h3>
+<p>Terminada la prueba, conserva dos capas: códigos originales independientes y valor adjudicado. Registra quién resolvió el caso, qué regla aplicó y si el libro de códigos cambió. No sobrescribas las columnas iniciales: son necesarias para auditar el acuerdo y detectar sesgos sistemáticos.</p>
+<p>Cuando cambie una regla sustancial, vuelve a codificar las unidades afectadas. Si la categoría evoluciona a mitad del trabajo sin revisar lo anterior, la primera mitad y la segunda ya no representan la misma medición.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-codifica-la-muestra-completa-con-controles">7. Codifica la muestra completa con controles<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#7-codifica-la-muestra-completa-con-controles" class="hash-link" aria-label="Enlace directo al 7. Codifica la muestra completa con controles" title="Enlace directo al 7. Codifica la muestra completa con controles" translate="no">​</a></h3>
+<p>Asigna piezas aleatoriamente o mediante bloques equilibrados. Inserta una proporción oculta de unidades duplicadas para comprobar deriva y programa revisiones periódicas sin convertirlas en sesiones de consenso sobre cada pieza. Si solo hay una persona, repite una muestra tras un intervalo y presenta el resultado como estabilidad intracodificador, no como acuerdo entre observadores independientes.</p>
+<p>Mantén un registro de incidencias: páginas inaccesibles, cambios de contenido, idioma, transcripción dudosa y casos excluidos. Las ausencias también afectan al denominador.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-analiza-sin-inflar-la-inferencia">8. Analiza sin inflar la inferencia<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#8-analiza-sin-inflar-la-inferencia" class="hash-link" aria-label="Enlace directo al 8. Analiza sin inflar la inferencia" title="Enlace directo al 8. Analiza sin inflar la inferencia" translate="no">​</a></h3>
+<p>Compara proporciones con denominadores visibles y presenta intervalos o incertidumbre cuando el diseño los permita. Examina también:</p>
+<ul>
+<li class="">resultados por semana y fuente, no solo un total;</li>
+<li class="">sensibilidad al excluir casos indeterminados;</li>
+<li class="">categorías muy raras o concentradas en un único medio;</li>
+<li class="">ejemplos concordantes y contraejemplos;</li>
+<li class="">diferencia entre pieza informativa, análisis y opinión;</li>
+<li class="">influencia de sindicación o duplicados.</li>
+</ul>
+<p>El trabajo de <a href="https://doi.org/10.1111/j.1460-2466.2008.00384.x" target="_blank" rel="noopener noreferrer" class="">Matthes y Kohring sobre análisis de marcos</a> recuerda que los marcos pueden entenderse como patrones de varios elementos, no como una etiqueta intuitiva aplicada de una vez. Para una investigación pequeña, eso aconseja publicar primero las dimensiones observadas y explicar después, con cautela, cualquier agrupación interpretativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-código-reproducible-todavía-puede-estar-mal-planteado">Un código reproducible todavía puede estar mal planteado<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#un-c%C3%B3digo-reproducible-todav%C3%ADa-puede-estar-mal-planteado" class="hash-link" aria-label="Enlace directo al Un código reproducible todavía puede estar mal planteado" title="Enlace directo al Un código reproducible todavía puede estar mal planteado" translate="no">​</a></h3>
+<p>Dos analistas pueden aplicar con gran acuerdo una categoría que no responde a la pregunta. Si «conflicto» significa simplemente que aparecen dos voces, el código será fácil de repetir, pero quizá no mida un encuadre conflictivo. Revisa la validez conceptual con teoría, expertos y casos negativos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-unidad-cambia-el-resultado">La unidad cambia el resultado<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#la-unidad-cambia-el-resultado" class="hash-link" aria-label="Enlace directo al La unidad cambia el resultado" title="Enlace directo al La unidad cambia el resultado" translate="no">​</a></h3>
+<p>Un titular puede enfatizar el tráfico mientras el cuerpo dedica casi todo el espacio a salud. Codificar la pieza completa, el párrafo o cada afirmación produce datos distintos. No mezcles niveles sin declararlo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-rareza-distorsiona-métricas-y-lecturas">La rareza distorsiona métricas y lecturas<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#la-rareza-distorsiona-m%C3%A9tricas-y-lecturas" class="hash-link" aria-label="Enlace directo al La rareza distorsiona métricas y lecturas" title="Enlace directo al La rareza distorsiona métricas y lecturas" translate="no">​</a></h3>
+<p>Cuando casi todo es «ausente», un acuerdo aparente elevado puede ocultar que los codificadores discrepan justo en los pocos positivos. Publica la tabla de coincidencias y revisa manualmente esos casos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="traducción-ironía-y-material-multimodal-añaden-capas">Traducción, ironía y material multimodal añaden capas<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#traducci%C3%B3n-iron%C3%ADa-y-material-multimodal-a%C3%B1aden-capas" class="hash-link" aria-label="Enlace directo al Traducción, ironía y material multimodal añaden capas" title="Enlace directo al Traducción, ironía y material multimodal añaden capas" translate="no">​</a></h3>
+<p>Un pie de foto, un gráfico o una cita irónica puede cambiar la lectura. Si el protocolo solo observa texto extraído, delimita esa limitación. Si se traducen piezas, conserva idioma original, traducción, responsable y criterios para expresiones ambiguas.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-corpus-puede-cambiar-mientras-se-codifica">El corpus puede cambiar mientras se codifica<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#el-corpus-puede-cambiar-mientras-se-codifica" class="hash-link" aria-label="Enlace directo al El corpus puede cambiar mientras se codifica" title="Enlace directo al El corpus puede cambiar mientras se codifica" translate="no">​</a></h3>
+<p>Titulares corregidos, URL redirigidas o vídeos editados afectan a la reproducibilidad. Registra la representación realmente observada, su fecha y, cuando sea proporcionado y legal, una copia o huella verificable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Codifica contenido de interés legítimo; no uses el protocolo para perfilar a periodistas o ciudadanos.</li>
+<li class="">Minimiza nombres y datos personales incidentales en hojas, ejemplos y exportaciones.</li>
+<li class="">No publiques fragmentos que faciliten localizar a una persona vulnerable si el texto no es necesario para sostener el análisis.</li>
+<li class="">Separa identidad del codificador y decisión analítica cuando exista riesgo de represalias.</li>
+<li class="">Protege credenciales, copias con copyright y transcripciones no públicas; no las subas al repositorio del proyecto.</li>
+<li class="">Define acceso, retención y borrado antes de recoger material.</li>
+<li class="">Documenta conflictos de interés y posibles sesgos lingüísticos o culturales del equipo.</li>
+<li class="">Mantén un canal de corrección y una versión fechada del libro de códigos.</li>
+<li class="">No presentes categorías inferidas como rasgos personales ni un marco textual como intención del autor.</li>
+<li class="">Publica suficientes reglas y agregados para auditar el método, no un corpus innecesario.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta puede responderse mediante señales observables.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Universo, muestra, periodo, exclusiones y unidad están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada variable incluye valores, reglas, ejemplos y contraejemplos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Presencia, prominencia, fuente y valoración están separadas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Existe un valor para ausencia de información o ambigüedad.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El piloto incluye formatos y casos difíciles.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Al menos dos personas codificaron el piloto de forma independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El acuerdo se calculó antes de adjudicar discrepancias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conservan códigos originales, decisión final y motivo del cambio.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los denominadores y datos ausentes aparecen en el informe.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se probaron sensibilidad, prevalencia y posibles duplicados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los ejemplos publicados están minimizados y tienen trazabilidad.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Una lectura cualitativa profunda puede ser mejor para un corpus pequeño y exploratorio; un análisis asistido por ordenador puede localizar patrones en miles de piezas, pero necesita validación humana y una pregunta bien definida; los diccionarios de términos son transparentes, aunque pierden negación, ironía y contexto; las entrevistas a redacciones estudian procesos, no solo productos. Estas vías se complementan.</p>
+<p>El takeaway práctico es este: <strong>no empieces asignando etiquetas a medios; empieza escribiendo reglas que permitan a dos personas independientes encontrar la misma evidencia y explicar sus desacuerdos</strong>. Pilota con casos difíciles, mide antes de consensuar y conserva la trazabilidad desde cada resultado hasta el fragmento que lo sostiene. Como siguiente tema, tendría sentido construir una hoja reproducible para calcular acuerdo, explorar errores por categoría y publicar solo agregados minimizados.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/codificacion-manual-marcos-narrativos-osint#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://doi.org/10.1111/j.1460-2466.1993.tb01304.x" target="_blank" rel="noopener noreferrer" class="">Entman: <em>Framing: Toward Clarification of a Fractured Paradigm</em></a></li>
+<li class=""><a href="https://doi.org/10.1111/j.1460-2466.2008.00384.x" target="_blank" rel="noopener noreferrer" class="">Matthes y Kohring: <em>The Content Analysis of Media Frames</em></a></li>
+<li class=""><a href="https://doi.org/10.1111/j.1468-2958.2002.tb00826.x" target="_blank" rel="noopener noreferrer" class="">Lombard, Snyder-Duch y Bracken: fiabilidad entre codificadores</a></li>
+<li class=""><a href="https://www.asc.upenn.edu/krippendorffs-alpha-reliability" target="_blank" rel="noopener noreferrer" class="">Krippendorff: recursos sobre alfa y fiabilidad, Annenberg School</a></li>
+<li class=""><a href="https://www.pewresearch.org/journalism/2020/09/28/youtube-news-methodology/" target="_blank" rel="noopener noreferrer" class="">Pew Research Center: metodología de codificación de noticias en YouTube</a></li>
+<li class=""><a href="https://www.pewresearch.org/journalism/2020/06/24/covid-facebook-methodology/" target="_blank" rel="noopener noreferrer" class="">Pew Research Center: ejemplo de codificación y alfa de Krippendorff</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Medios" term="Medios"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Research" term="Research"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Media Cloud en OSINT: medir cobertura mediática sin confundir volumen con consenso]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/media-cloud-osint-cobertura-mediatica</id>
@@ -2920,166 +3075,6 @@
         <category label="monitoring" term="monitoring"/>
         <category label="Datos" term="Datos"/>
         <category label="Verificacion" term="Verificacion"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Renovación prospectiva de benchmarks OSINT: medir el futuro sin reescribir el pasado]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint"/>
-        <updated>2026-10-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[El extractor alcanza un 94 % sobre el benchmark de siempre. Un mes después llegan nuevos boletines: otra plantilla, anexos escaneados y fechas expresadas de forma distinta. El resultado cae al 78 %. El equipo puede culpar al extractor, culpar a las fuentes o añadir los documentos difíciles al conjunto y recalcular hasta recuperar una cifra cómoda. Solo una de esas opciones permite aprender sin reescribir el examen.]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>El extractor alcanza un 94 % sobre el benchmark de siempre. Un mes después llegan nuevos boletines: otra plantilla, anexos escaneados y fechas expresadas de forma distinta. El resultado cae al 78 %. El equipo puede culpar al extractor, culpar a las fuentes o añadir los documentos difíciles al conjunto y recalcular hasta recuperar una cifra cómoda. <strong>Solo una de esas opciones permite aprender sin reescribir el examen.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Analista comparando un archivo versionado con una ventana futura de documentos públicos" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-24-renovacion-prospectiva-benchmarks-osint-bc1c6e039a42713d23c21e8cac29b74f.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/renovacion-prospectiva-benchmarks-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Renovar un benchmark de forma prospectiva consiste en definir hoy cómo se incorporarán datos que todavía no existen, congelar el sistema antes de verlos y evaluar después bajo reglas de procedencia, inclusión y etiquetado ya acordadas. La ventana futura no es una bolsa de ejemplos convenientes: es una observación del entorno tal como llega.</p>
-<p>En OSINT, donde las páginas cambian, los registros corrigen campos y los formatos administrativos evolucionan, este diseño ayuda a separar tres historias: el pipeline ha empeorado, la fuente ha cambiado o la muestra antigua nunca representó bien el trabajo real. Ninguna puntuación resuelve por sí sola cuál es cierta.</p>
-<p>Todos los nombres, documentos, dominios, cifras y resultados del caso son ficticios. El método se limita a datos sintéticos, fuentes públicas o sistemas propios y autorizados. Evaluar un pipeline no convierte sus inferencias en hechos ni autoriza vigilancia, atribuciones sobre personas o decisiones perjudiciales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-una-renovación-prospectiva-y-para-qué-sirve">Qué es una renovación prospectiva (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#qu%C3%A9-es-una-renovaci%C3%B3n-prospectiva-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es una renovación prospectiva (y para qué sirve)" title="Enlace directo al Qué es una renovación prospectiva (y para qué sirve)" translate="no">​</a></h2>
-<p>Un benchmark estático responde bien a una pregunta estrecha: «¿cómo se comporta esta versión del sistema sobre estos casos y estas etiquetas?». Empieza a fallar cuando usamos su resultado como promesa sobre documentos futuros, otras fuentes o una población distinta.</p>
-<p>NIST distingue entre el rendimiento condicionado a un benchmark fijo y el rendimiento generalizado sobre posibles elementos similares. Su informe estadístico de 2026 subraya que pasar de uno a otro exige supuestos explícitos y una estimación de incertidumbre; no basta con promediar aciertos. Por su parte, las reglas prácticas de Google recomiendan probar con datos posteriores a los usados para desarrollar el sistema y medir la diferencia entre el conjunto reservado, los datos del día siguiente y el entorno real.</p>
-<p>Una renovación prospectiva sirve para:</p>
-<ul>
-<li class="">medir comportamiento sobre una ventana que no pudo influir en el desarrollo;</li>
-<li class="">detectar cambios de formato, cobertura o dificultad;</li>
-<li class="">conservar comparabilidad con el benchmark anterior sin ocultar su edad;</li>
-<li class="">decidir si ampliar, refrescar o retirar una evaluación;</li>
-<li class="">documentar qué parte de una variación procede del sistema y cuál de los datos;</li>
-<li class="">obtener casos nuevos sin seleccionarlos por el resultado que producen.</li>
-</ul>
-<p>No significa actualizar continuamente un fichero y seguir llamándolo igual. Cada edición debe ser una versión identificable, con manifiesto, periodo, reglas y relación explícita con las anteriores.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-boletines-que-llegan-después-de-congelar-el-extractor">Caso legítimo: boletines que llegan después de congelar el extractor<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#caso-leg%C3%ADtimo-boletines-que-llegan-despu%C3%A9s-de-congelar-el-extractor" class="hash-link" aria-label="Enlace directo al Caso legítimo: boletines que llegan después de congelar el extractor" title="Enlace directo al Caso legítimo: boletines que llegan después de congelar el extractor" translate="no">​</a></h2>
-<p>Imaginemos una organización ficticia, <strong>Archivo Abierto</strong>, que extrae fecha, organismo y referencia de resoluciones públicas. Dispone de un benchmark histórico de 1.000 documentos y quiere decidir si promueve un extractor nuevo.</p>
-<p>Antes de comenzar el trimestre, el equipo publica un protocolo interno:</p>
-<ol>
-<li class="">congelará código, dependencias, prompt, esquema y umbrales el 31 de octubre;</li>
-<li class="">recogerá todas las resoluciones elegibles publicadas entre el 1 y el 30 de noviembre;</li>
-<li class="">excluirá únicamente duplicados exactos, ficheros corruptos irrecuperables y documentos fuera de la definición de tarea;</li>
-<li class="">registrará cada exclusión antes de conocer el resultado del extractor;</li>
-<li class="">hará doble etiquetado ciego de una muestra y resolverá desacuerdos con una guía versionada;</li>
-<li class="">publicará por separado el rendimiento histórico, el prospectivo y las diferencias por formato;</li>
-<li class="">mantendrá revisión humana antes de usar cualquier salida fuera de la evaluación.</li>
-</ol>
-<p>Al cerrar noviembre, el sistema baja seis puntos. Los PDF nacidos digitalmente se mantienen estables, mientras los escaneados de una fuente concreta concentran los fallos. Eso no demuestra todavía que la fuente «sea peor» ni que el extractor se haya degradado. Sí aporta una hipótesis comprobable: cambió la mezcla de formatos y el OCR no generaliza igual.</p>
-<p>El equipo conserva esa ventana como versión <code>2026-11</code>, documenta la diferencia y corrige el pipeline usando una copia de desarrollo. La siguiente confirmación tendrá que realizarse sobre otra ventana futura. Añadir noviembre al entrenamiento y volver a presentarlo como prueba independiente borraría justamente la evidencia que se quería obtener.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-primero-el-contrato-de-la-tarea">1. Escribe primero el contrato de la tarea<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#1-escribe-primero-el-contrato-de-la-tarea" class="hash-link" aria-label="Enlace directo al 1. Escribe primero el contrato de la tarea" title="Enlace directo al 1. Escribe primero el contrato de la tarea" translate="no">​</a></h3>
-<p>Define la unidad evaluada —documento, página, entidad o evento—, la población a la que quieres generalizar y la decisión que informará el resultado. Especifica qué significa acertar, qué errores son críticos y qué salida queda fuera de alcance.</p>
-<p>Separa al menos cuatro capas:</p>
-<ul>
-<li class=""><strong>fuente:</strong> dónde y cuándo apareció el documento;</li>
-<li class=""><strong>artefacto:</strong> bytes capturados, formato, hash y momento de adquisición;</li>
-<li class=""><strong>etiqueta:</strong> quién la produjo, con qué guía y qué desacuerdos hubo;</li>
-<li class=""><strong>ejecución:</strong> versión del sistema, configuración, dependencias y resultado.</li>
-</ul>
-<p>Sin esa separación, un cambio de contenido puede confundirse con un cambio de descarga, etiquetado o código.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-prerregistra-la-ventana-y-las-reglas-de-entrada">2. Prerregistra la ventana y las reglas de entrada<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#2-prerregistra-la-ventana-y-las-reglas-de-entrada" class="hash-link" aria-label="Enlace directo al 2. Prerregistra la ventana y las reglas de entrada" title="Enlace directo al 2. Prerregistra la ventana y las reglas de entrada" translate="no">​</a></h3>
-<p>Fija las fechas de inicio y cierre antes de recoger resultados. Decide qué fuentes, idiomas, tipos documentales y estados de disponibilidad son elegibles. Define cómo tratarás correcciones, republicaciones, anexos, duplicados y URLs que desaparecen.</p>
-<p>La regla debe poder aplicarse sin mirar si el sistema acierta. «Excluir documentos atípicos» invita a eliminar fallos incómodos. «Excluir archivos que no pueden abrir dos lectores independientes y conservar su hash en el ledger» es auditable.</p>
-<p>Si el volumen es demasiado grande, define un muestreo reproducible antes de observar salidas: por ejemplo, un hash estable sobre un identificador público. Conserva también el denominador completo para saber qué quedó fuera.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-congela-el-candidato-y-captura-su-identidad">3. Congela el candidato y captura su identidad<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#3-congela-el-candidato-y-captura-su-identidad" class="hash-link" aria-label="Enlace directo al 3. Congela el candidato y captura su identidad" title="Enlace directo al 3. Congela el candidato y captura su identidad" translate="no">​</a></h3>
-<p>Guarda commit, imagen de contenedor o lockfile, configuración, prompts, modelos auxiliares, umbrales y esquema de salida. Calcula hashes de los artefactos relevantes y registra quién autorizó la congelación.</p>
-<p>No cambies una expresión regular a mitad de la ventana y mezcles ambas ejecuciones. Si aparece un defecto operativo grave, detén la evaluación, abre una nueva versión del candidato y declara la primera ronda inconclusa. La transparencia cuesta menos que una comparación imposible de reconstruir.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-captura-procedencia-sin-acumular-datos-innecesarios">4. Captura procedencia sin acumular datos innecesarios<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#4-captura-procedencia-sin-acumular-datos-innecesarios" class="hash-link" aria-label="Enlace directo al 4. Captura procedencia sin acumular datos innecesarios" title="Enlace directo al 4. Captura procedencia sin acumular datos innecesarios" translate="no">​</a></h3>
-<p>Para cada elemento conserva, cuando sea legítimo:</p>
-<ul>
-<li class="">identificador interno no sensible;</li>
-<li class="">URL pública y sello temporal de adquisición;</li>
-<li class="">hash del artefacto y tipo MIME observado;</li>
-<li class="">licencia, condiciones o base de uso aplicable;</li>
-<li class="">versión de la regla que lo incluyó;</li>
-<li class="">relación con versiones corregidas o retiradas;</li>
-<li class="">mínima información necesaria para explicar estratos y errores.</li>
-</ul>
-<p>No recopiles perfiles personales ni campos ajenos a la tarea «por si acaso». Si una fuente corrige o retira contenido, registra el evento y aplica la política prevista; una copia de evaluación no debe convertirse en archivo clandestino de datos que ya no procede conservar.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-etiqueta-sin-enseñar-la-salida-del-candidato">5. Etiqueta sin enseñar la salida del candidato<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#5-etiqueta-sin-ense%C3%B1ar-la-salida-del-candidato" class="hash-link" aria-label="Enlace directo al 5. Etiqueta sin enseñar la salida del candidato" title="Enlace directo al 5. Etiqueta sin enseñar la salida del candidato" translate="no">​</a></h3>
-<p>Siempre que sea viable, quienes crean la referencia no deberían ver la predicción que evaluarán. Usa una guía con ejemplos límite, estados como <code>no determinable</code> y un proceso de adjudicación. Mide desacuerdo: puede revelar una tarea ambigua, no incompetencia del sistema.</p>
-<p>NIST AITE utiliza datos ciegos y un entorno separado para reducir la contaminación entre desarrollo y prueba. Un equipo pequeño puede aproximar esa independencia separando permisos, automatizando la ejecución y entregando a desarrollo solo los resultados previstos en el protocolo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-compara-cohortes-no-solo-promedios">6. Compara cohortes, no solo promedios<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#6-compara-cohortes-no-solo-promedios" class="hash-link" aria-label="Enlace directo al 6. Compara cohortes, no solo promedios" title="Enlace directo al 6. Compara cohortes, no solo promedios" translate="no">​</a></h3>
-<p>Presenta el benchmark estable y la ventana futura por separado. Añade intervalos de incertidumbre y cortes definidos de antemano: fuente, formato, idioma, periodo o nivel de calidad documental. Informa numeradores y denominadores.</p>
-<p>Una diferencia temporal puede reflejar:</p>
-<ul>
-<li class=""><strong>deriva de población:</strong> llegan otros tipos de documentos;</li>
-<li class=""><strong>deriva de concepto:</strong> cambia la relación entre el contenido y la etiqueta;</li>
-<li class=""><strong>cambio de medición:</strong> la descarga, el OCR o el etiquetado funcionan de otra manera;</li>
-<li class=""><strong>regresión del sistema:</strong> la nueva versión rinde peor sobre casos comparables;</li>
-<li class=""><strong>ruido muestral:</strong> la ventana es pequeña y la diferencia es incierta.</li>
-</ul>
-<p>No elijas la explicación por intuición. Formula diagnósticos que puedan contrastarse con artefactos, versiones y análisis estratificados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-versiona-sin-mover-la-portería">7. Versiona sin mover la portería<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#7-versiona-sin-mover-la-porter%C3%ADa" class="hash-link" aria-label="Enlace directo al 7. Versiona sin mover la portería" title="Enlace directo al 7. Versiona sin mover la portería" translate="no">​</a></h3>
-<p>Publica un manifiesto por edición con:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">benchmark</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> archivo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">abierto</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">version</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">11</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">collection_window</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">11</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">01/2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">11</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">30</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">task_contract</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">inclusion_rules</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">label_guide</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> v3</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">candidate_commit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 4f2c</span><span class="token punctuation" style="color:rgb(248, 248, 242)">...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">parent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">10</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">status</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> confirmatory</span><br></span></code></pre></div></div>
-<p>El ejemplo es ficticio y deliberadamente incompleto, pero muestra la idea: una puntuación debe viajar con la identidad de los datos, del contrato y del candidato. MLCommons sitúa la reproducibilidad entre los objetivos centrales de un benchmark; aquí implica poder reconstruir no solo el cálculo, sino también qué se consideró comparable.</p>
-<p>Mantén un núcleo estable solo si sigue siendo legítimo y representativo. Reporta dos series: continuidad sobre el núcleo y actualidad sobre la ventana nueva. Nunca sustituyas silenciosamente casos difíciles ni recalcules toda la historia con reglas recientes sin marcar una serie distinta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-cierra-con-una-decisión-que-admita-incertidumbre">8. Cierra con una decisión que admita incertidumbre<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#8-cierra-con-una-decisi%C3%B3n-que-admita-incertidumbre" class="hash-link" aria-label="Enlace directo al 8. Cierra con una decisión que admita incertidumbre" title="Enlace directo al 8. Cierra con una decisión que admita incertidumbre" translate="no">​</a></h3>
-<p>La revisión debe poder concluir: promover, no promover, detener por una barrera, investigar una deriva o declarar evidencia insuficiente. Define antes qué diferencias importan en la práctica y qué fallos impiden el despliegue aunque el promedio suba.</p>
-<p>Si los resultados motivan cambios, la ventana deja de ser confirmatoria para esa nueva versión. Continúa siendo valiosa como diagnóstico y como registro histórico, pero la siguiente afirmación necesita otra evidencia independiente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La población objetivo y la unidad de evaluación están escritas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La ventana futura y sus reglas se fijaron antes de ver resultados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El candidato, sus dependencias y su configuración están congelados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Inclusiones y exclusiones no dependen del acierto del sistema.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada artefacto conserva procedencia, versión y hash cuando procede.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El etiquetado admite ambigüedad y no muestra la predicción.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Histórico y ventana futura se reportan por separado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los cortes analíticos se definieron antes o se marcan como exploratorios.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La incertidumbre acompaña a numeradores y denominadores.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hay política de corrección, retirada, retención y acceso.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una persona revisa divergencias críticas antes de decidir.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La nueva versión no reutiliza su propia ventana confirmatoria como examen.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Una ventana futura tampoco es mágicamente representativa. Puede coincidir con una campaña extraordinaria, una caída de un portal o un cambio estacional. Varias ventanas y un muestreo bien descrito aportan más contexto que una fecha elegida por comodidad.</p>
-<p>Evita estos atajos:</p>
-<ul>
-<li class="">atribuir toda caída a deriva sin ejecutar el sistema anterior sobre la misma ventana;</li>
-<li class="">llamar «regresión» a una diferencia con intervalos muy amplios;</li>
-<li class="">conservar solo URLs accesibles al cierre y perder las retiradas ocurridas durante la recogida;</li>
-<li class="">cambiar la guía de etiquetado sin volver a medir una muestra puente;</li>
-<li class="">mezclar datos retrospectivos seleccionados a mano con la cohorte prospectiva;</li>
-<li class="">rellenar estratos escasos después de ver dónde falla el candidato;</li>
-<li class="">informar solo del agregado y ocultar que una fuente domina el resultado;</li>
-<li class="">usar datos públicos como sinónimo de datos irrestrictos o inocuos;</li>
-<li class="">convertir un benchmark técnico en una afirmación sobre una persona;</li>
-<li class="">promocionar automáticamente porque una métrica supera un umbral.</li>
-</ul>
-<p>Tampoco todas las tareas necesitan un calendario mensual. En fuentes de baja frecuencia puede ser mejor cerrar por número de eventos, manteniendo un límite temporal máximo. En incidentes raros, un estudio de casos con protocolo y revisión ciega puede ser más honesto que un porcentaje inestable.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Minimiza campos, permisos, copias y tiempo de retención.</li>
-<li class="">Usa datos sintéticos para desarrollar y depurar siempre que sea posible.</li>
-<li class="">Separa credenciales y almacenamiento de desarrollo y evaluación.</li>
-<li class="">No pongas URLs sensibles ni datos personales en logs o paneles compartidos.</li>
-<li class="">Respeta retiradas, correcciones, licencias y términos de las fuentes.</li>
-<li class="">Documenta quién accede a casos individuales y con qué finalidad.</li>
-<li class="">Protege las etiquetas: también pueden revelar información delicada.</li>
-<li class="">Evita que la publicación de ejemplos facilite acoso, doxxing o evasión de controles.</li>
-<li class="">Conserva evidencia suficiente para auditar sin duplicar contenido innecesario.</li>
-<li class="">Mantén revisión humana para atribución, publicación y efectos externos.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si no puedes reservar una ventana futura, utiliza validación temporal retrospectiva: desarrolla con documentos anteriores a una fecha y evalúa con los posteriores, explicando que ambos periodos ya eran observables. Si el benchmark está muy expuesto, una evaluación ciega bajo custodia independiente puede proteger mejor la separación. Para monitorización continua, usa señales de esquema y distribución como alertas, no como sustituto automático de calidad etiquetada.</p>
-<p>El takeaway accionable es concreto: redacta hoy una página llamada <code>proxima-edicion.md</code> con la población, ventana, reglas de inclusión, política de correcciones, versión que vas a congelar y cuatro decisiones posibles. <strong>Si alguna regla solo puede escribirse después de ver qué casos bajan la puntuación, no es una regla de evaluación: es una negociación con el resultado.</strong></p>
-<p>Como siguiente tema convendría estudiar los <strong>paneles de deriva para fuentes OSINT</strong>: qué señales permiten distinguir cambios de esquema, mezcla y calidad sin convertir una alerta estadística en una conclusión automática.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/renovacion-prospectiva-benchmarks-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://doi.org/10.6028/NIST.AI.800-3" target="_blank" rel="noopener noreferrer" class="">NIST AI 800-3: Expanding the AI Evaluation Toolbox with Statistical Models</a></li>
-<li class=""><a href="https://pages.nist.gov/ai-technology-evaluation/" target="_blank" rel="noopener noreferrer" class="">NIST: Artificial Intelligence Technology Evaluation (AITE)</a></li>
-<li class=""><a href="https://doi.org/10.6028/NIST.AI.800-2.ipd" target="_blank" rel="noopener noreferrer" class="">NIST: Practices for Automated Benchmark Evaluations of Language Models (borrador público inicial)</a></li>
-<li class=""><a href="https://developers.google.com/machine-learning/guides/rules-of-ml" target="_blank" rel="noopener noreferrer" class="">Google for Developers: Rules of Machine Learning</a></li>
-<li class=""><a href="https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring" target="_blank" rel="noopener noreferrer" class="">Google for Developers: Production ML systems — Monitoring pipelines</a></li>
-<li class=""><a href="https://mlcommons.org/benchmarks/" target="_blank" rel="noopener noreferrer" class="">MLCommons: Benchmarks</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Automatizacion" term="Automatizacion"/>
         <category label="Privacidad" term="Privacidad"/>
     </entry>
 </feed>
