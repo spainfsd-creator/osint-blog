@@ -13,6 +13,9 @@ Dos medios describen la misma protesta. Uno abre con los cortes de tráfico; el 
 
 ![Dos analistas codifican por separado noticias públicas y comparan su acuerdo mediante un libro de códigos](/img/blog/2026-11-19-codificacion-manual-marcos-narrativos-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/codificacion-manual-marcos-narrativos-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
