@@ -4,10 +4,158 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Fri, 20 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Hypothesis en OSINT: anotar la web sin confundir una nota con evidencia]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint</guid>
+            <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Una frase decisiva aparece en la página de una licitación. Dos horas después, el organismo corrige el texto, el enlace redirige y el equipo solo conserva una nota que dice «esto demuestra el cambio». Anotar una fuente ayuda a pensar en común; no preserva por sí solo lo que se observó ni convierte una interpretación en prueba.]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una frase decisiva aparece en la página de una licitación. Dos horas después, el organismo corrige el texto, el enlace redirige y el equipo solo conserva una nota que dice «esto demuestra el cambio». <strong>Anotar una fuente ayuda a pensar en común; no preserva por sí solo lo que se observó ni convierte una interpretación en prueba.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Equipo OSINT revisando páginas públicas, anotaciones y un registro separado de evidencias" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-21-hypothesis-anotacion-web-osint-c5ee6b0424f895ba7b8ff54ea0b7dccd.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un uso responsable de <a href="https://web.hypothes.is/" target="_blank" rel="noopener noreferrer" class="">Hypothesis</a> para leer, comentar y revisar fuentes web dentro de una investigación OSINT legítima. El caso, las entidades y los datos son ficticios. La finalidad no es vigilar a personas ni organizar información privada, sino reducir malentendidos entre analistas y conservar la distancia entre <strong>texto observado, nota analítica, verificación y conclusión</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-hypothesis-y-para-qué-sirve-en-osint">Qué es Hypothesis y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#qu%C3%A9-es-hypothesis-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Hypothesis y para qué sirve en OSINT" title="Enlace directo al Qué es Hypothesis y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Hypothesis es un sistema de anotación web. Su cliente se superpone a una página o a un PDF y permite vincular una nota a un fragmento seleccionado, crear notas sobre el documento completo, añadir etiquetas y responder en hilos. Según la <a href="https://web.hypothes.is/help/overview-of-the-hypothesis-system/" target="_blank" rel="noopener noreferrer" class="">descripción oficial de su arquitectura</a>, el servicio almacena y busca anotaciones, gestiona usuarios y grupos y ofrece una API; el cliente puede llegar mediante extensión, integración en la página, proxy o aplicaciones educativas.</p>
+<p>En un flujo OSINT, esa capa puede servir para:</p>
+<ul>
+<li class="">señalar el pasaje exacto que motiva una pregunta;</li>
+<li class="">separar una cita literal de la interpretación del analista;</li>
+<li class="">pedir una segunda lectura sin copiar el documento entero a un chat;</li>
+<li class="">etiquetar estados como <code>por-verificar</code>, <code>corroborado</code> o <code>contradicho</code>;</li>
+<li class="">discutir una traducción, una fecha o el alcance de una afirmación;</li>
+<li class="">reunir notas accesibles para un equipo con permisos definidos;</li>
+<li class="">exportar el trabajo para revisarlo fuera de la plataforma.</li>
+</ul>
+<p>No es un capturador forense, una hemeroteca ni un sistema de gestión de expedientes. Una anotación puede mantener el texto seleccionado y un enlace, pero la página de destino puede cambiar, desaparecer o presentar otra versión. Tampoco garantiza que quien anotó interpretara correctamente el fragmento, que la cuenta represente a quien dice representar ni que una etiqueta haya pasado un control de calidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cuatro-objetos-que-conviene-no-mezclar">Cuatro objetos que conviene no mezclar<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#cuatro-objetos-que-conviene-no-mezclar" class="hash-link" aria-label="Enlace directo al Cuatro objetos que conviene no mezclar" title="Enlace directo al Cuatro objetos que conviene no mezclar" translate="no">​</a></h3>
+<p>La <a href="https://web.hypothes.is/help/annotation-basics/" target="_blank" rel="noopener noreferrer" class="">guía básica de Hypothesis</a> distingue anotaciones ligadas a una selección, resaltados, notas de página y respuestas. Para investigar con rigor conviene añadir una distinción operativa propia:</p>
+<table><thead><tr><th>Objeto</th><th>Qué registra</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>resaltado</td><td>un pasaje que llamó la atención</td><td>que sea verdadero o relevante</td></tr><tr><td>anotación</td><td>comentario y etiquetas sobre una selección</td><td>que la interpretación esté verificada</td></tr><tr><td>nota de página</td><td>contexto sobre el documento completo</td><td>que describa todas sus versiones</td></tr><tr><td>respuesta</td><td>discusión o revisión de una nota</td><td>que exista consenso válido</td></tr><tr><td>ficha de evidencia</td><td>fuente, captura, huella, localizador y estado</td><td>que la conclusión final sea correcta</td></tr></tbody></table>
+<p>La última fila no la aporta automáticamente la herramienta. Es una pieza del método del equipo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-seguimiento-de-una-convocatoria-pública">Caso de uso legítimo: seguimiento de una convocatoria pública<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#caso-de-uso-leg%C3%ADtimo-seguimiento-de-una-convocatoria-p%C3%BAblica" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: seguimiento de una convocatoria pública" title="Enlace directo al Caso de uso legítimo: seguimiento de una convocatoria pública" translate="no">​</a></h2>
+<p>La asociación ficticia <strong>Observatorio Costa Clara</strong> revisa una convocatoria municipal de subvenciones ambientales. Quiere comprobar cómo cambian los criterios y plazos publicados durante tres semanas, no perfilar a solicitantes ni buscar información sobre empleados públicos.</p>
+<p>El equipo trabaja con la página oficial, dos PDF enlazados y el boletín administrativo. Antes de anotar, crea un registro con un identificador por representación:</p>
+<table><thead><tr><th>ID</th><th>Tipo</th><th>URL de origen</th><th>Observado en</th><th>Huella o captura</th><th>Estado</th></tr></thead><tbody><tr><td><code>CC-001</code></td><td>página HTML</td><td>URL oficial ficticia</td><td>2026-11-21 09:15 CET</td><td>WARC + SHA-256</td><td>capturado</td></tr><tr><td><code>CC-002</code></td><td>bases PDF</td><td>URL oficial ficticia</td><td>2026-11-21 09:18 CET</td><td>PDF + SHA-256</td><td>capturado</td></tr><tr><td><code>CC-003</code></td><td>boletín</td><td>URL oficial ficticia</td><td>2026-11-21 09:27 CET</td><td>referencia oficial</td><td>corroborado</td></tr></tbody></table>
+<p>Las anotaciones usan esos identificadores. Una nota no dice «han ampliado el plazo», sino algo más comprobable:</p>
+<blockquote>
+<p><code>CC-001</code>, apartado «Presentación»: la representación observada a las 09:15 muestra «30 de noviembre». Comparar con <code>CC-002</code>, página 7, y con la edición vigente del boletín. Estado: <code>por-verificar</code>.</p>
+</blockquote>
+<p>Si después aparece una corrección, el equipo no sobrescribe la primera observación. Crea una nueva ficha, relaciona ambas representaciones y documenta qué fuente tiene autoridad normativa.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-y-el-límite-de-recogida">1. Define la pregunta y el límite de recogida<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#1-define-la-pregunta-y-el-l%C3%ADmite-de-recogida" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta y el límite de recogida" title="Enlace directo al 1. Define la pregunta y el límite de recogida" translate="no">​</a></h3>
+<p>Empieza con una pregunta verificable: «¿qué fechas y requisitos aparecen en cada representación oficial durante el periodo?» es mejor que «encuentra irregularidades». Define dominios, tipos documentales, fechas, criterios de exclusión y datos que no deben recogerse.</p>
+<p>Una página pública puede incluir nombres, firmas, teléfonos o comentarios incidentales. Que el navegador permita seleccionarlos no significa que deban entrar en el cuaderno compartido. Aplica minimización desde el principio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-decide-visibilidad-antes-de-escribir">2. Decide visibilidad antes de escribir<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#2-decide-visibilidad-antes-de-escribir" class="hash-link" aria-label="Enlace directo al 2. Decide visibilidad antes de escribir" title="Enlace directo al 2. Decide visibilidad antes de escribir" translate="no">​</a></h3>
+<p>La configuración de privacidad es parte del diseño, no un detalle para el final. La <a href="https://web.hypothes.is/help/who-can-see-my-annotations-in-the-web-app/" target="_blank" rel="noopener noreferrer" class="">ayuda oficial sobre visibilidad</a> indica que las anotaciones de la capa pública son públicas por defecto y pueden verse mediante la interfaz y la API. Los resaltados simples son privados; los grupos privados limitan la lectura a sus miembros, aunque un miembro pueda compartir enlaces que seguirán requiriendo pertenecer al grupo.</p>
+<p>Para un equipo de investigación:</p>
+<ol>
+<li class="">crea un grupo privado específico para el caso;</li>
+<li class="">revisa quién puede entrar y quién modera;</li>
+<li class="">prueba la visibilidad con una nota ficticia;</li>
+<li class="">evita nombres reales y secretos en títulos, etiquetas y comentarios;</li>
+<li class="">fija una fecha para revisar miembros, retención y exportaciones.</li>
+</ol>
+<p>«Solo yo» puede servir para una lectura inicial, pero no sustituye una política de acceso. Una nota que fue pública pudo ser leída o copiada antes de volverse privada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-captura-la-representación-antes-de-interpretarla">3. Captura la representación antes de interpretarla<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#3-captura-la-representaci%C3%B3n-antes-de-interpretarla" class="hash-link" aria-label="Enlace directo al 3. Captura la representación antes de interpretarla" title="Enlace directo al 3. Captura la representación antes de interpretarla" translate="no">​</a></h3>
+<p>Antes de crear una anotación decisiva, registra la URL canónica y la URL final tras redirecciones, la fecha y zona horaria, el título visible y el identificador de la ficha. Cuando sea legal y proporcionado, conserva una captura reproducible —por ejemplo, WARC, PDF original o respuesta descargada— y calcula una huella.</p>
+<p>No afirmes que Hypothesis preserva la página porque conserve el fragmento citado. El anclaje puede quedar huérfano si cambia el texto o el documento. La anotación ayuda a volver al contexto; el artefacto capturado permite explicar qué representación se observó.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-una-plantilla-de-anotación">4. Usa una plantilla de anotación<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#4-usa-una-plantilla-de-anotaci%C3%B3n" class="hash-link" aria-label="Enlace directo al 4. Usa una plantilla de anotación" title="Enlace directo al 4. Usa una plantilla de anotación" translate="no">​</a></h3>
+<p>Una nota libre suele mezclar cita, intuición y conclusión. Una plantilla corta obliga a mostrar el salto lógico:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Fuente: CC-002</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Localizador: página 7, apartado 4.2</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Observación: el PDF indica «30 de noviembre»</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Interpretación: posible plazo aplicable</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Comprobación pendiente: contrastar boletín y correcciones</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Estado: por-verificar</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Responsable / fecha de revisión: equipo documental / 2026-11-22</span><br></span></code></pre></div></div>
+<p>La selección visible no necesita copiarse de nuevo entera. Incluye solo el fragmento mínimo que permita reconocer el punto y evita reproducir material personal o protegido sin necesidad.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-diseña-un-vocabulario-pequeño-y-controlado">5. Diseña un vocabulario pequeño y controlado<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#5-dise%C3%B1a-un-vocabulario-peque%C3%B1o-y-controlado" class="hash-link" aria-label="Enlace directo al 5. Diseña un vocabulario pequeño y controlado" title="Enlace directo al 5. Diseña un vocabulario pequeño y controlado" translate="no">​</a></h3>
+<p>Las etiquetas facilitan la búsqueda, pero se degradan si cada persona inventa variantes. Empieza con pocas dimensiones:</p>
+<ul>
+<li class="">estado: <code>por-verificar</code>, <code>corroborado</code>, <code>contradicho</code>, <code>inconcluso</code>;</li>
+<li class="">acción: <code>revisar-fecha</code>, <code>buscar-fuente-primaria</code>, <code>validar-traduccion</code>;</li>
+<li class="">objeto: <code>plazo</code>, <code>importe</code>, <code>requisito</code>, <code>correccion</code>;</li>
+<li class="">sensibilidad: <code>minimizar</code>, <code>no-exportar</code>.</li>
+</ul>
+<p>No uses etiquetas como <code>fraude</code>, <code>culpable</code> o <code>mentira</code> para sustituir una conclusión argumentada. Si una afirmación queda corroborada, especifica por qué fuente independiente y bajo qué criterio.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-revisa-en-dos-pasadas">6. Revisa en dos pasadas<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#6-revisa-en-dos-pasadas" class="hash-link" aria-label="Enlace directo al 6. Revisa en dos pasadas" title="Enlace directo al 6. Revisa en dos pasadas" translate="no">​</a></h3>
+<p>La primera persona anota; la segunda comprueba el fragmento en su contexto y examina la ficha de evidencia. Puede aceptar, discutir o dejar el estado en <code>inconcluso</code>. La respuesta debe identificar el motivo: versión distinta, traducción ambigua, documento sin autoridad, fecha incompatible o simple error de lectura.</p>
+<p>El número de respuestas no mide fiabilidad. Tres comentarios derivados de la misma página siguen siendo una sola procedencia. Cuenta fuentes independientes, no participantes en el hilo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-exporta-y-reconcilia-fuera-de-la-interfaz">7. Exporta y reconcilia fuera de la interfaz<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#7-exporta-y-reconcilia-fuera-de-la-interfaz" class="hash-link" aria-label="Enlace directo al 7. Exporta y reconcilia fuera de la interfaz" title="Enlace directo al 7. Exporta y reconcilia fuera de la interfaz" translate="no">​</a></h3>
+<p>La <a href="https://web.hypothes.is/help/exporting-and-importing-annotations/" target="_blank" rel="noopener noreferrer" class="">función oficial de exportación</a> permite sacar notas accesibles como JSON, texto, CSV o HTML. JSON sirve también para importar anotaciones, mientras que CSV facilita una revisión tabular.</p>
+<p>Una exportación periódica puede conservar:</p>
+<ul>
+<li class="">identificador de anotación;</li>
+<li class="">autor y fechas de creación y actualización;</li>
+<li class="">URL y fragmento objetivo;</li>
+<li class="">cuerpo, etiquetas, grupo y relaciones de respuesta;</li>
+<li class="">identificador de evidencia enlazado;</li>
+<li class="">hash y fecha del archivo exportado.</li>
+</ul>
+<p>Haz un recuento antes y después. La guía advierte de límites de la importación: las notas importadas aparecen como creadas por quien importa y las respuestas exportadas no se importan como tal. Por eso una exportación es un respaldo analítico, no una migración perfecta de identidad y conversación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-automatiza-solo-lo-que-puedas-auditar">8. Automatiza solo lo que puedas auditar<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#8-automatiza-solo-lo-que-puedas-auditar" class="hash-link" aria-label="Enlace directo al 8. Automatiza solo lo que puedas auditar" title="Enlace directo al 8. Automatiza solo lo que puedas auditar" translate="no">​</a></h3>
+<p>La <a href="https://h.readthedocs.io/en/latest/api-reference/v1/" target="_blank" rel="noopener noreferrer" class="">API v1 de Hypothesis</a> permite buscar anotaciones por URL, usuario, grupo, etiqueta, texto o cita. La lectura de datos públicos no requiere autorización; el acceso a contenido restringido y las operaciones de escritura sí exigen credenciales adecuadas.</p>
+<p>Un uso razonable es generar un inventario de notas <code>por-verificar</code> o comprobar que todas enlazan a una ficha existente. No conviene publicar tokens en scripts, descargar anotaciones públicas para perfilar autores ni inferir coordinación a partir de etiquetas coincidentes. Respeta límites, condiciones de uso y finalidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-anclaje-puede-romperse">El anclaje puede romperse<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#el-anclaje-puede-romperse" class="hash-link" aria-label="Enlace directo al El anclaje puede romperse" title="Enlace directo al El anclaje puede romperse" translate="no">​</a></h3>
+<p>Una edición, redirección, cambio de PDF o modificación de la estructura puede impedir que la nota vuelva al pasaje exacto. El fragmento guardado ayuda a diagnosticar el problema, pero no identifica necesariamente qué versión estuvo disponible en cada instante.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-url-no-siempre-identifica-el-mismo-objeto">Una URL no siempre identifica el mismo objeto<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#una-url-no-siempre-identifica-el-mismo-objeto" class="hash-link" aria-label="Enlace directo al Una URL no siempre identifica el mismo objeto" title="Enlace directo al Una URL no siempre identifica el mismo objeto" translate="no">​</a></h3>
+<p>El contenido tras una URL puede cambiar. A la inversa, parámetros, copias, URL móviles o redirecciones pueden representar el mismo documento. Normaliza para buscar, pero conserva siempre la URL observada y la final; no fusiones registros sin justificar la equivalencia.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-selección-elimina-contexto">La selección elimina contexto<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#la-selecci%C3%B3n-elimina-contexto" class="hash-link" aria-label="Enlace directo al La selección elimina contexto" title="Enlace directo al La selección elimina contexto" translate="no">​</a></h3>
+<p>Una frase puede depender de un encabezado, una nota al pie, una negación anterior o una tabla. Revisa alrededor del fragmento y anota página, sección o estructura. En PDF con OCR, compara además con la imagen de la página: el texto seleccionable puede contener errores u orden de lectura incorrecto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-actividad-no-equivale-a-acuerdo">La actividad no equivale a acuerdo<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#la-actividad-no-equivale-a-acuerdo" class="hash-link" aria-label="Enlace directo al La actividad no equivale a acuerdo" title="Enlace directo al La actividad no equivale a acuerdo" translate="no">​</a></h3>
+<p>Muchos comentarios pueden reflejar controversia, formación o duplicación. Un grupo silencioso puede haber revisado fuera de la herramienta. No conviertas recuentos de notas, autores o etiquetas en una métrica de verdad o importancia sin un diseño explícito.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="privado-no-significa-secreto-ni-eterno">Privado no significa secreto ni eterno<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#privado-no-significa-secreto-ni-eterno" class="hash-link" aria-label="Enlace directo al Privado no significa secreto ni eterno" title="Enlace directo al Privado no significa secreto ni eterno" translate="no">​</a></h3>
+<p>Un grupo privado restringe acceso dentro del servicio, pero sus miembros pueden copiar contenido. La <a href="https://web.hypothes.is/privacy/" target="_blank" rel="noopener noreferrer" class="">política de privacidad</a> también recuerda que una anotación que fue pública pudo haber sido recogida mediante la API antes de editarse o borrarse. No introduzcas material cuya exposición resulte inaceptable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Usa una finalidad legítima y documenta por qué cada fuente entra en el caso.</li>
+<li class="">No anotes para hostigar, perfilar o coordinar vigilancia sobre personas.</li>
+<li class="">Separa cuenta personal y cuenta de trabajo cuando el modelo de riesgo lo requiera.</li>
+<li class="">No pongas datos sensibles, hipótesis acusatorias ni secretos en etiquetas visibles.</li>
+<li class="">Revisa visibilidad y grupo antes de publicar cada nota.</li>
+<li class="">Almacena tokens de API fuera del repositorio y rótalos si se exponen.</li>
+<li class="">Mantén originales y capturas fuera de Hypothesis con controles de acceso adecuados.</li>
+<li class="">Conserva texto observado, interpretación, verificación y conclusión en campos distintos.</li>
+<li class="">Documenta correcciones sin borrar el rastro de la decisión anterior.</li>
+<li class="">Minimiza citas, exportaciones y datos personales; fija retención y borrado.</li>
+<li class="">Ofrece un canal de rectificación cuando una publicación afecte a terceros.</li>
+<li class="">Expresa estados inconclusos: una buena investigación también registra lo que no pudo confirmar.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta, el periodo y las exclusiones están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se eligió y probó la visibilidad antes de anotar fuentes reales.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Miembros, moderación, retención y exportaciones tienen responsables.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada fuente tiene identificador, URL observada, fecha y representación capturada.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las anotaciones separan observación, interpretación y comprobación pendiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las etiquetas proceden de un vocabulario corto y documentado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los datos personales incidentales se han minimizado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una segunda persona revisa los hallazgos de mayor consecuencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La corroboración cuenta procedencias independientes, no respuestas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los anclajes rotos se tratan como incidencia, no como ausencia de evidencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las exportaciones tienen recuento, fecha y huella.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Tokens, capturas y documentos sensibles están fuera del repositorio público.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Zotero es más apropiado para gestionar referencias, archivos y notas bibliográficas; Google Pinpoint ayuda a buscar dentro de colecciones documentales; un repositorio de casos o una herramienta de tickets ofrece estados, responsables y auditoría más explícitos; WARC y los servicios de archivo web preservan representaciones con otra finalidad. Una hoja estructurada puede ser suficiente para un equipo pequeño.</p>
+<p>Hypothesis encaja cuando la conversación necesita permanecer cerca del pasaje. No tiene por qué convertirse en el sistema central del expediente: puede actuar como una capa de lectura que enlaza con capturas, fichas y decisiones conservadas en herramientas bajo mayor control.</p>
+<p>El takeaway práctico es este: <strong>anota para mostrar dónde empezó una pregunta, captura para demostrar qué observaste y verifica antes de convertir la nota en conclusión</strong>. Prueba el método con tres páginas ficticias, rompe deliberadamente un anclaje y exporta el resultado. Si el equipo puede reconstruir qué vio, qué pensó y qué confirmó, la herramienta está ayudando. Como siguiente tema, merecería la pena comparar anotación, archivo y gestión de casos sobre una misma página que cambia con el tiempo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://web.hypothes.is/help/annotation-basics/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: fundamentos de la anotación</a></li>
+<li class=""><a href="https://web.hypothes.is/help/whats-the-difference-between-an-annotation-and-a-highlight/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: tipos de anotaciones y resaltados</a></li>
+<li class=""><a href="https://web.hypothes.is/help/who-can-see-my-annotations-in-the-web-app/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: visibilidad de las anotaciones</a></li>
+<li class=""><a href="https://web.hypothes.is/help/annotating-with-groups/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: anotación mediante grupos</a></li>
+<li class=""><a href="https://web.hypothes.is/help/exporting-and-importing-annotations/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: exportación e importación</a></li>
+<li class=""><a href="https://web.hypothes.is/help/overview-of-the-hypothesis-system/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: descripción general del sistema</a></li>
+<li class=""><a href="https://h.readthedocs.io/en/latest/api-reference/v1/" target="_blank" rel="noopener noreferrer" class="">Hypothesis API v1</a></li>
+<li class=""><a href="https://web.hypothes.is/privacy/" target="_blank" rel="noopener noreferrer" class="">Hypothesis: política de privacidad</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>Tooling</category>
+            <category>Research</category>
+            <category>Verificacion</category>
+            <category>Metodologia</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Google Pinpoint en OSINT: buscar en colecciones documentales sin confundir extracción con evidencia]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/google-pinpoint-osint-colecciones-documentales</link>
@@ -2793,191 +2941,6 @@
             <category>monitoring</category>
             <category>Verificacion</category>
             <category>Datos</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Calibración de alertas de deriva en OSINT: detectar cambios sin entrenar al ruido]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint</guid>
-            <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Una alerta salta porque el porcentaje de documentos sin fecha pasa del 4 % al 7 %. El equipo interrumpe su trabajo, abre veinte ejemplos y descubre un boletín extraordinario perfectamente válido. Baja el umbral. A la semana siguiente ocurre algo parecido y vuelve a bajarlo. Tres meses después, el panel está en silencio incluso cuando el extractor pierde una fuente completa. No se ha calibrado la alerta: se la ha entrenado para olvidar cada susto.]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una alerta salta porque el porcentaje de documentos sin fecha pasa del 4 % al 7 %. El equipo interrumpe su trabajo, abre veinte ejemplos y descubre un boletín extraordinario perfectamente válido. Baja el umbral. A la semana siguiente ocurre algo parecido y vuelve a bajarlo. Tres meses después, el panel está en silencio incluso cuando el extractor pierde una fuente completa. <strong>No se ha calibrado la alerta: se la ha entrenado para olvidar cada susto.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Analista calibrando umbrales y ventanas de alertas de deriva frente a un registro de resultados" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-26-calibracion-alertas-deriva-osint-48e1a17e1c8d9c7e3f90d678a2af139f.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/calibracion-alertas-deriva-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Calibrar una alerta de deriva consiste en elegir, probar y gobernar una regla que transforme una señal de cambio en una acción proporcionada. La regla incluye más que un número: define la población observada, la referencia, la ventana, el tamaño mínimo de muestra, la persistencia, la severidad, el responsable y qué evidencia permite cerrar el aviso.</p>
-<p>Todos los nombres, fuentes, documentos y resultados del caso de este artículo son ficticios. El método se limita a datos sintéticos, fuentes públicas o sistemas propios y autorizados. Una alerta identifica una diferencia que merece revisión; no demuestra manipulación, engaño, culpabilidad ni intención.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-calibrar-una-alerta-y-para-qué-sirve">Qué es calibrar una alerta (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#qu%C3%A9-es-calibrar-una-alerta-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es calibrar una alerta (y para qué sirve)" title="Enlace directo al Qué es calibrar una alerta (y para qué sirve)" translate="no">​</a></h2>
-<p>Un detector produce una medida: proporción de nulos, distancia entre distribuciones, caída de volumen, cambio de esquema o discrepancia en una muestra etiquetada. Una política de alerta decide qué hacer con esa medida.</p>
-<p>Esa distinción evita dos atajos frecuentes:</p>
-<ul>
-<li class="">un valor estadísticamente significativo no es automáticamente importante;</li>
-<li class="">un umbral que funcionó sobre incidentes pasados no garantiza que generalice.</li>
-</ul>
-<p>NIST recomienda monitorizar las diferencias entre producción y pruebas, combinar pruebas de hipótesis con conocimiento del dominio, considerar la propagación de errores y asignar responsabilidades claras a la supervisión humana. Su informe sobre monitorización desplegada de 2026 añade una cautela útil: las prácticas validadas siguen dispersas y la cadencia correcta depende del contexto. Por tanto, no existe un umbral universal de deriva que podamos copiar sin justificarlo.</p>
-<p>La calibración sirve para responder preguntas operativas:</p>
-<ul>
-<li class="">¿qué cambio exige una revisión inmediata y cuál puede esperar?</li>
-<li class="">¿cuánto cuesta investigar una falsa alarma?</li>
-<li class="">¿qué daño puede causar no detectar un cambio real?</li>
-<li class="">¿qué volumen hace estable la señal?</li>
-<li class="">¿quién puede confirmar el incidente y con qué evidencia?</li>
-<li class="">¿cuándo debe retirarse o recalibrarse la regla?</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-un-umbral-que-parecía-prudente">Caso legítimo: un umbral que parecía prudente<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#caso-leg%C3%ADtimo-un-umbral-que-parec%C3%ADa-prudente" class="hash-link" aria-label="Enlace directo al Caso legítimo: un umbral que parecía prudente" title="Enlace directo al Caso legítimo: un umbral que parecía prudente" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Archivo Faro</strong> recopila resoluciones públicas de ocho organismos. Su pipeline extrae fecha, órgano, referencia y tipo documental. El equipo quiere detectar pronto una degradación del campo <code>fecha_resolucion</code>.</p>
-<p>Durante doce semanas retrospectivas construye una tabla semanal:</p>
-<table><thead><tr><th>Semana</th><th style="text-align:right">Documentos</th><th style="text-align:right">Fechas vacías</th><th>Causa revisada</th><th>Resultado</th></tr></thead><tbody><tr><td>S-12</td><td style="text-align:right">840</td><td style="text-align:right">3,8 %</td><td>mezcla habitual</td><td>normal</td></tr><tr><td>S-9</td><td style="text-align:right">190</td><td style="text-align:right">8,4 %</td><td>festivo y lote pequeño</td><td>cambio legítimo</td></tr><tr><td>S-6</td><td style="text-align:right">910</td><td style="text-align:right">12,1 %</td><td>nueva plantilla no soportada</td><td>incidente real</td></tr><tr><td>S-3</td><td style="text-align:right">1.480</td><td style="text-align:right">6,9 %</td><td>archivo histórico escaneado</td><td>cambio legítimo</td></tr><tr><td>S-1</td><td style="text-align:right">875</td><td style="text-align:right">10,7 %</td><td>fallo de OCR tras despliegue</td><td>incidente real</td></tr></tbody></table>
-<p>Una regla simple de «alertar por encima del 6 %» detectaría los dos incidentes, pero también dos cambios legítimos. Elevarla al 10 % reduciría ruido, aunque el aviso llegaría tarde si el fallo afecta inicialmente a un solo organismo.</p>
-<p>El equipo deja de buscar el porcentaje mágico y define costes explícitos:</p>
-<ul>
-<li class="">una falsa alarma consume unos 35 minutos de revisión;</li>
-<li class="">omitir una fuente completa invalida informes derivados y exige rectificación;</li>
-<li class="">un cambio pequeño y sostenido puede ser más relevante que un pico aislado;</li>
-<li class="">con menos de 250 documentos, el porcentaje semanal es demasiado inestable para paginar a nadie;</li>
-<li class="">una ruptura de esquema tiene mayor urgencia que una variación moderada de distribución.</li>
-</ul>
-<p>La política resultante usa dos niveles:</p>
-<ol>
-<li class=""><strong>revisión:</strong> más del 6 % durante dos ventanas comparables o una diferencia localizada en un segmento crítico;</li>
-<li class=""><strong>incidente:</strong> más del 10 % con al menos 250 documentos, o cualquier ausencia completa de una fuente prevista.</li>
-</ol>
-<p>El ejemplo no pretende exportar esos números. Su valor está en hacer visibles el coste, la población mínima, la persistencia, las excepciones y la acción asociada.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-objeto-y-la-decisión-antes-de-mirar-el-umbral">1. Define el objeto y la decisión antes de mirar el umbral<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#1-define-el-objeto-y-la-decisi%C3%B3n-antes-de-mirar-el-umbral" class="hash-link" aria-label="Enlace directo al 1. Define el objeto y la decisión antes de mirar el umbral" title="Enlace directo al 1. Define el objeto y la decisión antes de mirar el umbral" translate="no">​</a></h3>
-<p>Escribe una ficha por alerta:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">alerta</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> fechas_vacias</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">unidad</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> documento_publicado</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">poblacion</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> resoluciones_elegibles</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">referencia</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> ocho_semanas_comparables</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">ventana_actual</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> una_semana</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">segmentos</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain">organismo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> formato</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">accion_revision</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> abrir_muestra_y_comprobar_adquisicion</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">accion_incidente</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> detener_derivados_afectados</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">propietario</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> guardia_datos</span><br></span></code></pre></div></div>
-<p>La ficha impide comparar poblaciones distintas bajo el mismo nombre. Si un portal añade un archivo histórico, ese lote puede necesitar una cohorte separada; si se mezcla con publicaciones corrientes, la alerta medirá composición antes que calidad.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-un-historial-con-resultados-adjudicados">2. Construye un historial con resultados adjudicados<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#2-construye-un-historial-con-resultados-adjudicados" class="hash-link" aria-label="Enlace directo al 2. Construye un historial con resultados adjudicados" title="Enlace directo al 2. Construye un historial con resultados adjudicados" translate="no">​</a></h3>
-<p>Una alerta solo puede evaluarse si sabemos qué ocurrió después. Conserva, como mínimo:</p>
-<ul>
-<li class="">identificador y versión de la regla;</li>
-<li class="">referencia, ventana, segmentos y tamaños de muestra;</li>
-<li class="">valor observado y severidad emitida;</li>
-<li class="">evidencia revisada;</li>
-<li class="">clasificación: incidente real, cambio legítimo, dato insuficiente o causa no determinada;</li>
-<li class="">acción, responsable y tiempo hasta resolución;</li>
-<li class="">impacto en productos derivados;</li>
-<li class="">fecha y motivo de cualquier cambio de umbral.</li>
-</ul>
-<p>No fuerces cada caso a «verdadero» o «falso». <code>Causa no determinada</code> es una salida honesta cuando faltan originales, etiquetas o contexto. Convertir la incertidumbre en falso positivo para mejorar una métrica solo maquilla el sistema.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-el-coste-de-las-dos-clases-de-error">3. Separa el coste de las dos clases de error<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#3-separa-el-coste-de-las-dos-clases-de-error" class="hash-link" aria-label="Enlace directo al 3. Separa el coste de las dos clases de error" title="Enlace directo al 3. Separa el coste de las dos clases de error" translate="no">​</a></h3>
-<p>Podemos tratar cada aviso como una decisión binaria provisional:</p>
-<table><thead><tr><th>Resultado</th><th>Había cambio material</th><th>No había cambio material</th></tr></thead><tbody><tr><td>alerta</td><td>verdadero positivo</td><td>falso positivo</td></tr><tr><td>no alerta</td><td>falso negativo</td><td>verdadero negativo</td></tr></tbody></table>
-<p>Google explica que subir un umbral suele reducir falsos positivos y aumentar falsos negativos; bajarlo suele hacer lo contrario. La elección depende del coste, beneficio y riesgo del caso. En OSINT, esos costes rara vez son simétricos.</p>
-<p>Una formulación sencilla para comparar políticas es:</p>
-<p><code>coste = FP × coste_revision + FN × coste_omision + demoras × coste_retraso</code></p>
-<p>No hace falta fingir una precisión económica inexistente. Puedes usar categorías —bajo, medio, alto— y documentar quién las aprobó. Lo importante es no optimizar únicamente la cantidad de alertas.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-reproduce-las-reglas-sobre-ventanas-retrospectivas">4. Reproduce las reglas sobre ventanas retrospectivas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#4-reproduce-las-reglas-sobre-ventanas-retrospectivas" class="hash-link" aria-label="Enlace directo al 4. Reproduce las reglas sobre ventanas retrospectivas" title="Enlace directo al 4. Reproduce las reglas sobre ventanas retrospectivas" translate="no">​</a></h3>
-<p>Ejecuta cada política candidata sobre un periodo histórico que incluya:</p>
-<ul>
-<li class="">días y semanas normales;</li>
-<li class="">festivos y cierres de calendario;</li>
-<li class="">lotes pequeños y publicaciones masivas;</li>
-<li class="">cambios conocidos de plantilla o fuente;</li>
-<li class="">fallos reales del colector o extractor;</li>
-<li class="">segmentos con distinta frecuencia y formato.</li>
-</ul>
-<p>Para cada regla calcula recuentos, no solo porcentajes: verdaderos positivos, falsos positivos, falsos negativos, tiempo de detección y carga de revisión. Informa además el volumen y la cobertura de casos adjudicados. Una precisión del 90 % basada en diez alertas no significa lo mismo que la misma cifra sobre quinientas.</p>
-<p>Evita elegir y evaluar el umbral sobre exactamente los mismos incidentes. Reserva un tramo temporal posterior o varias ventanas prospectivas para confirmar que la regla no se limita a reconocer los episodios que inspiraron su diseño.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-combina-ventanas-rápidas-y-lentas">5. Combina ventanas rápidas y lentas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#5-combina-ventanas-r%C3%A1pidas-y-lentas" class="hash-link" aria-label="Enlace directo al 5. Combina ventanas rápidas y lentas" title="Enlace directo al 5. Combina ventanas rápidas y lentas" translate="no">​</a></h3>
-<p>Un pico grande necesita detección temprana; un deterioro pequeño pero persistente necesita memoria. Google SRE propone combinar ventanas cortas y largas en sus alertas basadas en consumo de presupuesto: la ventana larga aporta contexto y la corta permite que el aviso se resuelva con más rapidez. No debemos trasladar sus cifras de servicios web directamente a un pipeline OSINT, pero sí la idea.</p>
-<p>Una política prudente puede separar:</p>
-<ul>
-<li class=""><strong>rápida:</strong> ruptura de esquema, fuente ausente o salto extremo con muestra suficiente;</li>
-<li class=""><strong>sostenida:</strong> desviación moderada repetida en varias ventanas comparables;</li>
-<li class=""><strong>informativa:</strong> señal débil que se registra para revisión periódica sin interrumpir al equipo.</li>
-</ul>
-<p>En fuentes de bajo volumen, exigir dos ventanas puede retrasar demasiado. Allí conviene usar conteos absolutos, calendario esperado, inspección por evento y revisión humana en lugar de una tasa inestable.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-define-severidad-por-acción-no-por-color">6. Define severidad por acción, no por color<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#6-define-severidad-por-acci%C3%B3n-no-por-color" class="hash-link" aria-label="Enlace directo al 6. Define severidad por acción, no por color" title="Enlace directo al 6. Define severidad por acción, no por color" translate="no">​</a></h3>
-<p>Una alerta urgente debe tener una acción inmediata que una persona pueda ejecutar. Google SRE advierte que avisos no accionables y con mala relación señal/ruido provocan fatiga. Para un flujo OSINT, una escala útil sería:</p>
-<table><thead><tr><th>Nivel</th><th>Acción permitida</th><th>Ejemplo</th></tr></thead><tbody><tr><td>registrar</td><td>guardar señal para revisión agrupada</td><td>distribución distinta sin impacto confirmado</td></tr><tr><td>revisar</td><td>asignar ticket y muestrear originales</td><td>aumento sostenido de nulos</td></tr><tr><td>contener</td><td>pausar solo derivados afectados</td><td>fuente prevista ausente</td></tr><tr><td>escalar</td><td>activar respuesta y rectificación</td><td>error confirmado ya publicado</td></tr></tbody></table>
-<p>La alerta nunca debería atribuir intención, señalar a una persona ni publicar una conclusión por sí sola.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-cambia-reglas-mediante-versiones-y-revisión">7. Cambia reglas mediante versiones y revisión<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#7-cambia-reglas-mediante-versiones-y-revisi%C3%B3n" class="hash-link" aria-label="Enlace directo al 7. Cambia reglas mediante versiones y revisión" title="Enlace directo al 7. Cambia reglas mediante versiones y revisión" translate="no">​</a></h3>
-<p>Cada ajuste debe conservar:</p>
-<ul>
-<li class="">versión anterior y nueva;</li>
-<li class="">evidencia que motivó el cambio;</li>
-<li class="">comparación retrospectiva de ambas;</li>
-<li class="">efecto esperado en carga y omisiones;</li>
-<li class="">fecha de entrada en vigor;</li>
-<li class="">responsable y fecha de revisión;</li>
-<li class="">criterio para revertir.</li>
-</ul>
-<p>No recalcules el historial como si la regla nueva hubiera existido siempre. Mantén dos vistas: qué habría ocurrido con la regla candidata y qué ocurrió realmente con la vigente. Esa diferencia forma parte de la evidencia operativa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cómo-evitar-ajustar-el-sistema-al-último-incidente">Cómo evitar ajustar el sistema al último incidente<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#c%C3%B3mo-evitar-ajustar-el-sistema-al-%C3%BAltimo-incidente" class="hash-link" aria-label="Enlace directo al Cómo evitar ajustar el sistema al último incidente" title="Enlace directo al Cómo evitar ajustar el sistema al último incidente" translate="no">​</a></h2>
-<p>Después de una falsa alarma resulta tentador añadir una excepción exacta: «ignorar el organismo O-04 los lunes». Después de una omisión, la tentación contraria es bajar el umbral hasta capturar ese caso. Ambas decisiones pueden ser razonables, pero necesitan una hipótesis más general.</p>
-<p>Antes de cambiar una regla, pregunta:</p>
-<ol>
-<li class="">¿el caso revela una categoría repetible o solo una anécdota?</li>
-<li class="">¿la excepción se deriva de un calendario o contrato documentado?</li>
-<li class="">¿qué incidentes anteriores dejaría de detectar?</li>
-<li class="">¿funciona en un periodo que no usamos para diseñarla?</li>
-<li class="">¿podemos resolver la causa en adquisición o extracción en vez de silenciar el síntoma?</li>
-<li class="">¿ha cambiado el coste operativo o solo queremos que el panel vuelva a verde?</li>
-</ol>
-<p>Limita también la frecuencia de recalibración. Un cambio urgente puede aplicarse durante un incidente, pero debe quedar como excepción temporal con caducidad y revisión posterior.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Una calibración retrospectiva depende de la calidad del registro. Si solo documentamos las alertas emitidas, no veremos falsos negativos: necesitamos auditorías por muestreo, controles independientes o incidentes descubiertos por otras vías.</p>
-<p>Otros límites importantes son:</p>
-<ul>
-<li class=""><strong>deriva de prevalencia:</strong> cambia la frecuencia de incidentes y con ella la precisión de la alerta;</li>
-<li class=""><strong>retardo de etiquetas:</strong> la verdad operativa puede conocerse días después;</li>
-<li class=""><strong>dependencia temporal:</strong> ventanas solapadas no son observaciones independientes;</li>
-<li class=""><strong>múltiples señales:</strong> probar decenas de métricas aumenta avisos casuales;</li>
-<li class=""><strong>segmentos pequeños:</strong> un porcentaje extremo puede representar dos documentos;</li>
-<li class=""><strong>cambios semánticos:</strong> el mismo nombre de campo puede adquirir otro significado sin romper el esquema;</li>
-<li class=""><strong>silencios desconocidos:</strong> no recibir datos puede parecer estabilidad si no se monitoriza cobertura;</li>
-<li class=""><strong>automatización circular:</strong> las acciones provocadas por una alerta pueden alterar la señal siguiente;</li>
-<li class=""><strong>desgaste del historial:</strong> ajustar repetidamente sobre los mismos incidentes sobreestima el rendimiento.</li>
-</ul>
-<p>NIST subraya que la monitorización desplegada debe combinar señales técnicas, contexto humano, documentación de errores e impactos y mecanismos de respuesta. Un detector de deriva no sustituye la validación de calidad ni la revisión del mundo al que supuestamente representa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Conserva agregados y referencias mínimas; no copies documentos personales al sistema de alertas.</li>
-<li class="">Protege consultas, URLs sensibles, cookies, tokens y rutas internas en logs y capturas.</li>
-<li class="">Separa el registro operativo de los materiales restringidos de una investigación.</li>
-<li class="">Limita el acceso a ejemplos individuales y registra quién los abre.</li>
-<li class="">Fija retención para muestras, adjudicaciones e incidentes.</li>
-<li class="">Respeta términos, límites, licencias, correcciones y retiradas de las fuentes.</li>
-<li class="">No uses segmentos que revelen atributos personales innecesarios.</li>
-<li class="">Permite clasificar una alerta como indeterminada sin forzar una acusación.</li>
-<li class="">Exige corroboración antes de convertir una anomalía en afirmación pública.</li>
-<li class="">Mantén una puerta humana para contener, rectificar o publicar.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La unidad, población, referencia y ventana están definidas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada regla tiene versión, propietario y fecha de revisión.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los costes de falso positivo, falso negativo y demora son explícitos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El historial incluye casos normales, incidentes y cambios legítimos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Existen conteos y tamaños de muestra, no solo porcentajes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una ventana independiente confirma la política elegida.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los avisos rápidos y sostenidos tienen acciones distintas.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las fuentes de bajo volumen reciben un tratamiento específico.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los falsos negativos se buscan mediante controles independientes.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las excepciones temporales caducan y dejan rastro.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Ninguna alerta atribuye intención ni publica automáticamente.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La revisión minimiza exposición de datos personales.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si apenas hay volumen, una lista versionada de eventos esperados y una revisión semanal puede superar a cualquier detector estadístico. Si la señal es contractual —una columna desaparece o una fuente no llega— usa primero reglas deterministas. Si existen etiquetas fiables, compara políticas mediante precisión, cobertura, tasa de falsas alarmas y demora, siempre desagregadas por fuente relevante.</p>
-<p>Para equipos pequeños, basta una tabla de adjudicación y un script reproducible que ensaye varios umbrales sobre ventanas históricas. Herramientas de monitorización pueden calcular distancias y pintar paneles, pero la política de acción, la evidencia de cierre y la responsabilidad siguen perteneciendo al equipo.</p>
-<p>El takeaway accionable es este: selecciona una alerta existente y reconstruye sus últimas veinte activaciones. Anota resultado, coste de revisión, demora, volumen y cambio de regla. <strong>Si no puedes explicar qué acción distinta habría provocado otro umbral, todavía no estás calibrando: solo estás moviendo una línea.</strong></p>
-<p>Como siguiente tema sería útil estudiar la <strong>auditoría por muestreo de silencios</strong>: cómo buscar falsos negativos cuando el sistema no genera ningún aviso, sin revisar todo el universo ni convertir ausencia de evidencia en evidencia de ausencia.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/calibracion-alertas-deriva-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://airc.nist.gov/airmf-resources/playbook/measure/" target="_blank" rel="noopener noreferrer" class="">NIST AI RMF Playbook — Measure</a></li>
-<li class=""><a href="https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation" target="_blank" rel="noopener noreferrer" class="">NIST AI 800-4 — Challenges to the Monitoring of Deployed AI Systems</a></li>
-<li class=""><a href="https://sre.google/workbook/alerting-on-slos/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook — Alerting on SLOs</a></li>
-<li class=""><a href="https://sre.google/workbook/on-call/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook — On-call</a></li>
-<li class=""><a href="https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall" target="_blank" rel="noopener noreferrer" class="">Google for Developers — Accuracy, recall, precision and related metrics</a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>monitoring</category>
-            <category>Datos</category>
-            <category>Verificacion</category>
             <category>Privacidad</category>
         </item>
     </channel>
