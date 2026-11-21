@@ -13,6 +13,9 @@ Una frase decisiva aparece en la página de una licitación. Dos horas después,
 
 ![Equipo OSINT revisando páginas públicas, anotaciones y un registro separado de evidencias](/img/blog/2026-11-21-hypothesis-anotacion-web-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/hypothesis-anotacion-web-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
