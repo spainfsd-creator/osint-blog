@@ -13,6 +13,9 @@ Una nota de prensa sostiene una afirmación decisiva para una investigación. La
 
 ![Analista comparando una página web pública activa con una copia archivada y controles de integridad](/img/blog/2026-11-22-perma-cc-citas-web-osint.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/perma-cc-citas-web-osint.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
