@@ -2,11 +2,167 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-11-21T00:00:00.000Z</updated>
+    <updated>2026-11-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Perma.cc en OSINT: citar la web cambiante sin confundir archivo con prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint"/>
+        <updated>2026-11-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Una nota de prensa sostiene una afirmación decisiva para una investigación. La citamos hoy; mañana el texto cambia sin aviso y, una semana después, la URL devuelve un error. Conservar una copia permite mostrar qué página consultamos, pero no demuestra que su contenido fuera verdadero. En OSINT, archivar una fuente y verificar una afirmación son operaciones distintas que deben permanecer enlazadas, no mezcladas.]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una nota de prensa sostiene una afirmación decisiva para una investigación. La citamos hoy; mañana el texto cambia sin aviso y, una semana después, la URL devuelve un error. Conservar una copia permite mostrar qué página consultamos, pero no demuestra que su contenido fuera verdadero. <strong>En OSINT, archivar una fuente y verificar una afirmación son operaciones distintas que deben permanecer enlazadas, no mezcladas.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Analista comparando una página web pública activa con una copia archivada y controles de integridad" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-22-perma-cc-citas-web-osint-ccbff3f4c4844244451e1c908010d03b.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un uso responsable de <a href="https://perma.cc/" target="_blank" rel="noopener noreferrer" class="">Perma.cc</a> para citar páginas públicas que pueden cambiar o desaparecer. El caso, las entidades y los datos son ficticios. No se plantea preservar áreas privadas, eludir controles de acceso ni publicar información personal innecesaria. La meta es que otra persona pueda reconstruir <strong>qué URL se consultó, qué representación quedó archivada, cuándo se creó y qué comprobaciones sostienen la conclusión</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-permacc-y-para-qué-sirve-en-osint">Qué es Perma.cc y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#qu%C3%A9-es-permacc-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Perma.cc y para qué sirve en OSINT" title="Enlace directo al Qué es Perma.cc y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Perma.cc es un servicio de archivo web orientado a combatir la degradación de las referencias. A partir de una URL crea un <strong>Perma Record</strong>, la copia preservada, y un <strong>Perma Link</strong>, la dirección estable que permite citarla. La <a href="https://perma.cc/docs/perma-link-creation" target="_blank" rel="noopener noreferrer" class="">guía oficial</a> indica que, al terminar, debemos revisar el registro para comprobar cómo se capturó la página.</p>
+<p>Esa revisión importa porque el objeto archivado no equivale automáticamente al objeto que creíamos observar. Una página moderna puede cargar contenido mediante JavaScript, depender de una sesión, mostrar variantes por región o incluir recursos que fallen durante la captura. Perma.cc preserva la página objetivo, pero su <a href="https://perma.cc/docs/faq" target="_blank" rel="noopener noreferrer" class="">FAQ</a> aclara que no recorre ni conserva las páginas enlazadas desde ella.</p>
+<p>En una investigación legítima puede servir para:</p>
+<ul>
+<li class="">añadir a una cita una representación consultable de la página observada;</li>
+<li class="">reducir el riesgo de que una corrección o un error 404 rompan la trazabilidad;</li>
+<li class="">fijar el estado visible de una fuente pública en un momento concreto;</li>
+<li class="">compartir con revisores un punto de referencia común;</li>
+<li class="">descargar archivos WARC o WACZ para conservar una copia bajo control propio;</li>
+<li class="">documentar fallos de captura, exclusiones y diferencias entre página viva y archivo.</li>
+</ul>
+<p>No sirve por sí solo para autenticar al autor, certificar la hora en sentido forense, demostrar que el contenido era exacto ni probar que nadie manipuló la página antes de capturarla. Tampoco convierte una afirmación publicada en un hecho corroborado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cuatro-objetos-que-conviene-separar">Cuatro objetos que conviene separar<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#cuatro-objetos-que-conviene-separar" class="hash-link" aria-label="Enlace directo al Cuatro objetos que conviene separar" title="Enlace directo al Cuatro objetos que conviene separar" translate="no">​</a></h3>
+<table><thead><tr><th>Objeto</th><th>Ejemplo</th><th>Qué aporta</th><th>Qué no demuestra</th></tr></thead><tbody><tr><td>recurso original</td><td><code>https://ejemplo.test/comunicado</code></td><td>contexto y ubicación de publicación</td><td>que mañana conserve el mismo contenido</td></tr><tr><td>registro archivado</td><td>un Perma Link</td><td>representación recuperable creada en una fecha</td><td>que la captura sea completa o verdadera</td></tr><tr><td>observación</td><td>«la página muestra 18 adjudicaciones»</td><td>lectura concreta y comprobable</td><td>que el recuento sea correcto en la fuente primaria</td></tr><tr><td>corroboración</td><td>expediente oficial y dataset independiente</td><td>apoyo procedente de otra cadena de evidencia</td><td>que todas las fuentes sean realmente independientes</td></tr></tbody></table>
+<p>Si estas capas se guardan en una sola columna llamada <code>evidencia</code>, los errores quedan ocultos. Una ficha mínima debe mantenerlas por separado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>La asociación ficticia <strong>Observatorio Ribera Clara</strong> revisa la ejecución de un programa municipal de eficiencia energética. La página pública del ayuntamiento afirma que se han completado 18 actuaciones y enlaza una hoja resumen. El equipo necesita citar esa afirmación en un informe, pero sabe que el portal se actualiza cada trimestre.</p>
+<p>La pregunta de investigación no es «¿miente el ayuntamiento?», sino una más verificable:</p>
+<blockquote>
+<p>¿Qué actuaciones constaban como completadas en la página pública el 22 de noviembre de 2026 y qué documentos primarios respaldaban ese estado?</p>
+</blockquote>
+<p>El equipo crea un registro de la página, revisa visualmente la copia y conserva también la URL original. Después contrasta cada actuación con el portal de contratación y las actas publicadas. El archivo resuelve la primera parte —qué representación se citó—, mientras que la corroboración documental aborda la segunda.</p>
+<p>La tabla de trabajo podría contener estos campos:</p>
+<table><thead><tr><th>campo</th><th>contenido ficticio</th></tr></thead><tbody><tr><td><code>source_url</code></td><td>URL pública original</td></tr><tr><td><code>archive_url</code></td><td>Perma Link del registro revisado</td></tr><tr><td><code>observed_at_utc</code></td><td>fecha y hora de la consulta, con zona</td></tr><tr><td><code>capture_status</code></td><td>completa, parcial, fallida o no evaluada</td></tr><tr><td><code>claim</code></td><td>afirmación exacta que se pretende comprobar</td></tr><tr><td><code>locator</code></td><td>título, sección, párrafo o elemento visible</td></tr><tr><td><code>corroboration</code></td><td>documentos con procedencia independiente</td></tr><tr><td><code>review_state</code></td><td>pendiente, corroborada, contradicha o inconclusa</td></tr></tbody></table>
+<p>No se archivan nombres personales incidentales ni anexos ajenos a la pregunta. Si una página contiene datos sensibles, el equipo detiene la captura y evalúa finalidad, base jurídica, exposición y alternativas menos intrusivas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-de-la-url-a-una-cita-auditable">Flujo recomendado: de la URL a una cita auditable<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#flujo-recomendado-de-la-url-a-una-cita-auditable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: de la URL a una cita auditable" title="Enlace directo al Flujo recomendado: de la URL a una cita auditable" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-afirmación-antes-de-capturar">1. Define la afirmación antes de capturar<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#1-define-la-afirmaci%C3%B3n-antes-de-capturar" class="hash-link" aria-label="Enlace directo al 1. Define la afirmación antes de capturar" title="Enlace directo al 1. Define la afirmación antes de capturar" translate="no">​</a></h3>
+<p>Escribe qué necesitas sostener y qué parte de la página contiene la señal. «Guardar el portal» es una tarea abierta; «conservar la tabla de actuaciones marcada como actualizada el 20 de noviembre» permite comprobar si la captura sirve.</p>
+<p>Registra antes de navegar:</p>
+<ul>
+<li class="">finalidad y alcance;</li>
+<li class="">URL esperada y dominio oficial;</li>
+<li class="">periodo relevante;</li>
+<li class="">información que debe excluirse;</li>
+<li class="">criterio de aceptación de la captura;</li>
+<li class="">fuentes independientes previstas para corroborar.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-observa-la-página-viva-sin-forzar-el-acceso">2. Observa la página viva sin forzar el acceso<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#2-observa-la-p%C3%A1gina-viva-sin-forzar-el-acceso" class="hash-link" aria-label="Enlace directo al 2. Observa la página viva sin forzar el acceso" title="Enlace directo al 2. Observa la página viva sin forzar el acceso" translate="no">​</a></h3>
+<p>Comprueba redirecciones, fecha visible, título, autoría declarada y contexto de publicación. No intentes superar autenticación, <code>paywalls</code>, CAPTCHAs ni exclusiones técnicas. Los <a href="https://perma.cc/terms-of-service" target="_blank" rel="noopener noreferrer" class="">términos de Perma.cc</a> limitan el servicio a material lícitamente accesible y exigen respetar derechos y legislación aplicable.</p>
+<p>Anota la hora con zona y, cuando sea relevante, las condiciones que pueden cambiar la respuesta: idioma, región, versión móvil o parámetros de consulta. Evita conservar cookies, identificadores o cadenas de sesión en la URL.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-crea-el-registro-y-revisa-el-resultado">3. Crea el registro y revisa el resultado<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#3-crea-el-registro-y-revisa-el-resultado" class="hash-link" aria-label="Enlace directo al 3. Crea el registro y revisa el resultado" title="Enlace directo al 3. Crea el registro y revisa el resultado" translate="no">​</a></h3>
+<p>Introduce la URL en Perma.cc y espera a que termine el trabajo de captura. No registres el enlace como «correcto» solo porque el servicio haya devuelto un identificador. Compara original y copia:</p>
+<ul>
+<li class="">título y URL final;</li>
+<li class="">texto que sostiene la afirmación;</li>
+<li class="">tablas, imágenes o documentos incrustados relevantes;</li>
+<li class="">mensajes de consentimiento o error que puedan haber tapado contenido;</li>
+<li class="">fecha visible y elementos dinámicos;</li>
+<li class="">enlaces que el análisis necesitará abrir por separado.</li>
+</ul>
+<p>Asigna un estado explícito. <code>Parcial</code> es más útil que un silencio que otro analista interpretará como éxito.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-conserva-la-pareja-originalarchivo">4. Conserva la pareja original–archivo<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#4-conserva-la-pareja-originalarchivo" class="hash-link" aria-label="Enlace directo al 4. Conserva la pareja original–archivo" title="Enlace directo al 4. Conserva la pareja original–archivo" translate="no">​</a></h3>
+<p>Una cita responsable mantiene la URL original y añade el enlace archivado. El original conserva el contexto actual; la copia muestra la representación utilizada. Guarda también título, fecha de acceso, fecha del registro y una breve nota sobre la revisión.</p>
+<p>Cuando la política del proyecto lo requiera, descarga el archivo en WARC o WACZ. La <a href="https://perma.cc/docs/developer" target="_blank" rel="noopener noreferrer" class="">documentación de la API</a> describe ambos formatos y el acceso a los detalles de captura. Conserva el fichero fuera del repositorio público si contiene material sensible, calcula una huella criptográfica y registra herramienta, fecha y ubicación. La huella ayuda a detectar cambios en <strong>esa copia</strong>; no certifica la veracidad de la página.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-corrobora-la-afirmación-fuera-del-archivo">5. Corrobora la afirmación fuera del archivo<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#5-corrobora-la-afirmaci%C3%B3n-fuera-del-archivo" class="hash-link" aria-label="Enlace directo al 5. Corrobora la afirmación fuera del archivo" title="Enlace directo al 5. Corrobora la afirmación fuera del archivo" translate="no">​</a></h3>
+<p>Busca la fuente primaria subyacente: expediente, resolución, dataset, registro oficial o documento firmado. Luego incorpora una procedencia realmente independiente cuando el impacto de la conclusión lo justifique.</p>
+<p>Dos capturas del mismo comunicado en servicios distintos son dos representaciones, no dos confirmaciones. Diez artículos que reproducen la misma nota tampoco forman diez fuentes independientes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-publica-la-incertidumbre-y-permite-reconstruir-el-camino">6. Publica la incertidumbre y permite reconstruir el camino<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#6-publica-la-incertidumbre-y-permite-reconstruir-el-camino" class="hash-link" aria-label="Enlace directo al 6. Publica la incertidumbre y permite reconstruir el camino" title="Enlace directo al 6. Publica la incertidumbre y permite reconstruir el camino" translate="no">​</a></h3>
+<p>El informe debe indicar si la captura fue completa, qué parte se usó, qué cambió después y qué no pudo verificarse. Si la página viva contradice el archivo, conserva ambas representaciones y abre una incidencia; no sustituyas silenciosamente el enlace antiguo.</p>
+<p>Una formulación prudente sería:</p>
+<blockquote>
+<p>La página municipal consultada y archivada el 22 de noviembre mostraba 18 actuaciones como completadas. El equipo corroboró 15 en expedientes públicos; dos seguían pendientes de documentación y una presentaba fechas incompatibles.</p>
+</blockquote>
+<p>Eso distingue observación, comprobación y límite.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-proporcionada-sin-convertir-la-api-en-una-aspiradora">Automatización proporcionada, sin convertir la API en una aspiradora<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#automatizaci%C3%B3n-proporcionada-sin-convertir-la-api-en-una-aspiradora" class="hash-link" aria-label="Enlace directo al Automatización proporcionada, sin convertir la API en una aspiradora" title="Enlace directo al Automatización proporcionada, sin convertir la API en una aspiradora" translate="no">​</a></h2>
+<p>Perma.cc ofrece una API para crear y gestionar registros y lotes. Puede ser útil cuando un informe contiene muchas referencias previamente seleccionadas. Automatizar no autoriza a capturar dominios completos ni elimina la revisión humana.</p>
+<p>Un pipeline prudente debería:</p>
+<ol>
+<li class="">recibir una lista cerrada de URLs aprobadas;</li>
+<li class="">eliminar parámetros de seguimiento y rechazar credenciales incrustadas;</li>
+<li class="">limitar ritmo, volumen y reintentos;</li>
+<li class="">guardar el identificador y el estado devueltos;</li>
+<li class="">esperar a que finalice cada captura;</li>
+<li class="">enviar muestras y fallos a revisión visual;</li>
+<li class="">bloquear la publicación si falta la afirmación objetivo;</li>
+<li class="">registrar quién aprobó el lote y con qué finalidad.</li>
+</ol>
+<p>La clave de API debe viajar en la cabecera de autorización, no en el repositorio ni en una URL que pueda acabar en historiales y registros. La documentación oficial mantiene por compatibilidad un mecanismo antiguo mediante parámetro, pero recomienda la cabecera para nuevas integraciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-fallos-y-falsos-positivos">Limitaciones, fallos y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#limitaciones-fallos-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones, fallos y falsos positivos" title="Enlace directo al Limitaciones, fallos y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="una-copia-visualmente-convincente-puede-estar-incompleta">Una copia visualmente convincente puede estar incompleta<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#una-copia-visualmente-convincente-puede-estar-incompleta" class="hash-link" aria-label="Enlace directo al Una copia visualmente convincente puede estar incompleta" title="Enlace directo al Una copia visualmente convincente puede estar incompleta" translate="no">​</a></h3>
+<p>El encabezado puede aparecer mientras falta una tabla cargada después, una imagen puede ser un marcador vacío y una ventana de consentimiento puede ocultar el contenido real. Revisa la afirmación concreta, no la estética general.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-archivo-no-preserva-el-sitio-entero">El archivo no preserva el sitio entero<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#el-archivo-no-preserva-el-sitio-entero" class="hash-link" aria-label="Enlace directo al El archivo no preserva el sitio entero" title="Enlace directo al El archivo no preserva el sitio entero" translate="no">​</a></h3>
+<p>Perma.cc está diseñado para citas de páginas individuales. Si una tabla enlaza 18 expedientes, esos destinos necesitan su propia evaluación y, si procede, registros separados. No infieras que un enlace visible quedó capturado.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="privado-no-significa-inexistente">Privado no significa inexistente<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#privado-no-significa-inexistente" class="hash-link" aria-label="Enlace directo al Privado no significa inexistente" title="Enlace directo al Privado no significa inexistente" translate="no">​</a></h3>
+<p>La guía explica que un registro puede quedar privado por configuración o por una exclusión específica mediante metadatos o <code>robots.txt</code>. También pueden intervenir reclamaciones válidas. Una respuesta no accesible no demuestra que nunca existiera una captura.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-fecha-de-archivo-no-es-la-fecha-del-hecho">La fecha de archivo no es la fecha del hecho<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#la-fecha-de-archivo-no-es-la-fecha-del-hecho" class="hash-link" aria-label="Enlace directo al La fecha de archivo no es la fecha del hecho" title="Enlace directo al La fecha de archivo no es la fecha del hecho" translate="no">​</a></h3>
+<p>Una página capturada hoy puede describir un acto de hace meses, haber sido editada ayer o reutilizar una fecha antigua. Mantén separados <code>event_date</code>, <code>published_date</code>, <code>modified_date</code>, <code>observed_at</code> y <code>archived_at</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="permanente-no-es-una-garantía-absoluta">«Permanente» no es una garantía absoluta<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#permanente-no-es-una-garant%C3%ADa-absoluta" class="hash-link" aria-label="Enlace directo al «Permanente» no es una garantía absoluta" title="Enlace directo al «Permanente» no es una garantía absoluta" translate="no">​</a></h3>
+<p>Aunque el servicio persigue referencias duraderas, sus términos advierten que no garantizan una duración concreta ni la disponibilidad ininterrumpida. Para material crítico, conserva exportaciones autorizadas, metadatos y un plan de migración.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-archivo-conserva-afirmaciones-falsas-con-la-misma-eficacia">El archivo conserva afirmaciones falsas con la misma eficacia<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#el-archivo-conserva-afirmaciones-falsas-con-la-misma-eficacia" class="hash-link" aria-label="Enlace directo al El archivo conserva afirmaciones falsas con la misma eficacia" title="Enlace directo al El archivo conserva afirmaciones falsas con la misma eficacia" translate="no">​</a></h3>
+<p>La estabilidad no añade credibilidad. Un registro puede preservar propaganda, una errata o una identidad suplantada. Autenticidad de la procedencia, exactitud del contenido y permanencia de la referencia son preguntas diferentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<ul>
+<li class="">Captura solo contenido público, pertinente y lícitamente accesible.</li>
+<li class="">No archives perfiles personales por curiosidad ni construyas historiales sobre personas sin finalidad legítima.</li>
+<li class="">Minimiza nombres, contactos, parámetros y documentos que no respondan a la pregunta.</li>
+<li class="">Revisa antes de crear un registro que pueda quedar públicamente accesible.</li>
+<li class="">No incluyas tokens, URL firmadas, identificadores de sesión ni rutas internas.</li>
+<li class="">Usa cuentas y claves del proyecto con controles de acceso y rotación.</li>
+<li class="">Trata la URL enviada al servicio como información revelada a un tercero.</li>
+<li class="">Documenta exclusiones, retiradas y restricciones en vez de intentar sortearlas.</li>
+<li class="">Separa la persona que captura de quien valida las conclusiones de mayor impacto.</li>
+<li class="">Define retención, exportación y eliminación para copias locales.</li>
+</ul>
+<p>La <a href="https://perma.cc/privacy-policy" target="_blank" rel="noopener noreferrer" class="">política de privacidad</a> describe la recopilación de datos de cuenta, actividad e información técnica como la dirección IP. Esa dependencia de un tercero debe formar parte del análisis de riesgo, especialmente cuando la selección de URLs pueda revelar una línea de investigación.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La afirmación y la parte exacta de la página están definidas.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La URL no contiene credenciales, sesiones ni seguimiento innecesario.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El contenido es público, pertinente y lícito de preservar.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se registraron fecha, hora, zona, URL original y contexto.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La copia se comparó con la página viva.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El estado de captura es explícito: completa, parcial, fallida o pendiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los enlaces secundarios necesarios se evaluaron por separado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La afirmación se contrastó con fuentes de procedencia independiente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los datos personales incidentales se minimizaron.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las exportaciones locales tienen ubicación, control de acceso y huella.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La cita conserva tanto el original como el enlace archivado.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe distingue observación, corroboración e incertidumbre.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Wayback Machine ayuda a descubrir estados históricos que no capturamos nosotros; Archive.today ofrece captura bajo demanda con otro modelo; Browsertrix y WACZ son más adecuados para flujos de archivo web reproducible y de mayor alcance; Hunchly documenta sesiones de navegación; una captura local con WARC puede dar más control cuando existe capacidad de custodia. Ninguna alternativa elimina la obligación de revisar el resultado y corroborar la afirmación.</p>
+<p>Perma.cc encaja especialmente bien cuando el producto final necesita <strong>citas web legibles y duraderas</strong>. No tiene por qué convertirse en el repositorio central de evidencias ni en un rastreador masivo.</p>
+<p>El takeaway práctico es sencillo: <strong>conserva la representación para que la cita sobreviva, pero valida la procedencia y la afirmación para que la conclusión resista</strong>. Haz una prueba con tres páginas públicas y ficticias o de bajo riesgo: una estática, una dinámica y una con un recurso incrustado. Compara las copias, registra los fallos y decide de antemano qué estado impediría publicar. Como siguiente tema, merecería la pena diseñar una matriz de suficiencia probatoria que indique cuándo una captura, un documento primario y una corroboración independiente bastan para sostener distintos tipos de afirmaciones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://perma.cc/docs/" target="_blank" rel="noopener noreferrer" class="">Perma.cc: guía de inicio y funcionamiento</a></li>
+<li class=""><a href="https://perma.cc/docs/perma-link-creation" target="_blank" rel="noopener noreferrer" class="">Perma.cc: creación y gestión de registros</a></li>
+<li class=""><a href="https://perma.cc/docs/faq" target="_blank" rel="noopener noreferrer" class="">Perma.cc: preguntas frecuentes y límites de captura</a></li>
+<li class=""><a href="https://perma.cc/docs/developer" target="_blank" rel="noopener noreferrer" class="">Perma.cc: documentación de la API, WARC y WACZ</a></li>
+<li class=""><a href="https://perma.cc/terms-of-service" target="_blank" rel="noopener noreferrer" class="">Perma.cc: términos de servicio</a></li>
+<li class=""><a href="https://perma.cc/privacy-policy" target="_blank" rel="noopener noreferrer" class="">Perma.cc: política de privacidad</a></li>
+<li class=""><a href="https://github.com/harvard-lil/perma" target="_blank" rel="noopener noreferrer" class="">Harvard Library Innovation Lab: repositorio oficial de Perma.cc</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Tooling" term="Tooling"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Metodologia" term="Metodologia"/>
+        <category label="Privacidad" term="Privacidad"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hypothesis en OSINT: anotar la web sin confundir una nota con evidencia]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/hypothesis-anotacion-web-osint</id>
@@ -2862,155 +3018,6 @@
 <li class=""><a href="https://sre.google/sre-book/monitoring-distributed-systems/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Monitoring Distributed Systems</a></li>
 <li class=""><a href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Testing for Reliability</a></li>
 <li class=""><a href="https://docs.greatexpectations.io/docs/core/define_expectations/create_an_expectation/" target="_blank" rel="noopener noreferrer" class="">Great Expectations: Create an Expectation</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="monitoring" term="monitoring"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Auditoría por muestreo de silencios en OSINT: encontrar fallos cuando no hay alertas]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint"/>
-        <updated>2026-10-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[El panel lleva una semana en verde. No hay errores, no hay avisos y nadie ha abierto un incidente. Sin embargo, un boletín que debía aportar cuarenta documentos dejó de aparecer el martes. El sistema no los marcó como fallidos porque nunca supo que existían: el silencio parecía éxito.]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>El panel lleva una semana en verde. No hay errores, no hay avisos y nadie ha abierto un incidente. Sin embargo, un boletín que debía aportar cuarenta documentos dejó de aparecer el martes. <strong>El sistema no los marcó como fallidos porque nunca supo que existían: el silencio parecía éxito.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Analista comparando un universo de registros con una muestra independiente para localizar omisiones" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-27-auditoria-muestreo-silencios-osint-8dfe145cb492112c3ab48765d19589d4.png" width="1376" height="768" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/auditoria-muestreo-silencios-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Una auditoría por muestreo de silencios busca falsos negativos entre los elementos sobre los que el detector no avisó. No consiste en revisar unas cuantas alertas cerradas como correctas, sino en seleccionar unidades desde una población independiente, reconstruir qué debería haber ocurrido y comprobar si el pipeline omitió una fuente, un documento, un campo o una condición material.</p>
-<p>Todos los nombres, portales, documentos y resultados del caso son ficticios. El método se limita a fuentes públicas o sistemas propios y autorizados. Muestrear para evaluar cobertura no autoriza vigilancia sobre personas, recopilación indiscriminada ni eludir controles de acceso.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-auditar-el-silencio-y-para-qué-sirve">Qué es auditar el silencio (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#qu%C3%A9-es-auditar-el-silencio-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es auditar el silencio (y para qué sirve)" title="Enlace directo al Qué es auditar el silencio (y para qué sirve)" translate="no">​</a></h2>
-<p>Un sistema de monitorización solo observa aquello que entra en su campo de visión. Si una descarga falla antes de crear un registro, si el inventario esperado está incompleto o si una regla descarta un formato desconocido, puede no quedar ningún error que contar. La ausencia de alertas mide entonces el comportamiento del propio detector, no necesariamente el estado del mundo.</p>
-<p>La auditoría de silencios introduce una vía de observación independiente. Para un periodo definido, toma una muestra de unidades que debían ser observables y las reconcilia con lo que el pipeline recibió, procesó y evaluó. Sirve para estimar omisiones, descubrir modos de fallo y decidir si la cobertura conocida permite seguir publicando.</p>
-<p>Conviene separar cuatro conceptos:</p>
-<table><thead><tr><th>Concepto</th><th>Pregunta</th><th>Ejemplo de evidencia</th></tr></thead><tbody><tr><td>universo objetivo</td><td>¿qué hechos o artefactos queríamos cubrir?</td><td>calendario oficial, índice público, manifiesto propio</td></tr><tr><td>marco de muestreo</td><td>¿desde qué lista seleccionamos unidades?</td><td>exportación independiente y fechada</td></tr><tr><td>detector</td><td>¿qué procesó y qué decidió alertar?</td><td>ledger de ingesta, versiones y resultados</td></tr><tr><td>adjudicación</td><td>¿qué debió ocurrir realmente?</td><td>original revisado, regla vigente y doble comprobación</td></tr></tbody></table>
-<p>La distinción decisiva es la dirección de la prueba. Para comprobar existencia podemos partir de lo registrado y volver al original. Para comprobar completitud hay que partir de una fuente razonablemente independiente de lo registrado y buscar cada unidad en el sistema. El <em>Financial Audit Manual</em> de GAO aplica esta lógica a pruebas de completitud: seleccionar desde una población que debería contener los elementos y rastrearlos hacia el registro evaluado.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-portal-que-dejó-de-entrar-sin-fallar">Caso legítimo: el portal que dejó de entrar sin fallar<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#caso-leg%C3%ADtimo-el-portal-que-dej%C3%B3-de-entrar-sin-fallar" class="hash-link" aria-label="Enlace directo al Caso legítimo: el portal que dejó de entrar sin fallar" title="Enlace directo al Caso legítimo: el portal que dejó de entrar sin fallar" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Archivo Faro</strong> sigue resoluciones de seis organismos públicos para preparar estadísticas agregadas. Un colector registra descargas, un extractor obtiene fecha y referencia y un panel avisa ante errores HTTP, campos vacíos o caídas bruscas de volumen.</p>
-<p>Durante septiembre el panel permanece verde. Como control independiente, el equipo crea un marco semanal a partir de los índices públicos de los seis organismos, sin reutilizar la tabla de ingesta. Selecciona 80 referencias mediante una semilla registrada y las reconcilia con el ledger.</p>
-<p>Encuentra tres omisiones, todas del mismo organismo y posteriores a un cambio de paginación. Las páginas omitidas devolvían <code>200</code>, pero el colector solo recorría la primera. No hubo error HTTP, el volumen total quedó dentro del rango histórico y los otros cinco portales ocultaron la caída en el agregado.</p>
-<p>La muestra no demuestra que solo falten tres documentos ni autoriza a extrapolar sin considerar el diseño. Sí descubre un modo de fallo, identifica el segmento afectado y justifica ampliar la revisión de ese periodo. El equipo pausa únicamente los derivados que dependían del organismo afectado, corrige la navegación, reconstruye el inventario y documenta qué resultados deben recalcularse.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-el-silencio-que-quieres-detectar">1. Define el silencio que quieres detectar<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#1-define-el-silencio-que-quieres-detectar" class="hash-link" aria-label="Enlace directo al 1. Define el silencio que quieres detectar" title="Enlace directo al 1. Define el silencio que quieres detectar" translate="no">​</a></h3>
-<p>Escribe una condición observable y una acción asociada. «Buscar cosas que falten» no es un objetivo auditable. Una ficha mínima podría ser:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">objetivo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> estimar_documentos_elegibles_omitidos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">unidad</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> referencia_publicada</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">periodo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">09</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">01/2026</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">09</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token number">30</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">universo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> indices_publicos_de_seis_organismos</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">fallo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> elegible_en_origen_y_ausente_del_ledger</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">decision</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> ampliar_revision_si_aparece_una_omision_critica</span><br></span></code></pre></div></div>
-<p>Define también qué no cubre la prueba. Una auditoría de ingesta no verifica por sí sola que la extracción semántica sea correcta; una auditoría de fechas no prueba que los nombres estén bien desambiguados.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-construye-un-marco-independiente-y-reconciliado">2. Construye un marco independiente y reconciliado<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#2-construye-un-marco-independiente-y-reconciliado" class="hash-link" aria-label="Enlace directo al 2. Construye un marco independiente y reconciliado" title="Enlace directo al 2. Construye un marco independiente y reconciliado" translate="no">​</a></h3>
-<p>El marco debe aproximar el universo del que quieres hablar. Puede proceder de índices oficiales, calendarios de publicación, listados de objetos en un almacenamiento propio o manifiestos emitidos por el sistema fuente. Captura la fecha, procedencia, reglas de inclusión y un hash cuando resulte apropiado.</p>
-<p>No selecciones solo entre filas que ya llegaron al pipeline: una omisión total no puede aparecer en esa lista. Tampoco confundas una lista grande con una lista completa. GAO recomienda comprobar que la población sea válida y completa antes de muestrear; si esa garantía es parcial, la conclusión debe ser igualmente parcial.</p>
-<p>Registra diferencias entre el universo conceptual y el marco disponible:</p>
-<ul>
-<li class="">portales o periodos sin índice;</li>
-<li class="">documentos retirados o corregidos;</li>
-<li class="">páginas no accesibles sin autenticación;</li>
-<li class="">duplicados y republicaciones;</li>
-<li class="">unidades cuya elegibilidad no puede determinarse;</li>
-<li class="">intervalos en los que el propio marco estuvo caído.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-elige-azar-riesgo-y-cobertura-conscientemente">3. Elige azar, riesgo y cobertura conscientemente<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#3-elige-azar-riesgo-y-cobertura-conscientemente" class="hash-link" aria-label="Enlace directo al 3. Elige azar, riesgo y cobertura conscientemente" title="Enlace directo al 3. Elige azar, riesgo y cobertura conscientemente" translate="no">​</a></h3>
-<p>Una muestra aleatoria simple permite inferir sobre la población cubierta si cada unidad tiene una probabilidad conocida de selección. Conserva el tamaño del universo, el generador, la semilla, el algoritmo y la lista resultante. Una selección «a ojo» puede servir para descubrir fallos, pero no para estimar una tasa representativa.</p>
-<p>El muestreo dirigido sigue siendo útil como capa adicional: revisa fuentes nuevas, formatos raros, lotes posteriores a despliegues y periodos con telemetría débil. No mezcles después ambos resultados como si todos los elementos hubieran tenido la misma probabilidad.</p>
-<p>Una estrategia práctica combina:</p>
-<ol>
-<li class=""><strong>muestra base aleatoria</strong>, para estimar el comportamiento global;</li>
-<li class=""><strong>estratos predefinidos</strong>, para no perder fuentes pequeñas o críticas dentro del volumen total;</li>
-<li class=""><strong>muestra dirigida de riesgo</strong>, para explorar hipótesis sin fingir representatividad;</li>
-<li class=""><strong>controles deterministas</strong>, para expectativas exactas como «deben llegar seis manifiestos».</li>
-</ol>
-<p>Si se sobremuestrea un estrato, hay que conservar sus probabilidades y ponderar cualquier estimación global. El resultado por estrato suele ser más informativo que un único porcentaje.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-fija-tamaño-y-regla-de-ampliación-antes-de-revisar">4. Fija tamaño y regla de ampliación antes de revisar<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#4-fija-tama%C3%B1o-y-regla-de-ampliaci%C3%B3n-antes-de-revisar" class="hash-link" aria-label="Enlace directo al 4. Fija tamaño y regla de ampliación antes de revisar" title="Enlace directo al 4. Fija tamaño y regla de ampliación antes de revisar" translate="no">​</a></h3>
-<p>El tamaño depende de la decisión, la precisión deseada, la tasa plausible de omisión, el diseño y el coste de adjudicar. No elijas veinte casos solo porque caben en una mañana y después presentes el resultado como garantía.</p>
-<p>Incluso observar cero omisiones deja incertidumbre. Bajo un modelo binomial sencillo e independiente, un límite superior unilateral aproximado del 95 % para la tasa <code>p</code>, tras revisar <code>n</code> unidades sin fallos, es:</p>
-<p><code>p_superior = 1 - 0,05^(1/n)</code></p>
-<p>Con 60 unidades y cero omisiones, el límite ronda el 4,9 %; con 300, ronda el 1,0 %. No significa que la tasa real sea esa ni que el diseño cumpla automáticamente el modelo. NIST recomienda intervalos binomiales exactos cuando hay pocos fallos o muestras pequeñas, precisamente porque las aproximaciones simétricas pueden ser engañosas.</p>
-<p>Prerregistra qué hará el equipo si encuentra una omisión: ampliar el estrato, revisar todo el lote afectado, detener un derivado o abrir un incidente. Examinar casos por etapas y parar al obtener un resultado cómodo introduce sesgo si la regla de parada no estaba definida.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-selecciona-de-forma-reproducible">5. Selecciona de forma reproducible<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#5-selecciona-de-forma-reproducible" class="hash-link" aria-label="Enlace directo al 5. Selecciona de forma reproducible" title="Enlace directo al 5. Selecciona de forma reproducible" translate="no">​</a></h3>
-<p>Congela primero el marco. Asigna a cada unidad un identificador estable que no exponga datos personales y aplica un sorteo verificable. Una opción sencilla consiste en ordenar por el hash de <code>semilla || identificador</code>, guardar la semilla y tomar las primeras <code>n</code> unidades de cada estrato.</p>
-<p>Documenta sustituciones. Si una unidad no está disponible, no elijas manualmente otra «parecida»: marca el estado, aplica la regla prevista y conserva el denominador. La inaccesibilidad puede ser parte del problema que se investiga.</p>
-<p>El muestreo sistemático —un inicio aleatorio y cada unidad <code>k</code>— puede ser eficiente, pero falla si el orden tiene una periodicidad alineada con <code>k</code>. Revisa antes cómo se construyó la lista.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-adjudica-sin-mirar-primero-la-decisión-del-detector">6. Adjudica sin mirar primero la decisión del detector<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#6-adjudica-sin-mirar-primero-la-decisi%C3%B3n-del-detector" class="hash-link" aria-label="Enlace directo al 6. Adjudica sin mirar primero la decisión del detector" title="Enlace directo al 6. Adjudica sin mirar primero la decisión del detector" translate="no">​</a></h3>
-<p>Quien revisa debería comenzar por el artefacto y la regla vigente, no por la etiqueta que produjo el sistema. Para cada unidad registra:</p>
-<ul>
-<li class="">si era elegible y observable en el periodo;</li>
-<li class="">si aparece en el ledger de adquisición;</li>
-<li class="">si fue procesada con la versión prevista;</li>
-<li class="">si cumplía la condición material de alerta;</li>
-<li class="">si la alerta se emitió, entregó y recibió;</li>
-<li class="">evidencia mínima y motivo de la adjudicación;</li>
-<li class="">estado <code>indeterminado</code> cuando falten datos.</li>
-</ul>
-<p>Una submuestra con doble revisión ayuda a medir desacuerdos. Si dos personas interpretan de forma distinta la misma regla, el problema puede estar en el contrato de la alerta, no en quien revisa.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-separa-cada-punto-de-pérdida">7. Separa cada punto de pérdida<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#7-separa-cada-punto-de-p%C3%A9rdida" class="hash-link" aria-label="Enlace directo al 7. Separa cada punto de pérdida" title="Enlace directo al 7. Separa cada punto de pérdida" translate="no">​</a></h3>
-<p>No reduzcas todo a «alertó/no alertó». Reconstruye la cadena:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">esperado -&gt; descubierto -&gt; adquirido -&gt; parseado -&gt; evaluado -&gt; emitido -&gt; entregado</span><br></span></code></pre></div></div>
-<p>Una unidad ausente puede revelar un marco incompleto, un colector que no pagina, un parser que descarta, una regla que no evalúa, una cola que pierde eventos o un canal que no entrega. Cada transición necesita identificadores, marcas temporales y estados suficientes para reconciliar, sin convertir el ledger en una copia innecesaria del contenido.</p>
-<p>Google SRE distingue monitorización interna y comprobación externa: la primera explica componentes; la segunda observa síntomas desde fuera. En este contexto, una sonda o reconciliación independiente puede detectar que el pipeline no ve una fuente aunque todas sus métricas internas estén verdes.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-estima-investiga-y-decide-por-separado">8. Estima, investiga y decide por separado<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#8-estima-investiga-y-decide-por-separado" class="hash-link" aria-label="Enlace directo al 8. Estima, investiga y decide por separado" title="Enlace directo al 8. Estima, investiga y decide por separado" translate="no">​</a></h3>
-<p>Publica recuentos y denominadores por estrato, intervalos compatibles con el diseño, indeterminados y cobertura del marco. No conviertas una estimación estadística en una explicación causal: primero localiza el patrón y después inspecciona versiones, artefactos y transiciones.</p>
-<p>Una tabla de cierre útil incluye:</p>
-<table><thead><tr><th>Estrato</th><th style="text-align:right">Universo en marco</th><th style="text-align:right">Revisados</th><th style="text-align:right">Omisiones</th><th style="text-align:right">Indeterminados</th><th>Acción</th></tr></thead><tbody><tr><td>organismo A</td><td style="text-align:right">1.240</td><td style="text-align:right">40</td><td style="text-align:right">0</td><td style="text-align:right">1</td><td>mantener control</td></tr><tr><td>organismo B</td><td style="text-align:right">180</td><td style="text-align:right">30</td><td style="text-align:right">3</td><td style="text-align:right">0</td><td>revisar lote completo</td></tr><tr><td>organismo C-F</td><td style="text-align:right">3.900</td><td style="text-align:right">60</td><td style="text-align:right">0</td><td style="text-align:right">2</td><td>mejorar marco</td></tr></tbody></table>
-<p>No sumes las filas para obtener una tasa global sin respetar probabilidades de selección distintas. La decisión puede ser operativa —contener o ampliar— aunque todavía no exista una estimación precisa.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El objetivo, la unidad, el periodo y la definición de omisión están escritos.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El marco procede de una vía independiente del detector evaluado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se han documentado cobertura, huecos, duplicados y retiradas del marco.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada unidad tiene una probabilidad de selección conocida o se marca como dirigida.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La semilla, el algoritmo y los estratos permiten reproducir la muestra.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El tamaño y la regla de ampliación se fijaron antes de adjudicar.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La revisión parte del original y admite el estado <code>indeterminado</code>.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Adquisición, procesamiento, evaluación y entrega se comprueban por separado.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los resultados informan recuentos, denominadores e incertidumbre.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cero omisiones no se presenta como prueba de tasa cero.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las acciones contienen solo los productos y periodos afectados.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El muestreo minimiza exposición y retención de datos personales.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-negativos-de-la-propia-auditoría">Limitaciones y falsos negativos de la propia auditoría<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#limitaciones-y-falsos-negativos-de-la-propia-auditor%C3%ADa" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos negativos de la propia auditoría" title="Enlace directo al Limitaciones y falsos negativos de la propia auditoría" translate="no">​</a></h2>
-<p>La auditoría hereda los huecos de su marco. Si el índice independiente también omite una publicación, ambos sistemas pueden coincidir y seguir equivocados. Por eso conviene rotar controles: manifiestos del origen, sondas sintéticas propias, recuentos esperados, archivos públicos y revisiones manuales de periodos seleccionados.</p>
-<p>Otros límites frecuentes son:</p>
-<ul>
-<li class=""><strong>eventos raros:</strong> una muestra asequible puede no encontrar una omisión poco frecuente pero grave;</li>
-<li class=""><strong>dependencia:</strong> documentos del mismo lote comparten causa y no son ensayos independientes;</li>
-<li class=""><strong>estratos diminutos:</strong> necesitan revisión exhaustiva o decisiones cualitativas;</li>
-<li class=""><strong>retardo:</strong> una unidad puede estar ausente hoy y llegar legítimamente mañana;</li>
-<li class=""><strong>contaminación:</strong> quien conoce la salida puede adjudicar de forma sesgada;</li>
-<li class=""><strong>marcos cambiantes:</strong> correcciones y retiradas alteran el universo tras el sorteo;</li>
-<li class=""><strong>múltiples auditorías:</strong> repetir pruebas hasta encontrar o descartar un patrón cambia la interpretación;</li>
-<li class=""><strong>cobertura semántica:</strong> presencia en el ledger no garantiza extracción ni significado correctos.</li>
-</ul>
-<p>El objetivo no es certificar que «no falta nada», sino medir qué clase de afirmación permiten los controles disponibles y dónde sigue habiendo incertidumbre.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Audita fuentes públicas o sistemas para los que exista autorización y finalidad legítima.</li>
-<li class="">No uses el control de cobertura para ampliar clandestinamente la población investigada.</li>
-<li class="">Conserva identificadores, hashes y estados antes que copias completas cuando sean suficientes.</li>
-<li class="">Separa credenciales, contenido restringido y resultados agregados.</li>
-<li class="">Protege semillas si su publicación permitiría anticipar controles todavía activos; publícalas después cuando la verificabilidad lo aconseje.</li>
-<li class="">Limita accesos, retención, exportaciones y capturas de casos individuales.</li>
-<li class="">Respeta licencias, términos, límites, correcciones y retiradas.</li>
-<li class="">No conviertas una omisión técnica en sospecha sobre una persona u organismo.</li>
-<li class="">Exige corroboración antes de rectificar o publicar una conclusión.</li>
-<li class="">Mantén una puerta humana para ampliar, contener y cerrar la auditoría.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Si el universo es pequeño, revisarlo completo puede costar menos que diseñar una muestra. Si existe un contrato exacto de entregas, usa reconciliación determinista. Para fuentes de baja frecuencia, un calendario de eventos esperados y una comprobación por evento suele ser más interpretable. Las sondas sintéticas son útiles para probar rutas conocidas, pero no revelan por sí solas formatos o categorías que nunca imaginamos.</p>
-<p>El takeaway accionable es inmediato: elige una alerta crítica y dibuja su cadena desde el universo esperado hasta la entrega. Después toma una muestra reproducible desde una lista independiente y rastrea cada unidad en sentido inverso. <strong>Si la población de la auditoría nace del mismo ledger que quieres evaluar, has medido coherencia interna, no completitud.</strong></p>
-<p>Como siguiente tema convendría estudiar los <strong>controles negativos y positivos en pipelines OSINT</strong>: artefactos sintéticos, canarios y casos imposibles que permiten comprobar que tanto el éxito como el fallo siguen siendo observables sin mezclar material real sensible.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/auditoria-muestreo-silencios-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://www.gao.gov/assets/gao-24-107278.pdf" target="_blank" rel="noopener noreferrer" class="">GAO/CIGIE Financial Audit Manual, volumen 1 (2024)</a></li>
-<li class=""><a href="https://www.gao.gov/assets/pemd-10.1.6.pdf" target="_blank" rel="noopener noreferrer" class="">GAO: Using Statistical Sampling</a></li>
-<li class=""><a href="https://itl.nist.gov/div898/handbook/prc/section2/prc241.htm" target="_blank" rel="noopener noreferrer" class="">NIST/SEMATECH: intervalos de confianza para proporciones</a></li>
-<li class=""><a href="https://csrc.nist.gov/projects/risk-management/about-rmf/monitor-step" target="_blank" rel="noopener noreferrer" class="">NIST Risk Management Framework: Monitor</a></li>
-<li class=""><a href="https://sre.google/sre-book/monitoring-distributed-systems/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Monitoring Distributed Systems</a></li>
-<li class=""><a href="https://www.cdc.gov/epiinfo/user-guide/statcalc/samplesize.html" target="_blank" rel="noopener noreferrer" class="">CDC Epi Info: Population Survey or Descriptive Study</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter AI</name>
