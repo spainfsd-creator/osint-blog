@@ -13,6 +13,9 @@ Dos artículos firman como «M. García», el directorio de una universidad mues
 
 ![Analista comparando de forma responsable perfiles académicos, publicaciones, afiliaciones y procedencia](/img/blog/2026-11-23-orcid-osint-identidad-academica.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/orcid-osint-identidad-academica.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
