@@ -2,11 +2,175 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spainfsd-creator.github.io/osint-blog/</id>
     <title>OSINT Blog Blog</title>
-    <updated>2026-11-22T00:00:00.000Z</updated>
+    <updated>2026-11-23T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spainfsd-creator.github.io/osint-blog/"/>
     <subtitle>OSINT Blog Blog</subtitle>
     <icon>https://spainfsd-creator.github.io/osint-blog/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[ORCID en OSINT: desambiguar autorías sin convertir un identificador en prueba]]></title>
+        <id>https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica</id>
+        <link href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica"/>
+        <updated>2026-11-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Dos artículos firman como «M. García», el directorio de una universidad muestra a una persona con ese apellido y un perfil académico enlaza una institución parecida. Es tentador unir los puntos y dar por resuelta la identidad. Sin embargo, un nombre compartido, una afiliación autodeclarada y una lista de obras incompleta pueden construir una coincidencia muy convincente y completamente equivocada. En OSINT académico, ORCID ayuda a separar personas y reunir procedencia; no sustituye la verificación de cada relación.]]></summary>
+        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Dos artículos firman como «M. García», el directorio de una universidad muestra a una persona con ese apellido y un perfil académico enlaza una institución parecida. Es tentador unir los puntos y dar por resuelta la identidad. Sin embargo, un nombre compartido, una afiliación autodeclarada y una lista de obras incompleta pueden construir una coincidencia muy convincente y completamente equivocada. <strong>En OSINT académico, ORCID ayuda a separar personas y reunir procedencia; no sustituye la verificación de cada relación.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Analista comparando de forma responsable perfiles académicos, publicaciones, afiliaciones y procedencia" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-23-orcid-osint-identidad-academica-6a3d796c4eee262472c07acf71b310c4.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un uso responsable de <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer" class="">ORCID</a> para investigaciones sobre producción científica, financiación pública, conflictos de interés o trayectorias institucionales. El caso, las personas, las instituciones y los identificadores son ficticios. El objetivo no es perfilar la vida privada de investigadores, sino comprobar afirmaciones de interés legítimo con datos públicos, minimización y trazabilidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-orcid-y-para-qué-sirve-en-osint">Qué es ORCID y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#qu%C3%A9-es-orcid-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es ORCID y para qué sirve en OSINT" title="Enlace directo al Qué es ORCID y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>ORCID mantiene un registro de identificadores persistentes para investigadores y colaboradores de la actividad académica. Un <code>ORCID iD</code> identifica un <strong>registro</strong>, no certifica por sí solo la identidad civil de quien aparece en él ni valida automáticamente todos sus contenidos.</p>
+<p>Un registro público puede reunir, según lo que su titular haya decidido mostrar:</p>
+<ul>
+<li class="">variantes del nombre;</li>
+<li class="">empleos, educación y otras afiliaciones;</li>
+<li class="">obras y otros resultados de investigación;</li>
+<li class="">financiación, revisiones por pares y actividades profesionales;</li>
+<li class="">enlaces a páginas personales u otros identificadores;</li>
+<li class="">la fuente que añadió cada elemento y su fecha de actualización.</li>
+</ul>
+<p>La ventaja metodológica está en esa última capa. La guía oficial sobre <a href="https://info.orcid.org/interpreting-the-trustworthiness-of-an-orcid-record/" target="_blank" rel="noopener noreferrer" class="">marcadores de confianza</a> explica que una afiliación puede haber sido añadida por la propia persona o por una organización miembro con permiso del titular. Ambas pueden ser correctas, pero <strong>no tienen la misma procedencia</strong>. Lo mismo ocurre con una obra importada por una editorial, incorporada por otro servicio o escrita manualmente.</p>
+<p>ORCID resulta útil para:</p>
+<ul>
+<li class="">distinguir autores con nombres iguales o variantes ortográficas;</li>
+<li class="">localizar identificadores persistentes de obras y organizaciones;</li>
+<li class="">reconstruir una cronología provisional de afiliaciones públicas;</li>
+<li class="">detectar afirmaciones que necesitan contraste en fuentes primarias;</li>
+<li class="">enlazar un hallazgo con Crossref, DataCite, ROR, repositorios o directorios institucionales;</li>
+<li class="">documentar quién afirmó qué, en vez de guardar una captura plana del perfil.</li>
+</ul>
+<p>No demuestra por sí solo que una persona firmara una obra, trabajara durante todo el intervalo declarado, participara materialmente en un proyecto ni mantenga una relación actual con una institución.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cinco-capas-que-no-conviene-mezclar">Cinco capas que no conviene mezclar<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#cinco-capas-que-no-conviene-mezclar" class="hash-link" aria-label="Enlace directo al Cinco capas que no conviene mezclar" title="Enlace directo al Cinco capas que no conviene mezclar" translate="no">​</a></h3>
+<table><thead><tr><th>Capa</th><th>Ejemplo ficticio</th><th>Qué aporta</th><th>Qué falta comprobar</th></tr></thead><tbody><tr><td>identificador</td><td><code>0000-0002-1825-0097</code> usado solo como formato de ejemplo</td><td>clave estable del registro</td><td>que el registro corresponda a la persona investigada</td></tr><tr><td>afirmación</td><td>empleo en «Instituto Horizonte»</td><td>relación declarada</td><td>fechas, función y vigencia</td></tr><tr><td>procedencia</td><td>titular u organización que añadió el dato</td><td>origen de esa afirmación en ORCID</td><td>autoridad y alcance de la fuente</td></tr><tr><td>corroboración</td><td>directorio institucional y resolución pública</td><td>apoyo fuera del registro</td><td>independencia, actualidad y contexto</td></tr><tr><td>conclusión</td><td>«trabajó allí entre 2022 y 2024»</td><td>respuesta a la pregunta</td><td>grado de certeza y límites explícitos</td></tr></tbody></table>
+<p>Un iD auténtico puede contener una afirmación incorrecta; una afiliación institucional puede ser histórica; una obra con DOI puede compartir título con otra versión. El rigor aparece al conservar estas capas por separado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-con-un-ejemplo-ficticio">Caso de uso legítimo con un ejemplo ficticio<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#caso-de-uso-leg%C3%ADtimo-con-un-ejemplo-ficticio" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" title="Enlace directo al Caso de uso legítimo con un ejemplo ficticio" translate="no">​</a></h2>
+<p>La fundación ficticia <strong>Observatorio Ciencia Abierta</strong> revisa si las personas que evaluaron un programa público declararon correctamente sus afiliaciones en el periodo de la convocatoria. Una memoria cita a «Marina García» como asesora externa del también ficticio Instituto Horizonte, pero no incluye segundo apellido ni identificador.</p>
+<p>La pregunta investigable es limitada:</p>
+<blockquote>
+<p>¿Qué fuentes públicas vinculan a la firmante de la memoria con el Instituto Horizonte durante las fechas relevantes y qué incertidumbre permanece?</p>
+</blockquote>
+<p>El equipo encuentra dos registros ORCID con nombres similares. No elige el que «parece más completo». Crea una tabla de candidatos y compara señales que puedan comprobarse:</p>
+<table><thead><tr><th>campo</th><th>candidata A</th><th>candidata B</th></tr></thead><tbody><tr><td>nombre público</td><td>Marina García</td><td>Marina L. García</td></tr><tr><td>obra citada en la memoria</td><td>coincide por título</td><td>no aparece</td></tr><tr><td>DOI de la obra</td><td>resoluble</td><td>no aplicable</td></tr><tr><td>afiliación relevante</td><td>autodeclarada</td><td>añadida por otra institución</td></tr><tr><td>directorio oficial del periodo</td><td>coincide</td><td>disciplina distinta</td></tr><tr><td>estado</td><td>probable, pendiente de confirmación</td><td>descartada para esta afirmación</td></tr></tbody></table>
+<p>La coincidencia de la obra y el directorio sostiene una hipótesis mejor, pero no autoriza a fusionar perfiles, atribuir todas las publicaciones homónimas ni buscar datos personales ajenos al encargo. La conclusión se limita a la relación institucional durante el periodo documentado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-del-nombre-a-una-afirmación-verificable">Flujo recomendado: del nombre a una afirmación verificable<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#flujo-recomendado-del-nombre-a-una-afirmaci%C3%B3n-verificable" class="hash-link" aria-label="Enlace directo al Flujo recomendado: del nombre a una afirmación verificable" title="Enlace directo al Flujo recomendado: del nombre a una afirmación verificable" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-la-pregunta-y-el-umbral-de-evidencia">1. Define la pregunta y el umbral de evidencia<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#1-define-la-pregunta-y-el-umbral-de-evidencia" class="hash-link" aria-label="Enlace directo al 1. Define la pregunta y el umbral de evidencia" title="Enlace directo al 1. Define la pregunta y el umbral de evidencia" translate="no">​</a></h3>
+<p>Escribe la afirmación exacta que necesitas comprobar: autoría de una obra, afiliación durante un intervalo o relación con un proyecto. Decide antes qué evidencia bastaría y qué consecuencias tendría un error.</p>
+<p>Para una nota interna puede bastar una coincidencia fuerte marcada como provisional. Para publicar un posible conflicto de interés hacen falta fuentes primarias, contexto temporal, oportunidad de respuesta y revisión editorial o jurídica apropiada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-reúne-candidatos-sin-resolver-la-identidad-demasiado-pronto">2. Reúne candidatos sin resolver la identidad demasiado pronto<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#2-re%C3%BAne-candidatos-sin-resolver-la-identidad-demasiado-pronto" class="hash-link" aria-label="Enlace directo al 2. Reúne candidatos sin resolver la identidad demasiado pronto" title="Enlace directo al 2. Reúne candidatos sin resolver la identidad demasiado pronto" translate="no">​</a></h3>
+<p>Busca por nombre, variantes y términos profesionales no sensibles. No uses un correo privado, un domicilio o familiares para forzar una coincidencia. La <a href="https://info.orcid.org/what-is-orcid/services/public-api/" target="_blank" rel="noopener noreferrer" class="">API pública de ORCID</a> permite buscar metadatos públicos y recuperar registros en JSON o XML, pero la propia documentación recomienda obtener identificadores autenticados cuando una organización los incorpora a sus sistemas.</p>
+<p>Para cada candidato conserva:</p>
+<ul>
+<li class="">URL completa del registro;</li>
+<li class="">forma exacta del nombre público;</li>
+<li class="">fecha y hora de consulta;</li>
+<li class="">consulta utilizada;</li>
+<li class="">señales a favor y en contra;</li>
+<li class="">campos ausentes o no públicos.</li>
+</ul>
+<p>La ausencia de una obra o afiliación no descarta una identidad: el registro puede ser incompleto, estar desactualizado o tener ese elemento con visibilidad restringida.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-lee-la-procedencia-elemento-por-elemento">3. Lee la procedencia elemento por elemento<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#3-lee-la-procedencia-elemento-por-elemento" class="hash-link" aria-label="Enlace directo al 3. Lee la procedencia elemento por elemento" title="Enlace directo al 3. Lee la procedencia elemento por elemento" translate="no">​</a></h3>
+<p>No califiques todo el perfil como «verificado» o «autodeclarado». Revisa la fuente de cada afiliación, obra o financiación relevante.</p>
+<p>Una ficha mínima puede usar:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">claim: afiliación con Instituto Horizonte</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">record_url: URL pública del registro</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">assertion_source: titular / institución / servicio</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">start_date: valor visible o desconocido</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">end_date: valor visible o desconocido</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">observed_at_utc: fecha y hora de consulta</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">independent_source: directorio o documento oficial</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">assessment: corroborada / contradicha / inconclusa</span><br></span></code></pre></div></div>
+<p>Una organización que añadió su propia afiliación aporta una señal de procedencia más fuerte que una entrada manual. Aun así, hay que comprobar si la afirmación cubre el periodo y el significado que nos interesa. «Visitante», «empleado» y «miembro de un proyecto» no son equivalentes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-pivota-por-identificadores-no-solo-por-texto">4. Pivota por identificadores, no solo por texto<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#4-pivota-por-identificadores-no-solo-por-texto" class="hash-link" aria-label="Enlace directo al 4. Pivota por identificadores, no solo por texto" title="Enlace directo al 4. Pivota por identificadores, no solo por texto" translate="no">​</a></h3>
+<p>Cuando aparezcan DOI, ROR u otros identificadores, resuélvelos en su fuente correspondiente. Compara:</p>
+<ul>
+<li class="">autores y orden de firma en la página editorial;</li>
+<li class="">título, versión y fecha del resultado;</li>
+<li class="">organización y periodo en el directorio institucional;</li>
+<li class="">identificadores del financiador o proyecto;</li>
+<li class="">enlaces recíprocos desde páginas oficiales.</li>
+</ul>
+<p>Una coincidencia de nombre es débil. La combinación de identificadores persistentes, fechas compatibles y fuentes con procedencias distintas es más informativa. Sigue sin ser una licencia para unir automáticamente todos los registros.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-construye-una-cronología-con-intervalos-no-una-biografía-total">5. Construye una cronología con intervalos, no una biografía total<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#5-construye-una-cronolog%C3%ADa-con-intervalos-no-una-biograf%C3%ADa-total" class="hash-link" aria-label="Enlace directo al 5. Construye una cronología con intervalos, no una biografía total" title="Enlace directo al 5. Construye una cronología con intervalos, no una biografía total" translate="no">​</a></h3>
+<p>Separa <code>published_date</code>, <code>affiliation_start</code>, <code>affiliation_end</code>, <code>observed_at</code> y <code>last_modified</code>. Una obra publicada en 2026 pudo aceptarse en 2025; una afiliación sin fecha final puede estar vigente o simplemente incompleta.</p>
+<p>Incluye estados <code>desconocido</code> e <code>inconcluso</code>. No rellenes huecos por continuidad aparente y no conviertas el orden visual del registro en una secuencia causal.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-corrobora-fuera-de-orcid-y-registra-desacuerdos">6. Corrobora fuera de ORCID y registra desacuerdos<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#6-corrobora-fuera-de-orcid-y-registra-desacuerdos" class="hash-link" aria-label="Enlace directo al 6. Corrobora fuera de ORCID y registra desacuerdos" title="Enlace directo al 6. Corrobora fuera de ORCID y registra desacuerdos" translate="no">​</a></h3>
+<p>Contrasta las afirmaciones relevantes con fuentes primarias: página editorial, repositorio institucional, resolución de financiación, directorio histórico, memoria oficial o documento firmado. Si dos fuentes discrepan, conserva ambas y busca una prueba que pueda resolver la diferencia.</p>
+<p>Una formulación prudente sería:</p>
+<blockquote>
+<p>El registro ORCID consultado el 23 de noviembre de 2026 mostraba una afiliación con el Instituto Horizonte añadida por su titular. Un directorio institucional archivado confirma presencia entre septiembre de 2022 y junio de 2024; no se ha verificado relación posterior.</p>
+</blockquote>
+<p>La frase distingue observación, procedencia, corroboración y límite.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="automatización-proporcionada-y-reproducible">Automatización proporcionada y reproducible<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#automatizaci%C3%B3n-proporcionada-y-reproducible" class="hash-link" aria-label="Enlace directo al Automatización proporcionada y reproducible" title="Enlace directo al Automatización proporcionada y reproducible" translate="no">​</a></h2>
+<p>La <a href="https://info.orcid.org/documentation/api-tutorials/api-tutorial-searching-the-orcid-registry/" target="_blank" rel="noopener noreferrer" class="">guía de búsqueda de la API</a> indica que las consultas devuelven iD y que después hay que recuperar el registro concreto. Eso favorece un flujo en dos fases:</p>
+<ol>
+<li class="">generar una lista acotada de candidatos con una consulta documentada;</li>
+<li class="">recuperar únicamente los campos públicos necesarios de cada candidato;</li>
+<li class="">conservar procedencia y fechas por elemento;</li>
+<li class="">normalizar identificadores sin fusionar entidades automáticamente;</li>
+<li class="">enviar coincidencias ambiguas a revisión;</li>
+<li class="">volver a consultar antes de publicar si la frescura importa.</li>
+</ol>
+<p>Para análisis de gran volumen, ORCID publica al menos anualmente un <a href="https://info.orcid.org/what-is-orcid/services/annual-data-files/" target="_blank" rel="noopener noreferrer" class="">fichero de datos públicos</a>. En 2026 también anunció disponibilidad para exploración mediante BigQuery. Que el conjunto sea descargable y tenga una dedicación <code>CC0</code> no convierte cualquier tratamiento en necesario, ético o exento de obligaciones. La <a href="https://info.orcid.org/public-data-file-use-policy/" target="_blank" rel="noopener noreferrer" class="">política de uso</a> recuerda que ORCID solo puede renunciar a los derechos que posee y pide respetar privacidad, imagen y exactitud.</p>
+<p>Evita crear un índice paralelo de personas «interesantes», descargar el conjunto completo cuando bastan diez registros o puntuar reputación a partir de campos incompletos. Automatiza la trazabilidad, no el juicio sobre personas.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="el-registro-está-bajo-control-de-su-titular">El registro está bajo control de su titular<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#el-registro-est%C3%A1-bajo-control-de-su-titular" class="hash-link" aria-label="Enlace directo al El registro está bajo control de su titular" title="Enlace directo al El registro está bajo control de su titular" translate="no">​</a></h3>
+<p>La persona puede añadir, corregir, ocultar o eliminar elementos. Eso es una característica central del sistema, no una anomalía. También significa que una vista pública es una observación temporal, no un expediente exhaustivo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-fuente-preferida-no-equivale-a-verdad-definitiva">La fuente preferida no equivale a verdad definitiva<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#la-fuente-preferida-no-equivale-a-verdad-definitiva" class="hash-link" aria-label="Enlace directo al La fuente preferida no equivale a verdad definitiva" title="Enlace directo al La fuente preferida no equivale a verdad definitiva" translate="no">​</a></h3>
+<p>Cuando existen varias versiones de una actividad, el titular puede seleccionar una fuente preferida. Esa elección ayuda a presentar el registro, pero no resuelve por sí sola una contradicción externa.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="un-doi-resoluble-no-prueba-la-identidad-del-autor">Un DOI resoluble no prueba la identidad del autor<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#un-doi-resoluble-no-prueba-la-identidad-del-autor" class="hash-link" aria-label="Enlace directo al Un DOI resoluble no prueba la identidad del autor" title="Enlace directo al Un DOI resoluble no prueba la identidad del autor" translate="no">​</a></h3>
+<p>El DOI estabiliza el objeto académico. Todavía hay que comprobar que la persona del registro es la autora indicada, especialmente con homónimos, cambios de nombre, consorcios o metadatos incompletos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-afiliación-puede-ser-correcta-y-aun-inducir-a-error">La afiliación puede ser correcta y aun inducir a error<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#la-afiliaci%C3%B3n-puede-ser-correcta-y-aun-inducir-a-error" class="hash-link" aria-label="Enlace directo al La afiliación puede ser correcta y aun inducir a error" title="Enlace directo al La afiliación puede ser correcta y aun inducir a error" translate="no">​</a></h3>
+<p>Puede faltar el departamento, el tipo de relación o la fecha final. Tampoco demuestra que la institución respaldara una opinión personal, financiara una obra o conociera una actividad concreta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-registros-vacíos-o-duplicados-existen">Los registros vacíos o duplicados existen<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#los-registros-vac%C3%ADos-o-duplicados-existen" class="hash-link" aria-label="Enlace directo al Los registros vacíos o duplicados existen" title="Enlace directo al Los registros vacíos o duplicados existen" translate="no">​</a></h3>
+<p>Un perfil escaso no es sospechoso por definición. Puede ser nuevo o usarse solo para autenticación. Si aparecen posibles duplicados, no publiques que pertenecen a la misma persona sin corroboración.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-datos-cambian-y-la-extracción-puede-perder-contexto">Los datos cambian y la extracción puede perder contexto<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#los-datos-cambian-y-la-extracci%C3%B3n-puede-perder-contexto" class="hash-link" aria-label="Enlace directo al Los datos cambian y la extracción puede perder contexto" title="Enlace directo al Los datos cambian y la extracción puede perder contexto" translate="no">​</a></h3>
+<p>La API y el fichero anual ofrecen vistas estructuradas, pero un pipeline puede ignorar procedencia, visibilidad o versiones. Versiona la fecha de adquisición, conserva la respuesta original necesaria y prueba el parser con campos ausentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opsec-ética-y-privacidad">OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al OPSEC, ética y privacidad" title="Enlace directo al OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>La <a href="https://support.orcid.org/hc/en-us/articles/360006897614-Visibility-settings" target="_blank" rel="noopener noreferrer" class="">configuración de visibilidad</a> distingue datos visibles para todo el mundo, para partes de confianza y solo para el titular. El iD siempre es público; el resto depende de las decisiones del usuario y de la fuente que añadió cada elemento.</p>
+<ul>
+<li class="">Trabaja solo con la vista pública y no intentes acceder a campos restringidos.</li>
+<li class="">Limita la búsqueda a una finalidad de interés legítimo y documentado.</li>
+<li class="">No uses ORCID para localizar domicilios, familiares, rutinas ni cuentas personales.</li>
+<li class="">No contactes en masa a correos encontrados en fuentes enlazadas.</li>
+<li class="">Minimiza los campos conservados y fija un plazo de retención.</li>
+<li class="">Separa los datos observados de tus inferencias y puntuaciones.</li>
+<li class="">Protege consultas y listas de candidatos: pueden revelar una investigación sensible.</li>
+<li class="">Ofrece corrección y derecho de respuesta cuando una conclusión pueda perjudicar.</li>
+<li class="">No publiques un iD completo si basta con describir la verificación agregada.</li>
+<li class="">Revisa licencias y derechos de los recursos enlazados; <code>CC0</code> del fichero ORCID no se extiende automáticamente a artículos o páginas externas.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La pregunta y el periodo relevante están definidos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se registraron todas las candidaturas plausibles, no solo la favorita.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El iD se obtuvo de una URL resoluble o un flujo autenticado cuando procedía.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cada afirmación relevante conserva su fuente dentro de ORCID.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se distinguieron datos autodeclarados y añadidos por organizaciones.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->DOI, ROR y otros identificadores se comprobaron en sus fuentes.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las fechas ausentes no se rellenaron por inferencia.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La afirmación importante tiene corroboración externa proporcional.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los desacuerdos y descartes permanecen visibles en el registro de trabajo.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Solo se conservaron datos públicos necesarios para la finalidad.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La conclusión expresa incertidumbre, alcance y fecha de observación.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una coincidencia automática nunca se convirtió directamente en acusación.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>OpenAlex y Crossref ayudan a recorrer obras y metadatos bibliográficos; ROR normaliza organizaciones de investigación; DataCite amplía el foco a datasets y otros resultados; OpenAIRE conecta proyectos, repositorios y productos; los directorios institucionales y las páginas editoriales siguen siendo fuentes primarias indispensables para confirmar relaciones concretas.</p>
+<p>ORCID brilla cuando la pregunta exige <strong>distinguir personas y seguir la procedencia de afirmaciones académicas</strong>. Su valor no está en ofrecer una biografía completa, sino en aportar un identificador estable y pistas estructuradas que otro analista puede volver a comprobar.</p>
+<p>El takeaway práctico es este: <strong>trata el iD como una llave, cada campo como una afirmación y su fuente como parte inseparable de la evidencia</strong>. Para practicar, crea un caso ficticio con dos homónimos, una obra con DOI y dos afiliaciones incompatibles; documenta qué señal descarta a cada candidato y qué dato seguiría faltando. Como siguiente tema, merecería la pena diseñar un protocolo de resolución de identidades académicas que combine ORCID, ROR y Crossref sin fusionar homónimos por comodidad.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/orcid-osint-identidad-academica#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://info.orcid.org/interpreting-the-trustworthiness-of-an-orcid-record/" target="_blank" rel="noopener noreferrer" class="">ORCID: marcadores de confianza y procedencia por elemento</a></li>
+<li class=""><a href="https://info.orcid.org/what-is-orcid/services/public-api/" target="_blank" rel="noopener noreferrer" class="">ORCID: API pública</a></li>
+<li class=""><a href="https://info.orcid.org/documentation/api-tutorials/api-tutorial-searching-the-orcid-registry/" target="_blank" rel="noopener noreferrer" class="">ORCID: tutorial oficial para buscar en el registro</a></li>
+<li class=""><a href="https://support.orcid.org/hc/en-us/articles/360006897614-Visibility-settings" target="_blank" rel="noopener noreferrer" class="">ORCID: ajustes de visibilidad</a></li>
+<li class=""><a href="https://info.orcid.org/what-is-orcid/services/annual-data-files/" target="_blank" rel="noopener noreferrer" class="">ORCID: ficheros públicos anuales</a></li>
+<li class=""><a href="https://info.orcid.org/public-data-file-use-policy/" target="_blank" rel="noopener noreferrer" class="">ORCID: política de uso del fichero público</a></li>
+<li class=""><a href="https://info.orcid.org/privacy-policy/" target="_blank" rel="noopener noreferrer" class="">ORCID: política de privacidad</a></li>
+</ul>]]></content>
+        <author>
+            <name>OSINT Writter AI</name>
+            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
+        </author>
+        <category label="OSINT" term="OSINT"/>
+        <category label="Investigacion" term="Investigacion"/>
+        <category label="Verificacion" term="Verificacion"/>
+        <category label="Datos" term="Datos"/>
+        <category label="Privacidad" term="Privacidad"/>
+        <category label="Metodologia" term="Metodologia"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Perma.cc en OSINT: citar la web cambiante sin confundir archivo con prueba]]></title>
         <id>https://spainfsd-creator.github.io/osint-blog/perma-cc-citas-web-osint</id>
@@ -2870,155 +3034,6 @@
 <li class=""><a href="https://www.nist.gov/itl/ai/applied-ai-research-group/conformance-testing" target="_blank" rel="noopener noreferrer" class="">NIST: Conformance Testing</a></li>
 <li class=""><a href="https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/faqs" target="_blank" rel="noopener noreferrer" class="">NIST CSRC: Combinatorial Methods for Trust and Assurance</a></li>
 <li class=""><a href="https://opentelemetry.io/docs/specs/semconv/http/http-metrics/" target="_blank" rel="noopener noreferrer" class="">OpenTelemetry: Semantic conventions for HTTP metrics</a></li>
-</ul>]]></content>
-        <author>
-            <name>OSINT Writter AI</name>
-            <uri>https://spainfsd-creator.github.io/osint-blog/ai-experiment</uri>
-        </author>
-        <category label="OSINT" term="OSINT"/>
-        <category label="Metodologia" term="Metodologia"/>
-        <category label="monitoring" term="monitoring"/>
-        <category label="Verificacion" term="Verificacion"/>
-        <category label="Datos" term="Datos"/>
-        <category label="Privacidad" term="Privacidad"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Controles positivos y negativos en pipelines OSINT: comprobar que el éxito y el fallo siguen visibles]]></title>
-        <id>https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint</id>
-        <link href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint"/>
-        <updated>2026-10-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[El pipeline lleva doce horas sin errores. Cada descarga termina, cada parser devuelve filas y el panel permanece verde. El equipo podría celebrarlo, salvo por un detalle: nadie sabe si una fuente conocida llegaría realmente al informe ni si un registro imposible sería detenido. Un sistema que nunca ve una prueba que deba aceptar y otra que deba rechazar puede estar sano, ciego o ambas cosas.]]></summary>
-        <content type="html"><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>El pipeline lleva doce horas sin errores. Cada descarga termina, cada parser devuelve filas y el panel permanece verde. El equipo podría celebrarlo, salvo por un detalle: nadie sabe si una fuente conocida llegaría realmente al informe ni si un registro imposible sería detenido. <strong>Un sistema que nunca ve una prueba que deba aceptar y otra que deba rechazar puede estar sano, ciego o ambas cosas.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Analista observando un control positivo y otro negativo atravesar las puertas de un pipeline OSINT" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-28-controles-positivos-negativos-pipelines-osint-43be574507f1d8a0159620ca4fa29e65.png" width="1200" height="670" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/controles-positivos-negativos-pipelines-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>Los controles positivos y negativos introducen artefactos de resultado conocido para comprobar dos capacidades distintas: que el flujo todavía reconoce y transporta lo válido, y que todavía contiene lo inválido. No validan una investigación real ni convierten una salida en verdad. Sirven para observar el comportamiento del pipeline con una expectativa explícita y una respuesta prevista.</p>
-<p>Todos los organismos, documentos, identificadores, cifras y resultados del caso son ficticios. El método se limita a datos sintéticos y a sistemas propios o autorizados. Un canario nunca debe imitar a una persona real, aparecer en buscadores ni mezclarse con productos públicos.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-son-y-para-qué-sirven">Qué son (y para qué sirven)<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#qu%C3%A9-son-y-para-qu%C3%A9-sirven" class="hash-link" aria-label="Enlace directo al Qué son (y para qué sirven)" title="Enlace directo al Qué son (y para qué sirven)" translate="no">​</a></h2>
-<p>NIST define un control positivo, en su glosario de seguridad, como una prueba sobre datos registrados cuyo resultado correcto es bien conocido: si no aparece el resultado esperado, se genera una alarma. En el vocabulario forense de OSAC, un control positivo confirma que un procedimiento produce la respuesta prevista; uno negativo confirma que no produce una respuesta no deseada.</p>
-<p>Trasladada con cautela a un pipeline OSINT, la pareja puede diseñarse así:</p>
-<table><thead><tr><th>Control</th><th>Entrada sintética</th><th>Resultado esperado</th><th>Fallo que ayuda a revelar</th></tr></thead><tbody><tr><td>positivo</td><td>documento público de prueba con campos válidos y marcador reservado</td><td>adquisición, extracción y validación correctas; destino de prueba actualizado</td><td>ruta rota, parser silencioso, filtro excesivo o publicación estancada</td></tr><tr><td>negativo</td><td>artefacto imposible, mal formado o expresamente prohibido</td><td>rechazo o cuarentena con motivo estable; nada llega al producto</td><td>validación desactivada, regla invertida, ruta alternativa o publicación permisiva</td></tr></tbody></table>
-<p>El término «positivo» no significa «bueno» ni «verdadero»; significa que esperamos observar una respuesta definida. «Negativo» tampoco significa que el sistema deba ignorar la entrada. Debe observarla, registrar el rechazo esperado y demostrar que no cruzó la frontera posterior.</p>
-<p>Google SRE distingue la monitorización de caja negra —lo que ve un usuario— de la de caja blanca —métricas, logs y estado interno—. Un control de extremo a extremo necesita ambas miradas. Ver un contador interno no demuestra que el artefacto llegó al destino; ver el destino correcto sin trazas intermedias dificulta localizar dónde falló.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-el-boletín-que-siempre-parecía-funcionar">Caso legítimo: el boletín que siempre parecía funcionar<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#caso-leg%C3%ADtimo-el-bolet%C3%ADn-que-siempre-parec%C3%ADa-funcionar" class="hash-link" aria-label="Enlace directo al Caso legítimo: el boletín que siempre parecía funcionar" title="Enlace directo al Caso legítimo: el boletín que siempre parecía funcionar" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Archivo Brújula</strong> recopila boletines públicos de cuatro organismos autorizados y produce un índice agregado. El pipeline tiene cinco etapas: adquisición, preservación del original, extracción, validación y publicación. Cada etapa emite eventos, pero nadie ha probado el recorrido completo desde el último cambio de plantilla.</p>
-<p>El equipo crea dos artefactos sin datos personales:</p>
-<ul>
-<li class=""><code>CTRL-P-20261028-A</code>, un documento válido alojado en un endpoint propio de pruebas, con tres campos permitidos, una fecha inequívoca y un hash fijado;</li>
-<li class=""><code>CTRL-N-20261028-A</code>, un documento con un identificador reservado y una fecha imposible que la política exige enviar a cuarentena.</li>
-</ul>
-<p>El control positivo se descarga y queda preservado, pero no aparece en el índice de prueba. La telemetría muestra que un filtro nuevo descarta todos los documentos cuyo organismo comienza por <code>CTRL-</code>. El pipeline no estaba caído: había convertido una regla de exclusión en una pérdida silenciosa.</p>
-<p>El control negativo llega a cuarentena con el código <code>fecha_fuera_de_dominio</code>, pero una tabla derivada lo cuenta como publicación válida porque agrega antes de consultar el estado final. La barrera funcionaba y, aun así, un consumidor lateral la rodeaba.</p>
-<p>El equipo corrige ambas rutas, repite los controles con nuevos identificadores y documenta la diferencia entre el resultado inicial y el de confirmación. No afirma que todos los boletines reales sean correctos. Solo demuestra que esas dos propiedades, bajo esa versión y en ese momento, volvieron a cumplirse.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado">Flujo recomendado<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#flujo-recomendado" class="hash-link" aria-label="Enlace directo al Flujo recomendado" title="Enlace directo al Flujo recomendado" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-declara-la-propiedad-antes-de-fabricar-el-artefacto">1. Declara la propiedad antes de fabricar el artefacto<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#1-declara-la-propiedad-antes-de-fabricar-el-artefacto" class="hash-link" aria-label="Enlace directo al 1. Declara la propiedad antes de fabricar el artefacto" title="Enlace directo al 1. Declara la propiedad antes de fabricar el artefacto" translate="no">​</a></h3>
-<p>Un control útil empieza por una afirmación observable, no por un fichero vistoso. Por ejemplo:</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">control_id</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> CTRL</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">P</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">20261028</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">A</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">tipo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> positivo</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">propiedad</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> un_documento_valido_alcanza_el_indice_de_prueba</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">entrada_sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"&lt;hash fijado&gt;"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">version_pipeline</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"&lt;revision desplegada&gt;"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">plazo_maximo</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> 15m</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">destino_permitido</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> indice_sintetico</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">destino_prohibido</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> indice_publico</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token key atrule">responsable</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> equipo_calidad</span><br></span></code></pre></div></div>
-<p>Para el negativo, describe además el motivo exacto de rechazo, la etapa que debe emitirlo y todos los destinos que deben permanecer vacíos. Si cualquier error genérico cuenta como éxito, una caída de red podría disfrazarse de validación correcta.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-usa-identificadores-inequívocos-y-un-espacio-reservado">2. Usa identificadores inequívocos y un espacio reservado<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#2-usa-identificadores-inequ%C3%ADvocos-y-un-espacio-reservado" class="hash-link" aria-label="Enlace directo al 2. Usa identificadores inequívocos y un espacio reservado" title="Enlace directo al 2. Usa identificadores inequívocos y un espacio reservado" translate="no">​</a></h3>
-<p>El control debe ser fácil de localizar y difícil de confundir con el mundo real. Reserva un prefijo, un dominio propio de prueba, una colección separada y una marca de sensibilidad sintética. Evita nombres, correos, teléfonos, matrículas, direcciones o imágenes que parezcan pertenecer a alguien.</p>
-<p>El identificador necesita unicidad por ejecución, pero la plantilla debe estar versionada. Así pueden distinguirse tres objetos:</p>
-<ol>
-<li class="">la definición del control;</li>
-<li class="">la instancia inyectada;</li>
-<li class="">las observaciones de cada etapa.</li>
-</ol>
-<p>Nunca dependas solo del texto visible. Conserva hash, hora UTC, versión de la definición, versión del pipeline y correlación de eventos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-separa-control-de-salud-y-contenido-de-prueba">3. Separa control de salud y contenido de prueba<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#3-separa-control-de-salud-y-contenido-de-prueba" class="hash-link" aria-label="Enlace directo al 3. Separa control de salud y contenido de prueba" title="Enlace directo al 3. Separa control de salud y contenido de prueba" translate="no">​</a></h3>
-<p>Un <code>200 OK</code> confirma una respuesta HTTP, no que el documento correcto se preservó ni que el parser interpretó los campos esperados. Diseña comprobaciones por frontera:</p>
-<table><thead><tr><th>Frontera</th><th>Control positivo</th><th>Control negativo</th></tr></thead><tbody><tr><td>adquisición</td><td>bytes y hash previstos</td><td>fallo de formato registrado, no reintento infinito</td></tr><tr><td>preservación</td><td>original inmutable y metadatos mínimos</td><td>cuarentena separada del almacén publicable</td></tr><tr><td>extracción</td><td>campos esperados con procedencia</td><td>ningún valor inventado para completar el esquema</td></tr><tr><td>validación</td><td>estado <code>apto_prueba</code></td><td>código de rechazo específico</td></tr><tr><td>publicación</td><td>solo destino sintético</td><td>ausencia verificada en todos los productos</td></tr></tbody></table>
-<p>Great Expectations denomina <em>Expectation</em> a una afirmación verificable sobre datos. Ese enfoque declarativo resulta útil para expresar esquema, dominios y nulabilidad, pero una validación de tabla no sustituye el recorrido de extremo a extremo ni la comprobación de que el contenido no fue publicado donde no debía.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-inyecta-en-un-punto-autorizado-y-limita-el-alcance">4. Inyecta en un punto autorizado y limita el alcance<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#4-inyecta-en-un-punto-autorizado-y-limita-el-alcance" class="hash-link" aria-label="Enlace directo al 4. Inyecta en un punto autorizado y limita el alcance" title="Enlace directo al 4. Inyecta en un punto autorizado y limita el alcance" translate="no">​</a></h3>
-<p>La prueba debe entrar por una interfaz propia o expresamente habilitada. No publiques un canario en un portal ajeno, no alteres fuentes abiertas y no uses cuentas o perfiles para provocar observaciones. Si no controlas la adquisición, ejecuta el control en un entorno de ensayo fiel o sobre una captura sintética local.</p>
-<p>En producción, comienza por un carril aislado:</p>
-<ul>
-<li class="">colección y credenciales separadas;</li>
-<li class="">destino no indexable y no público;</li>
-<li class="">cuotas pequeñas;</li>
-<li class="">caducidad automática;</li>
-<li class="">barrera que impida mezclar controles y casos;</li>
-<li class="">botón de parada y responsable identificado.</li>
-</ul>
-<p>Google SRE advierte que las pruebas en producción se parecen a la monitorización de caja negra y son esenciales para servicios fiables, pero producción no es un entorno hermético. En OSINT, esa falta de aislamiento exige más cautela por la posible mezcla con datos reales.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-comprueba-éxito-rechazo-y-ausencia">5. Comprueba éxito, rechazo y ausencia<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#5-comprueba-%C3%A9xito-rechazo-y-ausencia" class="hash-link" aria-label="Enlace directo al 5. Comprueba éxito, rechazo y ausencia" title="Enlace directo al 5. Comprueba éxito, rechazo y ausencia" translate="no">​</a></h3>
-<p>El control positivo necesita una evidencia positiva en el destino permitido. El negativo necesita dos evidencias: el rechazo esperado y la ausencia en destinos posteriores. Consultar solo la cola de cuarentena deja abierta la posibilidad de una doble escritura.</p>
-<p>Una matriz mínima puede contener:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">CTRL-N-20261028-A</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  observado_en_ingesta: sí</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  rechazo: fecha_fuera_de_dominio</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  observado_en_indice_sintetico: no</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  observado_en_indice_publico: no</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  observado_en_exportaciones: no</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  estado: cumple</span><br></span></code></pre></div></div>
-<p>La ausencia debe consultarse después de una ventana conocida. Un «todavía no está» no equivale a «fue bloqueado» si existen colas, cachés o trabajos nocturnos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-alerta-sobre-la-propiedad-no-sobre-cualquier-diferencia">6. Alerta sobre la propiedad, no sobre cualquier diferencia<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#6-alerta-sobre-la-propiedad-no-sobre-cualquier-diferencia" class="hash-link" aria-label="Enlace directo al 6. Alerta sobre la propiedad, no sobre cualquier diferencia" title="Enlace directo al 6. Alerta sobre la propiedad, no sobre cualquier diferencia" translate="no">​</a></h3>
-<p>Una alarma debe decir qué expectativa falló, desde cuándo, qué versión estaba activa y qué acción corresponde. Google SRE recomienda mantener las reglas que interrumpen a personas simples, comprensibles y accionables. No conviertas cada latencia pequeña en una emergencia.</p>
-<p>Clasifica los resultados:</p>
-<ul>
-<li class=""><strong>incumplimiento:</strong> el positivo no llega o el negativo cruza una barrera;</li>
-<li class=""><strong>inconcluso:</strong> la prueba no pudo ejecutarse o la observación está incompleta;</li>
-<li class=""><strong>cumplimiento:</strong> se obtuvieron todas las evidencias previstas dentro de la ventana;</li>
-<li class=""><strong>control inválido:</strong> cambió la plantilla, caducó el endpoint o el propio artefacto ya no representa la propiedad.</li>
-</ul>
-<p>«Inconcluso» no debe contabilizarse como éxito ni como rechazo correcto.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-ensaya-la-alarma-y-su-canal">7. Ensaya la alarma y su canal<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#7-ensaya-la-alarma-y-su-canal" class="hash-link" aria-label="Enlace directo al 7. Ensaya la alarma y su canal" title="Enlace directo al 7. Ensaya la alarma y su canal" translate="no">​</a></h3>
-<p>Un control que solo escribe una métrica no prueba que alguien vaya a verla. Verifica de forma proporcionada:</p>
-<ol>
-<li class="">la condición cambia de estado;</li>
-<li class="">la regla la evalúa;</li>
-<li class="">la notificación llega al canal previsto;</li>
-<li class="">el aviso enlaza evidencia suficiente;</li>
-<li class="">el runbook propone una acción segura;</li>
-<li class="">el cierre queda registrado.</li>
-</ol>
-<p>Evita avisos frecuentes que terminen ignorados. Un control rápido puede alimentar un panel; una alarma humana debería reservarse para propiedades cuyo incumplimiento exige una decisión.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-rota-sin-enseñar-el-examen-al-pipeline">8. Rota sin enseñar el examen al pipeline<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#8-rota-sin-ense%C3%B1ar-el-examen-al-pipeline" class="hash-link" aria-label="Enlace directo al 8. Rota sin enseñar el examen al pipeline" title="Enlace directo al 8. Rota sin enseñar el examen al pipeline" translate="no">​</a></h3>
-<p>Una única muestra fija puede acabar especial-codificada por accidente. Mantén una familia pequeña de variantes equivalentes: orden de campos, codificación, tamaño, idioma ficticio o paginación. La propiedad debe permanecer estable y las variaciones deben estar acotadas y registradas.</p>
-<p>No generes mutaciones sin límite. Cada variante añade estados que mantener. Retira controles obsoletos, conserva el historial mínimo de resultados y revisa que la lista de destinos siga completa cuando aparezcan nuevos productos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-contén-y-confirma-antes-de-reabrir">9. Contén y confirma antes de reabrir<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#9-cont%C3%A9n-y-confirma-antes-de-reabrir" class="hash-link" aria-label="Enlace directo al 9. Contén y confirma antes de reabrir" title="Enlace directo al 9. Contén y confirma antes de reabrir" translate="no">​</a></h3>
-<p>Si un control falla:</p>
-<ol>
-<li class="">detén solo las salidas afectadas;</li>
-<li class="">preserva el artefacto y la telemetría;</li>
-<li class="">delimita versiones, ventanas y consumidores;</li>
-<li class="">decide si el fallo está en la prueba o en el pipeline;</li>
-<li class="">corrige sin sobrescribir el original;</li>
-<li class="">ejecuta una instancia nueva de confirmación;</li>
-<li class="">revisa productos reales con un plan independiente.</li>
-</ol>
-<p>Que falle el canario no demuestra que cada caso real esté mal. Que vuelva a pasar tampoco demuestra que todo el histórico esté bien. El control acota una propiedad y orienta la investigación del incidente.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>Los controles son muestras diseñadas. Pueden pasar mientras fallan formatos, fuentes o poblaciones que no representan. También pueden fallar por caducidad del certificado de prueba, retrasos legítimos, mantenimiento o una expectativa obsoleta.</p>
-<p>Otros riesgos son:</p>
-<ul>
-<li class=""><strong>ruta privilegiada:</strong> el canario atraviesa código distinto al tráfico real;</li>
-<li class=""><strong>contaminación:</strong> el control acaba en búsquedas, métricas o informes reales;</li>
-<li class=""><strong>enseñar el identificador:</strong> una regla reconoce el prefijo y simula éxito;</li>
-<li class=""><strong>doble escritura:</strong> el negativo llega a cuarentena y también a un derivado;</li>
-<li class=""><strong>oráculo pobre:</strong> la expectativa comprueba forma, no significado;</li>
-<li class=""><strong>observación circular:</strong> el mismo componente produce y valida su propia señal;</li>
-<li class=""><strong>coste oculto:</strong> demasiados controles consumen cuotas o fatigan al equipo;</li>
-<li class=""><strong>retención indebida:</strong> los artefactos sintéticos se conservan sin finalidad.</li>
-</ul>
-<p>Combina controles con auditorías por muestreo independiente, reconciliación de inventarios, pruebas unitarias y revisión de casos reales minimizados. Ninguna capa sustituye a las demás.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa únicamente infraestructura propia o autorizada.</li>
-<li class="">Diseña artefactos inequívocamente sintéticos y sin semejanza con personas reales.</li>
-<li class="">Impide por configuración su indexación, exportación o publicación abierta.</li>
-<li class="">Separa credenciales, colas, almacenes y destinos de prueba.</li>
-<li class="">Conserva hashes, estados y eventos antes que copias completas cuando basten.</li>
-<li class="">Limita frecuencia, volumen, permisos y retención.</li>
-<li class="">No uses el control como pretexto para eludir términos, límites o acceso.</li>
-<li class="">No incrustes secretos reales para comprobar si «se filtran».</li>
-<li class="">Trata una aparición pública accidental como incidente y retírala de forma verificable.</li>
-<li class="">Mantén una aprobación humana para ampliar alcance o reabrir publicaciones.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>Las pruebas unitarias son mejores para funciones puras y casos rápidos. Las pruebas de contrato comprueban fronteras entre servicios. Las expectativas de datos expresan esquema y dominios. Las pruebas metamórficas exploran invariantes cuando no conocemos una salida exacta. Las auditorías por muestreo buscan silencios fuera de la ruta que el sistema ya observa.</p>
-<p>El takeaway accionable es concreto: elige una propiedad crítica y escribe dos filas antes de automatizar nada: una entrada sintética que necesariamente deba llegar y otra que necesariamente deba quedar contenida. Define destinos permitidos y prohibidos, ventana y evidencia. <strong>Si solo sabes confirmar que algo pasó, todavía no sabes si el pipeline conserva la capacidad de decir que no.</strong></p>
-<p>Como siguiente tema convendría estudiar la <strong>cobertura de controles sintéticos</strong>: cómo mapear propiedades, fronteras y consumidores sin convertir el catálogo de canarios en una falsa garantía de exhaustividad.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/controles-positivos-negativos-pipelines-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://csrc.nist.gov/glossary/term/positive_control" target="_blank" rel="noopener noreferrer" class="">NIST CSRC: positive control (security)</a></li>
-<li class=""><a href="https://www.nist.gov/system/files/documents/2021/02/26/2020-S-0004_Standard%20for%20interpreting%20and%20reporting%20failed%20controls_Final.pdf" target="_blank" rel="noopener noreferrer" class="">NIST/OSAC: Standard for Interpreting, Comparing and Reporting DNA Test Results Associated with Failed Controls and Contamination Events</a></li>
-<li class=""><a href="https://sre.google/sre-book/monitoring-distributed-systems/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Monitoring Distributed Systems</a></li>
-<li class=""><a href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener noreferrer" class="">Google SRE: Testing for Reliability</a></li>
-<li class=""><a href="https://docs.greatexpectations.io/docs/core/define_expectations/create_an_expectation/" target="_blank" rel="noopener noreferrer" class="">Great Expectations: Create an Expectation</a></li>
 </ul>]]></content>
         <author>
             <name>OSINT Writter AI</name>
