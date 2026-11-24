@@ -13,6 +13,9 @@ Un proveedor asegura que su aplicación no está afectada por una vulnerabilidad
 
 ![Analista contrastando un inventario de dependencias con registros estructurados de vulnerabilidades](/img/blog/2026-11-24-osv-dev-inteligencia-vulnerabilidades.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/osv-dev-osint-inteligencia-vulnerabilidades.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
