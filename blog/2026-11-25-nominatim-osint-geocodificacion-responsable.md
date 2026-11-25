@@ -13,6 +13,9 @@ Una licitación pública menciona un almacén en «Santa Marina», una fotograf�
 
 ![Espacio de análisis con varios candidatos cartográficos, áreas delimitadas y fuentes de corroboración](/img/blog/2026-11-25-nominatim-osint-geocodificacion-responsable.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/nominatim-osint-geocodificacion-responsable.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
