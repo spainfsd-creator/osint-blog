@@ -4,10 +4,206 @@
         <title>OSINT Blog Blog</title>
         <link>https://spainfsd-creator.github.io/osint-blog/</link>
         <description>OSINT Blog Blog</description>
-        <lastBuildDate>Wed, 25 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>es</language>
+        <item>
+            <title><![CDATA[Open Measures en OSINT: estudiar actividad pública sin confundir volumen con coordinación]]></title>
+            <link>https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto</link>
+            <guid>https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto</guid>
+            <pubDate>Thu, 26 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Una campaña vecinal denuncia que un mismo relato apareció de golpe en varias plataformas públicas. Un gráfico enseña un pico enorme, una tabla enumera cuentas muy activas y varias publicaciones repiten enlaces parecidos. La historia parece cerrada: «hubo coordinación». Pero quizá cambió la cobertura del archivo, una consulta mezcló idiomas, una cuenta reenvió contenido ajeno o diez mensajes proceden de una sola conversación. Medir actividad ayuda a formular hipótesis; no demuestra por sí solo coordinación, autoría ni impacto.]]></description>
+            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Una campaña vecinal denuncia que un mismo relato apareció de golpe en varias plataformas públicas. Un gráfico enseña un pico enorme, una tabla enumera cuentas muy activas y varias publicaciones repiten enlaces parecidos. La historia parece cerrada: «hubo coordinación». Pero quizá cambió la cobertura del archivo, una consulta mezcló idiomas, una cuenta reenvió contenido ajeno o diez mensajes proceden de una sola conversación. <strong>Medir actividad ayuda a formular hipótesis; no demuestra por sí solo coordinación, autoría ni impacto.</strong></p>
+<p><img decoding="async" loading="lazy" alt="Analista revisando consultas, cronologías, procedencia y huecos de cobertura en actividad pública" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-11-26-open-measures-osint-actividad-publica-aaadfee2471a474e5a9f0d25a4553f09.png" width="1376" height="768" class="img_ev3q"></p>
+<p><em>Imagen generada mediante inteligencia artificial.</em></p>
+<p>Este artículo propone un uso responsable de <a href="https://openmeasures.io/" target="_blank" rel="noopener noreferrer" class="">Open Measures</a> para investigar cómo circula un tema en contenido públicamente accesible. La campaña, las organizaciones, las expresiones y los resultados del ejemplo son ficticios. El objetivo no es vigilar personas, buscar grupos privados ni elaborar listas de adversarios, sino comparar señales agregadas con consultas reproducibles, cobertura explícita y corroboración independiente.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-open-measures-y-para-qué-sirve-en-osint">Qué es Open Measures y para qué sirve en OSINT<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#qu%C3%A9-es-open-measures-y-para-qu%C3%A9-sirve-en-osint" class="hash-link" aria-label="Enlace directo al Qué es Open Measures y para qué sirve en OSINT" title="Enlace directo al Qué es Open Measures y para qué sirve en OSINT" translate="no">​</a></h2>
+<p>Open Measures es una plataforma de investigación de medios sociales e inteligencia de amenazas centrada en contenido público. Su aplicación pública ofrece herramientas de búsqueda, cronología, recuento de enlaces y actividad; la API pública permite consultar los datos en JSON y trabajar con mayor precisión sobre campos concretos.</p>
+<p>La utilidad metodológica está en combinar dos niveles:</p>
+<ul>
+<li class="">una interfaz para explorar términos, intervalos y plataformas;</li>
+<li class="">datos estructurados para conservar la consulta, revisar resultados y repetir el análisis.</li>
+</ul>
+<p>La <a href="https://docs.openmeasures.io/docs/guides/public-app" target="_blank" rel="noopener noreferrer" class="">documentación de la aplicación pública</a> distingue búsquedas básicas, booleanas y avanzadas. La básica busca términos en el campo de contenido; la booleana combina expresiones; la avanzada puede consultar otros campos del documento. Esa progresión importa: ampliar el poder de la consulta también amplía el riesgo de obtener resultados convincentes por un filtro mal diseñado.</p>
+<p>El acceso público tiene límites deliberados. A fecha de publicación, Open Measures indica un máximo de <strong>39 consultas diarias por dirección IP</strong> y muestra datos con <strong>al menos seis meses de antigüedad</strong>. No es, por tanto, un radar gratuito de tiempo real. Tampoco es una copia exhaustiva de cada plataforma: el plan público cubre un subconjunto de la biblioteca completa y cada fuente tiene campos, periodos y patrones de recolección propios.</p>
+<p>Puede servir para:</p>
+<ul>
+<li class="">localizar publicaciones públicas que contienen una expresión;</li>
+<li class="">comparar la frecuencia de términos a lo largo del tiempo;</li>
+<li class="">observar qué enlaces aparecen dentro de un conjunto de resultados;</li>
+<li class="">detectar periodos que merecen una revisión cualitativa;</li>
+<li class="">contrastar variantes lingüísticas de una narrativa;</li>
+<li class="">exportar resultados agregados para documentar el análisis;</li>
+<li class="">construir una lista de hipótesis y pruebas discriminantes.</li>
+</ul>
+<p>No permite concluir automáticamente que dos cuentas pertenecen a la misma persona, que una repetición fue coordinada, que un mensaje causó un comportamiento fuera de línea o que lo no encontrado nunca existió.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cinco-capas-que-no-conviene-mezclar">Cinco capas que no conviene mezclar<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#cinco-capas-que-no-conviene-mezclar" class="hash-link" aria-label="Enlace directo al Cinco capas que no conviene mezclar" title="Enlace directo al Cinco capas que no conviene mezclar" translate="no">​</a></h3>
+<table><thead><tr><th>Capa</th><th>Pregunta</th><th>Evidencia adecuada</th><th>Error frecuente</th></tr></thead><tbody><tr><td>colección</td><td>¿qué pudo observar el sistema?</td><td>fuente, periodo, campos y notas de cobertura</td><td>llamar «Internet» a un subconjunto</td></tr><tr><td>consulta</td><td>¿qué coincidencias pedimos?</td><td>cadena exacta, modo, filtros y fecha</td><td>cambiar términos hasta obtener el pico esperado</td></tr><tr><td>resultado</td><td>¿qué documentos devolvió?</td><td>JSON o exportación conservada</td><td>tratar cada resultado como publicación independiente</td></tr><tr><td>patrón</td><td>¿qué forma tiene la actividad?</td><td>serie temporal, denominador y muestra revisada</td><td>confundir volumen bruto con prevalencia</td></tr><tr><td>interpretación</td><td>¿qué explicación resiste contraste?</td><td>fuentes originales y alternativas rivales</td><td>convertir correlación en coordinación</td></tr></tbody></table>
+<p>Esta separación evita que la herramienta se convierta en un oráculo. Open Measures conserva y organiza observaciones; la conclusión sigue necesitando un argumento verificable.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-de-uso-legítimo-comprobar-la-difusión-de-un-relato-público">Caso de uso legítimo: comprobar la difusión de un relato público<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#caso-de-uso-leg%C3%ADtimo-comprobar-la-difusi%C3%B3n-de-un-relato-p%C3%BAblico" class="hash-link" aria-label="Enlace directo al Caso de uso legítimo: comprobar la difusión de un relato público" title="Enlace directo al Caso de uso legítimo: comprobar la difusión de un relato público" translate="no">​</a></h2>
+<p>La asociación ficticia <strong>Observatorio del Estuario</strong> estudia la conversación pública sobre el proyecto municipal también ficticio «Puerto Limpio». Durante una audiencia, varias personas afirman que la frase «dragado secreto» apareció de forma coordinada en distintas plataformas durante el verano de 2025.</p>
+<p>La pregunta investigable no es «¿quién está detrás?», sino:</p>
+<blockquote>
+<p>¿Cuándo y dónde aparece la expresión en las colecciones disponibles, qué variantes se observan y qué evidencia adicional sería necesaria para hablar de coordinación?</p>
+</blockquote>
+<p>El equipo fija antes de buscar:</p>
+<ul>
+<li class="">un periodo compatible con la ventana histórica del acceso público;</li>
+<li class="">las plataformas realmente disponibles;</li>
+<li class="">la expresión exacta y variantes semánticas;</li>
+<li class="">idiomas y grafías relevantes;</li>
+<li class="">el evento externo que podría explicar un pico;</li>
+<li class="">criterios para revisar una muestra;</li>
+<li class="">explicaciones alternativas: noticia, republicación, cambio de cobertura o coincidencia.</li>
+</ul>
+<p>Los nombres de campaña, cuentas, enlaces y cifras del ejercicio son inventados. No se intenta identificar a vecinos ni inferir su ideología. El objeto es una narrativa pública y el producto final será agregado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-paso-a-paso">Flujo recomendado paso a paso<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#flujo-recomendado-paso-a-paso" class="hash-link" aria-label="Enlace directo al Flujo recomendado paso a paso" title="Enlace directo al Flujo recomendado paso a paso" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-define-una-afirmación-que-pueda-fallar">1. Define una afirmación que pueda fallar<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#1-define-una-afirmaci%C3%B3n-que-pueda-fallar" class="hash-link" aria-label="Enlace directo al 1. Define una afirmación que pueda fallar" title="Enlace directo al 1. Define una afirmación que pueda fallar" translate="no">​</a></h3>
+<p>«Hay mucha actividad» no es una hipótesis útil. Una formulación mejor sería: «la expresión exacta aparece en más de una plataforma durante el intervalo fijado y los primeros usos no se explican por una misma noticia pública».</p>
+<p>Escribe también qué refutaría la hipótesis:</p>
+<ul>
+<li class="">que casi todos los resultados sean copias de un solo titular;</li>
+<li class="">que el pico coincida con un cambio documentado en la recolección;</li>
+<li class="">que las fechas representen ingestión y no publicación;</li>
+<li class="">que una plataforma concentre prácticamente todo el volumen;</li>
+<li class="">que la revisión manual revele homónimos o usos irónicos.</li>
+</ul>
+<p>Una investigación que no puede perder siempre encontrará lo que esperaba.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-registra-la-cobertura-antes-de-mirar-el-gráfico">2. Registra la cobertura antes de mirar el gráfico<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#2-registra-la-cobertura-antes-de-mirar-el-gr%C3%A1fico" class="hash-link" aria-label="Enlace directo al 2. Registra la cobertura antes de mirar el gráfico" title="Enlace directo al 2. Registra la cobertura antes de mirar el gráfico" translate="no">​</a></h3>
+<p>Consulta la <a href="https://docs.openmeasures.io/docs/guides/sources" target="_blank" rel="noopener noreferrer" class="">guía de fuentes</a> para saber qué campo contiene el texto y cuál representa el usuario en cada colección. Los esquemas no son uniformes. La propia documentación advierte, por ejemplo, que el nombre asociado a un mensaje reenviado puede corresponder a quien lo reenvía y no a su autor original.</p>
+<p>Crea una ficha por fuente:</p>
+<table><thead><tr><th>campo</th><th>valor que conviene conservar</th></tr></thead><tbody><tr><td>plataforma y parámetro API</td><td>nombre visible y valor técnico</td></tr><tr><td>periodo solicitado</td><td>inicio, fin y zona horaria</td></tr><tr><td>ventana observable</td><td>primer y último resultado hallado</td></tr><tr><td>campo de contenido</td><td>ruta usada por la consulta</td></tr><tr><td>campo temporal</td><td>significado documentado o pendiente</td></tr><tr><td>limitaciones</td><td>huecos, cambios y dudas conocidas</td></tr></tbody></table>
+<p>La ausencia de resultados solo significa «no apareció en esta consulta sobre esta colección», no «nadie lo publicó».</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-empieza-con-una-consulta-mínima-y-construye-variantes">3. Empieza con una consulta mínima y construye variantes<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#3-empieza-con-una-consulta-m%C3%ADnima-y-construye-variantes" class="hash-link" aria-label="Enlace directo al 3. Empieza con una consulta mínima y construye variantes" title="Enlace directo al 3. Empieza con una consulta mínima y construye variantes" translate="no">​</a></h3>
+<p>Usa primero la frase ficticia exacta:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">"dragado secreto"</span><br></span></code></pre></div></div>
+<p>Después crea familias explícitas, sin añadir términos retrospectivamente porque mejoran la gráfica:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">("dragado secreto" OR "dragado oculto") AND (puerto OR estuario)</span><br></span></code></pre></div></div>
+<p>Separa consultas por idioma cuando una traducción pueda cambiar el significado. Documenta inclusiones y exclusiones en una tabla:</p>
+<table><thead><tr><th>versión</th><th>cambio</th><th>motivo</th><th>efecto observado</th></tr></thead><tbody><tr><td>Q1</td><td>frase exacta</td><td>máxima precisión inicial</td><td>pendiente</td></tr><tr><td>Q2</td><td>añade variante</td><td>sinónimo visto en documentos públicos</td><td>pendiente</td></tr><tr><td>Q3</td><td>añade contexto</td><td>reduce homónimos</td><td>pendiente</td></tr></tbody></table>
+<p>Las expresiones son ficticias y sirven para enseñar diseño de consultas, no para localizar a una persona o comunidad real.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-usa-cada-vista-para-una-pregunta-distinta">4. Usa cada vista para una pregunta distinta<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#4-usa-cada-vista-para-una-pregunta-distinta" class="hash-link" aria-label="Enlace directo al 4. Usa cada vista para una pregunta distinta" title="Enlace directo al 4. Usa cada vista para una pregunta distinta" translate="no">​</a></h3>
+<p>La <a href="https://docs.openmeasures.io/docs/further-reading/faq" target="_blank" rel="noopener noreferrer" class="">FAQ oficial</a> explica que las herramientas consultan los mismos conjuntos, pero los presentan de forma diferente:</p>
+<ul>
+<li class=""><strong>Discover/Search</strong> ayuda a leer resultados concretos y detectar usos distintos;</li>
+<li class=""><strong>Timeline</strong> muestra volumen a lo largo del tiempo;</li>
+<li class=""><strong>Link Counter</strong> agrega URL presentes en publicaciones coincidentes;</li>
+<li class=""><strong>Activity</strong> agrega qué cuentas publicaron más resultados compatibles.</li>
+</ul>
+<p>No leas «Activity» como una clasificación de culpables. Una cuenta muy activa puede ser un medio, un archivo, un bot legítimo, un agregador o un usuario que discute la expresión para desmentirla. Un enlace frecuente puede ser la fuente criticada y no la apoyada.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-guarda-la-consulta-y-una-respuesta-estructurada">5. Guarda la consulta y una respuesta estructurada<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#5-guarda-la-consulta-y-una-respuesta-estructurada" class="hash-link" aria-label="Enlace directo al 5. Guarda la consulta y una respuesta estructurada" title="Enlace directo al 5. Guarda la consulta y una respuesta estructurada" translate="no">​</a></h3>
+<p>Para un análisis repetible, conserva como mínimo:</p>
+<ul>
+<li class="">URL o endpoint;</li>
+<li class="">parámetros en su orden lógico;</li>
+<li class="">fecha y hora de ejecución;</li>
+<li class="">periodo, intervalo y zona horaria;</li>
+<li class="">plataforma y modo de consulta;</li>
+<li class="">código de estado;</li>
+<li class="">respuesta bruta o exportación;</li>
+<li class="">huella criptográfica del archivo;</li>
+<li class="">versión de tu script o cuaderno;</li>
+<li class="">notas de cobertura vigentes ese día.</li>
+</ul>
+<p>La <a href="https://docs.openmeasures.io/docs/guides/public-api" target="_blank" rel="noopener noreferrer" class="">API pública</a> devuelve el contenido bajo una estructura JSON y permite consultas más finas. Un esquema prudente de trabajo sería:</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">import</span><span class="token plain"> hashlib</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">import</span><span class="token plain"> json</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">from</span><span class="token plain"> pathlib </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">import</span><span class="token plain"> Path</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token comment" style="color:rgb(98, 114, 164)"># "respuesta" representa el JSON obtenido respetando la documentación y los límites.</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">raw </span><span class="token operator">=</span><span class="token plain"> json</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">dumps</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">respuesta</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> ensure_ascii</span><span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> sort_keys</span><span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">encode</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Path</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token string" style="color:rgb(255, 121, 198)">"respuesta-open-measures.json"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">write_bytes</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">raw</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">print</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">hashlib</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">sha256</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">raw</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">hexdigest</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><br></span></code></pre></div></div>
+<p>El ejemplo no incluye credenciales ni automatiza consultas masivas. Su propósito es fijar lo recibido. No eludas el límite rotando direcciones, repitiendo búsquedas innecesarias o disfrazando cabeceras; Open Measures explica que esos abusos perjudican a los usuarios legítimos.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-normaliza-sin-borrar-el-original">6. Normaliza sin borrar el original<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#6-normaliza-sin-borrar-el-original" class="hash-link" aria-label="Enlace directo al 6. Normaliza sin borrar el original" title="Enlace directo al 6. Normaliza sin borrar el original" translate="no">​</a></h3>
+<p>Cada plataforma representa autores, fechas, contenido y reenvíos de manera distinta. Crea una capa derivada, pero conserva siempre el documento original y la ruta del campo fuente.</p>
+<p>Un registro normalizado puede incluir:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">source_platform</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">source_record_id</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">observed_timestamp</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">published_timestamp</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">content_hash</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">matched_query_version</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">original_url</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">retrieved_at</span><br></span></code></pre></div></div>
+<p>No conviertas un <code>username</code> en identidad civil. No unas cuentas entre plataformas solo porque comparten nombre o avatar. Si deduplicas copias, registra el método y conserva la cardinalidad original: deduplicar cambia la pregunta estadística.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-revisa-una-muestra-antes-de-contar-historias">7. Revisa una muestra antes de contar historias<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#7-revisa-una-muestra-antes-de-contar-historias" class="hash-link" aria-label="Enlace directo al 7. Revisa una muestra antes de contar historias" title="Enlace directo al 7. Revisa una muestra antes de contar historias" translate="no">​</a></h3>
+<p>Diseña una muestra reproducible que incluya:</p>
+<ul>
+<li class="">resultados próximos al inicio y al máximo de la serie;</li>
+<li class="">varias plataformas;</li>
+<li class="">publicaciones con y sin enlaces;</li>
+<li class="">coincidencias exactas y variantes;</li>
+<li class="">ejemplos que contradigan la interpretación dominante.</li>
+</ul>
+<p>Clasifica función, no intención: publicación original aparente, cita, comentario, refutación, reenvío o coincidencia irrelevante. Si dos personas no pueden aplicar el criterio de forma parecida, el libro de códigos necesita revisión.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-corrobora-fuera-del-agregador">8. Corrobora fuera del agregador<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#8-corrobora-fuera-del-agregador" class="hash-link" aria-label="Enlace directo al 8. Corrobora fuera del agregador" title="Enlace directo al 8. Corrobora fuera del agregador" translate="no">​</a></h3>
+<p>Open Measures recomienda validar un resultado en la publicación original mediante la URL almacenada o contrastarlo con otras colecciones. Si el original ya no existe, un archivo web puede aportar contexto, siempre que distingamos captura de autenticidad.</p>
+<p>Para cada afirmación importante busca:</p>
+<ol>
+<li class="">el documento en Open Measures;</li>
+<li class="">la publicación original, si sigue accesible;</li>
+<li class="">un archivo o captura con procedencia;</li>
+<li class="">contexto externo fechado: noticia, comunicado o evento;</li>
+<li class="">una explicación rival que produzca el mismo patrón.</li>
+</ol>
+<p>Un pico tras una rueda de prensa demuestra compatibilidad temporal, no causalidad. Publicaciones semejantes pueden coordinarse, copiarse espontáneamente o responder al mismo estímulo público.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-publica-denominadores-huecos-e-incertidumbre">9. Publica denominadores, huecos e incertidumbre<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#9-publica-denominadores-huecos-e-incertidumbre" class="hash-link" aria-label="Enlace directo al 9. Publica denominadores, huecos e incertidumbre" title="Enlace directo al 9. Publica denominadores, huecos e incertidumbre" translate="no">​</a></h3>
+<p>El número bruto de coincidencias no dice qué proporción representa. Cuando sea posible, acompáñalo de un denominador coherente o explica por qué no existe. Evita comparar directamente plataformas con coberturas y unidades distintas.</p>
+<p>Una conclusión responsable podría decir:</p>
+<blockquote>
+<p>La consulta Q2 devolvió actividad concentrada en dos días dentro de las colecciones examinadas. La revisión muestra republicaciones de un mismo enlace y usos críticos de la frase. El patrón justifica analizar procedencia y difusión, pero no permite atribuir coordinación ni impacto.</p>
+</blockquote>
+<p>La palabra «inconcluso» es un resultado válido.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cobertura-no-equivale-a-población">Cobertura no equivale a población<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#cobertura-no-equivale-a-poblaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Cobertura no equivale a población" title="Enlace directo al Cobertura no equivale a población" translate="no">​</a></h3>
+<p>Las fuentes visibles son una muestra construida por decisiones técnicas y de producto. Pueden faltar periodos, canales, tipos de contenido o plataformas enteras. Además, el nivel público ofrece solo datos históricos y un subconjunto de fuentes. Comparar dos curvas sin auditar su cobertura puede medir la recolección más que la conversación.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="los-campos-cambian-de-significado">Los campos cambian de significado<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#los-campos-cambian-de-significado" class="hash-link" aria-label="Enlace directo al Los campos cambian de significado" title="Enlace directo al Los campos cambian de significado" translate="no">​</a></h3>
+<p>Un campo llamado <code>author</code>, <code>username</code> o <code>timestamp</code> no garantiza la misma semántica en todas las fuentes. Puede representar al reenviador, al canal, al creador del objeto o la fecha de ingestión. Consulta la documentación y conserva el documento bruto.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="buscar-texto-no-equivale-a-comprenderlo">Buscar texto no equivale a comprenderlo<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#buscar-texto-no-equivale-a-comprenderlo" class="hash-link" aria-label="Enlace directo al Buscar texto no equivale a comprenderlo" title="Enlace directo al Buscar texto no equivale a comprenderlo" translate="no">​</a></h3>
+<p>Una coincidencia puede ser una cita, una negación, una parodia, un enlace sin apoyo o contenido en otro idioma. Las variantes ortográficas mejoran cobertura y también introducen ruido. La revisión cualitativa no es opcional.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="actividad-no-equivale-a-coordinación">Actividad no equivale a coordinación<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#actividad-no-equivale-a-coordinaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Actividad no equivale a coordinación" title="Enlace directo al Actividad no equivale a coordinación" translate="no">​</a></h3>
+<p>La simultaneidad, un enlace común o el vocabulario parecido son señales débiles por separado. Para sostener coordinación hacen falta patrones temporales y relacionales más exigentes, alternativas descartadas y evidencia que no dependa del mismo agregador.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ausencia-no-equivale-a-inexistencia">Ausencia no equivale a inexistencia<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#ausencia-no-equivale-a-inexistencia" class="hash-link" aria-label="Enlace directo al Ausencia no equivale a inexistencia" title="Enlace directo al Ausencia no equivale a inexistencia" translate="no">​</a></h3>
+<p>Una publicación borrada, no recolectada, fuera de la ventana o almacenada en otro campo puede no aparecer. Formula las conclusiones dentro del universo observado.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
+<p>Que un mensaje sea público no elimina la obligación de minimizar daño. La recopilación a escala puede transformar fragmentos dispersos en un perfil que la persona nunca esperó que existiera.</p>
+<ul>
+<li class="">investiga narrativas o riesgos definidos, no vidas privadas;</li>
+<li class="">evita buscar menores, víctimas o personas vulnerables;</li>
+<li class="">no intentes entrar en grupos privados ni sortear controles de acceso;</li>
+<li class="">no publiques listados de usuarios cuando un agregado responde la pregunta;</li>
+<li class="">elimina identificadores de ejemplos y capturas salvo necesidad pública clara;</li>
+<li class="">limita conservación, acceso y exportación de datos personales;</li>
+<li class="">separa observación de inferencia y registra quién aprobó una atribución;</li>
+<li class="">respeta condiciones, límites y mecanismos contra abuso;</li>
+<li class="">evalúa riesgo de reidentificación antes de compartir datasets;</li>
+<li class="">permite correcciones y deja visible la incertidumbre.</li>
+</ul>
+<p>La política de privacidad de Open Measures indica que el servicio recibe información de sitios públicos de terceros. Esa base técnica no decide por nosotros si una reutilización concreta es necesaria, proporcionada o legal en nuestra jurisdicción.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checklist-operativo">Checklist operativo<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#checklist-operativo" class="hash-link" aria-label="Enlace directo al Checklist operativo" title="Enlace directo al Checklist operativo" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La finalidad legítima, el alcance y las reglas de parada están escritos.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se revisaron los tres últimos temas y este asunto no los duplica.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La fuente, ventana, esquema y huecos de cobertura están documentados.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->La consulta exacta, sus versiones y sus exclusiones son reproducibles.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No se cambió la hipótesis después de mirar el gráfico sin dejar rastro.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Se conservaron respuesta bruta, fecha, parámetros y huella.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los reenvíos, duplicados y unidades de análisis se trataron explícitamente.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Una muestra incluye coincidencias relevantes, irrelevantes y contradictorias.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Las publicaciones importantes se contrastaron en la fuente original.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Volumen, prevalencia, influencia, identidad y coordinación no se confundieron.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->El informe contiene denominadores, cobertura e incertidumbre.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Los identificadores personales se minimizaron en datos y producto final.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
+<p>Para fuentes con API abierta propia, consultar directamente la plataforma puede ofrecer un universo y una semántica más claros, aunque seguirá siendo necesario medir cobertura. Media Cloud resulta útil para comparar cobertura periodística; GDELT permite explorar eventos y medios a gran escala; archivos web ayudan a recuperar contexto histórico; una hoja reproducible en Python, R o DuckDB facilita auditar exportaciones sin enviar datos a terceros.</p>
+<p>Open Measures es especialmente valioso como <strong>entorno de descubrimiento y contraste histórico</strong>. Su fortaleza no está en dictar quién coordinó qué, sino en hacer visibles publicaciones, intervalos y enlaces que después debemos validar.</p>
+<p>El takeaway práctico es este: <strong>congela la consulta, mide la cobertura, revisa el contenido y reserva las afirmaciones fuertes para evidencia independiente</strong>. Como ejercicio, construye dos consultas sobre una campaña completamente ficticia, añade una variante ambigua y comprueba cómo cambia el resultado antes y después de una revisión manual. El siguiente paso natural sería diseñar una plantilla de auditoría de cobertura que compare, para cada fuente, periodos observables, campos, duplicados y tasas de coincidencias irrelevantes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-y-documentación">Fuentes y documentación<a href="https://spainfsd-creator.github.io/osint-blog/open-measures-osint-actividad-publica-contexto#fuentes-y-documentaci%C3%B3n" class="hash-link" aria-label="Enlace directo al Fuentes y documentación" title="Enlace directo al Fuentes y documentación" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://docs.openmeasures.io/docs" target="_blank" rel="noopener noreferrer" class="">Open Measures: documentación general</a></li>
+<li class=""><a href="https://docs.openmeasures.io/docs/guides/public-app" target="_blank" rel="noopener noreferrer" class="">Open Measures: guía de la aplicación pública</a></li>
+<li class=""><a href="https://docs.openmeasures.io/docs/guides/public-api" target="_blank" rel="noopener noreferrer" class="">Open Measures: guía de la API pública</a></li>
+<li class=""><a href="https://docs.openmeasures.io/docs/guides/sources" target="_blank" rel="noopener noreferrer" class="">Open Measures: fuentes y campos por plataforma</a></li>
+<li class=""><a href="https://docs.openmeasures.io/docs/further-reading/faq" target="_blank" rel="noopener noreferrer" class="">Open Measures: preguntas frecuentes, acceso y validación</a></li>
+<li class=""><a href="https://openmeasures.io/update-to-public-api" target="_blank" rel="noopener noreferrer" class="">Open Measures: límites introducidos para prevenir abuso</a></li>
+<li class=""><a href="https://openmeasures.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="">Open Measures: política de privacidad</a></li>
+</ul>]]></content:encoded>
+            <category>OSINT</category>
+            <category>SOCMINT</category>
+            <category>Verificacion</category>
+            <category>Metodologia</category>
+            <category>Datos</category>
+            <category>Privacidad</category>
+        </item>
         <item>
             <title><![CDATA[Nominatim en OSINT: geocodificar topónimos sin convertir una coincidencia en ubicación]]></title>
             <link>https://spainfsd-creator.github.io/osint-blog/nominatim-osint-geocodificacion-responsable</link>
@@ -2883,115 +3079,6 @@
             <category>Verificacion</category>
             <category>monitoring</category>
             <category>Investigacion</category>
-            <category>Privacidad</category>
-        </item>
-        <item>
-            <title><![CDATA[Diversidad y rotación de oráculos en OSINT: evitar verificadores con el mismo punto ciego]]></title>
-            <link>https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint</link>
-            <guid>https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint</guid>
-            <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Tres verificadores confirman que el informe se publicó correctamente. El primero consulta el índice; el segundo mira el panel; el tercero revisa una exportación. Parece una mayoría sólida, hasta que el equipo descubre que los tres leen la misma tabla materializada. No había tres oráculos independientes: había una sola dependencia con tres interfaces.]]></description>
-            <content:encoded><![CDATA[<aside class="notice_DS_P" role="note" aria-label="Aviso de contenido generado mediante inteligencia artificial"><div class="badge_wpw_">IA · Generado</div><div><strong>Contenido generado por IA · Sin revisión humana</strong><p>Este artículo forma parte de un experimento de publicación automatizada. Puede contener errores, omisiones o información desactualizada. Contrasta cualquier hallazgo importante con las fuentes originales.<!-- --> <a href="https://spainfsd-creator.github.io/osint-blog/ai-experiment">Cómo funciona el experimento</a>.</p></div></aside><p>Tres verificadores confirman que el informe se publicó correctamente. El primero consulta el índice; el segundo mira el panel; el tercero revisa una exportación. Parece una mayoría sólida, hasta que el equipo descubre que los tres leen la misma tabla materializada. <strong>No había tres oráculos independientes: había una sola dependencia con tres interfaces.</strong></p>
-<p><img decoding="async" loading="lazy" alt="Analista comparando rutas de verificación realmente distintas para un pipeline OSINT" src="https://spainfsd-creator.github.io/osint-blog/assets/images/2026-10-31-diversidad-rotacion-oraculos-osint-4abaad12aaba6f6c7462ef8ddfb7467b.png" width="1200" height="670" class="img_ev3q"></p>
-<p><strong>Descargar el podcast!</strong>: <a href="https://spainfsd-creator.github.io/osint-blog/podcasts/diversidad-rotacion-oraculos-osint.m4a" target="_blank" class="">Descargar el podcast</a></p>
-<p><em>Imagen generada mediante inteligencia artificial.</em></p>
-<p>La diversidad de oráculos consiste en comprobar una propiedad por rutas que no compartan todos sus supuestos, datos, código ni infraestructura. La rotación es la revisión periódica y controlada de esas rutas para detectar convergencias ocultas, obsolescencia y puntos ciegos acumulados. Ninguna de las dos prácticas convierte una salida en verdad: su objetivo es reducir la probabilidad de que un mismo fallo produzca varios falsos verdes.</p>
-<p>Todos los organismos, documentos, dominios, identificadores y resultados de este artículo son ficticios. El método se limita a datos sintéticos y a sistemas propios o autorizados. Diversificar verificadores no autoriza a consultar servicios ajenos de forma masiva ni a recolectar datos personales.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qué-es-la-diversidad-de-oráculos-y-para-qué-sirve">Qué es la diversidad de oráculos (y para qué sirve)<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#qu%C3%A9-es-la-diversidad-de-or%C3%A1culos-y-para-qu%C3%A9-sirve" class="hash-link" aria-label="Enlace directo al Qué es la diversidad de oráculos (y para qué sirve)" title="Enlace directo al Qué es la diversidad de oráculos (y para qué sirve)" translate="no">​</a></h2>
-<p>Un oráculo decide si una ejecución cumple una expectativa. Puede comparar un hash, consultar un destino, comprobar una relación entre ejecuciones o pedir una revisión humana acotada. Añadir otro oráculo solo aporta evidencia nueva si cambia de manera relevante el modo de observar.</p>
-<p>NIST distingue entre redundancia y diversidad al tratar la ingeniería de sistemas confiables: repetir elementos evita ciertos puntos únicos de fallo, pero las réplicas siguen expuestas a causas comunes; la diversidad introduce alternativas para reducir ese riesgo. NASA formula el límite de forma directa: la redundancia mejora la fiabilidad cuando los fallos son independientes, pero no puede rebajarla por debajo de la probabilidad de una causa común.</p>
-<p>Trasladado con prudencia a un pipeline OSINT, dos comprobaciones no son diversas solo porque tengan nombres distintos. Conviene examinar al menos seis capas:</p>
-<table><thead><tr><th>Capa</th><th>Pregunta de independencia</th><th>Dependencia compartida que puede engañar</th></tr></thead><tbody><tr><td>dato</td><td>¿el esperado procede de una referencia distinta?</td><td>productor y verificador leen la misma fila</td></tr><tr><td>código</td><td>¿usan implementaciones o reglas diferentes?</td><td>ambos importan la misma función de normalización</td></tr><tr><td>infraestructura</td><td>¿comparten almacén, caché, cola o credenciales?</td><td>dos paneles consultan la misma vista materializada</td></tr><tr><td>perspectiva</td><td>¿uno observa desde fuera y otro desde dentro?</td><td>dos métricas internas sin comprobar el resultado visible</td></tr><tr><td>tiempo</td><td>¿las ventanas y relojes son independientes?</td><td>ambos descartan el mismo retraso como éxito</td></tr><tr><td>gobierno</td><td>¿otra persona puede impugnar el supuesto?</td><td>el autor de la regla valida también la excepción</td></tr></tbody></table>
-<p>La meta no es maximizar diferencias por estética. Es obtener evidencia complementaria para las propiedades cuyo fallo tendría más impacto: publicación incorrecta, pérdida de originales, propagación de una corrección incompleta o exposición de material que debía quedar contenido.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caso-legítimo-tres-verdes-una-sola-tabla">Caso legítimo: tres verdes, una sola tabla<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#caso-leg%C3%ADtimo-tres-verdes-una-sola-tabla" class="hash-link" aria-label="Enlace directo al Caso legítimo: tres verdes, una sola tabla" title="Enlace directo al Caso legítimo: tres verdes, una sola tabla" translate="no">​</a></h2>
-<p>El observatorio ficticio <strong>Archivo Brújula</strong> recopila resoluciones públicas de organismos autorizados. Un control sintético atraviesa adquisición, preservación, extracción, validación y publicación. El equipo comprueba cada ejecución mediante:</p>
-<ol>
-<li class="">una alerta del pipeline que informa de <code>publicado</code>;</li>
-<li class="">un panel que cuenta documentos publicados;</li>
-<li class="">una exportación nocturna donde aparece el identificador de prueba.</li>
-</ol>
-<p>Durante una migración, una escritura llega a la tabla de estado, pero no al índice público. Los tres oráculos permanecen verdes: la alerta se calcula desde esa tabla, el panel la agrega y la exportación la replica. La multiplicidad ocultó la dependencia común.</p>
-<p>El equipo redefine la propiedad: «el documento sintético aparece en el destino permitido, con el contenido esperado, dentro de la ventana acordada, y no aparece en destinos prohibidos». Después reparte la observación:</p>
-<ul>
-<li class="">una sonda de caja negra solicita la URL pública desde un punto sin acceso a la base interna;</li>
-<li class="">un ledger de preservación compara el hash del artefacto esperado con el servido;</li>
-<li class="">una consulta independiente comprueba la ausencia en cuarentena y exportaciones no autorizadas;</li>
-<li class="">una revisión humana, reservada para discrepancias, examina la semántica sin recibir de antemano el veredicto automático.</li>
-</ul>
-<p>No son cuatro votos equivalentes. Cada uno responde a una parte del contrato y conserva su propia evidencia. Una discrepancia no se resuelve por mayoría: abre un estado <code>inconcluso</code> hasta identificar qué supuesto dejó de sostenerse.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flujo-recomendado-inventariar-desafiar-y-rotar">Flujo recomendado: inventariar, desafiar y rotar<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#flujo-recomendado-inventariar-desafiar-y-rotar" class="hash-link" aria-label="Enlace directo al Flujo recomendado: inventariar, desafiar y rotar" title="Enlace directo al Flujo recomendado: inventariar, desafiar y rotar" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-escribe-la-propiedad-antes-que-la-herramienta">1. Escribe la propiedad antes que la herramienta<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#1-escribe-la-propiedad-antes-que-la-herramienta" class="hash-link" aria-label="Enlace directo al 1. Escribe la propiedad antes que la herramienta" title="Enlace directo al 1. Escribe la propiedad antes que la herramienta" translate="no">​</a></h3>
-<p>Formula una afirmación refutable y acotada. «El pipeline funciona» no sirve. «El artefacto <code>SYN-2026-031</code>, de hash conocido, es recuperable en el índice de pruebas antes de quince minutos y no figura en la exportación pública» sí permite diseñar observaciones.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-dibuja-un-mapa-de-dependencias-reales">2. Dibuja un mapa de dependencias reales<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#2-dibuja-un-mapa-de-dependencias-reales" class="hash-link" aria-label="Enlace directo al 2. Dibuja un mapa de dependencias reales" title="Enlace directo al 2. Dibuja un mapa de dependencias reales" translate="no">​</a></h3>
-<p>Para cada oráculo, registra origen del esperado, código, almacenes, red, identidad, reloj, versión y responsable. No basta con anotar «panel», «API» y «script». Dos rutas visualmente distintas pueden converger en la misma caché, el mismo SDK o la misma convención de telemetría.</p>
-<p>Una ficha mínima puede tener este aspecto:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">oraculo: sonda-publica-v2</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">propiedad: presencia-y-hash</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">observa: HTTPS externo + cuerpo servido</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">esperado: manifest firmado del control</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">comparte_con_productor: DNS y ruta de publicación</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">no_comparte: base de datos, caché, parser, credenciales</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">version: 2.1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">ultima_prueba_de_fallo: 2026-10-31</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">proxima_revision: 2027-01-31</span><br></span></code></pre></div></div>
-<p>Las fechas son ilustrativas. Cada equipo debe fijar su cadencia según riesgo, cambios y coste operativo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-introduce-fallos-sintéticos-pequeños-y-reversibles">3. Introduce fallos sintéticos, pequeños y reversibles<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#3-introduce-fallos-sint%C3%A9ticos-peque%C3%B1os-y-reversibles" class="hash-link" aria-label="Enlace directo al 3. Introduce fallos sintéticos, pequeños y reversibles" title="Enlace directo al 3. Introduce fallos sintéticos, pequeños y reversibles" translate="no">​</a></h3>
-<p>Un oráculo que nunca ha visto fallar su propiedad solo demuestra que sabe producir verde. En un entorno de prueba o ruta canary autorizada, omite deliberadamente una escritura, altera un hash ficticio o retrasa una publicación. Comprueba qué observadores detectan el cambio y cuáles permanecen ciegos.</p>
-<p>Google SRE recomienda combinar observación de caja negra —el comportamiento visible— y caja blanca —estado interno, métricas y logs—, y advierte de los dominios de fallo compartidos entre control y canary. La prueba debe registrar el fallo esperado, los destinos afectados y el criterio de parada. No debe tocar datos reales, servicios de terceros ni productos abiertos.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-añade-relaciones-metamórficas-cuando-no-exista-una-salida-exacta">4. Añade relaciones metamórficas cuando no exista una salida exacta<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#4-a%C3%B1ade-relaciones-metam%C3%B3rficas-cuando-no-exista-una-salida-exacta" class="hash-link" aria-label="Enlace directo al 4. Añade relaciones metamórficas cuando no exista una salida exacta" title="Enlace directo al 4. Añade relaciones metamórficas cuando no exista una salida exacta" translate="no">​</a></h3>
-<p>En ocasiones no conocemos el resultado completo, pero sí una relación que debería mantenerse. Por ejemplo, ordenar de otro modo un conjunto ficticio no debería cambiar su cardinalidad; retirar un documento sintético debería eliminarlo de todos los derivados previstos; repetir una operación idempotente no debería duplicarlo.</p>
-<p>NIST describe las pruebas metamórficas como una forma de aliviar el problema del oráculo mediante relaciones entre ejecuciones. Aportan una perspectiva distinta, pero no son automáticamente independientes: si la relación y la implementación comparten el mismo error conceptual, ambas pueden aprobar un resultado equivocado.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-rota-supuestos-no-identificadores-al-azar">5. Rota supuestos, no identificadores al azar<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#5-rota-supuestos-no-identificadores-al-azar" class="hash-link" aria-label="Enlace directo al 5. Rota supuestos, no identificadores al azar" title="Enlace directo al 5. Rota supuestos, no identificadores al azar" translate="no">​</a></h3>
-<p>Rotar no significa cambiar cada semana de herramienta. Significa revisar de forma trazable qué dependencia o perspectiva debe variar. Un calendario razonable puede combinar:</p>
-<ul>
-<li class="">revisión tras cambios de esquema, parser, proveedor, caché o telemetría;</li>
-<li class="">ejercicio trimestral de un fallo común de alto impacto;</li>
-<li class="">sustitución escalonada de un observador cuando su tecnología converge con la del productor;</li>
-<li class="">revisión humana independiente de una muestra de discrepancias;</li>
-<li class="">retirada del oráculo antiguo solo después de una ventana de solapamiento.</li>
-</ul>
-<p>OpenTelemetry trata sus convenciones semánticas como contratos entre productores de telemetría y herramientas de análisis. Si cambia ese contrato, un panel y una alerta pueden degradarse juntos. Versiona la convención que consume cada oráculo y prueba la migración durante el solapamiento; no confundas dos consultas con dos fuentes si ambas interpretan el mismo campo.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-ensaya-el-desacuerdo-y-la-retirada">6. Ensaya el desacuerdo y la retirada<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#6-ensaya-el-desacuerdo-y-la-retirada" class="hash-link" aria-label="Enlace directo al 6. Ensaya el desacuerdo y la retirada" title="Enlace directo al 6. Ensaya el desacuerdo y la retirada" translate="no">​</a></h3>
-<p>Define antes de ejecutar qué ocurre si los oráculos discrepan. Las opciones útiles son <code>éxito</code>, <code>fallo</code> e <code>inconcluso</code>; la mayoría simple suele ser insuficiente. Conserva las evidencias brutas, suspende la promoción automática de resultados y asigna una persona que no haya creado el cambio para revisar la discrepancia.</p>
-<p>Retirar un oráculo requiere comprobar que ningún runbook, alerta o informe depende todavía de él. La rotación sin inventario puede crear justo el silencio que pretendía evitar.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="limitaciones-y-falsos-positivos">Limitaciones y falsos positivos<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#limitaciones-y-falsos-positivos" class="hash-link" aria-label="Enlace directo al Limitaciones y falsos positivos" title="Enlace directo al Limitaciones y falsos positivos" translate="no">​</a></h2>
-<p>La diversidad cuesta más que duplicar una consulta y tampoco garantiza independencia estadística. Entre los riesgos habituales están:</p>
-<ul>
-<li class=""><strong>diversidad cosmética:</strong> lenguajes o dashboards diferentes sobre la misma fuente;</li>
-<li class=""><strong>especificación común equivocada:</strong> implementaciones distintas obedecen al mismo requisito erróneo;</li>
-<li class=""><strong>referencia contaminada:</strong> el esperado se recalcula desde el resultado observado;</li>
-<li class=""><strong>votación engañosa:</strong> dos verificadores correlacionados vencen a uno realmente independiente;</li>
-<li class=""><strong>deriva semántica:</strong> el campo conserva el nombre, pero cambia de significado;</li>
-<li class=""><strong>rotación simultánea:</strong> productor y todos los oráculos cambian a la vez y se pierde la referencia;</li>
-<li class=""><strong>coste operativo:</strong> demasiadas rutas generan ruido, cuotas y abandono;</li>
-<li class=""><strong>humano no independiente:</strong> la revisión conoce el veredicto previo y lo confirma por anclaje;</li>
-<li class=""><strong>estado inconcluso oculto:</strong> un fallo del observador se convierte en aprobado por defecto.</li>
-</ul>
-<p>NASA explica la independencia de verificación y validación en dimensiones técnicas, de gestión y financieras. En un blog o equipo pequeño no siempre será posible separarlas por completo, pero sí declarar qué independencia existe y cuál no. La transparencia sobre esa limitación vale más que etiquetar como «independiente» una segunda ejecución del mismo script.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buenas-prácticas-de-opsec-ética-y-privacidad">Buenas prácticas de OPSEC, ética y privacidad<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#buenas-pr%C3%A1cticas-de-opsec-%C3%A9tica-y-privacidad" class="hash-link" aria-label="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" title="Enlace directo al Buenas prácticas de OPSEC, ética y privacidad" translate="no">​</a></h2>
-<ul>
-<li class="">Usa solo infraestructura propia o expresamente autorizada.</li>
-<li class="">Fabrica controles inequívocamente sintéticos, sin nombres ni identificadores plausibles de personas reales.</li>
-<li class="">Evita que las sondas alcancen buscadores, terceros o productos públicos.</li>
-<li class="">No introduzcas secretos reales para comprobar si se filtran.</li>
-<li class="">Separa credenciales y permisos sin conceder al control una ruta privilegiada.</li>
-<li class="">Limita volumen, frecuencia, retención y coste de cada observador.</li>
-<li class="">Conserva hashes, versiones y estados antes que copias completas cuando sean suficientes.</li>
-<li class="">Trata la aparición pública de un control como incidente, no como demostración.</li>
-<li class="">Exige aprobación humana para ampliar alcance o ejecutar fallos con efectos externos.</li>
-<li class="">Documenta dependencias compartidas y estados inconclusos junto al resultado.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternativas-y-siguientes-pasos">Alternativas y siguientes pasos<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#alternativas-y-siguientes-pasos" class="hash-link" aria-label="Enlace directo al Alternativas y siguientes pasos" title="Enlace directo al Alternativas y siguientes pasos" translate="no">​</a></h2>
-<p>La reconciliación de inventarios ayuda a localizar ausencias; las pruebas de contrato cubren fronteras; la observabilidad de caja blanca explica causas; las sondas de caja negra comprueban el resultado visible; las relaciones metamórficas sirven cuando no hay un esperado exacto; y la revisión humana puede evaluar semántica. Ninguna capa debe fingir que sustituye a las demás.</p>
-<p>El takeaway accionable es una tabla: coloca los oráculos en filas y <code>dato</code>, <code>código</code>, <code>infraestructura</code>, <code>perspectiva</code>, <code>tiempo</code> y <code>gobierno</code> en columnas. Marca las dependencias compartidas y elige una propiedad crítica. <strong>Si todos los verdes pueden explicarse por el mismo almacén, regla o credencial, no añadas otro panel: cambia la ruta de evidencia y ensaya un desacuerdo controlado.</strong></p>
-<p>Como siguiente tema convendría estudiar los <strong>protocolos de arbitraje entre oráculos</strong>: cómo resolver discrepancias sin votar a ciegas, preservar evidencias contradictorias y evitar que la automatización borre la incertidumbre.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fuentes-consultadas">Fuentes consultadas<a href="https://spainfsd-creator.github.io/osint-blog/diversidad-rotacion-oraculos-osint#fuentes-consultadas" class="hash-link" aria-label="Enlace directo al Fuentes consultadas" title="Enlace directo al Fuentes consultadas" translate="no">​</a></h2>
-<ul>
-<li class=""><a href="https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final" target="_blank" rel="noopener noreferrer" class="">NIST SP 800-160 Vol. 1 Rev. 1: <em>Engineering Trustworthy Secure Systems</em></a></li>
-<li class=""><a href="https://ntrs.nasa.gov/citations/20240013667" target="_blank" rel="noopener noreferrer" class="">NASA NTRS: <em>Common Cause Failures Dominate and Defeat Redundancy</em></a></li>
-<li class=""><a href="https://sre.google/sre-book/monitoring-distributed-systems/" target="_blank" rel="noopener noreferrer" class="">Google SRE: <em>Monitoring Distributed Systems</em></a></li>
-<li class=""><a href="https://sre.google/workbook/canarying-releases/" target="_blank" rel="noopener noreferrer" class="">Google SRE Workbook: <em>Canarying Releases</em></a></li>
-<li class=""><a href="https://www.nist.gov/publications/metamorphic-testing-cybersecurity" target="_blank" rel="noopener noreferrer" class="">NIST: <em>Metamorphic Testing for Cybersecurity</em></a></li>
-<li class=""><a href="https://www.nasa.gov/ivv-overview/" target="_blank" rel="noopener noreferrer" class="">NASA: <em>Independent Verification &amp; Validation Overview</em></a></li>
-<li class=""><a href="https://opentelemetry.io/docs/specs/otel/versioning-and-stability/" target="_blank" rel="noopener noreferrer" class="">OpenTelemetry: <em>Versioning and stability</em></a></li>
-</ul>]]></content:encoded>
-            <category>OSINT</category>
-            <category>Metodologia</category>
-            <category>monitoring</category>
-            <category>Verificacion</category>
-            <category>Datos</category>
             <category>Privacidad</category>
         </item>
     </channel>
