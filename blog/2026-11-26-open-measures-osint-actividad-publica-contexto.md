@@ -13,6 +13,9 @@ Una campaña vecinal denuncia que un mismo relato apareció de golpe en varias p
 
 ![Analista revisando consultas, cronologías, procedencia y huecos de cobertura en actividad pública](/img/blog/2026-11-26-open-measures-osint-actividad-publica.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/open-measures-osint-actividad-publica-contexto.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
