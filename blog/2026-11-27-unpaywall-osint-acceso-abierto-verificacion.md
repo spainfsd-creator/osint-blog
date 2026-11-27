@@ -13,6 +13,9 @@ Una empresa respalda una afirmación comercial con «un estudio científico», p
 
 ![Analista comparando versiones y procedencias de una publicación académica disponible en varios repositorios](/img/blog/2026-11-27-unpaywall-osint-acceso-abierto.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/unpaywall-osint-acceso-abierto-verificacion.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
