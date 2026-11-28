@@ -13,6 +13,9 @@ Un ayuntamiento anuncia que un sistema de riego inteligente ha reducido el consu
 
 ![Analista preparando una solicitud acotada de registros públicos y revisando procedencia, verificación y privacidad](/img/blog/2026-11-28-muckrock-solicitudes-registros-publicos.png)
 
+**Descargar el podcast!**: [Descargar el podcast](/podcasts/muckrock-osint-solicitudes-registros-publicos.m4a)
+
+
 *Imagen generada mediante inteligencia artificial.*
 
 <!-- truncate -->
